@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISMI | Built for Athletes | Idaho Sports Medicine Institute</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ismi: {
+                            blue: '#0033A0',
+                            orange: '#D64309',
+                            navy: '#001E60',
+                            sky: '#E6EEFF',
+                            slate: '#475569',
+                            gray: '#F8FAFC',
+                            border: '#E2E8F0',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FFFFFF;
+            color: #1E293B;
+            font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+        }
+        h1, h2, h3 {
+            line-height: 1.05 !important;
+            letter-spacing: -0.03em !important;
+        }
+
+        /* ── NAV ── */
+        .nav-dark {
+            background-color: rgba(0, 30, 96, 0.95);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        /* ── HERO ── */
+        .hero-sport {
+            background-color: #001E60;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+        }
+        .hero-diagonal {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 58%;
+            height: 100%;
+            clip-path: polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%);
+            overflow: hidden;
+        }
+        .hero-diagonal img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+        .hero-diagonal::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, #001E60 0%, rgba(0, 30, 96, 0.25) 40%, rgba(0, 30, 96, 0) 70%);
+        }
+        .hero-diagonal::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, #001E60 0%, transparent 30%);
+            z-index: 1;
+        }
+        .orange-slash {
+            display: inline-block;
+            position: relative;
+        }
+        .orange-slash::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: #D64309;
+            border-radius: 2px;
+        }
+
+        /* ── TICKER ── */
+        .ticker-wrap {
+            background: #D64309;
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 0.75rem 0;
+        }
+        .ticker-track {
+            display: inline-block;
+            animation: ticker 30s linear infinite;
+        }
+        .ticker-track span {
+            display: inline-flex;
+            align-items: center;
+            gap: 2rem;
+            padding-right: 4rem;
+            font-weight: 700;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: white;
+        }
+        .ticker-dot {
+            width: 4px;
+            height: 4px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 50%;
+            display: inline-block;
+        }
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ── SPORT CARDS ── */
+        .sport-card {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .sport-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #0033A0;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .sport-card:hover::before {
+            transform: scaleX(1);
+        }
+        .sport-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px -10px rgba(0, 51, 160, 0.14);
+            border-color: #0033A0;
+        }
+
+        /* ── SECTION LABEL ── */
+        .section-label {
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: #0033A0;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .section-label::before {
+            content: '';
+            width: 1.5rem;
+            height: 2px;
+            background: #D64309;
+        }
+        .section-label-light {
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .section-label-light::before {
+            content: '';
+            width: 1.5rem;
+            height: 2px;
+            background: #D64309;
+        }
+
+        /* ── TIMELINE ── */
+        .timeline-step {
+            flex: 1;
+            position: relative;
+        }
+        .timeline-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 28px;
+            left: calc(50% + 28px);
+            width: calc(100% - 56px);
+            height: 2px;
+            background: #E2E8F0;
+        }
+        .step-active .step-circle {
+            background: #0033A0;
+            border-color: #0033A0;
+            color: white;
+        }
+        .step-active::after {
+            background: #0033A0 !important;
+        }
+        .step-circle {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            border: 2px solid #E2E8F0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #F8FAFC;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 0.875rem;
+            color: #475569;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        /* ── STAT BAND ── */
+        .stat-band {
+            background: #001E60;
+            position: relative;
+            overflow: hidden;
+        }
+        .stat-band::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 51, 160, 0.6) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* ── TESTIMONIAL CARD ── */
+        .athlete-card {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 28px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .athlete-card:hover {
+            box-shadow: 0 30px 60px -10px rgba(0, 51, 160, 0.1);
+            border-color: rgba(0, 51, 160, 0.2);
+            transform: translateY(-6px);
+        }
+
+        /* ── BSU PARTNERSHIP ── */
+        .partnership-section {
+            background: #001E60;
+            position: relative;
+            overflow: hidden;
+        }
+        .partnership-section::before {
+            content: 'BSU';
+            position: absolute;
+            right: -2rem;
+            bottom: -4rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 900;
+            font-size: 20rem;
+            line-height: 1;
+            color: rgba(255,255,255,0.03);
+            pointer-events: none;
+            letter-spacing: -0.05em;
+        }
+        .image-shine {
+            position: relative;
+            overflow: hidden;
+        }
+        .image-shine img {
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .image-shine:hover img {
+            transform: scale(1.04);
+        }
+
+        /* ── BUTTONS ── */
+        .btn-primary {
+            background: #0033A0;
+            color: white;
+            padding: 1rem 2.25rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.9375rem;
+            letter-spacing: -0.01em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.625rem;
+        }
+        .btn-primary:hover {
+            background: #002677;
+            box-shadow: 0 16px 32px -6px rgba(0, 51, 160, 0.4);
+            transform: translateY(-3px);
+        }
+        .btn-orange {
+            background: #D64309;
+            color: white;
+            padding: 1rem 2.25rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.9375rem;
+            letter-spacing: -0.01em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.625rem;
+        }
+        .btn-orange:hover {
+            background: #B53907;
+            box-shadow: 0 16px 32px -6px rgba(214, 67, 9, 0.4);
+            transform: translateY(-3px);
+        }
+        .btn-ghost-white {
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 1rem 2.25rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.9375rem;
+            letter-spacing: -0.01em;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.625rem;
+        }
+        .btn-ghost-white:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.6);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- ═══════════════════════════════════════
+         NAVIGATION — Dark Variant
+    ═══════════════════════════════════════ -->
+    <nav class="fixed top-0 w-full z-50 nav-dark">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-ismi-orange rounded flex items-center justify-center text-white font-display font-bold text-sm">I</div>
+                <span class="font-display font-extrabold text-2xl tracking-tight text-white">ISMI<span class="text-ismi-orange">.</span></span>
+            </div>
+            <div class="hidden md:flex items-center gap-10">
+                <a href="#" class="text-sm font-bold text-white/70 hover:text-white transition-colors">Sport Programs</a>
+                <a href="#" class="text-sm font-bold text-white/70 hover:text-white transition-colors">Our Team</a>
+                <a href="#" class="text-sm font-bold text-white/70 hover:text-white transition-colors">BSU Partnership</a>
+                <a href="#" class="text-sm font-bold text-white/70 hover:text-white transition-colors">Locations</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <div class="hidden md:flex items-center gap-2 text-ismi-orange font-bold text-xs mr-2">
+                    <span class="w-2 h-2 rounded-full bg-ismi-orange animate-pulse"></span>
+                    Urgent Walk-ins Open
+                </div>
+                <a href="#" class="btn-orange" style="padding: 0.625rem 1.5rem; font-size: 0.8125rem;">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════
+         HERO — Dark Athletic, Diagonal Split
+    ═══════════════════════════════════════ -->
+    <section class="hero-sport flex items-center">
+        <!-- Diagonal image panel -->
+        <div class="hero-diagonal">
+            <img src="Assets/vienna-reyes-qCrKTET_09o-unsplash.jpg" alt="Elite athlete in motion">
+        </div>
+
+        <!-- Content -->
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 w-full pt-32 pb-24">
+            <div class="max-w-xl">
+                <!-- Live badge -->
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="flex items-center gap-2 bg-ismi-orange/20 border border-ismi-orange/40 px-3 py-1.5 rounded-full">
+                        <span class="w-2 h-2 rounded-full bg-ismi-orange animate-pulse"></span>
+                        <span class="text-ismi-orange font-bold text-xs uppercase tracking-widest">Official BSU Athletics Partner</span>
+                    </div>
+                </div>
+
+                <h1 class="font-display text-6xl lg:text-[5.5rem] font-black text-white tracking-tighter mb-8">
+                    Built<br>
+                    for <span class="orange-slash text-ismi-orange">Athletes.</span>
+                </h1>
+                <p class="text-xl text-white/70 max-w-md leading-relaxed mb-10">
+                    From the first snap to the championship stage — ISMI's elite sports medicine specialists keep Idaho's best performers competing at their peak.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#" class="btn-orange">
+                        <span>Start Your Recovery</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                    </a>
+                    <a href="#" class="btn-ghost-white">
+                        <span>Sport Programs</span>
+                    </a>
+                </div>
+
+                <!-- Stats row -->
+                <div class="mt-16 pt-10 border-t border-white/10 grid grid-cols-3 gap-0">
+                    <div class="pr-8 border-r border-white/10">
+                        <p class="font-display text-4xl font-black text-white">15k<span class="text-ismi-orange">+</span></p>
+                        <p class="text-[10px] font-bold text-white/40 uppercase tracking-[0.2em] mt-1">Athletes Treated</p>
+                    </div>
+                    <div class="px-8 border-r border-white/10">
+                        <p class="font-display text-4xl font-black text-white">25<span class="text-ismi-orange">+</span></p>
+                        <p class="text-[10px] font-bold text-white/40 uppercase tracking-[0.2em] mt-1">Sports Specialists</p>
+                    </div>
+                    <div class="pl-8">
+                        <p class="font-display text-4xl font-black text-white">30<span class="text-ismi-orange">+</span></p>
+                        <p class="text-[10px] font-bold text-white/40 uppercase tracking-[0.2em] mt-1">Years in Sport</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         ORANGE TICKER TAPE
+    ═══════════════════════════════════════ -->
+    <div class="ticker-wrap">
+        <div class="ticker-track">
+            <span>
+                Official Orthopedic Partner of BSU Athletics <span class="ticker-dot"></span>
+                Football <span class="ticker-dot"></span>
+                Basketball <span class="ticker-dot"></span>
+                Track &amp; Field <span class="ticker-dot"></span>
+                Soccer <span class="ticker-dot"></span>
+                Baseball <span class="ticker-dot"></span>
+                Swimming <span class="ticker-dot"></span>
+                Tennis <span class="ticker-dot"></span>
+                Volleyball <span class="ticker-dot"></span>
+                Wrestling <span class="ticker-dot"></span>
+                Gymnastics <span class="ticker-dot"></span>
+                Cross Country <span class="ticker-dot"></span>
+                Urgent Care — Walk-ins Welcome <span class="ticker-dot"></span>
+            </span>
+            <span>
+                Official Orthopedic Partner of BSU Athletics <span class="ticker-dot"></span>
+                Football <span class="ticker-dot"></span>
+                Basketball <span class="ticker-dot"></span>
+                Track &amp; Field <span class="ticker-dot"></span>
+                Soccer <span class="ticker-dot"></span>
+                Baseball <span class="ticker-dot"></span>
+                Swimming <span class="ticker-dot"></span>
+                Tennis <span class="ticker-dot"></span>
+                Volleyball <span class="ticker-dot"></span>
+                Wrestling <span class="ticker-dot"></span>
+                Gymnastics <span class="ticker-dot"></span>
+                Cross Country <span class="ticker-dot"></span>
+                Urgent Care — Walk-ins Welcome <span class="ticker-dot"></span>
+            </span>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         SPORT PROGRAMS — Card Grid
+    ═══════════════════════════════════════ -->
+    <section class="py-32 bg-ismi-gray">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+                <div>
+                    <span class="section-label">Sport by Sport</span>
+                    <h2 class="font-display text-5xl font-black text-ismi-navy">
+                        Your Sport. <br><span class="text-ismi-blue">Our Expertise.</span>
+                    </h2>
+                </div>
+                <p class="text-ismi-slate max-w-sm leading-relaxed text-sm md:text-base">
+                    We specialize in the injuries and demands unique to each sport — because a sprinter's knee isn't a lineman's knee.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <!-- Football -->
+                <a href="#" class="sport-card p-6 flex flex-col items-center text-center gap-4">
+                    <div class="w-14 h-14 bg-ismi-sky rounded-2xl flex items-center justify-center text-ismi-blue">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                            <ellipse cx="12" cy="12" rx="8" ry="5" transform="rotate(-35 12 12)"/>
+                            <line x1="6" y1="6" x2="18" y2="18"/>
+                            <line x1="9" y1="9" x2="15" y2="9" transform="rotate(-35 12 9)"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-display font-bold text-ismi-navy text-sm">Football</p>
+                        <p class="text-[10px] text-ismi-slate mt-0.5">ACL · Shoulder · Concussion</p>
+                    </div>
+                </a>
+                <!-- Basketball -->
+                <a href="#" class="sport-card p-6 flex flex-col items-center text-center gap-4">
+                    <div class="w-14 h-14 bg-ismi-sky rounded-2xl flex items-center justify-center text-ismi-blue">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="9"/>
+                            <path d="M3 12c2.5-3 5-4.5 9-4.5s6.5 1.5 9 4.5"/>
+                            <path d="M3 12c2.5 3 5 4.5 9 4.5s6.5-1.5 9-4.5"/>
+                            <line x1="12" y1="3" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-display font-bold text-ismi-navy text-sm">Basketball</p>
+                        <p class="text-[10px] text-ismi-slate mt-0.5">Ankle · Knee · Wrist</p>
+                    </div>
+                </a>
+                <!-- Running -->
+                <a href="#" class="sport-card p-6 flex flex-col items-center text-center gap-4">
+                    <div class="w-14 h-14 bg-ismi-sky rounded-2xl flex items-center justify-center text-ismi-blue">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="13" cy="5" r="1.5"/>
+                            <path d="M8.5 18l2-6 3 3 2-3 3 5"/>
+                            <path d="M15 11l-1-4-4 2-3.5 2"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-display font-bold text-ismi-navy text-sm">Track & Run</p>
+                        <p class="text-[10px] text-ismi-slate mt-0.5">Hip · IT Band · Stress Fx</p>
+                    </div>
+                </a>
+                <!-- Baseball -->
+                <a href="#" class="sport-card p-6 flex flex-col items-center text-center gap-4">
+                    <div class="w-14 h-14 bg-ismi-sky rounded-2xl flex items-center justify-center text-ismi-blue">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="9"/>
+                            <path d="M7.5 5c1 3 1.5 7 1.5 10"/>
+                            <path d="M16.5 5c-1 3-1.5 7-1.5 10"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-display font-bold text-ismi-navy text-sm">Baseball</p>
+                        <p class="text-[10px] text-ismi-slate mt-0.5">Elbow · Rotator Cuff</p>
+                    </div>
+                </a>
+                <!-- Soccer -->
+                <a href="#" class="sport-card p-6 flex flex-col items-center text-center gap-4">
+                    <div class="w-14 h-14 bg-ismi-sky rounded-2xl flex items-center justify-center text-ismi-blue">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="9"/>
+                            <polygon points="12,6 15,10 12,14 9,10"/>
+                            <line x1="9" y1="10" x2="5" y2="8"/>
+                            <line x1="15" y1="10" x2="19" y2="8"/>
+                            <line x1="12" y1="14" x2="12" y2="19"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-display font-bold text-ismi-navy text-sm">Soccer</p>
+                        <p class="text-[10px] text-ismi-slate mt-0.5">Hamstring · Groin · Knee</p>
+                    </div>
+                </a>
+                <!-- All Sports -->
+                <a href="#" class="sport-card p-6 flex flex-col items-center text-center gap-4 bg-ismi-blue border-ismi-blue group">
+                    <div class="w-14 h-14 bg-white/15 rounded-2xl flex items-center justify-center text-white">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 2v3M12 19v3M2 12h3M19 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-display font-bold text-white text-sm">All Sports</p>
+                        <p class="text-[10px] text-white/60 mt-0.5">View All Programs →</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         BSU PARTNERSHIP — Feature Section
+    ═══════════════════════════════════════ -->
+    <section class="partnership-section">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-0">
+                <!-- Left content -->
+                <div class="py-24 lg:pr-20 flex flex-col justify-center">
+                    <span class="section-label-light">Official Partnership</span>
+                    <h2 class="font-display text-5xl lg:text-6xl font-black text-white tracking-tighter mb-8">
+                        The Official<br>
+                        Orthopedic Team<br>
+                        of <span class="text-ismi-orange">Boise State.</span>
+                    </h2>
+                    <p class="text-lg text-white/65 leading-relaxed mb-10 max-w-md">
+                        When Bronco athletes need to return to the field, they trust ISMI. Our partnership with Boise State University Athletics means we understand what elite performance demands.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-6 mb-12">
+                        <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+                            <p class="font-display text-3xl font-black text-white mb-1">17<span class="text-ismi-orange">+</span></p>
+                            <p class="text-xs font-bold text-white/40 uppercase tracking-widest">BSU Sports Served</p>
+                        </div>
+                        <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+                            <p class="font-display text-3xl font-black text-white mb-1">100<span class="text-ismi-orange">%</span></p>
+                            <p class="text-xs font-bold text-white/40 uppercase tracking-widest">D1 Return Rate</p>
+                        </div>
+                        <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+                            <p class="font-display text-3xl font-black text-white mb-1">48<span class="text-ismi-orange">hr</span></p>
+                            <p class="text-xs font-bold text-white/40 uppercase tracking-widest">Avg Appt Access</p>
+                        </div>
+                        <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+                            <p class="font-display text-3xl font-black text-white mb-1">On<span class="text-ismi-orange">-</span>Site</p>
+                            <p class="text-xs font-bold text-white/40 uppercase tracking-widest">Sideline Coverage</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#" class="btn-orange">Learn About the Partnership</a>
+                        <a href="#" class="btn-ghost-white">Sideline Services</a>
+                    </div>
+                </div>
+
+                <!-- Right image — clips at bottom on mobile, fills panel on desktop -->
+                <div class="hidden lg:block relative">
+                    <div class="absolute inset-0 image-shine">
+                        <img src="Assets/max-winkler-UFIZodJgScQ-unsplash.jpg"
+                             alt="BSU athlete with ISMI specialist"
+                             class="w-full h-full object-cover opacity-70">
+                        <div class="absolute inset-0 bg-gradient-to-r from-ismi-navy via-transparent to-transparent"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-ismi-navy via-transparent to-transparent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         RETURN-TO-SPORT TIMELINE
+    ═══════════════════════════════════════ -->
+    <section class="py-32 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center mb-20">
+                <span class="section-label justify-center">Your Recovery Path</span>
+                <h2 class="font-display text-5xl font-black text-ismi-navy tracking-tight">
+                    From Sideline to<br>
+                    <span class="text-ismi-blue">Starting Lineup.</span>
+                </h2>
+                <p class="text-ismi-slate mt-6 max-w-xl mx-auto text-lg leading-relaxed">
+                    Our proven five-step athlete-first protocol gets you back competing faster — without compromising long-term health.
+                </p>
+            </div>
+
+            <!-- Timeline -->
+            <div class="flex flex-col md:flex-row gap-6 md:gap-0">
+                <!-- Step 1 -->
+                <div class="timeline-step step-active text-center px-4">
+                    <div class="step-circle">01</div>
+                    <div class="w-px h-8 bg-ismi-blue mx-auto mb-4 md:hidden"></div>
+                    <div class="bg-ismi-blue text-white rounded-2xl p-6">
+                        <div class="w-8 h-8 bg-white/15 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                        </div>
+                        <h4 class="font-display font-bold text-base text-white mb-2">Diagnosis</h4>
+                        <p class="text-white/65 text-xs leading-relaxed">Same-day imaging and expert evaluation to understand the full picture.</p>
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="timeline-step text-center px-4">
+                    <div class="step-circle">02</div>
+                    <div class="w-px h-8 bg-ismi-border mx-auto mb-4 md:hidden"></div>
+                    <div class="bg-ismi-gray border border-ismi-border rounded-2xl p-6">
+                        <div class="w-8 h-8 bg-ismi-sky rounded-lg flex items-center justify-center mb-4 mx-auto">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0033A0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1" ry="1"/><path d="M9 12h6M9 16h4"/></svg>
+                        </div>
+                        <h4 class="font-display font-bold text-base text-ismi-navy mb-2">Treatment Plan</h4>
+                        <p class="text-ismi-slate text-xs leading-relaxed">A personalized roadmap built around your sport and timeline goals.</p>
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="timeline-step text-center px-4">
+                    <div class="step-circle">03</div>
+                    <div class="w-px h-8 bg-ismi-border mx-auto mb-4 md:hidden"></div>
+                    <div class="bg-ismi-gray border border-ismi-border rounded-2xl p-6">
+                        <div class="w-8 h-8 bg-ismi-sky rounded-lg flex items-center justify-center mb-4 mx-auto">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0033A0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="4"/></svg>
+                        </div>
+                        <h4 class="font-display font-bold text-base text-ismi-navy mb-2">Surgery / Procedure</h4>
+                        <p class="text-ismi-slate text-xs leading-relaxed">Board-certified surgeons using the latest minimally invasive techniques.</p>
+                    </div>
+                </div>
+                <!-- Step 4 -->
+                <div class="timeline-step text-center px-4">
+                    <div class="step-circle">04</div>
+                    <div class="w-px h-8 bg-ismi-border mx-auto mb-4 md:hidden"></div>
+                    <div class="bg-ismi-gray border border-ismi-border rounded-2xl p-6">
+                        <div class="w-8 h-8 bg-ismi-sky rounded-lg flex items-center justify-center mb-4 mx-auto">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0033A0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                        </div>
+                        <h4 class="font-display font-bold text-base text-ismi-navy mb-2">Rehabilitation</h4>
+                        <p class="text-ismi-slate text-xs leading-relaxed">Sport-specific physical therapy to rebuild strength and movement patterns.</p>
+                    </div>
+                </div>
+                <!-- Step 5 -->
+                <div class="timeline-step text-center px-4">
+                    <div class="step-circle">05</div>
+                    <div class="w-px h-8 bg-ismi-border mx-auto mb-4 md:hidden"></div>
+                    <div class="bg-ismi-gray border border-ismi-border rounded-2xl p-6">
+                        <div class="w-8 h-8 bg-[#D64309]/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D64309" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <h4 class="font-display font-bold text-base text-ismi-navy mb-2">Return to Sport</h4>
+                        <p class="text-ismi-slate text-xs leading-relaxed">Sport-clearance protocol so you come back fully confident and peak-ready.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-14">
+                <a href="#" class="btn-primary">
+                    <span>See What to Expect</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         PERFORMANCE STAT BAND
+    ═══════════════════════════════════════ -->
+    <div class="stat-band py-16">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <p class="font-display text-5xl font-black text-white mb-2">98<span class="text-ismi-orange">%</span></p>
+                    <p class="text-[10px] font-bold text-white/35 uppercase tracking-[0.2em]">Return-to-Sport Success</p>
+                </div>
+                <div>
+                    <p class="font-display text-5xl font-black text-white mb-2">6.2<span class="text-ismi-orange">wk</span></p>
+                    <p class="text-[10px] font-bold text-white/35 uppercase tracking-[0.2em]">Avg. ACL Recovery</p>
+                </div>
+                <div>
+                    <p class="font-display text-5xl font-black text-white mb-2">4<span class="text-ismi-orange">+</span></p>
+                    <p class="text-[10px] font-bold text-white/35 uppercase tracking-[0.2em]">Clinic Locations</p>
+                </div>
+                <div>
+                    <p class="font-display text-5xl font-black text-white mb-2">30<span class="text-ismi-orange">yr</span></p>
+                    <p class="text-[10px] font-bold text-white/35 uppercase tracking-[0.2em]">Treating Idaho Athletes</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         ATHLETE TESTIMONIALS — 3 Cards
+    ═══════════════════════════════════════ -->
+    <section class="py-32 bg-ismi-gray">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+                <div>
+                    <span class="section-label">Athlete Stories</span>
+                    <h2 class="font-display text-5xl font-black text-ismi-navy tracking-tight">
+                        Hear It From<br>
+                        <span class="text-ismi-blue">the Athletes.</span>
+                    </h2>
+                </div>
+                <a href="#" class="text-ismi-blue font-bold text-sm flex items-center gap-2 group">
+                    Read all stories
+                    <svg class="group-hover:translate-x-1 transition-transform" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="athlete-card p-10 relative">
+                    <!-- Sport badge -->
+                    <div class="inline-flex items-center gap-1.5 bg-ismi-blue/10 text-ismi-blue text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full mb-8">
+                        <span class="w-1.5 h-1.5 rounded-full bg-ismi-blue"></span>
+                        Football
+                    </div>
+                    <p class="text-ismi-navy font-medium leading-relaxed mb-8 text-base italic">
+                        "Torn ACL senior year. I thought my football career was done. The ISMI surgeons had me back on the field in five months — faster than any projection."
+                    </p>
+                    <div class="flex items-center gap-4 border-t border-ismi-border pt-8">
+                        <div class="w-12 h-12 bg-ismi-sky rounded-full flex items-center justify-center font-display font-black text-ismi-blue">M</div>
+                        <div>
+                            <p class="font-bold text-ismi-navy">Marcus O.</p>
+                            <p class="text-[10px] font-bold text-ismi-slate uppercase tracking-widest">D1 Linebacker · Boise State</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 — Highlighted -->
+                <div class="athlete-card p-10 relative bg-ismi-blue border-ismi-blue">
+                    <div class="inline-flex items-center gap-1.5 bg-white/15 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full mb-8">
+                        <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+                        Track &amp; Field
+                    </div>
+                    <p class="text-white font-medium leading-relaxed mb-8 text-base italic">
+                        "I had a stress fracture two weeks before nationals. ISMI got me in same day, designed a modified plan, and I still competed. They are miracle workers."
+                    </p>
+                    <div class="flex items-center gap-4 border-t border-white/15 pt-8">
+                        <div class="w-12 h-12 bg-white/15 rounded-full flex items-center justify-center font-display font-black text-white">K</div>
+                        <div>
+                            <p class="font-bold text-white">Kayla R.</p>
+                            <p class="text-[10px] font-bold text-white/50 uppercase tracking-widest">400m Sprinter · College Team</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="athlete-card p-10 relative">
+                    <div class="inline-flex items-center gap-1.5 bg-[#D64309]/10 text-ismi-orange text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full mb-8">
+                        <span class="w-1.5 h-1.5 rounded-full bg-ismi-orange"></span>
+                        Marathon
+                    </div>
+                    <p class="text-ismi-navy font-medium leading-relaxed mb-8 text-base italic">
+                        "As a weekend warrior, I thought my running days were over after my hip surgery. ISMI's recovery program had me crossing a finish line in under a year."
+                    </p>
+                    <div class="flex items-center gap-4 border-t border-ismi-border pt-8">
+                        <div class="w-12 h-12 bg-ismi-sky rounded-full flex items-center justify-center font-display font-black text-ismi-blue">S</div>
+                        <div>
+                            <p class="font-bold text-ismi-navy">Sarah J.</p>
+                            <p class="text-[10px] font-bold text-ismi-slate uppercase tracking-widest">Age Group Marathoner</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         IMAGE FEATURE — Two Column Split
+    ═══════════════════════════════════════ -->
+    <section class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <!-- Left: Stacked images -->
+                <div class="relative">
+                    <div class="grid grid-cols-2 gap-5">
+                        <div class="image-shine aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl shadow-ismi-navy/10 border-4 border-white mt-10">
+                            <img src="Assets/kenny-eliason-6mRaiW6DDCM-unsplash.jpg" alt="Athlete in treatment" class="w-full h-full object-cover">
+                        </div>
+                        <div class="space-y-5">
+                            <div class="image-shine aspect-square rounded-3xl overflow-hidden shadow-xl border-4 border-white">
+                                <img src="Assets/fancy-crave-qowyMze7jqg-unsplash.jpg" alt="Sports medicine care" class="w-full h-full object-cover">
+                            </div>
+                            <div class="image-shine aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border-4 border-white">
+                                <img src="Assets/wesley-tingey-dKCKiC0BQtU-unsplash.jpg" alt="Physical therapy session" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Floating badge -->
+                    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 bg-ismi-orange text-white px-6 py-4 rounded-2xl shadow-2xl text-center whitespace-nowrap">
+                        <p class="font-display font-black text-xl leading-none">Same-Day</p>
+                        <p class="text-white/80 text-[10px] font-bold uppercase tracking-widest mt-1">Sport Injury Appointments</p>
+                    </div>
+                </div>
+
+                <!-- Right: Copy -->
+                <div>
+                    <span class="section-label">The ISMI Advantage</span>
+                    <h2 class="font-display text-5xl font-black text-ismi-navy tracking-tight mb-8">
+                        Not Just Doctors.<br>
+                        <span class="text-ismi-blue">Athletes' Advocates.</span>
+                    </h2>
+                    <p class="text-lg text-ismi-slate leading-relaxed mb-10">
+                        We understand that sitting out isn't an option. Our entire practice is designed around one goal: returning athletes to their highest level of performance — safely and sustainably.
+                    </p>
+
+                    <div class="space-y-5 mb-12">
+                        <div class="flex gap-5 p-5 rounded-2xl border border-ismi-border hover:border-ismi-blue/30 hover:bg-ismi-sky/30 transition-all">
+                            <div class="w-10 h-10 bg-ismi-blue rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            </div>
+                            <div>
+                                <p class="font-bold text-ismi-navy text-sm">Sport-Specific Expertise</p>
+                                <p class="text-xs text-ismi-slate mt-1 leading-relaxed">Specialists who understand the biomechanics of your sport — not just your anatomy.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-5 p-5 rounded-2xl border border-ismi-border hover:border-ismi-blue/30 hover:bg-ismi-sky/30 transition-all">
+                            <div class="w-10 h-10 bg-ismi-blue rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            </div>
+                            <div>
+                                <p class="font-bold text-ismi-navy text-sm">Performance Rehab Model</p>
+                                <p class="text-xs text-ismi-slate mt-1 leading-relaxed">Recovery that trains you back into athletic form — not just functional movement.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-5 p-5 rounded-2xl border border-ismi-border hover:border-ismi-blue/30 hover:bg-ismi-sky/30 transition-all">
+                            <div class="w-10 h-10 bg-ismi-orange rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            </div>
+                            <div>
+                                <p class="font-bold text-ismi-navy text-sm">Urgent Same-Day Access</p>
+                                <p class="text-xs text-ismi-slate mt-1 leading-relaxed">Walk-in urgent care for acute sport injuries — no referral needed.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-primary">Meet Our Sports Medicine Team</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         CTA — "Your Comeback Starts Here"
+    ═══════════════════════════════════════ -->
+    <section class="py-16 px-6 lg:px-12">
+        <div class="max-w-7xl mx-auto">
+            <div class="relative bg-ismi-navy rounded-[40px] overflow-hidden">
+                <!-- Background image -->
+                <div class="absolute inset-0">
+                    <img src="Assets/vienna-reyes-qCrKTET_09o-unsplash.jpg"
+                         alt="Athlete background"
+                         class="w-full h-full object-cover opacity-20">
+                    <div class="absolute inset-0 bg-gradient-to-r from-ismi-navy via-ismi-navy/90 to-ismi-navy/60"></div>
+                </div>
+
+                <div class="relative z-10 px-12 lg:px-24 py-24 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-12">
+                    <div class="max-w-2xl">
+                        <div class="flex items-center gap-2 mb-6">
+                            <span class="w-2 h-2 rounded-full bg-ismi-orange animate-pulse"></span>
+                            <span class="text-ismi-orange font-bold text-xs uppercase tracking-widest">Walk-ins Welcome Today</span>
+                        </div>
+                        <h2 class="font-display text-5xl lg:text-6xl font-black text-white tracking-tighter mb-6">
+                            Your Comeback<br>
+                            <span class="text-ismi-orange">Starts Here.</span>
+                        </h2>
+                        <p class="text-white/65 text-lg leading-relaxed max-w-lg">
+                            Don't let an injury define your season. Schedule with ISMI's sports medicine specialists today — same-week appointments available.
+                        </p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-4 flex-shrink-0">
+                        <a href="#" class="btn-orange text-center justify-center" style="min-width: 220px;">
+                            Book an Appointment
+                        </a>
+                        <a href="tel:2080000000" class="bg-white text-ismi-navy px-8 py-4 rounded-xl font-bold text-sm hover:bg-ismi-sky transition-all text-center justify-center flex items-center gap-2" style="min-width: 180px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            (208) 555-ISMI
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         FOOTER — Dark Navy
+    ═══════════════════════════════════════ -->
+    <footer class="bg-ismi-navy pt-24 pb-12">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid md:grid-cols-4 gap-16 mb-20">
+                <div class="col-span-2">
+                    <div class="flex items-center gap-3 mb-8">
+                        <div class="w-8 h-8 bg-ismi-orange rounded flex items-center justify-center text-white font-display font-bold text-sm">I</div>
+                        <span class="font-display font-extrabold text-2xl tracking-tight text-white">ISMI<span class="text-ismi-orange">.</span></span>
+                    </div>
+                    <p class="text-white/45 max-w-sm leading-relaxed mb-8 text-sm">
+                        Idaho's premier sports medicine and orthopedic institute. Official orthopedic partner of Boise State University Athletics.
+                    </p>
+                    <div class="flex gap-4">
+                        <div class="w-10 h-10 bg-white/8 border border-white/10 rounded-lg flex items-center justify-center text-white/60 hover:text-white hover:bg-white/15 transition-all cursor-pointer">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </div>
+                        <div class="w-10 h-10 bg-white/8 border border-white/10 rounded-lg flex items-center justify-center text-white/60 hover:text-white hover:bg-white/15 transition-all cursor-pointer">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </div>
+                        <div class="w-10 h-10 bg-white/8 border border-white/10 rounded-lg flex items-center justify-center text-white/60 hover:text-white hover:bg-white/15 transition-all cursor-pointer">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-8 uppercase tracking-widest text-xs">Sport Programs</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-white/45 hover:text-white transition-colors text-sm">Football</a></li>
+                        <li><a href="#" class="text-white/45 hover:text-white transition-colors text-sm">Basketball</a></li>
+                        <li><a href="#" class="text-white/45 hover:text-white transition-colors text-sm">Track & Field</a></li>
+                        <li><a href="#" class="text-white/45 hover:text-white transition-colors text-sm">All Programs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-8 uppercase tracking-widest text-xs">Contact</h4>
+                    <ul class="space-y-4 text-white/45 text-sm">
+                        <li>1188 University Dr.</li>
+                        <li>Boise, ID 83706</li>
+                        <li class="text-ismi-orange font-semibold">(208) 555-ISMI</li>
+                        <li>info@ismi.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/8 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-[10px] font-bold text-white/25 uppercase tracking-widest">© 2026 Idaho Sports Medicine Institute. All Rights Reserved.</p>
+                <div class="flex gap-8">
+                    <a href="#" class="text-[10px] font-bold text-white/25 uppercase tracking-widest hover:text-white/60 transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-[10px] font-bold text-white/25 uppercase tracking-widest hover:text-white/60 transition-colors">Terms of Service</a>
+                    <a href="#" class="text-[10px] font-bold text-white/25 uppercase tracking-widest hover:text-white/60 transition-colors">Patient Forms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
