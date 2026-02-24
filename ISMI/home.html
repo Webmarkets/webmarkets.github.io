@@ -1,455 +1,849 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ISMI | Idaho Sports Medicine Institute | Orthopedic Excellence</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      ISMI | Idaho Sports Medicine Institute | Orthopedic Excellence
+    </title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        ismi: {
-                            blue: '#0033A0', // Boise State Blue
-                            orange: '#D64309', // Boise State Orange (Accent)
-                            navy: '#001E60',
-                            sky: '#E6EEFF',
-                            slate: '#475569',
-                            gray: '#F8FAFC',
-                            border: '#E2E8F0',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Plus Jakarta Sans', 'sans-serif'],
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ismi: {
+                blue: "#0033A0", // Boise State Blue
+                orange: "#D64309", // Boise State Orange (Accent)
+                navy: "#001E60",
+                sky: "#E6EEFF",
+                slate: "#475569",
+                gray: "#F8FAFC",
+                border: "#E2E8F0",
+              },
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              display: ["Plus Jakarta Sans", "sans-serif"],
+            },
+          },
+        },
+      };
     </script>
     <style>
-        body {
-            background-color: #FFFFFF;
-            color: #1E293B;
-            font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-        }
-        .btn-medical {
-            background: #0033A0;
-            color: white;
-            padding: 1.125rem 2.25rem;
-            border-radius: 12px;
-            font-weight: 700;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            letter-spacing: -0.01em;
-        }
-        .btn-medical:hover {
-            background: #002677;
-            box-shadow: 0 15px 30px -5px rgba(0, 51, 160, 0.4);
-            transform: translateY(-3px);
-        }
-        .btn-outline {
-            border: 2px solid #0033A0;
-            color: #0033A0;
-            padding: 1.125rem 2.25rem;
-            border-radius: 12px;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            letter-spacing: -0.01em;
-        }
-        .btn-outline:hover {
-            background: #E6EEFF;
-            transform: translateY(-3px);
-        }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(226, 232, 240, 0.6);
-            border-radius: 32px;
-        }
-        .section-label {
-            font-size: 0.75rem;
-            font-weight: 800;
-            color: #0033A0;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1.5rem;
-        }
-        .section-label::before {
-            content: '';
-            width: 1.5rem;
-            height: 2px;
-            background: #0033A0;
-        }
-        .hero-gradient {
-            background: radial-gradient(circle at top right, #E6EEFF 0%, #F8FAFC 40%, #FFFFFF 100%);
-        }
-        .dark-authority {
-            background-color: #0033A0;
-            color: #FFFFFF;
-            position: relative;
-            overflow: hidden;
-        }
-        .dark-authority::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 80% 20%, rgba(0, 30, 96, 0.8) 0%, transparent 60%);
-            pointer-events: none;
-        }
-        h1, h2, h3 {
-            line-height: 1.05 !important;
-            letter-spacing: -0.03em !important;
-        }
-        .service-card {
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .service-card:hover {
-            transform: translateY(-12px);
-            border-color: #0033A0;
-            box-shadow: 0 40px 80px -15px rgba(0, 51, 160, 0.12);
-        }
-        .image-reveal {
-            position: relative;
-            overflow: hidden;
-        }
-        .image-reveal img {
-            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .image-reveal:hover img {
-            transform: scale(1.05);
-        }
+      body {
+        background-color: #ffffff;
+        color: #1e293b;
+        font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+      }
+      .btn-medical {
+        background: #0033a0;
+        color: white;
+        padding: 1.125rem 2.25rem;
+        border-radius: 12px;
+        font-weight: 700;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        letter-spacing: -0.01em;
+      }
+      .btn-medical:hover {
+        background: #002677;
+        box-shadow: 0 15px 30px -5px rgba(0, 51, 160, 0.4);
+        transform: translateY(-3px);
+      }
+      .btn-outline {
+        border: 2px solid #0033a0;
+        color: #0033a0;
+        padding: 1.125rem 2.25rem;
+        border-radius: 12px;
+        font-weight: 700;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        letter-spacing: -0.01em;
+      }
+      .btn-outline:hover {
+        background: #e6eeff;
+        transform: translateY(-3px);
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(226, 232, 240, 0.6);
+        border-radius: 32px;
+      }
+      .section-label {
+        font-size: 0.75rem;
+        font-weight: 800;
+        color: #0033a0;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+      }
+      .section-label::before {
+        content: "";
+        width: 1.5rem;
+        height: 2px;
+        background: #0033a0;
+      }
+      .hero-gradient {
+        background: radial-gradient(
+          circle at top right,
+          #e6eeff 0%,
+          #f8fafc 40%,
+          #ffffff 100%
+        );
+      }
+      .dark-authority {
+        background-color: #0033a0;
+        color: #ffffff;
+        position: relative;
+        overflow: hidden;
+      }
+      .dark-authority::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          circle at 80% 20%,
+          rgba(0, 30, 96, 0.8) 0%,
+          transparent 60%
+        );
+        pointer-events: none;
+      }
+      h1,
+      h2,
+      h3 {
+        line-height: 1.05 !important;
+        letter-spacing: -0.03em !important;
+      }
+      .service-card {
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .service-card:hover {
+        transform: translateY(-12px);
+        border-color: #0033a0;
+        box-shadow: 0 40px 80px -15px rgba(0, 51, 160, 0.12);
+      }
+      .image-reveal {
+        position: relative;
+        overflow: hidden;
+      }
+      .image-reveal img {
+        transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .image-reveal:hover img {
+        transform: scale(1.05);
+      }
     </style>
-</head>
-<body class="font-sans antialiased">
-
+  </head>
+  <body class="font-sans antialiased">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-ismi-border">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-8 h-8 bg-ismi-blue rounded flex items-center justify-center text-white font-display font-bold">I</div>
-                <span class="font-display font-extrabold text-2xl tracking-tight text-ismi-navy">ISMI<span class="text-ismi-blue">.</span></span>
-            </div>
-            <div class="hidden md:flex items-center gap-10">
-                <a href="#" class="text-sm font-bold text-ismi-navy hover:text-ismi-blue transition-colors">Specialties</a>
-                <a href="#" class="text-sm font-bold text-ismi-navy hover:text-ismi-blue transition-colors">Providers</a>
-                <a href="#" class="text-sm font-bold text-ismi-navy hover:text-ismi-blue transition-colors">Patient Portal</a>
-                <a href="#" class="text-sm font-bold text-ismi-navy hover:text-ismi-blue transition-colors">Locations</a>
-            </div>
-            <a href="#" class="bg-ismi-blue text-white px-6 py-2.5 rounded-xl text-sm font-bold hover:bg-ismi-navy transition-all">Book Appointment</a>
+    <nav
+      class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-ismi-border"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between"
+      >
+        <div class="flex items-center gap-3">
+          <div
+            class="w-8 h-8 bg-ismi-blue rounded flex items-center justify-center text-white font-display font-bold"
+          >
+            I
+          </div>
+          <span
+            class="font-display font-extrabold text-2xl tracking-tight text-ismi-navy"
+            >ISMI<span class="text-ismi-blue">.</span></span
+          >
         </div>
+        <div class="hidden md:flex items-center gap-10">
+          <a
+            href="#"
+            class="text-sm font-bold text-ismi-navy hover:text-ismi-blue transition-colors"
+            >Specialties</a
+          >
+          <a
+            href="#"
+            class="text-sm font-bold text-ismi-navy hover:text-ismi-blue transition-colors"
+            >Providers</a
+          >
+          <a
+            href="#"
+            class="text-sm font-bold text-ismi-navy hover:text-ismi-blue transition-colors"
+            >Patient Portal</a
+          >
+          <a
+            href="#"
+            class="text-sm font-bold text-ismi-navy hover:text-ismi-blue transition-colors"
+            >Locations</a
+          >
+        </div>
+        <a
+          href="#"
+          class="bg-ismi-blue text-white px-6 py-2.5 rounded-xl text-sm font-bold hover:bg-ismi-navy transition-all"
+          >Book Appointment</a
+        >
+      </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="relative h-screen flex items-center overflow-hidden">
-        <!-- Full Background Image -->
-        <div class="absolute inset-0 z-0">
-            <img src="Assets/vienna-reyes-qCrKTET_09o-unsplash.jpg" alt="Athlete in motion" class="w-full h-full object-cover object-center">
-            <!-- White Gradient Overlay (Fading from Left) -->
-            <div class="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-transparent"></div>
-        </div>
+      <!-- Full Background Image -->
+      <div class="absolute inset-0 z-0">
+        <img
+          src="Assets/vienna-reyes-qCrKTET_09o-unsplash.jpg"
+          alt="Athlete in motion"
+          class="w-full h-full object-cover object-center"
+        />
+        <!-- White Gradient Overlay (Fading from Left) -->
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-transparent"
+        ></div>
+      </div>
 
-        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 w-full">
-            <div class="max-w-2xl">
-                <span class="section-label">Orthopedic Excellence</span>
-                <h1 class="font-display text-5xl lg:text-7xl font-black text-ismi-navy tracking-tighter mb-8">
-                    Precision Care.<br>
-                    <span class="text-ismi-blue">Elite Motion.</span>
-                </h1>
-                <p class="text-lg lg:text-xl text-ismi-slate max-w-lg leading-relaxed mb-10">
-                    Idaho's premier destination for sports medicine and orthopedic surgery. We bridge the gap between clinical precision and elite athletic performance.
-                </p>
-                <div class="flex flex-wrap gap-6">
-                    <a href="#" class="btn-medical">
-                        <span>Request Appointment</span>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
-                    </a>
-                    <a href="#" class="btn-outline">
-                        <span>Meet Our Surgeons</span>
-                    </a>
-                </div>
-                <div class="mt-16 flex items-center gap-12 border-t border-ismi-border pt-10">
-                    <div>
-                        <p class="text-3xl font-black text-ismi-navy">25+</p>
-                        <p class="text-[10px] font-bold text-ismi-slate uppercase tracking-[0.2em] mt-1">Specialists</p>
-                    </div>
-                    <div class="h-12 w-px bg-ismi-border"></div>
-                    <div>
-                        <p class="text-3xl font-black text-ismi-navy">15k+</p>
-                        <p class="text-[10px] font-bold text-ismi-slate uppercase tracking-[0.2em] mt-1">Athletes Treated</p>
-                    </div>
-                    <div class="h-12 w-px bg-ismi-border"></div>
-                    <div>
-                        <p class="text-3xl font-black text-ismi-navy">98%</p>
-                        <p class="text-[10px] font-bold text-ismi-slate uppercase tracking-[0.2em] mt-1">Success Rate</p>
-                    </div>
-                </div>
+      <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 w-full">
+        <div class="max-w-2xl">
+          <span class="section-label">Orthopedic Excellence</span>
+          <h1
+            class="font-display text-5xl lg:text-7xl font-black text-ismi-navy tracking-tighter mb-8"
+          >
+            Precision Care.<br />
+            <span class="text-ismi-blue">Elite Motion.</span>
+          </h1>
+          <p
+            class="text-lg lg:text-xl text-ismi-slate max-w-lg leading-relaxed mb-10"
+          >
+            Idaho's premier destination for sports medicine and orthopedic
+            surgery. We bridge the gap between clinical precision and elite
+            athletic performance.
+          </p>
+          <div class="flex flex-wrap gap-6">
+            <a href="#" class="btn-medical">
+              <span>Request Appointment</span>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M5 12h14m-7-7 7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#" class="btn-outline">
+              <span>Meet Our Surgeons</span>
+            </a>
+          </div>
+          <div
+            class="mt-16 flex items-center gap-12 border-t border-ismi-border pt-10"
+          >
+            <div>
+              <p class="text-3xl font-black text-ismi-navy">25+</p>
+              <p
+                class="text-[10px] font-bold text-ismi-slate uppercase tracking-[0.2em] mt-1"
+              >
+                Specialists
+              </p>
             </div>
+            <div class="h-12 w-px bg-ismi-border"></div>
+            <div>
+              <p class="text-3xl font-black text-ismi-navy">15k+</p>
+              <p
+                class="text-[10px] font-bold text-ismi-slate uppercase tracking-[0.2em] mt-1"
+              >
+                Athletes Treated
+              </p>
+            </div>
+            <div class="h-12 w-px bg-ismi-border"></div>
+            <div>
+              <p class="text-3xl font-black text-ismi-navy">98%</p>
+              <p
+                class="text-[10px] font-bold text-ismi-slate uppercase tracking-[0.2em] mt-1"
+              >
+                Success Rate
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Partners / Authority Section -->
     <section class="py-24 dark-authority">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12 text-center">
-            <div class="flex flex-col items-center">
-                <span class="text-xs font-black text-white/60 uppercase tracking-[0.4em] mb-8">Official Partnership</span>
-                <h2 class="font-display text-4xl lg:text-5xl font-extrabold text-white mb-12 max-w-4xl mx-auto">
-                    The Official Orthopedic Specialists of <br>
-                    <span class="text-white">Boise State University Athletics.</span>
-                </h2>
-                <div class="flex flex-wrap justify-center items-center gap-16 opacity-80 grayscale invert brightness-0">
-                    <!-- Placeholder for logos -->
-                    <div class="h-12 w-32 bg-white/20 rounded"></div>
-                    <div class="h-12 w-32 bg-white/20 rounded"></div>
-                    <div class="h-12 w-32 bg-white/20 rounded"></div>
-                </div>
-            </div>
+      <div class="max-w-7xl mx-auto px-6 lg:px-12 text-center">
+        <div class="flex flex-col items-center">
+          <span
+            class="text-xs font-black text-white/60 uppercase tracking-[0.4em] mb-8"
+            >Official Partnership</span
+          >
+          <h2
+            class="font-display text-4xl lg:text-5xl font-extrabold text-white mb-12 max-w-4xl mx-auto"
+          >
+            The Official Orthopedic Specialists of <br />
+            <span class="text-white">Boise State University Athletics.</span>
+          </h2>
+          <div
+            class="flex flex-wrap justify-center items-center gap-16 opacity-80 grayscale invert brightness-0"
+          >
+            <img
+              src="Assets/Academic-B.png"
+              alt="Boise State B Logo"
+              class="h-20 w-auto object-contain"
+            />
+            <img
+              src="Assets/Athletic-Logo.png"
+              alt="Boise State Bronco Mark"
+              class="h-16 w-auto object-contain"
+            />
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Specialties Section -->
     <section class="py-32 bg-white">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
-                <div class="max-w-2xl">
-                    <span class="section-label">Our Expertise</span>
-                    <h2 class="font-display text-5xl font-black text-ismi-navy tracking-tight">
-                        Comprehensive <span class="text-ismi-blue">Orthopedic Care.</span>
-                    </h2>
-                </div>
-                <a href="#" class="text-ismi-blue font-bold flex items-center gap-2 group">
-                    View all specialties 
-                    <svg class="group-hover:translate-x-1 transition-transform" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
-                </a>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Specialty 1 -->
-                <div class="p-10 border border-ismi-border rounded-[32px] service-card bg-ismi-gray/30">
-                    <div class="w-16 h-16 bg-ismi-blue/10 rounded-2xl flex items-center justify-center text-ismi-blue mb-8">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg>
-                    </div>
-                    <h3 class="font-display text-2xl font-bold text-ismi-navy mb-4">Sports Medicine</h3>
-                    <p class="text-ismi-slate leading-relaxed mb-8">Advanced treatment for athletic injuries, focusing on rapid recovery and performance optimization.</p>
-                    <a href="#" class="text-ismi-blue font-bold text-sm uppercase tracking-widest">Learn More</a>
-                </div>
-                <!-- Specialty 2 -->
-                <div class="p-10 border border-ismi-border rounded-[32px] service-card bg-ismi-gray/30">
-                    <div class="w-16 h-16 bg-ismi-blue/10 rounded-2xl flex items-center justify-center text-ismi-blue mb-8">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 3.4-2 3.4s2.14-.5 3.4-2c1.26-1.5 3.4-2 3.4-2s-2.14.5-3.4 2zM15 7s-4 4-4 8 8-4 8-4-4-4-4-4z"/></svg>
-                    </div>
-                    <h3 class="font-display text-2xl font-bold text-ismi-navy mb-4">Surgical Precision</h3>
-                    <p class="text-ismi-slate leading-relaxed mb-8">Minimally invasive orthopedic surgery utilizing the latest robotic-assisted technologies.</p>
-                    <a href="#" class="text-ismi-blue font-bold text-sm uppercase tracking-widest">Learn More</a>
-                </div>
-                <!-- Specialty 3 -->
-                <div class="p-10 border border-ismi-border rounded-[32px] service-card bg-ismi-gray/30">
-                    <div class="w-16 h-16 bg-ismi-blue/10 rounded-2xl flex items-center justify-center text-ismi-blue mb-8">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg>
-                    </div>
-                    <h3 class="font-display text-2xl font-bold text-ismi-navy mb-4">Physical Therapy</h3>
-                    <p class="text-ismi-slate leading-relaxed mb-8">Specialized rehabilitation programs designed to restore function and prevent future injury.</p>
-                    <a href="#" class="text-ismi-blue font-bold text-sm uppercase tracking-widest">Learn More</a>
-                </div>
-            </div>
+      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div
+          class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8"
+        >
+          <div class="max-w-2xl">
+            <span class="section-label">Our Expertise</span>
+            <h2
+              class="font-display text-5xl font-black text-ismi-navy tracking-tight"
+            >
+              Comprehensive <span class="text-ismi-blue">Orthopedic Care.</span>
+            </h2>
+          </div>
+          <a
+            href="#"
+            class="text-ismi-blue font-bold flex items-center gap-2 group"
+          >
+            View all specialties
+            <svg
+              class="group-hover:translate-x-1 transition-transform"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M5 12h14m-7-7 7 7-7 7" />
+            </svg>
+          </a>
         </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Specialty 1 -->
+          <div
+            class="p-10 border border-ismi-border rounded-[32px] service-card bg-ismi-gray/30"
+          >
+            <div
+              class="w-16 h-16 bg-ismi-blue/10 rounded-2xl flex items-center justify-center text-ismi-blue mb-8"
+            >
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19" />
+              </svg>
+            </div>
+            <h3 class="font-display text-2xl font-bold text-ismi-navy mb-4">
+              Sports Medicine
+            </h3>
+            <p class="text-ismi-slate leading-relaxed mb-8">
+              Advanced treatment for athletic injuries, focusing on rapid
+              recovery and performance optimization.
+            </p>
+            <a
+              href="#"
+              class="text-ismi-blue font-bold text-sm uppercase tracking-widest"
+              >Learn More</a
+            >
+          </div>
+          <!-- Specialty 2 -->
+          <div
+            class="p-10 border border-ismi-border rounded-[32px] service-card bg-ismi-gray/30"
+          >
+            <div
+              class="w-16 h-16 bg-ismi-blue/10 rounded-2xl flex items-center justify-center text-ismi-blue mb-8"
+            >
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M4.5 16.5c-1.5 1.26-2 3.4-2 3.4s2.14-.5 3.4-2c1.26-1.5 3.4-2 3.4-2s-2.14.5-3.4 2zM15 7s-4 4-4 8 8-4 8-4-4-4-4-4z"
+                />
+              </svg>
+            </div>
+            <h3 class="font-display text-2xl font-bold text-ismi-navy mb-4">
+              Surgical Precision
+            </h3>
+            <p class="text-ismi-slate leading-relaxed mb-8">
+              Minimally invasive orthopedic surgery utilizing the latest
+              robotic-assisted technologies.
+            </p>
+            <a
+              href="#"
+              class="text-ismi-blue font-bold text-sm uppercase tracking-widest"
+              >Learn More</a
+            >
+          </div>
+          <!-- Specialty 3 -->
+          <div
+            class="p-10 border border-ismi-border rounded-[32px] service-card bg-ismi-gray/30"
+          >
+            <div
+              class="w-16 h-16 bg-ismi-blue/10 rounded-2xl flex items-center justify-center text-ismi-blue mb-8"
+            >
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 2v20M2 12h20" />
+              </svg>
+            </div>
+            <h3 class="font-display text-2xl font-bold text-ismi-navy mb-4">
+              Physical Therapy
+            </h3>
+            <p class="text-ismi-slate leading-relaxed mb-8">
+              Specialized rehabilitation programs designed to restore function
+              and prevent future injury.
+            </p>
+            <a
+              href="#"
+              class="text-ismi-blue font-bold text-sm uppercase tracking-widest"
+              >Learn More</a
+            >
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Why ISMI / Imagery Section -->
     <section class="py-32 bg-ismi-gray overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            <div class="grid lg:grid-cols-2 gap-24 items-center">
-                <div class="grid grid-cols-2 gap-6 relative">
-                    <div class="space-y-6 pt-12">
-                        <div class="aspect-[3/4] rounded-3xl overflow-hidden border-4 border-white shadow-xl">
-                            <img src="Assets/fancy-crave-qowyMze7jqg-unsplash.jpg" alt="Medical facility" class="w-full h-full object-cover">
-                        </div>
-                        <div class="aspect-square rounded-3xl overflow-hidden border-4 border-white shadow-xl">
-                            <img src="Assets/kenny-eliason-6mRaiW6DDCM-unsplash.jpg" alt="Patient care" class="w-full h-full object-cover">
-                        </div>
-                    </div>
-                    <div class="space-y-6">
-                        <div class="aspect-square rounded-3xl overflow-hidden border-4 border-white shadow-xl">
-                            <img src="Assets/max-winkler-UFIZodJgScQ-unsplash.jpg" alt="Surgical tech" class="w-full h-full object-cover">
-                        </div>
-                        <div class="aspect-[3/4] rounded-3xl overflow-hidden border-4 border-white shadow-xl">
-                            <img src="Assets/wesley-tingey-dKCKiC0BQtU-unsplash.jpg" alt="Athlete training" class="w-full h-full object-cover">
-                        </div>
-                    </div>
-                    <!-- Urgent Care Overlay -->
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-ismi-orange rounded-full flex flex-col items-center justify-center text-center p-6 shadow-2xl border-8 border-white">
-                        <span class="text-white font-black text-2xl leading-tight">URGENT CARE</span>
-                        <span class="text-white/80 text-[10px] font-bold uppercase tracking-widest mt-2">Walk-ins Welcome</span>
-                    </div>
+      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="grid lg:grid-cols-2 gap-24 items-center">
+          <div class="grid grid-cols-2 gap-6 relative">
+            <div class="space-y-6 pt-12">
+              <div
+                class="aspect-[3/4] rounded-3xl overflow-hidden border-4 border-white shadow-xl"
+              >
+                <img
+                  src="Assets/fancy-crave-qowyMze7jqg-unsplash.jpg"
+                  alt="Medical facility"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div
+                class="aspect-square rounded-3xl overflow-hidden border-4 border-white shadow-xl"
+              >
+                <img
+                  src="Assets/kenny-eliason-6mRaiW6DDCM-unsplash.jpg"
+                  alt="Patient care"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+            <div class="space-y-6">
+              <div
+                class="aspect-square rounded-3xl overflow-hidden border-4 border-white shadow-xl"
+              >
+                <img
+                  src="Assets/max-winkler-UFIZodJgScQ-unsplash.jpg"
+                  alt="Surgical tech"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div
+                class="aspect-[3/4] rounded-3xl overflow-hidden border-4 border-white shadow-xl"
+              >
+                <img
+                  src="Assets/wesley-tingey-dKCKiC0BQtU-unsplash.jpg"
+                  alt="Athlete training"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+            <!-- Urgent Care Overlay -->
+            <div
+              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-ismi-orange rounded-full flex flex-col items-center justify-center text-center p-6 shadow-2xl border-8 border-white"
+            >
+              <span class="text-white font-black text-2xl leading-tight"
+                >URGENT CARE</span
+              >
+              <span
+                class="text-white/80 text-[10px] font-bold uppercase tracking-widest mt-2"
+                >Walk-ins Welcome</span
+              >
+            </div>
+          </div>
+          <div>
+            <span class="section-label">The ISMI Difference</span>
+            <h2
+              class="font-display text-5xl font-black text-ismi-navy tracking-tight mb-8"
+            >
+              Where Medicine <br />
+              <span class="text-ismi-blue">Meets Motion.</span>
+            </h2>
+            <p class="text-lg text-ismi-slate leading-relaxed mb-10">
+              We don't just treat injuries; we optimize the human machine. Our
+              integrated approach combines world-class orthopedic surgery with
+              elite-level sports performance training.
+            </p>
+            <ul class="space-y-6 mb-12">
+              <li class="flex items-start gap-4">
+                <div
+                  class="w-6 h-6 rounded-full bg-ismi-blue/10 flex items-center justify-center text-ismi-blue mt-1"
+                >
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
                 </div>
                 <div>
-                    <span class="section-label">The ISMI Difference</span>
-                    <h2 class="font-display text-5xl font-black text-ismi-navy tracking-tight mb-8">
-                        Where Medicine <br>
-                        <span class="text-ismi-blue">Meets Motion.</span>
-                    </h2>
-                    <p class="text-lg text-ismi-slate leading-relaxed mb-10">
-                        We don't just treat injuries; we optimize the human machine. Our integrated approach combines world-class orthopedic surgery with elite-level sports performance training.
-                    </p>
-                    <ul class="space-y-6 mb-12">
-                        <li class="flex items-start gap-4">
-                            <div class="w-6 h-6 rounded-full bg-ismi-blue/10 flex items-center justify-center text-ismi-blue mt-1">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                            </div>
-                            <div>
-                                <p class="font-bold text-ismi-navy">Board-Certified Specialists</p>
-                                <p class="text-sm text-ismi-slate">Top-tier surgeons and therapists with decades of experience.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <div class="w-6 h-6 rounded-full bg-ismi-blue/10 flex items-center justify-center text-ismi-blue mt-1">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                            </div>
-                            <div>
-                                <p class="font-bold text-ismi-navy">State-of-the-Art Facility</p>
-                                <p class="text-sm text-ismi-slate">Advanced imaging and surgical tech under one roof.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <div class="w-6 h-6 rounded-full bg-ismi-blue/10 flex items-center justify-center text-ismi-blue mt-1">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                            </div>
-                            <div>
-                                <p class="font-bold text-ismi-navy">Personalized Recovery</p>
-                                <p class="text-sm text-ismi-slate">Customized plans tailored to your specific athletic goals.</p>
-                            </div>
-                        </li>
-                    </ul>
-                    <a href="#" class="btn-medical">Learn More About Us</a>
+                  <p class="font-bold text-ismi-navy">
+                    Board-Certified Specialists
+                  </p>
+                  <p class="text-sm text-ismi-slate">
+                    Top-tier surgeons and therapists with decades of experience.
+                  </p>
                 </div>
-            </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <div
+                  class="w-6 h-6 rounded-full bg-ismi-blue/10 flex items-center justify-center text-ismi-blue mt-1"
+                >
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-bold text-ismi-navy">
+                    State-of-the-Art Facility
+                  </p>
+                  <p class="text-sm text-ismi-slate">
+                    Advanced imaging and surgical tech under one roof.
+                  </p>
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <div
+                  class="w-6 h-6 rounded-full bg-ismi-blue/10 flex items-center justify-center text-ismi-blue mt-1"
+                >
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-bold text-ismi-navy">Personalized Recovery</p>
+                  <p class="text-sm text-ismi-slate">
+                    Customized plans tailored to your specific athletic goals.
+                  </p>
+                </div>
+              </li>
+            </ul>
+            <a href="#" class="btn-medical">Learn More About Us</a>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Testimonials / Trust Section -->
     <section class="py-32 bg-white">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12 text-center">
-            <span class="section-label">Patient Stories</span>
-            <h2 class="font-display text-5xl font-black text-ismi-navy tracking-tight mb-20">
-                Trusted by <span class="text-ismi-blue">Elite Athletes.</span>
-            </h2>
-            <div class="grid md:grid-cols-2 gap-12 text-left">
-                <div class="p-12 glass-card border-ismi-blue/10 relative">
-                    <div class="absolute -top-6 left-12 w-12 h-12 bg-ismi-blue rounded-full flex items-center justify-center text-white text-4xl font-serif">"</div>
-                    <p class="text-xl text-ismi-navy font-medium leading-relaxed mb-8 italic">
-                        "The team at ISMI didn't just fix my ACL; they gave me my career back. The precision of the surgery and the intensity of the rehab were world-class."
-                    </p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-ismi-sky rounded-full"></div>
-                        <div>
-                            <p class="font-bold text-ismi-navy">Jake Thompson</p>
-                            <p class="text-xs font-bold text-ismi-slate uppercase tracking-widest">Professional Athlete</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-12 glass-card border-ismi-blue/10 relative">
-                    <div class="absolute -top-6 left-12 w-12 h-12 bg-ismi-blue rounded-full flex items-center justify-center text-white text-4xl font-serif">"</div>
-                    <p class="text-xl text-ismi-navy font-medium leading-relaxed mb-8 italic">
-                        "As a weekend warrior, I thought my running days were over. ISMI's sports medicine team got me back on the trails faster than I ever expected."
-                    </p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-ismi-sky rounded-full"></div>
-                        <div>
-                            <p class="font-bold text-ismi-navy">Sarah Jenkins</p>
-                            <p class="text-xs font-bold text-ismi-slate uppercase tracking-widest">Marathon Runner</p>
-                        </div>
-                    </div>
-                </div>
+      <div class="max-w-7xl mx-auto px-6 lg:px-12 text-center">
+        <span class="section-label">Patient Stories</span>
+        <h2
+          class="font-display text-5xl font-black text-ismi-navy tracking-tight mb-20"
+        >
+          Trusted by <span class="text-ismi-blue">Elite Athletes.</span>
+        </h2>
+        <div class="grid md:grid-cols-2 gap-12 text-left">
+          <div class="p-12 glass-card border-ismi-blue/10 relative">
+            <div
+              class="absolute -top-6 left-12 w-12 h-12 bg-ismi-blue rounded-full flex items-center justify-center text-white text-4xl font-serif"
+            >
+              "
             </div>
+            <p
+              class="text-xl text-ismi-navy font-medium leading-relaxed mb-8 italic"
+            >
+              "The team at ISMI didn't just fix my ACL; they gave me my career
+              back. The precision of the surgery and the intensity of the rehab
+              were world-class."
+            </p>
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-ismi-sky rounded-full"></div>
+              <div>
+                <p class="font-bold text-ismi-navy">Jake Thompson</p>
+                <p
+                  class="text-xs font-bold text-ismi-slate uppercase tracking-widest"
+                >
+                  Professional Athlete
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="p-12 glass-card border-ismi-blue/10 relative">
+            <div
+              class="absolute -top-6 left-12 w-12 h-12 bg-ismi-blue rounded-full flex items-center justify-center text-white text-4xl font-serif"
+            >
+              "
+            </div>
+            <p
+              class="text-xl text-ismi-navy font-medium leading-relaxed mb-8 italic"
+            >
+              "As a weekend warrior, I thought my running days were over. ISMI's
+              sports medicine team got me back on the trails faster than I ever
+              expected."
+            </p>
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-ismi-sky rounded-full"></div>
+              <div>
+                <p class="font-bold text-ismi-navy">Sarah Jenkins</p>
+                <p
+                  class="text-xs font-bold text-ismi-slate uppercase tracking-widest"
+                >
+                  Marathon Runner
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- CTA Section -->
     <section class="py-24 px-6 lg:px-12">
-        <div class="max-w-7xl mx-auto dark-authority rounded-[48px] p-16 lg:p-24 text-center relative">
-            <div class="relative z-10">
-                <h2 class="font-display text-5xl lg:text-6xl font-black text-white mb-8 tracking-tighter">
-                    Ready to Get Back <br>
-                    <span class="text-white">in the Game?</span>
-                </h2>
-                <p class="text-xl text-white/80 max-w-2xl mx-auto mb-12">
-                    Schedule your consultation today with Idaho's leading orthopedic and sports medicine specialists.
-                </p>
-                <div class="flex flex-wrap justify-center gap-6">
-                    <a href="#" class="bg-white text-ismi-blue px-10 py-5 rounded-2xl font-bold text-lg hover:bg-ismi-sky transition-all shadow-2xl">
-                        Book Your Appointment
-                    </a>
-                    <a href="tel:2080000000" class="bg-ismi-orange text-white px-10 py-5 rounded-2xl font-bold text-lg hover:bg-[#B53907] transition-all shadow-2xl">
-                        Call (208) 555-ISMI
-                    </a>
-                </div>
-            </div>
+      <div
+        class="max-w-7xl mx-auto dark-authority rounded-[48px] p-16 lg:p-24 text-center relative"
+      >
+        <div class="relative z-10">
+          <h2
+            class="font-display text-5xl lg:text-6xl font-black text-white mb-8 tracking-tighter"
+          >
+            Ready to Get Back <br />
+            <span class="text-white">in the Game?</span>
+          </h2>
+          <p class="text-xl text-white/80 max-w-2xl mx-auto mb-12">
+            Schedule your consultation today with Idaho's leading orthopedic and
+            sports medicine specialists.
+          </p>
+          <div class="flex flex-wrap justify-center gap-6">
+            <a
+              href="#"
+              class="bg-white text-ismi-blue px-10 py-5 rounded-2xl font-bold text-lg hover:bg-ismi-sky transition-all shadow-2xl"
+            >
+              Book Your Appointment
+            </a>
+            <a
+              href="tel:2080000000"
+              class="bg-ismi-orange text-white px-10 py-5 rounded-2xl font-bold text-lg hover:bg-[#B53907] transition-all shadow-2xl"
+            >
+              Call (208) 555-ISMI
+            </a>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-ismi-gray pt-24 pb-12 border-t border-ismi-border">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            <div class="grid md:grid-cols-4 gap-16 mb-20">
-                <div class="col-span-2">
-                    <div class="flex items-center gap-3 mb-8">
-                        <div class="w-8 h-8 bg-ismi-blue rounded flex items-center justify-center text-white font-display font-bold">I</div>
-                        <span class="font-display font-extrabold text-2xl tracking-tight text-ismi-navy">ISMI<span class="text-ismi-blue">.</span></span>
-                    </div>
-                    <p class="text-ismi-slate max-w-sm leading-relaxed mb-8">
-                        The Idaho Sports Medicine Institute is dedicated to providing the highest quality orthopedic care and sports medicine services to the Boise community.
-                    </p>
-                    <div class="flex gap-4">
-                        <div class="w-10 h-10 bg-white border border-ismi-border rounded-lg flex items-center justify-center text-ismi-blue">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-                        </div>
-                        <div class="w-10 h-10 bg-white border border-ismi-border rounded-lg flex items-center justify-center text-ismi-blue">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="font-bold text-ismi-navy mb-8 uppercase tracking-widest text-xs">Quick Links</h4>
-                    <ul class="space-y-4">
-                        <li><a href="#" class="text-ismi-slate hover:text-ismi-blue transition-colors">Our Providers</a></li>
-                        <li><a href="#" class="text-ismi-slate hover:text-ismi-blue transition-colors">Specialties</a></li>
-                        <li><a href="#" class="text-ismi-slate hover:text-ismi-blue transition-colors">Patient Forms</a></li>
-                        <li><a href="#" class="text-ismi-slate hover:text-ismi-blue transition-colors">Insurance</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold text-ismi-navy mb-8 uppercase tracking-widest text-xs">Contact</h4>
-                    <ul class="space-y-4 text-ismi-slate">
-                        <li>1188 University Dr.</li>
-                        <li>Boise, ID 83706</li>
-                        <li>(208) 555-ISMI</li>
-                        <li>info@ismi.com</li>
-                    </ul>
-                </div>
+      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="grid md:grid-cols-4 gap-16 mb-20">
+          <div class="col-span-2">
+            <div class="flex items-center gap-3 mb-8">
+              <div
+                class="w-8 h-8 bg-ismi-blue rounded flex items-center justify-center text-white font-display font-bold"
+              >
+                I
+              </div>
+              <span
+                class="font-display font-extrabold text-2xl tracking-tight text-ismi-navy"
+                >ISMI<span class="text-ismi-blue">.</span></span
+              >
             </div>
-            <div class="border-t border-ismi-border pt-12 flex flex-col md:flex-row justify-between items-center gap-6">
-                <p class="text-xs font-bold text-ismi-slate uppercase tracking-widest">© 2026 Idaho Sports Medicine Institute. All Rights Reserved.</p>
-                <div class="flex gap-8">
-                    <a href="#" class="text-[10px] font-bold text-ismi-slate uppercase tracking-widest hover:text-ismi-blue">Privacy Policy</a>
-                    <a href="#" class="text-[10px] font-bold text-ismi-slate uppercase tracking-widest hover:text-ismi-blue">Terms of Service</a>
-                </div>
+            <p class="text-ismi-slate max-w-sm leading-relaxed mb-8">
+              The Idaho Sports Medicine Institute is dedicated to providing the
+              highest quality orthopedic care and sports medicine services to
+              the Boise community.
+            </p>
+            <div class="flex gap-4">
+              <div
+                class="w-10 h-10 bg-white border border-ismi-border rounded-lg flex items-center justify-center text-ismi-blue"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  />
+                </svg>
+              </div>
+              <div
+                class="w-10 h-10 bg-white border border-ismi-border rounded-lg flex items-center justify-center text-ismi-blue"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg>
+              </div>
             </div>
+          </div>
+          <div>
+            <h4
+              class="font-bold text-ismi-navy mb-8 uppercase tracking-widest text-xs"
+            >
+              Quick Links
+            </h4>
+            <ul class="space-y-4">
+              <li>
+                <a
+                  href="#"
+                  class="text-ismi-slate hover:text-ismi-blue transition-colors"
+                  >Our Providers</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-ismi-slate hover:text-ismi-blue transition-colors"
+                  >Specialties</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-ismi-slate hover:text-ismi-blue transition-colors"
+                  >Patient Forms</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-ismi-slate hover:text-ismi-blue transition-colors"
+                  >Insurance</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4
+              class="font-bold text-ismi-navy mb-8 uppercase tracking-widest text-xs"
+            >
+              Contact
+            </h4>
+            <ul class="space-y-4 text-ismi-slate">
+              <li>1188 University Dr.</li>
+              <li>Boise, ID 83706</li>
+              <li>(208) 555-ISMI</li>
+              <li>info@ismi.com</li>
+            </ul>
+          </div>
         </div>
+        <div
+          class="border-t border-ismi-border pt-12 flex flex-col md:flex-row justify-between items-center gap-6"
+        >
+          <p
+            class="text-xs font-bold text-ismi-slate uppercase tracking-widest"
+          >
+            © 2026 Idaho Sports Medicine Institute. All Rights Reserved.
+          </p>
+          <div class="flex gap-8">
+            <a
+              href="#"
+              class="text-[10px] font-bold text-ismi-slate uppercase tracking-widest hover:text-ismi-blue"
+              >Privacy Policy</a
+            >
+            <a
+              href="#"
+              class="text-[10px] font-bold text-ismi-slate uppercase tracking-widest hover:text-ismi-blue"
+              >Terms of Service</a
+            >
+          </div>
+        </div>
+      </div>
     </footer>
-
-</body>
+  </body>
 </html>
