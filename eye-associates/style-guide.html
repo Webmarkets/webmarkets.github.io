@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eye Associates | Brand Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ea: {
+                            cobalt:  '#3B60A5',
+                            cobaltd: '#2d4f8e',
+                            sky:     '#7BA3D4',
+                            teal:    '#2A9D8F',
+                            tealdk:  '#228E81',
+                            ice:     '#EBF1FB',
+                            frost:   '#F0F5FC',
+                            mist:    '#D4DFF0',
+                            ink:     '#0D2144',
+                            slate:   '#5C6E8A',
+                            cloud:   '#F8FAFE',
+                        }
+                    },
+                    fontFamily: {
+                        sans:    ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono:    ['DM Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F8FAFE;
+            color: #0D2144;
+        }
+
+        /* Dot-grid texture — softer than a line grid for medical context */
+        .dot-texture {
+            background-image: radial-gradient(circle, rgba(59,96,165,0.09) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        /* Sidebar */
+        aside {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        aside::-webkit-scrollbar { display: none; }
+
+        .nav-link {
+            display: block;
+            padding: 0.45rem 0.75rem;
+            font-size: 0.875rem;
+            color: #5C6E8A;
+            border-radius: 10px;
+            transition: all 0.2s;
+        }
+        .nav-link:hover {
+            color: #3B60A5;
+            background: #EBF1FB;
+        }
+
+        /* Section header rule */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #D4DFF0;
+            padding-bottom: 1.25rem;
+        }
+        .section-number {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            color: #3B60A5;
+            background: #EBF1FB;
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            border: 1px solid rgba(59,96,165,0.22);
+            letter-spacing: 0.04em;
+        }
+
+        /* Card surfaces */
+        .surface-card {
+            background: linear-gradient(145deg, #FFFFFF 0%, #F4F8FF 100%);
+            border: 1px solid #D4DFF0;
+            box-shadow:
+                0 1px 0 rgba(255,255,255,0.9) inset,
+                0 1px 3px rgba(59,96,165,0.06),
+                0 6px 20px rgba(59,96,165,0.06);
+            transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+        }
+        .surface-card:hover {
+            box-shadow:
+                0 1px 0 rgba(255,255,255,0.9) inset,
+                0 4px 12px rgba(59,96,165,0.1),
+                0 16px 40px rgba(59,96,165,0.09);
+            border-color: rgba(59,96,165,0.28);
+            transform: translateY(-2px);
+        }
+
+        .flat-card {
+            background: #FFFFFF;
+            border: 1px solid #D4DFF0;
+            box-shadow: 0 1px 2px rgba(59,96,165,0.05);
+        }
+
+        /* Headline gradient — ink to cobalt */
+        .headline-gradient {
+            background: linear-gradient(135deg, #0D2144 0%, #3B60A5 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding-bottom: 0.1em;
+            margin-bottom: -0.1em;
+        }
+
+        /* Nav item card (megamenu style) */
+        .nav-item-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+            background: linear-gradient(145deg, #FFFFFF, #F4F8FF);
+            border: 1px solid #D4DFF0;
+            border-radius: 14px;
+            box-shadow: 0 1px 3px rgba(59,96,165,0.06), 0 4px 16px rgba(59,96,165,0.04);
+            transition: all 0.22s ease;
+            cursor: pointer;
+        }
+        .nav-item-card:hover {
+            border-color: rgba(59,96,165,0.3);
+            box-shadow: 0 4px 12px rgba(59,96,165,0.12);
+            transform: translateY(-2px);
+        }
+        .nav-item-icon {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #EBF1FB;
+            border: 1px solid rgba(59,96,165,0.2);
+            border-radius: 11px;
+            color: #3B60A5;
+            flex-shrink: 0;
+        }
+
+        /* Copy toast */
+        .copy-toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #3B60A5;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            display: none;
+            animation: fadeInUp 0.3s ease-out;
+            z-index: 100;
+            box-shadow: 0 8px 24px rgba(59,96,165,0.35);
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        code {
+            font-family: 'DM Mono', monospace;
+            background: #EBF1FB;
+            color: #3B60A5;
+            padding: 0.15rem 0.4rem;
+            border-radius: 5px;
+            font-size: 0.85em;
+        }
+    </style>
+</head>
+<body class="font-sans selection:bg-ea-cobalt selection:text-white">
+
+    <!-- Dot-grid background texture -->
+    <div class="fixed inset-0 dot-texture pointer-events-none z-0 opacity-60"></div>
+
+    <div class="flex min-h-screen relative z-10">
+
+        <!-- ─── Sidebar Navigation ─── -->
+        <aside class="w-64 border-r border-ea-mist sticky top-0 h-screen overflow-y-auto hidden lg:block"
+               style="background: rgba(248,250,254,0.94); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
+            <div class="p-8">
+
+                <div class="mb-10">
+                    <a href="https://webmarketsonline.com/" target="_blank" class="block hover:opacity-70 transition-opacity mb-4">
+                        <img src="https://webmarketsonline.com/Portals/0/WMLogoWhite.png"
+                             alt="WebMarkets"
+                             class="w-full h-auto"
+                             style="filter: brightness(0) saturate(100%) invert(18%) sepia(50%) saturate(800%) hue-rotate(195deg) brightness(90%)">
+                    </a>
+                    <div class="flex items-center gap-2">
+                        <div class="h-px flex-1 bg-ea-mist"></div>
+                        <span class="font-mono text-[9px] tracking-[0.3em] text-ea-slate uppercase">Brand Guide</span>
+                        <div class="h-px flex-1 bg-ea-mist"></div>
+                    </div>
+                </div>
+
+                <nav class="space-y-7">
+                    <div>
+                        <p class="font-mono text-[9px] text-ea-slate uppercase tracking-[0.2em] mb-2.5 px-1">Foundations</p>
+                        <div class="space-y-0.5">
+                            <a href="#mission"    class="nav-link">Mission</a>
+                            <a href="#voice"      class="nav-link">Voice & Tone</a>
+                            <a href="#colors"     class="nav-link">Colors</a>
+                            <a href="#typography" class="nav-link">Typography</a>
+                            <a href="#radius"     class="nav-link">Corner Radius</a>
+                            <a href="#spacing"    class="nav-link">Grid & Spacing</a>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="font-mono text-[9px] text-ea-slate uppercase tracking-[0.2em] mb-2.5 px-1">Components</p>
+                        <div class="space-y-0.5">
+                            <a href="#buttons"    class="nav-link">Buttons</a>
+                            <a href="#cards"      class="nav-link">Cards & Panels</a>
+                            <a href="#forms"      class="nav-link">Form Elements</a>
+                            <a href="#navigation" class="nav-link">Navigation</a>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="font-mono text-[9px] text-ea-slate uppercase tracking-[0.2em] mb-2.5 px-1">Creative Assets</p>
+                        <div class="space-y-0.5">
+                            <a href="#social"  class="nav-link">Social & Ads</a>
+                            <a href="#imagery" class="nav-link">Imagery Style</a>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="font-mono text-[9px] text-ea-slate uppercase tracking-[0.2em] mb-2.5 px-1">Motion & Effects</p>
+                        <div class="space-y-0.5">
+                            <a href="#animations" class="nav-link">Animations</a>
+                            <a href="#glows"      class="nav-link">Shadows & Gradients</a>
+                        </div>
+                    </div>
+                </nav>
+
+            </div>
+        </aside>
+
+        <!-- ─── Main Content ─── -->
+        <main class="flex-1 p-8 lg:p-16 max-w-5xl">
+
+            <!-- Page Header -->
+            <header class="mb-20">
+                <p class="font-mono text-xs text-ea-cobalt uppercase tracking-[0.28em] mb-4">Eye Associates</p>
+                <h1 class="font-display text-5xl font-extrabold mb-5 headline-gradient">Brand Guide</h1>
+                <p class="text-lg text-ea-slate max-w-2xl leading-relaxed">
+                    This document defines the visual language, component library, and design principles
+                    that shape every patient-facing experience for Eye Associates.
+                </p>
+            </header>
+
+            <!-- ══════════════════════════════════
+                 MISSION
+            ══════════════════════════════════ -->
+            <section id="mission" class="mb-24 scroll-mt-20">
+                <div class="p-8 rounded-2xl surface-card relative overflow-hidden">
+                    <div class="absolute -top-12 -right-12 w-48 h-48 rounded-full pointer-events-none blur-3xl"
+                         style="background: rgba(59,96,165,0.08)"></div>
+                    <p class="font-mono text-[10px] text-ea-cobalt uppercase tracking-[0.28em] mb-4">Our Mission</p>
+                    <p class="font-display text-xl font-semibold text-ea-ink leading-relaxed max-w-2xl">
+                        To deliver exceptional eye care with precision, compassion, and clarity —
+                        helping every patient see the world at its best.
+                    </p>
+                </div>
+            </section>
+
+            <!-- ══════════════════════════════════
+                 01 · VOICE & TONE
+            ══════════════════════════════════ -->
+            <section id="voice" class="mb-24 scroll-mt-20">
+                <div class="section-header">
+                    <span class="section-number">01</span>
+                    <h2 class="font-display text-3xl font-extrabold">Brand Voice & Tone</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-5">
+                    <div class="p-6 rounded-2xl surface-card">
+                        <div class="w-9 h-9 rounded-xl bg-ea-ice border border-ea-cobalt/20 flex items-center justify-center mb-4">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3B60A5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <h4 class="font-display font-bold text-ea-cobalt mb-2">Trustworthy</h4>
+                        <p class="text-sm text-ea-slate leading-relaxed">We speak with clinical authority and warmth. Patients trust us with their vision — our words reflect that responsibility.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl surface-card">
+                        <div class="w-9 h-9 rounded-xl bg-ea-ice border border-ea-cobalt/20 flex items-center justify-center mb-4">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3B60A5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/>
+                            </svg>
+                        </div>
+                        <h4 class="font-display font-bold text-ea-cobalt mb-2">Clear</h4>
+                        <p class="text-sm text-ea-slate leading-relaxed">No jargon. No confusion. We make complex clinical information accessible and easy to understand for every patient.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl surface-card">
+                        <div class="w-9 h-9 rounded-xl bg-ea-ice border border-ea-cobalt/20 flex items-center justify-center mb-4">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3B60A5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                        </div>
+                        <h4 class="font-display font-bold text-ea-cobalt mb-2">Caring</h4>
+                        <p class="text-sm text-ea-slate leading-relaxed">We're approachable and compassionate. Every touchpoint should feel like a conversation with a doctor you already trust.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ══════════════════════════════════
+                 02 · COLORS
+            ══════════════════════════════════ -->
+            <section id="colors" class="mb-24 scroll-mt-20">
+                <div class="section-header">
+                    <span class="section-number">02</span>
+                    <h2 class="font-display text-3xl font-extrabold">Colors</h2>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-5">
+
+                    <div class="group cursor-pointer" onclick="copyToClipboard('#F8FAFE')">
+                        <div class="h-24 w-full rounded-2xl border border-ea-mist mb-3 transition-all group-hover:shadow-md"
+                             style="background:#F8FAFE; box-shadow: inset 0 1px 0 rgba(255,255,255,1)"></div>
+                        <p class="font-display text-sm font-bold">Cloud</p>
+                        <p class="font-mono text-[10px] text-ea-slate">#F8FAFE — Background</p>
+                    </div>
+
+                    <div class="group cursor-pointer" onclick="copyToClipboard('#EBF1FB')">
+                        <div class="h-24 w-full bg-[#EBF1FB] rounded-2xl border border-ea-mist mb-3 transition-all group-hover:shadow-md"></div>
+                        <p class="font-display text-sm font-bold">Ice</p>
+                        <p class="font-mono text-[10px] text-ea-slate">#EBF1FB — Tint / Surface</p>
+                    </div>
+
+                    <div class="group cursor-pointer" onclick="copyToClipboard('#3B60A5')">
+                        <div class="h-24 w-full bg-[#3B60A5] rounded-2xl mb-3 transition-all group-hover:shadow-lg"
+                             style="box-shadow: 0 4px 16px rgba(59,96,165,0.35)"></div>
+                        <p class="font-display text-sm font-bold text-ea-cobalt">Cobalt</p>
+                        <p class="font-mono text-[10px] text-ea-slate">#3B60A5 — Primary</p>
+                    </div>
+
+                    <div class="group cursor-pointer" onclick="copyToClipboard('#7BA3D4')">
+                        <div class="h-24 w-full bg-[#7BA3D4] rounded-2xl mb-3 transition-all group-hover:shadow-md"></div>
+                        <p class="font-display text-sm font-bold text-ea-sky">Sky</p>
+                        <p class="font-mono text-[10px] text-ea-slate">#7BA3D4 — Secondary / Hover</p>
+                    </div>
+
+                    <div class="group cursor-pointer" onclick="copyToClipboard('#2A9D8F')">
+                        <div class="h-24 w-full bg-[#2A9D8F] rounded-2xl mb-3 transition-all group-hover:shadow-md"
+                             style="box-shadow: 0 4px 16px rgba(42,157,143,0.25)"></div>
+                        <p class="font-display text-sm font-bold text-[#2A9D8F]">Teal</p>
+                        <p class="font-mono text-[10px] text-ea-slate">#2A9D8F — Success / Alt CTA</p>
+                    </div>
+
+                    <div class="group cursor-pointer" onclick="copyToClipboard('#0D2144')">
+                        <div class="h-24 w-full bg-[#0D2144] rounded-2xl mb-3 transition-all group-hover:shadow-md"></div>
+                        <p class="font-display text-sm font-bold text-ea-ink">Ink</p>
+                        <p class="font-mono text-[10px] text-ea-slate">#0D2144 — Text / Dark</p>
+                    </div>
+
+                </div>
+                <p class="text-xs text-ea-slate mt-5 flex items-center gap-1.5">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    Click any color swatch to copy its hex code to clipboard.
+                </p>
+            </section>
+
+            <!-- ══════════════════════════════════
+                 03 · TYPOGRAPHY
+            ══════════════════════════════════ -->
+            <section id="typography" class="mb-24 scroll-mt-20">
+                <div class="section-header">
+                    <span class="section-number">03</span>
+                    <h2 class="font-display text-3xl font-extrabold">Typography</h2>
+                </div>
+                <div class="space-y-5">
+
+                    <div class="p-8 rounded-2xl flat-card">
+                        <p class="font-mono text-[10px] text-ea-slate uppercase tracking-widest mb-6">Display — Plus Jakarta Sans</p>
+                        <h1 class="font-display text-5xl font-extrabold text-ea-ink mb-3 leading-tight">Seeing Clearly,<br>Living Fully.</h1>
+                        <div class="flex flex-wrap gap-6 mt-6 pt-6 border-t border-ea-mist">
+                            <div>
+                                <p class="font-mono text-[9px] text-ea-slate tracking-widest mb-1">H1</p>
+                                <p class="font-display font-extrabold text-ea-ink text-2xl">48px / 800</p>
+                            </div>
+                            <div>
+                                <p class="font-mono text-[9px] text-ea-slate tracking-widest mb-1">H2</p>
+                                <p class="font-display font-bold text-ea-ink text-xl">36px / 700</p>
+                            </div>
+                            <div>
+                                <p class="font-mono text-[9px] text-ea-slate tracking-widest mb-1">H3</p>
+                                <p class="font-display font-semibold text-ea-ink text-lg">24px / 600</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-ea-slate mt-4 opacity-70">Usage: Hero headlines, section titles, doctor names, page headings.</p>
+                    </div>
+
+                    <div class="p-8 rounded-2xl flat-card">
+                        <p class="font-mono text-[10px] text-ea-slate uppercase tracking-widest mb-6">Body — Inter</p>
+                        <p class="text-lg leading-relaxed text-ea-slate max-w-2xl">
+                            Inter is the primary typeface for all patient-facing communication.
+                            Its exceptional legibility across sizes makes it the right choice for
+                            clinical content, appointment descriptions, and instructional copy.
+                        </p>
+                        <p class="text-sm leading-relaxed text-ea-slate mt-4 max-w-2xl">
+                            Small body text at 14px. Used for secondary descriptions, captions, and metadata
+                            where space is limited but readability must not be compromised.
+                        </p>
+                        <p class="text-xs text-ea-slate mt-4 opacity-70">Usage: Body copy, descriptions, list items, card text. Weight: 400–500.</p>
+                    </div>
+
+                    <div class="p-8 rounded-2xl flat-card">
+                        <p class="font-mono text-[10px] text-ea-slate uppercase tracking-widest mb-6">Labels — DM Mono</p>
+                        <p class="font-mono text-sm uppercase tracking-[0.28em] text-ea-cobalt mb-3">SECTION 03 — TYPOGRAPHY</p>
+                        <p class="font-mono text-xs text-ea-slate">
+                            #3B60A5 &nbsp;·&nbsp; rgba(59, 96, 165, 1) &nbsp;·&nbsp; Cobalt Primary
+                        </p>
+                        <p class="text-xs text-ea-slate mt-4 opacity-70">Usage: Section counters, hex codes, data labels, form field identifiers.</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ══════════════════════════════════
+                 04 · CORNER RADIUS
+            ══════════════════════════════════ -->
+            <section id="radius" class="mb-24 scroll-mt-20">
+                <div class="section-header">
+                    <span class="section-number">04</span>
+                    <h2 class="font-display text-3xl font-extrabold">Corner Radius</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-5">
+
+                    <div class="p-8 rounded-2xl flat-card flex flex-col items-center gap-5 text-center">
+                        <div class="w-20 h-20 bg-ea-cobalt rounded-lg"
+                             style="box-shadow: 0 8px 24px rgba(59,96,165,0.28)"></div>
+                        <div>
+                            <p class="font-display font-bold text-ea-ink mb-1">Small</p>
+                            <p class="font-mono text-sm text-ea-cobalt mb-2">8px</p>
+                            <p class="text-xs text-ea-slate leading-relaxed">Badges, status chips, inline tags</p>
+                        </div>
+                    </div>
+
+                    <div class="p-8 rounded-2xl flat-card flex flex-col items-center gap-5 text-center"
+                         style="border-color: rgba(59,96,165,0.3); box-shadow: 0 4px 20px rgba(59,96,165,0.1)">
+                        <div class="w-20 h-20 bg-ea-cobalt rounded-2xl"
+                             style="box-shadow: 0 8px 24px rgba(59,96,165,0.28)"></div>
+                        <div>
+                            <p class="font-display font-bold text-ea-cobalt mb-1">Standard ✦</p>
+                            <p class="font-mono text-sm text-ea-cobalt mb-2">16px</p>
+                            <p class="text-xs text-ea-slate leading-relaxed">Cards, buttons, inputs, image frames</p>
+                        </div>
+                    </div>
+
+                    <div class="p-8 rounded-2xl flat-card flex flex-col items-center gap-5 text-center">
+                        <div class="w-20 h-20 bg-ea-cobalt rounded-3xl"
+                             style="box-shadow: 0 8px 24px rgba(59,96,165,0.28)"></div>
+                        <div>
+                            <p class="font-display font-bold text-ea-ink mb-1">Large</p>
+                            <p class="font-mono text-sm text-ea-cobalt mb-2">24px</p>
+                            <p class="text-xs text-ea-slate leading-relaxed">Modals, hero containers, image blocks</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ══════════════════════════════════
+                 05 · GRID & SPACING
+            ══════════════════════════════════ -->
+            <section id="spacing" class="mb-24 scroll-mt-20">
+                <div class="section-header">
+                    <span class="section-number">05</span>
+                    <h2 class="font-display text-3xl font-extrabold">Grid & Spacing</h2>
+                </div>
+                <div class="p-8 rounded-2xl flat-card relative overflow-hidden">
+                    <div class="absolute inset-0 dot-texture opacity-80"></div>
+                    <div class="relative z-10">
+                        <p class="font-mono text-[10px] text-ea-cobalt tracking-widest mb-4">Background Texture</p>
+                        <h4 class="font-display font-bold text-ea-ink text-xl mb-3">The Dot Grid</h4>
+                        <p class="text-sm text-ea-slate max-w-xl leading-relaxed mb-6">
+                            A 24×24px radial dot grid provides subtle visual rhythm without the coldness of a
+                            line grid. The cobalt-tinted dots reinforce brand identity at low opacity,
+                            adding texture without distraction — ideal for a clinical yet welcoming context.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <div class="px-4 py-2 bg-white border border-ea-mist rounded-xl font-mono text-[10px] text-ea-slate shadow-sm">Dot size: 1px</div>
+                            <div class="px-4 py-2 bg-white border border-ea-mist rounded-xl font-mono text-[10px] text-ea-slate shadow-sm">Grid size: 24×24px</div>
+                            <div class="px-4 py-2 bg-white border border-ea-mist rounded-xl font-mono text-[10px] text-ea-slate shadow-sm">Color: rgba(59,96,165,0.09)</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ══════════════════════════════════
+                 06 · BUTTONS
+            ══════════════════════════════════ -->
+            <section id="buttons" class="mb-24 scroll-mt-20">
+                <div class="section-header">
+                    <span class="section-number">06</span>
+                    <h2 class="font-display text-3xl font-extrabold">Buttons</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-5">
+
+                    <div class="p-10 rounded-2xl flat-card flex flex-col items-center justify-center gap-3">
+                        <p class="font-mono text-[10px] text-ea-slate uppercase tracking-widest">Primary CTA</p>
+                        <button class="bg-ea-cobalt hover:bg-ea-cobaltd text-white px-8 py-3.5 rounded-2xl font-display font-bold text-base transition-all"
+                                style="box-shadow: 0 4px 16px rgba(59,96,165,0.35); letter-spacing:0.01em">
+                            Schedule an Exam
+                        </button>
+                    </div>
+
+                    <div class="p-10 rounded-2xl flat-card flex flex-col items-center justify-center gap-3">
+                        <p class="font-mono text-[10px] text-ea-slate uppercase tracking-widest">Secondary</p>
+                        <button class="bg-ea-ice hover:bg-ea-mist text-ea-cobalt px-8 py-3.5 rounded-2xl font-display font-bold text-base border border-ea-mist transition-all"
+                                style="letter-spacing:0.01em">
+                            Learn More
+                        </button>
+                    </div>
+
+                    <div class="p-10 rounded-2xl flat-card flex flex-col items-center justify-center gap-3">
+                        <p class="font-mono text-[10px] text-ea-slate uppercase tracking-widest">Ghost / Outline</p>
+                        <button class="bg-transparent hover:bg-ea-ice text-ea-cobalt px-8 py-3.5 rounded-2xl font-display font-bold text-base border-2 border-ea-cobalt transition-all"
+                                style="letter-spacing:0.01em">
+                            Our Doctors
+                        </button>
+                    </div>
+
+                    <div class="p-10 rounded-2xl flat-card flex flex-col items-center justify-center gap-3">
+                        <p class="font-mono text-[10px] text-ea-slate uppercase tracking-widest">Teal Alt CTA</p>
+                        <button class="bg-ea-teal hover:bg-ea-tealdk text-white px-8 py-3.5 rounded-2xl font-display font-bold text-base transition-all"
+                                style="box-shadow: 0 4px 16px rgba(42,157,143,0.3); letter-spacing:0.01em">
+                            Patient Portal
+                        </button>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ══════════════════════════════════
+                 07 · CARDS & PANELS
+            ══════════════════════════════════ -->
+            <section id="cards" class="mb-24 scroll-mt-20">
+                <div class="section-header">
+                    <span class="section-number">07</span>
+                    <h2 class="font-display text-3xl font-extrabold">Cards & Panels</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-5">
+
+                    <div class="p-7 rounded-2xl surface-card">
+                        <p class="font-mono text-[10px] text-ea-cobalt tracking-widest mb-4">Elevated Card</p>
+                        <h4 class="font-display font-bold text-ea-ink text-lg mb-3">Comprehensive Eye Exam</h4>
+                        <p class="text-sm text-ea-slate leading-relaxed">A thorough assessment of your vision and eye health. Includes refraction, glaucoma screening, and retinal evaluation.</p>
+                    </div>
+
+                    <div class="p-7 rounded-2xl flat-card">
+                        <p class="font-mono text-[10px] text-ea-slate tracking-widest mb-4">Flat Panel</p>
+                        <h4 class="font-display font-bold text-ea-ink text-lg mb-3">Medical History Form</h4>
+                        <p class="text-sm text-ea-slate leading-relaxed">A structured, non-elevated surface for data-dense content such as intake forms, records, and clinical documentation.</p>
+                    </div>
+
+                    <div class="p-7 rounded-2xl md:col-span-2 relative overflow-hidden"
+                         style="background: linear-gradient(135deg, #3B60A5 0%, #2d4f8e 100%); box-shadow: 0 8px 32px rgba(59,96,165,0.32)">
+                        <div class="absolute inset-0 dot-texture opacity-20"></div>
+                        <div class="relative z-10">
+                            <p class="font-mono text-[10px] text-white/55 tracking-widest mb-4">Dark / Accent Card</p>
+                            <h4 class="font-display font-bold text-white text-xl mb-3">Refer a Patient</h4>
+                            <p class="text-sm text-white/75 leading-relaxed max-w-xl">Use this style for high-priority patient actions, promotional announcements, or featured content blocks that need to stand out.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ══════════════════════════════════
+                 08 · FORM ELEMENTS
+            ══════════════════════════════════ -->
+            <section id="forms" class="mb-24 scroll-mt-20">
+                <div class="section-header">
+                    <span class="section-number">08</span>
+                    <h2 class="font-display text-3xl font-extrabold">Form Elements</h2>
+                </div>
+                <div class="p-8 rounded-2xl flat-card max-w-md">
+                    <div class="space-y-5">
+                        <div>
+                            <label class="block font-display text-xs font-semibold text-ea-ink uppercase tracking-widest mb-2">Full Name</label>
+                            <input type="text" placeholder="Jane Smith"
+                                   class="w-full bg-ea-frost border border-ea-mist rounded-2xl px-4 py-3 text-ea-ink placeholder:text-ea-slate/45 focus:outline-none focus:border-ea-cobalt/60 focus:ring-2 focus:ring-ea-cobalt/10 transition-all text-sm">
+                        </div>
+                        <div>
+                            <label class="block font-display text-xs font-semibold text-ea-ink uppercase tracking-widest mb-2">Date of Birth</label>
+                            <input type="text" placeholder="MM / DD / YYYY"
+                                   class="w-full bg-ea-frost border border-ea-mist rounded-2xl px-4 py-3 text-ea-ink placeholder:text-ea-slate/45 focus:outline-none focus:border-ea-cobalt/60 focus:ring-2 focus:ring-ea-cobalt/10 transition-all text-sm">
+                        </div>
+                        <div>
+                            <label class="block font-display text-xs font-semibold text-ea-ink uppercase tracking-widest mb-2">Appointment Type</label>
+                            <select class="w-full bg-ea-frost border border-ea-mist rounded-2xl px-4 py-3 text-ea-ink focus:outline-none focus:border-ea-cobalt/60 focus:ring-2 focus:ring-ea-cobalt/10 transition-all text-sm appearance-none cursor-pointer">
+                                <option>Comprehensive Eye Exam</option>
+                                <option>Contact Lens Fitting</option>
+                                <option>Medical Eye Visit</option>
+                                <option>Pediatric Eye Care</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-display text-xs font-semibold text-ea-ink uppercase tracking-widest mb-2">Insurance</label>
+                            <input type="text" placeholder="Provider name"
+                                   class="w-full bg-ea-frost border border-ea-mist rounded-2xl px-4 py-3 text-ea-ink placeholder:text-ea-slate/45 focus:outline-none focus:border-ea-cobalt/60 focus:ring-2 focus:ring-ea-cobalt/10 transition-all text-sm">
+                        </div>
+                        <button class="w-full bg-ea-cobalt text-white py-3.5 rounded-2xl font-display font-bold text-sm tracking-wide transition-all hover:bg-ea-cobaltd"
+                                style="box-shadow: 0 4px 16px rgba(59,96,165,0.3)">
+                            Request Appointment
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ══════════════════════════════════
+                 09 · NAVIGATION
+            ══════════════════════════════════ -->
+            <section id="navigation" class="mb-24 scroll-mt-20">
+                <div class="section-header">
+                    <span class="section-number">09</span>
+                    <h2 class="font-display text-3xl font-extrabold">Navigation</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-4">
+
+                    <div class="nav-item-card">
+                        <div class="nav-item-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/></svg>
+                        </div>
+                        <div>
+                            <p class="font-display font-bold text-ea-ink text-base mb-0.5">Eye Exams</p>
+                            <p class="text-xs text-ea-slate">Comprehensive vision & health assessments</p>
+                        </div>
+                    </div>
+
+                    <div class="nav-item-card">
+                        <div class="nav-item-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        </div>
+                        <div>
+                            <p class="font-display font-bold text-ea-ink text-base mb-0.5">Medical Eye Care</p>
+                            <p class="text-xs text-ea-slate">Treatment for glaucoma, dry eye & more</p>
+                        </div>
+                    </div>
+
+                    <div class="nav-item-card">
+                        <div class="nav-item-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M21 21v-2a4 4 0 0 0-3-3.87"/></svg>
+                        </div>
+                        <div>
+                            <p class="font-display font-bold text-ea-ink text-base mb-0.5">Our Doctors</p>
+                            <p class="text-xs text-ea-slate">Meet our team of experienced optometrists</p>
+                        </div>
+                    </div>
+
+                    <div class="nav-item-card">
+                        <div class="nav-item-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        </div>
+                        <div>
+                            <p class="font-display font-bold text-ea-ink text-base mb-0.5">Book Appointment</p>
+                            <p class="text-xs text-ea-slate">Online scheduling, same-week availability</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ══════════════════════════════════
+                 10 · SOCIAL & ADS
+            ══════════════════════════════════ -->
+            <section id="social" class="mb-24 scroll-mt-20">
+                <div class="section-header">
+                    <span class="section-number">10</span>
+                    <h2 class="font-display text-3xl font-extrabold">Social & Ads</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+
+                    <div class="p-6 rounded-2xl flat-card">
+                        <p class="font-mono text-[10px] text-ea-slate uppercase tracking-widest mb-5">Instagram / Facebook (1080×1080)</p>
+                        <div class="aspect-square w-full rounded-2xl relative overflow-hidden flex flex-col p-8"
+                             style="background: linear-gradient(145deg, #EBF1FB 0%, #F0F5FC 100%); border: 1px solid #D4DFF0">
+                            <div class="absolute inset-0 dot-texture opacity-80"></div>
+                            <div class="relative z-10 flex flex-col h-full">
+                                <div class="flex items-center gap-2 mb-auto">
+                                    <div class="w-6 h-6 rounded-lg bg-ea-cobalt flex items-center justify-center">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/></svg>
+                                    </div>
+                                    <span class="font-display font-bold text-ea-ink text-sm">Eye Associates</span>
+                                </div>
+                                <div class="w-8 h-1 bg-ea-cobalt rounded-full mb-4"></div>
+                                <h3 class="font-display text-2xl font-extrabold text-ea-ink mb-2 leading-tight">Your Vision.<br>Our Priority.</h3>
+                                <p class="text-xs text-ea-slate mb-4">Comprehensive eye care for the whole family.</p>
+                                <p class="font-mono text-[9px] text-ea-cobalt uppercase tracking-widest">eyeassociates.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6 rounded-2xl flat-card">
+                        <p class="font-mono text-[10px] text-ea-slate uppercase tracking-widest mb-5">LinkedIn / Display (1200×628)</p>
+                        <div class="aspect-[1200/628] w-full rounded-2xl relative overflow-hidden flex items-center p-8"
+                             style="background: linear-gradient(135deg, #3B60A5 0%, #2d4f8e 100%); box-shadow: 0 4px 16px rgba(59,96,165,0.25)">
+                            <div class="absolute inset-0 dot-texture opacity-20"></div>
+                            <div class="relative z-10 w-full">
+                                <p class="font-mono text-[9px] text-white/50 uppercase tracking-widest mb-4">Eye Associates</p>
+                                <h3 class="font-display text-3xl font-extrabold text-white mb-5 leading-tight">See the Difference.</h3>
+                                <button class="bg-white text-ea-cobalt px-5 py-2 rounded-xl font-display font-bold text-sm">
+                                    Book Today
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ══════════════════════════════════
+                 11 · IMAGERY STYLE
+            ══════════════════════════════════ -->
+            <section id="imagery" class="mb-24 scroll-mt-20">
+                <div class="section-header">
+                    <span class="section-number">11</span>
+                    <h2 class="font-display text-3xl font-extrabold">Imagery Style</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+
+                    <div class="space-y-4">
+                        <div class="aspect-video rounded-2xl overflow-hidden relative group"
+                             style="background: linear-gradient(145deg, #D4DFF0, #EBF1FB)">
+                            <div class="absolute inset-0 bg-ea-cobalt/10 transition-opacity group-hover:opacity-0"></div>
+                            <div class="absolute inset-0 flex items-center justify-center font-display font-bold text-sm text-ea-slate/40">Clean & Bright</div>
+                        </div>
+                        <p class="text-xs text-ea-slate leading-relaxed">
+                            <span class="font-bold text-ea-ink">Tone:</span> Well-lit, soft lighting. Avoid heavy drama or darkness — this is caring clinical care, not intimidation.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="aspect-video rounded-2xl overflow-hidden relative group"
+                             style="background: linear-gradient(145deg, #EBF1FB, #D4DFF0)">
+                            <div class="absolute inset-0 bg-ea-cobalt/15 mix-blend-overlay transition-opacity group-hover:opacity-0"></div>
+                            <div class="absolute inset-0 flex items-center justify-center font-display font-bold text-sm text-ea-slate/40">Brand Tint</div>
+                        </div>
+                        <p class="text-xs text-ea-slate leading-relaxed">
+                            <span class="font-bold text-ea-ink">Tints:</span> Apply a subtle cobalt mix-blend overlay to photography for visual consistency across all channels.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="aspect-video rounded-2xl overflow-hidden relative group"
+                             style="background: linear-gradient(145deg, #EBF1FB, #D4DFF0)">
+                            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-ea-cobalt/30"></div>
+                            <div class="absolute inset-0 flex items-center justify-center font-display font-bold text-sm text-ea-slate/40">Gradient Fade</div>
+                        </div>
+                        <p class="text-xs text-ea-slate leading-relaxed">
+                            <span class="font-bold text-ea-ink">Depth:</span> Bottom-up cobalt gradients ensure text legibility over photography in hero and card contexts.
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ══════════════════════════════════
+                 12 · ANIMATIONS
+            ══════════════════════════════════ -->
+            <section id="animations" class="mb-24 scroll-mt-20">
+                <div class="section-header">
+                    <span class="section-number">12</span>
+                    <h2 class="font-display text-3xl font-extrabold">Animations</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-5">
+
+                    <div class="p-10 rounded-2xl flat-card flex flex-col items-center justify-center gap-5">
+                        <div class="w-12 h-12 bg-ea-cobalt rounded-2xl animate-pulse"
+                             style="box-shadow: 0 0 0 0 rgba(59,96,165,0.4)"></div>
+                        <div class="text-center">
+                            <p class="font-display font-semibold text-ea-ink mb-1">Availability Pulse</p>
+                            <p class="font-mono text-xs text-ea-slate">Appointment slot indicators, live availability</p>
+                        </div>
+                    </div>
+
+                    <div class="p-10 rounded-2xl flat-card flex flex-col items-center justify-center gap-5">
+                        <div class="w-12 h-12 bg-ea-teal rounded-2xl animate-bounce"
+                             style="box-shadow: 0 8px 16px rgba(42,157,143,0.25)"></div>
+                        <div class="text-center">
+                            <p class="font-display font-semibold text-ea-ink mb-1">Confirmation Bounce</p>
+                            <p class="font-mono text-xs text-ea-slate">Booking confirmed, form success states</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="mt-5 p-5 rounded-2xl flat-card">
+                    <p class="font-mono text-[10px] text-ea-cobalt tracking-widest mb-3">Animation Principle</p>
+                    <p class="text-sm text-ea-slate leading-relaxed max-w-2xl">
+                        All motion should feel calm and deliberate — never jarring. Use <code>transition-all 0.2s–0.3s ease</code> for
+                        interactive states. Reserve <code>animate-pulse</code> strictly for availability / loading states and
+                        <code>animate-bounce</code> for positive confirmations only.
+                    </p>
+                </div>
+            </section>
+
+            <!-- ══════════════════════════════════
+                 13 · SHADOWS & GRADIENTS
+            ══════════════════════════════════ -->
+            <section id="glows" class="mb-24 scroll-mt-20">
+                <div class="section-header">
+                    <span class="section-number">13</span>
+                    <h2 class="font-display text-3xl font-extrabold">Shadows & Gradients</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-5">
+
+                    <div class="p-8 rounded-2xl flat-card relative overflow-hidden h-48 flex flex-col justify-end">
+                        <div class="absolute top-4 right-4 w-32 h-32 rounded-full blur-3xl pointer-events-none"
+                             style="background: rgba(59,96,165,0.2)"></div>
+                        <div class="absolute top-10 left-6 w-20 h-20 rounded-full blur-2xl pointer-events-none"
+                             style="background: rgba(122,163,212,0.22)"></div>
+                        <p class="font-mono text-[10px] text-ea-cobalt tracking-widest mb-1 relative z-10">Ambient Glow</p>
+                        <p class="text-xs text-ea-slate relative z-10">Cobalt blur orbs for hero section depth</p>
+                    </div>
+
+                    <div class="p-8 rounded-2xl flat-card h-48 flex items-center justify-center">
+                        <h3 class="font-display text-4xl font-extrabold headline-gradient text-center leading-tight">
+                            Clarity.<br>Precision.
+                        </h3>
+                    </div>
+
+                    <div class="p-8 rounded-2xl flat-card h-48 flex flex-col justify-between"
+                         style="background: linear-gradient(145deg, #FFFFFF 0%, #EBF1FB 100%)">
+                        <p class="font-mono text-[10px] text-ea-cobalt tracking-widest">White → Ice Surface</p>
+                        <p class="text-xs text-ea-slate leading-relaxed">
+                            Cards and interactive panels use this gentle white-to-ice gradient to convey
+                            depth and lift — avoiding the completely flat look while staying clinically clean.
+                        </p>
+                    </div>
+
+                    <div class="p-8 rounded-2xl h-48 flex flex-col justify-between"
+                         style="background: linear-gradient(135deg, #3B60A5 0%, #2A9D8F 100%); box-shadow: 0 8px 32px rgba(59,96,165,0.3)">
+                        <p class="font-mono text-[10px] text-white/55 tracking-widest">Cobalt → Teal</p>
+                        <p class="text-xs text-white/70 leading-relaxed">
+                            Hero banners, premium CTA sections, and appointment confirmation overlays.
+                            Conveys trust and forward motion simultaneously.
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+
+            <footer class="mt-40 pt-10 border-t border-ea-mist text-center">
+                <p class="text-xs text-ea-slate/45 uppercase tracking-widest font-mono">Internal Documentation · 2026 WebMarkets</p>
+            </footer>
+
+        </main>
+    </div>
+
+    <div id="copyToast" class="copy-toast">Copied to clipboard!</div>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const toast = document.getElementById('copyToast');
+                toast.style.display = 'block';
+                setTimeout(() => { toast.style.display = 'none'; }, 2000);
+            });
+        }
+    </script>
+
+</body>
+</html>

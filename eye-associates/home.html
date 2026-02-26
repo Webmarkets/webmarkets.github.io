@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eye Associates | Comprehensive Eye Care</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ea: {
+                            cobalt:  '#3B60A5',
+                            cobaltd: '#2d4f8e',
+                            sky:     '#7BA3D4',
+                            teal:    '#2A9D8F',
+                            tealdk:  '#228E81',
+                            ice:     '#EBF1FB',
+                            frost:   '#F0F5FC',
+                            mist:    '#D4DFF0',
+                            ink:     '#0D2144',
+                            slate:   '#5C6E8A',
+                            cloud:   '#F8FAFE',
+                        }
+                    },
+                    fontFamily: {
+                        sans:    ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono:    ['DM Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F8FAFE;
+            color: #0D2144;
+        }
+
+        .dot-texture {
+            background-image: radial-gradient(circle, rgba(59,96,165,0.09) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .dot-texture-white {
+            background-image: radial-gradient(circle, rgba(255,255,255,0.12) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        /* Nav */
+        .nav-link {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #5C6E8A;
+            transition: color 0.2s;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .nav-link:hover { color: #3B60A5; }
+
+        /* Cards */
+        .surface-card {
+            background: linear-gradient(145deg, #FFFFFF 0%, #F4F8FF 100%);
+            border: 1px solid #D4DFF0;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.9),
+                0 1px 3px rgba(59,96,165,0.06),
+                0 6px 20px rgba(59,96,165,0.06);
+            transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+        }
+        .surface-card:hover {
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.9),
+                0 4px 12px rgba(59,96,165,0.1),
+                0 16px 40px rgba(59,96,165,0.09);
+            border-color: rgba(59,96,165,0.28);
+            transform: translateY(-3px);
+        }
+
+        /* Headline gradient */
+        .headline-gradient {
+            background: linear-gradient(135deg, #0D2144 0%, #3B60A5 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding-bottom: 0.1em;
+        }
+
+        /* Section label pill */
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            color: #3B60A5;
+            background: #EBF1FB;
+            padding: 0.3rem 0.75rem;
+            border-radius: 99px;
+            border: 1px solid rgba(59,96,165,0.2);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+        }
+
+        /* Stat divider */
+        .stat-divider {
+            width: 1px;
+            height: 2.5rem;
+            background: #D4DFF0;
+        }
+
+        /* Doctor photo placeholder */
+        .doctor-photo {
+            background: linear-gradient(145deg, #EBF1FB, #D4DFF0);
+            position: relative;
+            overflow: hidden;
+        }
+        .doctor-photo::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 35%;
+            background: linear-gradient(to top, rgba(59,96,165,0.15), transparent);
+        }
+
+        /* Testimonial card */
+        .testimonial-card {
+            background: #FFFFFF;
+            border: 1px solid #D4DFF0;
+            box-shadow: 0 2px 8px rgba(59,96,165,0.06), 0 12px 32px rgba(59,96,165,0.06);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 16px rgba(59,96,165,0.1), 0 20px 48px rgba(59,96,165,0.08);
+        }
+
+        /* Service icon wrapper */
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #EBF1FB;
+            border: 1px solid rgba(59,96,165,0.2);
+            border-radius: 13px;
+            color: #3B60A5;
+            flex-shrink: 0;
+            margin-bottom: 1.25rem;
+        }
+
+        /* Stars */
+        .star { color: #F59E0B; }
+
+        /* Smooth hover on buttons */
+        .btn-primary {
+            background: #3B60A5;
+            color: white;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            padding: 0.875rem 2rem;
+            border-radius: 14px;
+            font-size: 0.9375rem;
+            letter-spacing: 0.01em;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 16px rgba(59,96,165,0.32);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .btn-primary:hover {
+            background: #2d4f8e;
+            box-shadow: 0 6px 24px rgba(59,96,165,0.4);
+        }
+        .btn-ghost {
+            background: transparent;
+            color: #3B60A5;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            padding: 0.875rem 2rem;
+            border-radius: 14px;
+            font-size: 0.9375rem;
+            letter-spacing: 0.01em;
+            border: 2px solid #3B60A5;
+            transition: background 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .btn-ghost:hover { background: #EBF1FB; }
+
+        /* Hero visual — abstract eye ring */
+        .eye-ring {
+            border-radius: 50%;
+            position: absolute;
+            border: 1px solid rgba(59,96,165,0.12);
+        }
+
+        /* Acceptance badge */
+        .accepting-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #FFFFFF;
+            border: 1px solid #D4DFF0;
+            border-radius: 99px;
+            padding: 0.4rem 1rem 0.4rem 0.5rem;
+            box-shadow: 0 2px 8px rgba(59,96,165,0.1);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: #0D2144;
+        }
+        .accepting-dot {
+            width: 8px;
+            height: 8px;
+            background: #2A9D8F;
+            border-radius: 50%;
+            animation: pulse-dot 2s infinite;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(42,157,143,0.4); }
+            50%       { opacity: 0.85; box-shadow: 0 0 0 6px rgba(42,157,143,0); }
+        }
+
+        /* Footer */
+        .footer-bg {
+            background: #0D2144;
+        }
+    </style>
+</head>
+<body class="font-sans">
+
+    <!-- ═══════════════════════════════════════
+         NAVIGATION
+    ═══════════════════════════════════════ -->
+    <header class="sticky top-0 z-50 border-b border-ea-mist"
+            style="background: rgba(248,250,254,0.95); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2.5">
+                <div class="w-9 h-9 rounded-xl bg-ea-cobalt flex items-center justify-center flex-shrink-0"
+                     style="box-shadow: 0 4px 12px rgba(59,96,165,0.3)">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/>
+                    </svg>
+                </div>
+                <div>
+                    <span class="font-display font-extrabold text-ea-ink text-lg leading-none block">Eye Associates</span>
+                    <span class="font-mono text-[9px] text-ea-slate tracking-[0.15em] uppercase">of Idaho</span>
+                </div>
+            </a>
+
+            <!-- Nav Links -->
+            <nav class="hidden lg:flex items-center gap-8">
+                <a href="#services"      class="nav-link">Services</a>
+                <a href="#doctors"       class="nav-link">Our Doctors</a>
+                <a href="#technology"    class="nav-link">Technology</a>
+                <a href="#testimonials"  class="nav-link">Patient Stories</a>
+                <a href="#contact"       class="nav-link">Contact</a>
+            </nav>
+
+            <!-- CTA -->
+            <div class="flex items-center gap-4">
+                <a href="tel:2085550200" class="hidden md:flex items-center gap-2 text-ea-slate font-display font-semibold text-sm hover:text-ea-cobalt transition-colors">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6 6l.94-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    (208) 555-0200
+                </a>
+                <a href="#book" class="btn-primary text-sm py-2.5 px-5" style="border-radius:12px; padding: 0.625rem 1.25rem;">
+                    Book Appointment
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- ═══════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════ -->
+    <section class="relative overflow-hidden pt-20 pb-24 lg:pt-28 lg:pb-32">
+        <div class="absolute inset-0 dot-texture opacity-60 pointer-events-none"></div>
+
+        <!-- Ambient glow orbs -->
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none blur-3xl opacity-30"
+             style="background: radial-gradient(circle, rgba(59,96,165,0.25), transparent 70%); transform: translate(30%, -30%)"></div>
+        <div class="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full pointer-events-none blur-3xl opacity-20"
+             style="background: radial-gradient(circle, rgba(42,157,143,0.3), transparent 70%); transform: translate(-20%, 20%)"></div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+                <!-- Left: Copy -->
+                <div>
+                    <div class="accepting-badge mb-7">
+                        <span class="accepting-dot"></span>
+                        Now Accepting New Patients
+                    </div>
+
+                    <h1 class="font-display text-5xl lg:text-6xl font-extrabold text-ea-ink leading-[1.08] mb-6 tracking-tight">
+                        Exceptional Eye Care<br>
+                        <span class="headline-gradient">for Every Stage of Life.</span>
+                    </h1>
+
+                    <p class="text-lg text-ea-slate leading-relaxed mb-10 max-w-lg">
+                        From your child's first exam to advanced medical eye care, our board-certified
+                        optometrists bring expertise, warmth, and the latest technology to every visit.
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-4 mb-14">
+                        <a href="#book" class="btn-primary">
+                            Schedule an Exam
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                        <a href="#services" class="btn-ghost">
+                            Explore Services
+                        </a>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="flex items-center gap-8">
+                        <div>
+                            <p class="font-display text-3xl font-extrabold text-ea-ink">25+</p>
+                            <p class="text-sm text-ea-slate mt-0.5">Years in Practice</p>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div>
+                            <p class="font-display text-3xl font-extrabold text-ea-ink">12k+</p>
+                            <p class="text-sm text-ea-slate mt-0.5">Patients Served</p>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="flex items-center gap-2">
+                            <p class="font-display text-3xl font-extrabold text-ea-ink">4.9</p>
+                            <div>
+                                <div class="flex gap-0.5">
+                                    <span class="star text-sm">★</span><span class="star text-sm">★</span><span class="star text-sm">★</span><span class="star text-sm">★</span><span class="star text-sm">★</span>
+                                </div>
+                                <p class="text-sm text-ea-slate">Patient Rating</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Visual -->
+                <div class="relative hidden lg:flex items-center justify-center h-[500px]">
+
+                    <!-- Abstract eye / lens rings -->
+                    <div class="eye-ring w-[480px] h-[480px]" style="border-color: rgba(59,96,165,0.08)"></div>
+                    <div class="eye-ring w-[380px] h-[380px]" style="border-color: rgba(59,96,165,0.1); position:absolute;"></div>
+                    <div class="eye-ring w-[280px] h-[280px]" style="border-color: rgba(59,96,165,0.14); position:absolute;"></div>
+
+                    <!-- Center image frame -->
+                    <div class="absolute w-64 h-64 rounded-full overflow-hidden doctor-photo"
+                         style="box-shadow: 0 16px 64px rgba(59,96,165,0.2), 0 0 0 6px rgba(255,255,255,0.9), 0 0 0 7px rgba(212,223,240,0.8)">
+                        <div class="w-full h-full flex flex-col items-center justify-end pb-6 gap-1"
+                             style="background: linear-gradient(160deg, #EBF1FB 0%, #C8D8EE 60%, #a8c2e0 100%)">
+                            <!-- Silhouette placeholder -->
+                            <div class="w-16 h-16 rounded-full bg-ea-sky/40 mb-1"></div>
+                            <div class="w-24 h-20 rounded-t-full bg-ea-cobalt/20"></div>
+                        </div>
+                    </div>
+
+                    <!-- Floating badge: same-week -->
+                    <div class="absolute top-12 right-6 surface-card rounded-2xl px-4 py-3 flex items-center gap-3"
+                         style="box-shadow: 0 8px 24px rgba(59,96,165,0.14)">
+                        <div class="w-9 h-9 rounded-xl bg-ea-teal/15 border border-ea-teal/25 flex items-center justify-center flex-shrink-0">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2A9D8F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        </div>
+                        <div>
+                            <p class="font-display font-bold text-ea-ink text-sm leading-none mb-0.5">Same-Week</p>
+                            <p class="text-xs text-ea-slate">Appointments Available</p>
+                        </div>
+                    </div>
+
+                    <!-- Floating badge: insurance -->
+                    <div class="absolute bottom-14 left-0 surface-card rounded-2xl px-4 py-3 flex items-center gap-3"
+                         style="box-shadow: 0 8px 24px rgba(59,96,165,0.14)">
+                        <div class="w-9 h-9 rounded-xl bg-ea-ice border border-ea-cobalt/20 flex items-center justify-center flex-shrink-0">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3B60A5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <div>
+                            <p class="font-display font-bold text-ea-ink text-sm leading-none mb-0.5">Most Insurance</p>
+                            <p class="text-xs text-ea-slate">Plans Accepted</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         INSURANCE / TRUST BAR
+    ═══════════════════════════════════════ -->
+    <section class="py-10 border-y border-ea-mist bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <p class="font-mono text-[10px] text-ea-slate uppercase tracking-[0.2em] flex-shrink-0">Accepted Insurance</p>
+                <div class="w-px h-6 bg-ea-mist hidden md:block flex-shrink-0"></div>
+                <div class="flex flex-wrap justify-center md:justify-start items-center gap-x-10 gap-y-4">
+                    <span class="font-display font-bold text-ea-slate/60 text-sm hover:text-ea-slate transition-colors">VSP Vision</span>
+                    <span class="font-display font-bold text-ea-slate/60 text-sm hover:text-ea-slate transition-colors">EyeMed</span>
+                    <span class="font-display font-bold text-ea-slate/60 text-sm hover:text-ea-slate transition-colors">Blue Cross</span>
+                    <span class="font-display font-bold text-ea-slate/60 text-sm hover:text-ea-slate transition-colors">Aetna</span>
+                    <span class="font-display font-bold text-ea-slate/60 text-sm hover:text-ea-slate transition-colors">United Healthcare</span>
+                    <span class="font-display font-bold text-ea-slate/60 text-sm hover:text-ea-slate transition-colors">Cigna</span>
+                    <a href="#" class="font-display font-semibold text-ea-cobalt text-sm hover:underline flex items-center gap-1">
+                        View All
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         SERVICES
+    ═══════════════════════════════════════ -->
+    <section id="services" class="py-28 scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+            <div class="max-w-xl mb-14">
+                <span class="section-label">What We Offer</span>
+                <h2 class="font-display text-4xl lg:text-5xl font-extrabold text-ea-ink tracking-tight leading-tight">
+                    Comprehensive Care<br>
+                    <span class="headline-gradient">for Your Eyes.</span>
+                </h2>
+                <p class="text-ea-slate leading-relaxed mt-5">
+                    Whether you need a routine exam or advanced medical treatment, our team provides
+                    expert care in a warm, welcoming environment.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+                <!-- Service Card -->
+                <div class="p-7 rounded-2xl surface-card group">
+                    <div class="service-icon group-hover:bg-ea-cobalt group-hover:border-ea-cobalt group-hover:text-white transition-all">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/></svg>
+                    </div>
+                    <h3 class="font-display font-bold text-ea-ink text-lg mb-2">Comprehensive Eye Exams</h3>
+                    <p class="text-sm text-ea-slate leading-relaxed mb-5">Thorough assessments for all ages covering visual acuity, eye health, glaucoma screening, and updated prescriptions.</p>
+                    <a href="#" class="text-sm font-display font-bold text-ea-cobalt flex items-center gap-1.5 hover:gap-2.5 transition-all">
+                        Learn more
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+                <div class="p-7 rounded-2xl surface-card group">
+                    <div class="service-icon group-hover:bg-ea-cobalt group-hover:border-ea-cobalt group-hover:text-white transition-all">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="21.17" y1="8" x2="12" y2="8"/><line x1="3.95" y1="6.06" x2="8.54" y2="14"/><line x1="10.88" y1="21.94" x2="15.46" y2="14"/></svg>
+                    </div>
+                    <h3 class="font-display font-bold text-ea-ink text-lg mb-2">Contact Lens Fittings</h3>
+                    <p class="text-sm text-ea-slate leading-relaxed mb-5">Custom fitting for soft, rigid, toric, and multifocal lenses — including specialty options for hard-to-fit patients.</p>
+                    <a href="#" class="text-sm font-display font-bold text-ea-cobalt flex items-center gap-1.5 hover:gap-2.5 transition-all">
+                        Learn more
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+                <div class="p-7 rounded-2xl surface-card group">
+                    <div class="service-icon group-hover:bg-ea-cobalt group-hover:border-ea-cobalt group-hover:text-white transition-all">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    </div>
+                    <h3 class="font-display font-bold text-ea-ink text-lg mb-2">Medical Eye Care</h3>
+                    <p class="text-sm text-ea-slate leading-relaxed mb-5">Diagnosis and treatment of glaucoma, macular degeneration, diabetic eye disease, and acute ocular emergencies.</p>
+                    <a href="#" class="text-sm font-display font-bold text-ea-cobalt flex items-center gap-1.5 hover:gap-2.5 transition-all">
+                        Learn more
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+                <div class="p-7 rounded-2xl surface-card group">
+                    <div class="service-icon group-hover:bg-ea-cobalt group-hover:border-ea-cobalt group-hover:text-white transition-all">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3 class="font-display font-bold text-ea-ink text-lg mb-2">Pediatric Eye Care</h3>
+                    <p class="text-sm text-ea-slate leading-relaxed mb-5">Gentle, kid-friendly exams designed to catch vision problems early. We recommend a child's first exam by age one.</p>
+                    <a href="#" class="text-sm font-display font-bold text-ea-cobalt flex items-center gap-1.5 hover:gap-2.5 transition-all">
+                        Learn more
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+                <div class="p-7 rounded-2xl surface-card group">
+                    <div class="service-icon group-hover:bg-ea-cobalt group-hover:border-ea-cobalt group-hover:text-white transition-all">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10"/><path d="M16 2s2 2 2 5-2 5-2 5"/><path d="M20 10h4"/></svg>
+                    </div>
+                    <h3 class="font-display font-bold text-ea-ink text-lg mb-2">Dry Eye Treatment</h3>
+                    <p class="text-sm text-ea-slate leading-relaxed mb-5">Personalized treatment plans for dry eye syndrome, including in-office therapies and cutting-edge LipiFlow technology.</p>
+                    <a href="#" class="text-sm font-display font-bold text-ea-cobalt flex items-center gap-1.5 hover:gap-2.5 transition-all">
+                        Learn more
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+                <div class="p-7 rounded-2xl surface-card group">
+                    <div class="service-icon group-hover:bg-ea-cobalt group-hover:border-ea-cobalt group-hover:text-white transition-all">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <h3 class="font-display font-bold text-ea-ink text-lg mb-2">LASIK Co-Management</h3>
+                    <p class="text-sm text-ea-slate leading-relaxed mb-5">Pre- and post-operative care for LASIK and refractive surgery patients. We'll help you every step of the way.</p>
+                    <a href="#" class="text-sm font-display font-bold text-ea-cobalt flex items-center gap-1.5 hover:gap-2.5 transition-all">
+                        Learn more
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         WHY CHOOSE US / TECHNOLOGY
+    ═══════════════════════════════════════ -->
+    <section id="technology" class="py-28 scroll-mt-20 relative overflow-hidden" style="background: linear-gradient(160deg, #0D2144 0%, #1a3668 60%, #2d4f8e 100%)">
+        <div class="absolute inset-0 dot-texture-white pointer-events-none opacity-40"></div>
+        <div class="absolute -top-32 -right-32 w-96 h-96 rounded-full blur-3xl pointer-events-none opacity-25"
+             style="background: radial-gradient(circle, rgba(42,157,143,0.6), transparent 70%)"></div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+
+            <div class="max-w-2xl mb-16">
+                <span class="section-label" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.75)">The Eye Associates Difference</span>
+                <h2 class="font-display text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                    Advanced Technology.<br>Personal Care.
+                </h2>
+                <p class="text-white/60 leading-relaxed mt-5">
+                    We invest in the best diagnostic tools available so you get accurate answers
+                    faster — without sacrificing the personal attention you deserve.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+
+                <div class="p-8 rounded-2xl" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(8px)">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background: rgba(42,157,143,0.2); border: 1px solid rgba(42,157,143,0.3); color: #2A9D8F">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
+                    <h3 class="font-display font-bold text-white text-xl mb-3">Digital Retinal Imaging</h3>
+                    <p class="text-white/60 text-sm leading-relaxed">High-resolution imaging of the retina detects early signs of disease — without dilation in many cases. Your full eye health history, preserved digitally.</p>
+                </div>
+
+                <div class="p-8 rounded-2xl" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(8px)">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background: rgba(59,96,165,0.3); border: 1px solid rgba(59,96,165,0.4); color: #7BA3D4">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3 class="font-display font-bold text-white text-xl mb-3">OCT Scanning</h3>
+                    <p class="text-white/60 text-sm leading-relaxed">Optical Coherence Tomography provides cross-sectional imaging of retinal layers with micron-level precision — the gold standard for macular and glaucoma assessment.</p>
+                </div>
+
+                <div class="p-8 rounded-2xl" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(8px)">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background: rgba(42,157,143,0.2); border: 1px solid rgba(42,157,143,0.3); color: #2A9D8F">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    </div>
+                    <h3 class="font-display font-bold text-white text-xl mb-3">Electronic Records & Portal</h3>
+                    <p class="text-white/60 text-sm leading-relaxed">Access your prescriptions, visit notes, and appointment history anytime through our secure online patient portal. No phone tag required.</p>
+                </div>
+
+            </div>
+
+            <!-- Inline stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 pt-12 border-t" style="border-color: rgba(255,255,255,0.08)">
+                <div>
+                    <p class="font-display text-4xl font-extrabold text-white mb-1">98%</p>
+                    <p class="text-sm text-white/50">Patient Satisfaction</p>
+                </div>
+                <div>
+                    <p class="font-display text-4xl font-extrabold text-white mb-1">3</p>
+                    <p class="text-sm text-white/50">Board-Certified ODs</p>
+                </div>
+                <div>
+                    <p class="font-display text-4xl font-extrabold text-white mb-1">&lt;48h</p>
+                    <p class="text-sm text-white/50">Average Wait for Appt</p>
+                </div>
+                <div>
+                    <p class="font-display text-4xl font-extrabold text-white mb-1">6</p>
+                    <p class="text-sm text-white/50">Days a Week Open</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         MEET THE DOCTORS
+    ═══════════════════════════════════════ -->
+    <section id="doctors" class="py-28 scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+                <div>
+                    <span class="section-label">Our Team</span>
+                    <h2 class="font-display text-4xl lg:text-5xl font-extrabold text-ea-ink tracking-tight leading-tight">
+                        Doctors Who Actually<br>
+                        <span class="headline-gradient">Know Your Name.</span>
+                    </h2>
+                </div>
+                <a href="#" class="btn-ghost flex-shrink-0" style="padding: 0.75rem 1.5rem; font-size:0.875rem; border-radius:12px">
+                    Full Team
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+
+                <!-- Doctor Card -->
+                <div class="rounded-2xl overflow-hidden surface-card group">
+                    <div class="doctor-photo h-72 flex items-end justify-center pb-0"
+                         style="background: linear-gradient(160deg, #C8D8EE 0%, #a0bcd8 100%)">
+                        <div class="flex flex-col items-center">
+                            <div class="w-24 h-24 rounded-full bg-ea-sky/50 mb-0"></div>
+                            <div class="w-40 h-32 rounded-t-3xl bg-ea-cobalt/25"></div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <h3 class="font-display font-bold text-ea-ink text-lg leading-tight">Dr. Sarah Mitchell</h3>
+                                <p class="text-sm text-ea-slate">O.D., F.A.A.O.</p>
+                            </div>
+                            <span class="font-mono text-[9px] text-ea-cobalt bg-ea-ice border border-ea-cobalt/20 px-2 py-1 rounded-lg uppercase tracking-wider">Founder</span>
+                        </div>
+                        <p class="text-sm text-ea-slate leading-relaxed mb-4">Specializes in ocular disease management and dry eye therapy. Fellow of the American Academy of Optometry with 20+ years experience.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-display font-semibold text-ea-cobalt bg-ea-ice px-3 py-1 rounded-lg">Dry Eye</span>
+                            <span class="text-xs font-display font-semibold text-ea-cobalt bg-ea-ice px-3 py-1 rounded-lg">Glaucoma</span>
+                            <span class="text-xs font-display font-semibold text-ea-cobalt bg-ea-ice px-3 py-1 rounded-lg">Retinal Disease</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rounded-2xl overflow-hidden surface-card group">
+                    <div class="doctor-photo h-72 flex items-end justify-center pb-0"
+                         style="background: linear-gradient(160deg, #b8d0e8 0%, #8db5d4 100%)">
+                        <div class="flex flex-col items-center">
+                            <div class="w-24 h-24 rounded-full bg-ea-sky/50 mb-0"></div>
+                            <div class="w-40 h-32 rounded-t-3xl bg-ea-cobalt/25"></div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <h3 class="font-display font-bold text-ea-ink text-lg leading-tight">Dr. James Patel</h3>
+                                <p class="text-sm text-ea-slate">O.D.</p>
+                            </div>
+                            <span class="font-mono text-[9px] text-ea-teal bg-ea-teal/10 border border-ea-teal/25 px-2 py-1 rounded-lg uppercase tracking-wider">Pediatrics</span>
+                        </div>
+                        <p class="text-sm text-ea-slate leading-relaxed mb-4">Pediatric eye care specialist with a passion for making young patients feel comfortable. Experienced in myopia management and vision therapy.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-display font-semibold text-ea-cobalt bg-ea-ice px-3 py-1 rounded-lg">Pediatrics</span>
+                            <span class="text-xs font-display font-semibold text-ea-cobalt bg-ea-ice px-3 py-1 rounded-lg">Myopia Control</span>
+                            <span class="text-xs font-display font-semibold text-ea-cobalt bg-ea-ice px-3 py-1 rounded-lg">Vision Therapy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rounded-2xl overflow-hidden surface-card group">
+                    <div class="doctor-photo h-72 flex items-end justify-center pb-0"
+                         style="background: linear-gradient(160deg, #d0e0f0 0%, #b0cadf 100%)">
+                        <div class="flex flex-col items-center">
+                            <div class="w-24 h-24 rounded-full bg-ea-sky/50 mb-0"></div>
+                            <div class="w-40 h-32 rounded-t-3xl bg-ea-cobalt/25"></div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <h3 class="font-display font-bold text-ea-ink text-lg leading-tight">Dr. Lauren Ortiz</h3>
+                                <p class="text-sm text-ea-slate">O.D.</p>
+                            </div>
+                            <span class="font-mono text-[9px] text-ea-cobalt bg-ea-ice border border-ea-cobalt/20 px-2 py-1 rounded-lg uppercase tracking-wider">Contacts</span>
+                        </div>
+                        <p class="text-sm text-ea-slate leading-relaxed mb-4">Contact lens specialist with expertise in scleral lenses and keratoconus. Committed to finding the right lens solution for every unique cornea.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-display font-semibold text-ea-cobalt bg-ea-ice px-3 py-1 rounded-lg">Scleral Lenses</span>
+                            <span class="text-xs font-display font-semibold text-ea-cobalt bg-ea-ice px-3 py-1 rounded-lg">Keratoconus</span>
+                            <span class="text-xs font-display font-semibold text-ea-cobalt bg-ea-ice px-3 py-1 rounded-lg">LASIK Co-Mgmt</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         TESTIMONIALS
+    ═══════════════════════════════════════ -->
+    <section id="testimonials" class="py-28 scroll-mt-20" style="background: #F0F5FC">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+            <div class="text-center mb-14">
+                <span class="section-label">Patient Stories</span>
+                <h2 class="font-display text-4xl lg:text-5xl font-extrabold text-ea-ink tracking-tight">
+                    What Our Patients Say.
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+
+                <div class="p-8 rounded-2xl testimonial-card">
+                    <div class="flex gap-0.5 mb-5">
+                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                    </div>
+                    <p class="text-ea-slate leading-relaxed mb-7 text-sm">
+                        "I've been coming to Eye Associates for over a decade and I wouldn't trust anyone else with my family's vision. Dr. Mitchell caught early signs of glaucoma in my father that another clinic had missed completely."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-ea-ice border border-ea-mist flex items-center justify-center font-display font-bold text-ea-cobalt text-sm flex-shrink-0">KR</div>
+                        <div>
+                            <p class="font-display font-bold text-ea-ink text-sm">Karen R.</p>
+                            <p class="text-xs text-ea-slate">Patient since 2013</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-8 rounded-2xl testimonial-card">
+                    <div class="flex gap-0.5 mb-5">
+                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                    </div>
+                    <p class="text-ea-slate leading-relaxed mb-7 text-sm">
+                        "My son was terrified of eye exams after a bad experience elsewhere. Dr. Patel was so patient and kind — my son actually asked when he could come back. The whole staff made him feel like a superhero."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-ea-ice border border-ea-mist flex items-center justify-center font-display font-bold text-ea-cobalt text-sm flex-shrink-0">TM</div>
+                        <div>
+                            <p class="font-display font-bold text-ea-ink text-sm">Tom M.</p>
+                            <p class="text-xs text-ea-slate">Parent / Patient</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-8 rounded-2xl testimonial-card">
+                    <div class="flex gap-0.5 mb-5">
+                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                    </div>
+                    <p class="text-ea-slate leading-relaxed mb-7 text-sm">
+                        "I've worn contacts for 20 years and always struggled with dry, uncomfortable lenses by mid-afternoon. Dr. Ortiz fitted me for scleral lenses and it genuinely changed my life. Crystal clear, all day long."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-ea-ice border border-ea-mist flex items-center justify-center font-display font-bold text-ea-cobalt text-sm flex-shrink-0">AL</div>
+                        <div>
+                            <p class="font-display font-bold text-ea-ink text-sm">Amanda L.</p>
+                            <p class="text-xs text-ea-slate">Patient since 2020</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Google badge -->
+            <div class="flex items-center justify-center gap-4 mt-12">
+                <div class="flex items-center gap-2 bg-white border border-ea-mist rounded-2xl px-5 py-3 shadow-sm">
+                    <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                    <div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="font-display font-bold text-ea-ink text-sm">4.9</span>
+                            <div class="flex gap-0.5">
+                                <span class="star text-xs">★</span><span class="star text-xs">★</span><span class="star text-xs">★</span><span class="star text-xs">★</span><span class="star text-xs">★</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-ea-slate">Based on 340+ Google Reviews</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         BOOK / CTA BANNER
+    ═══════════════════════════════════════ -->
+    <section id="book" class="py-24 relative overflow-hidden scroll-mt-20"
+             style="background: linear-gradient(135deg, #3B60A5 0%, #2A9D8F 100%)">
+        <div class="absolute inset-0 dot-texture-white opacity-30 pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-80 h-80 rounded-full blur-3xl pointer-events-none opacity-30"
+             style="background: rgba(255,255,255,0.15)"></div>
+        <div class="absolute -top-16 -right-16 w-64 h-64 rounded-full blur-3xl pointer-events-none opacity-20"
+             style="background: rgba(255,255,255,0.2)"></div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-10">
+
+                <div class="text-center lg:text-left">
+                    <p class="font-mono text-[10px] text-white/60 uppercase tracking-[0.3em] mb-4">Schedule Today</p>
+                    <h2 class="font-display text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-4">
+                        Ready to See Clearly?
+                    </h2>
+                    <p class="text-white/70 text-lg leading-relaxed max-w-xl">
+                        Same-week appointments available. Most insurance accepted. Our team is
+                        ready to give your eyes the care they deserve.
+                    </p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row lg:flex-col gap-4 flex-shrink-0">
+                    <a href="#" class="font-display font-bold text-ea-cobalt bg-white hover:bg-ea-ice px-8 py-4 rounded-2xl text-base tracking-wide transition-all flex items-center justify-center gap-2"
+                       style="box-shadow: 0 4px 16px rgba(0,0,0,0.15); min-width:220px">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        Book Online
+                    </a>
+                    <a href="tel:2085550200"
+                       class="font-display font-bold text-white border-2 border-white/40 hover:border-white hover:bg-white/10 px-8 py-4 rounded-2xl text-base tracking-wide transition-all flex items-center justify-center gap-2"
+                       style="min-width:220px">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6 6l.94-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        (208) 555-0200
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         FOOTER
+    ═══════════════════════════════════════ -->
+    <footer id="contact" class="footer-bg scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 pt-20 pb-10">
+
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+
+                <!-- Brand -->
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-2.5 mb-5">
+                        <div class="w-9 h-9 rounded-xl bg-ea-cobalt flex items-center justify-center flex-shrink-0">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/></svg>
+                        </div>
+                        <div>
+                            <span class="font-display font-extrabold text-white text-base leading-none block">Eye Associates</span>
+                            <span class="font-mono text-[9px] text-white/40 tracking-[0.15em] uppercase">of Idaho</span>
+                        </div>
+                    </div>
+                    <p class="text-white/45 text-sm leading-relaxed mb-6">
+                        Idaho's trusted eye care specialists. Serving patients with precision, compassion, and clarity since 1999.
+                    </p>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-9 h-9 rounded-xl flex items-center justify-center transition-colors" style="background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.5);" onmouseover="this.style.background='rgba(59,96,165,0.5)';this.style.color='white'" onmouseout="this.style.background='rgba(255,255,255,0.07)';this.style.color='rgba(255,255,255,0.5)'">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-xl flex items-center justify-center transition-colors" style="background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.5);" onmouseover="this.style.background='rgba(59,96,165,0.5)';this.style.color='white'" onmouseout="this.style.background='rgba(255,255,255,0.07)';this.style.color='rgba(255,255,255,0.5)'">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-xl flex items-center justify-center transition-colors" style="background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.5);" onmouseover="this.style.background='rgba(59,96,165,0.5)';this.style.color='white'" onmouseout="this.style.background='rgba(255,255,255,0.07)';this.style.color='rgba(255,255,255,0.5)'">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <p class="font-display font-bold text-white text-sm mb-5">Services</p>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm text-white/45 hover:text-white transition-colors">Comprehensive Eye Exams</a></li>
+                        <li><a href="#" class="text-sm text-white/45 hover:text-white transition-colors">Contact Lens Fittings</a></li>
+                        <li><a href="#" class="text-sm text-white/45 hover:text-white transition-colors">Medical Eye Care</a></li>
+                        <li><a href="#" class="text-sm text-white/45 hover:text-white transition-colors">Pediatric Eye Care</a></li>
+                        <li><a href="#" class="text-sm text-white/45 hover:text-white transition-colors">Dry Eye Treatment</a></li>
+                        <li><a href="#" class="text-sm text-white/45 hover:text-white transition-colors">LASIK Co-Management</a></li>
+                    </ul>
+                </div>
+
+                <!-- Patient Info -->
+                <div>
+                    <p class="font-display font-bold text-white text-sm mb-5">Patient Info</p>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm text-white/45 hover:text-white transition-colors">New Patients</a></li>
+                        <li><a href="#" class="text-sm text-white/45 hover:text-white transition-colors">Insurance & Billing</a></li>
+                        <li><a href="#" class="text-sm text-white/45 hover:text-white transition-colors">Patient Portal</a></li>
+                        <li><a href="#" class="text-sm text-white/45 hover:text-white transition-colors">Online Forms</a></li>
+                        <li><a href="#" class="text-sm text-white/45 hover:text-white transition-colors">FAQs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Hours -->
+                <div>
+                    <p class="font-display font-bold text-white text-sm mb-5">Contact & Hours</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 text-sm text-white/45">
+                            <svg class="flex-shrink-0 mt-0.5" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            1204 N Eagle Road,<br>Meridian, ID 83642
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-white/45">
+                            <svg class="flex-shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6 6l.94-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            (208) 555-0200
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-white/45">
+                            <svg class="flex-shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            hello@eyeassociatesi.com
+                        </li>
+                        <li class="text-sm text-white/45 pt-1">
+                            <p class="text-white/70 font-display font-semibold text-xs mb-2">Office Hours</p>
+                            <p>Mon–Fri &nbsp; 8:00am – 5:30pm</p>
+                            <p>Saturday &nbsp; 9:00am – 2:00pm</p>
+                            <p>Sunday &nbsp; Closed</p>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t flex flex-col md:flex-row items-center justify-between gap-4" style="border-color: rgba(255,255,255,0.08)">
+                <p class="font-mono text-[10px] text-white/25 uppercase tracking-widest">© 2026 Eye Associates of Idaho. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="font-mono text-[10px] text-white/25 uppercase tracking-widest hover:text-white/50 transition-colors">Privacy Policy</a>
+                    <a href="#" class="font-mono text-[10px] text-white/25 uppercase tracking-widest hover:text-white/50 transition-colors">Accessibility</a>
+                    <a href="#" class="font-mono text-[10px] text-white/25 uppercase tracking-widest hover:text-white/50 transition-colors">Sitemap</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
