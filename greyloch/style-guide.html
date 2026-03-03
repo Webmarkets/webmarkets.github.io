@@ -1,0 +1,2728 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Greyloch | Brand Style Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ==============================================
+           DESIGN TOKENS
+        =============================================== */
+      :root {
+        /* ---- Brand Colors (Brand Guide p.12) ---- */
+        --green: #009639;
+        --black: #000000;
+        --white: #ffffff;
+        --dark-grey: #444343;
+        --light-grey: #868686;
+
+        /* ---- Light UI Palette (creative freedom) ---- */
+        --bg: #f5f4f1; /* warm off-white — like freshly finished cabinetry */
+        --bg-raised: #ffffff;
+        --bg-sunken: #eceae6;
+        --text-primary: #1a1a18;
+        --green-glow: rgba(0, 150, 57, 0.28);
+        --green-subtle: rgba(0, 150, 57, 0.07);
+        --green-border: rgba(0, 150, 57, 0.22);
+        --divider: rgba(0, 0, 0, 0.09);
+
+        /* ---- Glass / Window Panel (frosted glass on light) ---- */
+        --glass-bg: rgba(255, 255, 255, 0.58);
+        --glass-bg-hover: rgba(255, 255, 255, 0.82);
+        --glass-border: rgba(255, 255, 255, 0.88);
+        --glass-border-hover: rgba(0, 150, 57, 0.22);
+
+        /* ---- Typography (Brand Guide p.14) ---- */
+        /* Phage requires a licensed font file; Oswald is the closest web fallback */
+        --font-display: "Phage", "Oswald", sans-serif;
+        --font-secondary: "Oswald", sans-serif;
+        --font-body: "Open Sans", sans-serif;
+
+        /* ---- Motion ---- */
+        --ease: all 0.28s ease;
+      }
+
+      /* ==============================================
+           RESET & BASE
+        =============================================== */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: var(--bg);
+        color: var(--text-primary);
+        font-family: var(--font-body);
+        font-size: 16px;
+        line-height: 1.65;
+        overflow-x: hidden;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+      }
+      button {
+        cursor: pointer;
+        font-family: inherit;
+        border: none;
+      }
+      ul {
+        list-style: none;
+      }
+      textarea {
+        resize: vertical;
+      }
+
+      /* Background texture removed — clean light surface */
+      .bg-texture {
+        display: none;
+      }
+
+      /* ==============================================
+           LAYOUT
+        =============================================== */
+      .layout {
+        display: flex;
+        min-height: 100vh;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* ==============================================
+           SIDEBAR
+        =============================================== */
+      .sidebar {
+        width: 256px;
+        flex-shrink: 0;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow-y: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        background: rgba(255, 255, 255, 0.94);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border-right: 1px solid var(--divider);
+        box-shadow: 2px 0 16px rgba(0, 0, 0, 0.04);
+      }
+
+      .sidebar::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Green accent stripe — echoes the green logo stripe on the building */
+      .sidebar::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          transparent 0%,
+          var(--green) 20%,
+          var(--green) 80%,
+          transparent 100%
+        );
+        opacity: 0.55;
+      }
+
+      .sidebar-inner {
+        padding: 2.25rem 1.75rem;
+      }
+
+      .sidebar-logo {
+        display: block;
+        margin-bottom: 1.75rem;
+        opacity: 0.92;
+        transition: opacity 0.25s ease;
+      }
+      .sidebar-logo:hover {
+        opacity: 1;
+      }
+
+      .sidebar-divider {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        margin-bottom: 2.25rem;
+      }
+      .sidebar-divider .line {
+        flex: 1;
+        height: 1px;
+        background: var(--divider);
+      }
+      .sidebar-divider span {
+        font-family: var(--font-secondary);
+        font-weight: 300;
+        font-size: 8.5px;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--light-grey);
+      }
+
+      .sidebar-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 2.25rem;
+      }
+
+      .nav-group-label {
+        font-family: var(--font-secondary);
+        font-weight: 300;
+        font-size: 8.5px;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        color: var(--light-grey);
+        margin-bottom: 0.6rem;
+      }
+
+      .nav-group a {
+        display: block;
+        padding: 0.4rem 0 0.4rem 0.75rem;
+        font-family: var(--font-body);
+        font-size: 0.83rem;
+        color: var(--dark-grey);
+        border-left: 2px solid transparent;
+        transition:
+          color 0.22s ease,
+          border-color 0.22s ease,
+          padding-left 0.22s ease;
+      }
+      .nav-group a:hover {
+        color: var(--black);
+        border-left-color: var(--green);
+        padding-left: 1rem;
+      }
+
+      /* ==============================================
+           MAIN CONTENT
+        =============================================== */
+      .main-content {
+        flex: 1;
+        padding: 4rem 5rem;
+        max-width: 1020px;
+      }
+
+      section {
+        margin-bottom: 6rem;
+        scroll-margin-top: 4rem;
+      }
+
+      /* ==============================================
+           HERO — BARREL VAULT ARCH
+           The sweeping curve of the Meridian headquarters
+        =============================================== */
+      .hero {
+        position: relative;
+        margin-bottom: 5rem;
+        min-height: 340px;
+        display: flex;
+        align-items: flex-end;
+        padding-bottom: 1rem;
+      }
+
+      .arch-wrap {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+      }
+
+      .arch-wrap svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-eyebrow {
+        font-family: var(--font-secondary);
+        font-weight: 300;
+        font-size: 0.7rem;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--green);
+        margin-bottom: 0.85rem;
+      }
+
+      .hero h1 {
+        font-family: var(--font-display);
+        font-size: 3.75rem;
+        font-weight: 700;
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        margin-bottom: 1.1rem;
+        background: linear-gradient(140deg, #1a1a18 0%, #444343 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .hero p {
+        font-size: 1.05rem;
+        color: var(--dark-grey);
+        max-width: 540px;
+        line-height: 1.75;
+      }
+
+      /* ==============================================
+           SECTION HEADER
+        =============================================== */
+      .section-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--divider);
+      }
+
+      .section-number {
+        font-family: var(--font-secondary);
+        font-weight: 700;
+        font-size: 0.68rem;
+        letter-spacing: 0.16em;
+        color: var(--green);
+        background: var(--green-subtle);
+        padding: 0.22rem 0.6rem;
+        border-radius: 3px;
+        border: 1px solid var(--green-border);
+      }
+
+      .section-header h2 {
+        font-family: var(--font-secondary);
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--black);
+        letter-spacing: 0.01em;
+      }
+
+      /* ==============================================
+           GLASS WINDOW CARD
+           Evokes the building's curtain-wall glass facade.
+           Translucent panel + window-pane grid overlay.
+        =============================================== */
+      .window-card {
+        position: relative;
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 2px;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        overflow: hidden;
+        transition: var(--ease);
+        box-shadow:
+          0 2px 16px rgba(0, 0, 0, 0.06),
+          inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      }
+
+      /* Window pane grid — dark mullion lines on frosted glass */
+      .window-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+        background-size: 88px 88px;
+        pointer-events: none;
+      }
+
+      /* Subtle green tint at top — light washing through the glass */
+      .window-card::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 35%;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 150, 57, 0.04),
+          transparent
+        );
+        pointer-events: none;
+      }
+
+      .window-card:hover {
+        border-color: var(--glass-border-hover);
+        background: var(--glass-bg-hover);
+        box-shadow:
+          0 6px 30px rgba(0, 0, 0, 0.08),
+          0 0 0 1px rgba(0, 150, 57, 0.12);
+      }
+
+      .window-card-body {
+        position: relative;
+        z-index: 1;
+        padding: 1.75rem;
+      }
+
+      /* ==============================================
+           FLAT CARD
+        =============================================== */
+      .flat-card {
+        background: var(--bg-raised);
+        border: 1px solid var(--divider);
+        border-radius: 2px;
+        padding: 1.75rem;
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
+      }
+
+      /* ==============================================
+           GREEN ACCENT CARD
+        =============================================== */
+      .accent-card {
+        background: var(--green-subtle);
+        border: 1px solid var(--green-border);
+        border-radius: 2px;
+        padding: 1.75rem;
+      }
+
+      /* ==============================================
+           GRID UTILITIES
+        =============================================== */
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+      .grid-3 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1.5rem;
+      }
+      .grid-color-primary {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+      .grid-color-support {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+
+      /* ==============================================
+           LABEL UTILITY
+        =============================================== */
+      .label {
+        font-family: var(--font-secondary);
+        font-weight: 300;
+        font-size: 0.65rem;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--light-grey);
+      }
+
+      .label-green {
+        color: var(--green);
+      }
+
+      /* ==============================================
+           BUTTONS
+        =============================================== */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        font-family: var(--font-secondary);
+        font-weight: 700;
+        font-size: 0.88rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.875rem 2.25rem;
+        border-radius: 2px;
+        border: none;
+        transition: var(--ease);
+        white-space: nowrap;
+      }
+
+      /* Primary: solid green with glow — the building's signature green */
+      .btn-primary {
+        background: var(--green);
+        color: var(--white);
+        box-shadow: 0 0 24px rgba(0, 150, 57, 0.32);
+      }
+      .btn-primary:hover {
+        background: #00ab42;
+        box-shadow:
+          0 0 40px rgba(0, 150, 57, 0.55),
+          0 0 80px rgba(0, 150, 57, 0.18);
+        transform: translateY(-1px);
+      }
+      .btn-primary:active {
+        transform: translateY(0);
+      }
+
+      /* Secondary: dark background, white border */
+      .btn-secondary {
+        background: transparent;
+        color: var(--white);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+      }
+      .btn-secondary:hover {
+        border-color: rgba(255, 255, 255, 0.5);
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      /* Ghost: transparent, green border */
+      .btn-ghost {
+        background: transparent;
+        color: var(--green);
+        border: 1px solid var(--green-border);
+      }
+      .btn-ghost:hover {
+        background: var(--green-subtle);
+        border-color: var(--green);
+      }
+
+      /* Disabled */
+      .btn[disabled] {
+        opacity: 0.38;
+        cursor: not-allowed;
+        pointer-events: none;
+      }
+
+      /* ==============================================
+           FORM ELEMENTS
+        =============================================== */
+      .form-label {
+        display: block;
+        font-family: var(--font-secondary);
+        font-weight: 300;
+        font-size: 0.64rem;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--light-grey);
+        margin-bottom: 0.5rem;
+      }
+
+      .form-input,
+      .form-select {
+        width: 100%;
+        background: var(--bg-raised);
+        border: 1px solid rgba(0, 0, 0, 0.14);
+        color: var(--text-primary);
+        padding: 0.85rem 1rem;
+        font-family: var(--font-body);
+        font-size: 0.88rem;
+        border-radius: 2px;
+        outline: none;
+        transition:
+          border-color 0.22s ease,
+          box-shadow 0.22s ease;
+        -webkit-appearance: none;
+        appearance: none;
+      }
+
+      .form-input::placeholder {
+        color: var(--light-grey);
+        opacity: 0.7;
+      }
+
+      .form-input:focus,
+      .form-select:focus {
+        border-color: var(--green);
+        box-shadow: 0 0 0 3px rgba(0, 150, 57, 0.12);
+      }
+
+      .form-select {
+        cursor: pointer;
+      }
+
+      .form-select option {
+        background: var(--bg-raised);
+        color: var(--text-primary);
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 1.4rem;
+      }
+
+      /* ==============================================
+           NAVIGATION — HORIZONTAL BAR
+        =============================================== */
+      .nav-bar {
+        display: flex;
+        align-items: stretch;
+        background: rgba(255, 255, 255, 0.88);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border: 1px solid var(--divider);
+        border-radius: 2px;
+        padding: 0 0.75rem;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+      }
+
+      .nav-bar a {
+        display: block;
+        padding: 1rem 1.1rem;
+        font-family: var(--font-secondary);
+        font-weight: 700;
+        font-size: 0.76rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--dark-grey);
+        border-bottom: 2px solid transparent;
+        transition:
+          color 0.22s ease,
+          border-color 0.22s ease;
+      }
+      .nav-bar a:hover,
+      .nav-bar a.active {
+        color: var(--black);
+        border-bottom-color: var(--green);
+      }
+
+      /* ==============================================
+           COPY TOAST
+        =============================================== */
+      .copy-toast {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        background: var(--green);
+        color: var(--white);
+        padding: 0.7rem 1.4rem;
+        border-radius: 3px;
+        font-family: var(--font-secondary);
+        font-weight: 700;
+        font-size: 0.82rem;
+        letter-spacing: 0.06em;
+        display: none;
+        z-index: 999;
+        animation: fadeUp 0.3s ease;
+        box-shadow: 0 4px 16px rgba(0, 150, 57, 0.3);
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ==============================================
+           CODE BLOCK
+        =============================================== */
+      .code-block {
+        background: var(--bg-sunken);
+        border: 1px solid var(--divider);
+        border-radius: 2px;
+        padding: 1.1rem;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 0.72rem;
+        color: var(--dark-grey);
+        line-height: 1.9;
+        white-space: pre;
+        overflow-x: auto;
+      }
+
+      /* ==============================================
+           RESPONSIVE
+        =============================================== */
+      @media (max-width: 1100px) {
+        .main-content {
+          padding: 3rem 3rem;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .sidebar {
+          display: none;
+        }
+        .main-content {
+          padding: 2.5rem 1.75rem;
+        }
+        .hero h1 {
+          font-size: 2.75rem;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .grid-2,
+        .grid-3,
+        .grid-color-primary,
+        .grid-color-support {
+          grid-template-columns: 1fr;
+        }
+        .nav-bar {
+          flex-wrap: wrap;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Curtain-wall window grid background texture -->
+    <div class="bg-texture"></div>
+
+    <div class="layout">
+      <!-- =============================================
+             SIDEBAR NAVIGATION
+        ============================================== -->
+      <aside class="sidebar">
+        <div class="sidebar-inner">
+          <a href="#" class="sidebar-logo">
+            <img
+              src="./Assets/Logos/Greyloch_Horizontal_Green-Black.png"
+              alt="Greyloch"
+              style="width: 160px"
+            />
+          </a>
+
+          <div class="sidebar-divider">
+            <div class="line"></div>
+            <span>Brand Guide</span>
+            <div class="line"></div>
+          </div>
+
+          <nav class="sidebar-nav">
+            <div class="nav-group">
+              <p class="nav-group-label">Foundations</p>
+              <a href="#mission">Mission & Values</a>
+              <a href="#voice">Voice & Tone</a>
+              <a href="#colors">Colors</a>
+              <a href="#typography">Typography</a>
+            </div>
+
+            <div class="nav-group">
+              <p class="nav-group-label">Shape Language</p>
+              <a href="#the-arch">The Arch</a>
+              <a href="#window-grid">Window Grid</a>
+              <a href="#radius">Corner Radius</a>
+            </div>
+
+            <div class="nav-group">
+              <p class="nav-group-label">Components</p>
+              <a href="#buttons">Buttons</a>
+              <a href="#cards">Cards & Panels</a>
+              <a href="#forms">Form Elements</a>
+              <a href="#navigation">Navigation</a>
+            </div>
+
+            <div class="nav-group">
+              <p class="nav-group-label">Creative</p>
+              <a href="#imagery">Imagery Style</a>
+              <a href="#glows">Glows & Gradients</a>
+            </div>
+          </nav>
+        </div>
+      </aside>
+
+      <!-- =============================================
+             MAIN CONTENT
+        ============================================== -->
+      <main class="main-content">
+        <!-- ==========================================
+                 HERO — The barrel vault arch
+            =========================================== -->
+        <header class="hero">
+          <!-- Barrel vault arch — the defining curve of the Meridian building -->
+          <div class="arch-wrap">
+            <svg
+              viewBox="0 0 1100 340"
+              preserveAspectRatio="none"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <!-- Arch fill (the sky inside the dome) -->
+              <path
+                d="M -60 340 Q 550 -55 1160 340 Z"
+                fill="rgba(0, 150, 57, 0.042)"
+              />
+              <!-- Primary arch curve -->
+              <path
+                d="M -60 340 Q 550 -55 1160 340"
+                stroke="rgba(0, 150, 57, 0.42)"
+                stroke-width="1.5"
+              />
+              <!-- Inner echo arc -->
+              <path
+                d="M 40 340 Q 550 20 1060 340"
+                stroke="rgba(0, 150, 57, 0.1)"
+                stroke-width="7"
+              />
+              <!-- Structural ribs (the steel frame of the vault) -->
+              <line
+                x1="180"
+                y1="338"
+                x2="240"
+                y2="115"
+                stroke="rgba(0,0,0,0.055)"
+                stroke-width="1"
+              />
+              <line
+                x1="370"
+                y1="338"
+                x2="415"
+                y2="12"
+                stroke="rgba(0,0,0,0.055)"
+                stroke-width="1"
+              />
+              <line
+                x1="550"
+                y1="338"
+                x2="550"
+                y2="-56"
+                stroke="rgba(0,0,0,0.055)"
+                stroke-width="1"
+              />
+              <line
+                x1="730"
+                y1="338"
+                x2="685"
+                y2="12"
+                stroke="rgba(0,0,0,0.055)"
+                stroke-width="1"
+              />
+              <line
+                x1="920"
+                y1="338"
+                x2="860"
+                y2="115"
+                stroke="rgba(0,0,0,0.055)"
+                stroke-width="1"
+              />
+              <!-- Horizontal ring lines (latitudinal bands of the vault) -->
+              <path
+                d="M 20 310 Q 550 30 1080 310"
+                stroke="rgba(0,0,0,0.04)"
+                stroke-width="1"
+              />
+              <path
+                d="M 60 280 Q 550 60 1040 280"
+                stroke="rgba(0,0,0,0.03)"
+                stroke-width="1"
+              />
+              <path
+                d="M 110 248 Q 550 100 990 248"
+                stroke="rgba(0,0,0,0.022)"
+                stroke-width="1"
+              />
+            </svg>
+          </div>
+
+          <div class="hero-content">
+            <p class="hero-eyebrow">Greyloch LLC &mdash; 2025</p>
+            <h1>Brand Style Guide</h1>
+            <p>
+              A comprehensive reference for Greyloch's visual identity — built
+              on strength, precision, and timeless craftsmanship.
+            </p>
+          </div>
+        </header>
+
+        <!-- ==========================================
+                 MISSION & VALUES
+            =========================================== -->
+        <section id="mission">
+          <div class="accent-card" style="margin-bottom: 1.5rem">
+            <p class="label label-green" style="margin-bottom: 0.8rem">
+              Our Mission
+            </p>
+            <p
+              style="
+                font-family: var(--font-secondary);
+                font-size: 1.35rem;
+                font-weight: 300;
+                color: var(--black);
+                line-height: 1.65;
+                letter-spacing: 0.01em;
+              "
+            >
+              We build more than cabinets — we build enduring pieces and
+              relationships that stand the test of time. Our work is a
+              reflection of our values, leaving a lasting mark of beauty,
+              function, and trust for generations to come.
+            </p>
+          </div>
+
+          <div class="grid-2">
+            <div class="window-card">
+              <div class="window-card-body">
+                <p
+                  style="
+                    color: var(--green);
+                    font-family: var(--font-secondary);
+                    font-weight: 700;
+                    font-size: 0.8rem;
+                    letter-spacing: 0.18em;
+                    text-transform: uppercase;
+                    margin-bottom: 0.6rem;
+                  "
+                >
+                  Selflessness
+                </p>
+                <p
+                  style="
+                    font-size: 0.85rem;
+                    color: var(--light-grey);
+                    line-height: 1.7;
+                  "
+                >
+                  We put the needs of our clients, team, and community first,
+                  working with humility and collaboration to create cabinetry
+                  that enhances lives and spaces.
+                </p>
+              </div>
+            </div>
+            <div class="window-card">
+              <div class="window-card-body">
+                <p
+                  style="
+                    color: var(--green);
+                    font-family: var(--font-secondary);
+                    font-weight: 700;
+                    font-size: 0.8rem;
+                    letter-spacing: 0.18em;
+                    text-transform: uppercase;
+                    margin-bottom: 0.6rem;
+                  "
+                >
+                  Energy
+                </p>
+                <p
+                  style="
+                    font-size: 0.85rem;
+                    color: var(--light-grey);
+                    line-height: 1.7;
+                  "
+                >
+                  We bring passion and enthusiasm to every project, approaching
+                  challenges with determination and creativity to deliver
+                  results that exceed expectations.
+                </p>
+              </div>
+            </div>
+            <div class="window-card">
+              <div class="window-card-body">
+                <p
+                  style="
+                    color: var(--green);
+                    font-family: var(--font-secondary);
+                    font-weight: 700;
+                    font-size: 0.8rem;
+                    letter-spacing: 0.18em;
+                    text-transform: uppercase;
+                    margin-bottom: 0.6rem;
+                  "
+                >
+                  Excellence
+                </p>
+                <p
+                  style="
+                    font-size: 0.85rem;
+                    color: var(--light-grey);
+                    line-height: 1.7;
+                  "
+                >
+                  We hold ourselves to the highest standards in design,
+                  materials, and craftsmanship. Every cut, joint, and finish
+                  reflects our dedication to precision.
+                </p>
+              </div>
+            </div>
+            <div class="window-card">
+              <div class="window-card-body">
+                <p
+                  style="
+                    color: var(--green);
+                    font-family: var(--font-secondary);
+                    font-weight: 700;
+                    font-size: 0.8rem;
+                    letter-spacing: 0.18em;
+                    text-transform: uppercase;
+                    margin-bottom: 0.6rem;
+                  "
+                >
+                  Legacy
+                </p>
+                <p
+                  style="
+                    font-size: 0.85rem;
+                    color: var(--light-grey);
+                    line-height: 1.7;
+                  "
+                >
+                  We build more than cabinets — we build enduring pieces and
+                  relationships that stand the test of time, leaving a lasting
+                  mark of beauty and trust.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+                 01 — BRAND VOICE & TONE
+            =========================================== -->
+        <section id="voice">
+          <div class="section-header">
+            <span class="section-number">01</span>
+            <h2>Brand Voice & Tone</h2>
+          </div>
+
+          <div class="grid-3">
+            <div class="window-card">
+              <div class="window-card-body">
+                <p
+                  style="
+                    color: var(--green);
+                    font-family: var(--font-secondary);
+                    font-weight: 700;
+                    font-size: 1.15rem;
+                    margin-bottom: 0.6rem;
+                  "
+                >
+                  Confident
+                </p>
+                <p
+                  style="
+                    font-size: 0.84rem;
+                    color: var(--light-grey);
+                    line-height: 1.7;
+                  "
+                >
+                  Speak with conviction. Be direct, clear, and assertive.
+                  Communicate belief in what we offer — without arrogance.
+                </p>
+              </div>
+            </div>
+            <div class="window-card">
+              <div class="window-card-body">
+                <p
+                  style="
+                    color: var(--green);
+                    font-family: var(--font-secondary);
+                    font-weight: 700;
+                    font-size: 1.15rem;
+                    margin-bottom: 0.6rem;
+                  "
+                >
+                  Innovative
+                </p>
+                <p
+                  style="
+                    font-size: 0.84rem;
+                    color: var(--light-grey);
+                    line-height: 1.7;
+                  "
+                >
+                  Always look forward. Highlight creative solutions. Show we're
+                  breaking new ground and excited about pushing boundaries.
+                </p>
+              </div>
+            </div>
+            <div class="window-card">
+              <div class="window-card-body">
+                <p
+                  style="
+                    color: var(--green);
+                    font-family: var(--font-secondary);
+                    font-weight: 700;
+                    font-size: 1.15rem;
+                    margin-bottom: 0.6rem;
+                  "
+                >
+                  Human
+                </p>
+                <p
+                  style="
+                    font-size: 0.84rem;
+                    color: var(--light-grey);
+                    line-height: 1.7;
+                  "
+                >
+                  Ground futuristic language in real human values. Highlight how
+                  innovation benefits people — not just technology.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flat-card" style="margin-top: 1.5rem">
+            <p class="label label-green" style="margin-bottom: 1rem">
+              Voice in Practice
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 0.85rem">
+              <div style="display: flex; align-items: flex-start; gap: 1rem">
+                <span
+                  style="
+                    color: var(--green);
+                    font-family: var(--font-secondary);
+                    font-weight: 700;
+                    font-size: 0.7rem;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    padding-top: 0.1rem;
+                    min-width: 44px;
+                  "
+                  >DO</span
+                >
+                <p
+                  style="
+                    font-size: 0.88rem;
+                    color: var(--black);
+                    line-height: 1.6;
+                  "
+                >
+                  "We've created something we're really proud of, and we're
+                  excited for you to experience it."
+                </p>
+              </div>
+              <div style="display: flex; align-items: flex-start; gap: 1rem">
+                <span
+                  style="
+                    color: var(--light-grey);
+                    font-family: var(--font-secondary);
+                    font-weight: 700;
+                    font-size: 0.7rem;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    padding-top: 0.1rem;
+                    min-width: 44px;
+                    opacity: 0.5;
+                  "
+                  >DON'T</span
+                >
+                <p
+                  style="
+                    font-size: 0.88rem;
+                    color: var(--light-grey);
+                    opacity: 0.55;
+                    line-height: 1.6;
+                    text-decoration: line-through;
+                  "
+                >
+                  "This is the best cabinetry in the world."
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+                 02 — COLORS
+            =========================================== -->
+        <section id="colors">
+          <div class="section-header">
+            <span class="section-number">02</span>
+            <h2>Colors</h2>
+          </div>
+
+          <p
+            style="
+              font-size: 0.9rem;
+              color: var(--light-grey);
+              margin-bottom: 2rem;
+              max-width: 620px;
+              line-height: 1.75;
+            "
+          >
+            The vibrant green is the heart of our brand — symbolizing growth,
+            creativity, and sustainability. Paired with powerful black and clean
+            white, we strike a balance between bold precision and timeless
+            simplicity. Supporting shades of charcoal and cool gray add depth
+            and refinement.
+          </p>
+
+          <!-- Primary Palette -->
+          <p class="label" style="margin-bottom: 1.1rem">Primary Palette</p>
+          <div class="grid-color-primary" style="margin-bottom: 2.25rem">
+            <div
+              style="cursor: pointer"
+              onclick="copyToClipboard('#009639')"
+              title="Click to copy"
+            >
+              <div
+                style="
+                  height: 100px;
+                  background: #009639;
+                  border-radius: 2px;
+                  margin-bottom: 0.85rem;
+                  box-shadow:
+                    0 0 28px rgba(0, 150, 57, 0.35),
+                    0 0 60px rgba(0, 150, 57, 0.12);
+                "
+              ></div>
+              <p
+                style="
+                  font-family: var(--font-secondary);
+                  font-size: 0.88rem;
+                  font-weight: 700;
+                  color: var(--green);
+                  margin-bottom: 0.2rem;
+                "
+              >
+                Green
+              </p>
+              <p
+                style="
+                  font-family: var(--font-secondary);
+                  font-weight: 300;
+                  font-size: 0.68rem;
+                  color: var(--light-grey);
+                  letter-spacing: 0.1em;
+                "
+              >
+                #009639 &mdash; PRIMARY
+              </p>
+            </div>
+
+            <div
+              style="cursor: pointer"
+              onclick="copyToClipboard('#000000')"
+              title="Click to copy"
+            >
+              <div
+                style="
+                  height: 100px;
+                  background: #000000;
+                  border-radius: 2px;
+                  margin-bottom: 0.85rem;
+                  border: 1px solid rgba(255, 255, 255, 0.08);
+                "
+              ></div>
+              <p
+                style="
+                  font-family: var(--font-secondary);
+                  font-size: 0.88rem;
+                  font-weight: 700;
+                  margin-bottom: 0.2rem;
+                "
+              >
+                Black
+              </p>
+              <p
+                style="
+                  font-family: var(--font-secondary);
+                  font-weight: 300;
+                  font-size: 0.68rem;
+                  color: var(--light-grey);
+                  letter-spacing: 0.1em;
+                "
+              >
+                #000000 &mdash; FOUNDATION
+              </p>
+            </div>
+
+            <div
+              style="cursor: pointer"
+              onclick="copyToClipboard('#FFFFFF')"
+              title="Click to copy"
+            >
+              <div
+                style="
+                  height: 100px;
+                  background: #ffffff;
+                  border-radius: 2px;
+                  margin-bottom: 0.85rem;
+                "
+              ></div>
+              <p
+                style="
+                  font-family: var(--font-secondary);
+                  font-size: 0.88rem;
+                  font-weight: 700;
+                  margin-bottom: 0.2rem;
+                "
+              >
+                White
+              </p>
+              <p
+                style="
+                  font-family: var(--font-secondary);
+                  font-weight: 300;
+                  font-size: 0.68rem;
+                  color: var(--light-grey);
+                  letter-spacing: 0.1em;
+                "
+              >
+                #FFFFFF &mdash; FOUNDATION
+              </p>
+            </div>
+          </div>
+
+          <!-- Supporting Palette -->
+          <p class="label" style="margin-bottom: 1.1rem">Supporting Palette</p>
+          <div class="grid-color-support">
+            <div
+              style="cursor: pointer"
+              onclick="copyToClipboard('#444343')"
+              title="Click to copy"
+            >
+              <div
+                style="
+                  height: 80px;
+                  background: #444343;
+                  border-radius: 2px;
+                  margin-bottom: 0.85rem;
+                "
+              ></div>
+              <p
+                style="
+                  font-family: var(--font-secondary);
+                  font-size: 0.88rem;
+                  font-weight: 700;
+                  margin-bottom: 0.2rem;
+                "
+              >
+                Dark Grey
+              </p>
+              <p
+                style="
+                  font-family: var(--font-secondary);
+                  font-weight: 300;
+                  font-size: 0.68rem;
+                  color: var(--light-grey);
+                  letter-spacing: 0.1em;
+                "
+              >
+                #444343 &mdash; SUPPORTING
+              </p>
+            </div>
+
+            <div
+              style="cursor: pointer"
+              onclick="copyToClipboard('#868686')"
+              title="Click to copy"
+            >
+              <div
+                style="
+                  height: 80px;
+                  background: #868686;
+                  border-radius: 2px;
+                  margin-bottom: 0.85rem;
+                "
+              ></div>
+              <p
+                style="
+                  font-family: var(--font-secondary);
+                  font-size: 0.88rem;
+                  font-weight: 700;
+                  margin-bottom: 0.2rem;
+                "
+              >
+                Light Grey
+              </p>
+              <p
+                style="
+                  font-family: var(--font-secondary);
+                  font-weight: 300;
+                  font-size: 0.68rem;
+                  color: var(--light-grey);
+                  letter-spacing: 0.1em;
+                "
+              >
+                #868686 &mdash; SUPPORTING
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+                 03 — TYPOGRAPHY
+            =========================================== -->
+        <section id="typography">
+          <div class="section-header">
+            <span class="section-number">03</span>
+            <h2>Typography</h2>
+          </div>
+
+          <!-- Phage -->
+          <div class="flat-card" style="margin-bottom: 1.5rem">
+            <p class="label label-green" style="margin-bottom: 1rem">
+              Phage &mdash; Display / Header
+            </p>
+            <p
+              style="
+                font-family: var(--font-display);
+                font-size: 4rem;
+                font-weight: 700;
+                line-height: 1.05;
+                letter-spacing: -0.02em;
+                margin-bottom: 0.75rem;
+              "
+            >
+              GREYLOCH
+            </p>
+            <p
+              style="
+                font-family: var(--font-display);
+                font-size: 1.4rem;
+                font-weight: 700;
+                color: var(--light-grey);
+                margin-bottom: 1.25rem;
+                letter-spacing: 0.01em;
+              "
+            >
+              Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk
+            </p>
+            <div style="display: flex; gap: 1.5rem; flex-wrap: wrap">
+              <p style="font-size: 0.8rem; color: var(--light-grey)">
+                Usage: Hero headlines, section titles, major display text.
+              </p>
+              <p style="font-size: 0.8rem; color: var(--green)">
+                &#9432; Requires licensed font file — contact brand team.
+              </p>
+            </div>
+          </div>
+
+          <!-- Oswald -->
+          <div class="flat-card" style="margin-bottom: 1.5rem">
+            <p class="label label-green" style="margin-bottom: 1rem">
+              Oswald &mdash; Secondary Display
+            </p>
+            <p
+              style="
+                font-family: var(--font-secondary);
+                font-size: 2.25rem;
+                font-weight: 700;
+                line-height: 1.1;
+                margin-bottom: 0.4rem;
+              "
+            >
+              Bold — Subheadings, CTAs, Labels
+            </p>
+            <p
+              style="
+                font-family: var(--font-secondary);
+                font-size: 2.25rem;
+                font-weight: 300;
+                color: var(--light-grey);
+                line-height: 1.1;
+                margin-bottom: 1.25rem;
+              "
+            >
+              Light — Navigation, section labels
+            </p>
+            <div style="display: flex; gap: 1.5rem; flex-wrap: wrap">
+              <p style="font-size: 0.8rem; color: var(--light-grey)">
+                Usage: Subheadings, navigation, buttons, labels, section
+                numbers.
+              </p>
+              <p style="font-size: 0.8rem; color: var(--green)">
+                Available via Google Fonts.
+              </p>
+            </div>
+          </div>
+
+          <!-- Open Sans -->
+          <div class="flat-card">
+            <p class="label label-green" style="margin-bottom: 1rem">
+              Open Sans &mdash; Body
+            </p>
+            <p
+              style="
+                font-family: var(--font-body);
+                font-size: 1.05rem;
+                font-weight: 700;
+                margin-bottom: 0.6rem;
+              "
+            >
+              Bold — Body headings and strong emphasis within paragraphs
+            </p>
+            <p
+              style="
+                font-family: var(--font-body);
+                font-size: 1.05rem;
+                color: var(--light-grey);
+                line-height: 1.75;
+                margin-bottom: 1.25rem;
+              "
+            >
+              Regular — Body copy, paragraphs, and descriptive content. Open
+              Sans is our primary typeface for all readable content. Maintain
+              adequate line-height (1.65–1.8) and generous paragraph spacing for
+              comfortable reading across all devices.
+            </p>
+            <div style="display: flex; gap: 1.5rem; flex-wrap: wrap">
+              <p style="font-size: 0.8rem; color: var(--light-grey)">
+                Usage: Body text, form labels, descriptions, captions, UI copy.
+              </p>
+              <p style="font-size: 0.8rem; color: var(--green)">
+                Available via Google Fonts.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+                 04 — THE ARCH
+                 Documenting the barrel vault as a design motif
+            =========================================== -->
+        <section id="the-arch">
+          <div class="section-header">
+            <span class="section-number">04</span>
+            <h2>The Arch</h2>
+          </div>
+
+          <p
+            style="
+              font-size: 0.9rem;
+              color: var(--light-grey);
+              margin-bottom: 2rem;
+              max-width: 620px;
+              line-height: 1.75;
+            "
+          >
+            The barrel vault roof of our Meridian headquarters is a defining
+            architectural feature — a sweeping curve that symbolizes strength,
+            ambition, and forward momentum. This arc is a core design motif
+            referenced throughout digital and print work.
+          </p>
+
+          <!-- Arch demo -->
+          <div
+            class="window-card"
+            style="margin-bottom: 1.5rem; min-height: 240px; overflow: hidden"
+          >
+            <div
+              class="window-card-body"
+              style="
+                padding: 0;
+                height: 240px;
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+                padding-bottom: 1.75rem;
+              "
+            >
+              <svg
+                viewBox="0 0 1000 220"
+                style="position: absolute; inset: 0; width: 100%; height: 100%"
+                preserveAspectRatio="none"
+                fill="none"
+              >
+                <!-- Arch fill -->
+                <path
+                  d="M -30 220 Q 500 -30 1030 220 Z"
+                  fill="rgba(0, 150, 57, 0.07)"
+                />
+                <!-- Main arch outline -->
+                <path
+                  d="M -30 220 Q 500 -30 1030 220"
+                  stroke="rgba(0, 150, 57, 0.55)"
+                  stroke-width="1.5"
+                />
+                <!-- Inner ring -->
+                <path
+                  d="M 50 220 Q 500 20 950 220"
+                  stroke="rgba(0, 150, 57, 0.12)"
+                  stroke-width="7"
+                />
+                <!-- Structural ribs -->
+                <line
+                  x1="200"
+                  y1="218"
+                  x2="255"
+                  y2="75"
+                  stroke="rgba(0,0,0,0.07)"
+                  stroke-width="1"
+                />
+                <line
+                  x1="400"
+                  y1="218"
+                  x2="430"
+                  y2="5"
+                  stroke="rgba(0,0,0,0.07)"
+                  stroke-width="1"
+                />
+                <line
+                  x1="500"
+                  y1="218"
+                  x2="500"
+                  y2="-30"
+                  stroke="rgba(0,0,0,0.07)"
+                  stroke-width="1"
+                />
+                <line
+                  x1="600"
+                  y1="218"
+                  x2="570"
+                  y2="5"
+                  stroke="rgba(0,0,0,0.07)"
+                  stroke-width="1"
+                />
+                <line
+                  x1="800"
+                  y1="218"
+                  x2="745"
+                  y2="75"
+                  stroke="rgba(0,0,0,0.07)"
+                  stroke-width="1"
+                />
+                <!-- Ring lines -->
+                <path
+                  d="M 20  210 Q 500 15  980 210"
+                  stroke="rgba(0,0,0,0.04)"
+                  stroke-width="1"
+                />
+                <path
+                  d="M 80  200 Q 500 50  920 200"
+                  stroke="rgba(0,0,0,0.03)"
+                  stroke-width="1"
+                />
+              </svg>
+              <p
+                style="
+                  position: relative;
+                  z-index: 1;
+                  font-family: var(--font-secondary);
+                  font-weight: 300;
+                  font-size: 0.68rem;
+                  letter-spacing: 0.3em;
+                  text-transform: uppercase;
+                  color: rgba(134, 134, 134, 0.8);
+                "
+              >
+                Barrel Vault Arc &mdash; the curve that defines us
+              </p>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="flat-card">
+              <p
+                style="
+                  color: var(--green);
+                  font-family: var(--font-secondary);
+                  font-weight: 700;
+                  font-size: 0.78rem;
+                  letter-spacing: 0.14em;
+                  text-transform: uppercase;
+                  margin-bottom: 0.9rem;
+                "
+              >
+                Usage Guidelines
+              </p>
+              <ul
+                style="
+                  font-size: 0.85rem;
+                  color: var(--light-grey);
+                  line-height: 1.9;
+                  padding-left: 1rem;
+                  list-style: disc;
+                "
+              >
+                <li>Use as a decorative hero element on landing pages</li>
+                <li>Subtle section dividers with low-opacity arcs</li>
+                <li>Structural ribs suggest the building's steel frame</li>
+                <li>Always pair with brand green (#009639)</li>
+                <li>Fill opacity: 0.04–0.08; stroke opacity: 0.35–0.55</li>
+              </ul>
+            </div>
+            <div class="flat-card">
+              <p
+                style="
+                  color: var(--green);
+                  font-family: var(--font-secondary);
+                  font-weight: 700;
+                  font-size: 0.78rem;
+                  letter-spacing: 0.14em;
+                  text-transform: uppercase;
+                  margin-bottom: 0.9rem;
+                "
+              >
+                SVG Curve Spec
+              </p>
+              <div class="code-block">
+                M 0 H Q (W/2) (H × 0.12) W H stroke: #009639 stroke-opacity:
+                0.35–0.55 stroke-width: 1–2px fill: rgba(0,150,57, 0.04–0.08)
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+                 05 — WINDOW GRID
+                 The building's curtain-wall glass facade
+            =========================================== -->
+        <section id="window-grid">
+          <div class="section-header">
+            <span class="section-number">05</span>
+            <h2>Window Grid</h2>
+          </div>
+
+          <p
+            style="
+              font-size: 0.9rem;
+              color: var(--light-grey);
+              margin-bottom: 2rem;
+              max-width: 620px;
+              line-height: 1.75;
+            "
+          >
+            The curtain wall glass facade of our building — floor-to-ceiling
+            glass panels divided by dark metal mullions — is our signature
+            texture. This glass grid is used as a translucent panel treatment
+            across all digital touchpoints to ground design in the architecture.
+          </p>
+
+          <!-- Window Grid Demo -->
+          <div
+            style="
+              position: relative;
+              height: 260px;
+              border: 1px solid rgba(0, 0, 0, 0.09);
+              border-radius: 2px;
+              overflow: hidden;
+              margin-bottom: 1.5rem;
+              box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+            "
+          >
+            <!-- Warm off-white background (exterior daylight) -->
+            <div
+              style="
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(145deg, #f0eee9 0%, #e8e6e1 100%);
+              "
+            ></div>
+            <!-- Window pane grid (dark metal mullion lines) -->
+            <div
+              style="
+                position: absolute;
+                inset: 0;
+                background-image:
+                  linear-gradient(rgba(0, 0, 0, 0.08) 2px, transparent 2px),
+                  linear-gradient(
+                    90deg,
+                    rgba(0, 0, 0, 0.08) 2px,
+                    transparent 2px
+                  );
+                background-size: 96px 88px;
+              "
+            ></div>
+            <!-- Frosted glass translucent layer -->
+            <div
+              style="
+                position: absolute;
+                inset: 0;
+                background: rgba(255, 255, 255, 0.45);
+                backdrop-filter: blur(4px);
+              "
+            ></div>
+            <!-- Glass highlight sheen (top-left corner reflection) -->
+            <div
+              style="
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(
+                  145deg,
+                  rgba(255, 255, 255, 0.5) 0%,
+                  transparent 50%
+                );
+              "
+            ></div>
+            <!-- Subtle green ambient wash at top — the interior light -->
+            <div
+              style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 28%;
+                background: linear-gradient(
+                  to bottom,
+                  rgba(0, 150, 57, 0.05),
+                  transparent
+                );
+              "
+            ></div>
+            <!-- Demo label -->
+            <div
+              style="
+                position: absolute;
+                inset: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 0.6rem;
+              "
+            >
+              <p
+                style="
+                  font-family: var(--font-secondary);
+                  font-weight: 700;
+                  font-size: 1.6rem;
+                  color: rgba(26, 26, 24, 0.65);
+                  letter-spacing: 0.06em;
+                "
+              >
+                GLASS FACADE TEXTURE
+              </p>
+              <p
+                style="
+                  font-family: var(--font-secondary);
+                  font-weight: 300;
+                  font-size: 0.68rem;
+                  letter-spacing: 0.3em;
+                  text-transform: uppercase;
+                  color: rgba(68, 67, 67, 0.6);
+                "
+              >
+                Window grid &mdash; 96px &times; 88px
+              </p>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="flat-card">
+              <p
+                style="
+                  color: var(--green);
+                  font-family: var(--font-secondary);
+                  font-weight: 700;
+                  font-size: 0.78rem;
+                  letter-spacing: 0.14em;
+                  text-transform: uppercase;
+                  margin-bottom: 0.9rem;
+                "
+              >
+                CSS Spec
+              </p>
+              <div class="code-block">
+                background-image: linear-gradient( rgba(255,255,255,0.034) 1px,
+                transparent 1px ), linear-gradient(90deg,
+                rgba(255,255,255,0.034) 1px, transparent 1px ); background-size:
+                96px 88px;
+              </div>
+            </div>
+            <div class="flat-card">
+              <p
+                style="
+                  color: var(--green);
+                  font-family: var(--font-secondary);
+                  font-weight: 700;
+                  font-size: 0.78rem;
+                  letter-spacing: 0.14em;
+                  text-transform: uppercase;
+                  margin-bottom: 0.9rem;
+                "
+              >
+                Panel Properties
+              </p>
+              <ul
+                style="
+                  font-size: 0.85rem;
+                  color: var(--light-grey);
+                  line-height: 1.95;
+                  list-style: none;
+                "
+              >
+                <li>Background: rgba(44, 48, 44, 0.22)</li>
+                <li>Backdrop filter: blur(14px)</li>
+                <li>Border: 1px solid rgba(255,255,255,0.07)</li>
+                <li>Grid line opacity: 0.03–0.06</li>
+                <li>Grid size: 80–120px &times; 64–100px</li>
+                <li>Border radius: 2px (structural)</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+                 06 — CORNER RADIUS
+            =========================================== -->
+        <section id="radius">
+          <div class="section-header">
+            <span class="section-number">06</span>
+            <h2>Corner Radius</h2>
+          </div>
+
+          <p
+            style="
+              font-size: 0.9rem;
+              color: var(--light-grey);
+              margin-bottom: 2rem;
+              max-width: 620px;
+              line-height: 1.75;
+            "
+          >
+            Greyloch's architecture is defined by structural precision — clean
+            angles with minimal softening. Our corner radius system mirrors the
+            building's character: nearly sharp for major containers, with
+            minimal rounding on interactive elements.
+          </p>
+
+          <div class="grid-3">
+            <div class="flat-card" style="text-align: center">
+              <div
+                style="
+                  width: 80px;
+                  height: 80px;
+                  background: var(--dark-grey);
+                  border-radius: 0px;
+                  margin: 0 auto 1.25rem;
+                "
+              ></div>
+              <p
+                style="
+                  font-family: var(--font-secondary);
+                  font-weight: 700;
+                  font-size: 1rem;
+                  margin-bottom: 0.3rem;
+                "
+              >
+                None
+              </p>
+              <p
+                style="
+                  font-family: var(--font-secondary);
+                  font-weight: 300;
+                  font-size: 0.72rem;
+                  color: var(--green);
+                  letter-spacing: 0.12em;
+                  margin-bottom: 0.6rem;
+                "
+              >
+                0px
+              </p>
+              <p
+                style="
+                  font-size: 0.8rem;
+                  color: var(--light-grey);
+                  line-height: 1.6;
+                "
+              >
+                Structural panels, arch elements, building-scale containers
+              </p>
+            </div>
+            <div class="flat-card" style="text-align: center">
+              <div
+                style="
+                  width: 80px;
+                  height: 80px;
+                  background: var(--dark-grey);
+                  border-radius: 2px;
+                  margin: 0 auto 1.25rem;
+                "
+              ></div>
+              <p
+                style="
+                  font-family: var(--font-secondary);
+                  font-weight: 700;
+                  font-size: 1rem;
+                  margin-bottom: 0.3rem;
+                "
+              >
+                Subtle
+              </p>
+              <p
+                style="
+                  font-family: var(--font-secondary);
+                  font-weight: 300;
+                  font-size: 0.72rem;
+                  color: var(--green);
+                  letter-spacing: 0.12em;
+                  margin-bottom: 0.6rem;
+                "
+              >
+                2px
+              </p>
+              <p
+                style="
+                  font-size: 0.8rem;
+                  color: var(--light-grey);
+                  line-height: 1.6;
+                "
+              >
+                Cards, panels, buttons, inputs — standard UI elements
+              </p>
+            </div>
+            <div class="flat-card" style="text-align: center">
+              <div
+                style="
+                  width: 80px;
+                  height: 80px;
+                  background: var(--dark-grey);
+                  border-radius: 50%;
+                  margin: 0 auto 1.25rem;
+                "
+              ></div>
+              <p
+                style="
+                  font-family: var(--font-secondary);
+                  font-weight: 700;
+                  font-size: 1rem;
+                  margin-bottom: 0.3rem;
+                "
+              >
+                Circle
+              </p>
+              <p
+                style="
+                  font-family: var(--font-secondary);
+                  font-weight: 300;
+                  font-size: 0.72rem;
+                  color: var(--green);
+                  letter-spacing: 0.12em;
+                  margin-bottom: 0.6rem;
+                "
+              >
+                50%
+              </p>
+              <p
+                style="
+                  font-size: 0.8rem;
+                  color: var(--light-grey);
+                  line-height: 1.6;
+                "
+              >
+                Avatars, icon containers, and status badges only
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+                 07 — BUTTONS
+            =========================================== -->
+        <section id="buttons">
+          <div class="section-header">
+            <span class="section-number">07</span>
+            <h2>Buttons</h2>
+          </div>
+
+          <div class="grid-2">
+            <div
+              class="flat-card"
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 1rem;
+                min-height: 170px;
+              "
+            >
+              <p class="label" style="margin-bottom: 0.25rem">Primary</p>
+              <button class="btn btn-primary">Get Started</button>
+              <p
+                style="
+                  font-size: 0.76rem;
+                  color: var(--light-grey);
+                  text-align: center;
+                "
+              >
+                #009639 background &bull; green glow
+              </p>
+            </div>
+
+            <div
+              class="flat-card"
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 1rem;
+                min-height: 170px;
+              "
+            >
+              <p class="label" style="margin-bottom: 0.25rem">Secondary</p>
+              <button class="btn btn-secondary">Learn More</button>
+              <p
+                style="
+                  font-size: 0.76rem;
+                  color: var(--light-grey);
+                  text-align: center;
+                "
+              >
+                Transparent &bull; white border
+              </p>
+            </div>
+
+            <div
+              class="flat-card"
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 1rem;
+                min-height: 170px;
+              "
+            >
+              <p class="label" style="margin-bottom: 0.25rem">
+                Ghost / Outline
+              </p>
+              <button class="btn btn-ghost">Contact Us</button>
+              <p
+                style="
+                  font-size: 0.76rem;
+                  color: var(--light-grey);
+                  text-align: center;
+                "
+              >
+                Transparent &bull; green border
+              </p>
+            </div>
+
+            <div
+              class="flat-card"
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 1rem;
+                min-height: 170px;
+              "
+            >
+              <p class="label" style="margin-bottom: 0.25rem">Disabled State</p>
+              <button class="btn btn-primary" disabled>Get Started</button>
+              <p
+                style="
+                  font-size: 0.76rem;
+                  color: var(--light-grey);
+                  text-align: center;
+                "
+              >
+                opacity: 0.38 &bull; cursor: not-allowed
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+                 08 — CARDS & PANELS
+            =========================================== -->
+        <section id="cards">
+          <div class="section-header">
+            <span class="section-number">08</span>
+            <h2>Cards & Panels</h2>
+          </div>
+
+          <div class="grid-2" style="margin-bottom: 1.5rem">
+            <div class="window-card">
+              <div class="window-card-body">
+                <p class="label label-green" style="margin-bottom: 0.9rem">
+                  Glass Window Card
+                </p>
+                <p
+                  style="
+                    font-family: var(--font-secondary);
+                    font-weight: 700;
+                    font-size: 1.1rem;
+                    margin-bottom: 0.65rem;
+                  "
+                >
+                  The Signature Panel
+                </p>
+                <p
+                  style="
+                    font-size: 0.85rem;
+                    color: var(--light-grey);
+                    line-height: 1.7;
+                  "
+                >
+                  Our primary card style. Translucent with the window-pane grid
+                  texture — evoking the building's curtain wall glass facade.
+                  Use for feature content, values, and interactive elements.
+                </p>
+              </div>
+            </div>
+
+            <div class="flat-card">
+              <p class="label" style="margin-bottom: 0.9rem">Flat Dark Panel</p>
+              <p
+                style="
+                  font-family: var(--font-secondary);
+                  font-weight: 700;
+                  font-size: 1.1rem;
+                  margin-bottom: 0.65rem;
+                "
+              >
+                Solid Foundation
+              </p>
+              <p
+                style="
+                  font-size: 0.85rem;
+                  color: var(--light-grey);
+                  line-height: 1.7;
+                "
+              >
+                A structured, non-glass alternative for technical specs, code
+                blocks, and documentation where readability takes priority over
+                atmosphere.
+              </p>
+            </div>
+          </div>
+
+          <div class="accent-card">
+            <p class="label label-green" style="margin-bottom: 0.9rem">
+              Green Accent Panel
+            </p>
+            <p
+              style="
+                font-family: var(--font-secondary);
+                font-weight: 700;
+                font-size: 1.1rem;
+                margin-bottom: 0.65rem;
+              "
+            >
+              Highlighted Content
+            </p>
+            <p
+              style="
+                font-size: 0.85rem;
+                color: var(--light-grey);
+                line-height: 1.7;
+              "
+            >
+              Used for mission statements, key callouts, and important messaging
+              where the green brand presence needs to register immediately. Use
+              sparingly to maintain visual impact.
+            </p>
+          </div>
+        </section>
+
+        <!-- ==========================================
+                 09 — FORM ELEMENTS
+            =========================================== -->
+        <section id="forms">
+          <div class="section-header">
+            <span class="section-number">09</span>
+            <h2>Form Elements</h2>
+          </div>
+
+          <div class="flat-card" style="max-width: 520px">
+            <div class="form-group">
+              <div>
+                <label class="form-label">Full Name</label>
+                <input
+                  type="text"
+                  class="form-input"
+                  placeholder="Enter your full name"
+                />
+              </div>
+
+              <div>
+                <label class="form-label">Project Type</label>
+                <select class="form-select">
+                  <option value="">Select a project type</option>
+                  <option value="kitchen">Kitchen Cabinetry</option>
+                  <option value="bathroom">Bathroom Vanities</option>
+                  <option value="commercial">Commercial Build-Out</option>
+                  <option value="custom">Custom Millwork</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="form-label">Message</label>
+                <textarea
+                  class="form-input"
+                  rows="4"
+                  placeholder="Tell us about your project..."
+                ></textarea>
+              </div>
+
+              <div>
+                <button class="btn btn-primary" style="width: 100%">
+                  Submit Request
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+                 10 — NAVIGATION
+            =========================================== -->
+        <section id="navigation">
+          <div class="section-header">
+            <span class="section-number">10</span>
+            <h2>Navigation</h2>
+          </div>
+
+          <!-- Horizontal Bar -->
+          <p class="label" style="margin-bottom: 1rem">
+            Horizontal Navigation Bar
+          </p>
+          <div style="margin-bottom: 2.5rem">
+            <nav class="nav-bar">
+              <a href="#" class="active">Home</a>
+              <a href="#">About</a>
+              <a href="#">Services</a>
+              <a href="#">Portfolio</a>
+              <a href="#">Locations</a>
+              <a href="#">Contact</a>
+            </nav>
+          </div>
+
+          <!-- Sidebar Pattern -->
+          <p class="label" style="margin-bottom: 1rem">Sidebar Navigation</p>
+          <div class="window-card" style="max-width: 280px">
+            <div class="window-card-body" style="padding: 1.5rem">
+              <p
+                style="
+                  font-family: var(--font-secondary);
+                  font-weight: 300;
+                  font-size: 0.62rem;
+                  letter-spacing: 0.28em;
+                  text-transform: uppercase;
+                  color: var(--light-grey);
+                  margin-bottom: 0.75rem;
+                "
+              >
+                Services
+              </p>
+              <div>
+                <a
+                  href="#"
+                  style="
+                    display: block;
+                    padding: 0.45rem 0.75rem;
+                    font-size: 0.85rem;
+                    color: var(--black);
+                    border-left: 2px solid var(--green);
+                    background: rgba(0, 150, 57, 0.08);
+                    margin-bottom: 1px;
+                  "
+                  >Kitchen Cabinetry</a
+                >
+                <a
+                  href="#"
+                  style="
+                    display: block;
+                    padding: 0.45rem 0.75rem;
+                    font-size: 0.85rem;
+                    color: var(--light-grey);
+                    border-left: 2px solid transparent;
+                    transition: color 0.22s ease;
+                    margin-bottom: 1px;
+                  "
+                  >Bathroom Vanities</a
+                >
+                <a
+                  href="#"
+                  style="
+                    display: block;
+                    padding: 0.45rem 0.75rem;
+                    font-size: 0.85rem;
+                    color: var(--light-grey);
+                    border-left: 2px solid transparent;
+                    transition: color 0.22s ease;
+                  "
+                  >Commercial Build-Out</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+                 11 — IMAGERY STYLE
+            =========================================== -->
+        <section id="imagery">
+          <div class="section-header">
+            <span class="section-number">11</span>
+            <h2>Imagery Style</h2>
+          </div>
+
+          <div class="grid-3">
+            <div style="display: flex; flex-direction: column; gap: 1rem">
+              <div
+                style="
+                  aspect-ratio: 16/9;
+                  background: var(--dark-grey);
+                  border-radius: 2px;
+                  overflow: hidden;
+                  position: relative;
+                "
+              >
+                <div
+                  style="
+                    position: absolute;
+                    inset: 0;
+                    background: rgba(0, 0, 0, 0.55);
+                  "
+                ></div>
+                <div
+                  style="
+                    position: absolute;
+                    inset: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                  "
+                >
+                  <p
+                    style="
+                      font-family: var(--font-secondary);
+                      font-size: 0.82rem;
+                      font-weight: 700;
+                      color: rgba(255, 255, 255, 0.35);
+                      letter-spacing: 0.06em;
+                      font-style: italic;
+                    "
+                  >
+                    High Contrast
+                  </p>
+                </div>
+              </div>
+              <p
+                style="
+                  font-size: 0.8rem;
+                  color: var(--light-grey);
+                  line-height: 1.65;
+                "
+              >
+                <strong style="color: var(--white)">Contrast:</strong> Deep
+                blacks and high-contrast lighting for a premium, industrial
+                feel.
+              </p>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 1rem">
+              <div
+                style="
+                  aspect-ratio: 16/9;
+                  background: var(--dark-grey);
+                  border-radius: 2px;
+                  overflow: hidden;
+                  position: relative;
+                "
+              >
+                <div
+                  style="
+                    position: absolute;
+                    inset: 0;
+                    background: rgba(0, 150, 57, 0.2);
+                  "
+                ></div>
+                <div
+                  style="
+                    position: absolute;
+                    inset: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                  "
+                >
+                  <p
+                    style="
+                      font-family: var(--font-secondary);
+                      font-size: 0.82rem;
+                      font-weight: 700;
+                      color: rgba(255, 255, 255, 0.55);
+                      letter-spacing: 0.06em;
+                      font-style: italic;
+                    "
+                  >
+                    Green Tint
+                  </p>
+                </div>
+              </div>
+              <p
+                style="
+                  font-size: 0.8rem;
+                  color: var(--light-grey);
+                  line-height: 1.65;
+                "
+              >
+                <strong style="color: var(--white)">Tints:</strong> Apply a
+                subtle #009639 green overlay for brand consistency across all
+                photography.
+              </p>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 1rem">
+              <div
+                style="
+                  aspect-ratio: 16/9;
+                  background: var(--dark-grey);
+                  border-radius: 2px;
+                  overflow: hidden;
+                  position: relative;
+                "
+              >
+                <div
+                  style="
+                    position: absolute;
+                    inset: 0;
+                    background: linear-gradient(
+                      to top,
+                      rgba(0, 0, 0, 0.88),
+                      transparent
+                    );
+                  "
+                ></div>
+                <div
+                  style="
+                    position: absolute;
+                    inset: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                  "
+                >
+                  <p
+                    style="
+                      font-family: var(--font-secondary);
+                      font-size: 0.82rem;
+                      font-weight: 700;
+                      color: rgba(255, 255, 255, 0.35);
+                      letter-spacing: 0.06em;
+                      font-style: italic;
+                    "
+                  >
+                    Gradient Fade
+                  </p>
+                </div>
+              </div>
+              <p
+                style="
+                  font-size: 0.8rem;
+                  color: var(--light-grey);
+                  line-height: 1.65;
+                "
+              >
+                <strong style="color: var(--white)">Depth:</strong> Bottom-up
+                gradient fades to black ensure text legibility over all imagery.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+                 12 — GLOWS & GRADIENTS
+            =========================================== -->
+        <section id="glows">
+          <div class="section-header">
+            <span class="section-number">12</span>
+            <h2>Glows & Gradients</h2>
+          </div>
+
+          <div class="grid-2">
+            <div class="window-card">
+              <div
+                class="window-card-body"
+                style="
+                  min-height: 200px;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  justify-content: center;
+                  gap: 1rem;
+                  position: relative;
+                "
+              >
+                <!-- Green glow blob — light from inside the building -->
+                <div
+                  style="
+                    position: absolute;
+                    top: 10%;
+                    left: 10%;
+                    width: 160px;
+                    height: 160px;
+                    background: rgba(0, 150, 57, 0.22);
+                    border-radius: 50%;
+                    filter: blur(50px);
+                    pointer-events: none;
+                  "
+                ></div>
+                <p class="label" style="position: relative; z-index: 1">
+                  Green Ambient Glow
+                </p>
+                <p
+                  style="
+                    font-size: 0.78rem;
+                    color: var(--dark-grey);
+                    position: relative;
+                    z-index: 1;
+                    text-align: center;
+                    line-height: 1.7;
+                  "
+                >
+                  rgba(0, 150, 57, 0.22)<br />border-radius: 50%<br />filter:
+                  blur(50px)
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="flat-card"
+              style="
+                min-height: 200px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 1rem;
+              "
+            >
+              <p class="label">Headline Gradient</p>
+              <p
+                style="
+                  font-family: var(--font-display);
+                  font-size: 2.75rem;
+                  font-weight: 700;
+                  background: linear-gradient(140deg, #1a1a18 0%, #444343 100%);
+                  -webkit-background-clip: text;
+                  background-clip: text;
+                  -webkit-text-fill-color: transparent;
+                  letter-spacing: -0.01em;
+                "
+              >
+                GREYLOCH
+              </p>
+              <p style="font-size: 0.78rem; color: var(--light-grey)">
+                #1A1A18 &rarr; #444343 — 140deg
+              </p>
+            </div>
+
+            <div class="window-card">
+              <div
+                class="window-card-body"
+                style="
+                  min-height: 200px;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  justify-content: center;
+                  gap: 1.25rem;
+                "
+              >
+                <p class="label">Green Edge Glow</p>
+                <div
+                  style="
+                    width: 140px;
+                    height: 48px;
+                    background: var(--green);
+                    border-radius: 2px;
+                    box-shadow:
+                      0 0 24px rgba(0, 150, 57, 0.55),
+                      0 0 60px rgba(0, 150, 57, 0.22);
+                  "
+                ></div>
+                <p
+                  style="
+                    font-size: 0.78rem;
+                    color: var(--dark-grey);
+                    text-align: center;
+                    line-height: 1.75;
+                  "
+                >
+                  0 0 24px rgba(0,150,57, 0.55)<br />0 0 60px rgba(0,150,57,
+                  0.22)
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="flat-card"
+              style="
+                min-height: 200px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 1.25rem;
+              "
+            >
+              <p class="label">Green Gradient Panel</p>
+              <div
+                style="
+                  width: 100%;
+                  height: 80px;
+                  border-radius: 2px;
+                  background: linear-gradient(
+                    135deg,
+                    rgba(0, 150, 57, 0.16) 0%,
+                    rgba(0, 150, 57, 0) 100%
+                  );
+                  border: 1px solid var(--green-border);
+                "
+              ></div>
+              <p
+                style="
+                  font-size: 0.78rem;
+                  color: var(--light-grey);
+                  text-align: center;
+                  line-height: 1.75;
+                "
+              >
+                rgba(0,150,57, 0.16) &rarr; transparent<br />135 degrees
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer
+          style="
+            margin-top: 4rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--divider);
+            text-align: center;
+          "
+        >
+          <p
+            style="
+              font-family: var(--font-secondary);
+              font-weight: 300;
+              font-size: 0.68rem;
+              letter-spacing: 0.3em;
+              text-transform: uppercase;
+              color: var(--dark-grey);
+            "
+          >
+            Internal Documentation &bull; Greyloch LLC, 2025
+          </p>
+        </footer>
+      </main>
+    </div>
+
+    <!-- Copy Toast -->
+    <div class="copy-toast" id="copyToast">Copied to clipboard!</div>
+
+    <script>
+      function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(function () {
+          var toast = document.getElementById("copyToast");
+          toast.style.display = "block";
+          setTimeout(function () {
+            toast.style.display = "none";
+          }, 2000);
+        });
+      }
+    </script>
+  </body>
+</html>

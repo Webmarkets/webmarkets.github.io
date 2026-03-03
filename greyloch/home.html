@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greyloch — Custom Cabinetry | Meridian &amp; Star, Idaho</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+
+        /* =============================================
+           DESIGN TOKENS
+        ============================================== */
+        :root {
+            --green:          #009639;
+            --black:          #000000;
+            --white:          #FFFFFF;
+            --dark-grey:      #444343;
+            --light-grey:     #868686;
+            --bg:             #F5F4F1;
+            --bg-white:       #FFFFFF;
+            --bg-dark:        #1A1A18;
+            --text:           #1A1A18;
+            --green-glow:     rgba(0, 150, 57, 0.28);
+            --green-subtle:   rgba(0, 150, 57, 0.07);
+            --green-border:   rgba(0, 150, 57, 0.22);
+            --divider:        rgba(0, 0, 0, 0.09);
+            --glass-bg:       rgba(255, 255, 255, 0.60);
+            --glass-border:   rgba(255, 255, 255, 0.88);
+            --font-display:   'Phage', 'Oswald', sans-serif;
+            --font-secondary: 'Oswald', sans-serif;
+            --font-body:      'Open Sans', sans-serif;
+            --ease:           all 0.3s ease;
+            --nav-h:          76px;
+        }
+
+        /* =============================================
+           RESET & BASE
+        ============================================== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-body);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+        a { color: inherit; text-decoration: none; }
+        ul { list-style: none; }
+        button { cursor: pointer; font-family: inherit; border: none; background: none; }
+
+        /* =============================================
+           IMAGES
+        ============================================== */
+        .img-cover {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .img-contain {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* =============================================
+           CONTAINER
+        ============================================== */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 3.5rem;
+        }
+
+        /* =============================================
+           BUTTONS
+        ============================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-secondary);
+            font-weight: 700;
+            font-size: 0.82rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.95rem 2.25rem;
+            border-radius: 2px;
+            border: none;
+            cursor: pointer;
+            transition: var(--ease);
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: var(--green);
+            color: var(--white);
+            border: 1px solid var(--green);
+            box-shadow: 0 0 28px var(--green-glow);
+        }
+        .btn-primary:hover {
+            background: #00ab42;
+            border-color: #00ab42;
+            box-shadow: 0 0 48px rgba(0, 150, 57, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid rgba(0, 0, 0, 0.18);
+        }
+        .btn-secondary:hover {
+            border-color: var(--green);
+            color: var(--green);
+        }
+
+        .btn-ghost-white {
+            background: transparent;
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.45);
+        }
+        .btn-ghost-white:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.7);
+        }
+
+        .btn-white {
+            background: var(--white);
+            color: var(--black);
+            border: 1px solid var(--white);
+        }
+        .btn-white:hover { background: rgba(255, 255, 255, 0.88); }
+
+        .btn-outline-green {
+            background: transparent;
+            color: var(--green);
+            border: 1px solid var(--green-border);
+        }
+        .btn-outline-green:hover {
+            background: var(--green-subtle);
+            border-color: var(--green);
+        }
+
+        /* =============================================
+           LABELS & SECTION TITLES
+        ============================================== */
+        .eyebrow {
+            font-family: var(--font-secondary);
+            font-weight: 300;
+            font-size: 0.68rem;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: var(--green);
+            margin-bottom: 0.9rem;
+            display: block;
+        }
+        .eyebrow-muted { color: rgba(255, 255, 255, 0.5); }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 3.5vw, 2.85rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+            color: var(--text);
+            margin-bottom: 1.25rem;
+        }
+        .section-title-light { color: var(--white); }
+
+        .section-desc {
+            font-size: 1rem;
+            color: var(--dark-grey);
+            line-height: 1.8;
+            max-width: 560px;
+        }
+        .section-desc-light { color: rgba(255, 255, 255, 0.72); }
+
+        /* =============================================
+           GLASS PANEL — Frosted (light sections)
+           Evokes the building's curtain-wall facade
+        ============================================== */
+        .glass-panel {
+            position: relative;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+            overflow: hidden;
+        }
+        /* Window pane grid — dark mullion lines on frosted glass */
+        .glass-panel::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.034) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.034) 1px, transparent 1px);
+            background-size: 88px 88px;
+            pointer-events: none;
+        }
+        /* Green ambient tint at top */
+        .glass-panel::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 30%;
+            background: linear-gradient(to bottom, rgba(0, 150, 57, 0.042), transparent);
+            pointer-events: none;
+        }
+        .glass-inner { position: relative; z-index: 1; }
+
+        /* Dark glass — for use over photos */
+        .dark-glass {
+            background: rgba(14, 16, 14, 0.80);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+        }
+        .dark-glass::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+            background-size: 88px 88px;
+            pointer-events: none;
+        }
+
+        /* =============================================
+           SCROLL ANIMATIONS
+        ============================================== */
+        .anim {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.75s ease, transform 0.75s ease;
+        }
+        .anim.visible { opacity: 1; transform: none; }
+        .anim-left { opacity: 0; transform: translateX(-30px); transition: opacity 0.75s ease, transform 0.75s ease; }
+        .anim-left.visible { opacity: 1; transform: none; }
+        .d1 { transition-delay: 0.08s; }
+        .d2 { transition-delay: 0.18s; }
+        .d3 { transition-delay: 0.3s; }
+        .d4 { transition-delay: 0.44s; }
+
+
+        /* =============================================
+           NAVIGATION
+        ============================================== */
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 200;
+            height: var(--nav-h);
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--divider);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            transition: background 0.35s ease, box-shadow 0.35s ease;
+        }
+        .nav.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
+        }
+        .nav-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 3.5rem;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        .nav-logo { flex-shrink: 0; }
+        .nav-logo img { width: 158px; height: auto; display: block; }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            margin-left: auto;
+        }
+        .nav-links a {
+            display: block;
+            padding: 0.5rem 0.9rem;
+            font-family: var(--font-secondary);
+            font-weight: 400;
+            font-size: 0.8rem;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: var(--dark-grey);
+            transition: color 0.22s ease;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px; left: 0.9rem; right: 0.9rem;
+            height: 2px;
+            background: var(--green);
+            transform: scaleX(0);
+            transition: transform 0.22s ease;
+        }
+        .nav-links a:hover { color: var(--black); }
+        .nav-links a:hover::after { transform: scaleX(1); }
+
+        .nav-cta { margin-left: 1.25rem; padding: 0.65rem 1.5rem; font-size: 0.78rem; }
+
+        .nav-mobile-toggle {
+            display: none;
+            padding: 0.5rem;
+            margin-left: auto;
+            color: var(--text);
+        }
+
+
+        /* =============================================
+           HERO
+        ============================================== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 9vh;
+            overflow: hidden;
+        }
+
+        /* Hero photo background */
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center center; }
+
+        /* Cinematic gradient — light at top, dark at bottom */
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(8, 10, 8, 0.28) 0%,
+                rgba(8, 10, 8, 0.15) 35%,
+                rgba(8, 10, 8, 0.62) 100%
+            );
+        }
+
+        /* =============================================
+           BARREL VAULT ARCH — The building's signature
+           Positioned above the hero content (above the fold)
+        ============================================== */
+        .hero-arch {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .hero-arch svg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 65%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 3.5rem;
+        }
+        .hero-eyebrow {
+            font-family: var(--font-secondary);
+            font-weight: 300;
+            font-size: 0.68rem;
+            letter-spacing: 0.36em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 1.1rem;
+            display: block;
+        }
+        .hero-title {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: clamp(3rem, 6vw, 5.75rem);
+            line-height: 1.0;
+            letter-spacing: -0.025em;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            max-width: 760px;
+        }
+        .hero-desc {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 500px;
+            line-height: 1.75;
+            margin-bottom: 2.75rem;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Scroll indicator */
+        .hero-scroll {
+            position: absolute;
+            bottom: 2.5rem;
+            right: 3.5rem;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .hero-scroll span {
+            font-family: var(--font-secondary);
+            font-weight: 300;
+            font-size: 0.58rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.45);
+        }
+        .hero-scroll-bar {
+            width: 1px;
+            height: 44px;
+            background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.5));
+            animation: scrollDrop 2s ease-in-out infinite;
+        }
+        @keyframes scrollDrop {
+            0%, 100% { opacity: 0.4; transform: scaleY(1) translateY(0); }
+            50% { opacity: 1; transform: scaleY(0.65) translateY(6px); }
+        }
+
+
+        /* =============================================
+           INTRO — Brand statement + stats
+        ============================================== */
+        .intro {
+            padding: 7.5rem 0;
+            background: var(--bg);
+        }
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 500px;
+            gap: 6rem;
+            align-items: center;
+        }
+        .intro-text .section-title { margin-bottom: 1.25rem; }
+        .intro-text .section-desc { margin-bottom: 2.25rem; }
+
+        /* Stats — 2×2 frosted glass grid */
+        .intro-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .stat-card {
+            padding: 2.25rem 1.75rem;
+            border-radius: 2px;
+            position: relative;
+            overflow: hidden;
+            cursor: default;
+        }
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: var(--green);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        .stat-card:hover::before { transform: scaleX(1); }
+        .stat-num {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--green);
+            line-height: 1;
+            margin-bottom: 0.45rem;
+        }
+        .stat-label {
+            font-family: var(--font-secondary);
+            font-weight: 300;
+            font-size: 0.68rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--dark-grey);
+        }
+
+
+        /* =============================================
+           SERVICES — 4 photo cards
+        ============================================== */
+        .services {
+            padding: 7.5rem 0;
+            background: var(--bg-white);
+        }
+        .services-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 3.5rem;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+        }
+
+        .service-card {
+            border-radius: 2px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+        }
+        .service-card-img {
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            position: relative;
+        }
+        .service-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .service-card:hover .service-card-img img { transform: scale(1.07); }
+        /* Gradient overlay from bottom */
+        .service-card-img::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to top,
+                rgba(8, 10, 8, 0.82) 0%,
+                rgba(8, 10, 8, 0.2) 55%,
+                transparent 100%
+            );
+        }
+        /* Label inside photo */
+        .service-label {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            z-index: 1;
+            padding: 1.5rem 1.5rem 1.35rem;
+        }
+        .service-label h3 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.3rem;
+        }
+        .service-label p {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.72);
+            line-height: 1.5;
+            margin-bottom: 0.85rem;
+        }
+        .service-link {
+            font-family: var(--font-secondary);
+            font-weight: 700;
+            font-size: 0.65rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--green);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.22s ease;
+        }
+        .service-card:hover .service-link { gap: 0.85rem; }
+
+
+        /* =============================================
+           FEATURE — Full-bleed, dark glass panel
+        ============================================== */
+        .feature {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: stretch;
+        }
+        .feature-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        .feature-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+        /* Vignette that deepens on right to support the glass panel */
+        .feature-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to right,
+                rgba(8, 10, 8, 0.1) 0%,
+                rgba(8, 10, 8, 0.08) 45%,
+                rgba(8, 10, 8, 0.55) 100%
+            );
+        }
+        .feature-layout {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 6rem 3.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        .feature-panel {
+            width: 500px;
+            padding: 4.5rem 4rem;
+            border-radius: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-panel .eyebrow { color: var(--green); }
+        .feature-panel .section-title { font-size: 2.2rem; }
+        .feature-body {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.78);
+            line-height: 1.8;
+            margin-bottom: 1.75rem;
+        }
+        .feature-list {
+            margin-bottom: 2.5rem;
+        }
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.82);
+        }
+        .feature-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--green);
+            flex-shrink: 0;
+        }
+
+
+        /* =============================================
+           GALLERY — 6-photo mosaic
+        ============================================== */
+        .gallery {
+            padding: 7.5rem 0;
+            background: var(--bg);
+        }
+        .gallery-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 2.75rem;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        /* 4-column grid, row height fixed */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 300px;
+            gap: 0.875rem;
+        }
+        /* Layout:
+           [1 — wide 2col] [2] [3]
+           [4]             [5] [6 — wide 2col]
+        */
+        .gallery-item:nth-child(1) { grid-column: span 2; }
+        .gallery-item:nth-child(6) { grid-column: span 2; }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .gallery-item:hover img { transform: scale(1.06); }
+
+        /* Green overlay on hover */
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 150, 57, 0.18);
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+        .gallery-item:hover::after { opacity: 1; }
+
+        /* Permanent subtle bottom gradient for depth */
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.28) 0%, transparent 50%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .gallery-footer {
+            display: flex;
+            justify-content: center;
+            margin-top: 2.75rem;
+        }
+
+
+        /* =============================================
+           PROCESS — 4 numbered steps
+        ============================================== */
+        .process {
+            padding: 7.5rem 0;
+            background: var(--bg-white);
+        }
+        .process-header {
+            max-width: 640px;
+            margin-bottom: 5rem;
+        }
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            position: relative;
+        }
+        /* Connecting line between step numbers */
+        .process-grid::before {
+            content: '';
+            position: absolute;
+            top: 2rem;
+            left: calc(2rem + 2px);
+            right: calc(2rem + 2px);
+            height: 1px;
+            background: var(--divider);
+            z-index: 0;
+        }
+        .process-step { padding: 0 2rem 0 0; }
+        .process-num {
+            width: 4rem;
+            height: 4rem;
+            background: var(--green-subtle);
+            border: 1px solid var(--green-border);
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-secondary);
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--green);
+            margin-bottom: 1.75rem;
+            position: relative;
+            z-index: 1;
+        }
+        .process-step-title {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.75rem;
+        }
+        .process-step-desc {
+            font-size: 0.88rem;
+            color: var(--dark-grey);
+            line-height: 1.75;
+        }
+
+
+        /* =============================================
+           TESTIMONIAL BAND — Glass strip
+        ============================================== */
+        .testimonial-band {
+            padding: 5rem 0;
+            background: var(--bg);
+            position: relative;
+            overflow: hidden;
+        }
+        .testimonial-band::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 150, 57, 0.04) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .testimonial-inner {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 0 3.5rem;
+        }
+        .testimonial-quote {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+        .testimonial-quote::before { content: '\201C'; color: var(--green); }
+        .testimonial-quote::after  { content: '\201D'; color: var(--green); }
+        .testimonial-author {
+            font-family: var(--font-secondary);
+            font-weight: 300;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--light-grey);
+        }
+        .testimonial-author strong {
+            color: var(--dark-grey);
+            font-weight: 700;
+        }
+
+
+        /* =============================================
+           CTA SECTION — Dark, arch motif
+        ============================================== */
+        .cta-section {
+            position: relative;
+            background: var(--bg-dark);
+            padding: 9rem 0 8rem;
+            overflow: hidden;
+        }
+        /* Barrel vault arch on dark BG */
+        .cta-arch {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+        .cta-arch svg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .cta-inner {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        .cta-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 4.5vw, 4.25rem);
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.35rem;
+        }
+        .cta-desc {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.62);
+            max-width: 500px;
+            margin: 0 auto 3rem;
+            line-height: 1.75;
+        }
+        .cta-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 5rem;
+        }
+        .cta-locations {
+            display: flex;
+            gap: 6rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .cta-location {
+            text-align: left;
+        }
+        .cta-location-name {
+            font-family: var(--font-secondary);
+            font-weight: 700;
+            font-size: 0.72rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.65);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .cta-location-name::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--green);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .cta-location address {
+            font-style: normal;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.38);
+            line-height: 1.9;
+        }
+
+
+        /* =============================================
+           FOOTER
+        ============================================== */
+        .footer {
+            background: #0E0F0E;
+            padding: 5rem 0 2.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .footer-top {
+            display: grid;
+            grid-template-columns: 220px 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4.5rem;
+        }
+        .footer-logo-wrap img { width: 150px; height: auto; display: block; margin-bottom: 1.25rem; }
+        .footer-tagline {
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.35);
+            line-height: 1.75;
+            max-width: 180px;
+        }
+        .footer-col-title {
+            font-family: var(--font-secondary);
+            font-weight: 700;
+            font-size: 0.62rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.3);
+            margin-bottom: 1.5rem;
+        }
+        .footer-col a,
+        .footer-col p {
+            display: block;
+            font-size: 0.86rem;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 2.2;
+            transition: color 0.22s ease;
+        }
+        .footer-col a:hover { color: var(--green); }
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .footer-copy {
+            font-family: var(--font-secondary);
+            font-weight: 300;
+            font-size: 0.62rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.22);
+        }
+        .footer-green-mark {
+            width: 28px;
+            height: 2px;
+            background: var(--green);
+            opacity: 0.55;
+        }
+
+
+        /* =============================================
+           RESPONSIVE
+        ============================================== */
+        @media (max-width: 1100px) {
+            .intro-grid { grid-template-columns: 1fr; gap: 3.5rem; }
+            .intro-stats { max-width: 480px; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+        }
+
+        @media (max-width: 900px) {
+            .container { padding: 0 2rem; }
+            .nav-links { display: none; }
+            .nav-mobile-toggle { display: block; }
+            .hero-title { font-size: 2.75rem; }
+            .feature-layout { padding: 4rem 2rem; }
+            .feature-panel { width: 100%; max-width: 520px; }
+            .process-grid { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+            .process-grid::before { display: none; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-item:nth-child(1) { grid-column: span 2; }
+            .gallery-item:nth-child(6) { grid-column: span 2; }
+            .cta-locations { gap: 3rem; }
+        }
+
+        @media (max-width: 640px) {
+            .container { padding: 0 1.5rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .hero-actions { flex-direction: column; align-items: flex-start; }
+            .services-header, .gallery-header { flex-direction: column; align-items: flex-start; }
+            .process-grid { grid-template-columns: 1fr; }
+            .cta-locations { flex-direction: column; gap: 2rem; align-items: center; text-align: center; }
+            .footer-top { grid-template-columns: 1fr; gap: 2.5rem; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .gallery-item:nth-child(1),
+            .gallery-item:nth-child(6) { grid-column: span 1; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- =============================================
+         NAVIGATION
+    ============================================== -->
+    <nav class="nav" id="site-nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <img src="./Assets/Logos/Greyloch_Horizontal_Green-Black.png" alt="Greyloch">
+            </a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#process">Process</a>
+                <a href="#contact">Locations</a>
+            </div>
+            <a href="#contact" class="btn btn-primary nav-cta">Get a Quote</a>
+            <button class="nav-mobile-toggle" aria-label="Open menu">
+                <svg width="22" height="14" viewBox="0 0 22 14" fill="none">
+                    <path d="M0 1h22M0 7h22M0 13h22" stroke="currentColor" stroke-width="1.8"/>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+
+    <!-- =============================================
+         HERO
+    ============================================== -->
+    <section class="hero" id="home">
+
+        <!-- Full-screen photo -->
+        <div class="hero-bg">
+            <img class="img-cover" src="./Assets/Photos/DSC_3459.jpg" alt="Custom cabinetry by Greyloch — light kitchen with brass pendants">
+            <div class="hero-overlay"></div>
+        </div>
+
+        <!-- The barrel vault arch — visible above the fold, referencing the building -->
+        <div class="hero-arch">
+            <svg viewBox="0 0 1440 600" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Arch fill — the dome interior glow -->
+                <path d="M -100 600 Q 720 -90 1540 600 Z" fill="rgba(0, 150, 57, 0.045)"/>
+                <!-- Primary arch curve — the roofline -->
+                <path d="M -100 600 Q 720 -90 1540 600" stroke="rgba(255, 255, 255, 0.25)" stroke-width="1.5"/>
+                <!-- Green echo of the arch -->
+                <path d="M -100 600 Q 720 -90 1540 600" stroke="rgba(0, 150, 57, 0.45)" stroke-width="1"/>
+                <!-- Inner ring — depth of the vault -->
+                <path d="M 40 600 Q 720 10 1400 600" stroke="rgba(255, 255, 255, 0.07)" stroke-width="9"/>
+                <!-- Structural ribs — the steel frame -->
+                <line x1="235"  y1="598" x2="320"  y2="210" stroke="rgba(255,255,255,0.065)" stroke-width="1"/>
+                <line x1="475"  y1="598" x2="540"  y2="45"  stroke="rgba(255,255,255,0.065)" stroke-width="1"/>
+                <line x1="720"  y1="598" x2="720"  y2="-90" stroke="rgba(255,255,255,0.065)" stroke-width="1"/>
+                <line x1="965"  y1="598" x2="900"  y2="45"  stroke="rgba(255,255,255,0.065)" stroke-width="1"/>
+                <line x1="1205" y1="598" x2="1120" y2="210" stroke="rgba(255,255,255,0.065)" stroke-width="1"/>
+                <!-- Horizontal ring lines — bands of the vault -->
+                <path d="M 15  570 Q 720  40 1425 570" stroke="rgba(255,255,255,0.032)" stroke-width="1"/>
+                <path d="M 70  530 Q 720  80 1370 530" stroke="rgba(255,255,255,0.024)" stroke-width="1"/>
+                <path d="M 140 480 Q 720 130 1300 480" stroke="rgba(255,255,255,0.016)" stroke-width="1"/>
+            </svg>
+        </div>
+
+        <!-- Hero content — sits below the arch, above the fold -->
+        <div class="hero-content">
+            <span class="hero-eyebrow">Meridian &amp; Star, Idaho</span>
+            <h1 class="hero-title">Built to Last.<br>Designed to<br>Inspire.</h1>
+            <p class="hero-desc">Idaho's premier custom cabinetry — from kitchens and bathrooms to closets and commercial spaces. Fabricated in-house. Installed with precision.</p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
+                <a href="#portfolio" class="btn btn-ghost-white">View Our Work</a>
+            </div>
+        </div>
+
+        <div class="hero-scroll">
+            <div class="hero-scroll-bar"></div>
+            <span>Scroll</span>
+        </div>
+
+    </section>
+
+
+    <!-- =============================================
+         INTRO — Brand statement + stats
+    ============================================== -->
+    <section class="intro" id="about">
+        <div class="container">
+            <div class="intro-grid">
+
+                <div class="intro-text anim">
+                    <span class="eyebrow">Crafted in Idaho</span>
+                    <h2 class="section-title">Every space.<br>Every detail.<br>Every time.</h2>
+                    <p class="section-desc">At Greyloch, we don't just build cabinets — we craft the spaces where life happens. From the heart of your kitchen to the quiet order of a custom closet, our work is built on quality, integrity, and attention to every last detail.</p>
+                    <a href="#" class="btn btn-secondary" style="margin-top: 2.25rem;">Our Story &rarr;</a>
+                </div>
+
+                <div class="intro-stats anim d2">
+                    <div class="stat-card glass-panel">
+                        <div class="glass-inner">
+                            <div class="stat-num">15+</div>
+                            <div class="stat-label">Years in Business</div>
+                        </div>
+                    </div>
+                    <div class="stat-card glass-panel">
+                        <div class="glass-inner">
+                            <div class="stat-num">2</div>
+                            <div class="stat-label">Idaho Locations</div>
+                        </div>
+                    </div>
+                    <div class="stat-card glass-panel">
+                        <div class="glass-inner">
+                            <div class="stat-num">1K+</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                    </div>
+                    <div class="stat-card glass-panel">
+                        <div class="glass-inner">
+                            <div class="stat-num">100%</div>
+                            <div class="stat-label">Idaho-Made</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =============================================
+         SERVICES — 4 photo cards
+    ============================================== -->
+    <section class="services" id="services">
+        <div class="container">
+
+            <div class="services-header">
+                <div>
+                    <span class="eyebrow">Services</span>
+                    <h2 class="section-title" style="margin-bottom: 0;">What We Build</h2>
+                </div>
+                <a href="#" class="btn btn-outline-green anim">View All Services &rarr;</a>
+            </div>
+
+            <div class="services-grid">
+
+                <div class="service-card anim d1">
+                    <div class="service-card-img">
+                        <img class="img-cover" src="./Assets/Photos/IMG_3412.JPG" alt="Custom kitchen cabinetry">
+                        <div class="service-label">
+                            <h3>Kitchens</h3>
+                            <p>The heart of every home, crafted to your vision.</p>
+                            <span class="service-link">Explore &rarr;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card anim d2">
+                    <div class="service-card-img">
+                        <img class="img-cover" src="./Assets/Photos/DSC_3351.jpg" alt="Custom bathroom vanity">
+                        <div class="service-label">
+                            <h3>Bathrooms</h3>
+                            <p>Vanities and storage that elevate the everyday.</p>
+                            <span class="service-link">Explore &rarr;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card anim d3">
+                    <div class="service-card-img">
+                        <img class="img-cover" src="./Assets/Photos/DSC_3330.jpg" alt="Custom closet system">
+                        <div class="service-label">
+                            <h3>Closets &amp; Storage</h3>
+                            <p>Custom organization built around your life.</p>
+                            <span class="service-link">Explore &rarr;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card anim d4">
+                    <div class="service-card-img">
+                        <img class="img-cover" src="./Assets/Photos/dc2ad1a4.jpeg" alt="Specialty and commercial cabinetry">
+                        <div class="service-label">
+                            <h3>Specialty Spaces</h3>
+                            <p>Garages, offices, and commercial — done right.</p>
+                            <span class="service-link">Explore &rarr;</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =============================================
+         FEATURE — "More Than Cabinetry"
+         Full-bleed photo + floating dark glass panel
+    ============================================== -->
+    <section class="feature">
+
+        <div class="feature-bg">
+            <img class="img-cover" src="./Assets/Photos/e46c77f5.jpeg" alt="Custom built-in entertainment wall and living space">
+        </div>
+
+        <div class="feature-layout">
+            <div class="feature-panel dark-glass anim">
+                <div class="glass-inner">
+                    <span class="eyebrow">Our Range</span>
+                    <h2 class="section-title section-title-light" style="font-size: 2.2rem;">More Than<br>Just Cabinetry</h2>
+                    <p class="feature-body">From custom entertainment walls to built-in bars and luxury home offices — if it's built-in, Greyloch builds it better. Every piece is fabricated in our Idaho facility to fit your space, not a showroom template.</p>
+                    <ul class="feature-list">
+                        <li><span class="feature-dot"></span>Entertainment centers &amp; media walls</li>
+                        <li><span class="feature-dot"></span>Home offices &amp; custom libraries</li>
+                        <li><span class="feature-dot"></span>Wet bars &amp; wine rooms</li>
+                        <li><span class="feature-dot"></span>Mudrooms &amp; laundry rooms</li>
+                        <li><span class="feature-dot"></span>Commercial &amp; retail buildouts</li>
+                    </ul>
+                    <a href="#portfolio" class="btn btn-primary">Explore Our Work</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- =============================================
+         GALLERY — 6-photo mosaic
+    ============================================== -->
+    <section class="gallery" id="portfolio">
+        <div class="container">
+            <div class="gallery-header">
+                <div class="anim">
+                    <span class="eyebrow">Portfolio</span>
+                    <h2 class="section-title" style="margin-bottom: 0;">Our Work Speaks.</h2>
+                </div>
+                <a href="#" class="btn btn-secondary anim d2">View Full Portfolio &rarr;</a>
+            </div>
+        </div>
+
+        <!-- Gallery grid (full-width, padded to container) -->
+        <div class="container">
+            <div class="gallery-grid">
+
+                <!-- Wide (span 2) -->
+                <div class="gallery-item anim d1">
+                    <img class="img-cover" src="./Assets/Photos/DSC_3463.jpg" alt="Custom light kitchen with brass pendant lights">
+                </div>
+
+                <div class="gallery-item anim d2">
+                    <img class="img-cover" src="./Assets/Photos/DSC_3327.jpg" alt="Custom walk-in closet with warm wood shelving">
+                </div>
+
+                <div class="gallery-item anim d2">
+                    <img class="img-cover" src="./Assets/Photos/DSC_3469.jpg" alt="Glass cabinet doors with interior lighting">
+                </div>
+
+                <div class="gallery-item anim d3">
+                    <img class="img-cover" src="./Assets/Photos/DSC_3395.jpg" alt="Dark modern kitchen with brick backsplash">
+                </div>
+
+                <div class="gallery-item anim d3">
+                    <img class="img-cover" src="./Assets/Photos/7d65264f.jpeg" alt="Custom living room bar cabinetry">
+                </div>
+
+                <!-- Wide (span 2) -->
+                <div class="gallery-item anim d4">
+                    <img class="img-cover" src="./Assets/Photos/DSC_3386.jpg" alt="Dark kitchen cabinetry with beverage center">
+                </div>
+
+            </div>
+        </div>
+
+        <div class="gallery-footer anim">
+            <a href="#" class="btn btn-outline-green">See All Projects &rarr;</a>
+        </div>
+    </section>
+
+
+    <!-- =============================================
+         PROCESS — 4 numbered steps
+    ============================================== -->
+    <section class="process" id="process">
+        <div class="container">
+
+            <div class="process-header anim">
+                <span class="eyebrow">How It Works</span>
+                <h2 class="section-title">Simple process.<br>Exceptional result.</h2>
+                <p class="section-desc">From first conversation to final installation, we make the process clear, collaborative, and completely worth it.</p>
+            </div>
+
+            <div class="process-grid">
+
+                <div class="process-step anim d1">
+                    <div class="process-num">01</div>
+                    <h3 class="process-step-title">Consultation</h3>
+                    <p class="process-step-desc">We sit down with you to understand your space, your lifestyle, and your vision. No pressure — just a conversation about what's possible.</p>
+                </div>
+
+                <div class="process-step anim d2">
+                    <div class="process-num">02</div>
+                    <h3 class="process-step-title">Design</h3>
+                    <p class="process-step-desc">Our designers craft detailed plans tailored to your exact specifications — materials, finishes, dimensions, and every functional detail.</p>
+                </div>
+
+                <div class="process-step anim d3">
+                    <div class="process-num">03</div>
+                    <h3 class="process-step-title">Fabrication</h3>
+                    <p class="process-step-desc">Built in our Idaho facility from premium materials. Every piece is precision-crafted before it ever arrives at your home.</p>
+                </div>
+
+                <div class="process-step anim d4">
+                    <div class="process-num">04</div>
+                    <h3 class="process-step-title">Installation</h3>
+                    <p class="process-step-desc">Our expert team handles every detail of installation — clean, efficient, and perfect. We don't leave until you love it.</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- =============================================
+         TESTIMONIAL BAND
+    ============================================== -->
+    <section class="testimonial-band">
+        <div class="testimonial-inner anim">
+            <blockquote class="testimonial-quote">
+                Greyloch transformed our kitchen. Every detail was exactly what we asked for — and then some.
+            </blockquote>
+            <p class="testimonial-author">
+                <strong>Sarah &amp; Mike T.</strong> &mdash; Meridian, Idaho
+            </p>
+        </div>
+    </section>
+
+
+    <!-- =============================================
+         CTA SECTION — Dark, with barrel vault arch
+    ============================================== -->
+    <section class="cta-section" id="contact">
+
+        <!-- Barrel vault arch on dark background -->
+        <div class="cta-arch">
+            <svg viewBox="0 0 1440 700" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Arch fill -->
+                <path d="M -120 700 Q 720 -100 1560 700 Z" fill="rgba(0, 150, 57, 0.05)"/>
+                <!-- Primary arch -->
+                <path d="M -120 700 Q 720 -100 1560 700" stroke="rgba(0, 150, 57, 0.42)" stroke-width="1.5"/>
+                <!-- Inner echo -->
+                <path d="M 40 700 Q 720 -10 1400 700" stroke="rgba(0, 150, 57, 0.1)" stroke-width="9"/>
+                <!-- Ribs -->
+                <line x1="230" y1="698" x2="320" y2="250" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+                <line x1="460" y1="698" x2="535" y2="55"  stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+                <line x1="720" y1="698" x2="720" y2="-100" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+                <line x1="980" y1="698" x2="905" y2="55"  stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+                <line x1="1210" y1="698" x2="1120" y2="250" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+                <!-- Ring lines -->
+                <path d="M 20  660 Q 720 -40 1420 660" stroke="rgba(255,255,255,0.025)" stroke-width="1"/>
+                <path d="M 80  610 Q 720  20 1360 610" stroke="rgba(255,255,255,0.018)" stroke-width="1"/>
+            </svg>
+        </div>
+
+        <div class="cta-inner">
+            <div class="container">
+                <div class="anim">
+                    <span class="eyebrow eyebrow-muted">Ready to Start?</span>
+                    <h2 class="cta-title">Let's build something<br>extraordinary together.</h2>
+                    <p class="cta-desc">Whether you're renovating a kitchen, designing a dream closet, or outfitting a commercial space — Greyloch is ready to bring your vision to life.</p>
+                </div>
+                <div class="cta-actions anim d1">
+                    <a href="tel:+12085551234" class="btn btn-white">Call Us Today</a>
+                    <a href="#" class="btn btn-primary">Get a Free Quote</a>
+                </div>
+                <div class="cta-locations anim d2">
+                    <div class="cta-location">
+                        <div class="cta-location-name">Meridian Location</div>
+                        <address>
+                            1950 W. Franklin Rd<br>
+                            Meridian, Idaho 83642<br>
+                            (208) 555-1234
+                        </address>
+                    </div>
+                    <div class="cta-location">
+                        <div class="cta-location-name">Star Location</div>
+                        <address>
+                            350 N Calhoun Place<br>
+                            Star, Idaho 83669<br>
+                            (208) 555-5678
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- =============================================
+         FOOTER
+    ============================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+
+                <div class="footer-logo-wrap">
+                    <img src="./Assets/Logos/Greyloch_Horizontal_Green-White.png" alt="Greyloch">
+                    <p class="footer-tagline">Built to last. Designed to inspire. Crafted in Idaho.</p>
+                </div>
+
+                <div class="footer-col">
+                    <p class="footer-col-title">Services</p>
+                    <a href="#">Kitchen Cabinetry</a>
+                    <a href="#">Bathroom Vanities</a>
+                    <a href="#">Closets &amp; Storage</a>
+                    <a href="#">Specialty Spaces</a>
+                    <a href="#">Commercial</a>
+                </div>
+
+                <div class="footer-col">
+                    <p class="footer-col-title">Company</p>
+                    <a href="#">About Greyloch</a>
+                    <a href="#">Our Process</a>
+                    <a href="#">Portfolio</a>
+                    <a href="#">Locations</a>
+                    <a href="#">Careers</a>
+                </div>
+
+                <div class="footer-col">
+                    <p class="footer-col-title">Get In Touch</p>
+                    <p>Meridian: (208) 555-1234</p>
+                    <p>Star: (208) 555-5678</p>
+                    <a href="mailto:hello@greyloch.com">hello@greyloch.com</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Facebook</a>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copy">&copy; 2025 Greyloch LLC &mdash; All rights reserved</p>
+                <div class="footer-green-mark"></div>
+                <p class="footer-copy">Meridian, Idaho &bull; Star, Idaho</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        /* Scroll-triggered animations */
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.anim, .anim-left').forEach(function (el) {
+            observer.observe(el);
+        });
+
+        /* Nav scroll state */
+        var nav = document.getElementById('site-nav');
+        window.addEventListener('scroll', function () {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        }, { passive: true });
+    </script>
+
+</body>
+</html>
