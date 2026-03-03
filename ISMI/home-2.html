@@ -60,9 +60,8 @@
             position: absolute;
             top: 0;
             right: 0;
-            width: 58%;
+            width: 70%;
             height: 100%;
-            clip-path: polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%);
             overflow: hidden;
         }
         .hero-diagonal img {
@@ -75,13 +74,13 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to right, #001E60 0%, rgba(0, 30, 96, 0.25) 40%, rgba(0, 30, 96, 0) 70%);
+            background: linear-gradient(to right, #001E60 0%, rgba(0, 30, 96, 0.6) 38%, rgba(0, 30, 96, 0.1) 75%, rgba(0, 30, 96, 0) 100%);
         }
         .hero-diagonal::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, #001E60 0%, transparent 30%);
+            background: linear-gradient(to top, #001E60 0%, transparent 35%);
             z-index: 1;
         }
         .orange-slash {
@@ -367,16 +366,12 @@
                 <img src="Assets/ISMI-logo.png" alt="ISMI Logo" class="h-10 w-auto object-contain brightness-0 invert">
             </div>
             <div class="hidden md:flex items-center gap-10">
-                <a href="#" class="text-sm font-bold text-white/70 hover:text-white transition-colors">Sport Programs</a>
-                <a href="#" class="text-sm font-bold text-white/70 hover:text-white transition-colors">Our Team</a>
-                <a href="#" class="text-sm font-bold text-white/70 hover:text-white transition-colors">BSU Partnership</a>
+                <a href="#" class="text-sm font-bold text-white/70 hover:text-white transition-colors">Conditions &amp; Treatments</a>
+                <a href="#" class="text-sm font-bold text-white/70 hover:text-white transition-colors">Our Surgeons</a>
+                <a href="#" class="text-sm font-bold text-white/70 hover:text-white transition-colors">Patient Resources</a>
                 <a href="#" class="text-sm font-bold text-white/70 hover:text-white transition-colors">Locations</a>
             </div>
             <div class="flex items-center gap-3">
-                <div class="hidden md:flex items-center gap-2 text-ismi-orange font-bold text-xs mr-2">
-                    <span class="w-2 h-2 rounded-full bg-ismi-orange animate-pulse"></span>
-                    Urgent Walk-ins Open
-                </div>
                 <a href="#" class="btn-orange" style="padding: 0.625rem 1.5rem; font-size: 0.8125rem;">Book Now</a>
             </div>
         </div>
@@ -386,25 +381,20 @@
          HERO — Dark Athletic, Diagonal Split
     ═══════════════════════════════════════ -->
     <section class="hero-sport flex items-center">
-        <!-- Diagonal image panel -->
+        <!-- Diagonal video panel -->
         <div class="hero-diagonal">
-            <img src="Assets/vienna-reyes-qCrKTET_09o-unsplash.jpg" alt="Elite athlete in motion">
+            <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+                <source src="Assets/webmarkets__blue_and_orange_college_soccer_team_playing_socce_87929b1f-eb02-4365-aae3-fd82f8a1ac3c_1.mp4" type="video/mp4">
+            </video>
         </div>
 
         <!-- Content -->
         <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 w-full pt-32 pb-24">
             <div class="max-w-xl">
-                <!-- Live badge -->
-                <div class="flex items-center gap-3 mb-8">
-                    <div class="flex items-center gap-2 bg-ismi-orange/20 border border-ismi-orange/40 px-3 py-1.5 rounded-full">
-                        <span class="w-2 h-2 rounded-full bg-ismi-orange animate-pulse"></span>
-                        <span class="text-ismi-orange font-bold text-xs uppercase tracking-widest">Official BSU Athletics Partner</span>
-                    </div>
-                </div>
 
-                <h1 class="font-display text-6xl lg:text-[5.5rem] font-black text-white tracking-tighter mb-8">
-                    Built<br>
-                    for <span class="orange-slash text-ismi-orange">Athletes.</span>
+                <h1 class="font-display text-5xl lg:text-[4.25rem] font-black text-white tracking-tighter mb-8">
+                    Orthopedic Care<br>
+                    Built for <span class="text-ismi-orange">Athletes.</span>
                 </h1>
                 <p class="text-xl text-white/70 max-w-md leading-relaxed mb-10">
                     From the first snap to the championship stage — ISMI's elite sports medicine specialists keep Idaho's best performers competing at their peak.
@@ -456,7 +446,7 @@
                 Wrestling <span class="ticker-dot"></span>
                 Gymnastics <span class="ticker-dot"></span>
                 Cross Country <span class="ticker-dot"></span>
-                Urgent Care — Walk-ins Welcome <span class="ticker-dot"></span>
+                Now Accepting New Patients <span class="ticker-dot"></span>
             </span>
             <span>
                 Official Orthopedic Partner of BSU Athletics <span class="ticker-dot"></span>
@@ -471,7 +461,7 @@
                 Wrestling <span class="ticker-dot"></span>
                 Gymnastics <span class="ticker-dot"></span>
                 Cross Country <span class="ticker-dot"></span>
-                Urgent Care — Walk-ins Welcome <span class="ticker-dot"></span>
+                Now Accepting New Patients <span class="ticker-dot"></span>
             </span>
         </div>
     </div>
@@ -637,6 +627,146 @@
                         <div class="absolute inset-0 bg-gradient-to-t from-ismi-navy via-transparent to-transparent"></div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         MEET OUR PROVIDERS
+    ═══════════════════════════════════════ -->
+    <section class="py-32 bg-ismi-sky">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+            <!-- Header -->
+            <div class="mb-16">
+                <span class="section-label">Our Physicians</span>
+                <h2 class="font-display text-5xl font-black text-ismi-navy tracking-tight mt-3">
+                    Meet Your<br>
+                    <span class="text-ismi-blue">Care Team.</span>
+                </h2>
+                <p class="text-ismi-slate mt-6 max-w-xl text-lg leading-relaxed">
+                    Board-certified orthopedic surgeons and sports medicine specialists dedicated to getting athletes back to peak performance.
+                </p>
+            </div>
+
+            <!-- Provider Cards -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+
+                <!-- Card 1 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg shadow-ismi-navy/8 border border-white group hover:-translate-y-1 transition-transform duration-300">
+                    <div class="aspect-[3/4] bg-ismi-navy/10 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#001E60" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="opacity-20"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-white to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-xs font-bold text-ismi-orange uppercase tracking-widest mb-2">Orthopedic Surgery</p>
+                        <h3 class="font-display text-lg font-black text-ismi-navy mb-1">Dr. [Provider]</h3>
+                        <p class="text-xs text-ismi-slate mb-4">MD, Board-Certified Orthopedic Surgeon</p>
+                        <div class="flex flex-wrap gap-1.5 mb-5">
+                            <span class="text-xs font-bold bg-ismi-sky text-ismi-navy px-2.5 py-1 rounded-full">Sports Medicine</span>
+                            <span class="text-xs font-bold bg-ismi-sky text-ismi-navy px-2.5 py-1 rounded-full">ACL Repair</span>
+                        </div>
+                        <a href="#" class="flex items-center gap-2 text-xs font-bold text-ismi-blue hover:text-ismi-navy transition-colors">
+                            View Profile
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg shadow-ismi-navy/8 border border-white group hover:-translate-y-1 transition-transform duration-300">
+                    <div class="aspect-[3/4] bg-ismi-navy/10 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#001E60" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="opacity-20"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-white to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-xs font-bold text-ismi-orange uppercase tracking-widest mb-2">Sports Medicine</p>
+                        <h3 class="font-display text-lg font-black text-ismi-navy mb-1">Dr. [Provider]</h3>
+                        <p class="text-xs text-ismi-slate mb-4">MD, Sports Medicine Physician</p>
+                        <div class="flex flex-wrap gap-1.5 mb-5">
+                            <span class="text-xs font-bold bg-ismi-sky text-ismi-navy px-2.5 py-1 rounded-full">Shoulder</span>
+                            <span class="text-xs font-bold bg-ismi-sky text-ismi-navy px-2.5 py-1 rounded-full">Knee</span>
+                        </div>
+                        <a href="#" class="flex items-center gap-2 text-xs font-bold text-ismi-blue hover:text-ismi-navy transition-colors">
+                            View Profile
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg shadow-ismi-navy/8 border border-white group hover:-translate-y-1 transition-transform duration-300">
+                    <div class="aspect-[3/4] bg-ismi-navy/10 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#001E60" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="opacity-20"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-white to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-xs font-bold text-ismi-orange uppercase tracking-widest mb-2">Joint Replacement</p>
+                        <h3 class="font-display text-lg font-black text-ismi-navy mb-1">Dr. [Provider]</h3>
+                        <p class="text-xs text-ismi-slate mb-4">MD, Board-Certified Orthopedic Surgeon</p>
+                        <div class="flex flex-wrap gap-1.5 mb-5">
+                            <span class="text-xs font-bold bg-ismi-sky text-ismi-navy px-2.5 py-1 rounded-full">Hip</span>
+                            <span class="text-xs font-bold bg-ismi-sky text-ismi-navy px-2.5 py-1 rounded-full">Knee Replacement</span>
+                        </div>
+                        <a href="#" class="flex items-center gap-2 text-xs font-bold text-ismi-blue hover:text-ismi-navy transition-colors">
+                            View Profile
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg shadow-ismi-navy/8 border border-white group hover:-translate-y-1 transition-transform duration-300">
+                    <div class="aspect-[3/4] bg-ismi-navy/10 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#001E60" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="opacity-20"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-white to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-xs font-bold text-ismi-orange uppercase tracking-widest mb-2">Spine & Neck</p>
+                        <h3 class="font-display text-lg font-black text-ismi-navy mb-1">Dr. [Provider]</h3>
+                        <p class="text-xs text-ismi-slate mb-4">MD, Spine Surgery Specialist</p>
+                        <div class="flex flex-wrap gap-1.5 mb-5">
+                            <span class="text-xs font-bold bg-ismi-sky text-ismi-navy px-2.5 py-1 rounded-full">Spine</span>
+                            <span class="text-xs font-bold bg-ismi-sky text-ismi-navy px-2.5 py-1 rounded-full">Minimally Invasive</span>
+                        </div>
+                        <a href="#" class="flex items-center gap-2 text-xs font-bold text-ismi-blue hover:text-ismi-navy transition-colors">
+                            View Profile
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg shadow-ismi-navy/8 border border-white group hover:-translate-y-1 transition-transform duration-300">
+                    <div class="aspect-[3/4] bg-ismi-navy/10 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#001E60" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="opacity-20"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-white to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-xs font-bold text-ismi-orange uppercase tracking-widest mb-2">Physical Therapy</p>
+                        <h3 class="font-display text-lg font-black text-ismi-navy mb-1">Dr. [Provider]</h3>
+                        <p class="text-xs text-ismi-slate mb-4">DPT, Sports Rehabilitation Specialist</p>
+                        <div class="flex flex-wrap gap-1.5 mb-5">
+                            <span class="text-xs font-bold bg-ismi-sky text-ismi-navy px-2.5 py-1 rounded-full">Return to Sport</span>
+                            <span class="text-xs font-bold bg-ismi-sky text-ismi-navy px-2.5 py-1 rounded-full">Performance Rehab</span>
+                        </div>
+                        <a href="#" class="flex items-center gap-2 text-xs font-bold text-ismi-blue hover:text-ismi-navy transition-colors">
+                            View Profile
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -895,8 +1025,8 @@
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                             </div>
                             <div>
-                                <p class="font-bold text-ismi-navy text-sm">Urgent Same-Day Access</p>
-                                <p class="text-xs text-ismi-slate mt-1 leading-relaxed">Walk-in urgent care for acute sport injuries — no referral needed.</p>
+                                <p class="font-bold text-ismi-navy text-sm">Same-Day Appointments</p>
+                                <p class="text-xs text-ismi-slate mt-1 leading-relaxed">Priority scheduling for acute injuries — get seen quickly without a long wait.</p>
                             </div>
                         </div>
                     </div>
