@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>208 Roofing | Brand Style Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* ===========================
+           CSS VARIABLES
+        =========================== */
+        :root {
+            --bg:          #0F1923;
+            --panel:       #161F2A;
+            --steel:       #252E3A;
+            --iron:        #3A4455;
+            --red:         #C81E2B;
+            --red-dark:    #9B1520;
+            --red-glow:    rgba(200, 30, 43, 0.22);
+            --gold:        #F5A623;
+            --sky:         #38BDF8;
+            --white:       #F0F2F5;
+            --gray:        #8B95A5;
+            --gray-light:  #B0BAC8;
+            --font-display: 'Oswald', sans-serif;
+            --font-body:    'Open Sans', sans-serif;
+            --font-mono:    'Roboto Mono', monospace;
+            --radius:       6px;
+            --ease:         all 0.3s ease;
+        }
+
+        /* ===========================
+           RESET & BASE
+        =========================== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            background-color: var(--bg);
+            color: var(--white);
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* ===========================
+           BACKGROUND TEXTURE
+           Repeating diagonal roof lines
+        =========================== */
+        .bg-texture {
+            position: fixed;
+            inset: 0;
+            background-image: repeating-linear-gradient(
+                -45deg,
+                transparent,
+                transparent 24px,
+                rgba(255, 255, 255, 0.014) 24px,
+                rgba(255, 255, 255, 0.014) 25px
+            );
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ===========================
+           LAYOUT
+        =========================== */
+        .layout {
+            display: flex;
+            min-height: 100vh;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===========================
+           SIDEBAR
+        =========================== */
+        aside {
+            width: 260px;
+            background: var(--panel);
+            border-right: 1px solid var(--steel);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            overflow-x: hidden;
+            flex-shrink: 0;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        aside::-webkit-scrollbar { display: none; }
+
+        .sidebar-inner { padding: 2rem 1.75rem; }
+
+        /* Brand mark in sidebar */
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.875rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .brand-mark {
+            width: 42px;
+            height: 42px;
+            background: var(--red);
+            clip-path: polygon(0% 38%, 50% 0%, 100% 38%, 100% 100%, 0% 100%);
+            flex-shrink: 0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 6px;
+        }
+
+        .brand-text {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            color: var(--white);
+            line-height: 1.1;
+        }
+
+        .brand-text span {
+            display: block;
+            font-size: 0.6rem;
+            font-family: var(--font-mono);
+            letter-spacing: 0.22em;
+            color: var(--gray);
+            text-transform: uppercase;
+            font-weight: 400;
+            margin-top: 3px;
+        }
+
+        .sidebar-divider {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 2rem;
+        }
+
+        .divider-line {
+            flex: 1;
+            height: 1px;
+            background: var(--steel);
+        }
+
+        .divider-label {
+            font-family: var(--font-mono);
+            font-size: 0.58rem;
+            letter-spacing: 0.28em;
+            color: var(--gray);
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .nav-group { margin-bottom: 1.75rem; }
+
+        .nav-group-label {
+            font-family: var(--font-mono);
+            font-size: 0.58rem;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            color: var(--gray);
+            margin-bottom: 0.6rem;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.35rem 0.75rem;
+            font-size: 0.875rem;
+            color: var(--gray-light);
+            text-decoration: none;
+            transition: var(--ease);
+            border-left: 2px solid transparent;
+            margin-bottom: 2px;
+        }
+
+        .nav-link:hover {
+            color: var(--white);
+            border-left-color: var(--red);
+            background: rgba(200, 30, 43, 0.06);
+        }
+
+        /* ===========================
+           MAIN CONTENT
+        =========================== */
+        main {
+            flex: 1;
+            padding: 4.5rem 5rem;
+            max-width: 920px;
+        }
+
+        /* ===========================
+           PAGE HEADER
+        =========================== */
+        .page-header {
+            margin-bottom: 5rem;
+            position: relative;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -2rem;
+            left: -5rem;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--red), rgba(200, 30, 43, 0));
+        }
+
+        .page-title {
+            font-family: var(--font-display);
+            font-size: 3.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            line-height: 1;
+            margin-bottom: 1.25rem;
+        }
+
+        .page-title .red { color: var(--red); }
+
+        .page-subtitle {
+            font-size: 1.05rem;
+            color: var(--gray-light);
+            max-width: 500px;
+            line-height: 1.75;
+        }
+
+        /* ===========================
+           SECTIONS
+        =========================== */
+        section { margin-bottom: 6rem; scroll-margin-top: 2rem; }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--steel);
+        }
+
+        .section-number {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            color: var(--red);
+            background: rgba(200, 30, 43, 0.1);
+            border: 1px solid rgba(200, 30, 43, 0.25);
+            padding: 0.2rem 0.55rem;
+            border-radius: var(--radius);
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ===========================
+           GRID HELPERS
+        =========================== */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem; }
+
+        /* ===========================
+           MISSION CARD
+        =========================== */
+        .mission-card {
+            position: relative;
+            background: var(--panel);
+            border: 1px solid var(--steel);
+            border-left: 4px solid var(--red);
+            border-radius: 0 var(--radius) var(--radius) 0;
+            padding: 2rem 2.25rem;
+            overflow: hidden;
+        }
+
+        .mission-card::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            width: 180px;
+            height: 180px;
+            background: var(--red-glow);
+            border-radius: 50%;
+            filter: blur(55px);
+            pointer-events: none;
+        }
+
+        /* Subtle diagonal in mission card */
+        .mission-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(
+                -45deg,
+                transparent,
+                transparent 20px,
+                rgba(200, 30, 43, 0.03) 20px,
+                rgba(200, 30, 43, 0.03) 21px
+            );
+        }
+
+        .mission-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            color: var(--red);
+            margin-bottom: 0.85rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mission-card p {
+            font-size: 1.05rem;
+            color: var(--gray-light);
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===========================
+           VOICE CARDS
+        =========================== */
+        .voice-card {
+            background: var(--panel);
+            border: 1px solid var(--steel);
+            border-top: 3px solid transparent;
+            border-radius: var(--radius);
+            padding: 1.75rem;
+            transition: var(--ease);
+        }
+
+        .voice-card:hover { transform: translateY(-3px); }
+        .voice-card.c-red { border-top-color: var(--red); }
+        .voice-card.c-gold { border-top-color: var(--gold); }
+        .voice-card.c-sky { border-top-color: var(--sky); }
+
+        .voice-card h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.7rem;
+        }
+
+        .voice-card.c-red h4 { color: var(--red); }
+        .voice-card.c-gold h4 { color: var(--gold); }
+        .voice-card.c-sky h4 { color: var(--sky); }
+
+        .voice-card p { font-size: 0.875rem; color: var(--gray-light); line-height: 1.7; }
+
+        /* ===========================
+           COLOR SWATCHES
+        =========================== */
+        .swatch { cursor: pointer; }
+
+        .swatch-block {
+            height: 100px;
+            border-radius: var(--radius);
+            margin-bottom: 0.7rem;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            transition: var(--ease);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .swatch-block::after {
+            content: 'COPY';
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            color: rgba(255, 255, 255, 0.75);
+            background: rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transition: var(--ease);
+        }
+
+        .swatch:hover .swatch-block::after { opacity: 1; }
+
+        .swatch-name {
+            font-family: var(--font-mono);
+            font-size: 0.73rem;
+            font-weight: 500;
+            color: var(--white);
+            margin-bottom: 0.2rem;
+        }
+
+        .swatch-hex {
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            color: var(--gray);
+            text-transform: uppercase;
+        }
+
+        /* ===========================
+           TYPOGRAPHY BLOCKS
+        =========================== */
+        .type-block {
+            background: rgba(37, 46, 58, 0.35);
+            border: 1px solid var(--steel);
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .type-label {
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        /* ===========================
+           RADIUS DEMO
+        =========================== */
+        .radius-demo {
+            background: rgba(37, 46, 58, 0.35);
+            border: 1px solid var(--steel);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            max-width: 460px;
+        }
+
+        /* ===========================
+           TEXTURE DEMO
+        =========================== */
+        .texture-demo {
+            background: var(--panel);
+            border: 1px solid var(--steel);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .texture-demo-overlay {
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(
+                -45deg,
+                transparent,
+                transparent 20px,
+                rgba(255, 255, 255, 0.025) 20px,
+                rgba(255, 255, 255, 0.025) 21px
+            );
+        }
+
+        .texture-content { position: relative; z-index: 1; }
+
+        .code-tag {
+            display: inline-block;
+            background: var(--bg);
+            border: 1px solid var(--iron);
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            color: var(--gray);
+            padding: 0.25rem 0.7rem;
+            margin-right: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .slant-variants { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+
+        .slant-sample {
+            border-radius: var(--radius);
+            overflow: hidden;
+            height: 90px;
+            position: relative;
+            border: 1px solid var(--steel);
+        }
+
+        .slant-sample-label {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gray);
+            z-index: 1;
+        }
+
+        /* ===========================
+           BUTTONS
+        =========================== */
+        .btn-showcase {
+            background: rgba(37, 46, 58, 0.3);
+            border: 1px solid var(--steel);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .btn-note {
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        /* Primary — angled right edge like a roof ridge */
+        .btn-primary {
+            display: inline-block;
+            background: var(--red);
+            color: var(--white);
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.09em;
+            padding: 0.9rem 2.75rem 0.9rem 2rem;
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: var(--ease);
+            box-shadow: 0 4px 22px rgba(200, 30, 43, 0.38);
+            clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%);
+        }
+
+        .btn-primary:hover {
+            background: var(--red-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(200, 30, 43, 0.5);
+        }
+
+        /* Secondary — ghost */
+        .btn-secondary {
+            display: inline-block;
+            background: transparent;
+            color: var(--white);
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.09em;
+            padding: 0.9rem 2.25rem;
+            border: 2px solid var(--iron);
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: var(--ease);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--red);
+            color: var(--red);
+        }
+
+        /* Gold — phone / urgency */
+        .btn-gold {
+            display: inline-block;
+            background: var(--gold);
+            color: #1A1200;
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.09em;
+            padding: 0.9rem 2.25rem;
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: var(--ease);
+        }
+
+        .btn-gold:hover {
+            background: #d9911a;
+            transform: translateY(-2px);
+        }
+
+        /* ===========================
+           PANEL CARDS
+        =========================== */
+        .panel-card {
+            background: var(--panel);
+            border: 1px solid var(--steel);
+            border-radius: var(--radius);
+            padding: 1.875rem;
+            transition: var(--ease);
+        }
+
+        .panel-card:hover {
+            border-color: rgba(200, 30, 43, 0.38);
+            transform: translateY(-2px);
+        }
+
+        .card-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            margin-bottom: 0.875rem;
+        }
+
+        .card-eyebrow.red { color: var(--red); }
+        .card-eyebrow.gold { color: var(--gold); }
+        .card-eyebrow.sky { color: var(--sky); }
+
+        .panel-card h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.65rem;
+        }
+
+        .panel-card p { font-size: 0.875rem; color: var(--gray-light); line-height: 1.7; }
+
+        .card-alt {
+            background: rgba(37, 46, 58, 0.4);
+            border: 1px solid var(--iron);
+            border-radius: var(--radius);
+            padding: 1.875rem;
+        }
+
+        /* Hero card with diagonal tint */
+        .card-hero {
+            background: linear-gradient(135deg, rgba(200,30,43,0.1) 0%, var(--panel) 45%);
+            border: 1px solid rgba(200, 30, 43, 0.28);
+            border-radius: var(--radius);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            margin-top: 1.5rem;
+        }
+
+        .card-hero-texture {
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(
+                -45deg,
+                transparent,
+                transparent 20px,
+                rgba(200, 30, 43, 0.04) 20px,
+                rgba(200, 30, 43, 0.04) 21px
+            );
+        }
+
+        .card-hero-content { position: relative; z-index: 1; }
+
+        /* ===========================
+           FORM ELEMENTS
+        =========================== */
+        .form-wrap {
+            background: rgba(37, 46, 58, 0.3);
+            border: 1px solid var(--steel);
+            border-radius: var(--radius);
+            padding: 2rem;
+            max-width: 480px;
+        }
+
+        .form-group { margin-bottom: 1.4rem; }
+        .form-group:last-child { margin-bottom: 0; }
+
+        .form-label {
+            display: block;
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            color: var(--gray);
+            margin-bottom: 0.45rem;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            background: var(--bg);
+            border: 1px solid var(--iron);
+            border-radius: var(--radius);
+            padding: 0.8rem 1rem;
+            color: var(--white);
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            transition: var(--ease);
+            outline: none;
+        }
+
+        .form-input::placeholder,
+        .form-textarea::placeholder { color: rgba(139, 149, 165, 0.45); }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            border-color: var(--red);
+            box-shadow: 0 0 0 3px rgba(200, 30, 43, 0.1);
+        }
+
+        .form-select { cursor: pointer; appearance: none; }
+        .form-textarea { resize: vertical; }
+
+        /* ===========================
+           SERVICE NAV CARDS
+        =========================== */
+        .service-card {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            padding: 1.25rem;
+            background: var(--panel);
+            border: 1px solid var(--steel);
+            border-radius: var(--radius);
+            transition: var(--ease);
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .service-card:hover {
+            border-color: rgba(200, 30, 43, 0.35);
+            transform: translateY(-2px);
+            background: rgba(37, 46, 58, 0.6);
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .service-icon.red {
+            background: rgba(200, 30, 43, 0.12);
+            border: 1px solid rgba(200, 30, 43, 0.25);
+            color: var(--red);
+        }
+
+        .service-icon.gold {
+            background: rgba(245, 166, 35, 0.12);
+            border: 1px solid rgba(245, 166, 35, 0.25);
+            color: var(--gold);
+        }
+
+        .service-icon.sky {
+            background: rgba(56, 189, 248, 0.12);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            color: var(--sky);
+        }
+
+        .service-card-title {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.2rem;
+        }
+
+        .service-card-desc {
+            font-size: 0.75rem;
+            color: var(--gray);
+        }
+
+        /* ===========================
+           AD MOCKUPS
+        =========================== */
+        .ad-outer {
+            background: rgba(37, 46, 58, 0.3);
+            border: 1px solid var(--steel);
+            border-radius: var(--radius);
+            padding: 1.75rem;
+        }
+
+        .ad-label {
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--gray);
+            margin-bottom: 1.25rem;
+        }
+
+        .ad-square {
+            aspect-ratio: 1;
+            background: var(--bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem;
+        }
+
+        .ad-square-texture {
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(
+                -45deg,
+                transparent,
+                transparent 20px,
+                rgba(255, 255, 255, 0.018) 20px,
+                rgba(255, 255, 255, 0.018) 21px
+            );
+        }
+
+        .ad-diagonal-accent {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 40%, rgba(200, 30, 43, 0.09) 40%);
+        }
+
+        .ad-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .ad-brand-name {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: auto;
+        }
+
+        .ad-brand-name .red { color: var(--red); }
+
+        .ad-accent-bar {
+            width: 36px;
+            height: 3px;
+            background: var(--red);
+            margin-bottom: 0.65rem;
+        }
+
+        .ad-headline {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-bottom: 0.6rem;
+        }
+
+        .ad-body-text {
+            font-size: 0.72rem;
+            color: var(--gray-light);
+            margin-bottom: 0.6rem;
+        }
+
+        .ad-url {
+            font-family: var(--font-mono);
+            font-size: 0.58rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--gray);
+        }
+
+        .ad-wide {
+            aspect-ratio: 1200 / 628;
+            background: var(--bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 1.75rem;
+        }
+
+        .ad-wide-texture {
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(
+                -45deg,
+                transparent,
+                transparent 20px,
+                rgba(255, 255, 255, 0.014) 20px,
+                rgba(255, 255, 255, 0.014) 21px
+            );
+        }
+
+        .ad-wide-accent {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 45%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(200, 30, 43, 0.1));
+            clip-path: polygon(18% 0%, 100% 0%, 100% 100%, 0% 100%);
+        }
+
+        .ad-wide-content { position: relative; z-index: 1; }
+
+        /* ===========================
+           IMAGERY DEMOS
+        =========================== */
+        .img-preview {
+            aspect-ratio: 16/9;
+            background: var(--steel);
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 0.875rem;
+        }
+
+        .img-preview-label {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255, 255, 255, 0.14);
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        .img-desc { font-size: 0.8rem; color: var(--gray-light); line-height: 1.65; }
+        .img-desc strong { color: var(--white); }
+
+        /* ===========================
+           ANIMATIONS
+        =========================== */
+        @keyframes roofBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-14px); }
+        }
+
+        @keyframes redPulse {
+            0%, 100% { box-shadow: 0 0 10px rgba(200, 30, 43, 0.3); }
+            50% { box-shadow: 0 0 32px rgba(200, 30, 43, 0.75); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .anim-roof-bounce { animation: roofBounce 1.6s ease-in-out infinite; }
+        .anim-red-pulse { animation: redPulse 2s ease-in-out infinite; }
+
+        .anim-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            min-height: 170px;
+            background: rgba(37, 46, 58, 0.35);
+            border: 1px solid var(--steel);
+            border-radius: var(--radius);
+            padding: 2rem;
+        }
+
+        .anim-label {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        /* ===========================
+           GLOWS & GRADIENTS
+        =========================== */
+        .glow-card {
+            background: var(--panel);
+            border: 1px solid var(--steel);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            height: 160px;
+        }
+
+        /* ===========================
+           COPY TOAST
+        =========================== */
+        .copy-toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--red);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: var(--radius);
+            font-family: var(--font-display);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-size: 0.875rem;
+            display: none;
+            animation: fadeInUp 0.3s ease-out;
+            z-index: 1000;
+        }
+
+        /* ===========================
+           FOOTER
+        =========================== */
+        footer {
+            margin-top: 8rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--steel);
+            text-align: center;
+        }
+
+        footer p {
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            color: var(--gray);
+        }
+
+        /* ===========================
+           RESPONSIVE
+        =========================== */
+        @media (max-width: 1100px) {
+            aside { display: none; }
+            main { padding: 2.5rem; }
+        }
+
+        @media (max-width: 640px) {
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            .slant-variants { grid-template-columns: 1fr; }
+            .page-title { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Global diagonal background texture -->
+    <div class="bg-texture"></div>
+
+    <div class="layout">
+
+        <!-- =====================
+             SIDEBAR
+        ===================== -->
+        <aside>
+            <div class="sidebar-inner">
+
+                <div style="margin-bottom: 2rem;">
+                    <div class="brand-logo">
+                        <div class="brand-mark">
+                            <svg width="20" height="16" viewBox="0 0 20 16" fill="none">
+                                <path d="M2 8L10 1L18 8V15H2V8Z" fill="white" fill-opacity="0.92"/>
+                            </svg>
+                        </div>
+                        <div class="brand-text">
+                            208 Roofing
+                            <span>Brand Guide</span>
+                        </div>
+                    </div>
+                    <div class="sidebar-divider">
+                        <div class="divider-line"></div>
+                        <span class="divider-label">Style Guide</span>
+                        <div class="divider-line"></div>
+                    </div>
+                </div>
+
+                <nav>
+                    <div class="nav-group">
+                        <p class="nav-group-label">Foundations</p>
+                        <a href="#mission" class="nav-link">Mission</a>
+                        <a href="#voice" class="nav-link">Voice & Tone</a>
+                        <a href="#colors" class="nav-link">Colors</a>
+                        <a href="#typography" class="nav-link">Typography</a>
+                        <a href="#radius" class="nav-link">Corner Radius</a>
+                        <a href="#texture" class="nav-link">Texture & Pattern</a>
+                    </div>
+
+                    <div class="nav-group">
+                        <p class="nav-group-label">Components</p>
+                        <a href="#buttons" class="nav-link">Buttons</a>
+                        <a href="#cards" class="nav-link">Cards & Panels</a>
+                        <a href="#forms" class="nav-link">Form Elements</a>
+                        <a href="#navigation" class="nav-link">Navigation</a>
+                    </div>
+
+                    <div class="nav-group">
+                        <p class="nav-group-label">Creative Assets</p>
+                        <a href="#social" class="nav-link">Social & Ads</a>
+                        <a href="#imagery" class="nav-link">Imagery Style</a>
+                    </div>
+
+                    <div class="nav-group">
+                        <p class="nav-group-label">Special Effects</p>
+                        <a href="#animations" class="nav-link">Animations</a>
+                        <a href="#glows" class="nav-link">Glows & Gradients</a>
+                    </div>
+                </nav>
+
+            </div>
+        </aside>
+
+        <!-- =====================
+             MAIN CONTENT
+        ===================== -->
+        <main>
+
+            <!-- PAGE HEADER -->
+            <header class="page-header">
+                <h1 class="page-title">Brand <span class="red">Guide</span></h1>
+                <p class="page-subtitle">
+                    Visual standards, components, and creative direction for 208 Roofing's digital presence across all platforms.
+                </p>
+            </header>
+
+            <!-- =====================
+                 MISSION
+            ===================== -->
+            <section id="mission">
+                <div class="mission-card">
+                    <p class="mission-eyebrow">Our Mission</p>
+                    <p>
+                        208 Roofing delivers premium residential and commercial roofing at honest prices — treating every customer like family, never cutting corners on materials or labor, and standing behind every job for years after the work is done.
+                    </p>
+                </div>
+            </section>
+
+            <!-- =====================
+                 VOICE & TONE
+            ===================== -->
+            <section id="voice">
+                <div class="section-header">
+                    <span class="section-number">01</span>
+                    <h2 class="section-title">Brand Voice & Tone</h2>
+                </div>
+                <div class="grid-3">
+                    <div class="voice-card c-red">
+                        <h4>Trustworthy</h4>
+                        <p>We earn confidence through transparency — honest pricing, clear timelines, and zero surprises on the job site.</p>
+                    </div>
+                    <div class="voice-card c-gold">
+                        <h4>Rugged</h4>
+                        <p>Bold, direct, and built to last. We talk like the tradespeople we are — no fluff, no agency jargon, just real results.</p>
+                    </div>
+                    <div class="voice-card c-sky">
+                        <h4>Protective</h4>
+                        <p>We treat every home like our own. Our tone reflects care, craftsmanship, and accountability long after the job ends.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =====================
+                 COLORS
+            ===================== -->
+            <section id="colors">
+                <div class="section-header">
+                    <span class="section-number">02</span>
+                    <h2 class="section-title">Colors</h2>
+                </div>
+                <div class="grid-3">
+                    <div class="swatch" onclick="copyToClipboard('#0F1923')">
+                        <div class="swatch-block" style="background: #0F1923; border-color: rgba(255,255,255,0.12);"></div>
+                        <p class="swatch-name">Midnight</p>
+                        <p class="swatch-hex">#0F1923 — Background</p>
+                    </div>
+                    <div class="swatch" onclick="copyToClipboard('#161F2A')">
+                        <div class="swatch-block" style="background: #161F2A;"></div>
+                        <p class="swatch-name">Slate Panel</p>
+                        <p class="swatch-hex">#161F2A — Panels, Cards</p>
+                    </div>
+                    <div class="swatch" onclick="copyToClipboard('#252E3A')">
+                        <div class="swatch-block" style="background: #252E3A;"></div>
+                        <p class="swatch-name">Steel</p>
+                        <p class="swatch-hex">#252E3A — Borders</p>
+                    </div>
+                    <div class="swatch" onclick="copyToClipboard('#C81E2B')">
+                        <div class="swatch-block" style="background: #C81E2B;"></div>
+                        <p class="swatch-name">Brand Red</p>
+                        <p class="swatch-hex">#C81E2B — Primary CTA</p>
+                    </div>
+                    <div class="swatch" onclick="copyToClipboard('#F5A623')">
+                        <div class="swatch-block" style="background: #F5A623;"></div>
+                        <p class="swatch-name">Amber Gold</p>
+                        <p class="swatch-hex">#F5A623 — Accent / Phone</p>
+                    </div>
+                    <div class="swatch" onclick="copyToClipboard('#F0F2F5')">
+                        <div class="swatch-block" style="background: #F0F2F5;"></div>
+                        <p class="swatch-name">Ash White</p>
+                        <p class="swatch-hex">#F0F2F5 — Body Text</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =====================
+                 TYPOGRAPHY
+            ===================== -->
+            <section id="typography">
+                <div class="section-header">
+                    <span class="section-number">03</span>
+                    <h2 class="section-title">Typography</h2>
+                </div>
+
+                <div class="type-block">
+                    <p class="type-label">Display — Oswald</p>
+                    <h1 style="font-family: var(--font-display); font-size: 2.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; line-height: 1.05;">Premium Roofing<br>Built to Last</h1>
+                    <p style="font-size: 0.8rem; color: var(--gray); margin-top: 0.875rem;">Usage: Hero headlines, section titles, CTAs, and all button text.</p>
+                </div>
+
+                <div class="type-block">
+                    <p class="type-label">Body — Open Sans</p>
+                    <p style="font-size: 1rem; line-height: 1.8; color: var(--gray-light); max-width: 580px;">
+                        Open Sans carries all body copy and content. It pairs cleanly with Oswald's bold structure — warm, highly legible, and professional. Always set at 1.6–1.8 line height for optimal readability on dark backgrounds.
+                    </p>
+                    <p style="font-size: 0.8rem; color: var(--gray); margin-top: 0.875rem;">Usage: Paragraphs, card descriptions, testimonials, FAQs.</p>
+                </div>
+
+                <div class="type-block">
+                    <p class="type-label">Mono — Roboto Mono</p>
+                    <p style="font-family: var(--font-mono); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.22em; color: var(--red);">SECTION LABEL 01 — BOISE, IDAHO</p>
+                    <p style="font-size: 0.8rem; color: var(--gray); margin-top: 0.875rem;">Usage: Section numbers, phone numbers, eyebrow labels, code tags, technical data.</p>
+                </div>
+            </section>
+
+            <!-- =====================
+                 CORNER RADIUS
+            ===================== -->
+            <section id="radius">
+                <div class="section-header">
+                    <span class="section-number">04</span>
+                    <h2 class="section-title">Corner Radius</h2>
+                </div>
+                <div class="radius-demo">
+                    <div style="width: 80px; height: 80px; background: var(--red); border-radius: 6px; flex-shrink: 0;"></div>
+                    <div>
+                        <p style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.45rem;">Standard Radius</p>
+                        <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--red); margin-bottom: 0.75rem;">6px / 0.375rem</p>
+                        <p style="font-size: 0.875rem; color: var(--gray-light); line-height: 1.65;">
+                            A tighter 6px radius feels grounded and structural — appropriate for a trade brand. It avoids the overly soft consumer aesthetic while remaining modern and clean.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =====================
+                 TEXTURE & PATTERN
+            ===================== -->
+            <section id="texture">
+                <div class="section-header">
+                    <span class="section-number">05</span>
+                    <h2 class="section-title">Texture & Pattern</h2>
+                </div>
+
+                <div class="texture-demo">
+                    <div class="texture-demo-overlay"></div>
+                    <div class="texture-content">
+                        <p style="font-family: var(--font-mono); font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.22em; color: var(--red); margin-bottom: 0.875rem;">The Signature Slant</p>
+                        <h4 style="font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.875rem;">Diagonal Roof Lines</h4>
+                        <p style="font-size: 0.875rem; color: var(--gray-light); max-width: 540px; line-height: 1.75; margin-bottom: 1.5rem;">
+                            The brand's signature texture is built from repeating –45° diagonal lines — a direct nod to roof shingles, ridge lines, and fascia boards. Applied at ultra-low opacity, it adds depth without competing with content.
+                        </p>
+                        <div>
+                            <span class="code-tag">angle: -45deg</span>
+                            <span class="code-tag">repeat: 24px</span>
+                            <span class="code-tag">opacity: rgba(255,255,255,0.025)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slant-variants">
+                    <div class="slant-sample">
+                        <div style="position: absolute; inset: 0; background: var(--bg);"></div>
+                        <div style="position: absolute; inset: 0; background-image: repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(255,255,255,0.025) 20px, rgba(255,255,255,0.025) 21px);"></div>
+                        <div class="slant-sample-label">Default — Light Lines</div>
+                    </div>
+                    <div class="slant-sample">
+                        <div style="position: absolute; inset: 0; background: var(--bg);"></div>
+                        <div style="position: absolute; inset: 0; background-image: repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,30,43,0.065) 20px, rgba(200,30,43,0.065) 21px);"></div>
+                        <div class="slant-sample-label">Red Tint — Hero Sections</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =====================
+                 BUTTONS
+            ===================== -->
+            <section id="buttons">
+                <div class="section-header">
+                    <span class="section-number">06</span>
+                    <h2 class="section-title">Buttons</h2>
+                </div>
+                <div class="grid-2">
+                    <div class="btn-showcase">
+                        <button class="btn-primary">Get Free Estimate</button>
+                        <p class="btn-note">Primary CTA — Angled Ridge Cut</p>
+                    </div>
+                    <div class="btn-showcase">
+                        <button class="btn-secondary">Learn More</button>
+                        <p class="btn-note">Secondary — Ghost Outline</p>
+                    </div>
+                </div>
+                <div class="btn-showcase" style="margin-top: 1.5rem; flex-direction: row; gap: 2rem; flex-wrap: wrap;">
+                    <button class="btn-gold">Call (208) 591-8997</button>
+                    <p class="btn-note">Gold — Phone / Urgent Actions</p>
+                </div>
+            </section>
+
+            <!-- =====================
+                 CARDS & PANELS
+            ===================== -->
+            <section id="cards">
+                <div class="section-header">
+                    <span class="section-number">07</span>
+                    <h2 class="section-title">Cards & Panels</h2>
+                </div>
+
+                <div class="grid-2">
+                    <div class="panel-card">
+                        <p class="card-eyebrow red">Standard Card</p>
+                        <h4>Residential Roofing</h4>
+                        <p>Complete replacements, emergency repairs, and steep-slope installations — backed by a 10-year labor warranty.</p>
+                    </div>
+                    <div class="card-alt">
+                        <p class="card-eyebrow gold">Flat Panel Style</p>
+                        <h4 style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.65rem;">Commercial Roofing</h4>
+                        <p style="font-size: 0.875rem; color: var(--gray-light); line-height: 1.7;">Flat roofs, coatings, and large-scale installations with specialist-grade equipment for any building size.</p>
+                    </div>
+                </div>
+
+                <!-- Hero card variant -->
+                <div class="card-hero">
+                    <div class="card-hero-texture"></div>
+                    <div class="card-hero-content">
+                        <p class="card-eyebrow red">Featured / Hero Card</p>
+                        <h4 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.5rem;">Metal Roofing — 50+ Year Lifespan</h4>
+                        <p style="font-size: 0.875rem; color: var(--gray-light);">Fireproof, wind-resistant up to 130 MPH, and virtually maintenance-free. The premium choice for Idaho's extreme weather.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =====================
+                 FORM ELEMENTS
+            ===================== -->
+            <section id="forms">
+                <div class="section-header">
+                    <span class="section-number">08</span>
+                    <h2 class="section-title">Form Elements</h2>
+                </div>
+                <div class="form-wrap">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-input" placeholder="John Smith">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone Number</label>
+                        <input type="tel" class="form-input" placeholder="(208) 555-0100">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Service Needed</label>
+                        <select class="form-select">
+                            <option>Roof Replacement</option>
+                            <option>Leak Repair</option>
+                            <option>Metal Roofing</option>
+                            <option>Free Inspection</option>
+                            <option>Insurance Claim</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Project Description</label>
+                        <textarea class="form-textarea" rows="3" placeholder="Describe your project or concern..."></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =====================
+                 NAVIGATION
+            ===================== -->
+            <section id="navigation">
+                <div class="section-header">
+                    <span class="section-number">09</span>
+                    <h2 class="section-title">Navigation</h2>
+                </div>
+                <div class="grid-2">
+
+                    <a class="service-card" href="#">
+                        <div class="service-icon red">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                                <polyline points="9 22 9 12 15 12 15 22"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="service-card-title">Residential</p>
+                            <p class="service-card-desc">Home roof replacement & repair</p>
+                        </div>
+                    </a>
+
+                    <a class="service-card" href="#">
+                        <div class="service-icon gold">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="6" width="20" height="16" rx="2"/>
+                                <path d="M22 6l-10-4L2 6"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="service-card-title">Commercial</p>
+                            <p class="service-card-desc">Large-scale & flat roof solutions</p>
+                        </div>
+                    </a>
+
+                    <a class="service-card" href="#">
+                        <div class="service-icon sky">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="service-card-title">Metal Roofing</p>
+                            <p class="service-card-desc">50–100 year lifespan installation</p>
+                        </div>
+                    </a>
+
+                    <a class="service-card" href="#">
+                        <div class="service-icon red">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21.21 15.89A10 10 0 118 2.83"/>
+                                <path d="M22 12A10 10 0 0012 2v10z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="service-card-title">Insurance Claims</p>
+                            <p class="service-card-desc">Storm damage restoration experts</p>
+                        </div>
+                    </a>
+
+                </div>
+            </section>
+
+            <!-- =====================
+                 SOCIAL & ADS
+            ===================== -->
+            <section id="social">
+                <div class="section-header">
+                    <span class="section-number">10</span>
+                    <h2 class="section-title">Social & Ads</h2>
+                </div>
+                <div class="grid-2">
+
+                    <!-- Square format -->
+                    <div class="ad-outer">
+                        <p class="ad-label">Instagram / Facebook (1080×1080)</p>
+                        <div class="ad-square">
+                            <div class="ad-square-texture"></div>
+                            <div class="ad-diagonal-accent"></div>
+                            <div class="ad-content">
+                                <div class="ad-brand-name">208 <span class="red">Roofing</span></div>
+                                <div>
+                                    <div class="ad-accent-bar"></div>
+                                    <h3 class="ad-headline">Never Overpay<br>For Your Roof.</h3>
+                                    <p class="ad-body-text">Free inspections. Premium materials.<br>10-year labor warranty.</p>
+                                    <p class="ad-url">208roofing.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wide format -->
+                    <div class="ad-outer">
+                        <p class="ad-label">LinkedIn / Display (1200×628)</p>
+                        <div class="ad-wide">
+                            <div class="ad-wide-texture"></div>
+                            <div class="ad-wide-accent"></div>
+                            <div class="ad-wide-content">
+                                <p style="font-family: var(--font-mono); font-size: 0.58rem; text-transform: uppercase; letter-spacing: 0.22em; color: var(--red); margin-bottom: 0.65rem;">Boise, ID — Est. 2017</p>
+                                <h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; text-transform: uppercase; line-height: 1.1; margin-bottom: 1rem;">Quality Roofing.<br>Honest Prices.</h3>
+                                <button class="btn-primary" style="font-size: 0.82rem; padding: 0.6rem 1.75rem 0.6rem 1.1rem;">Get Free Estimate</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- =====================
+                 IMAGERY STYLE
+            ===================== -->
+            <section id="imagery">
+                <div class="section-header">
+                    <span class="section-number">11</span>
+                    <h2 class="section-title">Imagery Style</h2>
+                </div>
+                <div class="grid-3">
+                    <div>
+                        <div class="img-preview">
+                            <div style="position: absolute; inset: 0; background: var(--steel);"></div>
+                            <div style="position: absolute; inset: 0; background: rgba(15,25,35,0.5);"></div>
+                            <div class="img-preview-label">High Contrast</div>
+                        </div>
+                        <p class="img-desc"><strong>Dark & Bold:</strong> Use dramatic, underexposed photography. High contrast reinforces toughness and craftsmanship.</p>
+                    </div>
+                    <div>
+                        <div class="img-preview">
+                            <div style="position: absolute; inset: 0; background: var(--steel);"></div>
+                            <div style="position: absolute; inset: 0; background: rgba(200,30,43,0.18);"></div>
+                            <div class="img-preview-label">Red Tint</div>
+                        </div>
+                        <p class="img-desc"><strong>Brand Overlay:</strong> Apply a red wash at 15–20% opacity over rooftop or job site photography for consistency.</p>
+                    </div>
+                    <div>
+                        <div class="img-preview">
+                            <div style="position: absolute; inset: 0; background: var(--steel);"></div>
+                            <div style="position: absolute; inset: 0; background: linear-gradient(to top, var(--bg), transparent);"></div>
+                            <div class="img-preview-label">Fade Out</div>
+                        </div>
+                        <p class="img-desc"><strong>Gradient Fade:</strong> Use a bottom-up fade into the brand dark background for seamless section transitions.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =====================
+                 ANIMATIONS
+            ===================== -->
+            <section id="animations">
+                <div class="section-header">
+                    <span class="section-number">12</span>
+                    <h2 class="section-title">Animations</h2>
+                </div>
+                <div class="grid-2">
+
+                    <div class="anim-card">
+                        <div class="anim-roof-bounce">
+                            <svg width="52" height="46" viewBox="0 0 52 46" fill="none">
+                                <path d="M4 22L26 3L48 22V44H4V22Z" fill="#C81E2B"/>
+                                <rect x="20" y="30" width="12" height="14" fill="#0F1923"/>
+                                <rect x="8" y="26" width="8" height="8" rx="1" fill="rgba(255,255,255,0.15)"/>
+                                <rect x="36" y="26" width="8" height="8" rx="1" fill="rgba(255,255,255,0.15)"/>
+                            </svg>
+                        </div>
+                        <p class="anim-label">Roof Bounce — Icon Entrance</p>
+                    </div>
+
+                    <div class="anim-card">
+                        <div class="anim-red-pulse" style="width: 52px; height: 52px; background: var(--red); border-radius: var(--radius);"></div>
+                        <p class="anim-label">Red Pulse — CTA / Alert States</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- =====================
+                 GLOWS & GRADIENTS
+            ===================== -->
+            <section id="glows">
+                <div class="section-header">
+                    <span class="section-number">13</span>
+                    <h2 class="section-title">Glows & Gradients</h2>
+                </div>
+                <div class="grid-2">
+
+                    <div class="glow-card">
+                        <div style="position: absolute; top: -20px; right: -20px; width: 130px; height: 130px; background: rgba(200,30,43,0.28); border-radius: 50%; filter: blur(52px);"></div>
+                        <div style="position: absolute; bottom: -10px; left: 20px; width: 80px; height: 80px; background: rgba(245,166,35,0.18); border-radius: 50%; filter: blur(38px);"></div>
+                        <p style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--gray-light); text-transform: uppercase; letter-spacing: 0.1em; position: relative; z-index: 1;">Background Bloom Glow</p>
+                    </div>
+
+                    <div class="glow-card">
+                        <h3 style="font-family: var(--font-display); font-size: 2.1rem; font-weight: 700; text-transform: uppercase; background: linear-gradient(135deg, #FFFFFF 0%, #B0BAC8 55%, #8B95A5 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Headline Gradient</h3>
+                    </div>
+
+                </div>
+
+                <!-- Full-width hero gradient -->
+                <div style="margin-top: 1.5rem; background: linear-gradient(135deg, rgba(200,30,43,0.1) 0%, var(--panel) 40%, rgba(245,166,35,0.04) 100%); border: 1px solid var(--steel); border-radius: var(--radius); padding: 2rem; display: flex; align-items: center; gap: 2rem;">
+                    <div>
+                        <p style="font-family: var(--font-mono); font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--red); margin-bottom: 0.5rem;">Hero Gradient — Red to Dark to Gold</p>
+                        <p style="font-size: 0.875rem; color: var(--gray-light); line-height: 1.65;">Used behind full-width hero sections and CTA banners.<br>Direction: <strong style="color: var(--white);">135deg</strong> &nbsp;|&nbsp; Red → Midnight Panel → Amber (subtle).</p>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <p>Internal Documentation &bull; 2026 208 Roofing &bull; Prepared by WebMarkets</p>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- Copy Toast -->
+    <div class="copy-toast" id="copyToast">Copied!</div>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const toast = document.getElementById('copyToast');
+                toast.style.display = 'block';
+                setTimeout(() => { toast.style.display = 'none'; }, 2000);
+            });
+        }
+    </script>
+
+</body>
+</html>

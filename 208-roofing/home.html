@@ -1,0 +1,1839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>208 Roofing — Boise, ID | Never Overpay For Your New Roof</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+
+    /* =============================================
+       VARIABLES
+    ============================================= */
+    :root {
+        --bg:        #0F1923;
+        --panel:     #161F2A;
+        --steel:     #252E3A;
+        --iron:      #3A4455;
+        --red:       #C81E2B;
+        --red-dark:  #9B1520;
+        --gold:      #F5A623;
+        --white:     #F0F2F5;
+        --gray:      #8B95A5;
+        --gray-lt:   #B0BAC8;
+        --f-disp:    'Oswald', sans-serif;
+        --f-body:    'Open Sans', sans-serif;
+        --f-mono:    'Roboto Mono', monospace;
+        --r:         6px;
+        --ease:      all 0.3s ease;
+        --nav-h:     74px;
+    }
+
+    /* =============================================
+       RESET & BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+        background: var(--bg);
+        color: var(--white);
+        font-family: var(--f-body);
+        font-size: 16px;
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* =============================================
+       CONTAINER
+    ============================================= */
+    .container {
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 0 2.5rem;
+    }
+
+    /* =============================================
+       SHARED BUTTONS
+    ============================================= */
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--f-disp);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.09em;
+        border-radius: var(--r);
+        cursor: pointer;
+        transition: var(--ease);
+        border: none;
+        white-space: nowrap;
+    }
+
+    /* Red — angled right edge (roof ridge cut) */
+    .btn-red {
+        background: var(--red);
+        color: var(--white);
+        padding: 0.9rem 2.75rem 0.9rem 1.75rem;
+        box-shadow: 0 4px 22px rgba(200, 30, 43, 0.38);
+        clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%);
+    }
+    .btn-red:hover {
+        background: var(--red-dark);
+        box-shadow: 0 8px 32px rgba(200, 30, 43, 0.55);
+        transform: translateY(-2px);
+    }
+    .btn-red-lg {
+        padding: 1.05rem 3.25rem 1.05rem 2.1rem;
+        font-size: 1.05rem;
+    }
+
+    /* Gold */
+    .btn-gold {
+        background: var(--gold);
+        color: #1A1200;
+        padding: 0.9rem 2rem;
+    }
+    .btn-gold:hover { background: #d9911a; transform: translateY(-2px); }
+    .btn-gold-lg { padding: 1.05rem 2.4rem; font-size: 1.05rem; }
+
+    /* Ghost / outline */
+    .btn-ghost {
+        background: transparent;
+        color: var(--white);
+        padding: 1.05rem 2.1rem;
+        font-size: 1.05rem;
+        border: 2px solid rgba(255,255,255,0.35);
+    }
+    .btn-ghost:hover { border-color: var(--white); background: rgba(255,255,255,0.07); }
+
+    /* White (for red sections) */
+    .btn-white {
+        background: var(--white);
+        color: var(--red);
+        padding: 1.05rem 2.4rem;
+        font-size: 1.05rem;
+        font-family: var(--f-disp);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        border-radius: var(--r);
+        border: none;
+        cursor: pointer;
+        transition: var(--ease);
+    }
+    .btn-white:hover { background: var(--bg); color: var(--white); }
+
+    .btn-white-outline {
+        background: transparent;
+        color: var(--white);
+        padding: 1.05rem 2.4rem;
+        font-size: 1.05rem;
+        font-family: var(--f-disp);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        border-radius: var(--r);
+        border: 2px solid rgba(255,255,255,0.45);
+        cursor: pointer;
+        transition: var(--ease);
+    }
+    .btn-white-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+
+    /* =============================================
+       SHARED SECTION LABELS
+    ============================================= */
+    .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        font-family: var(--f-mono);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.26em;
+        color: var(--red);
+        margin-bottom: 0.875rem;
+    }
+    .eyebrow::before {
+        content: '';
+        display: block;
+        width: 28px;
+        height: 2px;
+        background: var(--red);
+        flex-shrink: 0;
+    }
+
+    .section-title {
+        font-family: var(--f-disp);
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        line-height: 1.05;
+        margin-bottom: 1rem;
+    }
+
+    .section-intro {
+        font-size: 1rem;
+        color: var(--gray-lt);
+        line-height: 1.8;
+    }
+
+    .text-red { color: var(--red); }
+    .text-gold { color: var(--gold); }
+
+    /* =============================================
+       NAV
+    ============================================= */
+    .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 200;
+        height: var(--nav-h);
+        background: rgba(15, 25, 35, 0.97);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        border-bottom: 1px solid rgba(37, 46, 58, 0.6);
+    }
+    .nav.scrolled {
+        box-shadow: 0 4px 40px rgba(0,0,0,0.5);
+        border-bottom-color: var(--steel);
+    }
+
+    /* Angled red accent bar at nav bottom */
+    .nav::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 55%;
+        height: 2px;
+        background: linear-gradient(90deg, var(--red), transparent);
+    }
+
+    .nav-inner {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+    }
+
+    /* Logo */
+    .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        flex-shrink: 0;
+    }
+    .nav-logo-mark {
+        width: 40px;
+        height: 40px;
+        background: var(--red);
+        clip-path: polygon(0% 40%, 50% 0%, 100% 40%, 100% 100%, 0% 100%);
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding-bottom: 5px;
+        flex-shrink: 0;
+    }
+    .nav-logo-text {
+        font-family: var(--f-disp);
+        font-size: 1.3rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        line-height: 1;
+    }
+    .nav-logo-text em { color: var(--red); font-style: normal; }
+
+    /* Links */
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+    }
+    .nav-links a {
+        font-family: var(--f-disp);
+        font-size: 0.9rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        color: var(--gray-lt);
+        padding: 0.4rem 0.875rem;
+        border-radius: var(--r);
+        transition: var(--ease);
+    }
+    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
+
+    /* Actions */
+    .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        flex-shrink: 0;
+    }
+    .nav-phone {
+        font-family: var(--f-mono);
+        font-size: 0.9rem;
+        color: var(--gold);
+        letter-spacing: 0.04em;
+        font-weight: 500;
+    }
+
+    /* =============================================
+       HERO
+       Section color: image background
+       Next section (trust bar): --panel
+    ============================================= */
+    .hero {
+        min-height: 100vh;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        overflow: hidden;
+        padding-top: var(--nav-h);
+    }
+
+    /* Photo layer */
+    .hero-photo {
+        position: absolute;
+        inset: 0;
+        background: url('Assets/legacy-natural-wood-bartonville-TX-2-v2-malarkey.webp') center 60% / cover no-repeat;
+        transform: scale(1.04);
+        transition: transform 12s ease-out;
+    }
+    .hero-photo.loaded { transform: scale(1); }
+
+    /* Dark gradient overlay: heavy left, lighter right */
+    .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background:
+            linear-gradient(105deg, rgba(15,25,35,0.95) 0%, rgba(15,25,35,0.75) 45%, rgba(15,25,35,0.28) 100%),
+            linear-gradient(to top, rgba(15,25,35,0.9) 0%, rgba(15,25,35,0.2) 35%);
+    }
+
+    /* Diagonal roof-line texture */
+    .hero-texture {
+        position: absolute;
+        inset: 0;
+        background-image: repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 24px,
+            rgba(200, 30, 43, 0.04) 24px,
+            rgba(200, 30, 43, 0.04) 25px
+        );
+    }
+
+    /* Red left-edge accent */
+    .hero-edge {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 5px;
+        background: var(--red);
+        z-index: 2;
+    }
+
+    /* Hero content */
+    .hero-body {
+        position: relative;
+        z-index: 3;
+        padding: 5rem 0 9rem;
+    }
+
+    .hero-pre {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-family: var(--f-mono);
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.28em;
+        color: var(--red);
+        margin-bottom: 1.5rem;
+    }
+    .hero-pre::before {
+        content: '';
+        display: block;
+        width: 36px;
+        height: 2px;
+        background: var(--red);
+    }
+
+    .hero-h1 {
+        font-family: var(--f-disp);
+        font-size: clamp(3.2rem, 8vw, 6.4rem);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        line-height: 0.93;
+        margin-bottom: 1.75rem;
+        max-width: 760px;
+    }
+    /* Outlined text treatment */
+    .hero-h1 .stroke {
+        -webkit-text-stroke: 2px var(--white);
+        color: transparent;
+    }
+    .hero-h1 .red { color: var(--red); }
+
+    .hero-sub {
+        font-size: 1.1rem;
+        color: var(--gray-lt);
+        max-width: 460px;
+        line-height: 1.8;
+        margin-bottom: 2.5rem;
+    }
+
+    .hero-ctas {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    /* Trust badges row */
+    .hero-badges {
+        display: flex;
+        gap: 2.5rem;
+        margin-top: 4rem;
+        flex-wrap: wrap;
+    }
+    .hero-badge {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+    }
+    .hero-badge-dot {
+        width: 6px;
+        height: 6px;
+        background: var(--red);
+        transform: rotate(45deg);
+        flex-shrink: 0;
+    }
+    .hero-badge-text {
+        font-family: var(--f-mono);
+        font-size: 0.64rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--gray-lt);
+        line-height: 1.4;
+    }
+
+    /* SLANT DIVIDER: hero → trust bar (--panel)
+       "/" direction: panel color fills the lower-right triangle */
+    .hero-slant {
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        right: 0;
+        height: 110px;
+        background: var(--panel);
+        clip-path: polygon(0 100%, 100% 0, 100% 100%);
+        z-index: 4;
+    }
+
+    /* =============================================
+       TRUST BAR
+       Section color: --panel
+    ============================================= */
+    .trust-bar {
+        background: var(--panel);
+        border-bottom: 1px solid var(--steel);
+        padding: 1.75rem 0;
+    }
+    .trust-bar-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+    .trust-item {
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+        flex: 1;
+        min-width: 180px;
+    }
+    .trust-icon {
+        width: 40px;
+        height: 40px;
+        background: rgba(200,30,43,0.1);
+        border: 1px solid rgba(200,30,43,0.25);
+        border-radius: var(--r);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--red);
+        flex-shrink: 0;
+    }
+    .trust-label {
+        font-family: var(--f-disp);
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        line-height: 1.2;
+    }
+    .trust-sub {
+        font-size: 0.7rem;
+        color: var(--gray);
+        line-height: 1.3;
+        margin-top: 1px;
+    }
+    .trust-divider {
+        width: 1px;
+        height: 40px;
+        background: var(--steel);
+        flex-shrink: 0;
+    }
+
+    /* =============================================
+       SERVICES
+       Section color: --bg
+    ============================================= */
+    .services {
+        background: var(--bg);
+        padding: 6rem 0 7rem;
+    }
+    .services-header {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+    .services-header .eyebrow {
+        justify-content: center;
+    }
+    .services-header .eyebrow::before { display: none; }
+    .services-header .eyebrow::after {
+        content: '';
+        display: block;
+        width: 28px;
+        height: 2px;
+        background: var(--red);
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+    }
+    .svc-card {
+        background: var(--panel);
+        border: 1px solid var(--steel);
+        border-top: 3px solid var(--red);
+        border-radius: var(--r);
+        padding: 2rem 1.75rem;
+        transition: var(--ease);
+        position: relative;
+        overflow: hidden;
+    }
+    /* Subtle diagonal texture inside card */
+    .svc-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 20px,
+            rgba(255,255,255,0.012) 20px,
+            rgba(255,255,255,0.012) 21px
+        );
+        pointer-events: none;
+    }
+    .svc-card:hover {
+        transform: translateY(-5px);
+        border-top-color: var(--red);
+        border-color: rgba(200,30,43,0.35);
+        box-shadow: 0 16px 50px rgba(0,0,0,0.45);
+    }
+    .svc-icon {
+        width: 54px;
+        height: 54px;
+        background: rgba(200,30,43,0.1);
+        border: 1px solid rgba(200,30,43,0.22);
+        border-radius: var(--r);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--red);
+        margin-bottom: 1.5rem;
+        position: relative;
+        z-index: 1;
+    }
+    .svc-card h3 {
+        font-family: var(--f-disp);
+        font-size: 1.15rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.75rem;
+        position: relative;
+        z-index: 1;
+    }
+    .svc-card p {
+        font-size: 0.875rem;
+        color: var(--gray-lt);
+        line-height: 1.75;
+        margin-bottom: 1.75rem;
+        position: relative;
+        z-index: 1;
+    }
+    .svc-link {
+        font-family: var(--f-disp);
+        font-size: 0.78rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--red);
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        transition: gap 0.2s ease;
+        position: relative;
+        z-index: 1;
+    }
+    .svc-card:hover .svc-link { gap: 0.75rem; }
+
+    /* =============================================
+       ABOUT
+       Section color: --panel
+       Slant top (services bg → about panel): "\" direction
+       Slant bottom (about panel → stats red): "\" direction
+    ============================================= */
+    .about {
+        background: var(--panel);
+        padding: 9rem 0;
+        position: relative;
+        overflow: hidden;
+    }
+    /* Slant top: bg color fills upper-left → "\" shape */
+    .about::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 90px;
+        background: var(--bg);
+        clip-path: polygon(0 0, 100% 0, 0 100%);
+    }
+    /* Slant bottom: red (stats) fills lower-right → "/" shape */
+    .about::after {
+        content: '';
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        height: 90px;
+        background: var(--red);
+        clip-path: polygon(0 100%, 100% 0, 100% 100%);
+    }
+
+    .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem;
+        align-items: center;
+    }
+
+    /* Image side */
+    .about-img-wrap {
+        position: relative;
+    }
+    .about-img {
+        width: 100%;
+        aspect-ratio: 4/3;
+        object-fit: cover;
+        border-radius: var(--r);
+        display: block;
+        position: relative;
+        z-index: 1;
+    }
+    /* Est. badge */
+    .about-badge {
+        position: absolute;
+        top: -20px;
+        left: -20px;
+        z-index: 2;
+        width: 96px;
+        height: 96px;
+        background: var(--red);
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--f-disp);
+        font-weight: 700;
+        text-transform: uppercase;
+        box-shadow: 0 6px 28px rgba(200,30,43,0.45);
+    }
+    .about-badge-est { font-size: 0.55rem; letter-spacing: 0.2em; opacity: 0.8; }
+    .about-badge-year { font-size: 1.25rem; letter-spacing: 0.04em; }
+
+    /* Roof-peak accent corner */
+    .about-corner {
+        position: absolute;
+        bottom: -18px;
+        right: -18px;
+        width: 72px;
+        height: 72px;
+        background: var(--red);
+        clip-path: polygon(0% 55%, 50% 0%, 100% 55%, 100% 100%, 0% 100%);
+        z-index: 2;
+    }
+
+    /* Text side */
+    .about-checklist {
+        margin: 1.75rem 0 2.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.875rem;
+    }
+    .check-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        font-size: 0.9rem;
+        color: var(--gray-lt);
+        line-height: 1.5;
+    }
+    .check-dot {
+        width: 20px;
+        height: 20px;
+        background: rgba(200,30,43,0.12);
+        border: 1px solid rgba(200,30,43,0.3);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--red);
+        flex-shrink: 0;
+        margin-top: 1px;
+    }
+    .about-btns {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    /* =============================================
+       STATS STRIP
+       Section color: --red
+       (Slants handled by about::after and stats bottom)
+    ============================================= */
+    .stats {
+        background: var(--red);
+        padding: 6rem 0;
+        position: relative;
+        overflow: hidden;
+    }
+    /* Slant bottom: bg color fills lower-right → "/" */
+    .stats::after {
+        content: '';
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        height: 90px;
+        background: var(--bg);
+        clip-path: polygon(0 100%, 100% 0, 100% 100%);
+    }
+    /* Diagonal stripe on red */
+    .stats-texture {
+        position: absolute;
+        inset: 0;
+        background-image: repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 22px,
+            rgba(0,0,0,0.07) 22px,
+            rgba(0,0,0,0.07) 23px
+        );
+    }
+    .stats-row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        position: relative;
+        z-index: 1;
+    }
+    .stat-item {
+        text-align: center;
+        padding: 1rem;
+        border-right: 1px solid rgba(255,255,255,0.18);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+        font-family: var(--f-disp);
+        font-size: clamp(2.8rem, 5vw, 4.5rem);
+        font-weight: 700;
+        line-height: 1;
+        color: var(--white);
+        margin-bottom: 0.5rem;
+    }
+    .stat-lbl {
+        font-family: var(--f-mono);
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: rgba(255,255,255,0.72);
+        line-height: 1.5;
+    }
+
+    /* =============================================
+       FEATURED PROJECT (Metal Roofing)
+       Section color: photo background
+    ============================================= */
+    .project {
+        min-height: 600px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+    }
+    .project-bg {
+        position: absolute;
+        inset: 0;
+        background: url('Assets/Metal-Roofing-Cleaning-9.webp') center center / cover no-repeat;
+    }
+    .project-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            100deg,
+            rgba(15,25,35,0.96) 0%,
+            rgba(15,25,35,0.72) 50%,
+            rgba(15,25,35,0.2) 100%
+        );
+    }
+    /* Left slant cut: bg cuts in from left side */
+    .project-slant {
+        position: absolute;
+        top: 0; bottom: 0; left: 0;
+        width: 110px;
+        background: var(--bg);
+        clip-path: polygon(0 0, 100% 0, 0 100%);
+    }
+
+    .project-body {
+        position: relative;
+        z-index: 2;
+        max-width: 560px;
+        padding: 6rem 0;
+    }
+    .project-body .section-title { margin-bottom: 1.25rem; }
+    .project-body p {
+        font-size: 1rem;
+        color: var(--gray-lt);
+        line-height: 1.8;
+        max-width: 430px;
+        margin-bottom: 2.5rem;
+    }
+
+    /* =============================================
+       TESTIMONIALS
+       Section color: --bg
+    ============================================= */
+    .testimonials {
+        background: var(--bg);
+        padding: 7rem 0;
+    }
+    .testimonials-header {
+        margin-bottom: 3.5rem;
+    }
+    .reviews-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+    .review-card {
+        background: var(--panel);
+        border: 1px solid var(--steel);
+        border-radius: var(--r);
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+        transition: var(--ease);
+    }
+    .review-card:hover {
+        border-color: rgba(200,30,43,0.3);
+        transform: translateY(-4px);
+        box-shadow: 0 16px 50px rgba(0,0,0,0.4);
+    }
+    /* Large quote decoration */
+    .review-card::before {
+        content: '\201C';
+        position: absolute;
+        top: 0.5rem;
+        right: 1.25rem;
+        font-size: 6rem;
+        line-height: 1;
+        font-family: Georgia, serif;
+        color: rgba(200,30,43,0.08);
+        pointer-events: none;
+    }
+    .stars {
+        display: flex;
+        gap: 2px;
+        color: var(--gold);
+        font-size: 1rem;
+        margin-bottom: 1.25rem;
+        letter-spacing: 2px;
+    }
+    .review-text {
+        font-size: 0.925rem;
+        color: var(--gray-lt);
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+        font-style: italic;
+        position: relative;
+        z-index: 1;
+    }
+    .review-author {
+        font-family: var(--f-disp);
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+    .review-loc {
+        font-family: var(--f-mono);
+        font-size: 0.62rem;
+        color: var(--gray);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        margin-top: 3px;
+    }
+
+    /* =============================================
+       CTA BANNER
+       Section color: --red
+       Slant top (testimonials bg → cta red): "\" direction
+       Slant bottom (cta red → contact panel): "/" direction
+    ============================================= */
+    .cta-banner {
+        background: var(--red);
+        padding: 8rem 0;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+    }
+    /* Slant top: bg fills upper-left → "\" */
+    .cta-banner::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 90px;
+        background: var(--bg);
+        clip-path: polygon(0 0, 100% 0, 0 100%);
+    }
+    /* Slant bottom: panel fills lower-right → "/" */
+    .cta-banner::after {
+        content: '';
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        height: 90px;
+        background: var(--panel);
+        clip-path: polygon(0 100%, 100% 0, 100% 100%);
+    }
+    .cta-texture {
+        position: absolute;
+        inset: 0;
+        background-image: repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 22px,
+            rgba(0,0,0,0.06) 22px,
+            rgba(0,0,0,0.06) 23px
+        );
+    }
+    .cta-inner {
+        position: relative;
+        z-index: 1;
+    }
+    .cta-offer {
+        display: inline-block;
+        background: rgba(0,0,0,0.22);
+        border: 1px solid rgba(255,255,255,0.2);
+        font-family: var(--f-mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.88);
+        padding: 0.38rem 1.1rem;
+        border-radius: 100px;
+        margin-bottom: 1.75rem;
+    }
+    .cta-h2 {
+        font-family: var(--f-disp);
+        font-size: clamp(2.4rem, 6vw, 5rem);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        line-height: 1;
+        color: var(--white);
+        margin-bottom: 1rem;
+    }
+    .cta-h2 span { display: block; font-size: 0.65em; opacity: 0.85; }
+    .cta-sub {
+        font-size: 0.95rem;
+        color: rgba(255,255,255,0.78);
+        max-width: 480px;
+        margin: 0 auto 2.75rem;
+        line-height: 1.75;
+    }
+    .cta-btns {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* =============================================
+       CONTACT
+       Section color: --panel
+    ============================================= */
+    .contact {
+        background: var(--panel);
+        padding: 7rem 0 6rem;
+    }
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.3fr;
+        gap: 6rem;
+        align-items: start;
+    }
+    .contact-info-item {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+        margin-bottom: 2rem;
+    }
+    .contact-icon {
+        width: 44px;
+        height: 44px;
+        background: rgba(200,30,43,0.1);
+        border: 1px solid rgba(200,30,43,0.25);
+        border-radius: var(--r);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--red);
+        flex-shrink: 0;
+    }
+    .contact-lbl {
+        font-family: var(--f-mono);
+        font-size: 0.62rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--gray);
+        margin-bottom: 0.25rem;
+    }
+    .contact-val {
+        font-family: var(--f-disp);
+        font-size: 0.95rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        line-height: 1.4;
+    }
+
+    /* Form */
+    .form-box {
+        background: rgba(37,46,58,0.4);
+        border: 1px solid var(--steel);
+        border-radius: var(--r);
+        padding: 2.5rem;
+    }
+    .form-box-title {
+        font-family: var(--f-disp);
+        font-size: 1.3rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 1.75rem;
+    }
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+    .form-row.full { grid-template-columns: 1fr; }
+    .form-grp { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-lbl {
+        font-family: var(--f-mono);
+        font-size: 0.62rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--gray);
+    }
+    .form-ctrl {
+        background: var(--bg);
+        border: 1px solid var(--iron);
+        border-radius: var(--r);
+        padding: 0.8rem 1rem;
+        color: var(--white);
+        font-family: var(--f-body);
+        font-size: 0.9rem;
+        outline: none;
+        transition: var(--ease);
+        width: 100%;
+    }
+    .form-ctrl::placeholder { color: rgba(139,149,165,0.4); }
+    .form-ctrl:focus {
+        border-color: var(--red);
+        box-shadow: 0 0 0 3px rgba(200,30,43,0.1);
+    }
+    select.form-ctrl { appearance: none; cursor: pointer; }
+    textarea.form-ctrl { resize: vertical; }
+    .form-submit {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-top: 1.5rem;
+    }
+
+    /* =============================================
+       FOOTER
+       Section color: --bg
+    ============================================= */
+    footer {
+        background: var(--bg);
+        border-top: 1px solid var(--steel);
+        padding: 4.5rem 0 2.5rem;
+    }
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr 1fr 1fr;
+        gap: 3rem;
+        margin-bottom: 3.5rem;
+    }
+    .footer-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.25rem;
+    }
+    .footer-mark {
+        width: 36px;
+        height: 36px;
+        background: var(--red);
+        clip-path: polygon(0% 40%, 50% 0%, 100% 40%, 100% 100%, 0% 100%);
+        flex-shrink: 0;
+    }
+    .footer-brand-name {
+        font-family: var(--f-disp);
+        font-size: 1.15rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+    }
+    .footer-tagline {
+        font-size: 0.875rem;
+        color: var(--gray);
+        line-height: 1.75;
+        max-width: 260px;
+        margin-bottom: 1.5rem;
+        font-style: italic;
+    }
+    .footer-ph {
+        font-family: var(--f-mono);
+        font-size: 1rem;
+        color: var(--gold);
+        letter-spacing: 0.04em;
+    }
+    .footer-col-title {
+        font-family: var(--f-disp);
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 1.25rem;
+        color: var(--white);
+    }
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+    .footer-links a {
+        font-size: 0.875rem;
+        color: var(--gray);
+        transition: color 0.2s ease;
+    }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom {
+        border-top: 1px solid var(--steel);
+        padding-top: 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    .footer-copy {
+        font-family: var(--f-mono);
+        font-size: 0.62rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--gray);
+    }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 1100px) {
+        .services-grid { grid-template-columns: repeat(2, 1fr); }
+        .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 900px) {
+        .about-grid { grid-template-columns: 1fr; }
+        .stats-row { grid-template-columns: repeat(2, 1fr); }
+        .reviews-grid { grid-template-columns: 1fr; }
+        .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+        .about { padding: 7rem 0; }
+        .nav-links { display: none; }
+        .trust-item { min-width: 140px; }
+        .trust-divider { display: none; }
+    }
+    @media (max-width: 640px) {
+        .services-grid { grid-template-columns: 1fr; }
+        .footer-grid { grid-template-columns: 1fr; }
+        .form-row { grid-template-columns: 1fr; }
+        .hero-h1 { font-size: 3rem; }
+        .cta-h2 { font-size: 2.4rem; }
+        .hero-badges { gap: 1.25rem; }
+        .stats-row { grid-template-columns: repeat(2, 1fr); }
+        .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.15); }
+        .stat-item:last-child { border-bottom: none; }
+        .container { padding: 0 1.25rem; }
+        .hero-body { padding: 3rem 0 7rem; }
+    }
+
+    </style>
+</head>
+<body>
+
+<!-- =============================================
+     NAV
+============================================= -->
+<nav class="nav" id="nav">
+    <div class="container nav-inner">
+
+        <a href="#" class="nav-logo" aria-label="208 Roofing Home">
+            <div class="nav-logo-mark">
+                <svg width="18" height="13" viewBox="0 0 18 13" fill="none" aria-hidden="true">
+                    <path d="M1 6.5L9 1L17 6.5V12H1V6.5Z" fill="white" fill-opacity="0.9"/>
+                </svg>
+            </div>
+            <div class="nav-logo-text">208 <em>Roofing</em></div>
+        </a>
+
+        <ul class="nav-links" role="list">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#project">Metal Roofing</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="tel:2085918997" class="nav-phone">(208) 591-8997</a>
+            <a href="#contact" class="btn btn-red">Free Estimate</a>
+        </div>
+
+    </div>
+</nav>
+
+
+<!-- =============================================
+     HERO
+============================================= -->
+<section class="hero" aria-label="Hero">
+    <div class="hero-photo" id="hero-photo"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-texture"></div>
+    <div class="hero-edge"></div>
+
+    <div class="container hero-body">
+
+        <p class="hero-pre">Boise, Idaho's #1 Roofing Company</p>
+
+        <h1 class="hero-h1">
+            Never <span class="stroke">Overpay</span><br>
+            For Your<br>
+            <span class="red">New Roof.</span>
+        </h1>
+
+        <p class="hero-sub">
+            Premium residential &amp; commercial roofing at honest prices. Free inspections, same-day installs, and a 10-year labor warranty you can count on.
+        </p>
+
+        <div class="hero-ctas">
+            <a href="#contact" class="btn btn-red btn-red-lg">Get Free Estimate</a>
+            <a href="tel:2085918997" class="btn btn-gold btn-gold-lg">Call (208) 591-8997</a>
+        </div>
+
+        <div class="hero-badges">
+            <div class="hero-badge">
+                <div class="hero-badge-dot"></div>
+                <div class="hero-badge-text">100+ Five&#8209;Star<br>Reviews</div>
+            </div>
+            <div class="hero-badge">
+                <div class="hero-badge-dot"></div>
+                <div class="hero-badge-text">Owens Corning<br>Accredited</div>
+            </div>
+            <div class="hero-badge">
+                <div class="hero-badge-dot"></div>
+                <div class="hero-badge-text">BBB A+<br>Rated</div>
+            </div>
+            <div class="hero-badge">
+                <div class="hero-badge-dot"></div>
+                <div class="hero-badge-text">Same&#8209;Day<br>Installations</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SLANT: panel color cuts in from bottom-right "/" -->
+    <div class="hero-slant" aria-hidden="true"></div>
+</section>
+
+
+<!-- =============================================
+     TRUST BAR
+============================================= -->
+<section class="trust-bar" aria-label="Trust signals">
+    <div class="container">
+        <div class="trust-bar-row">
+
+            <div class="trust-item">
+                <div class="trust-icon" aria-hidden="true">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div>
+                    <div class="trust-label">10-Year Labor Warranty</div>
+                    <div class="trust-sub">Industry's longest guarantee</div>
+                </div>
+            </div>
+
+            <div class="trust-divider" aria-hidden="true"></div>
+
+            <div class="trust-item">
+                <div class="trust-icon" aria-hidden="true">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div>
+                    <div class="trust-label">100+ Perfect Reviews</div>
+                    <div class="trust-sub">Across both Idaho locations</div>
+                </div>
+            </div>
+
+            <div class="trust-divider" aria-hidden="true"></div>
+
+            <div class="trust-item">
+                <div class="trust-icon" aria-hidden="true">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                </div>
+                <div>
+                    <div class="trust-label">130 MPH Wind Rated</div>
+                    <div class="trust-sub">Premium Duration shingles only</div>
+                </div>
+            </div>
+
+            <div class="trust-divider" aria-hidden="true"></div>
+
+            <div class="trust-item">
+                <div class="trust-icon" aria-hidden="true">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                </div>
+                <div>
+                    <div class="trust-label">Owens Corning Accredited</div>
+                    <div class="trust-sub">Top 18% of contractors nationwide</div>
+                </div>
+            </div>
+
+            <div class="trust-divider" aria-hidden="true"></div>
+
+            <div class="trust-item">
+                <div class="trust-icon" aria-hidden="true">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                </div>
+                <div>
+                    <div class="trust-label">Same-Day Installs</div>
+                    <div class="trust-sub">Fast, clean, done in one day</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- =============================================
+     SERVICES
+============================================= -->
+<section class="services" id="services" aria-labelledby="svc-heading">
+    <div class="container">
+
+        <div class="services-header">
+            <p class="eyebrow">What We Do</p>
+            <h2 class="section-title" id="svc-heading">Full&#8209;Service Roofing Solutions</h2>
+            <p class="section-intro" style="max-width: 520px; margin: 0 auto;">From emergency repairs to full replacements — every job completed with premium materials and expert craftsmanship.</p>
+        </div>
+
+        <div class="services-grid">
+
+            <!-- Residential -->
+            <article class="svc-card">
+                <div class="svc-icon" aria-hidden="true">
+                    <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                        <polyline points="9 22 9 12 15 12 15 22"/>
+                    </svg>
+                </div>
+                <h3>Residential Roofing</h3>
+                <p>Complete replacements and repairs for homes of every style. Owens Corning shingles rated for 130 MPH winds, installed with ice &amp; water barriers on every job — free.</p>
+                <a href="#contact" class="svc-link">Get Estimate <span aria-hidden="true">→</span></a>
+            </article>
+
+            <!-- Commercial -->
+            <article class="svc-card">
+                <div class="svc-icon" aria-hidden="true">
+                    <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <rect x="2" y="6" width="20" height="16" rx="2"/>
+                        <path d="M22 6l-10-4L2 6"/>
+                    </svg>
+                </div>
+                <h3>Commercial Roofing</h3>
+                <p>Flat roofs, coatings, large-scale projects, and preventive maintenance programs. Over 180 million sq ft of commercial roofs installed with specialist-grade equipment.</p>
+                <a href="#contact" class="svc-link">Get Estimate <span aria-hidden="true">→</span></a>
+            </article>
+
+            <!-- Metal -->
+            <article class="svc-card">
+                <div class="svc-icon" aria-hidden="true">
+                    <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5"/>
+                        <path d="M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <h3>Metal Roofing</h3>
+                <p>The premium choice for Idaho weather. Metal roofs last 50–100+ years, are fireproof, and virtually maintenance-free. A long-term investment that pays for itself.</p>
+                <a href="#project" class="svc-link">Learn More <span aria-hidden="true">→</span></a>
+            </article>
+
+            <!-- Insurance -->
+            <article class="svc-card">
+                <div class="svc-icon" aria-hidden="true">
+                    <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                </div>
+                <h3>Insurance Claims</h3>
+                <p>Storm damage? We're insurance specialists. We work directly with your provider to assess damage and get your roof replaced with zero hassle on your end.</p>
+                <a href="#contact" class="svc-link">File a Claim <span aria-hidden="true">→</span></a>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- =============================================
+     ABOUT
+     Slant top (bg→panel): "\" — about::before
+     Slant bottom (panel→red): "/" — about::after
+============================================= -->
+<section class="about" id="about" aria-labelledby="about-heading">
+    <div class="container about-grid">
+
+        <!-- Image -->
+        <div class="about-img-wrap">
+            <img
+                src="Assets/479093420_596544469839588_401328283872275776_n-1.webp"
+                alt="208 Roofing team on a job site"
+                class="about-img"
+                loading="lazy"
+            >
+            <div class="about-badge" aria-label="Established 2017">
+                <span class="about-badge-est">Est.</span>
+                <span class="about-badge-year">2017</span>
+            </div>
+            <div class="about-corner" aria-hidden="true"></div>
+        </div>
+
+        <!-- Text -->
+        <div>
+            <p class="eyebrow">Why Choose Us</p>
+            <h2 class="section-title" id="about-heading">
+                We Treat Every<br>Customer Like <span class="text-red">Family.</span>
+            </h2>
+            <p class="section-intro">
+                We're a small, family-owned company with big values. No cutting corners, no treating you like a number — just honest work, premium materials, and a team that picks up the phone even 10 years after the job is done.
+            </p>
+
+            <ul class="about-checklist" role="list">
+                <li class="check-item">
+                    <span class="check-dot" aria-hidden="true">
+                        <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                    Only premium "Duration" shingles — never cheap, low-grade materials, ever
+                </li>
+                <li class="check-item">
+                    <span class="check-dot" aria-hidden="true">
+                        <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                    Ice &amp; water barriers installed on every roof — FREE (competitors charge extra)
+                </li>
+                <li class="check-item">
+                    <span class="check-dot" aria-hidden="true">
+                        <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                    Two full clean-up crews — we leave your property cleaner than we found it
+                </li>
+                <li class="check-item">
+                    <span class="check-dot" aria-hidden="true">
+                        <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                    Fully registered, insured, and BBB A+ accredited with 2023 "Best of the Best" award
+                </li>
+                <li class="check-item">
+                    <span class="check-dot" aria-hidden="true">
+                        <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                    Available for questions and support for up to 10 years post-installation
+                </li>
+            </ul>
+
+            <div class="about-btns">
+                <a href="#contact" class="btn btn-red btn-red-lg">Get Free Estimate</a>
+                <a href="tel:2085918997" class="btn btn-ghost">Call Us Now</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =============================================
+     STATS STRIP
+     Slant top handled by about::after
+     Slant bottom (red→bg): "/" — stats::after
+============================================= -->
+<section class="stats" aria-label="Key statistics">
+    <div class="stats-texture" aria-hidden="true"></div>
+    <div class="container">
+        <div class="stats-row">
+            <div class="stat-item">
+                <div class="stat-num">100+</div>
+                <div class="stat-lbl">Perfect 5-Star<br>Reviews</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">10<span style="font-size:0.55em">yr</span></div>
+                <div class="stat-lbl">Labor Warranty<br>Industry's Longest</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">130</div>
+                <div class="stat-lbl">MPH Wind Rated<br>Shingles</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">2</div>
+                <div class="stat-lbl">Locations Serving<br>SW Idaho</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- =============================================
+     FEATURED PROJECT — Metal Roofing
+============================================= -->
+<section class="project" id="project" aria-labelledby="proj-heading">
+    <div class="project-bg" role="img" aria-label="Metal roofing installation on a home"></div>
+    <div class="project-overlay" aria-hidden="true"></div>
+    <!-- Left-side bg slant -->
+    <div class="project-slant" aria-hidden="true"></div>
+
+    <div class="container">
+        <div class="project-body">
+            <p class="eyebrow">Featured Work</p>
+            <h2 class="section-title" id="proj-heading">
+                Metal Roofing<br>
+                <span class="text-red">Built to Last</span><br>
+                50–100 Years.
+            </h2>
+            <p>
+                Fireproof, wind-resistant, and virtually maintenance-free. For Idaho's brutal winters and scorching summers, metal roofing is the premium long-term investment that pays for itself in durability and savings.
+            </p>
+            <a href="#contact" class="btn btn-red btn-red-lg">Get a Metal Roof Quote</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- =============================================
+     TESTIMONIALS
+============================================= -->
+<section class="testimonials" id="testimonials" aria-labelledby="review-heading">
+    <div class="container">
+
+        <div class="testimonials-header">
+            <p class="eyebrow">Real Reviews</p>
+            <h2 class="section-title" id="review-heading">What Our Customers Say</h2>
+        </div>
+
+        <div class="reviews-grid">
+
+            <article class="review-card">
+                <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                <p class="review-text">"Kent was very professional, beat the competition, and delivered exactly on his word. The crew did a great job with the install. Quality 100%. Ronnie took care of my roofing needs — thank you!"</p>
+                <div class="review-author">Bill Long</div>
+                <div class="review-loc">Twin Falls, ID</div>
+            </article>
+
+            <article class="review-card">
+                <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                <p class="review-text">"The craftsmanship is superb. You can tell they take pride in their work — every shingle was precisely aligned. I have no doubt my roof will endure for many years to come. Excellent work."</p>
+                <div class="review-author">Jordan Carter</div>
+                <div class="review-loc">Boise, ID</div>
+            </article>
+
+            <article class="review-card">
+                <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                <p class="review-text">"Superb customer support from the initial phone call to the last inspection. They kept me updated throughout and were always willing to answer my questions. Highly recommended."</p>
+                <div class="review-author">Miranda Miner</div>
+                <div class="review-loc">Meridian, ID</div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- =============================================
+     CTA BANNER
+     Slant top (bg→red): "\" — cta-banner::before
+     Slant bottom (red→panel): "/" — cta-banner::after
+============================================= -->
+<section class="cta-banner" aria-labelledby="cta-heading">
+    <div class="cta-texture" aria-hidden="true"></div>
+    <div class="container cta-inner">
+        <div class="cta-offer">Limited Time Offer — New Customers Only</div>
+        <h2 class="cta-h2" id="cta-heading">
+            $1,000 Off
+            <span>Your Full Roof Replacement</span>
+        </h2>
+        <p class="cta-sub">Cannot be combined with other offers. Must present at time of inspection.<br>Authorization Code: 3655</p>
+        <div class="cta-btns">
+            <a href="#contact" class="btn-white">Claim Your Discount</a>
+            <a href="tel:2085918997" class="btn-white-outline">Call (208) 591-8997</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- =============================================
+     CONTACT
+============================================= -->
+<section class="contact" id="contact" aria-labelledby="contact-heading">
+    <div class="container contact-grid">
+
+        <!-- Info column -->
+        <div>
+            <p class="eyebrow">Get In Touch</p>
+            <h2 class="section-title" id="contact-heading">
+                Let's Talk<br><span class="text-red">Roofing.</span>
+            </h2>
+            <p class="section-intro" style="margin-bottom: 2.5rem; max-width: 360px;">
+                Fill out the form and we'll respond in 5 minutes or less. Or just call — we always pick up.
+            </p>
+
+            <div class="contact-info-item">
+                <div class="contact-icon" aria-hidden="true">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.77a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .93h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.9a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                </div>
+                <div>
+                    <div class="contact-lbl">Phone</div>
+                    <div class="contact-val">(208) 591-8997</div>
+                </div>
+            </div>
+
+            <div class="contact-info-item">
+                <div class="contact-icon" aria-hidden="true">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                    <div class="contact-lbl">Boise / Meridian</div>
+                    <div class="contact-val">6299 N. Eagle Rd., Suite 1054<br>Meridian, ID 83713</div>
+                </div>
+            </div>
+
+            <div class="contact-info-item">
+                <div class="contact-icon" aria-hidden="true">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                    <div class="contact-lbl">Mountain Home</div>
+                    <div class="contact-val">350 N. 3rd E. St., Suite 876<br>Mountain Home, ID 83647</div>
+                </div>
+            </div>
+
+            <div class="contact-info-item">
+                <div class="contact-icon" aria-hidden="true">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                </div>
+                <div>
+                    <div class="contact-lbl">Hours</div>
+                    <div class="contact-val">Mon – Sat: 7am – 7pm<br>Sun: By Appointment</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form column -->
+        <div class="form-box">
+            <h3 class="form-box-title">Get Your Free Estimate</h3>
+            <form action="#" method="post" novalidate>
+                <div class="form-row">
+                    <div class="form-grp">
+                        <label class="form-lbl" for="fname">First Name</label>
+                        <input type="text" id="fname" name="fname" class="form-ctrl" placeholder="John" autocomplete="given-name">
+                    </div>
+                    <div class="form-grp">
+                        <label class="form-lbl" for="lname">Last Name</label>
+                        <input type="text" id="lname" name="lname" class="form-ctrl" placeholder="Smith" autocomplete="family-name">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-grp">
+                        <label class="form-lbl" for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone" class="form-ctrl" placeholder="(208) 555-0100" autocomplete="tel">
+                    </div>
+                    <div class="form-grp">
+                        <label class="form-lbl" for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-ctrl" placeholder="john@email.com" autocomplete="email">
+                    </div>
+                </div>
+                <div class="form-row full">
+                    <div class="form-grp">
+                        <label class="form-lbl" for="service">Service Needed</label>
+                        <select id="service" name="service" class="form-ctrl">
+                            <option value="">Select a service...</option>
+                            <option>Roof Replacement</option>
+                            <option>Leak Repair</option>
+                            <option>Metal Roofing</option>
+                            <option>Free Inspection</option>
+                            <option>Insurance Claim</option>
+                            <option>Commercial Roofing</option>
+                            <option>Flat Roof Coating</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row full">
+                    <div class="form-grp">
+                        <label class="form-lbl" for="message">Project Description</label>
+                        <textarea id="message" name="message" class="form-ctrl" rows="4" placeholder="Tell us about your roofing project or concern..."></textarea>
+                    </div>
+                </div>
+                <div class="form-submit">
+                    <button type="submit" class="btn btn-red btn-red-lg" style="width:100%; display:block; text-align:center;">
+                        Submit Request
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =============================================
+     FOOTER
+============================================= -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+
+            <div>
+                <div class="footer-brand">
+                    <div class="footer-mark" aria-hidden="true"></div>
+                    <div class="footer-brand-name">208 Roofing</div>
+                </div>
+                <p class="footer-tagline">"Only premium roofing services, without the premium prices." Family owned and operated since 2017.</p>
+                <a href="tel:2085918997" class="footer-ph">(208) 591-8997</a>
+            </div>
+
+            <div>
+                <h4 class="footer-col-title">Services</h4>
+                <ul class="footer-links" role="list">
+                    <li><a href="#services">Residential Roofing</a></li>
+                    <li><a href="#services">Commercial Roofing</a></li>
+                    <li><a href="#project">Metal Roofing</a></li>
+                    <li><a href="#services">Insurance Claims</a></li>
+                    <li><a href="#contact">Free Inspection</a></li>
+                    <li><a href="#contact">Flat Roof Coatings</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="footer-col-title">Company</h4>
+                <ul class="footer-links" role="list">
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#testimonials">Customer Reviews</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#contact">Get a Quote</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="footer-col-title">Service Areas</h4>
+                <ul class="footer-links" role="list">
+                    <li><a href="#">Boise, ID</a></li>
+                    <li><a href="#">Meridian, ID</a></li>
+                    <li><a href="#">Mountain Home, ID</a></li>
+                    <li><a href="#">Nampa, ID</a></li>
+                    <li><a href="#">Twin Falls, ID</a></li>
+                    <li><a href="#">Ontario, OR</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-copy">© 2026 208 Roofing — All Rights Reserved</p>
+            <p class="footer-copy">Prepared by <a href="https://webmarketsonline.com" style="color: var(--gray-lt);">WebMarkets</a></p>
+        </div>
+    </div>
+</footer>
+
+
+<script>
+    // Nav: add "scrolled" class on scroll for shadow effect
+    const nav = document.getElementById('nav');
+    const onScroll = () => {
+        nav.classList.toggle('scrolled', window.scrollY > 60);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Hero: subtle parallax scale trigger
+    const heroPhoto = document.getElementById('hero-photo');
+    if (heroPhoto) {
+        setTimeout(() => heroPhoto.classList.add('loaded'), 100);
+    }
+</script>
+
+</body>
+</html>
