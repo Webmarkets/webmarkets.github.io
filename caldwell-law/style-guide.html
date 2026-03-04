@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caldwell Law Group | Brand Style Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+
+    /* =============================================
+       CSS VARIABLES
+    ============================================= */
+    :root {
+        --bg:           #080F1A;
+        --panel:        #0D1929;
+        --raised:       #132030;
+        --border:       #1E3050;
+        --border-lt:    #2A4268;
+        --gold:         #C9A84C;
+        --gold-light:   #DFC274;
+        --gold-dim:     rgba(201, 168, 76, 0.12);
+        --gold-rule:    rgba(201, 168, 76, 0.35);
+        --white:        #F5F1E8;
+        --cream:        #EDE8DE;
+        --gray:         #7A90A8;
+        --gray-lt:      #A0B4CC;
+        --font-serif:   'Playfair Display', Georgia, serif;
+        --font-sans:    'Inter', sans-serif;
+        --font-mono:    'Roboto Mono', monospace;
+        --radius:       4px;
+        --ease:         all 0.3s ease;
+    }
+
+    /* =============================================
+       RESET & BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+        background-color: var(--bg);
+        color: var(--white);
+        font-family: var(--font-sans);
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    /* =============================================
+       SIGNATURE BACKGROUND — Dot Grid
+       Refined, sophisticated — like high-quality
+       legal stationery paper.
+    ============================================= */
+    .bg-dots {
+        position: fixed;
+        inset: 0;
+        background-image: radial-gradient(
+            rgba(201, 168, 76, 0.07) 1px,
+            transparent 1px
+        );
+        background-size: 32px 32px;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    /* =============================================
+       LAYOUT
+    ============================================= */
+    .layout {
+        display: flex;
+        min-height: 100vh;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* =============================================
+       SIDEBAR
+    ============================================= */
+    aside {
+        width: 264px;
+        background: var(--panel);
+        border-right: 1px solid var(--border);
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        flex-shrink: 0;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    aside::-webkit-scrollbar { display: none; }
+
+    .sidebar-inner { padding: 2.25rem 1.875rem; }
+
+    /* Brand mark */
+    .brand-block { margin-bottom: 2.25rem; }
+
+    .brand-seal {
+        width: 52px;
+        height: 52px;
+        background: var(--gold-dim);
+        border: 1px solid var(--gold-rule);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+
+    .brand-name {
+        font-family: var(--font-serif);
+        font-size: 1.05rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        color: var(--white);
+        line-height: 1.2;
+        margin-bottom: 0.25rem;
+    }
+
+    .brand-tagline {
+        font-family: var(--font-mono);
+        font-size: 0.58rem;
+        letter-spacing: 0.25em;
+        color: var(--gold);
+        text-transform: uppercase;
+    }
+
+    /* Gold rule divider */
+    .gold-rule {
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(90deg, var(--gold-rule), transparent);
+        margin: 1.5rem 0;
+    }
+
+    /* Nav */
+    .nav-group { margin-bottom: 1.75rem; }
+    .nav-group-label {
+        font-family: var(--font-mono);
+        font-size: 0.58rem;
+        text-transform: uppercase;
+        letter-spacing: 0.25em;
+        color: var(--gray);
+        margin-bottom: 0.6rem;
+    }
+    .nav-link {
+        display: block;
+        padding: 0.38rem 0.75rem;
+        font-size: 0.875rem;
+        color: var(--gray-lt);
+        text-decoration: none;
+        transition: var(--ease);
+        border-left: 2px solid transparent;
+        margin-bottom: 2px;
+    }
+    .nav-link:hover {
+        color: var(--cream);
+        border-left-color: var(--gold);
+        background: var(--gold-dim);
+    }
+
+    /* =============================================
+       MAIN CONTENT
+    ============================================= */
+    main {
+        flex: 1;
+        padding: 4.5rem 5rem;
+        max-width: 920px;
+    }
+
+    /* =============================================
+       PAGE HEADER
+    ============================================= */
+    .page-header {
+        margin-bottom: 5rem;
+        position: relative;
+        padding-bottom: 3rem;
+    }
+    /* Thin gold rule below header */
+    .page-header::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 80px;
+        height: 2px;
+        background: var(--gold);
+    }
+
+    .page-overline {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.3em;
+        color: var(--gold);
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+    .page-overline::before {
+        content: '';
+        display: block;
+        width: 24px;
+        height: 1px;
+        background: var(--gold);
+    }
+
+    .page-title {
+        font-family: var(--font-serif);
+        font-size: 3.4rem;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+        line-height: 1.05;
+        color: var(--white);
+        margin-bottom: 1.25rem;
+    }
+    .page-title em {
+        font-style: italic;
+        color: var(--gold);
+    }
+
+    .page-subtitle {
+        font-size: 1.05rem;
+        color: var(--gray-lt);
+        max-width: 500px;
+        line-height: 1.8;
+    }
+
+    /* =============================================
+       SECTION STRUCTURE
+    ============================================= */
+    section { margin-bottom: 6rem; scroll-margin-top: 2rem; }
+
+    .section-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--border);
+    }
+    .section-num {
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        color: var(--gold);
+        background: var(--gold-dim);
+        border: 1px solid var(--gold-rule);
+        padding: 0.2rem 0.55rem;
+        border-radius: var(--radius);
+    }
+    .section-title {
+        font-family: var(--font-serif);
+        font-size: 1.65rem;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+    }
+
+    /* =============================================
+       MISSION
+    ============================================= */
+    .mission-card {
+        position: relative;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-left: 3px solid var(--gold);
+        border-radius: 0 var(--radius) var(--radius) 0;
+        padding: 2.25rem 2.5rem;
+        overflow: hidden;
+    }
+    .mission-card::after {
+        content: '\201C';
+        position: absolute;
+        top: -1rem;
+        right: 1.5rem;
+        font-family: Georgia, serif;
+        font-size: 9rem;
+        line-height: 1;
+        color: rgba(201, 168, 76, 0.06);
+        pointer-events: none;
+    }
+    .mission-eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        text-transform: uppercase;
+        letter-spacing: 0.25em;
+        color: var(--gold);
+        margin-bottom: 0.875rem;
+    }
+    .mission-text {
+        font-family: var(--font-serif);
+        font-size: 1.15rem;
+        font-style: italic;
+        color: var(--cream);
+        line-height: 1.85;
+    }
+
+    /* =============================================
+       VOICE CARDS
+    ============================================= */
+    .voice-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; }
+    .voice-card {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-top: 2px solid var(--gold);
+        border-radius: var(--radius);
+        padding: 1.875rem;
+        transition: var(--ease);
+    }
+    .voice-card:hover { transform: translateY(-3px); border-color: var(--border-lt); border-top-color: var(--gold); }
+    .voice-num {
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        color: var(--gold);
+        letter-spacing: 0.15em;
+        margin-bottom: 0.875rem;
+        opacity: 0.75;
+    }
+    .voice-card h4 {
+        font-family: var(--font-serif);
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--gold);
+        margin-bottom: 0.75rem;
+    }
+    .voice-card p { font-size: 0.875rem; color: var(--gray-lt); line-height: 1.75; }
+
+    /* =============================================
+       COLORS
+    ============================================= */
+    .color-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem; }
+    .swatch { cursor: pointer; }
+    .swatch-block {
+        height: 100px;
+        border-radius: var(--radius);
+        margin-bottom: 0.75rem;
+        border: 1px solid rgba(255,255,255,0.06);
+        position: relative;
+        overflow: hidden;
+        transition: var(--ease);
+    }
+    .swatch-block::after {
+        content: 'COPY';
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        letter-spacing: 0.2em;
+        color: rgba(255,255,255,0.8);
+        background: rgba(0,0,0,0.25);
+        opacity: 0;
+        transition: var(--ease);
+    }
+    .swatch:hover .swatch-block::after { opacity: 1; }
+    .swatch-name {
+        font-family: var(--font-sans);
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--white);
+        margin-bottom: 0.2rem;
+    }
+    .swatch-hex {
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        color: var(--gray);
+        text-transform: uppercase;
+    }
+
+    /* =============================================
+       TYPOGRAPHY
+    ============================================= */
+    .type-block {
+        background: rgba(13, 25, 41, 0.5);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2.25rem;
+        margin-bottom: 1.25rem;
+        position: relative;
+    }
+    /* Gold left accent on type block */
+    .type-block::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(to bottom, var(--gold), transparent);
+        border-radius: var(--radius) 0 0 var(--radius);
+    }
+    .type-label {
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        text-transform: uppercase;
+        letter-spacing: 0.22em;
+        color: var(--gray);
+        margin-bottom: 1rem;
+    }
+
+    /* =============================================
+       CORNER RADIUS
+    ============================================= */
+    .radius-demo {
+        background: rgba(13, 25, 41, 0.5);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2.5rem;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        max-width: 480px;
+    }
+
+    /* =============================================
+       TEXTURE DEMO (Dot Grid)
+    ============================================= */
+    .texture-demo {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2.5rem;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+    }
+    .texture-dots-overlay {
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(rgba(201, 168, 76, 0.1) 1px, transparent 1px);
+        background-size: 32px 32px;
+    }
+    .texture-content { position: relative; z-index: 1; }
+
+    .code-tag {
+        display: inline-block;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        color: var(--gray-lt);
+        padding: 0.25rem 0.75rem;
+        margin-right: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    /* Gold rule demo */
+    .gold-rule-demo {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+        margin-top: 1.5rem;
+    }
+    .rule-sample {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.5rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* =============================================
+       BUTTONS
+    ============================================= */
+    .btn-showcase {
+        background: rgba(19, 32, 48, 0.6);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+    }
+    .btn-note {
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        color: var(--gray);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+    }
+
+    /* Gold — primary action */
+    .btn-gold {
+        display: inline-block;
+        background: var(--gold);
+        color: #0A1628;
+        font-family: var(--font-sans);
+        font-size: 0.875rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.9rem 2.25rem;
+        border: none;
+        border-radius: var(--radius);
+        cursor: pointer;
+        transition: var(--ease);
+        box-shadow: 0 4px 20px rgba(201, 168, 76, 0.25);
+    }
+    .btn-gold:hover {
+        background: var(--gold-light);
+        box-shadow: 0 6px 28px rgba(201, 168, 76, 0.4);
+        transform: translateY(-1px);
+    }
+
+    /* Gold outline — secondary */
+    .btn-outline-gold {
+        display: inline-block;
+        background: transparent;
+        color: var(--gold);
+        font-family: var(--font-sans);
+        font-size: 0.875rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.9rem 2.25rem;
+        border: 1px solid var(--gold);
+        border-radius: var(--radius);
+        cursor: pointer;
+        transition: var(--ease);
+    }
+    .btn-outline-gold:hover {
+        background: var(--gold-dim);
+        box-shadow: 0 0 0 1px var(--gold);
+    }
+
+    /* White ghost — dark sections */
+    .btn-ghost {
+        display: inline-block;
+        background: transparent;
+        color: var(--cream);
+        font-family: var(--font-sans);
+        font-size: 0.875rem;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 0.9rem 2.25rem;
+        border: 1px solid rgba(245, 241, 232, 0.3);
+        border-radius: var(--radius);
+        cursor: pointer;
+        transition: var(--ease);
+    }
+    .btn-ghost:hover { border-color: var(--cream); background: rgba(245,241,232,0.06); }
+
+    /* =============================================
+       CARDS & PANELS
+    ============================================= */
+    .panel-card {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2rem;
+        transition: var(--ease);
+    }
+    .panel-card:hover { border-color: var(--border-lt); transform: translateY(-2px); }
+
+    /* Featured card — gold left bar */
+    .panel-card-featured {
+        background: var(--raised);
+        border: 1px solid var(--border);
+        border-left: 3px solid var(--gold);
+        border-radius: 0 var(--radius) var(--radius) 0;
+        padding: 2rem;
+    }
+
+    .card-eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        text-transform: uppercase;
+        letter-spacing: 0.22em;
+        color: var(--gold);
+        margin-bottom: 0.875rem;
+        opacity: 0.9;
+    }
+    .card-title {
+        font-family: var(--font-serif);
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+    }
+    .card-text { font-size: 0.875rem; color: var(--gray-lt); line-height: 1.75; }
+
+    /* Practice area card */
+    .practice-card {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.875rem;
+        display: flex;
+        align-items: flex-start;
+        gap: 1.25rem;
+        transition: var(--ease);
+    }
+    .practice-card:hover {
+        border-color: var(--gold-rule);
+        background: var(--raised);
+        transform: translateY(-2px);
+    }
+    .practice-icon {
+        width: 44px;
+        height: 44px;
+        background: var(--gold-dim);
+        border: 1px solid var(--gold-rule);
+        border-radius: var(--radius);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gold);
+        flex-shrink: 0;
+    }
+
+    /* =============================================
+       FORM ELEMENTS
+    ============================================= */
+    .form-wrap {
+        background: rgba(13, 25, 41, 0.6);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2.25rem;
+        max-width: 500px;
+    }
+    .form-group { margin-bottom: 1.4rem; }
+    .form-label {
+        display: block;
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        text-transform: uppercase;
+        letter-spacing: 0.22em;
+        color: var(--gray);
+        margin-bottom: 0.45rem;
+    }
+    .form-input, .form-select, .form-textarea {
+        width: 100%;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 0.8rem 1rem;
+        color: var(--cream);
+        font-family: var(--font-sans);
+        font-size: 0.9rem;
+        outline: none;
+        transition: var(--ease);
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: rgba(122, 144, 168, 0.4); }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+        border-color: var(--gold);
+        box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.1);
+    }
+    .form-select { appearance: none; cursor: pointer; }
+    .form-textarea { resize: vertical; }
+
+    /* =============================================
+       NAV PATTERN (Practice Area cards)
+    ============================================= */
+    .nav-card {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        padding: 1.25rem 1.5rem;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        text-decoration: none;
+        color: inherit;
+        transition: var(--ease);
+        cursor: pointer;
+    }
+    .nav-card:hover {
+        border-color: var(--gold-rule);
+        background: var(--raised);
+        transform: translateY(-2px);
+    }
+    .nav-card-icon {
+        width: 46px;
+        height: 46px;
+        background: var(--gold-dim);
+        border: 1px solid var(--gold-rule);
+        border-radius: var(--radius);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gold);
+        flex-shrink: 0;
+    }
+    .nav-card-title {
+        font-family: var(--font-serif);
+        font-size: 0.95rem;
+        font-weight: 700;
+        margin-bottom: 0.2rem;
+    }
+    .nav-card-sub { font-size: 0.75rem; color: var(--gray); }
+
+    /* =============================================
+       SOCIAL / AD MOCKUPS
+    ============================================= */
+    .ad-outer {
+        background: rgba(13, 25, 41, 0.5);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.75rem;
+    }
+    .ad-label {
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--gray);
+        margin-bottom: 1.25rem;
+    }
+    .ad-square {
+        aspect-ratio: 1;
+        background: var(--bg);
+        border: 1px solid rgba(255,255,255,0.04);
+        border-radius: var(--radius);
+        position: relative;
+        overflow: hidden;
+        padding: 1.75rem;
+        display: flex;
+        flex-direction: column;
+    }
+    .ad-dots {
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(rgba(201,168,76,0.06) 1px, transparent 1px);
+        background-size: 28px 28px;
+    }
+    /* Gold corner accent on ad */
+    .ad-corner {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100px;
+        height: 100px;
+        background: rgba(201, 168, 76, 0.05);
+        clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    }
+    .ad-content { position: relative; z-index: 1; display: flex; flex-direction: column; height: 100%; }
+    .ad-firm-name {
+        font-family: var(--font-serif);
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        margin-bottom: auto;
+    }
+    .ad-firm-name em { color: var(--gold); font-style: normal; }
+    .ad-gold-bar { width: 32px; height: 2px; background: var(--gold); margin-bottom: 0.75rem; }
+    .ad-headline {
+        font-family: var(--font-serif);
+        font-size: 1.35rem;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 0.6rem;
+    }
+    .ad-body { font-size: 0.72rem; color: var(--gray-lt); margin-bottom: 0.6rem; }
+    .ad-url { font-family: var(--font-mono); font-size: 0.58rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gold); }
+    .ad-wide {
+        aspect-ratio: 1200/628;
+        background: var(--bg);
+        border: 1px solid rgba(255,255,255,0.04);
+        border-radius: var(--radius);
+        position: relative;
+        overflow: hidden;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+    }
+    .ad-wide-dots {
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(rgba(201,168,76,0.055) 1px, transparent 1px);
+        background-size: 28px 28px;
+    }
+    /* Gold vertical accent bar on wide ad */
+    .ad-wide-accent {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 42%;
+        background: linear-gradient(to left, rgba(201,168,76,0.06), transparent);
+        border-left: 1px solid rgba(201,168,76,0.12);
+    }
+    .ad-wide-content { position: relative; z-index: 1; }
+
+    /* =============================================
+       IMAGERY
+    ============================================= */
+    .img-preview {
+        aspect-ratio: 16/9;
+        background: var(--raised);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        position: relative;
+        margin-bottom: 0.875rem;
+    }
+    .img-label {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-serif);
+        font-size: 1rem;
+        font-style: italic;
+        color: rgba(245,241,232,0.15);
+        font-weight: 700;
+    }
+    .img-desc { font-size: 0.8rem; color: var(--gray-lt); line-height: 1.65; }
+    .img-desc strong { color: var(--white); }
+
+    /* =============================================
+       ANIMATIONS
+    ============================================= */
+    @keyframes scalePulse {
+        0%, 100% { transform: rotate(-5deg) scale(1); opacity: 0.7; }
+        50% { transform: rotate(-5deg) scale(1.08); opacity: 1; }
+    }
+    @keyframes goldFade {
+        0%, 100% { box-shadow: 0 0 8px rgba(201, 168, 76, 0.2); }
+        50% { box-shadow: 0 0 28px rgba(201, 168, 76, 0.6); }
+    }
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .anim-scale { animation: scalePulse 3s ease-in-out infinite; }
+    .anim-gold-glow { animation: goldFade 2.5s ease-in-out infinite; }
+
+    .anim-card {
+        background: rgba(13, 25, 41, 0.5);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        min-height: 170px;
+    }
+    .anim-label {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        color: var(--gray);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+    }
+
+    /* =============================================
+       GLOWS & GRADIENTS
+    ============================================= */
+    .glow-card {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        height: 160px;
+    }
+
+    /* =============================================
+       COPY TOAST
+    ============================================= */
+    .copy-toast {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        background: var(--gold);
+        color: #0A1628;
+        padding: 0.7rem 1.5rem;
+        border-radius: var(--radius);
+        font-family: var(--font-sans);
+        font-weight: 600;
+        font-size: 0.875rem;
+        letter-spacing: 0.06em;
+        display: none;
+        animation: fadeInUp 0.3s ease-out;
+        z-index: 1000;
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    footer {
+        margin-top: 8rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    footer p {
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--gray);
+    }
+
+    /* =============================================
+       GRID HELPERS
+    ============================================= */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem; }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 1100px) {
+        aside { display: none; }
+        main { padding: 2.5rem; }
+    }
+    @media (max-width: 640px) {
+        .grid-2, .grid-3, .voice-grid, .color-grid, .gold-rule-demo { grid-template-columns: 1fr; }
+        .page-title { font-size: 2.4rem; }
+    }
+
+    </style>
+</head>
+<body>
+
+    <!-- Dot grid background -->
+    <div class="bg-dots" aria-hidden="true"></div>
+
+    <div class="layout">
+
+        <!-- =====================
+             SIDEBAR
+        ===================== -->
+        <aside>
+            <div class="sidebar-inner">
+
+                <div class="brand-block">
+                    <div class="brand-seal" aria-hidden="true">
+                        <!-- Scales of justice icon -->
+                        <svg width="26" height="26" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M12 2v20M3 9h18M5 5l2 4H3L5 5zM19 5l2 4h-4l2-4zM3 19h6M15 19h6"/>
+                        </svg>
+                    </div>
+                    <div class="brand-name">Caldwell<br>Law Group</div>
+                    <div class="brand-tagline">Experience · Quality · Dedication</div>
+                </div>
+
+                <div class="gold-rule"></div>
+
+                <nav>
+                    <div class="nav-group">
+                        <p class="nav-group-label">Foundations</p>
+                        <a href="#mission" class="nav-link">Mission</a>
+                        <a href="#voice" class="nav-link">Voice & Tone</a>
+                        <a href="#colors" class="nav-link">Colors</a>
+                        <a href="#typography" class="nav-link">Typography</a>
+                        <a href="#radius" class="nav-link">Corner Radius</a>
+                        <a href="#texture" class="nav-link">Texture & Pattern</a>
+                    </div>
+                    <div class="nav-group">
+                        <p class="nav-group-label">Components</p>
+                        <a href="#buttons" class="nav-link">Buttons</a>
+                        <a href="#cards" class="nav-link">Cards & Panels</a>
+                        <a href="#forms" class="nav-link">Form Elements</a>
+                        <a href="#navigation" class="nav-link">Navigation</a>
+                    </div>
+                    <div class="nav-group">
+                        <p class="nav-group-label">Creative Assets</p>
+                        <a href="#social" class="nav-link">Social & Ads</a>
+                        <a href="#imagery" class="nav-link">Imagery Style</a>
+                    </div>
+                    <div class="nav-group">
+                        <p class="nav-group-label">Special Effects</p>
+                        <a href="#animations" class="nav-link">Animations</a>
+                        <a href="#glows" class="nav-link">Glows & Gradients</a>
+                    </div>
+                </nav>
+
+            </div>
+        </aside>
+
+        <!-- =====================
+             MAIN CONTENT
+        ===================== -->
+        <main>
+
+            <!-- PAGE HEADER -->
+            <header class="page-header">
+                <p class="page-overline">Caldwell Law Group PLLC</p>
+                <h1 class="page-title">Brand <em>Guide</em></h1>
+                <p class="page-subtitle">
+                    Visual standards, typographic rules, and creative direction for Caldwell Law Group's digital presence — built to project authority, trust, and results.
+                </p>
+            </header>
+
+            <!-- =====================
+                 MISSION
+            ===================== -->
+            <section id="mission">
+                <div class="mission-card">
+                    <p class="mission-eyebrow">Our Mission</p>
+                    <p class="mission-text">
+                        "We focus exclusively on personal injury and insurance law so we can give every client better, more dedicated representation. When you've been hurt because of someone else's negligence, you deserve an attorney who knows this ground deeply — and fights with everything they have."
+                    </p>
+                </div>
+            </section>
+
+            <!-- =====================
+                 VOICE & TONE
+            ===================== -->
+            <section id="voice">
+                <div class="section-header">
+                    <span class="section-num">01</span>
+                    <h2 class="section-title">Brand Voice & Tone</h2>
+                </div>
+                <div class="voice-grid">
+                    <div class="voice-card">
+                        <div class="voice-num">01 / 03</div>
+                        <h4>Authoritative</h4>
+                        <p>We speak with the confidence that comes from nearly 20 years of trial experience. Decisive, clear, and never hedging. Clients need to trust us immediately.</p>
+                    </div>
+                    <div class="voice-card">
+                        <div class="voice-num">02 / 03</div>
+                        <h4>Empathetic</h4>
+                        <p>Injury clients are often scared and overwhelmed. We meet them with warmth and clarity — no legal jargon, no dismissal. We listen first, then act.</p>
+                    </div>
+                    <div class="voice-card">
+                        <div class="voice-num">03 / 03</div>
+                        <h4>Results-Driven</h4>
+                        <p>We lead with outcomes. Every case is about getting the maximum compensation for the client. We are direct about what we do and what it takes to win.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =====================
+                 COLORS
+            ===================== -->
+            <section id="colors">
+                <div class="section-header">
+                    <span class="section-num">02</span>
+                    <h2 class="section-title">Colors</h2>
+                </div>
+                <div class="color-grid">
+                    <div class="swatch" onclick="copyToClipboard('#080F1A')">
+                        <div class="swatch-block" style="background:#080F1A; border-color:rgba(255,255,255,0.12);"></div>
+                        <p class="swatch-name">Midnight</p>
+                        <p class="swatch-hex">#080F1A — Background</p>
+                    </div>
+                    <div class="swatch" onclick="copyToClipboard('#0D1929')">
+                        <div class="swatch-block" style="background:#0D1929;"></div>
+                        <p class="swatch-name">Deep Navy</p>
+                        <p class="swatch-hex">#0D1929 — Panels, Cards</p>
+                    </div>
+                    <div class="swatch" onclick="copyToClipboard('#132030')">
+                        <div class="swatch-block" style="background:#132030;"></div>
+                        <p class="swatch-name">Navy Raised</p>
+                        <p class="swatch-hex">#132030 — Hover States</p>
+                    </div>
+                    <div class="swatch" onclick="copyToClipboard('#C9A84C')">
+                        <div class="swatch-block" style="background:#C9A84C;"></div>
+                        <p class="swatch-name">Counsel Gold</p>
+                        <p class="swatch-hex">#C9A84C — Primary Accent</p>
+                    </div>
+                    <div class="swatch" onclick="copyToClipboard('#DFC274')">
+                        <div class="swatch-block" style="background:#DFC274;"></div>
+                        <p class="swatch-name">Light Gold</p>
+                        <p class="swatch-hex">#DFC274 — Hover / Highlight</p>
+                    </div>
+                    <div class="swatch" onclick="copyToClipboard('#F5F1E8')">
+                        <div class="swatch-block" style="background:#F5F1E8;"></div>
+                        <p class="swatch-name">Counsel Cream</p>
+                        <p class="swatch-hex">#F5F1E8 — Body Text</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =====================
+                 TYPOGRAPHY
+            ===================== -->
+            <section id="typography">
+                <div class="section-header">
+                    <span class="section-num">03</span>
+                    <h2 class="section-title">Typography</h2>
+                </div>
+
+                <div class="type-block">
+                    <p class="type-label">Display — Playfair Display</p>
+                    <h1 style="font-family:var(--font-serif); font-size:2.85rem; font-weight:800; line-height:1.1; letter-spacing:-0.01em;">
+                        Fighting For The<br><em style="color:var(--gold);">Justice You Deserve</em>
+                    </h1>
+                    <p style="font-size:0.8rem; color:var(--gray); margin-top:1rem;">Usage: Hero headlines, section titles, pull quotes, case result numbers.</p>
+                </div>
+
+                <div class="type-block">
+                    <p class="type-label">Body — Inter</p>
+                    <p style="font-size:1rem; line-height:1.85; color:var(--gray-lt); max-width:580px;">
+                        Inter is used for all body copy and UI text. It brings modern clarity to the site — ensuring content is immediately legible and never overwhelming. Set at 1.75–1.85 line-height for legal content where comprehension matters.
+                    </p>
+                    <p style="font-size:0.8rem; color:var(--gray); margin-top:1rem;">Usage: Paragraphs, nav links, form labels, descriptions, FAQs.</p>
+                </div>
+
+                <div class="type-block">
+                    <p class="type-label">Mono — Roboto Mono</p>
+                    <p style="font-family:var(--font-mono); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.28em; color:var(--gold);">Section 01 — Personal Injury Law — Boise, Idaho</p>
+                    <p style="font-size:0.8rem; color:var(--gray); margin-top:1rem;">Usage: Overline labels, section numbers, phone numbers, form field labels, metadata.</p>
+                </div>
+
+                <!-- Serif italic pull quote -->
+                <div style="border-left:3px solid var(--gold); padding:1.5rem 2rem; margin-top:1.5rem; background:var(--panel); border-radius:0 var(--radius) var(--radius) 0;">
+                    <p style="font-family:var(--font-serif); font-size:1.3rem; font-style:italic; color:var(--cream); line-height:1.7; margin-bottom:0.5rem;">
+                        "Christopher Caldwell is recognized as a member of the National Trial Lawyers: Top 100."
+                    </p>
+                    <p style="font-family:var(--font-mono); font-size:0.6rem; text-transform:uppercase; letter-spacing:0.2em; color:var(--gold);">— National Trial Lawyers Association</p>
+                </div>
+            </section>
+
+            <!-- =====================
+                 CORNER RADIUS
+            ===================== -->
+            <section id="radius">
+                <div class="section-header">
+                    <span class="section-num">04</span>
+                    <h2 class="section-title">Corner Radius</h2>
+                </div>
+                <div class="radius-demo">
+                    <div style="width:80px; height:80px; background:var(--gold); border-radius:4px; flex-shrink:0;"></div>
+                    <div>
+                        <p style="font-family:var(--font-serif); font-size:1.2rem; font-weight:700; margin-bottom:0.45rem;">Standard Radius</p>
+                        <p style="font-family:var(--font-mono); font-size:0.85rem; color:var(--gold); margin-bottom:0.75rem;">4px / 0.25rem</p>
+                        <p style="font-size:0.875rem; color:var(--gray-lt); line-height:1.65;">
+                            A 4px radius reads as formal and structured — appropriate for a legal brand. Tighter than consumer apps, it communicates precision and professional discipline.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =====================
+                 TEXTURE & PATTERN
+            ===================== -->
+            <section id="texture">
+                <div class="section-header">
+                    <span class="section-num">05</span>
+                    <h2 class="section-title">Texture & Pattern</h2>
+                </div>
+
+                <div class="texture-demo">
+                    <div class="texture-dots-overlay" aria-hidden="true"></div>
+                    <div class="texture-content">
+                        <p style="font-family:var(--font-mono); font-size:0.62rem; text-transform:uppercase; letter-spacing:0.24em; color:var(--gold); margin-bottom:0.875rem;">The Signature Dot Grid</p>
+                        <h4 style="font-family:var(--font-serif); font-size:1.35rem; font-weight:700; margin-bottom:0.875rem;">Refined. Measured. Authoritative.</h4>
+                        <p style="font-size:0.875rem; color:var(--gray-lt); max-width:560px; line-height:1.75; margin-bottom:1.5rem;">
+                            The brand's background texture is a subtle dot grid in Counsel Gold — each dot spaced at 32px, at near-invisible opacity. It evokes quality stationery, letterhead, and precision — all hallmarks of a trusted legal practice.
+                        </p>
+                        <div>
+                            <span class="code-tag">pattern: radial-gradient</span>
+                            <span class="code-tag">size: 32px × 32px</span>
+                            <span class="code-tag">opacity: 7%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gold horizontal rule as design element -->
+                <div class="gold-rule-demo">
+                    <div class="rule-sample">
+                        <div style="height:1px; background:linear-gradient(90deg, var(--gold), transparent); margin-bottom:1.25rem;"></div>
+                        <p style="font-family:var(--font-mono); font-size:0.62rem; text-transform:uppercase; letter-spacing:0.2em; color:var(--gray);">Gradient Gold Rule — Section Openers</p>
+                    </div>
+                    <div class="rule-sample">
+                        <div style="display:flex; gap:0; align-items:center; margin-bottom:1.25rem;">
+                            <div style="height:1px; flex:1; background:var(--border);"></div>
+                            <div style="width:6px; height:6px; background:var(--gold); transform:rotate(45deg); flex-shrink:0; margin:0 0.75rem;"></div>
+                            <div style="height:1px; flex:1; background:var(--border);"></div>
+                        </div>
+                        <p style="font-family:var(--font-mono); font-size:0.62rem; text-transform:uppercase; letter-spacing:0.2em; color:var(--gray);">Diamond Rule — Quote &amp; Testimonial Dividers</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =====================
+                 BUTTONS
+            ===================== -->
+            <section id="buttons">
+                <div class="section-header">
+                    <span class="section-num">06</span>
+                    <h2 class="section-title">Buttons</h2>
+                </div>
+                <div class="grid-2">
+                    <div class="btn-showcase">
+                        <button class="btn-gold">Free Consultation</button>
+                        <p class="btn-note">Primary — Counsel Gold</p>
+                    </div>
+                    <div class="btn-showcase">
+                        <button class="btn-outline-gold">View Our Cases</button>
+                        <p class="btn-note">Secondary — Gold Outline</p>
+                    </div>
+                </div>
+                <div class="btn-showcase" style="margin-top:1.5rem; flex-direction:row; gap:2rem; flex-wrap:wrap;">
+                    <button class="btn-ghost">Learn More</button>
+                    <p class="btn-note">Ghost — For Dark / Overlay Sections</p>
+                </div>
+            </section>
+
+            <!-- =====================
+                 CARDS & PANELS
+            ===================== -->
+            <section id="cards">
+                <div class="section-header">
+                    <span class="section-num">07</span>
+                    <h2 class="section-title">Cards & Panels</h2>
+                </div>
+
+                <div class="grid-2" style="margin-bottom:1.5rem;">
+                    <div class="panel-card">
+                        <p class="card-eyebrow">Standard Card</p>
+                        <h4 class="card-title">Auto Accidents</h4>
+                        <p class="card-text">From fender-benders to catastrophic collisions, we handle the insurance battles so you can focus on recovery.</p>
+                    </div>
+                    <div class="panel-card-featured">
+                        <p class="card-eyebrow">Featured / Accent Card</p>
+                        <h4 class="card-title">Wrongful Death</h4>
+                        <p class="card-text">When negligence costs a life, we hold responsible parties fully accountable. No family should bear that burden alone.</p>
+                    </div>
+                </div>
+
+                <!-- Practice area card (with icon) -->
+                <div class="grid-2">
+                    <div class="practice-card">
+                        <div class="practice-icon" aria-hidden="true">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 17H5a2 2 0 00-2 2v1h18v-1a2 2 0 00-2-2h-4M12 3v10M9 9l3-3 3 3"/></svg>
+                        </div>
+                        <div>
+                            <p class="card-eyebrow" style="margin-bottom:0.3rem;">Practice Area</p>
+                            <h4 style="font-family:var(--font-serif); font-size:1rem; font-weight:700; margin-bottom:0.4rem;">Workers' Compensation</h4>
+                            <p class="card-text">Injured on the job? You have rights. We fight to ensure you receive every benefit you're owed.</p>
+                        </div>
+                    </div>
+                    <div class="practice-card">
+                        <div class="practice-icon" aria-hidden="true">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <div>
+                            <p class="card-eyebrow" style="margin-bottom:0.3rem;">Practice Area</p>
+                            <h4 style="font-family:var(--font-serif); font-size:1rem; font-weight:700; margin-bottom:0.4rem;">Insurance Claims</h4>
+                            <p class="card-text">Insurance companies have lawyers. So should you. We level the playing field and maximize your recovery.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =====================
+                 FORM ELEMENTS
+            ===================== -->
+            <section id="forms">
+                <div class="section-header">
+                    <span class="section-num">08</span>
+                    <h2 class="section-title">Form Elements</h2>
+                </div>
+                <div class="form-wrap">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-input" placeholder="Jane Doe">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone Number</label>
+                        <input type="tel" class="form-input" placeholder="(208) 555-0100">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Type of Case</label>
+                        <select class="form-select">
+                            <option>Auto Accident</option>
+                            <option>Trucking Case</option>
+                            <option>Workers' Compensation</option>
+                            <option>Wrongful Death</option>
+                            <option>Slip &amp; Fall</option>
+                            <option>Insurance Claim</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Describe Your Situation</label>
+                        <textarea class="form-textarea" rows="3" placeholder="Tell us what happened..."></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =====================
+                 NAVIGATION PATTERNS
+            ===================== -->
+            <section id="navigation">
+                <div class="section-header">
+                    <span class="section-num">09</span>
+                    <h2 class="section-title">Navigation</h2>
+                </div>
+                <div class="grid-2">
+
+                    <a class="nav-card" href="#">
+                        <div class="nav-card-icon">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 17H5a2 2 0 00-2 2v1h18v-1a2 2 0 00-2-2h-4M12 3v10M9 9l3-3 3 3"/><circle cx="12" cy="3" r="1"/></svg>
+                        </div>
+                        <div>
+                            <div class="nav-card-title">Personal Injury</div>
+                            <div class="nav-card-sub">Auto, slip &amp; fall, malpractice</div>
+                        </div>
+                    </a>
+
+                    <a class="nav-card" href="#">
+                        <div class="nav-card-icon">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h5l2 5v3h-7V8zM5.5 21a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM20.5 21a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg>
+                        </div>
+                        <div>
+                            <div class="nav-card-title">Trucking Cases</div>
+                            <div class="nav-card-sub">Commercial vehicle accidents</div>
+                        </div>
+                    </a>
+
+                    <a class="nav-card" href="#">
+                        <div class="nav-card-icon">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <div>
+                            <div class="nav-card-title">Workers' Compensation</div>
+                            <div class="nav-card-sub">On-the-job injury claims</div>
+                        </div>
+                    </a>
+
+                    <a class="nav-card" href="#">
+                        <div class="nav-card-icon">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        </div>
+                        <div>
+                            <div class="nav-card-title">Wrongful Death</div>
+                            <div class="nav-card-sub">Holding negligence accountable</div>
+                        </div>
+                    </a>
+
+                </div>
+            </section>
+
+            <!-- =====================
+                 SOCIAL & ADS
+            ===================== -->
+            <section id="social">
+                <div class="section-header">
+                    <span class="section-num">10</span>
+                    <h2 class="section-title">Social & Ads</h2>
+                </div>
+                <div class="grid-2">
+
+                    <!-- Square -->
+                    <div class="ad-outer">
+                        <p class="ad-label">Instagram / Facebook (1080×1080)</p>
+                        <div class="ad-square">
+                            <div class="ad-dots" aria-hidden="true"></div>
+                            <div class="ad-corner" aria-hidden="true"></div>
+                            <div class="ad-content">
+                                <div class="ad-firm-name">Caldwell<br><em>Law Group</em></div>
+                                <div>
+                                    <div class="ad-gold-bar"></div>
+                                    <h3 class="ad-headline">Injured?<br>We Fight<br>For You.</h3>
+                                    <p class="ad-body">Free consultation. No fee unless we win.</p>
+                                    <p class="ad-url">caldwell-law.net</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wide -->
+                    <div class="ad-outer">
+                        <p class="ad-label">LinkedIn / Display (1200×628)</p>
+                        <div class="ad-wide">
+                            <div class="ad-wide-dots" aria-hidden="true"></div>
+                            <div class="ad-wide-accent" aria-hidden="true"></div>
+                            <div class="ad-wide-content">
+                                <p style="font-family:var(--font-mono); font-size:0.58rem; text-transform:uppercase; letter-spacing:0.24em; color:var(--gold); margin-bottom:0.65rem;">Top 100 National Trial Lawyers</p>
+                                <h3 style="font-family:var(--font-serif); font-size:1.5rem; font-weight:800; line-height:1.1; margin-bottom:1rem; font-style:italic;">Experience.<br>Quality.<br>Dedication.</h3>
+                                <button class="btn-gold" style="font-size:0.8rem; padding:0.6rem 1.5rem;">Free Consultation</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- =====================
+                 IMAGERY STYLE
+            ===================== -->
+            <section id="imagery">
+                <div class="section-header">
+                    <span class="section-num">11</span>
+                    <h2 class="section-title">Imagery Style</h2>
+                </div>
+                <div class="grid-3">
+                    <div>
+                        <div class="img-preview">
+                            <div style="position:absolute;inset:0;background:var(--raised);"></div>
+                            <div style="position:absolute;inset:0;background:rgba(8,15,26,0.55);"></div>
+                            <div class="img-label">Dark &amp; Serious</div>
+                        </div>
+                        <p class="img-desc"><strong>Gravitas:</strong> Underexposed, serious photography. Courtroom, law library, handshake. No smiling stock photos.</p>
+                    </div>
+                    <div>
+                        <div class="img-preview">
+                            <div style="position:absolute;inset:0;background:var(--raised);"></div>
+                            <div style="position:absolute;inset:0;background:rgba(201,168,76,0.1);"></div>
+                            <div class="img-label">Gold Tone</div>
+                        </div>
+                        <p class="img-desc"><strong>Warmth:</strong> Apply a subtle gold color wash at 8–12% on portraits of the attorney to humanize and premium-ize.</p>
+                    </div>
+                    <div>
+                        <div class="img-preview">
+                            <div style="position:absolute;inset:0;background:var(--raised);"></div>
+                            <div style="position:absolute;inset:0;background:linear-gradient(to top, var(--bg), transparent);"></div>
+                            <div class="img-label">Fade to Dark</div>
+                        </div>
+                        <p class="img-desc"><strong>Integration:</strong> Bottom-up fade into brand navy for seamless transition from image to content sections.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =====================
+                 ANIMATIONS
+            ===================== -->
+            <section id="animations">
+                <div class="section-header">
+                    <span class="section-num">12</span>
+                    <h2 class="section-title">Animations</h2>
+                </div>
+                <div class="grid-2">
+
+                    <div class="anim-card">
+                        <div class="anim-scale">
+                            <svg width="52" height="52" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-label="Scales of justice icon">
+                                <path d="M12 2v20M3 9h18M5 5l2 4H3L5 5zM19 5l2 4h-4l2-4zM3 19h6M15 19h6"/>
+                            </svg>
+                        </div>
+                        <p class="anim-label">Scale Breathe — Icon Entrance</p>
+                    </div>
+
+                    <div class="anim-card">
+                        <div class="anim-gold-glow" style="width:52px; height:52px; background:var(--gold-dim); border:1px solid var(--gold-rule); border-radius:var(--radius); display:flex; align-items:center; justify-content:center; color:var(--gold);">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <p class="anim-label">Gold Pulse — CTA / Award States</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- =====================
+                 GLOWS & GRADIENTS
+            ===================== -->
+            <section id="glows">
+                <div class="section-header">
+                    <span class="section-num">13</span>
+                    <h2 class="section-title">Glows & Gradients</h2>
+                </div>
+                <div class="grid-2">
+
+                    <div class="glow-card">
+                        <div style="position:absolute; top:-20px; right:-20px; width:140px; height:140px; background:rgba(201,168,76,0.18); border-radius:50%; filter:blur(55px);"></div>
+                        <div style="position:absolute; bottom:-10px; left:20px; width:80px; height:80px; background:rgba(201,168,76,0.1); border-radius:50%; filter:blur(38px);"></div>
+                        <p style="font-family:var(--font-mono); font-size:0.7rem; color:var(--gray-lt); text-transform:uppercase; letter-spacing:0.1em; position:relative; z-index:1;">Background Gold Bloom</p>
+                    </div>
+
+                    <div class="glow-card">
+                        <h3 style="font-family:var(--font-serif); font-size:2rem; font-weight:800; font-style:italic; background:linear-gradient(135deg, #DFC274 0%, #C9A84C 50%, #A8853A 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Headline Gradient</h3>
+                    </div>
+
+                </div>
+
+                <!-- Hero gradient band -->
+                <div style="margin-top:1.5rem; background:linear-gradient(135deg, rgba(201,168,76,0.06) 0%, var(--panel) 35%, var(--bg) 100%); border:1px solid var(--border); border-radius:var(--radius); padding:2rem; display:flex; align-items:center; gap:2rem;">
+                    <div>
+                        <p style="font-family:var(--font-mono); font-size:0.62rem; text-transform:uppercase; letter-spacing:0.22em; color:var(--gold); margin-bottom:0.5rem;">Hero Gradient — Gold to Navy to Midnight</p>
+                        <p style="font-size:0.875rem; color:var(--gray-lt); line-height:1.65;">Used behind full-width hero and CTA sections. Direction: <strong style="color:var(--white);">135deg</strong> &nbsp;|&nbsp; Gold wash → Deep Navy → Midnight.</p>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <p>Internal Documentation &bull; 2026 Caldwell Law Group PLLC</p>
+                <p>Prepared by WebMarkets</p>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- Copy Toast -->
+    <div class="copy-toast" id="copyToast">Copied!</div>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const toast = document.getElementById('copyToast');
+                toast.style.display = 'block';
+                setTimeout(() => { toast.style.display = 'none'; }, 2000);
+            });
+        }
+    </script>
+
+</body>
+</html>

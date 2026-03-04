@@ -1,0 +1,2070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caldwell Law Group PLLC | Personal Injury Attorneys — Boise & Lewiston, Idaho</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+
+    /* =============================================
+       VARIABLES — From Caldwell Law Style Guide
+    ============================================= */
+    :root {
+        --bg:           #080F1A;
+        --panel:        #0D1929;
+        --raised:       #132030;
+        --border:       #1E3050;
+        --border-lt:    #2A4268;
+        --gold:         #C9A84C;
+        --gold-light:   #DFC274;
+        --gold-dim:     rgba(201, 168, 76, 0.12);
+        --gold-rule:    rgba(201, 168, 76, 0.35);
+        --white:        #F5F1E8;
+        --cream:        #EDE8DE;
+        --gray:         #7A90A8;
+        --gray-lt:      #A0B4CC;
+        --font-serif:   'Playfair Display', Georgia, serif;
+        --font-sans:    'Inter', sans-serif;
+        --font-mono:    'Roboto Mono', monospace;
+        --radius:       4px;
+        --ease:         all 0.3s ease;
+        --nav-h:        72px;
+    }
+
+    /* =============================================
+       RESET & BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+        background: var(--bg);
+        color: var(--white);
+        font-family: var(--font-sans);
+        font-size: 16px;
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    /* Signature dot grid — applied site-wide as fixed layer */
+    body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background-image: radial-gradient(rgba(201, 168, 76, 0.06) 1px, transparent 1px);
+        background-size: 32px 32px;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    /* Ensure all sections sit above the dot grid */
+    .top-bar, nav, section, footer { position: relative; z-index: 1; }
+
+    /* =============================================
+       SECTION RULE (Diamond Divider)
+       Signature motif — elegant, editorial
+    ============================================= */
+    .section-rule {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0 6vw;
+        position: relative;
+        z-index: 1;
+    }
+    .section-rule-line {
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+    }
+    .section-rule-diamond {
+        color: var(--gold);
+        font-size: 0.55rem;
+        flex-shrink: 0;
+        opacity: 0.8;
+    }
+
+    /* =============================================
+       TOP BAR
+    ============================================= */
+    .top-bar {
+        background: var(--panel);
+        border-bottom: 1px solid var(--border);
+        padding: 0.5rem 6vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    .top-bar-left {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    .top-bar-item {
+        display: flex;
+        align-items: center;
+        gap: 0.45rem;
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: var(--gray);
+        transition: var(--ease);
+    }
+    .top-bar-item:hover { color: var(--cream); }
+    .top-bar-item svg { color: var(--gold); flex-shrink: 0; }
+    .top-bar-divider {
+        width: 1px;
+        height: 12px;
+        background: var(--border-lt);
+    }
+    .top-bar-right {
+        font-family: var(--font-mono);
+        font-size: 0.58rem;
+        text-transform: uppercase;
+        letter-spacing: 0.22em;
+        color: var(--gray);
+    }
+    .top-bar-right strong { color: var(--gold); }
+
+    /* =============================================
+       MAIN NAV
+    ============================================= */
+    #main-nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(8, 15, 26, 0.96);
+        border-bottom: 1px solid var(--border);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        transition: box-shadow 0.3s ease;
+    }
+    #main-nav.scrolled {
+        box-shadow: 0 4px 40px rgba(0, 0, 0, 0.5);
+    }
+    /* Gold underline accent */
+    #main-nav::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--gold-rule), transparent);
+    }
+
+    .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 6vw;
+        height: var(--nav-h);
+        gap: 2rem;
+    }
+
+    /* Logo — inverted to white for dark nav */
+    .nav-logo img {
+        height: 46px;
+        width: auto;
+        filter: brightness(0) invert(1);
+        transition: opacity 0.3s ease;
+    }
+    .nav-logo img:hover { opacity: 0.85; }
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        list-style: none;
+    }
+    .nav-links a {
+        display: block;
+        padding: 0.5rem 0.875rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--gray-lt);
+        letter-spacing: 0.02em;
+        transition: var(--ease);
+        border-radius: var(--radius);
+        position: relative;
+    }
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: 2px;
+        left: 0.875rem;
+        right: 0.875rem;
+        height: 1px;
+        background: var(--gold);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+
+    .nav-cta {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-shrink: 0;
+    }
+    .nav-phone {
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--gold);
+        letter-spacing: 0.08em;
+        transition: var(--ease);
+    }
+    .nav-phone:hover { color: var(--gold-light); }
+
+    /* =============================================
+       BUTTON SYSTEM
+    ============================================= */
+    .btn-gold {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--gold);
+        color: #080F1A;
+        font-family: var(--font-sans);
+        font-size: 0.875rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 0.8rem 1.875rem;
+        border: none;
+        border-radius: var(--radius);
+        cursor: pointer;
+        transition: var(--ease);
+        box-shadow: 0 4px 20px rgba(201, 168, 76, 0.22);
+        white-space: nowrap;
+    }
+    .btn-gold:hover {
+        background: var(--gold-light);
+        box-shadow: 0 6px 30px rgba(201, 168, 76, 0.38);
+        transform: translateY(-1px);
+    }
+
+    .btn-outline {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: transparent;
+        color: var(--white);
+        font-family: var(--font-sans);
+        font-size: 0.875rem;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 0.8rem 1.875rem;
+        border: 1px solid rgba(245, 241, 232, 0.35);
+        border-radius: var(--radius);
+        cursor: pointer;
+        transition: var(--ease);
+        white-space: nowrap;
+    }
+    .btn-outline:hover {
+        border-color: var(--white);
+        background: rgba(245, 241, 232, 0.06);
+    }
+
+    /* =============================================
+       SHARED SECTION STYLES
+    ============================================= */
+    .section-overline {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.28em;
+        color: var(--gold);
+        margin-bottom: 1rem;
+    }
+    .section-overline::before {
+        content: '';
+        display: block;
+        width: 24px;
+        height: 1px;
+        background: var(--gold);
+        flex-shrink: 0;
+    }
+
+    .section-title {
+        font-family: var(--font-serif);
+        font-size: clamp(2rem, 4vw, 2.75rem);
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.01em;
+        margin-bottom: 1rem;
+    }
+    .section-title em {
+        font-style: italic;
+        color: var(--gold);
+    }
+
+    .section-body {
+        font-size: 1rem;
+        color: var(--gray-lt);
+        line-height: 1.8;
+        max-width: 560px;
+    }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    .hero {
+        min-height: calc(100vh - var(--nav-h) - 40px);
+        display: flex;
+        align-items: center;
+        padding: 6rem 6vw 5rem;
+        position: relative;
+        overflow: hidden;
+        background: var(--bg);
+    }
+
+    /* Gold bloom — atmospheric background glow */
+    .hero-bloom {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 700px;
+        height: 700px;
+        background: radial-gradient(circle, rgba(201, 168, 76, 0.07) 0%, transparent 70%);
+        pointer-events: none;
+        border-radius: 50%;
+    }
+
+    /* Scales of justice watermark */
+    .hero-watermark {
+        position: absolute;
+        right: -2vw;
+        bottom: -80px;
+        opacity: 0.025;
+        color: var(--gold);
+        pointer-events: none;
+    }
+
+    .hero-inner {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 5vw;
+        align-items: center;
+        width: 100%;
+        max-width: 1300px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Left: content */
+    .hero-content {}
+
+    .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        background: var(--gold-dim);
+        border: 1px solid var(--gold-rule);
+        border-radius: 2px;
+        padding: 0.35rem 0.875rem;
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        text-transform: uppercase;
+        letter-spacing: 0.22em;
+        color: var(--gold);
+        margin-bottom: 2rem;
+    }
+    .hero-badge::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        background: var(--gold);
+        border-radius: 50%;
+        flex-shrink: 0;
+        animation: badgePulse 2.5s ease-in-out infinite;
+    }
+
+    @keyframes badgePulse {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.5; transform: scale(0.7); }
+    }
+
+    .hero-h1 {
+        font-family: var(--font-serif);
+        font-size: clamp(2.8rem, 6vw, 4.5rem);
+        font-weight: 800;
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        color: var(--white);
+        margin-bottom: 1.5rem;
+    }
+    .hero-h1 em {
+        display: block;
+        font-style: italic;
+        color: var(--gold);
+    }
+
+    .hero-sub {
+        font-size: 1.05rem;
+        color: var(--gray-lt);
+        line-height: 1.8;
+        max-width: 500px;
+        margin-bottom: 2.5rem;
+    }
+
+    .hero-ctас {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .hero-trust-row {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-top: 2.5rem;
+        flex-wrap: wrap;
+    }
+    .hero-trust-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.8rem;
+        color: var(--gray);
+    }
+    .hero-trust-item svg { color: var(--gold); flex-shrink: 0; }
+
+    /* Right: photo frame */
+    .hero-photo-frame {
+        position: relative;
+        border-radius: var(--radius);
+        overflow: hidden;
+        aspect-ratio: 4/5;
+        background: var(--raised);
+        border: 1px solid var(--border);
+    }
+    .hero-photo-inner {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        text-align: center;
+    }
+    /* Subtle dot grid inside frame */
+    .hero-photo-frame::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(rgba(201, 168, 76, 0.09) 1px, transparent 1px);
+        background-size: 28px 28px;
+        z-index: 0;
+    }
+    /* Gold corner accents on photo frame */
+    .photo-corner {
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        border-color: var(--gold);
+        border-style: solid;
+        z-index: 2;
+        opacity: 0.6;
+    }
+    .photo-corner--tl { top: 16px; left: 16px; border-width: 1px 0 0 1px; }
+    .photo-corner--tr { top: 16px; right: 16px; border-width: 1px 1px 0 0; }
+    .photo-corner--bl { bottom: 16px; left: 16px; border-width: 0 0 1px 1px; }
+    .photo-corner--br { bottom: 16px; right: 16px; border-width: 0 1px 1px 0; }
+
+    .photo-label-inner {
+        position: relative;
+        z-index: 1;
+    }
+    .photo-icon {
+        width: 60px;
+        height: 60px;
+        background: var(--gold-dim);
+        border: 1px solid var(--gold-rule);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gold);
+        margin: 0 auto 1.25rem;
+    }
+    .photo-label {
+        font-family: var(--font-serif);
+        font-size: 1.05rem;
+        font-style: italic;
+        color: var(--cream);
+        margin-bottom: 0.5rem;
+        line-height: 1.4;
+    }
+    .photo-meta {
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--gray);
+    }
+
+    /* =============================================
+       TRUST BAR
+    ============================================= */
+    .trust-bar {
+        background: var(--panel);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        padding: 2.25rem 6vw;
+    }
+    .trust-bar-inner {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .trust-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.5rem 2rem 0.5rem 0;
+    }
+    .trust-item + .trust-item {
+        padding-left: 2rem;
+        border-left: 1px solid var(--border);
+    }
+    .trust-icon {
+        width: 44px;
+        height: 44px;
+        background: var(--gold-dim);
+        border: 1px solid var(--gold-rule);
+        border-radius: var(--radius);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gold);
+        flex-shrink: 0;
+    }
+    .trust-text-label {
+        font-family: var(--font-mono);
+        font-size: 0.58rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--gray);
+        margin-bottom: 0.2rem;
+    }
+    .trust-text-value {
+        font-family: var(--font-serif);
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--white);
+        line-height: 1.2;
+    }
+
+    /* =============================================
+       PRACTICE AREAS
+    ============================================= */
+    .practice-areas {
+        padding: 6rem 6vw;
+        background: var(--bg);
+    }
+    .practice-header {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto 3.5rem;
+    }
+    .practice-header .section-overline { justify-content: center; }
+    .practice-header .section-overline::before { display: none; }
+    .practice-header .section-body { margin: 0 auto; text-align: left; }
+
+    .practice-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+    .practice-card {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-top: 2px solid transparent;
+        border-radius: var(--radius);
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        transition: var(--ease);
+        cursor: default;
+        position: relative;
+        overflow: hidden;
+    }
+    .practice-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--gold);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+    }
+    .practice-card:hover {
+        background: var(--raised);
+        transform: translateY(-4px);
+        border-color: var(--border-lt);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+    }
+    .practice-card:hover::before { transform: scaleX(1); }
+
+    .practice-card-icon {
+        width: 48px;
+        height: 48px;
+        background: var(--gold-dim);
+        border: 1px solid var(--gold-rule);
+        border-radius: var(--radius);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gold);
+        flex-shrink: 0;
+    }
+    .practice-card-title {
+        font-family: var(--font-serif);
+        font-size: 1.15rem;
+        font-weight: 700;
+        margin-bottom: 0.4rem;
+    }
+    .practice-card-desc {
+        font-size: 0.875rem;
+        color: var(--gray-lt);
+        line-height: 1.75;
+        flex: 1;
+    }
+    .practice-card-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--gold);
+        margin-top: 0.5rem;
+        transition: var(--ease);
+    }
+    .practice-card-link:hover { gap: 0.625rem; }
+
+    /* =============================================
+       ABOUT / ATTORNEY
+    ============================================= */
+    .about {
+        background: var(--panel);
+        padding: 7rem 6vw;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+    }
+    .about-inner {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 6vw;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* Left: photo frame */
+    .about-photo {
+        position: relative;
+        aspect-ratio: 3/4;
+        background: var(--raised);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+    }
+    .about-photo::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(rgba(201, 168, 76, 0.08) 1px, transparent 1px);
+        background-size: 24px 24px;
+    }
+    .about-photo-inner {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem;
+        z-index: 1;
+    }
+    /* Gold corner accents */
+    .about-photo .photo-corner { opacity: 0.5; }
+
+    /* Award badge floating on photo */
+    .award-badge {
+        position: absolute;
+        bottom: 1.5rem;
+        right: -1rem;
+        background: var(--gold);
+        color: #080F1A;
+        border-radius: var(--radius);
+        padding: 1rem 1.25rem;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+        z-index: 3;
+        text-align: center;
+        min-width: 120px;
+    }
+    .award-badge-num {
+        font-family: var(--font-serif);
+        font-size: 1.75rem;
+        font-weight: 800;
+        line-height: 1;
+        display: block;
+    }
+    .award-badge-label {
+        font-family: var(--font-mono);
+        font-size: 0.52rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        line-height: 1.3;
+        margin-top: 0.3rem;
+        display: block;
+    }
+
+    /* Right: content */
+    .about-content {}
+
+    /* Gold left-bar pull quote */
+    .about-quote {
+        border-left: 3px solid var(--gold);
+        padding: 1.25rem 1.75rem;
+        background: var(--raised);
+        border-radius: 0 var(--radius) var(--radius) 0;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+    }
+    .about-quote::after {
+        content: '\201C';
+        position: absolute;
+        top: -1.5rem;
+        right: 1rem;
+        font-family: Georgia, serif;
+        font-size: 7rem;
+        line-height: 1;
+        color: rgba(201, 168, 76, 0.06);
+        pointer-events: none;
+    }
+    .about-quote p {
+        font-family: var(--font-serif);
+        font-size: 1.05rem;
+        font-style: italic;
+        color: var(--cream);
+        line-height: 1.75;
+        position: relative;
+        z-index: 1;
+    }
+    .about-quote-attr {
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--gold);
+        margin-top: 0.75rem;
+        display: block;
+        position: relative;
+        z-index: 1;
+    }
+
+    .about-body {
+        font-size: 0.95rem;
+        color: var(--gray-lt);
+        line-height: 1.85;
+        margin-bottom: 2rem;
+    }
+
+    .about-credentials {
+        display: flex;
+        flex-direction: column;
+        gap: 0.625rem;
+        margin-bottom: 2.5rem;
+    }
+    .credential-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 0.875rem;
+        color: var(--gray-lt);
+    }
+    .credential-item svg { color: var(--gold); flex-shrink: 0; }
+
+    /* =============================================
+       STATS
+    ============================================= */
+    .stats {
+        background: var(--bg);
+        padding: 6rem 6vw;
+    }
+    .stats-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+    .stats-top {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+    .stats-top .section-overline { justify-content: center; }
+    .stats-top .section-overline::before { display: none; }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+    }
+    .stat-card {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2.25rem 1.75rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        transition: var(--ease);
+    }
+    .stat-card:hover { border-color: var(--gold-rule); transform: translateY(-3px); }
+    /* Subtle gold glow blob in corner */
+    .stat-card::after {
+        content: '';
+        position: absolute;
+        bottom: -20px;
+        right: -20px;
+        width: 100px;
+        height: 100px;
+        background: rgba(201, 168, 76, 0.06);
+        border-radius: 50%;
+        filter: blur(25px);
+    }
+
+    .stat-num {
+        font-family: var(--font-serif);
+        font-size: 3.25rem;
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -0.02em;
+        background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, #A8853A 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 0.5rem;
+    }
+    .stat-label {
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--gray);
+        line-height: 1.5;
+    }
+
+    /* =============================================
+       TESTIMONIALS
+    ============================================= */
+    .testimonials {
+        background: var(--panel);
+        padding: 7rem 6vw;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+    }
+    .testimonials-header {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto 3.5rem;
+    }
+    .testimonials-header .section-overline { justify-content: center; }
+    .testimonials-header .section-overline::before { display: none; }
+
+    .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+    .testimonial-card {
+        background: var(--raised);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2.25rem;
+        position: relative;
+        overflow: hidden;
+        transition: var(--ease);
+    }
+    .testimonial-card:hover {
+        border-color: var(--border-lt);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    }
+    /* Ghost open-quote mark */
+    .testimonial-card::before {
+        content: '\201C';
+        position: absolute;
+        top: -1rem;
+        right: 1.25rem;
+        font-family: Georgia, serif;
+        font-size: 7rem;
+        line-height: 1;
+        color: rgba(201, 168, 76, 0.07);
+        pointer-events: none;
+    }
+    /* Gold top rule */
+    .testimonial-card::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 2.25rem;
+        right: 2.25rem;
+        height: 2px;
+        background: linear-gradient(90deg, var(--gold), transparent);
+        border-radius: 1px;
+    }
+
+    .testimonial-stars {
+        display: flex;
+        gap: 0.25rem;
+        margin-bottom: 1.25rem;
+        position: relative;
+        z-index: 1;
+    }
+    .testimonial-stars svg { color: var(--gold); }
+
+    .testimonial-text {
+        font-family: var(--font-serif);
+        font-size: 0.95rem;
+        font-style: italic;
+        color: var(--cream);
+        line-height: 1.85;
+        margin-bottom: 1.5rem;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Diamond divider between quote and attribution */
+    .testimonial-divider {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+    }
+    .testimonial-divider::before,
+    .testimonial-divider::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+    }
+    .testimonial-divider span {
+        font-size: 0.45rem;
+        color: var(--gold);
+        opacity: 0.7;
+    }
+
+    .testimonial-name {
+        font-weight: 600;
+        font-size: 0.875rem;
+        color: var(--white);
+        margin-bottom: 0.2rem;
+    }
+    .testimonial-case {
+        font-family: var(--font-mono);
+        font-size: 0.58rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--gray);
+    }
+
+    /* =============================================
+       CTA BANNER
+    ============================================= */
+    .cta-banner {
+        background: var(--bg);
+        padding: 6rem 6vw;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    /* Gold radial bloom */
+    .cta-banner::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 600px;
+        height: 300px;
+        background: radial-gradient(ellipse, rgba(201, 168, 76, 0.08) 0%, transparent 70%);
+        pointer-events: none;
+    }
+    .cta-banner-inner {
+        position: relative;
+        z-index: 1;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    .cta-banner h2 {
+        font-family: var(--font-serif);
+        font-size: clamp(2rem, 4.5vw, 3rem);
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 1rem;
+    }
+    .cta-banner h2 em {
+        font-style: italic;
+        color: var(--gold);
+    }
+    .cta-banner p {
+        color: var(--gray-lt);
+        font-size: 1rem;
+        line-height: 1.8;
+        margin-bottom: 2.5rem;
+    }
+    .cta-banner-btns {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    /* =============================================
+       CONTACT SECTION
+    ============================================= */
+    .contact {
+        background: var(--panel);
+        padding: 7rem 6vw;
+        border-top: 1px solid var(--border);
+    }
+    .contact-inner {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 6vw;
+        align-items: start;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    /* Form */
+    .contact-form-wrap {
+        background: var(--raised);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2.5rem;
+    }
+    .form-title {
+        font-family: var(--font-serif);
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 0.4rem;
+    }
+    .form-subtitle {
+        font-size: 0.875rem;
+        color: var(--gray-lt);
+        margin-bottom: 2rem;
+        line-height: 1.7;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group.full { grid-column: 1 / -1; }
+
+    .form-label {
+        display: block;
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--gray);
+        margin-bottom: 0.4rem;
+    }
+    .form-input, .form-select, .form-textarea {
+        width: 100%;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 0.75rem 1rem;
+        color: var(--cream);
+        font-family: var(--font-sans);
+        font-size: 0.9rem;
+        outline: none;
+        transition: var(--ease);
+        appearance: none;
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: rgba(122, 144, 168, 0.4); }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+        border-color: var(--gold);
+        box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.1);
+    }
+    .form-select { cursor: pointer; }
+    .form-textarea { resize: vertical; }
+
+    .form-disclaimer {
+        font-size: 0.75rem;
+        color: var(--gray);
+        line-height: 1.7;
+        margin-top: 1.25rem;
+    }
+
+    /* Contact info */
+    .contact-info {}
+    .contact-info-title {
+        font-family: var(--font-serif);
+        font-size: 1.65rem;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+        line-height: 1.2;
+    }
+    .contact-info-title em { color: var(--gold); font-style: italic; }
+    .contact-info-sub {
+        font-size: 0.9rem;
+        color: var(--gray-lt);
+        line-height: 1.8;
+        margin-bottom: 2.5rem;
+    }
+
+    .contact-method {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid var(--border);
+    }
+    .contact-method:last-of-type { border-bottom: none; }
+    .contact-method-icon {
+        width: 42px;
+        height: 42px;
+        background: var(--gold-dim);
+        border: 1px solid var(--gold-rule);
+        border-radius: var(--radius);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gold);
+        flex-shrink: 0;
+        margin-top: 2px;
+    }
+    .contact-method-label {
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--gray);
+        margin-bottom: 0.3rem;
+    }
+    .contact-method-value {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--white);
+        display: block;
+        transition: var(--ease);
+    }
+    a.contact-method-value:hover { color: var(--gold); }
+    .contact-method-sub {
+        font-size: 0.8rem;
+        color: var(--gray);
+        margin-top: 0.2rem;
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    footer {
+        background: var(--panel);
+        border-top: 1px solid var(--border);
+        padding: 4rem 6vw 2rem;
+    }
+    .footer-top {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+        gap: 3rem;
+        padding-bottom: 3rem;
+        border-bottom: 1px solid var(--border);
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .footer-brand {}
+    .footer-logo {
+        height: 38px;
+        width: auto;
+        filter: brightness(0) invert(1);
+        margin-bottom: 1.25rem;
+        opacity: 0.85;
+    }
+    .footer-brand-desc {
+        font-size: 0.85rem;
+        color: var(--gray);
+        line-height: 1.8;
+        max-width: 280px;
+        margin-bottom: 1.5rem;
+    }
+    .footer-social {
+        display: flex;
+        gap: 0.625rem;
+    }
+    .footer-social-icon {
+        width: 34px;
+        height: 34px;
+        background: var(--raised);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gray);
+        transition: var(--ease);
+    }
+    .footer-social-icon:hover { border-color: var(--gold-rule); color: var(--gold); }
+
+    .footer-col-title {
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        text-transform: uppercase;
+        letter-spacing: 0.22em;
+        color: var(--gold);
+        margin-bottom: 1.25rem;
+    }
+    .footer-links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+    .footer-links a {
+        font-size: 0.875rem;
+        color: var(--gray-lt);
+        transition: var(--ease);
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+    .footer-links a:hover { color: var(--white); padding-left: 4px; }
+
+    .footer-contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.875rem;
+    }
+    .footer-contact-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.625rem;
+    }
+    .footer-contact-row svg { color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+    .footer-contact-row p { font-size: 0.82rem; color: var(--gray-lt); line-height: 1.6; }
+    .footer-contact-row strong { color: var(--white); }
+
+    /* Gold rule above bottom bar */
+    .footer-bottom-rule {
+        max-width: 1200px;
+        margin: 0 auto;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--gold-rule), transparent);
+        margin-top: 0;
+    }
+
+    .footer-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+        padding-top: 1.75rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .footer-bottom p {
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--gray);
+        line-height: 1.7;
+    }
+    .footer-disclaimer {
+        font-size: 0.72rem;
+        color: var(--gray);
+        max-width: 700px;
+        margin: 0 auto;
+        text-align: center;
+        padding-top: 1.5rem;
+        line-height: 1.75;
+    }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 1024px) {
+        .hero-inner { grid-template-columns: 1fr; }
+        .hero-photo-frame { display: none; }
+        .trust-bar-inner { grid-template-columns: repeat(2, 1fr); }
+        .trust-item + .trust-item { padding-left: 1.5rem; }
+        .trust-item:nth-child(3) { border-left: none; padding-left: 0; }
+        .practice-grid { grid-template-columns: repeat(2, 1fr); }
+        .about-inner { grid-template-columns: 1fr; }
+        .award-badge { right: 1rem; }
+        .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+        .testimonials-grid .testimonial-card:last-child { display: none; }
+        .contact-inner { grid-template-columns: 1fr; }
+        .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 720px) {
+        .top-bar { display: none; }
+        .nav-links { display: none; }
+        .practice-grid { grid-template-columns: 1fr; }
+        .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        .testimonials-grid { grid-template-columns: 1fr; }
+        .testimonials-grid .testimonial-card:last-child { display: flex; }
+        .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+        .trust-bar-inner { grid-template-columns: 1fr 1fr; }
+    }
+
+    </style>
+</head>
+<body>
+
+    <!-- =====================
+         TOP BAR
+    ===================== -->
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <a href="tel:2087435299" class="top-bar-item">
+                <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.27 12a19.79 19.79 0 01-3.07-8.67A2 2 0 013.18 1.18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                (208) 743-5299
+            </a>
+            <div class="top-bar-divider"></div>
+            <a href="mailto:info@caldwell-law.net" class="top-bar-item">
+                <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                info@caldwell-law.net
+            </a>
+            <div class="top-bar-divider"></div>
+            <span class="top-bar-item">Personal Injury Attorney &nbsp;·&nbsp; Boise &amp; Lewiston, Idaho</span>
+        </div>
+        <div class="top-bar-right">
+            <strong>Free Consultations</strong> &nbsp;·&nbsp; No Fee Unless You Win
+        </div>
+    </div>
+
+    <!-- =====================
+         NAV
+    ===================== -->
+    <nav id="main-nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo" aria-label="Caldwell Law Group — Home">
+                <img src="caldwell-law-horz.svg" alt="Caldwell Law Group PLLC">
+            </a>
+
+            <ul class="nav-links" role="list">
+                <li><a href="#practice-areas">Practice Areas</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#testimonials">Results</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+
+            <div class="nav-cta">
+                <a href="tel:2087435299" class="nav-phone">(208) 743-5299</a>
+                <a href="#contact" class="btn-gold" style="padding:0.65rem 1.375rem; font-size:0.8rem;">
+                    Free Consultation
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- =====================
+         HERO
+    ===================== -->
+    <section class="hero" aria-label="Hero section">
+
+        <!-- Background effects -->
+        <div class="hero-bloom" aria-hidden="true"></div>
+
+        <!-- Scales of justice watermark -->
+        <div class="hero-watermark" aria-hidden="true">
+            <svg width="620" height="620" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2v20M3 9h18M5 5l2 4H3L5 5zM19 5l2 4h-4l2-4zM3 19h6M15 19h6"/>
+            </svg>
+        </div>
+
+        <div class="hero-inner">
+
+            <!-- Content -->
+            <div class="hero-content">
+                <div class="hero-badge" aria-label="Recognition badge">
+                    Top 100 National Trial Lawyers
+                </div>
+
+                <h1 class="hero-h1">
+                    When You've Been Hurt,
+                    <em>We Fight For You.</em>
+                </h1>
+
+                <p class="hero-sub">
+                    Caldwell Law Group PLLC has spent nearly two decades fighting for injured Idahoans. We handle the insurance companies, the paperwork, and the courtroom — so you can focus on healing.
+                </p>
+
+                <div class="hero-ctас">
+                    <a href="#contact" class="btn-gold">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.27 12a19.79 19.79 0 01-3.07-8.67A2 2 0 013.18 1.18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                        Free Consultation
+                    </a>
+                    <a href="tel:2087435299" class="btn-outline">(208) 743-5299</a>
+                </div>
+
+                <div class="hero-trust-row">
+                    <div class="hero-trust-item">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        No Fee Unless You Win
+                    </div>
+                    <div class="hero-trust-item">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        Respond Within 24 Hours
+                    </div>
+                    <div class="hero-trust-item">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                        Offices in Boise &amp; Lewiston
+                    </div>
+                </div>
+            </div>
+
+            <!-- Photo frame -->
+            <div class="hero-photo-frame" role="img" aria-label="Attorney team photo placeholder">
+                <!-- Corner accents -->
+                <div class="photo-corner photo-corner--tl" aria-hidden="true"></div>
+                <div class="photo-corner photo-corner--tr" aria-hidden="true"></div>
+                <div class="photo-corner photo-corner--bl" aria-hidden="true"></div>
+                <div class="photo-corner photo-corner--br" aria-hidden="true"></div>
+
+                <div class="hero-photo-inner">
+                    <div class="photo-label-inner">
+                        <div class="photo-icon" aria-hidden="true">
+                            <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                        <p class="photo-label">Attorney Team Photo<br>Boise, Idaho Skyline</p>
+                        <p class="photo-meta">Hero Photograph Placement</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section divider -->
+    <div class="section-rule" aria-hidden="true">
+        <div class="section-rule-line"></div>
+        <div class="section-rule-diamond">◆</div>
+        <div class="section-rule-line"></div>
+    </div>
+
+    <!-- =====================
+         TRUST BAR
+    ===================== -->
+    <section class="trust-bar" aria-label="Trust indicators">
+        <div class="trust-bar-inner">
+
+            <div class="trust-item">
+                <div class="trust-icon" aria-hidden="true">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                </div>
+                <div>
+                    <p class="trust-text-label">Recognition</p>
+                    <p class="trust-text-value">Top 100 Trial Lawyers</p>
+                </div>
+            </div>
+
+            <div class="trust-item">
+                <div class="trust-icon" aria-hidden="true">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div>
+                    <p class="trust-text-label">Experience</p>
+                    <p class="trust-text-value">Nearly 20 Years Fighting</p>
+                </div>
+            </div>
+
+            <div class="trust-item">
+                <div class="trust-icon" aria-hidden="true">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div>
+                    <p class="trust-text-label">Guarantee</p>
+                    <p class="trust-text-value">No Fee Unless We Win</p>
+                </div>
+            </div>
+
+            <div class="trust-item">
+                <div class="trust-icon" aria-hidden="true">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.27 12a19.79 19.79 0 01-3.07-8.67A2 2 0 013.18 1.18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                </div>
+                <div>
+                    <p class="trust-text-label">Availability</p>
+                    <p class="trust-text-value">Free Consultations</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =====================
+         PRACTICE AREAS
+    ===================== -->
+    <section class="practice-areas" id="practice-areas" aria-labelledby="practice-title">
+
+        <div class="practice-header">
+            <p class="section-overline">Practice Areas</p>
+            <h2 class="section-title" id="practice-title">How We Can <em>Help You</em></h2>
+            <p class="section-body" style="text-align:center;">
+                We focus exclusively on personal injury and insurance law — which means sharper strategy, deeper knowledge, and better outcomes for every client we take on.
+            </p>
+        </div>
+
+        <div class="practice-grid">
+
+            <div class="practice-card">
+                <div class="practice-card-icon" aria-hidden="true">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h5l2 5v3h-7V8zM5.5 21a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM20.5 21a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg>
+                </div>
+                <div>
+                    <h3 class="practice-card-title">Automobile Accidents</h3>
+                    <p class="practice-card-desc">From fender-benders to catastrophic collisions, we fight the insurance companies so you receive the maximum compensation for your injuries, lost wages, and damages.</p>
+                </div>
+                <a href="#" class="practice-card-link">
+                    Learn More
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+            </div>
+
+            <div class="practice-card">
+                <div class="practice-card-icon" aria-hidden="true">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M1 17l5-11h12l5 11M1 17h22M7 17v4M17 17v4M9 6v6M15 6v6"/></svg>
+                </div>
+                <div>
+                    <h3 class="practice-card-title">Trucking Cases</h3>
+                    <p class="practice-card-desc">Accidents involving eighteen-wheelers and commercial vehicles are uniquely complex. We know federal trucking regulations and how to hold carriers fully accountable.</p>
+                </div>
+                <a href="#" class="practice-card-link">
+                    Learn More
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+            </div>
+
+            <div class="practice-card">
+                <div class="practice-card-icon" aria-hidden="true">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 17H5a2 2 0 00-2 2v1h18v-1a2 2 0 00-2-2h-4M12 3v11M9 9l3-3 3 3"/></svg>
+                </div>
+                <div>
+                    <h3 class="practice-card-title">Workers' Compensation</h3>
+                    <p class="practice-card-desc">Injured on the job? Your employer's insurer is not on your side. We make sure you receive every benefit you're entitled to — without getting pushed around.</p>
+                </div>
+                <a href="#" class="practice-card-link">
+                    Learn More
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+            </div>
+
+            <div class="practice-card">
+                <div class="practice-card-icon" aria-hidden="true">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                </div>
+                <div>
+                    <h3 class="practice-card-title">Wrongful Death</h3>
+                    <p class="practice-card-desc">When negligence costs a life, surviving family members deserve justice. We handle these sensitive cases with both tenacity and compassion during unimaginable loss.</p>
+                </div>
+                <a href="#" class="practice-card-link">
+                    Learn More
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+            </div>
+
+            <div class="practice-card">
+                <div class="practice-card-icon" aria-hidden="true">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div>
+                    <h3 class="practice-card-title">Insurance Claims</h3>
+                    <p class="practice-card-desc">Insurance companies have teams of attorneys. So should you. We level the playing field and fight bad-faith denials, lowball offers, and delay tactics.</p>
+                </div>
+                <a href="#" class="practice-card-link">
+                    Learn More
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+            </div>
+
+            <div class="practice-card">
+                <div class="practice-card-icon" aria-hidden="true">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <div>
+                    <h3 class="practice-card-title">Slip &amp; Fall Accidents</h3>
+                    <p class="practice-card-desc">Property owners have a duty to maintain safe conditions. When they don't, we hold them responsible for the injuries and financial harm their negligence caused you.</p>
+                </div>
+                <a href="#" class="practice-card-link">
+                    Learn More
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section divider -->
+    <div class="section-rule" aria-hidden="true">
+        <div class="section-rule-line"></div>
+        <div class="section-rule-diamond">◆</div>
+        <div class="section-rule-line"></div>
+    </div>
+
+    <!-- =====================
+         ABOUT / ATTORNEY
+    ===================== -->
+    <section class="about" id="about" aria-labelledby="about-title">
+        <div class="about-inner">
+
+            <!-- Photo -->
+            <div style="position:relative;">
+                <div class="about-photo" role="img" aria-label="Attorney Christopher Caldwell photo placeholder">
+                    <div class="photo-corner photo-corner--tl" aria-hidden="true"></div>
+                    <div class="photo-corner photo-corner--tr" aria-hidden="true"></div>
+                    <div class="photo-corner photo-corner--bl" aria-hidden="true"></div>
+                    <div class="photo-corner photo-corner--br" aria-hidden="true"></div>
+                    <div class="about-photo-inner">
+                        <div class="photo-icon" style="width:70px; height:70px;" aria-hidden="true">
+                            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                        <p class="photo-label" style="font-size:1.1rem;">Attorney<br>Christopher Caldwell</p>
+                        <p class="photo-meta" style="margin-top:0.4rem;">Portrait Photograph</p>
+                    </div>
+                </div>
+
+                <!-- Floating award badge -->
+                <div class="award-badge" aria-label="20 years of experience">
+                    <span class="award-badge-num">20+</span>
+                    <span class="award-badge-label">Years of<br>Experience</span>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="about-content">
+                <p class="section-overline">About the Firm</p>
+                <h2 class="section-title" id="about-title">Dedicated to Idaho's<br><em>Injured and Overlooked</em></h2>
+
+                <div class="about-quote">
+                    <p>"I focus exclusively on injury and insurance law because specialization produces better results. When I take your case, I know this terrain. I've fought these battles before — and I know how to win."</p>
+                    <span class="about-quote-attr">— Christopher Caldwell, Attorney &amp; Founder</span>
+                </div>
+
+                <p class="about-body">
+                    Caldwell Law Group PLLC was built on a simple belief: injured people deserve a fighting chance against insurance corporations and negligent parties who have more resources. Attorney Christopher Caldwell has spent nearly two decades leveling that playing field — recovering compensation for clients across Boise, Lewiston, and throughout Idaho and Washington state.
+                </p>
+
+                <div class="about-credentials" aria-label="Credentials and memberships">
+                    <div class="credential-item">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        National Trial Lawyers — Top 100 Member
+                    </div>
+                    <div class="credential-item">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        Licensed in Idaho &amp; Washington State
+                    </div>
+                    <div class="credential-item">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        Offices in Boise and Lewiston, Idaho
+                    </div>
+                    <div class="credential-item">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        Contingency Fee — No Upfront Costs
+                    </div>
+                    <div class="credential-item">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        Nearly 20 Years of Injury Law Experience
+                    </div>
+                </div>
+
+                <a href="#about" class="btn-gold">
+                    Meet the Attorney
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =====================
+         STATS
+    ===================== -->
+    <section class="stats" aria-labelledby="stats-title">
+        <div class="stats-inner">
+            <div class="stats-top">
+                <p class="section-overline">By the Numbers</p>
+                <h2 class="section-title" id="stats-title">Results That <em>Speak for Themselves</em></h2>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-num">20<span style="font-size:2rem; opacity:0.7;">+</span></div>
+                    <div class="stat-label">Years of Personal<br>Injury Experience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">$<span style="font-size:2.2rem;">M</span></div>
+                    <div class="stat-label">Recovered for<br>Injured Clients</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">100<span style="font-size:2rem; opacity:0.7;">%</span></div>
+                    <div class="stat-label">Focus on Injury<br>&amp; Insurance Law</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">$0</div>
+                    <div class="stat-label">Upfront Cost —<br>Free Consultations</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section divider -->
+    <div class="section-rule" aria-hidden="true">
+        <div class="section-rule-line"></div>
+        <div class="section-rule-diamond">◆</div>
+        <div class="section-rule-line"></div>
+    </div>
+
+    <!-- =====================
+         TESTIMONIALS
+    ===================== -->
+    <section class="testimonials" id="testimonials" aria-labelledby="testimonials-title">
+
+        <div class="testimonials-header">
+            <p class="section-overline">Client Stories</p>
+            <h2 class="section-title" id="testimonials-title">What Our <em>Clients Say</em></h2>
+        </div>
+
+        <div class="testimonials-grid">
+
+            <article class="testimonial-card">
+                <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <p class="testimonial-text">"After my car accident the insurance company offered me almost nothing. Chris fought for over a year and got me a settlement that actually covered my medical bills and time off work. I couldn't believe the difference an attorney makes."</p>
+                <div class="testimonial-divider"><span>◆</span></div>
+                <p class="testimonial-name">Michael R.</p>
+                <p class="testimonial-case">Automobile Accident — Boise, ID</p>
+            </article>
+
+            <article class="testimonial-card">
+                <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <p class="testimonial-text">"My workers' comp claim was denied twice before I found Caldwell Law Group. Within months they had reversed the denial and recovered lost wages I'd been fighting for over a year. Professional, responsive, and genuinely cared about my case."</p>
+                <div class="testimonial-divider"><span>◆</span></div>
+                <p class="testimonial-name">Sandra T.</p>
+                <p class="testimonial-case">Workers' Compensation — Lewiston, ID</p>
+            </article>
+
+            <article class="testimonial-card">
+                <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <p class="testimonial-text">"When we lost our father in a trucking accident, we didn't know where to turn. Chris and his team guided us through every step with care and expertise. They treated our family like we mattered — and they delivered justice."</p>
+                <div class="testimonial-divider"><span>◆</span></div>
+                <p class="testimonial-name">The Patterson Family</p>
+                <p class="testimonial-case">Wrongful Death — Trucking Case</p>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- =====================
+         CTA BANNER
+    ===================== -->
+    <section class="cta-banner" aria-labelledby="cta-title">
+        <div class="cta-banner-inner">
+            <p class="section-overline" style="justify-content:center; margin-bottom:1.25rem;">
+                <span style="width:24px; height:1px; background:var(--gold); display:block; flex-shrink:0;"></span>
+                You Don't Pay Unless We Win
+            </p>
+            <h2 id="cta-title">
+                Your Recovery Starts<br>
+                with One <em>Free Call.</em>
+            </h2>
+            <p>
+                Don't wait. Evidence fades, deadlines pass, and insurance companies start building their case the moment an accident happens. Reach out today — the consultation is free and there's no obligation.
+            </p>
+            <div class="cta-banner-btns">
+                <a href="#contact" class="btn-gold">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.27 12a19.79 19.79 0 01-3.07-8.67A2 2 0 013.18 1.18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                    Schedule Free Consultation
+                </a>
+                <a href="tel:2087435299" class="btn-outline">(208) 743-5299</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================
+         CONTACT
+    ===================== -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+        <div class="contact-inner">
+
+            <!-- Form -->
+            <div class="contact-form-wrap">
+                <h2 class="form-title" id="contact-title">Request a <em style="color:var(--gold); font-style:italic;">Free Consultation</em></h2>
+                <p class="form-subtitle">Fill out the form below and our team will contact you within 24 hours. All information is confidential.</p>
+
+                <form action="#" method="post" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="first-name">First Name</label>
+                            <input type="text" id="first-name" name="first_name" class="form-input" placeholder="Jane" autocomplete="given-name">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="last-name">Last Name</label>
+                            <input type="text" id="last-name" name="last_name" class="form-input" placeholder="Doe" autocomplete="family-name">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="(208) 555-0100" autocomplete="tel">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="jane@email.com" autocomplete="email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="case-type">Type of Case</label>
+                        <select id="case-type" name="case_type" class="form-select">
+                            <option value="" disabled selected>Select a practice area...</option>
+                            <option>Automobile Accident</option>
+                            <option>Trucking / Commercial Vehicle</option>
+                            <option>Workers' Compensation</option>
+                            <option>Wrongful Death</option>
+                            <option>Insurance Claim / Bad Faith</option>
+                            <option>Slip &amp; Fall / Premises Liability</option>
+                            <option>Medical Malpractice</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="date-of-accident">Date of Accident (if applicable)</label>
+                        <input type="date" id="date-of-accident" name="accident_date" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="description">Describe What Happened</label>
+                        <textarea id="description" name="description" class="form-textarea" rows="4" placeholder="Please share a brief description of your situation. All details are kept confidential."></textarea>
+                    </div>
+                    <button type="submit" class="btn-gold" style="width:100%; justify-content:center;">
+                        Submit — No Obligation
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </button>
+                    <p class="form-disclaimer">
+                        By submitting this form you consent to be contacted by Caldwell Law Group PLLC. This communication does not create an attorney-client relationship.
+                    </p>
+                </form>
+            </div>
+
+            <!-- Contact info -->
+            <div class="contact-info">
+                <p class="section-overline">Get in Touch</p>
+                <h2 class="contact-info-title">We're Here<br>When You <em>Need Us Most</em></h2>
+                <p class="contact-info-sub">
+                    Facing an injury claim can be overwhelming. We make it simple — reach out by phone, email, or the form and we'll take it from there.
+                </p>
+
+                <div class="contact-method">
+                    <div class="contact-method-icon" aria-hidden="true">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.27 12a19.79 19.79 0 01-3.07-8.67A2 2 0 013.18 1.18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                    </div>
+                    <div>
+                        <p class="contact-method-label">Main Phone</p>
+                        <a href="tel:2087435299" class="contact-method-value">(208) 743-5299</a>
+                        <p class="contact-method-sub">Available Mon–Fri, 8am–5pm MT</p>
+                    </div>
+                </div>
+
+                <div class="contact-method">
+                    <div class="contact-method-icon" aria-hidden="true">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <div>
+                        <p class="contact-method-label">Email</p>
+                        <a href="mailto:info@caldwell-law.net" class="contact-method-value">info@caldwell-law.net</a>
+                        <p class="contact-method-sub">We respond within 24 hours</p>
+                    </div>
+                </div>
+
+                <div class="contact-method">
+                    <div class="contact-method-icon" aria-hidden="true">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <div>
+                        <p class="contact-method-label">Boise Office</p>
+                        <span class="contact-method-value" style="cursor:default;">Boise, Idaho</span>
+                        <p class="contact-method-sub">Serving the Treasure Valley</p>
+                    </div>
+                </div>
+
+                <div class="contact-method">
+                    <div class="contact-method-icon" aria-hidden="true">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <div>
+                        <p class="contact-method-label">Lewiston Office</p>
+                        <span class="contact-method-value" style="cursor:default;">Lewiston, Idaho</span>
+                        <p class="contact-method-sub">Serving North Idaho &amp; Eastern Washington</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================
+         FOOTER
+    ===================== -->
+    <footer role="contentinfo">
+        <div class="footer-top">
+
+            <div class="footer-brand">
+                <img src="caldwell-law-horz.svg" alt="Caldwell Law Group PLLC" class="footer-logo">
+                <p class="footer-brand-desc">
+                    Personal injury attorneys serving Boise, Lewiston, and throughout Idaho and Washington. We fight so you can heal.
+                </p>
+                <div class="footer-social" aria-label="Social media links">
+                    <a href="#" class="footer-social-icon" aria-label="Facebook">
+                        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                    </a>
+                    <a href="#" class="footer-social-icon" aria-label="LinkedIn">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <p class="footer-col-title">Practice Areas</p>
+                <ul class="footer-links">
+                    <li><a href="#">Automobile Accidents</a></li>
+                    <li><a href="#">Trucking Cases</a></li>
+                    <li><a href="#">Workers' Compensation</a></li>
+                    <li><a href="#">Wrongful Death</a></li>
+                    <li><a href="#">Insurance Claims</a></li>
+                    <li><a href="#">Slip &amp; Fall</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <p class="footer-col-title">The Firm</p>
+                <ul class="footer-links">
+                    <li><a href="#">About Christopher Caldwell</a></li>
+                    <li><a href="#">Case Results</a></li>
+                    <li><a href="#">Client Testimonials</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <p class="footer-col-title">Contact</p>
+                <div class="footer-contact-info">
+                    <div class="footer-contact-row">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.27 12a19.79 19.79 0 01-3.07-8.67A2 2 0 013.18 1.18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                        <p><strong>(208) 743-5299</strong></p>
+                    </div>
+                    <div class="footer-contact-row">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <p>info@caldwell-law.net</p>
+                    </div>
+                    <div class="footer-contact-row">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <p>Boise &amp; Lewiston, Idaho<br>Licensed in ID &amp; WA</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom-rule"></div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Caldwell Law Group PLLC — All Rights Reserved</p>
+            <p>Experience · Quality · Dedication</p>
+        </div>
+
+        <p class="footer-disclaimer">
+            The information on this website is for general informational purposes only and does not constitute legal advice. No attorney-client relationship is formed by viewing this site or submitting a form. Past results do not guarantee future outcomes. Caldwell Law Group PLLC is licensed to practice in Idaho and Washington.
+        </p>
+    </footer>
+
+    <script>
+        // Nav scroll shadow
+        const nav = document.getElementById('main-nav');
+        const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 48);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        // Smooth reveal on scroll (IntersectionObserver)
+        const fadeEls = document.querySelectorAll('.practice-card, .stat-card, .testimonial-card, .trust-item');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeEls.forEach((el, i) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(16px)';
+            el.style.transition = `opacity 0.5s ease ${i * 0.06}s, transform 0.5s ease ${i * 0.06}s, background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease`;
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+</html>
