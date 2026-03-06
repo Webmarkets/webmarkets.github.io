@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apex Pest Control</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0e0d0b;
+    --dark: #1a1915;
+    --bark: #2e2b22;
+    --rust: #c04e1a;
+    --amber: #e8a020;
+    --cream: #f0ead8;
+    --muted: #8a8470;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--dark);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* ── Custom cursor ── */
+  #cursor {
+    position: fixed;
+    width: 36px; height: 36px;
+    border: 2px solid var(--amber);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%,-50%);
+    transition: transform 0.08s ease, width 0.2s, height 0.2s, background 0.2s;
+    mix-blend-mode: difference;
+  }
+  #cursor.hovering { width: 54px; height: 54px; background: rgba(232,160,32,0.15); }
+
+  /* ── Bug canvas ── */
+  #bug-canvas {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 60px;
+    background: linear-gradient(to bottom, rgba(14,13,11,0.95), transparent);
+  }
+  .logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 0.08em;
+    color: var(--cream);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .logo-icon { color: var(--rust); font-size: 1.4rem; }
+  nav ul { list-style: none; display: flex; gap: 36px; }
+  nav ul a {
+    text-decoration: none; color: var(--muted);
+    font-size: 0.85rem; font-weight: 500; letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  nav ul a:hover { color: var(--amber); }
+  .nav-cta {
+    background: var(--rust); color: var(--cream) !important;
+    padding: 10px 22px; border-radius: 2px;
+    font-weight: 600 !important; color: white !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: #d9581f !important; color: white !important; }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 120px 60px 80px;
+    overflow: hidden;
+    z-index: 2;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 70% 50%, rgba(192,78,26,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(46,43,34,0.8) 0%, transparent 60%);
+  }
+  .hero-texture {
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f0ead8' fill-opacity='0.018'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 620px; }
+  .hero-eyebrow {
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--amber);
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 24px;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block;
+    width: 32px; height: 2px; background: var(--amber);
+  }
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 8vw, 7rem);
+    line-height: 0.92;
+    letter-spacing: 0.02em;
+    margin-bottom: 28px;
+  }
+  h1 .accent { color: var(--rust); display: block; }
+  .hero-sub {
+    font-size: 1.1rem; line-height: 1.7;
+    color: rgba(240,234,216,0.7);
+    max-width: 460px;
+    margin-bottom: 44px;
+  }
+  .hero-actions { display: flex; gap: 16px; align-items: center; }
+  .btn-primary {
+    background: var(--rust);
+    color: white; text-decoration: none;
+    padding: 16px 36px; font-weight: 600;
+    font-size: 0.9rem; letter-spacing: 0.06em;
+    text-transform: uppercase; border-radius: 2px;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: #d9581f; transform: translateY(-2px); }
+  .btn-ghost {
+    color: var(--cream); text-decoration: none;
+    font-size: 0.85rem; letter-spacing: 0.08em;
+    text-transform: uppercase; font-weight: 500;
+    display: flex; align-items: center; gap: 10px;
+    opacity: 0.7; transition: opacity 0.2s;
+  }
+  .btn-ghost:hover { opacity: 1; }
+  .btn-ghost .arrow { font-size: 1.2rem; }
+
+  .hero-stats {
+    position: absolute; right: 60px; bottom: 80px;
+    display: flex; gap: 48px; z-index: 2;
+  }
+  .stat { text-align: right; }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.2rem; color: var(--amber);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.75rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted);
+  }
+
+  /* ── GNAWED EDGE DIVIDER ── */
+  .gnawed-divider {
+    position: relative;
+    height: 60px;
+    overflow: hidden;
+    z-index: 2;
+  }
+  .gnawed-divider svg {
+    position: absolute; bottom: 0; left: 0;
+    width: 100%; height: 100%;
+  }
+
+  /* ── MARQUEE STRIP ── */
+  .marquee-strip {
+    background: var(--rust);
+    padding: 14px 0;
+    overflow: hidden;
+    position: relative; z-index: 2;
+  }
+  .marquee-track {
+    display: flex; gap: 0;
+    animation: marquee 22s linear infinite;
+    white-space: nowrap;
+  }
+  .marquee-item {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem; letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.9);
+    padding: 0 40px;
+    display: flex; align-items: center; gap: 20px;
+  }
+  .marquee-item::after {
+    content: '✦'; font-size: 0.7rem; opacity: 0.6;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ── SERVICES ── */
+  .section {
+    position: relative; z-index: 2;
+    padding: 100px 60px;
+  }
+  .section-label {
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--amber); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::before {
+    content: ''; display: block;
+    width: 24px; height: 2px; background: var(--amber);
+  }
+  h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    line-height: 0.95; letter-spacing: 0.02em;
+    margin-bottom: 60px;
+  }
+
+  /* Hex grid */
+  .hex-grid {
+    display: flex; flex-wrap: wrap;
+    gap: 4px;
+    max-width: 900px;
+  }
+  .hex-row { display: flex; gap: 4px; }
+  .hex-row:nth-child(even) { margin-left: 90px; }
+
+  .hex-card {
+    width: 172px; height: 198px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background: var(--bark);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 20px 28px;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .hex-card::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, var(--rust), #a03010);
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+  .hex-card:hover { transform: scale(1.06); }
+  .hex-card:hover::before { opacity: 1; }
+  .hex-card > * { position: relative; z-index: 1; }
+  .hex-icon { font-size: 2.2rem; margin-bottom: 8px; }
+  .hex-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.05rem; letter-spacing: 0.06em;
+    color: var(--cream); line-height: 1.2;
+  }
+  .hex-card.featured { background: var(--rust); }
+
+  /* ── PROCESS ── */
+  .process-section { background: var(--black); }
+  .process-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+  }
+  .process-step {
+    padding: 48px 36px;
+    background: var(--dark);
+    border-top: 3px solid transparent;
+    transition: border-color 0.2s, background 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .process-step:hover {
+    border-color: var(--rust);
+    background: var(--bark);
+  }
+  .step-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 5rem; color: rgba(232,160,32,0.08);
+    line-height: 1; margin-bottom: -20px;
+    display: block;
+  }
+  .step-icon { font-size: 2rem; margin-bottom: 16px; display: block; }
+  .step-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem; letter-spacing: 0.04em;
+    margin-bottom: 12px; color: var(--cream);
+  }
+  .step-desc {
+    font-size: 0.88rem; line-height: 1.65;
+    color: var(--muted);
+  }
+
+  /* ── TESTIMONIAL ── */
+  .testimonial-section {
+    background: var(--bark);
+    padding: 100px 60px;
+    position: relative; z-index: 2;
+    overflow: hidden;
+  }
+  .testimonial-section::before {
+    content: '"';
+    position: absolute; top: -40px; left: 40px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28rem; color: rgba(192,78,26,0.07);
+    line-height: 1; pointer-events: none;
+  }
+  .testimonial-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 28px; position: relative; z-index: 1;
+  }
+  .testimonial-card {
+    background: var(--dark);
+    padding: 36px; border-radius: 2px;
+    border-bottom: 3px solid var(--rust);
+    position: relative;
+  }
+  .stars { color: var(--amber); font-size: 0.9rem; margin-bottom: 16px; letter-spacing: 2px; }
+  .testimonial-text {
+    font-size: 0.95rem; line-height: 1.75;
+    color: rgba(240,234,216,0.8); margin-bottom: 24px;
+    font-style: italic;
+  }
+  .testimonial-author { font-weight: 600; font-size: 0.85rem; color: var(--cream); }
+  .testimonial-location { font-size: 0.78rem; color: var(--muted); }
+
+  /* ── CTA BANNER ── */
+  .cta-banner {
+    background: var(--rust);
+    padding: 80px 60px;
+    display: flex; align-items: center; justify-content: space-between;
+    position: relative; z-index: 2; overflow: hidden;
+  }
+  .cta-banner::before {
+    content: '';
+    position: absolute; right: -100px; top: -100px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.12);
+  }
+  .cta-text h2 { margin-bottom: 8px; font-size: 3rem; }
+  .cta-text p { color: rgba(255,255,255,0.8); font-size: 1rem; }
+  .btn-white {
+    background: white; color: var(--rust);
+    text-decoration: none; padding: 18px 44px;
+    font-weight: 700; font-size: 0.9rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    border-radius: 2px; white-space: nowrap;
+    transition: transform 0.15s, box-shadow 0.15s;
+    position: relative; z-index: 1;
+  }
+  .btn-white:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,0.3); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black);
+    padding: 60px 60px 40px;
+    position: relative; z-index: 2;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px; margin-bottom: 48px;
+  }
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem; color: var(--cream);
+    margin-bottom: 12px;
+  }
+  .footer-tagline { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+  .footer-col h4 {
+    font-size: 0.72rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--amber);
+    margin-bottom: 20px; font-weight: 600;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul a {
+    text-decoration: none; color: var(--muted);
+    font-size: 0.88rem; transition: color 0.2s;
+  }
+  .footer-col ul a:hover { color: var(--cream); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 24px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-copy { font-size: 0.78rem; color: var(--muted); }
+
+  /* ── BUG PARTICLE ── */
+  .bug-particle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 0;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    user-select: none;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-content > * {
+    animation: fadeUp 0.7s ease both;
+  }
+  .hero-eyebrow { animation-delay: 0.1s; }
+  h1 { animation-delay: 0.25s; }
+  .hero-sub { animation-delay: 0.4s; }
+  .hero-actions { animation-delay: 0.55s; }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<canvas id="bug-canvas"></canvas>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <span class="logo-icon">✕</span> APEX PEST CO.
+  </div>
+  <ul>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">How It Works</a></li>
+    <li><a href="#">Residential</a></li>
+    <li><a href="#">Commercial</a></li>
+    <li><a href="#" class="nav-cta">Free Inspection</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-texture"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Licensed & Certified Exterminators</div>
+    <h1>
+      We Find<br>Them
+      <span class="accent">Before<br>They Find You.</span>
+    </h1>
+    <p class="hero-sub">Industrial-grade pest elimination for homes and businesses. Fast response, guaranteed results, zero compromise.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn-primary">Get Free Inspection →</a>
+      <a href="#" class="btn-ghost"><span class="arrow">▶</span> See How It Works</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">98%</div>
+      <div class="stat-label">Success Rate</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">24H</div>
+      <div class="stat-label">Response Time</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">15K+</div>
+      <div class="stat-label">Homes Cleared</div>
+    </div>
+  </div>
+</section>
+
+<!-- GNAWED EDGE -->
+<div class="gnawed-divider">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 L0,60 
+      Q20,44 35,56 Q48,68 60,52 Q72,38 88,50 Q100,60 115,46 
+      Q130,32 145,48 Q158,62 172,50 Q186,38 200,54 
+      Q212,68 228,52 Q242,38 255,50 Q268,60 282,44 
+      Q296,28 310,46 Q322,62 338,48 Q352,34 365,52 
+      Q378,68 392,54 Q406,40 420,56 Q432,70 448,52 
+      Q462,36 475,50 Q488,62 502,46 Q516,30 530,50 
+      Q542,68 558,52 Q572,38 585,50 Q598,60 612,44 
+      Q626,28 640,48 Q652,66 668,50 Q682,36 695,52 
+      Q708,66 722,50 Q736,34 750,52 Q762,68 778,52 
+      Q792,38 805,50 Q818,60 832,44 Q846,28 860,48 
+      Q872,66 888,50 Q902,36 915,52 Q928,66 942,50 
+      Q956,34 970,52 Q982,68 998,52 Q1012,38 1025,50 
+      Q1038,60 1052,44 Q1066,28 1080,48 Q1092,66 1108,50 
+      Q1122,36 1135,52 Q1148,66 1162,50 Q1176,34 1190,52 
+      Q1202,68 1218,52 Q1232,38 1245,50 Q1258,60 1272,44 
+      Q1286,28 1300,48 Q1312,66 1328,52 Q1342,38 1355,50 
+      Q1368,60 1382,46 Q1396,32 1410,50 Q1422,66 1440,52 
+      L1440,0 Z"
+      fill="#1a1915"/>
+  </svg>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <span class="marquee-item">Rodent Control</span>
+    <span class="marquee-item">Bed Bug Elimination</span>
+    <span class="marquee-item">Termite Treatment</span>
+    <span class="marquee-item">Ant Colonies</span>
+    <span class="marquee-item">Wasp & Hornet Removal</span>
+    <span class="marquee-item">Cockroach Extermination</span>
+    <span class="marquee-item">Wildlife Exclusion</span>
+    <span class="marquee-item">Commercial Programs</span>
+    <span class="marquee-item">Rodent Control</span>
+    <span class="marquee-item">Bed Bug Elimination</span>
+    <span class="marquee-item">Termite Treatment</span>
+    <span class="marquee-item">Ant Colonies</span>
+    <span class="marquee-item">Wasp & Hornet Removal</span>
+    <span class="marquee-item">Cockroach Extermination</span>
+    <span class="marquee-item">Wildlife Exclusion</span>
+    <span class="marquee-item">Commercial Programs</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section">
+  <div class="section-label">What We Eliminate</div>
+  <h2>Every Pest.<br>One Call.</h2>
+  <div class="hex-grid reveal">
+    <div class="hex-row">
+      <div class="hex-card featured">
+        <div class="hex-icon">🐀</div>
+        <div class="hex-title">Rodents</div>
+      </div>
+      <div class="hex-card">
+        <div class="hex-icon">🪲</div>
+        <div class="hex-title">Cockroaches</div>
+      </div>
+      <div class="hex-card">
+        <div class="hex-icon">🐜</div>
+        <div class="hex-title">Ants &amp; Colonies</div>
+      </div>
+    </div>
+    <div class="hex-row">
+      <div class="hex-card">
+        <div class="hex-icon">🦟</div>
+        <div class="hex-title">Mosquitoes</div>
+      </div>
+      <div class="hex-card featured">
+        <div class="hex-icon">🪳</div>
+        <div class="hex-title">Bed Bugs</div>
+      </div>
+      <div class="hex-card">
+        <div class="hex-icon">🕷️</div>
+        <div class="hex-title">Spiders</div>
+      </div>
+    </div>
+    <div class="hex-row">
+      <div class="hex-card">
+        <div class="hex-icon">🐝</div>
+        <div class="hex-title">Wasps &amp; Hornets</div>
+      </div>
+      <div class="hex-card">
+        <div class="hex-icon">🪶</div>
+        <div class="hex-title">Wildlife</div>
+      </div>
+      <div class="hex-card featured">
+        <div class="hex-icon">🪵</div>
+        <div class="hex-title">Termites</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GNAWED EDGE 2 -->
+<div class="gnawed-divider" style="transform:rotate(180deg); margin-bottom:-2px;">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 L0,60 
+      Q20,44 35,56 Q48,68 60,52 Q72,38 88,50 Q100,60 115,46 
+      Q130,32 145,48 Q158,62 172,50 Q186,38 200,54 
+      Q212,68 228,52 Q242,38 255,50 Q268,60 282,44 
+      Q296,28 310,46 Q322,62 338,48 Q352,34 365,52 
+      Q378,68 392,54 Q406,40 420,56 Q432,70 448,52 
+      Q462,36 475,50 Q488,62 502,46 Q516,30 530,50 
+      Q542,68 558,52 Q572,38 585,50 Q598,60 612,44 
+      Q626,28 640,48 Q652,66 668,50 Q682,36 695,52 
+      Q708,66 722,50 Q736,34 750,52 Q762,68 778,52 
+      Q792,38 805,50 Q818,60 832,44 Q846,28 860,48 
+      Q872,66 888,50 Q902,36 915,52 Q928,66 942,50 
+      Q956,34 970,52 Q982,68 998,52 Q1012,38 1025,50 
+      Q1038,60 1052,44 Q1066,28 1080,48 Q1092,66 1108,50 
+      Q1122,36 1135,52 Q1148,66 1162,50 Q1176,34 1190,52 
+      Q1202,68 1218,52 Q1232,38 1245,50 Q1258,60 1272,44 
+      Q1286,28 1300,48 Q1312,66 1328,52 Q1342,38 1355,50 
+      Q1368,60 1382,46 Q1396,32 1410,50 Q1422,66 1440,52 
+      L1440,0 Z"
+      fill="#0e0d0b"/>
+  </svg>
+</div>
+
+<!-- PROCESS -->
+<section class="section process-section">
+  <div class="section-label">Our Method</div>
+  <h2>Inspect. Treat.<br>Guarantee.</h2>
+  <div class="process-grid reveal">
+    <div class="process-step">
+      <span class="step-num">01</span>
+      <span class="step-icon">🔍</span>
+      <div class="step-title">Deep Inspection</div>
+      <p class="step-desc">We identify entry points, nesting sites, and infestation severity using thermal imaging and professional-grade detection tools.</p>
+    </div>
+    <div class="process-step">
+      <span class="step-num">02</span>
+      <span class="step-icon">📋</span>
+      <div class="step-title">Custom Treatment Plan</div>
+      <p class="step-desc">No cookie-cutter solutions. Your property gets a tailored elimination strategy based on pest type, severity, and layout.</p>
+    </div>
+    <div class="process-step">
+      <span class="step-num">03</span>
+      <span class="step-icon">⚗️</span>
+      <div class="step-title">Targeted Elimination</div>
+      <p class="step-desc">Precision-applied treatments that hit pests hard while keeping your family and pets safe. EPA-approved, fast-acting.</p>
+    </div>
+    <div class="process-step">
+      <span class="step-num">04</span>
+      <span class="step-icon">🛡️</span>
+      <div class="step-title">Sealed & Protected</div>
+      <p class="step-desc">We don't just eliminate — we fortify. Entry points are sealed, barriers installed, and your home is monitored going forward.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonial-section">
+  <div class="section-label reveal">What Clients Say</div>
+  <h2 class="reveal" style="margin-bottom:48px;">They Had<br>A Problem.</h2>
+  <div class="testimonial-grid">
+    <div class="testimonial-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"We had a serious rodent issue in our restaurant. Apex came in, identified three entry points we had no idea about, and had us cleared within 48 hours. No callbacks needed."</p>
+      <div class="testimonial-author">Marcus T.</div>
+      <div class="testimonial-location">Restaurant Owner, Downtown</div>
+    </div>
+    <div class="testimonial-card reveal" style="transition-delay:0.1s">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"Found termites in my basement the week before I was supposed to close on a sale. Apex treated it, gave me all the documentation I needed, and the sale went through. Absolute lifesavers."</p>
+      <div class="testimonial-author">Linda R.</div>
+      <div class="testimonial-location">Homeowner, Westside</div>
+    </div>
+    <div class="testimonial-card reveal" style="transition-delay:0.2s">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"Tried two other companies before Apex. They were the only ones who actually explained what they were doing and why. Bed bugs are gone and haven't returned in 8 months."</p>
+      <div class="testimonial-author">Devon K.</div>
+      <div class="testimonial-location">Apartment Complex Manager</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-banner reveal">
+  <div class="cta-text">
+    <h2 style="color:white; margin-bottom:8px;">Stop Sharing<br>Your Home.</h2>
+    <p>Free inspection. Same-week service. Guaranteed results.</p>
+  </div>
+  <a href="#" class="btn-white">Book Free Inspection →</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">✕ APEX PEST CO.</div>
+      <p class="footer-tagline">Industrial-grade pest elimination for residential and commercial properties. Licensed, bonded, and backed by a satisfaction guarantee.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Rodent Control</a></li>
+        <li><a href="#">Termite Treatment</a></li>
+        <li><a href="#">Bed Bug Removal</a></li>
+        <li><a href="#">Ant & Colony</a></li>
+        <li><a href="#">Wildlife</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="#">(555) 400-APEX</a></li>
+        <li><a href="#">hello@apexpest.com</a></li>
+        <li><a href="#">Service Areas</a></li>
+        <li><a href="#">Emergency Line</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Apex Pest Co. All rights reserved.</span>
+    <span class="footer-copy">Licensed · Bonded · Insured</span>
+  </div>
+</footer>
+
+<script>
+// ── Custom cursor ──
+const cursor = document.getElementById('cursor');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
+document.querySelectorAll('a, button, .hex-card, .process-step').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+  el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+});
+
+// ── Scattering bugs ──
+const bugEmojis = ['🐜','🪲','🪳','🕷️','🦟','🐛'];
+const bugs = [];
+const NUM_BUGS = 18;
+
+for (let i = 0; i < NUM_BUGS; i++) {
+  const el = document.createElement('div');
+  el.className = 'bug-particle';
+  el.textContent = bugEmojis[Math.floor(Math.random() * bugEmojis.length)];
+  document.body.appendChild(el);
+  bugs.push({
+    el,
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight,
+    vx: (Math.random() - 0.5) * 0.4,
+    vy: (Math.random() - 0.5) * 0.4,
+    angle: Math.random() * 360,
+    rotSpeed: (Math.random() - 0.5) * 2,
+    size: 10 + Math.random() * 8,
+    opacity: 0.15 + Math.random() * 0.25,
+    fleeing: false,
+    fleeVx: 0,
+    fleeVy: 0,
+  });
+}
+
+let mouseX = -1000, mouseY = -1000;
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX; mouseY = e.clientY;
+});
+
+function animateBugs() {
+  bugs.forEach(b => {
+    const dx = b.x - mouseX;
+    const dy = b.y - mouseY;
+    const dist = Math.sqrt(dx*dx + dy*dy);
+    const FLEE_RADIUS = 140;
+
+    if (dist < FLEE_RADIUS) {
+      b.fleeing = true;
+      const force = (1 - dist / FLEE_RADIUS) * 5.5;
+      b.fleeVx = (dx / dist) * force;
+      b.fleeVy = (dy / dist) * force;
+    } else {
+      b.fleeing = false;
+      b.fleeVx *= 0.85;
+      b.fleeVy *= 0.85;
+    }
+
+    b.vx += (Math.random() - 0.5) * 0.06;
+    b.vy += (Math.random() - 0.5) * 0.06;
+    b.vx = Math.max(-0.8, Math.min(0.8, b.vx));
+    b.vy = Math.max(-0.8, Math.min(0.8, b.vy));
+
+    b.x += b.vx + b.fleeVx;
+    b.y += b.vy + b.fleeVy;
+    b.angle += b.rotSpeed + (b.fleeing ? 8 : 0);
+
+    if (b.x < -20) b.x = window.innerWidth + 20;
+    if (b.x > window.innerWidth + 20) b.x = -20;
+    if (b.y < -20) b.y = window.innerHeight + 20;
+    if (b.y > window.innerHeight + 20) b.y = -20;
+
+    b.el.style.cssText = `
+      left: ${b.x}px;
+      top: ${b.y}px;
+      font-size: ${b.size}px;
+      opacity: ${b.opacity};
+      transform: rotate(${b.angle}deg);
+    `;
+  });
+  requestAnimationFrame(animateBugs);
+}
+animateBugs();
+
+// ── Scroll reveal ──
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(r => observer.observe(r));
+</script>
+</body>
+</html>

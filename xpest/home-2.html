@@ -1,0 +1,1627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xPest Pest Control — Boise's Extermination Experts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700;1,900&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+
+    /* =============================================
+       VARIABLES
+    ============================================= */
+    :root {
+        --bg:           #0B1220;
+        --surface-1:    #111C32;
+        --surface-2:    #192640;
+        --surface-3:    #213252;
+        --navy:         #163569;
+        --blue:         #3DB4E8;
+        --blue-light:   #65C8F2;
+        --blue-dark:    #1A8AC0;
+        --blue-dim:     rgba(61,180,232,0.12);
+        --border:       rgba(61,180,232,0.2);
+        --border-sub:   rgba(61,180,232,0.08);
+        --amber:        #F5A623;
+        --amber-light:  #FFC048;
+        --amber-dim:    rgba(245,166,35,0.12);
+        --amber-border: rgba(245,166,35,0.25);
+        --danger:       #E83B1A;
+        --cream:        #DDE8F8;
+        --cream-bright: #EAEFFB;
+        --muted:        #5E7592;
+        --muted-bright: #7A92B2;
+        --font-display: 'Barlow Condensed', sans-serif;
+        --font-body:    'DM Sans', sans-serif;
+        --font-mono:    'Space Mono', monospace;
+        --radius:       3px;
+        --radius-md:    8px;
+        --ease:         all 0.25s ease;
+        --max-w:        1380px;
+    }
+
+    /* =============================================
+       BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+        background: var(--bg);
+        color: var(--cream);
+        font-family: var(--font-body);
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    .inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        width: 100%;
+        padding: 0 2rem;
+    }
+
+    .section-label {
+        display: inline-flex;
+        align-items: center;
+        gap: .5rem;
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--blue);
+        margin-bottom: 1rem;
+    }
+    .section-label .dot { width: 6px; height: 6px; background: var(--blue); border-radius: 50%; }
+    .section-label.amber { color: var(--amber); }
+    .section-label.amber .dot { background: var(--amber); }
+    .section-label.dark-label { color: var(--navy); }
+    .section-label.dark-label .dot { background: var(--navy); }
+
+    /* =============================================
+       BUTTONS
+    ============================================= */
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: .5rem;
+        padding: .85rem 1.8rem;
+        border-radius: var(--radius);
+        font-family: var(--font-body);
+        font-weight: 600;
+        font-size: .92rem;
+        cursor: pointer;
+        border: none;
+        transition: var(--ease);
+        letter-spacing: .02em;
+        white-space: nowrap;
+    }
+    .btn-amber { background: var(--amber); color: #0B1220; }
+    .btn-amber:hover { background: var(--amber-light); transform: translateY(-1px); }
+    .btn-outline { background: transparent; border: 1.5px solid var(--border); color: var(--cream); }
+    .btn-outline:hover { border-color: var(--blue); color: var(--blue); }
+    .btn-lg { padding: 1rem 2.4rem; font-size: 1rem; }
+    .btn-white-danger { background: #fff; color: var(--danger); font-weight: 700; }
+    .btn-white-danger:hover { background: rgba(255,255,255,.88); }
+    .btn-ghost-white { background: rgba(255,255,255,.12); color: #fff; border: 1.5px solid rgba(255,255,255,.25); }
+    .btn-ghost-white:hover { background: rgba(255,255,255,.22); }
+
+    /* =============================================
+       TOP BAR
+    ============================================= */
+    .top-bar {
+        background: var(--navy);
+        padding: .55rem 2rem;
+        font-size: .78rem;
+        border-bottom: 1px solid rgba(255,255,255,.05);
+    }
+    .top-bar-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+    .top-bar-left { display: flex; align-items: center; gap: 1.5rem; color: rgba(221,232,248,.65); }
+    .top-bar-left span { display: flex; align-items: center; gap: .4rem; }
+    .tb-badge {
+        background: var(--danger);
+        color: #fff;
+        padding: .18rem .6rem;
+        border-radius: 2px;
+        font-family: var(--font-mono);
+        font-size: .62rem;
+        font-weight: 700;
+        letter-spacing: .08em;
+        animation: pulse 2.5s ease infinite;
+    }
+    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:.65; } }
+    .top-bar-right { display: flex; align-items: center; gap: 1.5rem; color: rgba(221,232,248,.65); }
+    .tb-phone { color: var(--amber); font-weight: 600; letter-spacing: .03em; font-size: .82rem; }
+
+    /* =============================================
+       NAV
+    ============================================= */
+    .site-nav {
+        position: sticky;
+        top: 0;
+        z-index: 900;
+        padding: 1.1rem 2rem;
+        transition: background .3s, backdrop-filter .3s, border-color .3s;
+        border-bottom: 1px solid transparent;
+    }
+    .site-nav.scrolled {
+        background: rgba(11,18,32,.92);
+        backdrop-filter: blur(14px);
+        border-color: var(--border-sub);
+    }
+    .nav-inner { max-width: var(--max-w); margin: 0 auto; display: flex; align-items: center; gap: 2rem; }
+    .nav-logo img { height: 38px; }
+    .nav-links { display: flex; align-items: center; gap: .25rem; margin-left: auto; }
+    .nav-links a { padding: .45rem .9rem; font-size: .85rem; color: var(--muted-bright); border-radius: var(--radius); transition: var(--ease); }
+    .nav-links a:hover { color: var(--cream-bright); }
+    .nav-ctas { display: flex; gap: .75rem; align-items: center; }
+    .btn-nav { padding: .5rem 1.2rem; background: var(--amber); color: #0B1220; font-weight: 700; font-size: .82rem; border-radius: var(--radius); letter-spacing: .02em; transition: var(--ease); }
+    .btn-nav:hover { background: var(--amber-light); }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    .hero {
+        position: relative;
+        background: var(--bg);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        padding: 8rem 2rem 160px;
+    }
+    /* Dot-grid background */
+    .hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(circle, rgba(61,180,232,.06) 1px, transparent 1px);
+        background-size: 36px 36px;
+        pointer-events: none;
+    }
+    /* Ghost logo — extremely faint, positioned right side */
+    .hero-ghost-logo {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: min(46%, 620px);
+        opacity: .05;
+        filter: brightness(0) invert(1);
+        pointer-events: none;
+        user-select: none;
+    }
+    /* Amber X motif bars */
+    .hero-x-motif {
+        position: absolute;
+        right: 1%;
+        top: 50%;
+        transform: translateY(-50%);
+        width: min(44%, 600px);
+        aspect-ratio: 1;
+        pointer-events: none;
+    }
+    .xm-bar {
+        position: absolute;
+        width: 88%; height: 12%;
+        top: 44%; left: 6%;
+        background: linear-gradient(90deg, transparent 0%, rgba(245,166,35,.06) 15%, rgba(245,166,35,.18) 45%, rgba(245,166,35,.22) 50%, rgba(245,166,35,.18) 55%, rgba(245,166,35,.06) 85%, transparent 100%);
+        border-radius: 4px;
+    }
+    .xm-bar-1 { transform: rotate(37deg); transform-origin: center; }
+    .xm-bar-2 { transform: rotate(-37deg); transform-origin: center; }
+    .xm-glow {
+        position: absolute;
+        inset: 12%;
+        background: radial-gradient(circle, rgba(245,166,35,.055) 0%, transparent 65%);
+        border-radius: 50%;
+    }
+    /* Tactical grid overlay — right half only */
+    .hero-grid-lines {
+        position: absolute;
+        right: 0; top: 0; bottom: 0;
+        width: 50%;
+        pointer-events: none;
+        opacity: .025;
+        background-image:
+            linear-gradient(rgba(61,180,232,1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(61,180,232,1) 1px, transparent 1px);
+        background-size: 56px 56px;
+    }
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 660px;
+    }
+    .hero-overline {
+        display: inline-flex;
+        align-items: center;
+        gap: .6rem;
+        background: rgba(232,59,26,.1);
+        border: 1px solid rgba(232,59,26,.28);
+        color: var(--danger);
+        font-family: var(--font-mono);
+        font-size: .65rem;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+        padding: .35rem .8rem;
+        border-radius: var(--radius);
+        margin-bottom: 1.5rem;
+    }
+    .hero-overline::before {
+        content: '';
+        width: 6px; height: 6px;
+        background: var(--danger);
+        border-radius: 50%;
+        animation: pulse 1.8s ease infinite;
+    }
+    .hero-h1 {
+        font-family: var(--font-display);
+        font-size: clamp(3.8rem, 7.5vw, 8rem);
+        font-weight: 900;
+        line-height: .93;
+        letter-spacing: -.01em;
+        text-transform: uppercase;
+        margin-bottom: 1.3rem;
+    }
+    .hero-h1 .line-white { color: var(--cream-bright); display: block; }
+    .hero-h1 .line-amber { color: var(--amber); display: block; }
+    .hero-sub {
+        font-size: 1.05rem;
+        color: var(--muted-bright);
+        line-height: 1.65;
+        max-width: 520px;
+        margin-bottom: 2.5rem;
+    }
+    .hero-ctas { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 3rem; }
+    .hero-trust { display: flex; align-items: center; flex-wrap: wrap; gap: .7rem; }
+    .trust-pill {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+        font-size: .78rem;
+        color: var(--muted-bright);
+        background: rgba(61,180,232,.05);
+        border: 1px solid var(--border-sub);
+        padding: .3rem .75rem;
+        border-radius: 999px;
+    }
+    .trust-pill .tp-dot { width: 5px; height: 5px; background: var(--blue); border-radius: 50%; flex-shrink: 0; }
+
+    /* Angled amber stat band — absolute at bottom of hero */
+    .hero-stat-band {
+        position: absolute;
+        bottom: 0;
+        left: -2%; right: -2%;
+        height: 96px;
+        background: var(--amber);
+        transform: skewY(-1.2deg);
+        transform-origin: bottom left;
+        display: flex;
+        align-items: center;
+        z-index: 3;
+    }
+    .hsb-inner {
+        display: flex;
+        align-items: center;
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 3rem;
+        width: 100%;
+        transform: skewY(1.2deg);
+        transform-origin: bottom left;
+    }
+    .hsb-stat {
+        flex: 1;
+        text-align: center;
+        padding: .75rem 1rem;
+        border-right: 1.5px solid rgba(11,18,32,.15);
+    }
+    .hsb-stat:last-child { border-right: none; }
+    .hsb-num {
+        font-family: var(--font-display);
+        font-size: 2.2rem;
+        font-weight: 900;
+        color: #0B1220;
+        line-height: 1;
+        letter-spacing: -.02em;
+    }
+    .hsb-label {
+        font-size: .68rem;
+        font-weight: 600;
+        color: rgba(11,18,32,.58);
+        text-transform: uppercase;
+        letter-spacing: .1em;
+    }
+
+    /* =============================================
+       MARQUEE
+    ============================================= */
+    .marquee-section {
+        background: var(--navy);
+        overflow: hidden;
+        border-bottom: 1px solid rgba(255,255,255,.05);
+    }
+    .marquee-track { display: flex; width: max-content; animation: m-fwd 26s linear infinite; }
+    .marquee-track.rev { animation: m-rev 30s linear infinite; }
+    @keyframes m-fwd { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @keyframes m-rev { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+    .marquee-item {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        padding: .9rem 2.5rem;
+        font-family: var(--font-display);
+        font-size: .85rem;
+        font-weight: 700;
+        letter-spacing: .2em;
+        text-transform: uppercase;
+        color: var(--cream);
+        white-space: nowrap;
+    }
+    .marquee-item .mi-sep { width: 5px; height: 5px; background: var(--amber); clip-path: polygon(50% 0%,100% 50%,50% 100%,0% 50%); flex-shrink: 0; }
+    .marquee-item.amber-item { color: var(--amber); }
+    .marquee-strip-2 { background: rgba(11,18,32,.3); border-top: 1px solid rgba(255,255,255,.04); }
+
+    /* =============================================
+       GNAWED DIVIDERS
+       Convention: div bg = section BELOW, SVG fill = section ABOVE
+    ============================================= */
+    .gnaw { line-height: 0; display: block; overflow: hidden; }
+    .gnaw svg { display: block; width: 100%; }
+
+    /* =============================================
+       SERVICES BENTO  —  WHITE BACKGROUND
+    ============================================= */
+    .services-section {
+        background: #F7F7F5;
+        padding: 6rem 2rem 5rem;
+    }
+    .services-header {
+        max-width: var(--max-w);
+        margin: 0 auto 3rem;
+    }
+    .services-h2 {
+        font-family: var(--font-display);
+        font-size: clamp(2.6rem, 5.5vw, 4.5rem);
+        font-weight: 900;
+        text-transform: uppercase;
+        color: #0B1220;
+        line-height: .97;
+        letter-spacing: -.01em;
+        margin-bottom: 1rem;
+    }
+    .services-sub { font-size: 1rem; color: #5E7592; max-width: 520px; }
+
+    .services-bento {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 270px 220px 175px;
+        gap: 10px;
+    }
+    .sb-card {
+        border-radius: 4px;
+        padding: 1.75rem;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+        transition: transform .22s ease, box-shadow .22s ease;
+    }
+    .sb-card:hover { transform: translateY(-3px); box-shadow: 0 10px 36px rgba(0,0,0,.14); }
+
+    /* Featured: dark, 2×2 */
+    .sb-featured {
+        grid-column: span 2;
+        grid-row: span 2;
+        background: #0B1220;
+        color: #DDE8F8;
+        padding: 2.5rem;
+    }
+    .sb-featured::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; height: 3px;
+        background: linear-gradient(90deg, #F5A623, #3DB4E8);
+    }
+    .sb-featured .sb-icon { font-size: 2.8rem; margin-bottom: 1.2rem; }
+    .sb-featured .sb-title {
+        font-family: var(--font-display);
+        font-size: 2.4rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        color: #fff;
+        margin-bottom: .75rem;
+        line-height: 1.05;
+    }
+    .sb-featured .sb-desc { font-size: .9rem; color: #7A92B2; line-height: 1.65; margin-bottom: 1.2rem; flex: 1; }
+    .sb-featured .sb-bullets { list-style: none; margin-bottom: 1.8rem; display: flex; flex-direction: column; gap: .45rem; }
+    .sb-featured .sb-bullets li { display: flex; align-items: center; gap: .6rem; font-size: .85rem; color: #5E7592; }
+    .sb-featured .sb-bullets li::before { content: '›'; color: #F5A623; font-weight: 700; font-size: 1.1rem; }
+    .sb-featured .sb-link { font-size: .78rem; font-weight: 700; color: #3DB4E8; display: inline-flex; align-items: center; gap: .4rem; letter-spacing: .1em; text-transform: uppercase; font-family: var(--font-mono); transition: color .2s; }
+    .sb-featured .sb-link:hover { color: #65C8F2; }
+
+    /* Amber card */
+    .sb-amber { background: #F5A623; color: #0B1220; }
+    .sb-amber .sb-icon { font-size: 2rem; margin-bottom: .7rem; }
+    .sb-amber .sb-title { font-family: var(--font-display); font-size: 1.35rem; font-weight: 900; text-transform: uppercase; margin-bottom: .5rem; }
+    .sb-amber .sb-desc { font-size: .82rem; color: rgba(11,18,32,.68); line-height: 1.5; }
+
+    /* Navy/blue card */
+    .sb-navy { background: #163569; color: #DDE8F8; }
+    .sb-navy .sb-icon { font-size: 2rem; margin-bottom: .7rem; }
+    .sb-navy .sb-title { font-family: var(--font-display); font-size: 1.35rem; font-weight: 900; text-transform: uppercase; color: #fff; margin-bottom: .5rem; }
+    .sb-navy .sb-desc { font-size: .82rem; color: rgba(221,232,248,.62); line-height: 1.5; }
+
+    /* Light/white card */
+    .sb-light { background: #fff; color: #0B1220; border: 1.5px solid #E8E3D8; }
+    .sb-light .sb-icon { font-size: 1.8rem; margin-bottom: .6rem; }
+    .sb-light .sb-title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 900; text-transform: uppercase; margin-bottom: .4rem; }
+    .sb-light .sb-desc { font-size: .8rem; color: #5E7592; line-height: 1.5; }
+
+    /* Wide card (bottom row, spans 2) */
+    .sb-wide { grid-column: span 2; flex-direction: row; align-items: center; gap: 1.5rem; }
+    .sb-wide .sb-icon { font-size: 2.4rem; flex-shrink: 0; margin-bottom: 0; }
+    .sb-wide .sb-body { flex: 1; }
+
+    /* =============================================
+       SPLIT SECTION — Residential / Commercial
+    ============================================= */
+    .split-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 540px;
+        overflow: hidden;
+    }
+    .split-res {
+        background: #EFE7D3;
+        padding: 5.5rem 5rem 5.5rem 3rem;
+        color: #0B1220;
+        position: relative;
+    }
+    /* Diagonal cut on right edge of residential panel */
+    .split-res::after {
+        content: '';
+        position: absolute;
+        top: 0; right: -56px; bottom: 0;
+        width: 112px;
+        background: #163569;
+        clip-path: polygon(100% 0, 100% 100%, 0 100%);
+        z-index: 1;
+    }
+    .split-com {
+        background: #163569;
+        padding: 5.5rem 3rem 5.5rem 5rem;
+        color: #DDE8F8;
+    }
+    .split-tag {
+        font-family: var(--font-mono);
+        font-size: .65rem;
+        letter-spacing: .18em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+    }
+    .split-res .split-tag { color: #163569; }
+    .split-com .split-tag { color: rgba(61,180,232,.8); }
+    .split-h3 {
+        font-family: var(--font-display);
+        font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+        font-weight: 900;
+        text-transform: uppercase;
+        line-height: 1.02;
+        letter-spacing: -.01em;
+        margin-bottom: 1rem;
+    }
+    .split-res .split-h3 { color: #0B1220; }
+    .split-com .split-h3 { color: #fff; }
+    .split-p { font-size: .92rem; line-height: 1.65; margin-bottom: 1.5rem; }
+    .split-res .split-p { color: rgba(11,18,32,.68); }
+    .split-com .split-p { color: rgba(221,232,248,.65); }
+    .split-features { list-style: none; display: flex; flex-direction: column; gap: .6rem; margin-bottom: 2rem; }
+    .split-features li { display: flex; align-items: center; gap: .7rem; font-size: .88rem; }
+    .split-res .split-features li { color: rgba(11,18,32,.72); }
+    .split-com .split-features li { color: rgba(221,232,248,.75); }
+    .split-features li::before {
+        content: '✓';
+        width: 20px; height: 20px;
+        border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        font-size: .62rem; font-weight: 900;
+        flex-shrink: 0;
+    }
+    .split-res .split-features li::before { background: #163569; color: #fff; }
+    .split-com .split-features li::before { background: #F5A623; color: #0B1220; }
+    .btn-split-res { display: inline-flex; align-items: center; gap: .5rem; padding: .75rem 1.6rem; background: #163569; color: #fff; font-weight: 600; font-size: .88rem; border-radius: var(--radius); transition: var(--ease); }
+    .btn-split-res:hover { background: #0B2254; }
+    .btn-split-com { display: inline-flex; align-items: center; gap: .5rem; padding: .75rem 1.6rem; background: #F5A623; color: #0B1220; font-weight: 700; font-size: .88rem; border-radius: var(--radius); transition: var(--ease); }
+    .btn-split-com:hover { background: #FFC048; }
+
+    /* =============================================
+       PROCESS — Numbered Timeline
+    ============================================= */
+    .process-section {
+        background: var(--bg);
+        padding: 6rem 2rem;
+    }
+    .process-header { max-width: var(--max-w); margin: 0 auto 4rem; }
+    .process-h2 {
+        font-family: var(--font-display);
+        font-size: clamp(2.4rem, 5vw, 4rem);
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: -.01em;
+        line-height: 1;
+        color: var(--cream-bright);
+        margin-bottom: .7rem;
+    }
+    .process-sub { font-size: .97rem; color: var(--muted); max-width: 480px; }
+
+    .process-timeline {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        position: relative;
+    }
+    /* Vertical gradient line connecting steps */
+    .process-timeline::before {
+        content: '';
+        position: absolute;
+        left: 66px;
+        top: 24px; bottom: 24px;
+        width: 2px;
+        background: linear-gradient(to bottom, var(--amber) 0%, var(--blue) 60%, rgba(61,180,232,.08) 100%);
+    }
+    .process-item {
+        display: grid;
+        grid-template-columns: 140px 1fr;
+        gap: 3rem;
+        padding: 3rem 0;
+        border-bottom: 1px solid var(--border-sub);
+        position: relative;
+    }
+    .process-item:last-child { border-bottom: none; }
+
+    .pi-num {
+        font-family: var(--font-display);
+        font-size: 5.5rem;
+        font-weight: 900;
+        color: var(--amber);
+        line-height: 1;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+    .pi-num::after {
+        content: '';
+        position: absolute;
+        width: 72px; height: 72px;
+        left: 50%; top: 50%;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(circle, var(--amber-dim) 0%, transparent 70%);
+        border-radius: 50%;
+        z-index: -1;
+    }
+    .pi-content { display: flex; flex-direction: column; justify-content: center; padding: .5rem 0; }
+    .pi-icon { font-size: 2rem; margin-bottom: .7rem; }
+    .pi-title {
+        font-family: var(--font-display);
+        font-size: 1.9rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        color: var(--cream-bright);
+        margin-bottom: .6rem;
+    }
+    .pi-desc { font-size: .92rem; color: var(--muted); line-height: 1.65; max-width: 580px; }
+    .pi-badge {
+        margin-top: .8rem;
+        display: inline-flex;
+        align-items: center;
+        gap: .4rem;
+        font-family: var(--font-mono);
+        font-size: .65rem;
+        letter-spacing: .1em;
+        color: var(--blue);
+        text-transform: uppercase;
+    }
+
+    /* =============================================
+       STATS SECTION
+    ============================================= */
+    .stats-section {
+        background: var(--surface-1);
+        padding: 5rem 2rem;
+        position: relative;
+        overflow: hidden;
+    }
+    .stats-section::before {
+        content: '';
+        position: absolute; inset: 0;
+        background-image: radial-gradient(circle, rgba(61,180,232,.04) 1px, transparent 1px);
+        background-size: 28px 28px;
+        pointer-events: none;
+    }
+    .stats-inner { max-width: var(--max-w); margin: 0 auto; position: relative; z-index: 1; }
+
+    .stats-hero-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+        padding-bottom: 2.5rem;
+        margin-bottom: 2.5rem;
+        border-bottom: 1px solid var(--border-sub);
+        flex-wrap: wrap;
+    }
+    .stats-big-num {
+        font-family: var(--font-display);
+        font-size: clamp(6rem, 14vw, 11rem);
+        font-weight: 900;
+        color: var(--amber);
+        line-height: 1;
+        letter-spacing: -.04em;
+    }
+    .stats-big-body { max-width: 320px; }
+    .stats-big-label {
+        font-family: var(--font-display);
+        font-size: 2rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: var(--cream-bright);
+        margin-bottom: .5rem;
+        line-height: 1.1;
+    }
+    .stats-big-sub { font-size: .88rem; color: var(--muted); line-height: 1.55; }
+    .stats-big-badge {
+        margin-top: .9rem;
+        display: inline-flex;
+        align-items: center;
+        gap: .4rem;
+        background: var(--amber-dim);
+        border: 1px solid var(--amber-border);
+        color: var(--amber);
+        font-family: var(--font-mono);
+        font-size: .62rem;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        padding: .28rem .7rem;
+        border-radius: var(--radius);
+    }
+
+    .stats-secondary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .stat-card {
+        background: var(--surface-2);
+        border: 1px solid var(--border-sub);
+        border-radius: var(--radius-md);
+        padding: 2rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        transition: border-color .2s;
+    }
+    .stat-card:hover { border-color: var(--border); }
+    .stat-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--blue); }
+    .stat-card-num { font-family: var(--font-display); font-size: 3.6rem; font-weight: 900; color: var(--cream-bright); line-height: 1; margin-bottom: .4rem; }
+    .stat-card-label { font-size: .78rem; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; }
+    /* Scan line */
+    @keyframes scan { 0% { top: -100%; } 100% { top: 200%; } }
+    .stat-card::after { content: ''; position: absolute; left: 0; right: 0; height: 40%; background: linear-gradient(to bottom, transparent, rgba(61,180,232,.04), transparent); animation: scan 4s ease infinite; pointer-events: none; }
+    .stat-card:nth-child(2)::after { animation-delay: 1.35s; }
+    .stat-card:nth-child(3)::after { animation-delay: 2.7s; }
+
+    /* =============================================
+       EMERGENCY SECTION
+    ============================================= */
+    .emergency-section {
+        background: var(--danger);
+        padding: 5.5rem 2rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    .emergency-section::before {
+        content: '';
+        position: absolute; inset: 0;
+        background-image: radial-gradient(circle, rgba(255,255,255,.05) 1px, transparent 1px);
+        background-size: 22px 22px;
+        pointer-events: none;
+    }
+    /* Giant ghost exclamation point */
+    .emergency-section::after {
+        content: '!';
+        position: absolute;
+        right: -1%;
+        top: 50%;
+        transform: translateY(-50%);
+        font-family: var(--font-display);
+        font-size: 36vw;
+        font-weight: 900;
+        color: rgba(255,255,255,.04);
+        line-height: 1;
+        pointer-events: none;
+        user-select: none;
+    }
+    .emrg-inner { max-width: var(--max-w); margin: 0 auto; position: relative; z-index: 2; }
+    .emrg-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: .6rem;
+        background: rgba(255,255,255,.14);
+        border: 1.5px solid rgba(255,255,255,.28);
+        color: #fff;
+        font-family: var(--font-mono);
+        font-size: .68rem;
+        letter-spacing: .2em;
+        text-transform: uppercase;
+        padding: .38rem 1rem;
+        border-radius: var(--radius);
+        margin-bottom: 1.5rem;
+    }
+    .emrg-subtitle { font-family: var(--font-display); font-size: clamp(1.3rem, 3vw, 2.2rem); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: rgba(255,255,255,.7); margin-bottom: .5rem; }
+    .emrg-phone {
+        font-family: var(--font-display);
+        font-size: clamp(3.5rem, 10vw, 9rem);
+        font-weight: 900;
+        color: #fff;
+        line-height: 1;
+        letter-spacing: .02em;
+        margin-bottom: 1rem;
+    }
+    .emrg-sub { font-size: 1rem; color: rgba(255,255,255,.68); margin-bottom: 2.5rem; }
+    .emrg-ctas { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+    /* =============================================
+       TESTIMONIALS
+    ============================================= */
+    .testimonials-section {
+        background: var(--surface-2);
+        padding: 6rem 2rem;
+    }
+    .testi-header { max-width: var(--max-w); margin: 0 auto 3rem; }
+    .testi-h2 {
+        font-family: var(--font-display);
+        font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: -.01em;
+        color: var(--cream-bright);
+        margin-bottom: .5rem;
+    }
+    .testi-sub { font-size: .95rem; color: var(--muted); }
+
+    /* Featured pull-quote */
+    .testi-featured {
+        max-width: var(--max-w);
+        margin: 0 auto 1.5rem;
+        background: var(--bg);
+        border: 1px solid var(--border-sub);
+        border-radius: var(--radius-md);
+        padding: 3rem 4rem;
+        position: relative;
+        overflow: hidden;
+    }
+    .testi-featured::before {
+        content: '"';
+        position: absolute;
+        top: -1.5rem; left: 3.5rem;
+        font-family: var(--font-display);
+        font-size: 14rem;
+        font-weight: 900;
+        color: rgba(245,166,35,.05);
+        line-height: 1;
+        pointer-events: none;
+        user-select: none;
+    }
+    .testi-featured::after {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; height: 3px;
+        background: linear-gradient(90deg, var(--amber), var(--blue));
+    }
+    .tf-quote {
+        font-size: clamp(1.05rem, 2.5vw, 1.45rem);
+        font-style: italic;
+        color: var(--cream);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        position: relative;
+        z-index: 1;
+    }
+    .tf-author { display: flex; align-items: center; gap: 1rem; position: relative; z-index: 1; }
+    .tf-avatar { width: 46px; height: 46px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.2rem; font-weight: 900; color: var(--blue); flex-shrink: 0; }
+    .tf-name { font-weight: 600; font-size: .92rem; color: var(--cream-bright); }
+    .tf-role { font-size: .78rem; color: var(--muted); }
+    .tf-stars { margin-left: auto; color: var(--amber); font-size: .9rem; letter-spacing: .06em; }
+
+    /* 2-column grid */
+    .testi-grid {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    .tc {
+        background: var(--surface-3);
+        border: 1px solid var(--border-sub);
+        border-radius: var(--radius-md);
+        padding: 1.8rem 2rem;
+        position: relative;
+        overflow: hidden;
+        transition: border-color .22s;
+    }
+    .tc:hover { border-color: var(--border); }
+    .tc-stars { color: var(--amber); font-size: .82rem; margin-bottom: .75rem; }
+    .tc-quote { font-size: .9rem; color: var(--muted-bright); line-height: 1.62; margin-bottom: 1.2rem; font-style: italic; }
+    .tc-author { display: flex; align-items: center; gap: .75rem; }
+    .tc-avatar { width: 36px; height: 36px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1rem; font-weight: 900; color: var(--blue); flex-shrink: 0; }
+    .tc-name { font-size: .85rem; font-weight: 600; color: var(--cream); }
+    .tc-role { font-size: .75rem; color: var(--muted); }
+    .tc.offset { margin-top: 1.5rem; }
+
+    /* =============================================
+       CTA + CONTACT  —  COMBINED SECTION
+    ============================================= */
+    .ctacontact-section {
+        display: grid;
+        grid-template-columns: 45fr 55fr;
+        min-height: 680px;
+    }
+    /* Amber left */
+    .cc-left {
+        background: var(--amber);
+        padding: 5.5rem 4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+    }
+    .cc-left::before {
+        content: '';
+        position: absolute; inset: 0;
+        background-image:
+            linear-gradient(30deg, rgba(11,18,32,.06) 12%, transparent 12.5%, transparent 87%, rgba(11,18,32,.06) 87.5%),
+            linear-gradient(150deg, rgba(11,18,32,.06) 12%, transparent 12.5%, transparent 87%, rgba(11,18,32,.06) 87.5%),
+            linear-gradient(60deg, rgba(11,18,32,.04) 25%, transparent 25.5%, transparent 75%, rgba(11,18,32,.04) 75%);
+        background-size: 44px 76px;
+        background-position: 0 0, 0 0, 22px 38px;
+        pointer-events: none;
+    }
+    .cc-left-inner { position: relative; z-index: 1; }
+    .cc-overline {
+        font-family: var(--font-mono);
+        font-size: .66rem;
+        letter-spacing: .2em;
+        text-transform: uppercase;
+        color: rgba(11,18,32,.52);
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+    }
+    .cc-overline::before { content: ''; width: 20px; height: 2px; background: rgba(11,18,32,.38); }
+    .cc-h2 {
+        font-family: var(--font-display);
+        font-size: clamp(3rem, 5.5vw, 5.8rem);
+        font-weight: 900;
+        text-transform: uppercase;
+        line-height: .91;
+        letter-spacing: -.01em;
+        color: #0B1220;
+        margin-bottom: 1.4rem;
+    }
+    .cc-p { font-size: .97rem; color: rgba(11,18,32,.68); line-height: 1.65; margin-bottom: 2rem; max-width: 360px; }
+    .cc-phone { display: flex; align-items: center; gap: .8rem; font-family: var(--font-display); font-size: 2.5rem; font-weight: 900; color: #0B1220; margin-bottom: 2rem; text-transform: uppercase; }
+    .cc-phone-icon { width: 48px; height: 48px; background: #0B1220; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+    .cc-trust { display: flex; flex-direction: column; gap: .6rem; }
+    .cc-trust-item { display: flex; align-items: center; gap: .6rem; font-size: .85rem; color: rgba(11,18,32,.7); }
+    .cc-trust-item::before { content: '✓'; width: 18px; height: 18px; background: #0B1220; color: var(--amber); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .6rem; font-weight: 900; flex-shrink: 0; }
+
+    /* Dark right — form */
+    .cc-right { background: var(--bg); padding: 5.5rem 4rem; display: flex; flex-direction: column; justify-content: center; }
+    .cc-form-title { font-family: var(--font-display); font-size: 2.2rem; font-weight: 900; text-transform: uppercase; color: var(--cream-bright); margin-bottom: .4rem; }
+    .cc-form-sub { font-size: .86rem; color: var(--muted); margin-bottom: 2rem; }
+    .cc-form { display: flex; flex-direction: column; gap: 1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: .35rem; }
+    .form-group label { font-size: .75rem; font-weight: 600; color: var(--muted-bright); text-transform: uppercase; letter-spacing: .08em; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        background: var(--surface-1);
+        border: 1.5px solid var(--border-sub);
+        color: var(--cream);
+        padding: .7rem 1rem;
+        font-family: var(--font-body);
+        font-size: .9rem;
+        border-radius: var(--radius);
+        outline: none;
+        transition: border-color .2s;
+        width: 100%;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--blue); }
+    .form-group select { appearance: none; cursor: pointer; }
+    .form-group textarea { resize: none; }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    .site-footer {
+        background: var(--surface-1);
+        border-top: 1px solid var(--border-sub);
+        padding: 4rem 2rem 2rem;
+    }
+    .footer-grid {
+        max-width: var(--max-w);
+        margin: 0 auto 3rem;
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+        gap: 3rem;
+    }
+    .footer-logo { margin-bottom: 1rem; }
+    .footer-logo img { height: 34px; }
+    .footer-tagline { font-size: .85rem; color: var(--muted); line-height: 1.65; max-width: 280px; margin-bottom: 1.2rem; }
+    .footer-badges { display: flex; gap: .5rem; flex-wrap: wrap; }
+    .f-badge { font-family: var(--font-mono); font-size: .58rem; letter-spacing: .12em; text-transform: uppercase; padding: .22rem .55rem; border-radius: var(--radius); border: 1px solid var(--border-sub); color: var(--muted); }
+    .footer-col-title { font-family: var(--font-display); font-size: .92rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--cream); margin-bottom: 1rem; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: .55rem; }
+    .footer-links a { font-size: .85rem; color: var(--muted); transition: var(--ease); }
+    .footer-links a:hover { color: var(--blue); }
+    .fci { display: flex; align-items: flex-start; gap: .6rem; font-size: .85rem; color: var(--muted); margin-bottom: .75rem; }
+    .fci-icon { font-size: 1rem; flex-shrink: 0; margin-top: .05rem; }
+    .fci a { color: var(--muted-bright); transition: var(--ease); }
+    .fci a:hover { color: var(--blue); }
+    .footer-bottom { max-width: var(--max-w); margin: 0 auto; padding-top: 1.5rem; border-top: 1px solid var(--border-sub); display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font-size: .78rem; color: var(--muted); }
+    .footer-bottom a { color: var(--muted); transition: var(--ease); }
+    .footer-bottom a:hover { color: var(--cream); }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 1100px) {
+        .services-bento { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+        .sb-featured { grid-column: span 2; grid-row: span 1; }
+        .sb-wide { grid-column: span 2; }
+        .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .stats-secondary { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 900px) {
+        .hero-ghost-logo, .hero-x-motif, .hero-grid-lines { display: none; }
+        .hero-content { max-width: 100%; }
+        .hero-stat-band { position: relative; transform: none; height: auto; padding: 1.5rem 2rem; }
+        .hsb-inner { transform: none; flex-wrap: wrap; }
+        .hsb-stat { border-right: none; border-bottom: 1px solid rgba(11,18,32,.12); padding: .75rem 1rem; }
+        .hsb-stat:last-child { border-bottom: none; }
+        .hero { padding-bottom: 2rem; min-height: auto; padding-top: 5rem; }
+        .split-section { grid-template-columns: 1fr; }
+        .split-res { padding: 4rem 3rem; }
+        .split-res::after { display: none; }
+        .split-com { padding: 4rem 3rem; }
+        .process-item { grid-template-columns: 80px 1fr; gap: 1.5rem; }
+        .process-timeline::before { left: 38px; }
+        .pi-num { font-size: 3.5rem; }
+        .ctacontact-section { grid-template-columns: 1fr; }
+        .testi-grid { grid-template-columns: 1fr; }
+        .tc.offset { margin-top: 0; }
+        .testi-featured { padding: 2rem; }
+        .stats-secondary { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+        .top-bar-left span:not(.tb-badge) { display: none; }
+        .nav-links { display: none; }
+        .form-row { grid-template-columns: 1fr; }
+        .hero-ctas { flex-direction: column; align-items: flex-start; }
+        .emrg-ctas { flex-direction: column; align-items: center; }
+        .footer-grid { grid-template-columns: 1fr; }
+        .services-bento { grid-template-columns: 1fr; }
+        .sb-wide { flex-direction: column; }
+        .stats-hero-row { flex-direction: column; text-align: center; }
+        .stats-big-body { text-align: center; }
+    }
+
+    </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+    <div class="top-bar-inner">
+        <div class="top-bar-left">
+            <span class="tb-badge">24/7 Emergency</span>
+            <span>🛡 Licensed &amp; Insured · ID &amp; OR</span>
+            <span>⭐ 5-Star Rated · Google</span>
+        </div>
+        <div class="top-bar-right">
+            <span>Same-Day Appointments Available</span>
+            <a href="tel:2085550000" class="tb-phone">📞 (208) 555-PEST</a>
+        </div>
+    </div>
+</div>
+
+<!-- NAV -->
+<nav class="site-nav" id="site-nav">
+    <div class="nav-inner">
+        <div class="nav-logo">
+            <a href="#"><img src="Assets/XPest.png" alt="xPest"></a>
+        </div>
+        <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#residential">Residential</a>
+            <a href="#commercial">Commercial</a>
+            <a href="#process">Process</a>
+            <a href="#testimonials">Reviews</a>
+        </div>
+        <div class="nav-ctas">
+            <a href="#contact" class="btn-nav">Book Free Inspection</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+     X motif art + angled amber stat band at the base
+============================================================ -->
+<section class="hero">
+    <!-- Ghost logo (barely visible) -->
+    <img src="Assets/XPest.png" alt="" aria-hidden="true" class="hero-ghost-logo">
+    <!-- Amber X bars -->
+    <div class="hero-x-motif" aria-hidden="true">
+        <div class="xm-bar xm-bar-1"></div>
+        <div class="xm-bar xm-bar-2"></div>
+        <div class="xm-glow"></div>
+    </div>
+    <!-- Tactical grid right half -->
+    <div class="hero-grid-lines" aria-hidden="true"></div>
+
+    <div class="inner">
+        <div class="hero-content">
+            <div class="hero-overline">Treasure Valley's Pest Elimination Experts</div>
+            <h1 class="hero-h1">
+                <span class="line-white">Stop</span>
+                <span class="line-amber">Sharing</span>
+                <span class="line-white">Your Home.</span>
+            </h1>
+            <p class="hero-sub">xPest delivers industrial-grade pest elimination for homes and businesses across the Treasure Valley — fast response, guaranteed results, and zero compromise on your safety.</p>
+            <div class="hero-ctas">
+                <a href="#contact" class="btn btn-amber btn-lg">Book Free Inspection</a>
+                <a href="tel:2085550000" class="btn btn-outline btn-lg">📞 (208) 555-PEST</a>
+            </div>
+            <div class="hero-trust">
+                <div class="trust-pill"><span class="tp-dot"></span> Bonded &amp; Insured</div>
+                <div class="trust-pill"><span class="tp-dot"></span> Same-Day Response</div>
+                <div class="trust-pill"><span class="tp-dot"></span> Results Guaranteed</div>
+                <div class="trust-pill"><span class="tp-dot"></span> No Contracts</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Angled amber stat band -->
+    <div class="hero-stat-band" aria-label="Key stats">
+        <div class="hsb-inner">
+            <div class="hsb-stat">
+                <div class="hsb-num">98%</div>
+                <div class="hsb-label">First-Visit Success</div>
+            </div>
+            <div class="hsb-stat">
+                <div class="hsb-num">15,000+</div>
+                <div class="hsb-label">Infestations Cleared</div>
+            </div>
+            <div class="hsb-stat">
+                <div class="hsb-num">&lt;3 hrs</div>
+                <div class="hsb-label">Average Response</div>
+            </div>
+            <div class="hsb-stat">
+                <div class="hsb-num">5 ★</div>
+                <div class="hsb-label">Google Rating</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+    <div class="marquee-track">
+        <span class="marquee-item">Rodent Control<span class="mi-sep"></span></span>
+        <span class="marquee-item">Termite Treatment<span class="mi-sep"></span></span>
+        <span class="marquee-item">Bed Bug Elimination<span class="mi-sep"></span></span>
+        <span class="marquee-item">Cockroach Programs<span class="mi-sep"></span></span>
+        <span class="marquee-item">Mosquito Barrier<span class="mi-sep"></span></span>
+        <span class="marquee-item">Wasp &amp; Hornet Removal<span class="mi-sep"></span></span>
+        <span class="marquee-item">Wildlife Exclusion<span class="mi-sep"></span></span>
+        <span class="marquee-item">Commercial Programs<span class="mi-sep"></span></span>
+        <span class="marquee-item">Rodent Control<span class="mi-sep"></span></span>
+        <span class="marquee-item">Termite Treatment<span class="mi-sep"></span></span>
+        <span class="marquee-item">Bed Bug Elimination<span class="mi-sep"></span></span>
+        <span class="marquee-item">Cockroach Programs<span class="mi-sep"></span></span>
+        <span class="marquee-item">Mosquito Barrier<span class="mi-sep"></span></span>
+        <span class="marquee-item">Wasp &amp; Hornet Removal<span class="mi-sep"></span></span>
+        <span class="marquee-item">Wildlife Exclusion<span class="mi-sep"></span></span>
+        <span class="marquee-item">Commercial Programs<span class="mi-sep"></span></span>
+    </div>
+    <div class="marquee-strip-2">
+        <div class="marquee-track rev">
+            <span class="marquee-item amber-item">Licensed &amp; Insured<span class="mi-sep"></span></span>
+            <span class="marquee-item amber-item">Results Guaranteed<span class="mi-sep"></span></span>
+            <span class="marquee-item amber-item">Same-Day Available<span class="mi-sep"></span></span>
+            <span class="marquee-item amber-item">24/7 Emergency Line<span class="mi-sep"></span></span>
+            <span class="marquee-item amber-item">No Contracts Required<span class="mi-sep"></span></span>
+            <span class="marquee-item amber-item">5-Star Google Rated<span class="mi-sep"></span></span>
+            <span class="marquee-item amber-item">Licensed &amp; Insured<span class="mi-sep"></span></span>
+            <span class="marquee-item amber-item">Results Guaranteed<span class="mi-sep"></span></span>
+            <span class="marquee-item amber-item">Same-Day Available<span class="mi-sep"></span></span>
+            <span class="marquee-item amber-item">24/7 Emergency Line<span class="mi-sep"></span></span>
+            <span class="marquee-item amber-item">No Contracts Required<span class="mi-sep"></span></span>
+            <span class="marquee-item amber-item">5-Star Google Rated<span class="mi-sep"></span></span>
+        </div>
+    </div>
+</div>
+
+<!-- GNAWED DIVIDER: navy → white services
+     div bg = destination (white), SVG fill = source (navy) -->
+<div class="gnaw" style="background:#F7F7F5;">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style="height:70px">
+        <path d="M0,35 Q20,5 40,35 Q60,65 80,35 Q100,5 120,35 Q140,65 160,35 Q180,5 200,35 Q220,65 240,35 Q260,5 280,35 Q300,65 320,35 Q340,5 360,35 Q380,65 400,35 Q420,5 440,35 Q460,65 480,35 Q500,5 520,35 Q540,65 560,35 Q580,5 600,35 Q620,65 640,35 Q660,5 680,35 Q700,65 720,35 Q740,5 760,35 Q780,65 800,35 Q820,5 840,35 Q860,65 880,35 Q900,5 920,35 Q940,65 960,35 Q980,5 1000,35 Q1020,65 1040,35 Q1060,5 1080,35 Q1100,65 1120,35 Q1140,5 1160,35 Q1180,65 1200,35 Q1220,5 1240,35 Q1260,65 1280,35 Q1300,5 1320,35 Q1340,65 1360,35 Q1380,5 1400,35 Q1420,65 1440,35 L1440,0 L0,0 Z" fill="#163569"/>
+    </svg>
+</div>
+
+<!-- ============================================================
+     SERVICES BENTO  —  WHITE BACKGROUND (huge contrast vs home.html)
+============================================================ -->
+<section class="services-section" id="services">
+    <div class="services-header">
+        <div class="section-label dark-label"><span class="dot"></span> What We Eliminate</div>
+        <h2 class="services-h2">Every Pest.<br>Completely Gone.</h2>
+        <p class="services-sub">Industrial-strength programs for every infestation — from minor sightings to full colony takeover.</p>
+    </div>
+
+    <div class="services-bento">
+        <!-- Featured: Rodent Control (2 col × 2 row) -->
+        <div class="sb-card sb-featured">
+            <div class="sb-icon">🐀</div>
+            <div class="sb-title">Rodent Control</div>
+            <p class="sb-desc">Comprehensive elimination of mice, rats, and ground squirrels — before they cause costly structural damage or contaminate your food supply. Our multi-point approach closes every gap they use.</p>
+            <ul class="sb-bullets">
+                <li>Multi-point interior baiting systems</li>
+                <li>Entry-point identification &amp; sealing</li>
+                <li>Population monitoring &amp; tracking</li>
+                <li>30-day follow-up inspection included</li>
+            </ul>
+            <a href="#contact" class="sb-link">Request Rodent Program ›</a>
+        </div>
+        <!-- Termite (amber) -->
+        <div class="sb-card sb-amber">
+            <div class="sb-icon">🪲</div>
+            <div class="sb-title">Termite Treatment</div>
+            <p class="sb-desc">Liquid barrier &amp; bait station programs with 10-year structural warranties on qualifying properties.</p>
+        </div>
+        <!-- Bed Bugs (navy) -->
+        <div class="sb-card sb-navy">
+            <div class="sb-icon">🛏️</div>
+            <div class="sb-title">Bed Bug Elimination</div>
+            <p class="sb-desc">Heat treatment and chemical application — guaranteed clearance in 1–2 visits, every time.</p>
+        </div>
+        <!-- Cockroach (light) -->
+        <div class="sb-card sb-light">
+            <div class="sb-icon">🪳</div>
+            <div class="sb-title">Cockroach Control</div>
+            <p class="sb-desc">Gel bait &amp; growth regulator programs targeting German, American, and Oriental species at the source.</p>
+        </div>
+        <!-- Ant Colony (light) -->
+        <div class="sb-card sb-light">
+            <div class="sb-icon">🐜</div>
+            <div class="sb-title">Ant &amp; Colony Control</div>
+            <p class="sb-desc">Baiting systems that eliminate the queen — not just the workers. Stops reinfestation at the colony level.</p>
+        </div>
+        <!-- Wasps — wide amber card -->
+        <div class="sb-card sb-amber sb-wide">
+            <div class="sb-icon">🐝</div>
+            <div class="sb-body">
+                <div class="sb-title">Wasp &amp; Hornet Removal</div>
+                <p class="sb-desc">Safe nest removal — ground nests, eave colonies, established hornet structures. Same-day service available.</p>
+            </div>
+        </div>
+        <!-- Mosquito (light) -->
+        <div class="sb-card sb-light">
+            <div class="sb-icon">🦟</div>
+            <div class="sb-title">Mosquito Barrier</div>
+            <p class="sb-desc">Monthly treatments that reduce populations by up to 90%. Enjoy your yard again, all season.</p>
+        </div>
+        <!-- Spider (navy) -->
+        <div class="sb-card sb-navy">
+            <div class="sb-icon">🕷️</div>
+            <div class="sb-title">Spider Control</div>
+            <p class="sb-desc">Perimeter &amp; interior treatments targeting black widows, hobo spiders, and common house varieties.</p>
+        </div>
+    </div>
+</section>
+
+<!-- GNAWED DIVIDER: white services → split section (cream residential) -->
+<div class="gnaw" style="background:#EFE7D3;">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style="height:70px">
+        <path d="M0,35 Q20,5 40,35 Q60,65 80,35 Q100,5 120,35 Q140,65 160,35 Q180,5 200,35 Q220,65 240,35 Q260,5 280,35 Q300,65 320,35 Q340,5 360,35 Q380,65 400,35 Q420,5 440,35 Q460,65 480,35 Q500,5 520,35 Q540,65 560,35 Q580,5 600,35 Q620,65 640,35 Q660,5 680,35 Q700,65 720,35 Q740,5 760,35 Q780,65 800,35 Q820,5 840,35 Q860,65 880,35 Q900,5 920,35 Q940,65 960,35 Q980,5 1000,35 Q1020,65 1040,35 Q1060,5 1080,35 Q1100,65 1120,35 Q1140,5 1160,35 Q1180,65 1200,35 Q1220,5 1240,35 Q1260,65 1280,35 Q1300,5 1320,35 Q1340,65 1360,35 Q1380,5 1400,35 Q1420,65 1440,35 L1440,0 L0,0 Z" fill="#F7F7F5"/>
+    </svg>
+</div>
+
+<!-- ============================================================
+     RESIDENTIAL / COMMERCIAL SPLIT
+     Diagonal CSS cut — entirely new section vs home.html
+============================================================ -->
+<section class="split-section" id="residential">
+    <div class="split-res" id="commercial">
+        <div class="split-tag">🏠 Residential Services</div>
+        <h3 class="split-h3">Your Home,<br>Pest-Free.</h3>
+        <p class="split-p">From single-family homes to apartment complexes, our residential programs are tailored to the specific pest pressures of your neighborhood, season, and construction type.</p>
+        <ul class="split-features">
+            <li>Interior &amp; exterior perimeter protection</li>
+            <li>Pet-safe and child-safe treatment options</li>
+            <li>Seasonal program adjustments</li>
+            <li>Re-treatment guarantee — no extra charge</li>
+            <li>Monthly or quarterly scheduling flexibility</li>
+        </ul>
+        <a href="#contact" class="btn-split-res">Get Residential Quote</a>
+    </div>
+    <div class="split-com">
+        <div class="split-tag">🏢 Commercial Programs</div>
+        <h3 class="split-h3">Protecting<br>Your Business.</h3>
+        <p class="split-p">One pest sighting can fail an inspection or damage your reputation overnight. Our commercial programs are built for compliance, discretion, and zero business disruption.</p>
+        <ul class="split-features">
+            <li>HACCP-compliant food-safe programs</li>
+            <li>Off-hours service — no downtime</li>
+            <li>Digital inspection logs &amp; compliance reports</li>
+            <li>Industry-specific protocols (hospitality, food service)</li>
+            <li>Dedicated account manager</li>
+        </ul>
+        <a href="#contact" class="btn-split-com">Talk to Commercial Team</a>
+    </div>
+</section>
+
+<!-- ZIGZAG DIVIDER: split section → dark process section -->
+<div style="height:24px; background: linear-gradient(135deg,#163569 25%,transparent 25%) -12px 0, linear-gradient(225deg,#163569 25%,transparent 25%) -12px 0, linear-gradient(315deg,#163569 25%,transparent 25%), linear-gradient(45deg,#163569 25%,transparent 25%); background-size:24px 24px; background-color:#0B1220;"></div>
+
+<!-- ============================================================
+     PROCESS — Numbered Timeline (vs 4 equal cards in home.html)
+============================================================ -->
+<section class="process-section" id="process">
+    <div class="process-header">
+        <div class="section-label"><span class="dot"></span> How It Works</div>
+        <h2 class="process-h2">Precision.<br>Every Step.</h2>
+        <p class="process-sub">Four deliberate steps — from your first call to guaranteed clearance. No guesswork, no upselling.</p>
+    </div>
+    <div class="process-timeline">
+        <div class="process-item">
+            <div class="pi-num">01</div>
+            <div class="pi-content">
+                <div class="pi-icon">📞</div>
+                <h3 class="pi-title">You Call. We Show Up.</h3>
+                <p class="pi-desc">Same-day or next-day appointments, guaranteed. No waiting weeks for a slot. Our dispatch confirms your window within 60 minutes of booking — and we mean it.</p>
+                <div class="pi-badge">⚡ Average response: 3.2 hours from booking</div>
+            </div>
+        </div>
+        <div class="process-item">
+            <div class="pi-num">02</div>
+            <div class="pi-content">
+                <div class="pi-icon">🔍</div>
+                <h3 class="pi-title">Deep Inspection &amp; ID.</h3>
+                <p class="pi-desc">Our certified technicians inspect every access point, harborage zone, and entry route. We identify species, severity, and contributing factors — then build a targeted plan on the spot.</p>
+                <div class="pi-badge">🎯 Species-specific identification protocol</div>
+            </div>
+        </div>
+        <div class="process-item">
+            <div class="pi-num">03</div>
+            <div class="pi-content">
+                <div class="pi-icon">⚗️</div>
+                <h3 class="pi-title">Treatment. No Mercy.</h3>
+                <p class="pi-desc">We deploy the right treatment for the right pest — baiting, chemical barriers, heat, exclusion, or a combination. All EPA-registered. All applied by licensed applicators.</p>
+                <div class="pi-badge">🛡 EPA-registered · State-licensed applicators</div>
+            </div>
+        </div>
+        <div class="process-item">
+            <div class="pi-num">04</div>
+            <div class="pi-content">
+                <div class="pi-icon">✅</div>
+                <h3 class="pi-title">Follow-Up &amp; Guarantee.</h3>
+                <p class="pi-desc">We return 30 days after treatment to verify clearance. If pests come back between visits, so do we — at zero additional cost. Your results are guaranteed, or we keep working.</p>
+                <div class="pi-badge">♾ Free re-treatment — no expiration</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- GNAWED DIVIDER: dark bg → surface-1 stats -->
+<div class="gnaw" style="background:#111C32;">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style="height:70px">
+        <path d="M0,35 Q20,5 40,35 Q60,65 80,35 Q100,5 120,35 Q140,65 160,35 Q180,5 200,35 Q220,65 240,35 Q260,5 280,35 Q300,65 320,35 Q340,5 360,35 Q380,65 400,35 Q420,5 440,35 Q460,65 480,35 Q500,5 520,35 Q540,65 560,35 Q580,5 600,35 Q620,65 640,35 Q660,5 680,35 Q700,65 720,35 Q740,5 760,35 Q780,65 800,35 Q820,5 840,35 Q860,65 880,35 Q900,5 920,35 Q940,65 960,35 Q980,5 1000,35 Q1020,65 1040,35 Q1060,5 1080,35 Q1100,65 1120,35 Q1140,5 1160,35 Q1180,65 1200,35 Q1220,5 1240,35 Q1260,65 1280,35 Q1300,5 1320,35 Q1340,65 1360,35 Q1380,5 1400,35 Q1420,65 1440,35 L1440,0 L0,0 Z" fill="#0B1220"/>
+    </svg>
+</div>
+
+<!-- ============================================================
+     STATS — Featured 98% + 3 secondary (different layout vs home.html)
+============================================================ -->
+<section class="stats-section">
+    <div class="stats-inner">
+        <div class="stats-hero-row">
+            <div class="stats-big-num">98%</div>
+            <div class="stats-big-body">
+                <div class="stats-big-label">First-Visit<br>Success Rate</div>
+                <div class="stats-big-sub">The industry average is 74%. Our precision identification and targeted treatment protocols resolve infestations on the first visit — not the third or fourth.</div>
+                <div class="stats-big-badge">🏆 Industry-leading clearance rate</div>
+            </div>
+        </div>
+        <div class="stats-secondary">
+            <div class="stat-card">
+                <div class="stat-card-num">15,000+</div>
+                <div class="stat-card-label">Infestations Cleared</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-num">&lt;3 hrs</div>
+                <div class="stat-card-label">Average Response Time</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-num">5 ★</div>
+                <div class="stat-card-label">Average Google Rating</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     EMERGENCY SECTION  —  New section, doesn't exist in home.html
+============================================================ -->
+<section class="emergency-section">
+    <div class="emrg-inner">
+        <div class="emrg-badge">🚨 Pest Emergency Line — Active 24/7</div>
+        <div class="emrg-subtitle">Active Infestation? Don't Wait.</div>
+        <div class="emrg-phone">(208) 555-PEST</div>
+        <p class="emrg-sub">Available 24 hours a day, 7 days a week · Same-day dispatch guaranteed · No extra charge for emergency calls</p>
+        <div class="emrg-ctas">
+            <a href="tel:2085550000" class="btn btn-white-danger btn-lg">📞 Call Now — We Answer</a>
+            <a href="#contact" class="btn btn-ghost-white btn-lg">Schedule Instead</a>
+        </div>
+    </div>
+</section>
+
+<!-- GNAWED DIVIDER: danger → testimonials surface-2 -->
+<div class="gnaw" style="background:#192640;">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style="height:70px">
+        <path d="M0,35 Q20,5 40,35 Q60,65 80,35 Q100,5 120,35 Q140,65 160,35 Q180,5 200,35 Q220,65 240,35 Q260,5 280,35 Q300,65 320,35 Q340,5 360,35 Q380,65 400,35 Q420,5 440,35 Q460,65 480,35 Q500,5 520,35 Q540,65 560,35 Q580,5 600,35 Q620,65 640,35 Q660,5 680,35 Q700,65 720,35 Q740,5 760,35 Q780,65 800,35 Q820,5 840,35 Q860,65 880,35 Q900,5 920,35 Q940,65 960,35 Q980,5 1000,35 Q1020,65 1040,35 Q1060,5 1080,35 Q1100,65 1120,35 Q1140,5 1160,35 Q1180,65 1200,35 Q1220,5 1240,35 Q1260,65 1280,35 Q1300,5 1320,35 Q1340,65 1360,35 Q1380,5 1400,35 Q1420,65 1440,35 L1440,0 L0,0 Z" fill="#E83B1A"/>
+    </svg>
+</div>
+
+<!-- ============================================================
+     TESTIMONIALS — Pull-quote + 2-col staggered grid
+============================================================ -->
+<section class="testimonials-section" id="testimonials">
+    <div class="testi-header">
+        <div class="section-label"><span class="dot"></span> Customer Reviews</div>
+        <h2 class="testi-h2">Real People.<br>Real Results.</h2>
+        <p class="testi-sub">Hundreds of Treasure Valley homeowners and businesses trust xPest.</p>
+    </div>
+
+    <!-- Large pull-quote featured testimonial -->
+    <div class="testi-featured">
+        <p class="tf-quote">"We had a severe German cockroach infestation in our restaurant kitchen. We'd tried two other exterminators over six months — neither solved the problem. xPest came in, identified harborage points we'd never seen, and had us clear within three weeks. Our health inspection came back perfect. I genuinely can't recommend them enough."</p>
+        <div class="tf-author">
+            <div class="tf-avatar">MR</div>
+            <div>
+                <div class="tf-name">Marco R.</div>
+                <div class="tf-role">Owner, Bella Vista Kitchen · Boise, ID</div>
+            </div>
+            <div class="tf-stars">★★★★★</div>
+        </div>
+    </div>
+
+    <!-- 2-column staggered grid -->
+    <div class="testi-grid">
+        <div class="tc">
+            <div class="tc-stars">★★★★★</div>
+            <p class="tc-quote">"Called at 7pm on a Friday about a wasp nest behind our dryer vent. They showed up next morning at 8am and had it done in 45 minutes. No drama, no upselling."</p>
+            <div class="tc-author">
+                <div class="tc-avatar">SL</div>
+                <div><div class="tc-name">Sarah L.</div><div class="tc-role">Homeowner · Eagle, ID</div></div>
+            </div>
+        </div>
+        <div class="tc offset">
+            <div class="tc-stars">★★★★★</div>
+            <p class="tc-quote">"Our property management company uses xPest across 11 units. Their digital reports make compliance documentation effortless. Finally found a vendor that treats our business like a real partner."</p>
+            <div class="tc-author">
+                <div class="tc-avatar">DH</div>
+                <div><div class="tc-name">Dana H.</div><div class="tc-role">Property Manager · Nampa, ID</div></div>
+            </div>
+        </div>
+        <div class="tc offset">
+            <div class="tc-stars">★★★★★</div>
+            <p class="tc-quote">"Bed bug nightmare after a hotel stay. xPest did heat treatment on a Tuesday and by Thursday I was sleeping easy. They walked me through everything and didn't make me feel embarrassed about it at all."</p>
+            <div class="tc-author">
+                <div class="tc-avatar">JT</div>
+                <div><div class="tc-name">Jordan T.</div><div class="tc-role">Renter · Meridian, ID</div></div>
+            </div>
+        </div>
+        <div class="tc">
+            <div class="tc-stars">★★★★★</div>
+            <p class="tc-quote">"xPest has kept our 4-unit commercial kitchen pest-free and compliant for two straight years. One failed health inspection would cost 10x what we pay annually. Worth every penny."</p>
+            <div class="tc-author">
+                <div class="tc-avatar">KP</div>
+                <div><div class="tc-name">Kevin P.</div><div class="tc-role">F&amp;B Director · Boise, ID</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     CTA + CONTACT  —  Combined into one section (unique to home-2)
+     Amber left panel / dark form right panel
+============================================================ -->
+<section class="ctacontact-section" id="contact">
+    <div class="cc-left">
+        <div class="cc-left-inner">
+            <div class="cc-overline">Take Back Your Space</div>
+            <h2 class="cc-h2">Stop<br>Sharing<br>Your<br>Home.</h2>
+            <p class="cc-p">A free inspection costs you nothing. An untreated infestation costs you everything. Book yours today.</p>
+            <div class="cc-phone">
+                <div class="cc-phone-icon">📞</div>
+                (208) 555-PEST
+            </div>
+            <div class="cc-trust">
+                <div class="cc-trust-item">Free inspection — no obligation</div>
+                <div class="cc-trust-item">Same-day appointments available</div>
+                <div class="cc-trust-item">Bonded &amp; fully insured</div>
+                <div class="cc-trust-item">Results guaranteed or we come back free</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cc-right">
+        <h3 class="cc-form-title">Request Free Inspection</h3>
+        <p class="cc-form-sub">We'll confirm your appointment within 60 minutes during business hours.</p>
+        <form class="cc-form" onsubmit="return false;">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" placeholder="John">
+                </div>
+                <div class="form-group">
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" placeholder="Smith">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" placeholder="(208) 555-0000">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="john@example.com">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address">Property Address</label>
+                <input type="text" id="address" placeholder="123 Main St, Boise, ID">
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="pest">Pest Type</label>
+                    <select id="pest">
+                        <option value="">Select pest...</option>
+                        <option>Rodents (mice / rats)</option>
+                        <option>Cockroaches</option>
+                        <option>Bed Bugs</option>
+                        <option>Termites</option>
+                        <option>Ants</option>
+                        <option>Wasps / Hornets</option>
+                        <option>Mosquitoes</option>
+                        <option>Spiders</option>
+                        <option>Wildlife</option>
+                        <option>Not sure / Multiple pests</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="urgency">Urgency</label>
+                    <select id="urgency">
+                        <option value="">Select timing...</option>
+                        <option>🚨 Emergency — today</option>
+                        <option>As soon as possible</option>
+                        <option>Within this week</option>
+                        <option>Scheduling ahead</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="notes">Additional Notes</label>
+                <textarea id="notes" rows="3" placeholder="Describe what you're seeing — location, frequency, any other details..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-amber btn-lg" style="width:100%; justify-content:center;">
+                Schedule My Free Inspection →
+            </button>
+        </form>
+    </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="site-footer">
+    <div class="footer-grid">
+        <div>
+            <div class="footer-logo"><img src="Assets/XPest.png" alt="xPest"></div>
+            <p class="footer-tagline">Industrial-grade pest elimination for homes and businesses across the Treasure Valley. Licensed, bonded, and results guaranteed.</p>
+            <div class="footer-badges">
+                <span class="f-badge">ID Lic. #12345</span>
+                <span class="f-badge">Bonded</span>
+                <span class="f-badge">EPA Certified</span>
+                <span class="f-badge">5-Star Rated</span>
+            </div>
+        </div>
+        <div>
+            <div class="footer-col-title">Services</div>
+            <ul class="footer-links">
+                <li><a href="#">Rodent Control</a></li>
+                <li><a href="#">Termite Treatment</a></li>
+                <li><a href="#">Bed Bug Elimination</a></li>
+                <li><a href="#">Cockroach Programs</a></li>
+                <li><a href="#">Mosquito Barrier</a></li>
+                <li><a href="#">Commercial Programs</a></li>
+            </ul>
+        </div>
+        <div>
+            <div class="footer-col-title">Company</div>
+            <ul class="footer-links">
+                <li><a href="#">About xPest</a></li>
+                <li><a href="#">Our Process</a></li>
+                <li><a href="#">Service Areas</a></li>
+                <li><a href="#">Reviews</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Careers</a></li>
+            </ul>
+        </div>
+        <div>
+            <div class="footer-col-title">Contact</div>
+            <div class="fci">
+                <span class="fci-icon">📞</span>
+                <div><a href="tel:2085550000">(208) 555-PEST</a><br><small style="color:var(--muted)">24/7 Emergency Line</small></div>
+            </div>
+            <div class="fci">
+                <span class="fci-icon">✉️</span>
+                <div><a href="mailto:hello@xpest.com">hello@xpest.com</a></div>
+            </div>
+            <div class="fci">
+                <span class="fci-icon">📍</span>
+                <div>Boise, Nampa, Meridian, Eagle, Caldwell &amp; all Treasure Valley</div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2026 xPest Pest Control. All rights reserved.</span>
+        <div style="display:flex; gap:1.5rem;">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Sitemap</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const nav = document.getElementById('site-nav');
+    window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+</script>
+
+</body>
+</html>
