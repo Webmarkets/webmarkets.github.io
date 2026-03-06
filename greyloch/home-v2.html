@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Greyloch — Custom Cabinetry | Meridian &amp; Star, Idaho</title>
+    <title>Greyloch, Custom Cabinetry | Meridian &amp; Star, Idaho</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
 
         /* =============================================
-           DESIGN TOKENS — same brand system
+           DESIGN TOKENS, same brand system
         ============================================== */
         :root {
             --green:          #009639;
@@ -60,7 +60,7 @@
         }
 
         /* =============================================
-           BUTTONS — sharp corners throughout (no border-radius)
+           BUTTONS, sharp corners throughout (no border-radius)
         ============================================== */
         .btn {
             display: inline-flex;
@@ -151,7 +151,7 @@
         }
         .nav-logo img { width: 148px; height: auto; display: block; }
 
-        /* Centered links — absolutely positioned to stay truly centered */
+        /* Centered links, absolutely positioned to stay truly centered */
         .nav-links {
             position: absolute;
             left: 50%;
@@ -206,7 +206,7 @@
 
 
         /* =============================================
-           HERO — SPLIT LAYOUT
+           HERO, SPLIT LAYOUT
            Left: full-height photo  |  Right: clean white typography
         ============================================== */
         .hero {
@@ -229,7 +229,7 @@
             object-fit: cover;
             object-position: center center;
         }
-        /* Green architectural stripe — references the building's green facade details */
+        /* Green architectural stripe, references the building's green facade details */
         .hero-photo::after {
             content: '';
             position: absolute;
@@ -237,7 +237,7 @@
             width: 4px;
             background: var(--green);
         }
-        /* Floating stats badge in photo — dark glass */
+        /* Floating stats badge in photo, dark glass */
         .hero-badge {
             position: absolute;
             bottom: 3rem;
@@ -276,7 +276,7 @@
             position: relative;
         }
 
-        /* Barrel vault arch — Greyloch's architectural brand motif */
+        /* Barrel vault arch, Greyloch's architectural brand motif */
         .hero-arch {
             position: absolute;
             inset: 0;
@@ -340,7 +340,7 @@
         }
         .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-        /* Location info — bottom right of content panel */
+        /* Location info, bottom right of content panel */
         .hero-location {
             position: absolute;
             bottom: 3.5rem;
@@ -359,7 +359,7 @@
         }
 
         /* =============================================
-           TICKER — Scrolling green brand strip
+           TICKER, Scrolling green brand strip
         ============================================== */
         .ticker {
             background: var(--green);
@@ -407,7 +407,7 @@
         }
 
         /* =============================================
-           STATEMENT — Editorial brand intro
+           STATEMENT, Editorial brand intro
            Left: vertical stats  |  Right: large quote + body
         ============================================== */
         .statement {
@@ -495,14 +495,14 @@
 
 
         /* =============================================
-           SERVICES — Large numbered row list
+           SERVICES, Large numbered row list
         ============================================== */
         .services {
             padding: 7rem 0 9rem;
             background: var(--bg-dark);
         }
 
-        /* Dark services — scoped color inversion */
+        /* Dark services, scoped color inversion */
         .services .eyebrow                 { color: var(--green); }
         .services .section-title           { color: var(--white); }
         .services .btn-outline             { color: rgba(255,255,255,0.75); border-color: rgba(255,255,255,0.25); }
@@ -589,7 +589,7 @@
 
 
         /* =============================================
-           WORK — Staggered editorial project panels
+           WORK, Staggered editorial project panels
            Alternating: photo | info (white), then info (dark) | photo
         ============================================== */
         .work {
@@ -686,7 +686,7 @@
 
 
         /* =============================================
-           PROCESS — Vertical timeline
+           PROCESS, Vertical timeline
            Left: sticky intro text  |  Right: steps
         ============================================== */
         .process {
@@ -764,7 +764,7 @@
 
 
         /* =============================================
-           TESTIMONIALS — 3 cards on dark background
+           TESTIMONIALS, 3 cards on dark background
         ============================================== */
         .testimonials {
             padding: 9rem 0;
@@ -871,7 +871,7 @@
 
 
         /* =============================================
-           CONTACT — Split layout with inline form
+           CONTACT, Split layout with inline form
         ============================================== */
         .contact {
             padding: 9rem 0;
@@ -981,7 +981,7 @@
 
 
         /* =============================================
-           FOOTER — Minimal dark, 2-row layout
+           FOOTER, Minimal dark, 2-row layout
         ============================================== */
         .footer {
             background: var(--bg-dark);
@@ -1141,7 +1141,7 @@
 
 
     <!-- =============================================
-         HERO — SPLIT LAYOUT
+         HERO, SPLIT LAYOUT
          Left: photo  |  Right: bold typography
     ============================================== -->
     <section class="hero" id="home">
@@ -1160,22 +1160,22 @@
 
         <div class="hero-content reveal">
 
-            <!-- Barrel vault arch — brand motif from Greyloch's Meridian HQ -->
+            <!-- Barrel vault arch, brand motif from Greyloch's Meridian HQ -->
             <div class="hero-arch" aria-hidden="true">
                 <svg viewBox="0 0 720 900" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Arch fill — the vault interior glow -->
+                    <!-- Arch fill, the vault interior glow -->
                     <path d="M -60 900 Q 360 60 780 900 Z" fill="rgba(0, 150, 57, 0.035)"/>
                     <!-- Primary arch curve -->
                     <path d="M -60 900 Q 360 60 780 900" stroke="rgba(0, 150, 57, 0.22)" stroke-width="1.5"/>
                     <!-- Inner echo ring -->
                     <path d="M 30 900 Q 360 160 690 900" stroke="rgba(0, 150, 57, 0.07)" stroke-width="8"/>
-                    <!-- Structural ribs — the steel frame -->
+                    <!-- Structural ribs, the steel frame -->
                     <line x1="145" y1="898" x2="183" y2="385" stroke="rgba(0,0,0,0.045)" stroke-width="1"/>
                     <line x1="280" y1="898" x2="303" y2="130" stroke="rgba(0,0,0,0.045)" stroke-width="1"/>
                     <line x1="360" y1="898" x2="360" y2="60"  stroke="rgba(0,0,0,0.045)" stroke-width="1"/>
                     <line x1="440" y1="898" x2="417" y2="130" stroke="rgba(0,0,0,0.045)" stroke-width="1"/>
                     <line x1="575" y1="898" x2="537" y2="385" stroke="rgba(0,0,0,0.045)" stroke-width="1"/>
-                    <!-- Horizontal ring lines — latitudinal bands -->
+                    <!-- Horizontal ring lines, latitudinal bands -->
                     <path d="M 10  850 Q 360 120 710 850" stroke="rgba(0,0,0,0.028)" stroke-width="1"/>
                     <path d="M 55  800 Q 360 210 665 800" stroke="rgba(0,0,0,0.018)" stroke-width="1"/>
                     <path d="M 115 740 Q 360 285 605 740" stroke="rgba(0,0,0,0.012)" stroke-width="1"/>
@@ -1190,7 +1190,7 @@
                 Quality.
             </h1>
             <div class="hero-divider"></div>
-            <p class="hero-desc">One of North America's most automated cabinet plants — producing 300+ custom cabinets per shift for builders, developers, and commercial contractors across the Treasure Valley and beyond.</p>
+            <p class="hero-desc">One of North America's most automated cabinet plants, producing 300+ custom cabinets per shift for builders, developers, and commercial contractors across the Treasure Valley and beyond.</p>
             <div class="hero-actions">
                 <a href="#contact" class="btn btn-primary">Become a Trade Partner</a>
                 <a href="#work" class="btn btn-outline">Tour Our Facility</a>
@@ -1205,7 +1205,7 @@
 
 
     <!-- =============================================
-         TICKER — Scrolling green brand strip
+         TICKER, Scrolling green brand strip
     ============================================== -->
     <div class="ticker" aria-hidden="true">
         <div class="ticker-track">
@@ -1255,7 +1255,7 @@
 
 
     <!-- =============================================
-         STATEMENT — Editorial brand intro
+         STATEMENT, Editorial brand intro
     ============================================== -->
     <section class="statement" id="about">
         <div class="container">
@@ -1285,8 +1285,8 @@
 
                 <div class="statement-right reveal delay-2">
                     <p class="statement-tag">Star, Idaho · Est. 1991</p>
-                    <h2 class="statement-quote">We don't just build cabinets — we build <em>at scale</em>.</h2>
-                    <p class="statement-body">Greyloch's 97,000 sq ft automated factory in Star, Idaho is one of the most advanced cabinet manufacturing facilities in North America. Equipped with German Homag machinery and a fully digital production workflow, we deliver consistent, custom-quality cabinets at the volume production builders and developers require — without sacrificing an inch of craftsmanship.</p>
+                    <h2 class="statement-quote">We don't just build cabinets, we build <em>at scale</em>.</h2>
+                    <p class="statement-body">Greyloch's 97,000 sq ft automated factory in Star, Idaho is one of the most advanced cabinet manufacturing facilities in North America. Equipped with German Homag machinery and a fully digital production workflow, we deliver consistent, custom-quality cabinets at the volume production builders and developers require, without sacrificing an inch of craftsmanship.</p>
                     <a href="#" class="btn btn-dark">About Our Facility &rarr;</a>
                 </div>
 
@@ -1296,7 +1296,7 @@
 
 
     <!-- =============================================
-         SERVICES — Numbered row list
+         SERVICES, Numbered row list
     ============================================== -->
     <section class="services" id="services">
         <div class="container">
@@ -1314,21 +1314,21 @@
                 <div class="service-row reveal">
                     <span class="service-num">01</span>
                     <span class="service-name">Production Home Builders</span>
-                    <span class="service-desc">Volume cabinet programs for spec and semi-custom home builders — consistent quality across every lot, every phase, on schedule.</span>
+                    <span class="service-desc">Volume cabinet programs for spec and semi-custom home builders, consistent quality across every lot, every phase, on schedule.</span>
                     <span class="service-arrow">Partner With Us &rarr;</span>
                 </div>
 
                 <div class="service-row reveal delay-1">
                     <span class="service-num">02</span>
                     <span class="service-name">Multi-Family &amp; Development</span>
-                    <span class="service-desc">Apartment complexes, condominiums, and mixed-use developments — we deliver at the volume and consistency that large projects demand.</span>
+                    <span class="service-desc">Apartment complexes, condominiums, and mixed-use developments, we deliver at the volume and consistency that large projects demand.</span>
                     <span class="service-arrow">Partner With Us &rarr;</span>
                 </div>
 
                 <div class="service-row reveal delay-2">
                     <span class="service-num">03</span>
                     <span class="service-name">Commercial Contractors</span>
-                    <span class="service-desc">Office build-outs, hospitality, healthcare — custom commercial cabinetry engineered and produced to tight specs and tighter schedules.</span>
+                    <span class="service-desc">Office build-outs, hospitality, healthcare, custom commercial cabinetry engineered and produced to tight specs and tighter schedules.</span>
                     <span class="service-arrow">Partner With Us &rarr;</span>
                 </div>
 
@@ -1342,7 +1342,7 @@
                 <div class="service-row reveal delay-4">
                     <span class="service-num">05</span>
                     <span class="service-name">Garage &amp; Specialty Storage</span>
-                    <span class="service-desc">High-performance garage cabinetry and organizational systems — built from the same production line as our residential and commercial work.</span>
+                    <span class="service-desc">High-performance garage cabinetry and organizational systems, built from the same production line as our residential and commercial work.</span>
                     <span class="service-arrow">Partner With Us &rarr;</span>
                 </div>
 
@@ -1352,7 +1352,7 @@
 
 
     <!-- =============================================
-         WORK — Staggered editorial project panels
+         WORK, Staggered editorial project panels
     ============================================== -->
     <section class="work" id="work">
         <div class="container">
@@ -1365,41 +1365,41 @@
             </div>
         </div>
 
-        <!-- Project 1 — photo left, info right (white bg) -->
+        <!-- Project 1, photo left, info right (white bg) -->
         <div class="project-item reveal">
             <div class="project-photo">
-                <img src="./Assets/Photos/1851WWinterCampCt-34.jpg" alt="Production builder kitchen program — Greyloch">
+                <img src="./Assets/Photos/1851WWinterCampCt-34.jpg" alt="Production builder kitchen program, Greyloch">
             </div>
             <div class="project-info">
                 <span class="project-category">Production Builder Program</span>
                 <h3 class="project-title">48-Home Kitchen<br>Cabinet Program</h3>
-                <p class="project-body">A Treasure Valley production builder needed 48 identical kitchen packages — consistent finishes, exact dimensions, delivered in phase with construction. Greyloch's automated line produced and staged every cabinet in under two weeks.</p>
+                <p class="project-body">A Treasure Valley production builder needed 48 identical kitchen packages, consistent finishes, exact dimensions, delivered in phase with construction. Greyloch's automated line produced and staged every cabinet in under two weeks.</p>
                 <a href="#" class="project-link">View Case Study &rarr;</a>
             </div>
         </div>
 
-        <!-- Project 2 — photo right, info left (dark bg) -->
+        <!-- Project 2, photo right, info left (dark bg) -->
         <div class="project-item reveal">
             <div class="project-photo">
-                <img src="./Assets/Photos/20250123_154530.jpg" alt="Multi-family storage systems — Greyloch">
+                <img src="./Assets/Photos/20250123_154530.jpg" alt="Multi-family storage systems, Greyloch">
             </div>
             <div class="project-info">
                 <span class="project-category">Multi-Family Development</span>
                 <h3 class="project-title">200-Unit Apartment<br>Cabinet Package</h3>
-                <p class="project-body">For a Boise-area developer, Greyloch supplied full kitchen, bath, and closet packages across a 200-unit multi-family complex — standardized quality, phased delivery, and zero rework from punch-out.</p>
+                <p class="project-body">For a Boise-area developer, Greyloch supplied full kitchen, bath, and closet packages across a 200-unit multi-family complex, standardized quality, phased delivery, and zero rework from punch-out.</p>
                 <a href="#" class="project-link">View Case Study &rarr;</a>
             </div>
         </div>
 
-        <!-- Project 3 — photo left, info right (white bg) -->
+        <!-- Project 3, photo left, info right (white bg) -->
         <div class="project-item reveal">
             <div class="project-photo">
-                <img src="./Assets/Photos/DSC_3469.jpg" alt="Commercial office cabinetry — Greyloch">
+                <img src="./Assets/Photos/DSC_3469.jpg" alt="Commercial office cabinetry, Greyloch">
             </div>
             <div class="project-info">
                 <span class="project-category">Commercial Build-Out</span>
                 <h3 class="project-title">Corporate Office<br>Cabinet Systems</h3>
-                <p class="project-body">A Class A office build-out in downtown Boise required floor-to-ceiling custom cabinetry throughout breakrooms, reception, and executive suites — engineered, produced, and installed in 18 days.</p>
+                <p class="project-body">A Class A office build-out in downtown Boise required floor-to-ceiling custom cabinetry throughout breakrooms, reception, and executive suites, engineered, produced, and installed in 18 days.</p>
                 <a href="#" class="project-link">View Case Study &rarr;</a>
             </div>
         </div>
@@ -1408,7 +1408,7 @@
 
 
     <!-- =============================================
-         PROCESS — Vertical timeline
+         PROCESS, Vertical timeline
     ============================================== -->
     <section class="process" id="process">
         <div class="container">
@@ -1417,7 +1417,7 @@
                 <div class="process-sticky reveal">
                     <span class="eyebrow">How Trade Ordering Works</span>
                     <h2 class="section-title" style="margin-bottom: 1.5rem; font-size: clamp(1.75rem, 2.5vw, 2.5rem);">Streamlined.<br>Scalable.<br>Simple.</h2>
-                    <p style="font-size: 0.95rem; color: var(--dark-grey); line-height: 1.8; max-width: 310px; margin-bottom: 2.75rem;">Our digital production workflow is built for trade partners — from account setup to job-site delivery, every step is engineered for speed and clarity.</p>
+                    <p style="font-size: 0.95rem; color: var(--dark-grey); line-height: 1.8; max-width: 310px; margin-bottom: 2.75rem;">Our digital production workflow is built for trade partners, from account setup to job-site delivery, every step is engineered for speed and clarity.</p>
                     <a href="#contact" class="btn btn-primary">Open a Trade Account</a>
                 </div>
 
@@ -1429,7 +1429,7 @@
                         </div>
                         <div class="step-content">
                             <h3 class="step-title">Open a Trade Account</h3>
-                            <p class="step-desc">Register as a Greyloch trade partner — builders, contractors, and developers receive priority scheduling, dedicated account support, and volume pricing from day one.</p>
+                            <p class="step-desc">Register as a Greyloch trade partner, builders, contractors, and developers receive priority scheduling, dedicated account support, and volume pricing from day one.</p>
                         </div>
                     </div>
 
@@ -1439,7 +1439,7 @@
                         </div>
                         <div class="step-content">
                             <h3 class="step-title">Submit Orders Digitally</h3>
-                            <p class="step-desc">Orders enter our system digitally — our software calculates optimal material layouts, generates cut files, and queues production automatically. No back-and-forth, no guesswork, no delays.</p>
+                            <p class="step-desc">Orders enter our system digitally, our software calculates optimal material layouts, generates cut files, and queues production automatically. No back-and-forth, no guesswork, no delays.</p>
                         </div>
                     </div>
 
@@ -1449,7 +1449,7 @@
                         </div>
                         <div class="step-content">
                             <h3 class="step-title">Automated Production</h3>
-                            <p class="step-desc">German Homag robotic saws cut, edge-band, drill, and install hardware — automatically. Our facility produces 300+ cabinets per shift with 7–9 workers on the floor and virtually zero defect variance.</p>
+                            <p class="step-desc">German Homag robotic saws cut, edge-band, drill, and install hardware, automatically. Our facility produces 300+ cabinets per shift with 7–9 workers on the floor and virtually zero defect variance.</p>
                         </div>
                     </div>
 
@@ -1459,7 +1459,7 @@
                         </div>
                         <div class="step-content">
                             <h3 class="step-title">Staged Delivery &amp; Install</h3>
-                            <p class="step-desc">Cabinets are assembled, boxed, and phased to your construction schedule — not a warehouse dump. Our installation teams work in coordination with your supers so every cabinet lands exactly when it's needed.</p>
+                            <p class="step-desc">Cabinets are assembled, boxed, and phased to your construction schedule, not a warehouse dump. Our installation teams work in coordination with your supers so every cabinet lands exactly when it's needed.</p>
                         </div>
                     </div>
 
@@ -1471,7 +1471,7 @@
 
 
     <!-- =============================================
-         TESTIMONIALS — 3 cards on dark background
+         TESTIMONIALS, 3 cards on dark background
     ============================================== -->
     <section class="testimonials">
         <div class="container">
@@ -1489,12 +1489,12 @@
                     <div class="testimonial-stars">
                         <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
                     </div>
-                    <p class="testimonial-text">Greyloch's facility is unlike anything I've seen in the industry. They delivered 280 cabinet packages across two phases in under three weeks — every single one on spec. It changed how we schedule cabinet work entirely.</p>
+                    <p class="testimonial-text">Greyloch's facility is unlike anything I've seen in the industry. They delivered 280 cabinet packages across two phases in under three weeks, every single one on spec. It changed how we schedule cabinet work entirely.</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">TM</div>
                         <div>
                             <div class="author-name">Tom M.</div>
-                            <div class="author-location">VP of Construction — Treasure Valley Builder</div>
+                            <div class="author-location">VP of Construction, Treasure Valley Builder</div>
                         </div>
                     </div>
                 </div>
@@ -1503,12 +1503,12 @@
                     <div class="testimonial-stars">
                         <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
                     </div>
-                    <p class="testimonial-text">We've standardized on Greyloch for all of our multi-family projects. The digital ordering system and consistent production quality gives us a competitive edge — our finish teams have zero callbacks on cabinetry.</p>
+                    <p class="testimonial-text">We've standardized on Greyloch for all of our multi-family projects. The digital ordering system and consistent production quality gives us a competitive edge, our finish teams have zero callbacks on cabinetry.</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">RL</div>
                         <div>
                             <div class="author-name">Ryan L.</div>
-                            <div class="author-location">Project Manager — Boise Multi-Family Developer</div>
+                            <div class="author-location">Project Manager, Boise Multi-Family Developer</div>
                         </div>
                     </div>
                 </div>
@@ -1517,12 +1517,12 @@
                     <div class="testimonial-stars">
                         <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
                     </div>
-                    <p class="testimonial-text">I've worked with cabinet suppliers across the Mountain West and Greyloch is in a different league. The automation means every unit is identical — critical for our 120-unit project. And their team treats your schedule like it's their schedule.</p>
+                    <p class="testimonial-text">I've worked with cabinet suppliers across the Mountain West and Greyloch is in a different league. The automation means every unit is identical, critical for our 120-unit project. And their team treats your schedule like it's their schedule.</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">SK</div>
                         <div>
                             <div class="author-name">Scott K.</div>
-                            <div class="author-location">General Contractor — Meridian, ID</div>
+                            <div class="author-location">General Contractor, Meridian, ID</div>
                         </div>
                     </div>
                 </div>
@@ -1533,7 +1533,7 @@
 
 
     <!-- =============================================
-         CONTACT — Split layout with inline quote form
+         CONTACT, Split layout with inline quote form
     ============================================== -->
     <section class="contact" id="contact">
         <div class="container">
@@ -1660,7 +1660,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p class="footer-copy">&copy; 2025 Greyloch LLC &mdash; All rights reserved</p>
+                <p class="footer-copy">&copy; 2025 Greyloch LLC  ·  All rights reserved</p>
                 <div class="footer-social">
                     <a href="#">Instagram</a>
                     <a href="#">Facebook</a>
