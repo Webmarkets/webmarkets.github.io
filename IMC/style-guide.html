@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMC Janitorial Services | Brand Style Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+
+    /* =============================================
+       VARIABLES
+    ============================================= */
+    :root {
+        --bg:           #EFF8FF;
+        --panel:        #FFFFFF;
+        --raised:       #E3F3FD;
+        --border:       #C4E4F5;
+        --border-lt:    #D8EFF9;
+        --blue:         #2BAEE5;
+        --blue-light:   #50C6F7;
+        --blue-dark:    #1589C4;
+        --blue-dim:     rgba(43, 174, 229, 0.1);
+        --blue-rule:    rgba(43, 174, 229, 0.28);
+        --yellow:       #F7C438;
+        --yellow-dim:   rgba(247, 196, 56, 0.15);
+        --yellow-dark:  #D4A420;
+        --dark:         #1C2228;
+        --dark-2:       #2E3C48;
+        --gray:         #5A7080;
+        --gray-lt:      #8AA0B0;
+        --white:        #FFFFFF;
+        --font-display: 'Poppins', sans-serif;
+        --font-body:    'Inter', sans-serif;
+        --font-mono:    'Space Mono', monospace;
+        --radius:       10px;
+        --radius-sm:    6px;
+        --radius-pill:  100px;
+        --ease:         all 0.3s ease;
+    }
+
+    /* =============================================
+       RESET & BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+        background: var(--bg);
+        color: var(--dark);
+        font-family: var(--font-body);
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* =============================================
+       SIGNATURE BACKGROUND — Sparkle Pattern
+       4-point stars like the ones in the IMC logo.
+       Celebrates "clean & sparkling" visually.
+    ============================================= */
+    body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cpath d='M36 6 L37.2 34.8 L66 36 L37.2 37.2 L36 66 L34.8 37.2 L6 36 L34.8 34.8 Z' fill='rgba(43%2C174%2C229%2C0.11)'/%3E%3C/svg%3E");
+        background-size: 72px 72px;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .layout { display: flex; min-height: 100vh; position: relative; z-index: 1; }
+
+    /* =============================================
+       SIDEBAR
+    ============================================= */
+    aside {
+        width: 264px;
+        background: var(--panel);
+        border-right: 2px solid var(--border);
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow-y: auto;
+        flex-shrink: 0;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    aside::-webkit-scrollbar { display: none; }
+    .sidebar-inner { padding: 2.25rem 1.875rem; }
+
+    /* Brand mark */
+    .brand-block { margin-bottom: 2rem; }
+
+    .brand-seal {
+        width: 56px;
+        height: 56px;
+        background: var(--blue-dim);
+        border: 2px solid var(--blue-rule);
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        position: relative;
+        overflow: hidden;
+    }
+    /* Swoosh inside brand seal */
+    .brand-seal::after {
+        content: '';
+        position: absolute;
+        bottom: 4px;
+        left: -8px;
+        right: -8px;
+        height: 10px;
+        background: var(--blue);
+        border-radius: 50%;
+        transform: rotate(-8deg);
+        opacity: 0.3;
+    }
+
+    .brand-name {
+        font-family: var(--font-display);
+        font-size: 1rem;
+        font-weight: 800;
+        color: var(--dark);
+        margin-bottom: 0.2rem;
+        letter-spacing: -0.01em;
+    }
+    .brand-tagline {
+        font-family: var(--font-mono);
+        font-size: 0.56rem;
+        letter-spacing: 0.18em;
+        color: var(--blue);
+        text-transform: uppercase;
+    }
+
+    /* Blue sparkle rule */
+    .spark-rule {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        margin: 1.5rem 0;
+    }
+    .spark-rule-line { flex: 1; height: 1px; background: var(--border); }
+    .spark-rule-icon { color: var(--blue); font-size: 0.55rem; flex-shrink: 0; }
+
+    /* Nav */
+    .nav-group { margin-bottom: 1.75rem; }
+    .nav-group-label {
+        font-family: var(--font-mono);
+        font-size: 0.56rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--gray-lt);
+        margin-bottom: 0.5rem;
+    }
+    .nav-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.35rem 0.625rem;
+        font-size: 0.875rem;
+        color: var(--gray);
+        border-radius: var(--radius-sm);
+        transition: var(--ease);
+        margin-bottom: 2px;
+    }
+    .nav-link::before {
+        content: '';
+        display: block;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--border);
+        flex-shrink: 0;
+        transition: var(--ease);
+    }
+    .nav-link:hover {
+        background: var(--blue-dim);
+        color: var(--blue-dark);
+    }
+    .nav-link:hover::before { background: var(--blue); }
+
+    /* =============================================
+       MAIN CONTENT
+    ============================================= */
+    main { flex: 1; padding: 4.5rem 5rem; max-width: 940px; }
+
+    /* =============================================
+       PAGE HEADER
+    ============================================= */
+    .page-header {
+        margin-bottom: 5rem;
+        position: relative;
+        padding-bottom: 3rem;
+    }
+    .page-header::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, var(--blue), var(--blue-light));
+        border-radius: var(--radius-pill);
+    }
+
+    .page-overline {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        text-transform: uppercase;
+        letter-spacing: 0.22em;
+        color: var(--blue);
+        margin-bottom: 1rem;
+    }
+
+    .page-title {
+        font-family: var(--font-display);
+        font-size: 3.2rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1.05;
+        color: var(--dark);
+        margin-bottom: 1.25rem;
+    }
+    .page-title .highlight {
+        color: var(--blue);
+        position: relative;
+        display: inline-block;
+    }
+    /* Underline swoosh on highlight */
+    .page-title .highlight::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--blue), var(--blue-light));
+        border-radius: var(--radius-pill);
+    }
+
+    .page-subtitle {
+        font-size: 1.05rem;
+        color: var(--gray);
+        max-width: 500px;
+        line-height: 1.8;
+    }
+
+    /* =============================================
+       SECTION STRUCTURE
+    ============================================= */
+    section { margin-bottom: 6rem; scroll-margin-top: 2rem; }
+
+    .section-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid var(--border);
+    }
+    .section-num {
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        color: var(--white);
+        background: var(--blue);
+        padding: 0.2rem 0.6rem;
+        border-radius: var(--radius-pill);
+    }
+    .section-title {
+        font-family: var(--font-display);
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: var(--dark);
+    }
+
+    /* Sparkle section divider */
+    .section-rule {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 4rem;
+    }
+    .section-rule-line { flex: 1; height: 1px; background: var(--border); }
+    .section-rule-spark { color: var(--blue); font-size: 0.7rem; flex-shrink: 0; }
+
+    /* =============================================
+       MISSION
+    ============================================= */
+    .mission-card {
+        background: var(--blue);
+        border-radius: var(--radius);
+        padding: 2.5rem 2.75rem;
+        position: relative;
+        overflow: hidden;
+    }
+    /* Sparkle watermark */
+    .mission-card::before {
+        content: '✦';
+        position: absolute;
+        right: 2rem;
+        top: 1.5rem;
+        font-size: 5rem;
+        color: rgba(255,255,255,0.1);
+        pointer-events: none;
+    }
+    .mission-card::after {
+        content: '✦';
+        position: absolute;
+        right: 5.5rem;
+        top: 0.75rem;
+        font-size: 2.5rem;
+        color: rgba(255,255,255,0.08);
+        pointer-events: none;
+    }
+    .mission-eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: rgba(255,255,255,0.7);
+        margin-bottom: 0.875rem;
+    }
+    .mission-text {
+        font-family: var(--font-display);
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #FFFFFF;
+        line-height: 1.6;
+        position: relative;
+        z-index: 1;
+        max-width: 540px;
+    }
+
+    /* =============================================
+       VOICE CARDS
+    ============================================= */
+    .voice-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem; }
+    .voice-card {
+        background: var(--panel);
+        border: 2px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.75rem;
+        transition: var(--ease);
+        position: relative;
+        overflow: hidden;
+    }
+    .voice-card::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--blue), var(--blue-light));
+        border-radius: var(--radius) var(--radius) 0 0;
+    }
+    .voice-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(43,174,229,0.15); }
+    .voice-emoji { font-size: 2rem; margin-bottom: 0.875rem; display: block; }
+    .voice-card h4 {
+        font-family: var(--font-display);
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--blue-dark);
+        margin-bottom: 0.625rem;
+    }
+    .voice-card p { font-size: 0.875rem; color: var(--gray); line-height: 1.75; }
+
+    /* =============================================
+       COLORS
+    ============================================= */
+    .color-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .swatch { cursor: pointer; }
+    .swatch-block {
+        height: 100px;
+        border-radius: var(--radius);
+        margin-bottom: 0.75rem;
+        border: 2px solid transparent;
+        position: relative;
+        overflow: hidden;
+        transition: var(--ease);
+    }
+    .swatch-block::after {
+        content: 'COPY';
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        letter-spacing: 0.15em;
+        color: rgba(255,255,255,0.85);
+        background: rgba(0,0,0,0.15);
+        opacity: 0;
+        transition: var(--ease);
+        border-radius: calc(var(--radius) - 2px);
+    }
+    .swatch:hover .swatch-block::after { opacity: 1; }
+    .swatch-name { font-family: var(--font-display); font-size: 0.8rem; font-weight: 700; color: var(--dark); margin-bottom: 0.2rem; }
+    .swatch-hex { font-family: var(--font-mono); font-size: 0.6rem; color: var(--gray-lt); text-transform: uppercase; }
+
+    /* =============================================
+       TYPOGRAPHY
+    ============================================= */
+    .type-block {
+        background: var(--panel);
+        border: 2px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2.25rem;
+        margin-bottom: 1.25rem;
+        position: relative;
+    }
+    /* Blue left accent */
+    .type-block::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; bottom: 0;
+        width: 3px;
+        background: linear-gradient(to bottom, var(--blue), var(--blue-light));
+        border-radius: var(--radius) 0 0 var(--radius);
+    }
+    .type-label {
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--gray-lt);
+        margin-bottom: 1rem;
+    }
+
+    /* =============================================
+       CORNER RADIUS DEMO
+    ============================================= */
+    .radius-row {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        background: var(--panel);
+        border: 2px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2rem 2.5rem;
+    }
+    .radius-box-wrap { text-align: center; }
+    .radius-box {
+        width: 72px;
+        height: 72px;
+        background: var(--blue);
+        margin: 0 auto 0.625rem;
+    }
+    .radius-tag {
+        font-family: var(--font-mono);
+        font-size: 0.58rem;
+        color: var(--gray);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+
+    /* =============================================
+       TEXTURE & PATTERN
+    ============================================= */
+    .texture-demo {
+        background: var(--panel);
+        border: 2px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2.5rem;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+    }
+    .texture-sparkle-overlay {
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cpath d='M36 6 L37.2 34.8 L66 36 L37.2 37.2 L36 66 L34.8 37.2 L6 36 L34.8 34.8 Z' fill='rgba(43%2C174%2C229%2C0.15)'/%3E%3C/svg%3E");
+        background-size: 72px 72px;
+    }
+    .texture-content { position: relative; z-index: 1; }
+
+    .code-tag {
+        display: inline-block;
+        background: var(--raised);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-pill);
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        color: var(--blue-dark);
+        padding: 0.2rem 0.75rem;
+        margin-right: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    /* Swoosh accent demo */
+    .swoosh-demo {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+        margin-top: 1.25rem;
+    }
+    .swoosh-sample {
+        background: var(--panel);
+        border: 2px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.5rem;
+        position: relative;
+        overflow: hidden;
+    }
+    /* The swoosh accent line */
+    .swoosh-sample::before {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: -20%;
+        right: -20%;
+        height: 28px;
+        background: var(--blue);
+        border-radius: 50%;
+        opacity: 0.12;
+    }
+
+    /* =============================================
+       BUTTONS
+    ============================================= */
+    .btn-showcase {
+        background: var(--panel);
+        border: 2px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .btn-note {
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        color: var(--gray-lt);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+    }
+
+    /* Primary — Sky Blue */
+    .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--blue);
+        color: #FFFFFF;
+        font-family: var(--font-display);
+        font-size: 0.9rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        padding: 0.875rem 2rem;
+        border: none;
+        border-radius: var(--radius-pill);
+        cursor: pointer;
+        transition: var(--ease);
+        box-shadow: 0 4px 18px rgba(43, 174, 229, 0.35);
+    }
+    .btn-primary:hover {
+        background: var(--blue-light);
+        box-shadow: 0 8px 28px rgba(43, 174, 229, 0.5);
+        transform: translateY(-2px);
+    }
+
+    /* Secondary — Yellow */
+    .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--yellow);
+        color: var(--dark);
+        font-family: var(--font-display);
+        font-size: 0.9rem;
+        font-weight: 700;
+        padding: 0.875rem 2rem;
+        border: none;
+        border-radius: var(--radius-pill);
+        cursor: pointer;
+        transition: var(--ease);
+        box-shadow: 0 4px 18px rgba(247, 196, 56, 0.35);
+    }
+    .btn-secondary:hover {
+        background: #FFD34E;
+        box-shadow: 0 8px 28px rgba(247, 196, 56, 0.5);
+        transform: translateY(-2px);
+    }
+
+    /* Outline — Blue */
+    .btn-outline {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: transparent;
+        color: var(--blue);
+        font-family: var(--font-display);
+        font-size: 0.9rem;
+        font-weight: 700;
+        padding: 0.875rem 2rem;
+        border: 2px solid var(--blue);
+        border-radius: var(--radius-pill);
+        cursor: pointer;
+        transition: var(--ease);
+    }
+    .btn-outline:hover { background: var(--blue-dim); }
+
+    /* Ghost — dark sections */
+    .btn-ghost {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: transparent;
+        color: var(--dark);
+        font-family: var(--font-display);
+        font-size: 0.9rem;
+        font-weight: 600;
+        padding: 0.875rem 2rem;
+        border: 2px solid rgba(28,34,40,0.2);
+        border-radius: var(--radius-pill);
+        cursor: pointer;
+        transition: var(--ease);
+    }
+    .btn-ghost:hover { border-color: var(--dark); background: rgba(28,34,40,0.06); }
+
+    /* =============================================
+       CARDS & PANELS
+    ============================================= */
+    .panel-card {
+        background: var(--panel);
+        border: 2px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2rem;
+        transition: var(--ease);
+    }
+    .panel-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(43,174,229,0.12); }
+
+    /* Service card */
+    .service-card {
+        background: var(--panel);
+        border: 2px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.875rem;
+        display: flex;
+        align-items: flex-start;
+        gap: 1.25rem;
+        transition: var(--ease);
+    }
+    .service-card:hover {
+        border-color: var(--blue-rule);
+        background: var(--raised);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(43,174,229,0.12);
+    }
+    .service-icon {
+        width: 52px;
+        height: 52px;
+        background: var(--blue-dim);
+        border: 2px solid var(--blue-rule);
+        border-radius: var(--radius);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        flex-shrink: 0;
+    }
+
+    /* Yellow accent card — for callouts */
+    .panel-card-yellow {
+        background: var(--yellow-dim);
+        border: 2px solid rgba(247,196,56,0.4);
+        border-radius: var(--radius);
+        padding: 2rem;
+        border-left: 4px solid var(--yellow);
+    }
+
+    .card-eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.58rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--blue-dark);
+        margin-bottom: 0.75rem;
+    }
+    .card-title {
+        font-family: var(--font-display);
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 0.625rem;
+    }
+    .card-text { font-size: 0.875rem; color: var(--gray); line-height: 1.75; }
+
+    /* Bubble badge — playful pill for stats */
+    .bubble-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        background: var(--blue);
+        color: #FFFFFF;
+        font-family: var(--font-display);
+        font-size: 0.8rem;
+        font-weight: 700;
+        padding: 0.375rem 1rem;
+        border-radius: var(--radius-pill);
+    }
+    .bubble-badge-yellow {
+        background: var(--yellow);
+        color: var(--dark);
+    }
+
+    /* =============================================
+       FORM ELEMENTS
+    ============================================= */
+    .form-wrap {
+        background: var(--panel);
+        border: 2px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2.25rem;
+        max-width: 500px;
+    }
+    .form-group { margin-bottom: 1.375rem; }
+    .form-label {
+        display: block;
+        font-family: var(--font-mono);
+        font-size: 0.58rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--gray);
+        margin-bottom: 0.45rem;
+    }
+    .form-input, .form-select, .form-textarea {
+        width: 100%;
+        background: var(--bg);
+        border: 2px solid var(--border);
+        border-radius: var(--radius-sm);
+        padding: 0.8rem 1rem;
+        color: var(--dark);
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        outline: none;
+        transition: var(--ease);
+        appearance: none;
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: rgba(90,112,128,0.4); }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+        border-color: var(--blue);
+        box-shadow: 0 0 0 4px rgba(43,174,229,0.12);
+    }
+    .form-select { cursor: pointer; }
+    .form-textarea { resize: vertical; }
+
+    /* =============================================
+       NAVIGATION PATTERNS
+    ============================================= */
+    .nav-service-card {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 1.375rem;
+        background: var(--panel);
+        border: 2px solid var(--border);
+        border-radius: var(--radius);
+        text-decoration: none;
+        color: inherit;
+        transition: var(--ease);
+        cursor: pointer;
+    }
+    .nav-service-card:hover {
+        border-color: var(--blue-rule);
+        background: var(--raised);
+        transform: translateX(4px);
+    }
+    .nav-service-icon {
+        width: 44px;
+        height: 44px;
+        background: var(--blue-dim);
+        border: 2px solid var(--blue-rule);
+        border-radius: var(--radius-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        flex-shrink: 0;
+    }
+    .nav-service-title {
+        font-family: var(--font-display);
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 0.1rem;
+    }
+    .nav-service-sub { font-size: 0.78rem; color: var(--gray-lt); }
+
+    /* =============================================
+       SOCIAL & ADS
+    ============================================= */
+    .ad-outer {
+        background: var(--panel);
+        border: 2px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.5rem;
+    }
+    .ad-label {
+        font-family: var(--font-mono);
+        font-size: 0.58rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--gray-lt);
+        margin-bottom: 1rem;
+    }
+    .ad-square {
+        aspect-ratio: 1;
+        background: var(--blue);
+        border-radius: var(--radius-sm);
+        position: relative;
+        overflow: hidden;
+        padding: 1.75rem;
+        display: flex;
+        flex-direction: column;
+    }
+    .ad-sparkle-bg {
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cpath d='M36 6 L37.2 34.8 L66 36 L37.2 37.2 L36 66 L34.8 37.2 L6 36 L34.8 34.8 Z' fill='rgba(255%2C255%2C255%2C0.1)'/%3E%3C/svg%3E");
+        background-size: 72px 72px;
+    }
+    /* Swoosh on ad */
+    .ad-swoosh {
+        position: absolute;
+        bottom: -12px;
+        left: -15%;
+        right: -15%;
+        height: 60px;
+        background: rgba(255,255,255,0.12);
+        border-radius: 50%;
+        transform: rotate(-3deg);
+    }
+    .ad-content { position: relative; z-index: 1; display: flex; flex-direction: column; height: 100%; }
+    .ad-sparkles { font-size: 1.25rem; margin-bottom: auto; letter-spacing: 0.2rem; }
+    .ad-headline {
+        font-family: var(--font-display);
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: #FFFFFF;
+        line-height: 1.15;
+        margin-bottom: 0.5rem;
+    }
+    .ad-sub { font-size: 0.75rem; color: rgba(255,255,255,0.8); margin-bottom: 0.5rem; }
+    .ad-url { font-family: var(--font-mono); font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.7); }
+
+    .ad-wide {
+        aspect-ratio: 1200/628;
+        background: var(--dark);
+        border-radius: var(--radius-sm);
+        position: relative;
+        overflow: hidden;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+    .ad-wide-sparkle {
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cpath d='M36 6 L37.2 34.8 L66 36 L37.2 37.2 L36 66 L34.8 37.2 L6 36 L34.8 34.8 Z' fill='rgba(43%2C174%2C229%2C0.07)'/%3E%3C/svg%3E");
+        background-size: 72px 72px;
+    }
+    .ad-wide-swoosh {
+        position: absolute;
+        top: 50%;
+        left: -5%;
+        right: -5%;
+        height: 200px;
+        transform: translateY(-50%) rotate(-8deg);
+        background: var(--blue);
+        opacity: 0.08;
+        border-radius: 50%;
+    }
+    .ad-wide-content { position: relative; z-index: 1; }
+
+    /* =============================================
+       IMAGERY
+    ============================================= */
+    .img-preview {
+        aspect-ratio: 16/9;
+        background: var(--raised);
+        border: 2px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        position: relative;
+        margin-bottom: 0.875rem;
+    }
+    .img-label {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: rgba(43,174,229,0.25);
+    }
+    .img-desc { font-size: 0.8rem; color: var(--gray); line-height: 1.65; }
+    .img-desc strong { color: var(--dark); }
+
+    /* =============================================
+       ANIMATIONS
+    ============================================= */
+    @keyframes sparkleFloat {
+        0%, 100% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.8; }
+        25% { transform: translateY(-6px) rotate(15deg) scale(1.1); opacity: 1; }
+        75% { transform: translateY(3px) rotate(-10deg) scale(0.95); opacity: 0.9; }
+    }
+    @keyframes sweepSlide {
+        0% { transform: translateX(-120%) rotate(-8deg); opacity: 0; }
+        40% { opacity: 1; }
+        100% { transform: translateX(120%) rotate(-8deg); opacity: 0; }
+    }
+    @keyframes bubblePop {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.08); box-shadow: 0 8px 28px rgba(43,174,229,0.45); }
+        100% { transform: scale(1); }
+    }
+
+    .anim-sparkle { animation: sparkleFloat 3s ease-in-out infinite; }
+    .anim-bubble { animation: bubblePop 2s ease-in-out infinite; }
+
+    .anim-card {
+        background: var(--panel);
+        border: 2px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.25rem;
+        min-height: 160px;
+        position: relative;
+        overflow: hidden;
+    }
+    .anim-label { font-family: var(--font-mono); font-size: 0.6rem; color: var(--gray-lt); text-transform: uppercase; letter-spacing: 0.12em; }
+
+    /* Sweep animation demo */
+    .anim-sweep-track {
+        width: 100%;
+        height: 40px;
+        background: var(--raised);
+        border-radius: var(--radius-pill);
+        position: relative;
+        overflow: hidden;
+    }
+    .anim-sweep-line {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, var(--blue), var(--blue-light), transparent);
+        border-radius: var(--radius-pill);
+        transform: translateY(-50%);
+        animation: sweepSlide 2.2s ease-in-out infinite;
+    }
+
+    /* =============================================
+       GLOWS & GRADIENTS
+    ============================================= */
+    .glow-card {
+        background: var(--panel);
+        border: 2px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        height: 150px;
+    }
+
+    /* =============================================
+       MASCOT / PENNY SECTION
+    ============================================= */
+    .mascot-card {
+        background: var(--panel);
+        border: 2px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 1.75rem;
+    }
+    .mascot-bubble {
+        width: 80px;
+        height: 80px;
+        background: var(--yellow-dim);
+        border: 2px solid rgba(247,196,56,0.4);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        flex-shrink: 0;
+    }
+
+    /* =============================================
+       COPY TOAST
+    ============================================= */
+    .copy-toast {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        background: var(--blue);
+        color: #FFFFFF;
+        padding: 0.7rem 1.5rem;
+        border-radius: var(--radius-pill);
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 0.875rem;
+        display: none;
+        z-index: 1000;
+        box-shadow: 0 8px 24px rgba(43,174,229,0.4);
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    footer {
+        margin-top: 8rem;
+        padding-top: 2rem;
+        border-top: 2px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    footer p { font-family: var(--font-mono); font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--gray-lt); }
+
+    /* =============================================
+       LAYOUT HELPERS
+    ============================================= */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem; }
+
+    @media (max-width: 1100px) { aside { display: none; } main { padding: 2.5rem; } }
+    @media (max-width: 640px) { .grid-2, .grid-3, .voice-grid, .color-grid { grid-template-columns: 1fr; } .page-title { font-size: 2.2rem; } }
+
+    </style>
+</head>
+<body>
+
+    <div class="layout">
+
+        <!-- =====================
+             SIDEBAR
+        ===================== -->
+        <aside>
+            <div class="sidebar-inner">
+
+                <div class="brand-block">
+                    <div class="brand-seal" aria-hidden="true">
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                            <!-- Sparkle star -->
+                            <path d="M14 2 L14.8 13.2 L26 14 L14.8 14.8 L14 26 L13.2 14.8 L2 14 L13.2 13.2 Z" fill="#2BAEE5"/>
+                            <path d="M22 5 L22.4 9.6 L27 10 L22.4 10.4 L22 15 L21.6 10.4 L17 10 L21.6 9.6 Z" fill="#4DC4F7" opacity="0.7"/>
+                        </svg>
+                    </div>
+                    <div class="brand-name">IMC Janitorial<br>Services</div>
+                    <div class="brand-tagline">Making It Clean ✦</div>
+                </div>
+
+                <div class="spark-rule">
+                    <div class="spark-rule-line"></div>
+                    <div class="spark-rule-icon">✦</div>
+                    <div class="spark-rule-line"></div>
+                </div>
+
+                <nav>
+                    <div class="nav-group">
+                        <p class="nav-group-label">Foundations</p>
+                        <a href="#mission" class="nav-link">Mission</a>
+                        <a href="#voice" class="nav-link">Voice & Tone</a>
+                        <a href="#colors" class="nav-link">Colors</a>
+                        <a href="#typography" class="nav-link">Typography</a>
+                        <a href="#radius" class="nav-link">Corner Radius</a>
+                        <a href="#texture" class="nav-link">Texture & Pattern</a>
+                    </div>
+                    <div class="nav-group">
+                        <p class="nav-group-label">Components</p>
+                        <a href="#buttons" class="nav-link">Buttons</a>
+                        <a href="#cards" class="nav-link">Cards & Panels</a>
+                        <a href="#forms" class="nav-link">Form Elements</a>
+                        <a href="#navigation" class="nav-link">Navigation</a>
+                    </div>
+                    <div class="nav-group">
+                        <p class="nav-group-label">Brand Assets</p>
+                        <a href="#mascot" class="nav-link">Mascot & Characters</a>
+                        <a href="#social" class="nav-link">Social & Ads</a>
+                        <a href="#imagery" class="nav-link">Imagery Style</a>
+                    </div>
+                    <div class="nav-group">
+                        <p class="nav-group-label">Special FX</p>
+                        <a href="#animations" class="nav-link">Animations</a>
+                        <a href="#glows" class="nav-link">Glows & Gradients</a>
+                    </div>
+                </nav>
+
+            </div>
+        </aside>
+
+        <!-- =====================
+             MAIN CONTENT
+        ===================== -->
+        <main>
+
+            <!-- PAGE HEADER -->
+            <header class="page-header">
+                <p class="page-overline">✦ IMC Janitorial Services</p>
+                <h1 class="page-title">Brand <span class="highlight">Style Guide</span></h1>
+                <p class="page-subtitle">
+                    Design standards, color palette, and creative direction for IMC — where clean spaces and fun energy go hand in hand.
+                </p>
+            </header>
+
+            <!-- =====================
+                 MISSION
+            ===================== -->
+            <section id="mission">
+                <div class="mission-card">
+                    <p class="mission-eyebrow">Our Mission ✦</p>
+                    <p class="mission-text">
+                        "Our mission is to provide cleaner spaces for our communities to thrive in."
+                    </p>
+                </div>
+            </section>
+
+            <!-- =====================
+                 VOICE & TONE
+            ===================== -->
+            <section id="voice">
+                <div class="section-header">
+                    <span class="section-num">01</span>
+                    <h2 class="section-title">Brand Voice & Tone</h2>
+                </div>
+                <div class="voice-grid">
+                    <div class="voice-card">
+                        <span class="voice-emoji">✨</span>
+                        <h4>Playful & Upbeat</h4>
+                        <p>We don't take ourselves too seriously — but we take cleanliness very seriously. Our copy is warm, fun, and approachable. Cartoon characters and a puppy mascot say it all.</p>
+                    </div>
+                    <div class="voice-card">
+                        <span class="voice-emoji">💪</span>
+                        <h4>Reliable & Professional</h4>
+                        <p>Fun doesn't mean sloppy. We show up, we deliver, and we leave every space sparkling. Our tone conveys quiet confidence — the kind that comes from a job well done.</p>
+                    </div>
+                    <div class="voice-card">
+                        <span class="voice-emoji">🏘️</span>
+                        <h4>Community-First</h4>
+                        <p>We're local, we care, and we're proud of it. We write like neighbors, not a corporation. Real people, real results, real clean spaces for communities to thrive in.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =====================
+                 COLORS
+            ===================== -->
+            <section id="colors">
+                <div class="section-header">
+                    <span class="section-num">02</span>
+                    <h2 class="section-title">Colors</h2>
+                </div>
+                <div class="color-grid">
+                    <div class="swatch" onclick="copyColor('#2BAEE5')">
+                        <div class="swatch-block" style="background:#2BAEE5;"></div>
+                        <p class="swatch-name">Sky Blue</p>
+                        <p class="swatch-hex">#2BAEE5 — Primary Brand</p>
+                    </div>
+                    <div class="swatch" onclick="copyColor('#4DC4F7')">
+                        <div class="swatch-block" style="background:#4DC4F7;"></div>
+                        <p class="swatch-name">Sparkle Blue</p>
+                        <p class="swatch-hex">#4DC4F7 — Highlights, Hover</p>
+                    </div>
+                    <div class="swatch" onclick="copyColor('#F7C438')">
+                        <div class="swatch-block" style="background:#F7C438;"></div>
+                        <p class="swatch-name">Clean Yellow</p>
+                        <p class="swatch-hex">#F7C438 — Accent, CTAs</p>
+                    </div>
+                    <div class="swatch" onclick="copyColor('#1C2228')">
+                        <div class="swatch-block" style="background:#1C2228; border:2px solid rgba(255,255,255,0.12);"></div>
+                        <p class="swatch-name">Charcoal</p>
+                        <p class="swatch-hex">#1C2228 — Text, Dark Elements</p>
+                    </div>
+                    <div class="swatch" onclick="copyColor('#EFF8FF')">
+                        <div class="swatch-block" style="background:#EFF8FF; border:2px solid #C4E4F5;"></div>
+                        <p class="swatch-name">Fresh Air</p>
+                        <p class="swatch-hex">#EFF8FF — Background</p>
+                    </div>
+                    <div class="swatch" onclick="copyColor('#FFFFFF')">
+                        <div class="swatch-block" style="background:#FFFFFF; border:2px solid #C4E4F5;"></div>
+                        <p class="swatch-name">Clean White</p>
+                        <p class="swatch-hex">#FFFFFF — Panels, Cards</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =====================
+                 TYPOGRAPHY
+            ===================== -->
+            <section id="typography">
+                <div class="section-header">
+                    <span class="section-num">03</span>
+                    <h2 class="section-title">Typography</h2>
+                </div>
+
+                <div class="type-block">
+                    <p class="type-label">Display — Poppins (700–800)</p>
+                    <h1 style="font-family:'Poppins',sans-serif; font-size:2.75rem; font-weight:800; line-height:1.1; letter-spacing:-0.02em; color:var(--dark);">
+                        Wonder What<br><span style="color:var(--blue);">Clean Really Looks Like?</span>
+                    </h1>
+                    <p style="font-size:0.8rem; color:var(--gray-lt); margin-top:1rem;">Usage: Hero headlines, service titles, CTAs, campaign headers.</p>
+                </div>
+
+                <div class="type-block">
+                    <p class="type-label">Body — Inter (400–600)</p>
+                    <p style="font-family:'Inter',sans-serif; font-size:1rem; line-height:1.85; color:var(--gray); max-width:580px;">
+                        Inter keeps body copy clean, accessible, and modern. Set at 1.75–1.85 line-height for comfortable reading. It pairs well with Poppins — the display font handles the personality, Inter handles the clarity.
+                    </p>
+                    <p style="font-size:0.8rem; color:var(--gray-lt); margin-top:1rem;">Usage: Service descriptions, blog posts, contact forms, FAQs.</p>
+                </div>
+
+                <div class="type-block">
+                    <p class="type-label">Mono — Space Mono (400)</p>
+                    <p style="font-family:'Space Mono',monospace; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.22em; color:var(--blue);">Service 01 // Commercial Cleaning // Boise, Idaho</p>
+                    <p style="font-size:0.8rem; color:var(--gray-lt); margin-top:1rem;">Usage: Section tags, overlines, phone numbers, data labels, form field labels.</p>
+                </div>
+
+                <!-- Headline scale -->
+                <div style="background:var(--panel); border:2px solid var(--border); border-radius:var(--radius); padding:2rem; margin-top:1.25rem;">
+                    <p class="type-label" style="margin-bottom:1.25rem;">Poppins Type Scale</p>
+                    <p style="font-family:'Poppins',sans-serif; font-size:3rem; font-weight:800; line-height:1; color:var(--dark); margin-bottom:0.5rem;">48px — Hero</p>
+                    <p style="font-family:'Poppins',sans-serif; font-size:2rem; font-weight:700; line-height:1.1; color:var(--dark-2); margin-bottom:0.5rem;">32px — Section Title</p>
+                    <p style="font-family:'Poppins',sans-serif; font-size:1.375rem; font-weight:700; color:var(--dark-2); margin-bottom:0.5rem;">22px — Card Title</p>
+                    <p style="font-family:'Poppins',sans-serif; font-size:1rem; font-weight:600; color:var(--gray);">16px — Button / Label</p>
+                </div>
+            </section>
+
+            <!-- =====================
+                 CORNER RADIUS
+            ===================== -->
+            <section id="radius">
+                <div class="section-header">
+                    <span class="section-num">04</span>
+                    <h2 class="section-title">Corner Radius</h2>
+                </div>
+                <div class="radius-row">
+                    <div class="radius-box-wrap">
+                        <div class="radius-box" style="border-radius:0;"></div>
+                        <p class="radius-tag">0px<br>Never</p>
+                    </div>
+                    <div class="radius-box-wrap">
+                        <div class="radius-box" style="border-radius:6px;"></div>
+                        <p class="radius-tag">6px<br>Inputs</p>
+                    </div>
+                    <div class="radius-box-wrap">
+                        <div class="radius-box" style="border-radius:10px;"></div>
+                        <p class="radius-tag">10px<br>Cards</p>
+                    </div>
+                    <div class="radius-box-wrap">
+                        <div class="radius-box" style="border-radius:100px; width:72px;"></div>
+                        <p class="radius-tag">Pill<br>Buttons, Badges</p>
+                    </div>
+                    <div style="flex:1; min-width:200px;">
+                        <p style="font-family:'Poppins',sans-serif; font-size:1rem; font-weight:700; color:var(--dark); margin-bottom:0.4rem;">Rounder = Friendlier</p>
+                        <p style="font-size:0.875rem; color:var(--gray); line-height:1.7;">IMC is a fun, approachable brand. Fully rounded pills on buttons and badges reinforce that warmth. Cards and panels use 10px for structure without feeling cold or corporate.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =====================
+                 TEXTURE & PATTERN
+            ===================== -->
+            <section id="texture">
+                <div class="section-header">
+                    <span class="section-num">05</span>
+                    <h2 class="section-title">Texture & Pattern</h2>
+                </div>
+
+                <div class="texture-demo">
+                    <div class="texture-sparkle-overlay" aria-hidden="true"></div>
+                    <div class="texture-content">
+                        <p style="font-family:'Space Mono',monospace; font-size:0.6rem; text-transform:uppercase; letter-spacing:0.22em; color:var(--blue); margin-bottom:0.875rem;">✦ The Sparkle Pattern</p>
+                        <h4 style="font-family:'Poppins',sans-serif; font-size:1.25rem; font-weight:700; margin-bottom:0.875rem; color:var(--dark);">Sparkling Clean. Literally.</h4>
+                        <p style="font-size:0.875rem; color:var(--gray); max-width:560px; line-height:1.75; margin-bottom:1.25rem;">
+                            The signature background texture uses 4-point sparkle stars — taken directly from the IMC logo's sparkle marks. At 11% opacity on the brand blue, they create a subtle "freshly polished" shimmer across every page. Clean, bright, alive.
+                        </p>
+                        <div>
+                            <span class="code-tag">pattern: 4-point star SVG</span>
+                            <span class="code-tag">size: 72px × 72px</span>
+                            <span class="code-tag">opacity: 11%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Swoosh accent demo -->
+                <div class="swoosh-demo">
+                    <div class="swoosh-sample">
+                        <p style="font-family:'Space Mono',monospace; font-size:0.58rem; text-transform:uppercase; letter-spacing:0.18em; color:var(--gray-lt); margin-bottom:0.625rem;">The Swoosh Accent</p>
+                        <p style="font-family:'Poppins',sans-serif; font-size:0.875rem; font-weight:600; color:var(--dark);">Inspired by the IMC logo's signature blue sweep. Used as a subtle background arc on hero sections, ad templates, and card hover states. Creates motion and energy.</p>
+                    </div>
+                    <div style="background:var(--panel); border:2px solid var(--border); border-radius:var(--radius); padding:1.5rem;">
+                        <p style="font-family:'Space Mono',monospace; font-size:0.58rem; text-transform:uppercase; letter-spacing:0.18em; color:var(--gray-lt); margin-bottom:0.625rem;">Blue on White Pattern</p>
+                        <p style="font-family:'Poppins',sans-serif; font-size:0.875rem; font-weight:600; color:var(--dark);">Sky blue sparkles on white panels. Used inside service cards and hero image overlays. Low opacity keeps it subtle; the pattern reinforces "clean" without distraction.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =====================
+                 BUTTONS
+            ===================== -->
+            <section id="buttons">
+                <div class="section-header">
+                    <span class="section-num">06</span>
+                    <h2 class="section-title">Buttons</h2>
+                </div>
+                <div class="grid-2">
+                    <div class="btn-showcase">
+                        <button class="btn-primary">
+                            ✦ Get a Free Quote
+                        </button>
+                        <p class="btn-note">Primary — Sky Blue Pill</p>
+                    </div>
+                    <div class="btn-showcase">
+                        <button class="btn-secondary">
+                            🧹 Book a Cleaning
+                        </button>
+                        <p class="btn-note">Secondary — Clean Yellow</p>
+                    </div>
+                </div>
+                <div class="grid-2" style="margin-top:1.25rem;">
+                    <div class="btn-showcase">
+                        <button class="btn-outline">Our Services →</button>
+                        <p class="btn-note">Outline — Blue Border</p>
+                    </div>
+                    <div class="btn-showcase">
+                        <button class="btn-ghost">Learn More</button>
+                        <p class="btn-note">Ghost — Subtle</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =====================
+                 CARDS & PANELS
+            ===================== -->
+            <section id="cards">
+                <div class="section-header">
+                    <span class="section-num">07</span>
+                    <h2 class="section-title">Cards & Panels</h2>
+                </div>
+
+                <!-- Service cards -->
+                <div class="grid-2" style="margin-bottom:1.25rem;">
+                    <div class="service-card">
+                        <div class="service-icon">🪟</div>
+                        <div>
+                            <p class="card-eyebrow">Window Cleaning</p>
+                            <p class="card-title">Streak-Free Shine</p>
+                            <p class="card-text">Crystal clear windows, inside and out. We leave no streaks, no smudges, just sparkling glass.</p>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🧺</div>
+                        <div>
+                            <p class="card-eyebrow">Floor & Carpet Care</p>
+                            <p class="card-title">Deep Clean, Top to Bottom</p>
+                            <p class="card-text">From hard floors to carpet fibers, we extract dirt that daily cleaning misses.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Standard + Yellow accent panels -->
+                <div class="grid-2" style="margin-bottom:1.25rem;">
+                    <div class="panel-card">
+                        <p class="card-eyebrow">Standard Panel</p>
+                        <h4 class="card-title">Commercial Cleaning</h4>
+                        <p class="card-text">Regular janitorial services tailored to your facility's schedule and needs. Consistent, reliable, professional.</p>
+                    </div>
+                    <div class="panel-card-yellow">
+                        <p class="card-eyebrow">✦ Featured / Highlight</p>
+                        <h4 class="card-title">Free Consultation</h4>
+                        <p class="card-text">Tell us about your space and we'll build a custom cleaning plan. No commitment, no pressure — just a conversation.</p>
+                    </div>
+                </div>
+
+                <!-- Bubble badges -->
+                <div style="background:var(--panel); border:2px solid var(--border); border-radius:var(--radius); padding:1.75rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
+                    <span class="bubble-badge">✦ New Client Special</span>
+                    <span class="bubble-badge bubble-badge-yellow">🧹 Free First Clean</span>
+                    <span class="bubble-badge" style="background:var(--dark);">Sister Co: Xpest</span>
+                    <span class="bubble-badge" style="background:var(--raised); color:var(--blue-dark); border:2px solid var(--blue-rule);">5 ★★★★★</span>
+                </div>
+            </section>
+
+            <!-- =====================
+                 FORM ELEMENTS
+            ===================== -->
+            <section id="forms">
+                <div class="section-header">
+                    <span class="section-num">08</span>
+                    <h2 class="section-title">Form Elements</h2>
+                </div>
+                <div class="form-wrap">
+                    <div class="form-group">
+                        <label class="form-label">Business Name</label>
+                        <input type="text" class="form-input" placeholder="Acme Office Co.">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone Number</label>
+                        <input type="tel" class="form-input" placeholder="(208) 555-0100">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Service Needed</label>
+                        <select class="form-select">
+                            <option>Commercial Cleaning</option>
+                            <option>Window Cleaning</option>
+                            <option>Floor & Carpet Care</option>
+                            <option>Exterior Power Washing</option>
+                            <option>Upholstery Cleaning</option>
+                            <option>High Dusting</option>
+                            <option>Pest Control (Xpest)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Tell Us About Your Space</label>
+                        <textarea class="form-textarea" rows="3" placeholder="Square footage, frequency, special requirements..."></textarea>
+                    </div>
+                    <button class="btn-primary" style="width:100%; justify-content:center;">✦ Get My Free Quote</button>
+                </div>
+            </section>
+
+            <!-- =====================
+                 NAVIGATION
+            ===================== -->
+            <section id="navigation">
+                <div class="section-header">
+                    <span class="section-num">09</span>
+                    <h2 class="section-title">Navigation</h2>
+                </div>
+                <div class="grid-2">
+                    <a class="nav-service-card" href="#">
+                        <div class="nav-service-icon">🪟</div>
+                        <div>
+                            <div class="nav-service-title">Window Cleaning</div>
+                            <div class="nav-service-sub">Interior & exterior glass</div>
+                        </div>
+                    </a>
+                    <a class="nav-service-card" href="#">
+                        <div class="nav-service-icon">🏢</div>
+                        <div>
+                            <div class="nav-service-title">Commercial Cleaning</div>
+                            <div class="nav-service-sub">Offices, retail, facilities</div>
+                        </div>
+                    </a>
+                    <a class="nav-service-card" href="#">
+                        <div class="nav-service-icon">💧</div>
+                        <div>
+                            <div class="nav-service-title">Power Washing</div>
+                            <div class="nav-service-sub">Exterior surfaces, first floor</div>
+                        </div>
+                    </a>
+                    <a class="nav-service-card" href="#">
+                        <div class="nav-service-icon">🧹</div>
+                        <div>
+                            <div class="nav-service-title">High Dusting</div>
+                            <div class="nav-service-sub">Hard-to-reach surfaces</div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- =====================
+                 MASCOT & CHARACTERS
+            ===================== -->
+            <section id="mascot">
+                <div class="section-header">
+                    <span class="section-num">10</span>
+                    <h2 class="section-title">Mascot & Characters</h2>
+                </div>
+
+                <div class="mascot-card" style="margin-bottom:1.25rem;">
+                    <div class="mascot-bubble">🐶</div>
+                    <div>
+                        <p class="card-eyebrow">Meet the Mascot</p>
+                        <h4 class="card-title" style="font-family:'Poppins',sans-serif;">Penny — The IMC Pup</h4>
+                        <p class="card-text">Penny is the heart of IMC's brand personality. A golden retriever puppy who appears in social posts, ads, and campaign materials. She embodies what we stand for: friendly, warm, and loveable — just like a freshly cleaned space. Penny makes us approachable.</p>
+                    </div>
+                </div>
+
+                <div class="panel-card">
+                    <p class="card-eyebrow">Brand Characters</p>
+                    <h4 class="card-title" style="font-family:'Poppins',sans-serif; margin-bottom:0.875rem;">The IMC Team — Cartoon Style</h4>
+                    <p class="card-text" style="margin-bottom:1rem;">IMC's custom cartoon character illustrations show the team in action — smiling, cleaning, and proud of their work. These illustrations are core brand assets. They appear on the website hero, social media, and printed materials. They signal: <em>we're real people who love what we do.</em></p>
+                    <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1rem;">
+                        <span class="code-tag">✅ Use in social posts</span>
+                        <span class="code-tag">✅ Hero sections</span>
+                        <span class="code-tag">✅ About page</span>
+                        <span class="code-tag">✅ Print/flyers</span>
+                        <span class="code-tag" style="background:rgba(220,0,0,0.06); border-color:rgba(220,0,0,0.2); color:#c00;">❌ Don't stretch or recolor</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =====================
+                 SOCIAL & ADS
+            ===================== -->
+            <section id="social">
+                <div class="section-header">
+                    <span class="section-num">11</span>
+                    <h2 class="section-title">Social & Ads</h2>
+                </div>
+                <div class="grid-2">
+
+                    <!-- Square ad -->
+                    <div class="ad-outer">
+                        <p class="ad-label">Instagram / Facebook (1080×1080)</p>
+                        <div class="ad-square">
+                            <div class="ad-sparkle-bg" aria-hidden="true"></div>
+                            <div class="ad-swoosh" aria-hidden="true"></div>
+                            <div class="ad-content">
+                                <div class="ad-sparkles">✦ ✦ ✦</div>
+                                <div>
+                                    <h3 class="ad-headline">Ever Wonder What Clean Really Looks Like?</h3>
+                                    <p class="ad-sub">Commercial cleaning, windows, floors & more.</p>
+                                    <p class="ad-url">IMC.Cleaning · (208) 760-5418</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wide ad -->
+                    <div class="ad-outer">
+                        <p class="ad-label">Facebook / LinkedIn Wide (1200×628)</p>
+                        <div class="ad-wide">
+                            <div class="ad-wide-sparkle" aria-hidden="true"></div>
+                            <div class="ad-wide-swoosh" aria-hidden="true"></div>
+                            <div class="ad-wide-content">
+                                <p style="font-family:'Space Mono',monospace; font-size:0.58rem; text-transform:uppercase; letter-spacing:0.2em; color:var(--blue-light); margin-bottom:0.625rem;">✦ Commercial Cleaning</p>
+                                <h3 style="font-family:'Poppins',sans-serif; font-size:1.6rem; font-weight:800; line-height:1.1; color:#FFFFFF; margin-bottom:0.875rem;">Cleaner Spaces.<br>Thriving Communities.</h3>
+                                <button class="btn-primary" style="font-size:0.8rem; padding:0.6rem 1.5rem;">Get a Free Quote ✦</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- =====================
+                 IMAGERY
+            ===================== -->
+            <section id="imagery">
+                <div class="section-header">
+                    <span class="section-num">12</span>
+                    <h2 class="section-title">Imagery Style</h2>
+                </div>
+                <div class="grid-3">
+                    <div>
+                        <div class="img-preview" style="background:linear-gradient(135deg, #E3F3FD, #FFFFFF);">
+                            <div class="img-label">Bright & Clean</div>
+                        </div>
+                        <p class="img-desc"><strong>Clean Spaces:</strong> Bright, high-key photos of freshly cleaned environments. Well-lit, crisp, and airy. Avoid dark or dingy "before" photos as hero imagery.</p>
+                    </div>
+                    <div>
+                        <div class="img-preview" style="background:linear-gradient(135deg, #FFF8E0, #FFFFFF);">
+                            <div class="img-label" style="color:rgba(247,196,56,0.4);">Team & People</div>
+                        </div>
+                        <p class="img-desc"><strong>Friendly Faces:</strong> Real team photos and cartoon illustrations. Smiling people holding equipment. Human-first photography that matches the cartoon character energy.</p>
+                    </div>
+                    <div>
+                        <div class="img-preview" style="background:linear-gradient(135deg, #E3F3FD, #EFF8FF);">
+                            <div class="img-label">✦ Before & After</div>
+                        </div>
+                        <p class="img-desc"><strong>Results:</strong> Side-by-side before/after shots are powerful proof. Show floors, windows, upholstery. The "after" should gleam — use a blue sparkle overlay to enhance brightness.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =====================
+                 ANIMATIONS
+            ===================== -->
+            <section id="animations">
+                <div class="section-header">
+                    <span class="section-num">13</span>
+                    <h2 class="section-title">Animations</h2>
+                </div>
+                <div class="grid-2">
+
+                    <div class="anim-card">
+                        <span class="anim-sparkle" style="font-size:2.5rem; color:var(--blue);">✦</span>
+                        <p class="anim-label">Sparkle Float — Icon & Badge Entrance</p>
+                    </div>
+
+                    <div class="anim-card">
+                        <div class="anim-sweep-track">
+                            <div class="anim-sweep-line"></div>
+                        </div>
+                        <p class="anim-label">Clean Sweep — Hero &amp; Loading States</p>
+                    </div>
+
+                    <div class="anim-card">
+                        <button class="btn-primary anim-bubble">✦ Get a Free Quote</button>
+                        <p class="anim-label">Bubble Pop — CTA Pulse on Idle</p>
+                    </div>
+
+                    <div class="anim-card" style="background:var(--blue); border-color:var(--blue);">
+                        <div style="display:flex; gap:0.5rem; align-items:center;">
+                            <span style="width:10px; height:10px; background:rgba(255,255,255,0.9); border-radius:50%; animation: bubblePop 1.2s ease-in-out infinite;"></span>
+                            <span style="width:10px; height:10px; background:rgba(255,255,255,0.9); border-radius:50%; animation: bubblePop 1.2s ease-in-out 0.3s infinite;"></span>
+                            <span style="width:10px; height:10px; background:rgba(255,255,255,0.9); border-radius:50%; animation: bubblePop 1.2s ease-in-out 0.6s infinite;"></span>
+                        </div>
+                        <p class="anim-label" style="color:rgba(255,255,255,0.7);">Bubble Dots — Loading &amp; Typing States</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- =====================
+                 GLOWS & GRADIENTS
+            ===================== -->
+            <section id="glows">
+                <div class="section-header">
+                    <span class="section-num">14</span>
+                    <h2 class="section-title">Glows & Gradients</h2>
+                </div>
+                <div class="grid-2">
+
+                    <div class="glow-card">
+                        <div style="position:absolute; top:-30px; right:-30px; width:180px; height:180px; background:rgba(43,174,229,0.18); border-radius:50%; filter:blur(55px);"></div>
+                        <div style="position:absolute; bottom:-10px; left:30px; width:100px; height:100px; background:rgba(77,196,247,0.12); border-radius:50%; filter:blur(38px);"></div>
+                        <p style="font-family:'Space Mono',monospace; font-size:0.65rem; color:var(--blue-dark); text-transform:uppercase; letter-spacing:0.1em; position:relative; z-index:1;">Blue Glow Bloom</p>
+                    </div>
+
+                    <div class="glow-card" style="background:var(--dark);">
+                        <h3 style="font-family:'Poppins',sans-serif; font-size:2rem; font-weight:800; background:linear-gradient(135deg, #4DC4F7 0%, #2BAEE5 50%, #1589C4 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Blue Gradient ✦</h3>
+                    </div>
+
+                </div>
+
+                <!-- Hero gradient band -->
+                <div style="margin-top:1.25rem; background:linear-gradient(135deg, var(--raised) 0%, #FFFFFF 50%, #EFF8FF 100%); border:2px solid var(--border); border-radius:var(--radius); padding:2rem; display:flex; align-items:center; gap:2rem; position:relative; overflow:hidden;">
+                    <!-- Mini swoosh -->
+                    <div style="position:absolute; bottom:-20px; left:-10%; right:-10%; height:60px; background:var(--blue); border-radius:50%; opacity:0.06;"></div>
+                    <div style="position:relative; z-index:1;">
+                        <p style="font-family:'Space Mono',monospace; font-size:0.6rem; text-transform:uppercase; letter-spacing:0.2em; color:var(--blue); margin-bottom:0.5rem;">Hero Background Gradient</p>
+                        <p style="font-size:0.875rem; color:var(--gray); line-height:1.65;">Light blue wash → White → Fresh Air blue. Direction: <strong style="color:var(--dark);">135deg</strong>. Used for hero sections and feature banners. Always keep it bright and airy — the page should feel freshly cleaned.</p>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <p>Internal Documentation &bull; 2026 IMC Janitorial Services</p>
+                <p>Prepared by WebMarkets ✦</p>
+            </footer>
+
+        </main>
+    </div>
+
+    <div class="copy-toast" id="copyToast">✦ Copied!</div>
+
+    <script>
+        function copyColor(hex) {
+            navigator.clipboard.writeText(hex).then(() => {
+                const t = document.getElementById('copyToast');
+                t.style.display = 'block';
+                setTimeout(() => { t.style.display = 'none'; }, 2000);
+            });
+        }
+    </script>
+
+</body>
+</html>
