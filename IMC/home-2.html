@@ -1,0 +1,3199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IMC Janitorial Services | Boise's Commercial Cleaning Team</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* =============================================
+       VARIABLES
+    ============================================= */
+      :root {
+        --bg: #eff8ff;
+        --panel: #ffffff;
+        --raised: #e3f3fd;
+        --border: #c4e4f5;
+        --blue: #2baee5;
+        --blue-light: #50c6f7;
+        --blue-dark: #1589c4;
+        --blue-dim: rgba(43, 174, 229, 0.1);
+        --blue-rule: rgba(43, 174, 229, 0.28);
+        --yellow: #f7c438;
+        --yellow-dim: rgba(247, 196, 56, 0.15);
+        --yellow-dark: #d4a420;
+        --dark: #1c2228;
+        --dark-2: #2e3c48;
+        --gray: #5a7080;
+        --gray-lt: #8aa0b0;
+        --white: #ffffff;
+        --font-display: "Poppins", sans-serif;
+        --font-body: "Inter", sans-serif;
+        --font-mono: "Space Mono", monospace;
+        --radius: 10px;
+        --radius-sm: 6px;
+        --radius-pill: 100px;
+        --radius-lg: 48px;
+        --ease: all 0.3s ease;
+        --max-w: 1380px;
+      }
+
+      /* =============================================
+       RESET & BASE
+    ============================================= */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--panel);
+        color: var(--dark);
+        font-family: var(--font-body);
+        font-size: 16px;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      /* Inner content wrapper */
+      .inner {
+        max-width: var(--max-w);
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+      }
+
+      /* Sparkle pattern helper */
+      .has-sparkles {
+        position: relative;
+      }
+      .has-sparkles::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cpath d='M36 6 L37.2 34.8 L66 36 L37.2 37.2 L36 66 L34.8 37.2 L6 36 L34.8 34.8 Z' fill='rgba(43%2C174%2C229%2C0.09)'/%3E%3C/svg%3E");
+        background-size: 72px 72px;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .has-sparkles > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* =============================================
+       BUTTONS
+    ============================================= */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 0.9rem;
+        letter-spacing: 0.01em;
+        border: none;
+        cursor: pointer;
+        border-radius: var(--radius-pill);
+        transition: var(--ease);
+        text-decoration: none;
+      }
+      .btn-yellow {
+        background: var(--yellow);
+        color: var(--dark);
+        padding: 0.9rem 2rem;
+        box-shadow: 0 4px 20px rgba(247, 196, 56, 0.4);
+      }
+      .btn-yellow:hover {
+        background: #ffd34e;
+        box-shadow: 0 8px 30px rgba(247, 196, 56, 0.55);
+        transform: translateY(-2px);
+      }
+      .btn-blue {
+        background: var(--blue);
+        color: #fff;
+        padding: 0.9rem 2rem;
+        box-shadow: 0 4px 20px rgba(43, 174, 229, 0.35);
+      }
+      .btn-blue:hover {
+        background: var(--blue-light);
+        box-shadow: 0 8px 30px rgba(43, 174, 229, 0.5);
+        transform: translateY(-2px);
+      }
+      .btn-outline-white {
+        background: transparent;
+        color: #fff;
+        padding: 0.85rem 1.875rem;
+        border: 2px solid rgba(255, 255, 255, 0.35);
+      }
+      .btn-outline-white:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.7);
+      }
+      .btn-outline-dark {
+        background: transparent;
+        color: var(--dark);
+        padding: 0.85rem 1.875rem;
+        border: 2px solid rgba(28, 34, 40, 0.25);
+      }
+      .btn-outline-dark:hover {
+        border-color: var(--dark);
+        background: rgba(28, 34, 40, 0.06);
+      }
+      .btn-lg {
+        padding: 1.05rem 2.5rem;
+        font-size: 1rem;
+      }
+      .btn-sm {
+        padding: 0.55rem 1.25rem;
+        font-size: 0.8rem;
+      }
+
+      /* Pulse CTA */
+      .btn-pulse {
+        animation: ctaPulse 2.4s ease-in-out infinite;
+      }
+      @keyframes ctaPulse {
+        0%,
+        100% {
+          transform: scale(1);
+          box-shadow: 0 4px 20px rgba(247, 196, 56, 0.4);
+        }
+        50% {
+          transform: scale(1.04);
+          box-shadow: 0 8px 30px rgba(247, 196, 56, 0.6);
+        }
+      }
+
+      /* =============================================
+       TOP BAR
+    ============================================= */
+      .top-bar {
+        background: var(--dark);
+        padding: 0.625rem 2rem;
+      }
+      .top-bar .inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .top-bar-left {
+        display: flex;
+        align-items: center;
+        gap: 0.875rem;
+      }
+      .hiring-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        background: var(--yellow);
+        color: var(--dark);
+        font-family: var(--font-mono);
+        font-size: 0.56rem;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-weight: 700;
+        padding: 0.25rem 0.75rem;
+        border-radius: var(--radius-pill);
+      }
+      .top-bar-divider {
+        width: 1px;
+        height: 14px;
+        background: rgba(255, 255, 255, 0.14);
+      }
+      .top-bar-text {
+        font-family: var(--font-mono);
+        font-size: 0.56rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .top-bar-phone {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 0.875rem;
+        color: var(--blue-light);
+        transition: var(--ease);
+      }
+      .top-bar-phone:hover {
+        color: #fff;
+      }
+
+      /* =============================================
+       NAV
+    ============================================= */
+      .site-nav {
+        background: transparent;
+        position: absolute;
+        top: 37px;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        padding: 0 2rem;
+      }
+      .site-nav .inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 72px;
+      }
+      .nav-logo img {
+        height: 44px;
+        width: auto;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        list-style: none;
+      }
+      .nav-links a {
+        font-family: var(--font-display);
+        font-weight: 600;
+        font-size: 0.875rem;
+        color: rgba(255, 255, 255, 0.75);
+        padding: 0.5rem 0.875rem;
+        border-radius: var(--radius-sm);
+        transition: var(--ease);
+      }
+      .nav-links a:hover {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .nav-cta {
+        display: flex;
+        align-items: center;
+        gap: 0.875rem;
+      }
+
+      /* Scrolled nav (sticky, white) */
+      .site-nav.scrolled {
+        position: fixed;
+        background: var(--panel);
+        border-bottom: 2px solid var(--border);
+        box-shadow: 0 2px 20px rgba(43, 174, 229, 0.08);
+        top: 0;
+      }
+      .site-nav.scrolled .nav-logo img {
+      }
+      .site-nav.scrolled .nav-links a {
+        color: var(--gray);
+      }
+      .site-nav.scrolled .nav-links a:hover {
+        color: var(--blue-dark);
+        background: var(--blue-dim);
+      }
+
+      /* =============================================
+       HERO (Dark, Cinematic, Full-height)
+    ============================================= */
+      .hero {
+        background: var(--dark);
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+      }
+      /* Ambient sparkle overlay */
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cpath d='M36 6 L37.2 34.8 L66 36 L37.2 37.2 L36 66 L34.8 37.2 L6 36 L34.8 34.8 Z' fill='rgba(43%2C174%2C229%2C0.06)'/%3E%3C/svg%3E");
+        background-size: 72px 72px;
+        pointer-events: none;
+        z-index: 0;
+      }
+      /* Radial glow behind image */
+      .hero-glow {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 55%;
+        height: 100%;
+        background: radial-gradient(
+          ellipse at 70% 50%,
+          rgba(43, 174, 229, 0.12) 0%,
+          transparent 65%
+        );
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .hero .inner {
+        display: grid;
+        grid-template-columns: 55fr 45fr;
+        min-height: 100vh;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-content {
+        padding: 10rem 4rem 8rem 5rem;
+      }
+      .hero-overline {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        border: 1px solid rgba(43, 174, 229, 0.35);
+        border-radius: var(--radius-pill);
+        padding: 0.35rem 1rem;
+        font-family: var(--font-mono);
+        font-size: 0.58rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--blue-light);
+        margin-bottom: 2rem;
+        background: rgba(43, 174, 229, 0.08);
+      }
+      .hero-title {
+        font-family: var(--font-display);
+        font-weight: 900;
+        letter-spacing: -0.04em;
+        line-height: 0.95;
+        color: #fff;
+        margin-bottom: 2rem;
+      }
+      .hero-title .line-sm {
+        display: block;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.4);
+        letter-spacing: -0.02em;
+        margin-bottom: 0.2rem;
+      }
+      .hero-title .line-lg {
+        display: block;
+        font-size: 5.25rem;
+      }
+      .hero-title .line-lg .accent {
+        color: var(--blue-light);
+      }
+      .hero-title .line-lg .spark-inline {
+        display: inline-block;
+        color: var(--yellow);
+        font-size: 3rem;
+        animation: sparkFloat 3s ease-in-out infinite;
+        vertical-align: top;
+        margin-top: 0.6rem;
+        margin-left: 0.25rem;
+      }
+      .hero-sub {
+        font-size: 1.05rem;
+        color: rgba(255, 255, 255, 0.55);
+        line-height: 1.85;
+        max-width: 440px;
+        margin-bottom: 2.25rem;
+      }
+      .hero-sub strong {
+        color: rgba(255, 255, 255, 0.85);
+      }
+      .hero-btns {
+        display: flex;
+        align-items: center;
+        gap: 0.875rem;
+        flex-wrap: wrap;
+        margin-bottom: 2.5rem;
+      }
+      .hero-pills {
+        display: flex;
+        align-items: center;
+        gap: 0.625rem;
+        flex-wrap: wrap;
+      }
+      .hero-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: var(--radius-pill);
+        padding: 0.3rem 0.875rem;
+        font-family: var(--font-display);
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.65);
+      }
+
+      /* Hero image panel */
+      .hero-image-panel {
+        align-self: stretch;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-image-panel img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+      }
+      /* Gradient blend: left and bottom edges */
+      .hero-image-panel::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 45%;
+        background: linear-gradient(to right, var(--dark), transparent);
+        z-index: 1;
+      }
+      .hero-image-panel::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 40%;
+        background: linear-gradient(to top, var(--dark), transparent);
+        z-index: 1;
+      }
+
+      /* Decorative sparkle cluster in top-right hero */
+      .hero-sparkles {
+        position: absolute;
+        top: 7rem;
+        right: 2rem;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.5rem;
+        pointer-events: none;
+      }
+      .hero-sparkles span {
+        color: var(--blue-light);
+        animation: sparkFloat 3s ease-in-out infinite;
+      }
+      .hero-sparkles span:nth-child(1) {
+        font-size: 1.5rem;
+        animation-delay: 0s;
+      }
+      .hero-sparkles span:nth-child(2) {
+        font-size: 0.7rem;
+        color: var(--yellow);
+        animation-delay: 0.8s;
+      }
+      .hero-sparkles span:nth-child(3) {
+        font-size: 1rem;
+        animation-delay: 1.6s;
+      }
+
+      /* Curved section bottom — white arc */
+      .hero-arc {
+        position: absolute;
+        bottom: -2px;
+        left: -5%;
+        right: -5%;
+        height: 100px;
+        background: var(--panel);
+        border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+        z-index: 2;
+      }
+
+      /* =============================================
+       FLOATING STATS CARD
+    ============================================= */
+      .stats-float-wrap {
+        background: var(--panel);
+        position: relative;
+        z-index: 10;
+        padding: 0 2rem;
+      }
+      .stats-float {
+        max-width: 1000px;
+        margin: -4rem auto 0;
+        background: var(--panel);
+        border: 2px solid var(--border);
+        border-radius: 20px;
+        box-shadow:
+          0 24px 80px rgba(0, 0, 0, 0.12),
+          0 4px 16px rgba(43, 174, 229, 0.08);
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        overflow: hidden;
+        position: relative;
+      }
+      /* Top accent line */
+      .stats-float::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          var(--blue),
+          var(--blue-light),
+          var(--yellow)
+        );
+      }
+      .stat-item {
+        padding: 2rem 1.5rem;
+        text-align: center;
+        position: relative;
+      }
+      .stat-item + .stat-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 20%;
+        bottom: 20%;
+        width: 1px;
+        background: var(--border);
+      }
+      .stat-num {
+        font-family: var(--font-display);
+        font-size: 2.75rem;
+        font-weight: 900;
+        letter-spacing: -0.03em;
+        color: var(--blue);
+        line-height: 1;
+        margin-bottom: 0.375rem;
+      }
+      .stat-num .stat-suffix {
+        font-size: 1.5rem;
+      }
+      .stat-label {
+        font-family: var(--font-mono);
+        font-size: 0.56rem;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: var(--gray-lt);
+      }
+      .stat-sub {
+        font-size: 0.78rem;
+        color: var(--gray);
+        margin-top: 0.2rem;
+      }
+
+      /* =============================================
+       SERVICES BENTO
+    ============================================= */
+      .services-section {
+        background: var(--panel);
+        padding: 6rem 2rem 5rem;
+      }
+      .services-section .inner {
+        padding: 0;
+      }
+      .section-eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.58rem;
+        text-transform: uppercase;
+        letter-spacing: 0.22em;
+        color: var(--blue);
+        margin-bottom: 0.875rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .section-title-xl {
+        font-family: var(--font-display);
+        font-size: 3rem;
+        font-weight: 900;
+        letter-spacing: -0.03em;
+        color: var(--dark);
+        line-height: 1.05;
+      }
+      .section-title-xl .accent {
+        color: var(--blue);
+      }
+      .section-sub-text {
+        font-size: 1rem;
+        color: var(--gray);
+        line-height: 1.8;
+        max-width: 520px;
+        margin-top: 0.875rem;
+      }
+      .services-header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 2rem;
+        margin-bottom: 2.5rem;
+        flex-wrap: wrap;
+      }
+
+      /* Bento Grid */
+      .bento {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 220px 220px 140px;
+        gap: 1rem;
+      }
+
+      /* Feature card — Office & Commercial (2×2) */
+      .bento-feature {
+        grid-column: span 2;
+        grid-row: span 2;
+        background: var(--dark);
+        border-radius: 16px;
+        padding: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        position: relative;
+        overflow: hidden;
+        cursor: default;
+        transition: var(--ease);
+      }
+      .bento-feature:hover {
+        transform: scale(1.01);
+      }
+      /* Ambient sparkle on dark card */
+      .bento-feature::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cpath d='M36 6 L37.2 34.8 L66 36 L37.2 37.2 L36 66 L34.8 37.2 L6 36 L34.8 34.8 Z' fill='rgba(43%2C174%2C229%2C0.08)'/%3E%3C/svg%3E");
+        background-size: 72px 72px;
+      }
+      /* Big ghost icon in corner */
+      .bento-feature::after {
+        content: "🏢";
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        font-size: 4rem;
+        opacity: 0.15;
+        pointer-events: none;
+      }
+      .bento-feature-body {
+        position: relative;
+        z-index: 1;
+      }
+      .bento-feature-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        background: var(--yellow);
+        color: var(--dark);
+        font-family: var(--font-mono);
+        font-size: 0.55rem;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-weight: 700;
+        padding: 0.25rem 0.75rem;
+        border-radius: var(--radius-pill);
+        margin-bottom: 1rem;
+      }
+      .bento-feature-title {
+        font-family: var(--font-display);
+        font-size: 1.625rem;
+        font-weight: 800;
+        color: #fff;
+        letter-spacing: -0.02em;
+        margin-bottom: 0.75rem;
+      }
+      .bento-feature-text {
+        font-size: 0.875rem;
+        color: rgba(255, 255, 255, 0.6);
+        line-height: 1.75;
+        max-width: 300px;
+      }
+      .bento-feature-glow {
+        position: absolute;
+        top: -60px;
+        left: -60px;
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(
+          circle,
+          rgba(43, 174, 229, 0.2) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+      }
+
+      /* Standard bento card */
+      .bento-card {
+        background: var(--bg);
+        border: 2px solid var(--border);
+        border-radius: 16px;
+        padding: 1.75rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: var(--ease);
+        position: relative;
+        overflow: hidden;
+        cursor: default;
+      }
+      .bento-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--blue), var(--blue-light));
+        border-radius: 16px 16px 0 0;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+      }
+      .bento-card:hover {
+        border-color: var(--blue-rule);
+        background: #fff;
+        transform: translateY(-4px);
+        box-shadow: 0 12px 36px rgba(43, 174, 229, 0.12);
+      }
+      .bento-card:hover::before {
+        transform: scaleX(1);
+      }
+      .bento-icon {
+        font-size: 2rem;
+        margin-bottom: 0.875rem;
+        display: block;
+      }
+      .bento-card-title {
+        font-family: var(--font-display);
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 0.375rem;
+      }
+      .bento-card-text {
+        font-size: 0.8rem;
+        color: var(--gray);
+        line-height: 1.7;
+      }
+      .bento-tag {
+        display: inline-flex;
+        align-items: center;
+        font-family: var(--font-mono);
+        font-size: 0.52rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--blue-dark);
+        background: var(--raised);
+        border: 1px solid var(--border);
+        padding: 0.2rem 0.6rem;
+        border-radius: var(--radius-pill);
+        margin-top: auto;
+        padding-top: 0.875rem;
+        padding-bottom: 0;
+        border: none;
+        background: none;
+        padding-left: 0;
+      }
+
+      /* Wide Xpest card */
+      .bento-wide {
+        grid-column: span 4;
+        background: var(--dark);
+        border-radius: 16px;
+        padding: 2rem 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        position: relative;
+        overflow: hidden;
+        cursor: default;
+        transition: var(--ease);
+      }
+      .bento-wide:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+      }
+      .bento-wide::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cpath d='M36 6 L37.2 34.8 L66 36 L37.2 37.2 L36 66 L34.8 37.2 L6 36 L34.8 34.8 Z' fill='rgba(43%2C174%2C229%2C0.06)'/%3E%3C/svg%3E");
+        background-size: 72px 72px;
+      }
+      .bento-wide-content {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        position: relative;
+        z-index: 1;
+      }
+      .bento-wide-icon {
+        width: 52px;
+        height: 52px;
+        background: rgba(43, 174, 229, 0.15);
+        border: 1.5px solid rgba(43, 174, 229, 0.3);
+        border-radius: var(--radius);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        flex-shrink: 0;
+      }
+      .bento-wide-title {
+        font-family: var(--font-display);
+        font-size: 1.2rem;
+        font-weight: 800;
+        color: #fff;
+        margin-bottom: 0.2rem;
+      }
+      .bento-wide-sub {
+        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .bento-wide-badge {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: var(--radius-pill);
+        padding: 0.3rem 1rem;
+        font-family: var(--font-mono);
+        font-size: 0.55rem;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      /* =============================================
+       NO CONTRACTS — YELLOW, MASSIVE TYPE
+    ============================================= */
+      .nc-section {
+        background: var(--yellow);
+        padding: 6rem 2rem 5rem;
+        position: relative;
+        z-index: 3;
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        margin-top: -3rem;
+        overflow: hidden;
+      }
+      /* Ambient sparkle on yellow */
+      .nc-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cpath d='M36 6 L37.2 34.8 L66 36 L37.2 37.2 L36 66 L34.8 37.2 L6 36 L34.8 34.8 Z' fill='rgba(28%2C34%2C40%2C0.06)'/%3E%3C/svg%3E");
+        background-size: 72px 72px;
+      }
+      .nc-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+      .nc-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+      .nc-headline {
+        font-family: var(--font-display);
+        font-weight: 900;
+        letter-spacing: -0.04em;
+        line-height: 0.9;
+        color: var(--dark);
+      }
+      .nc-headline .nc-and {
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        color: rgba(28, 34, 40, 0.35);
+        letter-spacing: 0.02em;
+        margin-bottom: 0.25rem;
+      }
+      .nc-headline .nc-main {
+        display: block;
+        font-size: 6.5rem;
+        line-height: 0.9;
+      }
+      .nc-headline .nc-contracts {
+        display: block;
+        font-size: 4.5rem;
+      }
+      .nc-ever-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--dark);
+        color: #fff;
+        font-family: var(--font-display);
+        font-size: 1.125rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        padding: 0.5rem 1.5rem;
+        border-radius: var(--radius-pill);
+        margin-top: 1.25rem;
+      }
+      .nc-right {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .nc-statement {
+        font-family: var(--font-display);
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: var(--dark-2);
+        line-height: 1.7;
+      }
+      .nc-statement em {
+        font-style: italic;
+        font-weight: 800;
+        color: var(--dark);
+      }
+      .nc-checks {
+        display: flex;
+        flex-direction: column;
+        gap: 0.625rem;
+      }
+      .nc-check {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--dark-2);
+      }
+      .nc-check-dot {
+        width: 22px;
+        height: 22px;
+        background: var(--dark);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--yellow);
+        font-size: 0.65rem;
+        flex-shrink: 0;
+      }
+
+      /* =============================================
+       ABOUT SECTION
+    ============================================= */
+      .about-section {
+        background: var(--panel);
+        padding: 6rem 2rem;
+        position: relative;
+        z-index: 4;
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        margin-top: -3rem;
+        overflow: hidden;
+      }
+      /* Giant ghost text in background */
+      .about-ghost {
+        position: absolute;
+        font-family: var(--font-display);
+        font-size: 22rem;
+        font-weight: 900;
+        color: var(--dark);
+        opacity: 0.025;
+        letter-spacing: -0.06em;
+        pointer-events: none;
+        top: 50%;
+        left: -3%;
+        transform: translateY(-50%);
+        line-height: 1;
+        white-space: nowrap;
+        user-select: none;
+      }
+      .about-layout {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+      .about-image-wrap {
+        position: relative;
+      }
+      .about-image-card {
+        border-radius: 20px;
+        overflow: hidden;
+        border: 2px solid var(--border);
+        box-shadow: 0 24px 80px rgba(43, 174, 229, 0.12);
+      }
+      .about-image-card img {
+        width: 100%;
+        display: block;
+      }
+      /* Overlapping stat cards on image */
+      .about-stat-overlay {
+        position: absolute;
+        bottom: -1.5rem;
+        right: -1.5rem;
+        background: var(--dark);
+        border-radius: 16px;
+        padding: 1.25rem 1.625rem;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+      }
+      .about-stat-overlay-num {
+        font-family: var(--font-display);
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: var(--yellow);
+        line-height: 1;
+      }
+      .about-stat-overlay-label {
+        font-family: var(--font-mono);
+        font-size: 0.55rem;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: rgba(255, 255, 255, 0.5);
+        margin-top: 0.25rem;
+      }
+      .about-stat-overlay-2 {
+        position: absolute;
+        top: -1.25rem;
+        left: -1.25rem;
+        background: var(--blue);
+        border-radius: 16px;
+        padding: 1rem 1.375rem;
+        box-shadow: 0 12px 40px rgba(43, 174, 229, 0.35);
+      }
+      .about-stat-overlay-2 .about-stat-overlay-num {
+        color: #fff;
+        font-size: 2rem;
+      }
+      .about-stat-overlay-2 .about-stat-overlay-label {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .about-content .section-eyebrow {
+        margin-bottom: 0.875rem;
+      }
+      .about-title {
+        font-family: var(--font-display);
+        font-size: 2.625rem;
+        font-weight: 900;
+        letter-spacing: -0.03em;
+        color: var(--dark);
+        line-height: 1.1;
+        margin-bottom: 1.25rem;
+      }
+      .about-title .accent {
+        color: var(--blue);
+      }
+      .about-body {
+        font-size: 0.95rem;
+        color: var(--gray);
+        line-height: 1.85;
+        margin-bottom: 1.5rem;
+      }
+      .about-checks {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.625rem;
+        margin-bottom: 2rem;
+      }
+      .about-check-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 0.9rem;
+        color: var(--dark-2);
+        font-weight: 500;
+      }
+      .about-check-dot {
+        width: 22px;
+        height: 22px;
+        background: var(--blue-dim);
+        border: 2px solid var(--blue-rule);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.6rem;
+        color: var(--blue-dark);
+        flex-shrink: 0;
+      }
+      .about-stat-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+      .about-mini-stat {
+        background: var(--bg);
+        border: 2px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1rem;
+        text-align: center;
+      }
+      .about-mini-num {
+        font-family: var(--font-display);
+        font-size: 1.75rem;
+        font-weight: 900;
+        color: var(--blue);
+        line-height: 1;
+        margin-bottom: 0.2rem;
+      }
+      .about-mini-label {
+        font-family: var(--font-mono);
+        font-size: 0.52rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--gray-lt);
+      }
+
+      /* =============================================
+       WHO WE SERVE — Asymmetric Grid
+    ============================================= */
+      .serve-section {
+        background: var(--bg);
+        padding: 6rem 2rem;
+        position: relative;
+        z-index: 3;
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        margin-top: -3rem;
+      }
+      .serve-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cpath d='M36 6 L37.2 34.8 L66 36 L37.2 37.2 L36 66 L34.8 37.2 L6 36 L34.8 34.8 Z' fill='rgba(43%2C174%2C229%2C0.09)'/%3E%3C/svg%3E");
+        background-size: 72px 72px;
+      }
+      .serve-layout {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+      .serve-big-num {
+        font-family: var(--font-display);
+        font-size: 9rem;
+        font-weight: 900;
+        letter-spacing: -0.05em;
+        color: var(--blue);
+        line-height: 1;
+        margin-bottom: 0;
+      }
+      .serve-big-label {
+        font-family: var(--font-mono);
+        font-size: 0.58rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--gray-lt);
+        margin-bottom: 1.5rem;
+      }
+      .serve-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.625rem;
+      }
+      .serve-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        background: var(--panel);
+        border: 2px solid var(--border);
+        border-radius: var(--radius-pill);
+        padding: 0.55rem 1.125rem;
+        font-family: var(--font-display);
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--dark-2);
+        transition: var(--ease);
+        cursor: default;
+      }
+      .serve-pill:hover {
+        background: var(--blue-dim);
+        border-color: var(--blue-rule);
+        color: var(--blue-dark);
+        transform: translateY(-2px);
+      }
+
+      /* =============================================
+       LOLA SECTION (Dark, Full-bleed Image Left)
+    ============================================= */
+      .lola-section {
+        background: var(--dark);
+        position: relative;
+        z-index: 5;
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        margin-top: -3rem;
+        overflow: hidden;
+      }
+      /* Sparkle on dark */
+      .lola-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cpath d='M36 6 L37.2 34.8 L66 36 L37.2 37.2 L36 66 L34.8 37.2 L6 36 L34.8 34.8 Z' fill='rgba(43%2C174%2C229%2C0.05)'/%3E%3C/svg%3E");
+        background-size: 72px 72px;
+      }
+      .lola-layout {
+        display: grid;
+        grid-template-columns: 420px 1fr;
+        min-height: 580px;
+        position: relative;
+        z-index: 1;
+      }
+      /* Lola image: full-bleed left, no padding */
+      .lola-image-col {
+        position: relative;
+        overflow: hidden;
+      }
+      .lola-image-col img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+      }
+      /* Gradient right edge of image */
+      .lola-image-col::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 50%;
+        background: linear-gradient(to right, transparent, var(--dark));
+      }
+      /* Lola title badge */
+      .lola-badge {
+        position: absolute;
+        top: 1.5rem;
+        left: 1.5rem;
+        background: var(--yellow);
+        color: var(--dark);
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 0.78rem;
+        padding: 0.35rem 1rem;
+        border-radius: var(--radius-pill);
+        z-index: 2;
+        box-shadow: 0 4px 14px rgba(247, 196, 56, 0.4);
+      }
+      .lola-content {
+        padding: 5rem 5rem 5rem 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .lola-title {
+        font-family: var(--font-display);
+        font-size: 2.75rem;
+        font-weight: 900;
+        color: #fff;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+        margin-bottom: 1.375rem;
+      }
+      .lola-title .accent {
+        color: var(--blue-light);
+      }
+      .lola-body {
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.55);
+        line-height: 1.85;
+        max-width: 480px;
+        margin-bottom: 1rem;
+      }
+      .lola-body em {
+        color: rgba(255, 255, 255, 0.85);
+        font-style: italic;
+        font-weight: 600;
+      }
+      .lola-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.625rem;
+        margin-top: 1.5rem;
+      }
+      .lola-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: var(--radius-pill);
+        padding: 0.35rem 1rem;
+        font-family: var(--font-display);
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      /* =============================================
+       COMMUNITY / PENNY (Blue)
+    ============================================= */
+      .community-section {
+        background: var(--blue);
+        padding: 6rem 2rem 7rem;
+        position: relative;
+        z-index: 4;
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        margin-top: -3rem;
+        overflow: hidden;
+      }
+      .community-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cpath d='M36 6 L37.2 34.8 L66 36 L37.2 37.2 L36 66 L34.8 37.2 L6 36 L34.8 34.8 Z' fill='rgba(255%2C255%2C255%2C0.1)'/%3E%3C/svg%3E");
+        background-size: 72px 72px;
+      }
+      .community-layout {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 360px;
+        gap: 5rem;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+      .community-eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.58rem;
+        text-transform: uppercase;
+        letter-spacing: 0.22em;
+        color: rgba(255, 255, 255, 0.6);
+        margin-bottom: 1rem;
+      }
+      .community-title {
+        font-family: var(--font-display);
+        font-size: 3rem;
+        font-weight: 900;
+        letter-spacing: -0.03em;
+        color: #fff;
+        line-height: 1.05;
+        margin-bottom: 1.5rem;
+      }
+      .community-body {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.85;
+        max-width: 500px;
+        margin-bottom: 2rem;
+      }
+      .community-body strong {
+        color: rgba(255, 255, 255, 0.95);
+      }
+      /* Big pull quote */
+      .community-quote {
+        border-left: 3px solid rgba(255, 255, 255, 0.3);
+        padding: 0.5rem 0 0.5rem 1.5rem;
+        font-family: var(--font-display);
+        font-size: 1.05rem;
+        font-style: italic;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.85);
+        line-height: 1.65;
+        margin-bottom: 2rem;
+      }
+      .community-stat-block {
+        display: inline-flex;
+        align-items: center;
+        gap: 1.25rem;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: var(--radius);
+        padding: 1.125rem 1.75rem;
+      }
+      .community-big-num {
+        font-family: var(--font-display);
+        font-size: 2.25rem;
+        font-weight: 900;
+        color: var(--yellow);
+        line-height: 1;
+      }
+      .community-stat-label {
+        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.65);
+        line-height: 1.5;
+      }
+      .community-penny-wrap {
+        position: relative;
+      }
+      .community-penny-wrap img {
+        width: 100%;
+        border-radius: 20px;
+        border: 3px solid rgba(255, 255, 255, 0.25);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+      }
+      .penny-name-tag {
+        position: absolute;
+        bottom: -0.875rem;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--dark);
+        border-radius: var(--radius-pill);
+        padding: 0.55rem 1.375rem;
+        font-family: var(--font-display);
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.9);
+        white-space: nowrap;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      /* =============================================
+       TESTIMONIALS
+    ============================================= */
+      .testimonials-section {
+        background: var(--panel);
+        padding: 8rem 2rem 6rem;
+        position: relative;
+        z-index: 5;
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        margin-top: -3rem;
+      }
+      .testimonials-section .inner {
+        max-width: var(--max-w);
+      }
+      .testimonials-header {
+        margin-bottom: 3.5rem;
+      }
+
+      /* Featured testimonial */
+      .testimonial-featured {
+        background: var(--dark);
+        border-radius: 20px;
+        padding: 3.5rem;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 1.25rem;
+      }
+      .testimonial-featured::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cpath d='M36 6 L37.2 34.8 L66 36 L37.2 37.2 L36 66 L34.8 37.2 L6 36 L34.8 34.8 Z' fill='rgba(43%2C174%2C229%2C0.06)'/%3E%3C/svg%3E");
+        background-size: 72px 72px;
+      }
+      /* Ghost quotemark */
+      .testimonial-featured::after {
+        content: "\201C";
+        position: absolute;
+        top: -1rem;
+        right: 2rem;
+        font-family: Georgia, serif;
+        font-size: 14rem;
+        color: rgba(255, 255, 255, 0.04);
+        line-height: 1;
+        pointer-events: none;
+      }
+      .tf-layout {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 3rem;
+        align-items: end;
+        position: relative;
+        z-index: 1;
+      }
+      .tf-stars {
+        font-size: 1rem;
+        margin-bottom: 1.25rem;
+        letter-spacing: 0.1em;
+      }
+      .tf-quote {
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.65;
+        margin-bottom: 2rem;
+        max-width: 640px;
+      }
+      .tf-author {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .tf-avatar {
+        width: 48px;
+        height: 48px;
+        background: rgba(43, 174, 229, 0.2);
+        border: 2px solid rgba(43, 174, 229, 0.4);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 1.1rem;
+        color: var(--blue-light);
+        flex-shrink: 0;
+      }
+      .tf-name {
+        font-family: var(--font-display);
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 0.1rem;
+      }
+      .tf-detail {
+        font-family: var(--font-mono);
+        font-size: 0.54rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: rgba(255, 255, 255, 0.35);
+      }
+      .tf-badge {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+        background: var(--yellow);
+        border-radius: 16px;
+        padding: 1.25rem 1.5rem;
+        flex-shrink: 0;
+      }
+      .tf-badge-num {
+        font-family: var(--font-display);
+        font-size: 2rem;
+        font-weight: 900;
+        color: var(--dark);
+        line-height: 1;
+      }
+      .tf-badge-label {
+        font-family: var(--font-mono);
+        font-size: 0.52rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--dark-2);
+        text-align: center;
+      }
+
+      /* Staggered secondary testimonials */
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+      }
+      .testimonial-card {
+        background: var(--bg);
+        border: 2px solid var(--border);
+        border-radius: 16px;
+        padding: 2rem;
+        position: relative;
+        transition: var(--ease);
+      }
+      /* Stagger heights for visual rhythm */
+      .testimonial-card:nth-child(2) {
+        margin-top: 1.5rem;
+      }
+      .testimonial-card:nth-child(3) {
+        margin-top: -1rem;
+      }
+      .testimonial-card:hover {
+        border-color: var(--blue-rule);
+        box-shadow: 0 12px 36px rgba(43, 174, 229, 0.1);
+        transform: translateY(-4px);
+      }
+      .testimonial-card::before {
+        content: "\201C";
+        position: absolute;
+        top: 0.5rem;
+        right: 1.25rem;
+        font-family: Georgia, serif;
+        font-size: 4rem;
+        color: var(--border);
+        line-height: 1;
+        pointer-events: none;
+      }
+      .tc-stars {
+        font-size: 0.875rem;
+        margin-bottom: 0.875rem;
+      }
+      .tc-quote {
+        font-size: 0.875rem;
+        color: var(--dark-2);
+        line-height: 1.8;
+        margin-bottom: 1.375rem;
+      }
+      .tc-author {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .tc-avatar {
+        width: 38px;
+        height: 38px;
+        background: var(--blue-dim);
+        border: 2px solid var(--blue-rule);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 0.875rem;
+        color: var(--blue-dark);
+        flex-shrink: 0;
+      }
+      .tc-name {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 0.875rem;
+        color: var(--dark);
+      }
+      .tc-detail {
+        font-family: var(--font-mono);
+        font-size: 0.52rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--gray-lt);
+      }
+
+      /* =============================================
+       TRUSTED BY
+    ============================================= */
+      .trusted-section {
+        background: var(--raised);
+        border-top: 2px solid var(--border);
+        border-bottom: 2px solid var(--border);
+        padding: 2.5rem 2rem;
+        position: relative;
+        z-index: 4;
+      }
+      .trusted-label {
+        font-family: var(--font-mono);
+        font-size: 0.56rem;
+        text-transform: uppercase;
+        letter-spacing: 0.22em;
+        color: var(--gray-lt);
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+      .trusted-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .trusted-name {
+        padding: 0.5rem 2rem;
+        border-right: 1px solid var(--border);
+        font-family: var(--font-display);
+        font-size: 0.875rem;
+        font-weight: 700;
+        color: var(--gray-lt);
+        transition: var(--ease);
+        cursor: default;
+      }
+      .trusted-name:last-child {
+        border-right: none;
+      }
+      .trusted-name:hover {
+        color: var(--blue-dark);
+      }
+
+      /* =============================================
+       BEAT YOUR BID — Bold Split CTA
+    ============================================= */
+      .bid-section {
+        background: var(--dark);
+        padding: 6rem 2rem;
+        position: relative;
+        z-index: 5;
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        margin-top: -3rem;
+        overflow: hidden;
+      }
+      .bid-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cpath d='M36 6 L37.2 34.8 L66 36 L37.2 37.2 L36 66 L34.8 37.2 L6 36 L34.8 34.8 Z' fill='rgba(43%2C174%2C229%2C0.05)'/%3E%3C/svg%3E");
+        background-size: 72px 72px;
+      }
+      /* Giant ghost percent in background */
+      .bid-ghost {
+        position: absolute;
+        font-family: var(--font-display);
+        font-size: 30rem;
+        font-weight: 900;
+        color: #fff;
+        opacity: 0.018;
+        letter-spacing: -0.06em;
+        pointer-events: none;
+        top: 50%;
+        right: -5%;
+        transform: translateY(-50%);
+        line-height: 1;
+        user-select: none;
+      }
+      .bid-layout {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+      .bid-eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.58rem;
+        text-transform: uppercase;
+        letter-spacing: 0.22em;
+        color: var(--blue-light);
+        opacity: 0.7;
+        margin-bottom: 1rem;
+      }
+      .bid-title {
+        font-family: var(--font-display);
+        font-size: 3.25rem;
+        font-weight: 900;
+        letter-spacing: -0.03em;
+        color: #fff;
+        line-height: 1.05;
+        margin-bottom: 1.25rem;
+      }
+      .bid-title .pct {
+        color: var(--yellow);
+        font-size: 5rem;
+        display: block;
+        line-height: 1;
+      }
+      .bid-sub {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.5);
+        line-height: 1.8;
+        max-width: 420px;
+      }
+      .bid-right {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+      .bid-guarantee {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius);
+        padding: 1.5rem;
+        margin-bottom: 0.5rem;
+        width: 100%;
+      }
+      .bid-guarantee-title {
+        font-family: var(--font-display);
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.85);
+        margin-bottom: 0.375rem;
+      }
+      .bid-guarantee-text {
+        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.45);
+        line-height: 1.6;
+      }
+
+      /* =============================================
+       CONTACT / QUOTE FORM
+    ============================================= */
+      .contact-section {
+        background: var(--bg);
+        padding: 6rem 2rem;
+        position: relative;
+        z-index: 6;
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        margin-top: -3rem;
+        max-width: none;
+      }
+      .contact-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cpath d='M36 6 L37.2 34.8 L66 36 L37.2 37.2 L36 66 L34.8 37.2 L6 36 L34.8 34.8 Z' fill='rgba(43%2C174%2C229%2C0.09)'/%3E%3C/svg%3E");
+        background-size: 72px 72px;
+      }
+      .contact-layout {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: start;
+        position: relative;
+        z-index: 1;
+      }
+      .contact-info-title {
+        font-family: var(--font-display);
+        font-size: 2.5rem;
+        font-weight: 900;
+        letter-spacing: -0.03em;
+        color: var(--dark);
+        line-height: 1.1;
+        margin-bottom: 0.875rem;
+      }
+      .contact-info-title .accent {
+        color: var(--blue);
+      }
+      .contact-info-sub {
+        font-size: 1rem;
+        color: var(--gray);
+        line-height: 1.8;
+        margin-bottom: 2.5rem;
+      }
+      .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 1.375rem;
+      }
+      .contact-icon {
+        width: 44px;
+        height: 44px;
+        background: var(--blue-dim);
+        border: 2px solid var(--blue-rule);
+        border-radius: var(--radius-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.125rem;
+        flex-shrink: 0;
+      }
+      .contact-item-label {
+        font-family: var(--font-mono);
+        font-size: 0.54rem;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: var(--gray-lt);
+        margin-bottom: 0.2rem;
+      }
+      .contact-item-val {
+        font-family: var(--font-display);
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--dark);
+      }
+      .contact-areas-card {
+        background: var(--panel);
+        border: 2px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.375rem;
+        margin-top: 1.5rem;
+      }
+      .contact-areas-label {
+        font-family: var(--font-mono);
+        font-size: 0.54rem;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: var(--gray-lt);
+        margin-bottom: 0.875rem;
+      }
+      .contact-areas-cols {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 1.5rem;
+      }
+      .contact-area-item {
+        font-size: 0.8rem;
+        color: var(--gray);
+        display: flex;
+        align-items: center;
+        gap: 0.375rem;
+      }
+      .contact-area-item::before {
+        content: "✦";
+        color: var(--blue);
+        font-size: 0.48rem;
+        flex-shrink: 0;
+      }
+
+      /* Quote Form */
+      .quote-form-card {
+        background: var(--panel);
+        border: 2px solid var(--border);
+        border-radius: 20px;
+        padding: 2.75rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .quote-form-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          var(--blue),
+          var(--blue-light),
+          var(--yellow)
+        );
+      }
+      .form-title-large {
+        font-family: var(--font-display);
+        font-size: 1.375rem;
+        font-weight: 800;
+        color: var(--dark);
+        margin-bottom: 0.3rem;
+      }
+      .form-sub {
+        font-size: 0.875rem;
+        color: var(--gray);
+        margin-bottom: 1.875rem;
+        line-height: 1.6;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-bottom: 1.125rem;
+      }
+      .form-group {
+        margin-bottom: 1.125rem;
+      }
+      .form-label {
+        display: block;
+        font-family: var(--font-mono);
+        font-size: 0.54rem;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: var(--gray);
+        margin-bottom: 0.4rem;
+      }
+      .form-input,
+      .form-select,
+      .form-textarea {
+        width: 100%;
+        background: var(--bg);
+        border: 2px solid var(--border);
+        border-radius: var(--radius-sm);
+        padding: 0.8rem 1rem;
+        color: var(--dark);
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        outline: none;
+        transition: var(--ease);
+        appearance: none;
+      }
+      .form-input::placeholder,
+      .form-textarea::placeholder {
+        color: rgba(90, 112, 128, 0.4);
+      }
+      .form-input:focus,
+      .form-select:focus,
+      .form-textarea:focus {
+        border-color: var(--blue);
+        box-shadow: 0 0 0 4px rgba(43, 174, 229, 0.12);
+      }
+      .form-textarea {
+        resize: vertical;
+      }
+      .form-privacy {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.75rem;
+        color: var(--gray-lt);
+        margin-top: 0.875rem;
+      }
+
+      /* =============================================
+       FOOTER
+    ============================================= */
+      footer {
+        background: var(--dark);
+        padding: 4rem 2rem 2.5rem;
+        position: relative;
+        z-index: 7;
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        margin-top: -3rem;
+        overflow: hidden;
+      }
+      footer::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cpath d='M36 6 L37.2 34.8 L66 36 L37.2 37.2 L36 66 L34.8 37.2 L6 36 L34.8 34.8 Z' fill='rgba(43%2C174%2C229%2C0.05)'/%3E%3C/svg%3E");
+        background-size: 72px 72px;
+      }
+      .footer-main {
+        max-width: var(--max-w);
+        margin: 0 auto 3rem;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 3rem;
+        position: relative;
+        z-index: 1;
+        padding: 0 4rem;
+      }
+      .footer-logo {
+        height: 44px;
+        width: auto;
+        margin-bottom: 1rem;
+      }
+      .footer-tagline {
+        font-size: 0.875rem;
+        color: rgba(255, 255, 255, 0.4);
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+        max-width: 240px;
+      }
+      .footer-col-label {
+        font-family: var(--font-mono);
+        font-size: 0.54rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: rgba(255, 255, 255, 0.25);
+        margin-bottom: 1rem;
+      }
+      .footer-links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .footer-links a {
+        font-size: 0.875rem;
+        color: rgba(255, 255, 255, 0.5);
+        transition: var(--ease);
+      }
+      .footer-links a:hover {
+        color: var(--blue-light);
+      }
+      .footer-contact-line {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5rem;
+        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.5);
+        margin-bottom: 0.5rem;
+      }
+      .footer-contact-line a {
+        color: rgba(255, 255, 255, 0.5);
+        transition: var(--ease);
+      }
+      .footer-contact-line a:hover {
+        color: var(--blue-light);
+      }
+      .footer-bottom {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        padding-top: 1.875rem;
+        padding-left: 4rem;
+        padding-right: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+        position: relative;
+        z-index: 1;
+      }
+      .footer-copy {
+        font-family: var(--font-mono);
+        font-size: 0.54rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: rgba(255, 255, 255, 0.22);
+      }
+
+      /* =============================================
+       ANIMATIONS
+    ============================================= */
+      @keyframes sparkFloat {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg) scale(1);
+          opacity: 0.8;
+        }
+        25% {
+          transform: translateY(-6px) rotate(15deg) scale(1.1);
+          opacity: 1;
+        }
+        75% {
+          transform: translateY(3px) rotate(-10deg) scale(0.95);
+          opacity: 0.9;
+        }
+      }
+      @keyframes bubbleFloat {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-12px);
+        }
+      }
+
+      /* =============================================
+       RESPONSIVE
+    ============================================= */
+      @media (max-width: 1100px) {
+        .hero .inner {
+          grid-template-columns: 1fr;
+        }
+        .hero-image-panel {
+          height: 380px;
+        }
+        .hero-content {
+          padding: 9rem 3rem 4rem;
+        }
+        .hero-title .line-lg {
+          font-size: 4rem;
+        }
+        .bento {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: auto;
+        }
+        .bento-feature {
+          grid-column: span 2;
+          min-height: 280px;
+        }
+        .bento-wide {
+          grid-column: span 2;
+        }
+        .nc-layout {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+        .nc-headline .nc-main {
+          font-size: 4.5rem;
+        }
+        .nc-headline .nc-contracts {
+          font-size: 3rem;
+        }
+        .about-layout {
+          grid-template-columns: 1fr;
+        }
+        .serve-layout {
+          grid-template-columns: 1fr;
+        }
+        .lola-layout {
+          grid-template-columns: 1fr;
+        }
+        .lola-image-col {
+          height: 360px;
+        }
+        .lola-content {
+          padding: 3.5rem;
+        }
+        .community-layout {
+          grid-template-columns: 1fr;
+        }
+        .bid-layout {
+          grid-template-columns: 1fr;
+        }
+        .tf-layout {
+          grid-template-columns: 1fr;
+        }
+        .tf-badge {
+          align-self: flex-start;
+        }
+        .testimonials-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .testimonial-card:nth-child(3) {
+          margin-top: 0;
+        }
+        .contact-layout {
+          grid-template-columns: 1fr;
+        }
+        .footer-main {
+          grid-template-columns: 1fr 1fr;
+          gap: 2rem;
+          padding: 0 2rem;
+        }
+        .footer-bottom {
+          padding-left: 2rem;
+          padding-right: 2rem;
+        }
+      }
+      @media (max-width: 768px) {
+        .hero-title .line-lg {
+          font-size: 3rem;
+        }
+        .hero-title .line-sm {
+          font-size: 1.75rem;
+        }
+        .section-title-xl {
+          font-size: 2rem;
+        }
+        .nc-headline .nc-main {
+          font-size: 3.5rem;
+        }
+        .nc-headline .nc-contracts {
+          font-size: 2.5rem;
+        }
+        .bento {
+          grid-template-columns: 1fr;
+        }
+        .bento-feature {
+          grid-column: span 1;
+        }
+        .bento-wide {
+          grid-column: span 1;
+        }
+        .stats-float {
+          grid-template-columns: 1fr 1fr;
+        }
+        .testimonials-grid {
+          grid-template-columns: 1fr;
+        }
+        .testimonial-card:nth-child(2) {
+          margin-top: 0;
+        }
+        .bid-title .pct {
+          font-size: 3.5rem;
+        }
+        .footer-main {
+          grid-template-columns: 1fr;
+          padding: 0;
+        }
+        .footer-bottom {
+          padding-left: 0;
+          padding-right: 0;
+        }
+        .nav-links {
+          display: none;
+        }
+        .site-nav {
+          padding: 0 1rem;
+        }
+        .serve-big-num {
+          font-size: 6rem;
+        }
+        .about-stat-overlay {
+          right: 0;
+          bottom: -1rem;
+        }
+        .about-stat-overlay-2 {
+          left: 0;
+        }
+        .about-stat-row {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- =====================
+         TOP BAR
+    ===================== -->
+    <div class="top-bar">
+      <div class="inner">
+        <div class="top-bar-left">
+          <span class="hiring-badge">🎉 We're Hiring!</span>
+          <div class="top-bar-divider"></div>
+          <span class="top-bar-text">Mon – Sat &nbsp;|&nbsp; 8am – 6pm</span>
+          <div class="top-bar-divider"></div>
+          <span class="top-bar-text" style="color: rgba(255, 255, 255, 0.3)"
+            >Boise · Nampa · Meridian · Salt Lake City</span
+          >
+        </div>
+        <a href="tel:2087605418" class="top-bar-phone">📞 (208) 760-5418</a>
+      </div>
+    </div>
+
+    <!-- =====================
+         NAV (Transparent over dark hero)
+    ===================== -->
+    <nav class="site-nav" id="main-nav">
+      <div class="inner">
+        <a class="nav-logo" href="#"
+          ><img
+            src="Assets/IMC LOGO HIGH-RES (1).png"
+            alt="IMC Janitorial Services"
+        /></a>
+        <ul class="nav-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a
+            href="tel:2087605418"
+            style="
+              font-family: var(--font-mono);
+              font-size: 0.7rem;
+              color: rgba(255, 255, 255, 0.5);
+              text-transform: uppercase;
+              letter-spacing: 0.1em;
+            "
+            >(208) 760-5418</a
+          >
+          <a href="#contact" class="btn btn-yellow btn-sm btn-pulse"
+            >✦ Free Quote</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- =====================
+         HERO — Dark, Cinematic
+    ===================== -->
+    <section class="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+
+      <div class="inner">
+        <div class="hero-content">
+          <div class="hero-overline">
+            ✦ Treasure Valley's #1 Commercial Cleaning Team Since 2003
+          </div>
+          <h1 class="hero-title">
+            <span class="line-sm">You make a mess.</span>
+            <span class="line-lg">We <span class="accent">clean</span></span>
+            <span class="line-lg"
+              >it up. <span class="spark-inline">✦</span></span
+            >
+          </h1>
+          <p class="hero-sub">
+            Boise's
+            <strong>most trusted commercial janitorial company</strong> for over
+            two decades — no contracts, no pressure, just results that actually
+            sparkle.
+          </p>
+          <div class="hero-btns">
+            <a href="#contact" class="btn btn-yellow btn-lg"
+              >✦ Get My Free Quote</a
+            >
+            <a href="tel:2087605418" class="btn btn-outline-white btn-lg"
+              >Call Us Now</a
+            >
+          </div>
+          <div class="hero-pills">
+            <div class="hero-pill">🏆 5-Year Award Winner</div>
+            <div class="hero-pill">📋 No Contracts. Ever.</div>
+            <div class="hero-pill">⚡ Quote in 24 Hours</div>
+          </div>
+        </div>
+
+        <!-- Hero image panel with gradient blend -->
+        <div class="hero-image-panel">
+          <img
+            src="Assets/IMC Corporate Cartoon Characters.jpg"
+            alt="The IMC Janitorial team"
+          />
+          <div class="hero-sparkles" aria-hidden="true">
+            <span>✦</span>
+            <span>✦</span>
+            <span>✦</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- White arc transition to next section -->
+      <div class="hero-arc" aria-hidden="true"></div>
+    </section>
+
+    <!-- =====================
+         FLOATING STATS CARD
+    ===================== -->
+    <div class="stats-float-wrap">
+      <div class="stats-float">
+        <div class="stat-item">
+          <div class="stat-num">20<span class="stat-suffix">+</span></div>
+          <div class="stat-label">Years in Business</div>
+          <div class="stat-sub">Serving Boise since 2003</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">5<span class="stat-suffix">★</span></div>
+          <div class="stat-label">Average Rating</div>
+          <div class="stat-sub">Voted Boise's Best × 5</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">10<span class="stat-suffix">%</span></div>
+          <div class="stat-label">Beat Any Bid</div>
+          <div class="stat-sub">Guaranteed lower rate</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">24<span class="stat-suffix">h</span></div>
+          <div class="stat-label">Quote Turnaround</div>
+          <div class="stat-sub">Free, no pressure, fast</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =====================
+         SERVICES BENTO GRID
+    ===================== -->
+    <section id="services" class="services-section">
+      <div class="inner">
+        <div class="services-header">
+          <div>
+            <p class="section-eyebrow">✦ What We Do</p>
+            <h2 class="section-title-xl">
+              We clean <span class="accent">everything.</span>
+            </h2>
+            <p class="section-sub-text">
+              From 45,000 sq. ft. office buildings to daycare restrooms — if a
+              surface exists, we've cleaned it.
+            </p>
+          </div>
+          <a href="#contact" class="btn btn-blue" style="flex-shrink: 0"
+            >✦ See All Services</a
+          >
+        </div>
+
+        <div class="bento">
+          <!-- Feature: Commercial Cleaning (2×2) -->
+          <div class="bento-feature">
+            <div class="bento-feature-glow" aria-hidden="true"></div>
+            <div class="bento-feature-body">
+              <div class="bento-feature-tag">✦ Most Popular</div>
+              <h3 class="bento-feature-title">
+                Office &amp; Commercial Cleaning
+              </h3>
+              <p class="bento-feature-text">
+                Daily, weekly, or monthly — our crews learn your space and
+                maintain it to the same standard every single visit.
+              </p>
+            </div>
+          </div>
+
+          <!-- Window Cleaning -->
+          <div class="bento-card">
+            <div>
+              <span class="bento-icon">🪟</span>
+              <h3 class="bento-card-title">Window Cleaning</h3>
+              <p class="bento-card-text">
+                Streak-free glass, inside and out. Ground floor to high-rise.
+              </p>
+            </div>
+            <span class="bento-tag">✦ High-Rise Specialists</span>
+          </div>
+
+          <!-- Floor & Carpet Care -->
+          <div class="bento-card">
+            <div>
+              <span class="bento-icon">🧺</span>
+              <h3 class="bento-card-title">Floor &amp; Carpet Care</h3>
+              <p class="bento-card-text">
+                Hard floor polishing, carpet extraction, and deep clean
+                services.
+              </p>
+            </div>
+            <span class="bento-tag">✦ Deep Clean Available</span>
+          </div>
+
+          <!-- Power Washing -->
+          <div class="bento-card">
+            <div>
+              <span class="bento-icon">💧</span>
+              <h3 class="bento-card-title">Power Washing</h3>
+              <p class="bento-card-text">
+                Sidewalks, exteriors, dumpster pads — first impressions matter.
+              </p>
+            </div>
+            <span class="bento-tag">✦ Seasonal Service</span>
+          </div>
+
+          <!-- Day Porter Services -->
+          <div class="bento-card">
+            <div>
+              <span class="bento-icon">🙋</span>
+              <h3 class="bento-card-title">Day Porter Services</h3>
+              <p class="bento-card-text">
+                On-site staff keeping common areas spotless during business
+                hours.
+              </p>
+            </div>
+            <span class="bento-tag">✦ On-Demand</span>
+          </div>
+
+          <!-- Xpest — Wide banner -->
+          <div class="bento-wide">
+            <div class="bento-wide-content">
+              <div class="bento-wide-icon">🦟</div>
+              <div>
+                <div class="bento-wide-title">
+                  Pest Control — Powered by Xpest
+                </div>
+                <div class="bento-wide-sub">
+                  Our sister company handles what a mop alone can't fix. Full
+                  prevention &amp; elimination.
+                </div>
+              </div>
+            </div>
+            <span class="bento-wide-badge">Sister Company ✦</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================
+         NO CONTRACTS — Yellow, Massive Type
+    ===================== -->
+    <section class="nc-section">
+      <div class="nc-inner">
+        <div class="nc-layout">
+          <div>
+            <h2 class="nc-headline">
+              <span class="nc-and">and</span>
+              <span class="nc-main">NO</span>
+              <span class="nc-contracts">CONTRACTS.</span>
+            </h2>
+            <div class="nc-ever-pill">EVER. ✦</div>
+          </div>
+          <div class="nc-right">
+            <p class="nc-statement">
+              We don't trap clients in paperwork. We keep them by doing
+              <em>an exceptional job</em> — every time, every building, every
+              surface.
+            </p>
+            <p
+              class="nc-statement"
+              style="font-size: 0.95rem; font-weight: 500; opacity: 0.7"
+            >
+              Month-to-month. Adjust your schedule freely. Cancel any time.
+              We've been earning renewals since 2003 without a single signed
+              contract — and we're proud of it.
+            </p>
+            <div class="nc-checks">
+              <div class="nc-check">
+                <div class="nc-check-dot">✦</div>
+                Month-to-month only
+              </div>
+              <div class="nc-check">
+                <div class="nc-check-dot">✦</div>
+                Cancel any time, no fees
+              </div>
+              <div class="nc-check">
+                <div class="nc-check-dot">✦</div>
+                Adjust frequency freely
+              </div>
+              <div class="nc-check">
+                <div class="nc-check-dot">✦</div>
+                Flexible scheduling always
+              </div>
+              <div class="nc-check">
+                <div class="nc-check-dot">✦</div>
+                Short-notice availability
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================
+         ABOUT — White, Ghost Text, Overlapping Stats
+    ===================== -->
+    <section id="about" class="about-section">
+      <div class="about-ghost" aria-hidden="true">CLEAN</div>
+      <div class="about-layout">
+        <div class="about-image-wrap">
+          <div class="about-image-card">
+            <img
+              src="Assets/IMC Corporate Cartoon Characters.jpg"
+              alt="The IMC Team"
+            />
+          </div>
+          <!-- Overlapping stat badges -->
+          <div class="about-stat-overlay-2">
+            <div class="about-stat-overlay-num">5★</div>
+            <div class="about-stat-overlay-label">Rated in Boise</div>
+          </div>
+          <div class="about-stat-overlay">
+            <div class="about-stat-overlay-num">20+</div>
+            <div class="about-stat-overlay-label">Years of clean ✦</div>
+          </div>
+        </div>
+        <div class="about-content">
+          <p class="section-eyebrow">✦ About IMC</p>
+          <h2 class="about-title">
+            Real neighbors.<br />Real <span class="accent">clean.</span>
+          </h2>
+          <p class="about-body">
+            Since 2003, IMC Janitorial Services has been the Treasure Valley's
+            most trusted commercial cleaning company. We're not a national
+            franchise with a call center. We're your neighbors — and we treat
+            your building like it's our own.
+          </p>
+          <ul class="about-checks">
+            <li class="about-check-item">
+              <div class="about-check-dot">✦</div>
+              Consistent crews — same faces every visit
+            </li>
+            <li class="about-check-item">
+              <div class="about-check-dot">✦</div>
+              Always reachable by phone or text
+            </li>
+            <li class="about-check-item">
+              <div class="about-check-dot">✦</div>
+              Short-notice availability when you need it
+            </li>
+            <li class="about-check-item">
+              <div class="about-check-dot">✦</div>
+              Flexible scheduling that works around you
+            </li>
+            <li class="about-check-item">
+              <div class="about-check-dot">✦</div>
+              Proudly local — Boise built, Boise raised
+            </li>
+          </ul>
+          <div class="about-stat-row">
+            <div class="about-mini-stat">
+              <div class="about-mini-num">10%</div>
+              <div class="about-mini-label">Beat Any Bid</div>
+            </div>
+            <div class="about-mini-stat">
+              <div class="about-mini-num">24h</div>
+              <div class="about-mini-label">Quote Response</div>
+            </div>
+            <div class="about-mini-stat">
+              <div class="about-mini-num">0</div>
+              <div class="about-mini-label">Contracts. Ever.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================
+         WHO WE SERVE
+    ===================== -->
+    <section class="serve-section">
+      <div class="serve-layout">
+        <div>
+          <p class="section-eyebrow">✦ Who We Serve</p>
+          <h2 class="section-title-xl">
+            We clean<br />your kind of<br /><span class="accent"
+              >business.</span
+            >
+          </h2>
+          <p class="section-sub-text">
+            Every facility is different. We build cleaning plans around your
+            schedule and your space — not a template.
+          </p>
+          <a
+            href="#contact"
+            class="btn btn-blue"
+            style="margin-top: 1.75rem; display: inline-flex"
+            >✦ Tell Us About Your Space</a
+          >
+        </div>
+        <div>
+          <div class="serve-big-num">11+</div>
+          <div class="serve-big-label">Business types we specialize in</div>
+          <div class="serve-pills">
+            <div class="serve-pill">🏢 Office Buildings</div>
+            <div class="serve-pill">🏦 Banks</div>
+            <div class="serve-pill">🍕 Restaurants</div>
+            <div class="serve-pill">🏥 Medical</div>
+            <div class="serve-pill">🚗 Auto Dealers</div>
+            <div class="serve-pill">💪 Fitness Centers</div>
+            <div class="serve-pill">⛪ Churches</div>
+            <div class="serve-pill">🏫 Schools</div>
+            <div class="serve-pill">🏪 Retail</div>
+            <div class="serve-pill">👶 Daycares</div>
+            <div class="serve-pill">🏭 Industrial</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================
+         LOLA — Dark, Edge-to-Edge Image
+    ===================== -->
+    <section class="lola-section">
+      <div class="lola-layout" style="max-width: var(--max-w); margin: 0 auto">
+        <div class="lola-image-col">
+          <img
+            src="Assets/Lola Cleaning.jpg"
+            alt="Lola — Chief Cleaning Officer"
+          />
+          <div class="lola-badge">🐾 Chief Cleaning Officer</div>
+        </div>
+        <div class="lola-content">
+          <p
+            style="
+              font-family: var(--font-mono);
+              font-size: 0.58rem;
+              text-transform: uppercase;
+              letter-spacing: 0.22em;
+              color: var(--blue-light);
+              opacity: 0.7;
+              margin-bottom: 1rem;
+            "
+          >
+            ✦ Staff Spotlight
+          </p>
+          <h3 class="lola-title">
+            Meet <span class="accent">Lola.</span><br />She's been here<br />since
+            day one.
+          </h3>
+          <p class="lola-body">
+            Lola has logged more hours at IMC than anyone on the team. She shows
+            up every morning without being asked, has never missed a shift, and
+            holds the unofficial record for
+            <em>fastest hallway swept in a single afternoon.</em>
+          </p>
+          <p class="lola-body">
+            She also carries her own equipment — which is more than we can say
+            for some people.
+          </p>
+          <p class="lola-body">
+            Lola embodies everything IMC stands for: dedicated, dependable, and
+            impossible not to love. If you meet her on a job site, she accepts
+            scratches behind the ears as payment.
+          </p>
+          <div class="lola-tags">
+            <span class="lola-tag">🐶 10/10 Good Girl</span>
+            <span class="lola-tag">✦ Officially On Staff</span>
+            <span class="lola-tag">🧹 Feather Duster Pro</span>
+            <span class="lola-tag">📋 Zero HR Complaints</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================
+         COMMUNITY / PENNY — Blue
+    ===================== -->
+    <section class="community-section">
+      <div class="community-layout">
+        <div>
+          <p class="community-eyebrow">✦ Cleaning Up Where Others Don't</p>
+          <h2 class="community-title">
+            We don't just clean<br />businesses.<br />We clean communities.
+          </h2>
+          <blockquote class="community-quote">
+            "Our mission is to provide cleaner spaces for our communities to
+            thrive in."
+          </blockquote>
+          <p class="community-body">
+            <strong>Every IMC employee</strong> donates at least 90 minutes each
+            month cleaning the Boise River or the Greenbelt. No cameras, no
+            press releases — just our team showing up for the city that built
+            us.
+          </p>
+          <div class="community-stat-block">
+            <div class="community-big-num">90+</div>
+            <div class="community-stat-label">
+              Minutes per employee<br />donated to Boise clean-up<br />each
+              month
+            </div>
+          </div>
+        </div>
+        <div class="community-penny-wrap">
+          <img
+            src="Assets/Penny Mission Statement.jpg"
+            alt="Penny — IMC's Mission Pup"
+          />
+          <div class="penny-name-tag">
+            🐾 That's Penny. She believes in clean spaces too.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================
+         TESTIMONIALS — Varied Layout
+    ===================== -->
+    <section id="testimonials" class="testimonials-section">
+      <div class="inner">
+        <div class="testimonials-header">
+          <p class="section-eyebrow">✦ What Our Clients Say</p>
+          <h2 class="section-title-xl" style="max-width: 480px">
+            Don't take our<br />word for it.
+          </h2>
+        </div>
+
+        <!-- Featured (dark, full-width) -->
+        <div class="testimonial-featured">
+          <div class="tf-layout">
+            <div>
+              <div class="tf-stars">⭐⭐⭐⭐⭐</div>
+              <p class="tf-quote">
+                "IMC is cleaning our 45,000 sq. ft. office building — going on
+                two years now. After vetting several cleaning businesses, I am
+                happy to say I made the right decision. Anytime I've had an
+                issue, they've been very responsive and addressed it quickly."
+              </p>
+              <div class="tf-author">
+                <div class="tf-avatar">MH</div>
+                <div>
+                  <div class="tf-name">Mike Huter</div>
+                  <div class="tf-detail">
+                    45,000 sq. ft. Office Facility · Boise, ID
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tf-badge">
+              <div class="tf-badge-num">2+</div>
+              <div class="tf-badge-label">Years as<br />a client</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Staggered secondary grid -->
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="tc-stars">⭐⭐⭐⭐⭐</div>
+            <p class="tc-quote">
+              "They were thorough in their cleaning, paying attention to every
+              detail and ensuring everything was left spotless. I was
+              particularly impressed — they even cleaned areas I hadn't
+              specifically requested."
+            </p>
+            <div class="tc-author">
+              <div class="tc-avatar">TN</div>
+              <div>
+                <div class="tc-name">Dr. Ty Nichols</div>
+                <div class="tc-detail">Medical Facility · Treasure Valley</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="tc-stars">⭐⭐⭐⭐⭐</div>
+            <p class="tc-quote">
+              "They listened to what we wanted and exceeded our expectations. If
+              we ever have feedback they respond and resolve it efficiently.
+              Would recommend to anyone — they've been amazing for our offices
+              at Keystone Hospice."
+            </p>
+            <div class="tc-author">
+              <div class="tc-avatar">MB</div>
+              <div>
+                <div class="tc-name">Mike Briggs</div>
+                <div class="tc-detail">Keystone Hospice · Boise, ID</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="tc-stars">⭐⭐⭐⭐⭐</div>
+            <p class="tc-quote">
+              "Really appreciate their communication, hands-on service, and
+              always available by text. Glad to have found a reliable service to
+              work with in the Valley."
+            </p>
+            <div class="tc-author">
+              <div class="tc-avatar">DW</div>
+              <div>
+                <div class="tc-name">Danielle Whetstone</div>
+                <div class="tc-detail">Business Client · Treasure Valley</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================
+         TRUSTED BY
+    ===================== -->
+    <div class="trusted-section">
+      <div class="inner">
+        <p class="trusted-label">
+          ✦ Trusted by Boise's most recognized businesses
+        </p>
+        <div class="trusted-row">
+          <span class="trusted-name">Idaho Pizza Company</span>
+          <span class="trusted-name">Chase Bank</span>
+          <span class="trusted-name">T-Mobile</span>
+          <span class="trusted-name">Boise Cascade</span>
+          <span class="trusted-name">Amalgamated Sugar</span>
+          <span class="trusted-name">Albertsons</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- =====================
+         BEAT YOUR BID — Dark, Bold, Ghost %
+    ===================== -->
+    <section class="bid-section">
+      <div class="bid-ghost" aria-hidden="true">10%</div>
+      <div class="bid-layout">
+        <div class="bid-left">
+          <p class="bid-eyebrow">✦ The IMC Guarantee</p>
+          <h2 class="bid-title">
+            <span class="pct">10%</span>
+            below your current cleaning bid.
+          </h2>
+          <p class="bid-sub">
+            Already have a cleaning company? Show us the quote. We'll beat it by
+            10% — guaranteed — without cutting a single corner on quality. It's
+            time to start saving money on your cleaning bill.
+          </p>
+        </div>
+        <div class="bid-right">
+          <div class="bid-guarantee">
+            <div class="bid-guarantee-title">✦ The Guarantee</div>
+            <div class="bid-guarantee-text">
+              Send us your current cleaning bid and we'll come in 10% lower. If
+              we can't, we'll tell you honestly. No pressure, no gimmicks.
+            </div>
+          </div>
+          <a
+            href="#contact"
+            class="btn btn-yellow btn-lg"
+            style="width: 100%; justify-content: center"
+            >✦ Get My Free Quote</a
+          >
+          <a
+            href="tel:2087605418"
+            class="btn btn-outline-white btn-lg"
+            style="width: 100%; justify-content: center"
+            >Call (208) 760-5418</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================
+         CONTACT / QUOTE FORM
+    ===================== -->
+    <section id="contact" class="contact-section">
+      <div class="contact-layout">
+        <div>
+          <p class="section-eyebrow">✦ Let's Talk</p>
+          <h2 class="contact-info-title">
+            Free quote<br />in <span class="accent">24 hours.</span>
+          </h2>
+          <p class="contact-info-sub">
+            Tell us about your space and we'll put together a custom cleaning
+            plan and competitive quote — no pressure, no contracts, no catch.
+          </p>
+
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <div class="contact-item-label">Phone</div>
+              <a
+                href="tel:2087605418"
+                class="contact-item-val"
+                style="color: var(--dark)"
+                >(208) 760-5418</a
+              >
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <div class="contact-item-label">Email</div>
+              <a
+                href="mailto:support@idahomaintenance.com"
+                class="contact-item-val"
+                style="color: var(--dark)"
+                >support@idahomaintenance.com</a
+              >
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🕐</div>
+            <div>
+              <div class="contact-item-label">Hours</div>
+              <div class="contact-item-val">Monday – Saturday, 8am – 6pm</div>
+            </div>
+          </div>
+
+          <div class="contact-areas-card">
+            <p class="contact-areas-label">Service Areas</p>
+            <div class="contact-areas-cols">
+              <div class="contact-area-item">Boise</div>
+              <div class="contact-area-item">Salt Lake City</div>
+              <div class="contact-area-item">Meridian</div>
+              <div class="contact-area-item">West Valley City</div>
+              <div class="contact-area-item">Nampa</div>
+              <div class="contact-area-item">West Jordan</div>
+              <div class="contact-area-item">Eagle</div>
+              <div class="contact-area-item">Sandy, UT</div>
+              <div class="contact-area-item">Caldwell</div>
+              <div class="contact-area-item">And more ✦</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="quote-form-card">
+          <h3 class="form-title-large">Free Quote Request</h3>
+          <p class="form-sub">
+            We respond within 24 hours with a custom cleaning plan and price.
+          </p>
+
+          <div class="form-row">
+            <div>
+              <label class="form-label">First Name</label>
+              <input type="text" class="form-input" placeholder="Jane" />
+            </div>
+            <div>
+              <label class="form-label">Last Name</label>
+              <input type="text" class="form-input" placeholder="Smith" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Business Name</label>
+            <input
+              type="text"
+              class="form-input"
+              placeholder="Acme Office Co."
+            />
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label class="form-label">Phone</label>
+              <input
+                type="tel"
+                class="form-input"
+                placeholder="(208) 555-0100"
+              />
+            </div>
+            <div>
+              <label class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-input"
+                placeholder="you@business.com"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Service Needed</label>
+            <select class="form-select">
+              <option value="">Select a service…</option>
+              <option>Office & Commercial Cleaning</option>
+              <option>Window Cleaning</option>
+              <option>Floor & Carpet Care</option>
+              <option>Exterior Power Washing</option>
+              <option>Day Porter Services</option>
+              <option>Deep Clean</option>
+              <option>Pest Control (Xpest)</option>
+              <option>Multiple Services</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Tell Us About Your Space</label>
+            <textarea
+              class="form-textarea"
+              rows="3"
+              placeholder="Square footage, type of business, frequency…"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-yellow btn-lg"
+            style="width: 100%; justify-content: center"
+          >
+            ✦ Send My Free Quote Request
+          </button>
+
+          <div class="form-privacy">
+            🔒 No spam. No pressure. Response within 24 hours.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================
+         FOOTER
+    ===================== -->
+    <footer>
+      <div class="footer-main">
+        <div>
+          <img
+            src="Assets/IMC LOGO HIGH-RES (1).png"
+            alt="IMC Janitorial Services"
+            class="footer-logo"
+          />
+          <p class="footer-tagline">
+            Treasure Valley's leading commercial janitorial company since 2003.
+            Cleaning up where others don't.
+          </p>
+          <a href="tel:2087605418" class="btn btn-blue btn-sm"
+            >📞 (208) 760-5418</a
+          >
+        </div>
+        <div>
+          <p class="footer-col-label">Services</p>
+          <ul class="footer-links">
+            <li><a href="#">Office Cleaning</a></li>
+            <li><a href="#">Window Cleaning</a></li>
+            <li><a href="#">Floor & Carpet Care</a></li>
+            <li><a href="#">Power Washing</a></li>
+            <li><a href="#">Day Porter</a></li>
+            <li><a href="#">Pest Control</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-label">Company</p>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Why IMC</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Reviews</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-label">Get In Touch</p>
+          <div class="footer-contact-line">
+            📞 <a href="tel:2087605418">(208) 760-5418</a>
+          </div>
+          <div class="footer-contact-line">
+            ✉️
+            <a href="mailto:support@idahomaintenance.com"
+              >support@idahomaintenance.com</a
+            >
+          </div>
+          <div class="footer-contact-line">🕐 Mon–Sat 8am–6pm</div>
+          <p class="footer-col-label" style="margin-top: 1.25rem">
+            Idaho · Utah
+          </p>
+          <p
+            style="
+              font-size: 0.78rem;
+              color: rgba(255, 255, 255, 0.35);
+              line-height: 1.7;
+            "
+          >
+            Boise · Meridian · Eagle · Nampa · Caldwell<br />Salt Lake City ·
+            West Jordan · Sandy
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">
+          © 2026 IMC Janitorial Services LLC · All Rights Reserved ·
+          IMC.cleaning
+        </p>
+        <p class="footer-copy">
+          Terms &amp; Conditions · Privacy Policy &nbsp;&nbsp; ✦ Designed by
+          WebMarkets
+        </p>
+      </div>
+    </footer>
+
+    <!-- Nav scroll behavior -->
+    <script>
+      const nav = document.getElementById("main-nav");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 80) {
+          nav.classList.add("scrolled");
+        } else {
+          nav.classList.remove("scrolled");
+        }
+      });
+    </script>
+  </body>
+</html>
