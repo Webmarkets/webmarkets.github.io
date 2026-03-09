@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allied Business Solutions | 2026 Vision</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        abs: {
+                            blue: '#01A6E6',
+                            dark: '#093A51',
+                            black: '#000000',
+                            white: '#FFFFFF',
+                            gray: '#F8FAFC',
+                            border: 'rgba(9, 58, 81, 0.08)',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                        accent: ['Oswald', 'sans-serif'],
+                    },
+                    animation: {
+                        'slow-spin': 'spin 30s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'marquee': 'marquee 40s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .abs-gradient {
+            background: linear-gradient(135deg, #01A6E6 0%, #093A51 100%);
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #01A6E6, #FFFFFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-blur {
+            backdrop-filter: blur(12px);
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        .tactical-hex-hero {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background-image: url('Allied Logos/AlliedHex.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.07;
+            pointer-events: none;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .service-card-v2 {
+            @apply bg-white border border-abs-border p-12 transition-all duration-500 relative overflow-hidden;
+        }
+        .service-card-v2:hover {
+            @apply shadow-2xl -translate-y-2 border-abs-blue/20;
+        }
+        .service-card-v2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: #01A6E6;
+            transition: height 0.3s ease;
+        }
+        .service-card-v2:hover::before {
+            height: 100%;
+        }
+        
+        /* Headline Font Fixes */
+        .font-display {
+            font-family: 'Montserrat', sans-serif !important;
+        }
+        .font-accent {
+            font-family: 'Oswald', sans-serif !important;
+        }
+    </style>
+</head>
+<body class="font-sans text-abs-dark bg-white antialiased">
+
+    <!-- White Navigation -->
+    <nav class="fixed w-full z-50 nav-blur border-b border-abs-border">
+        <div class="max-w-7xl mx-auto px-8 lg:px-12">
+            <div class="flex justify-between items-center h-28">
+                <div class="flex-shrink-0">
+                    <img src="Allied Logos/Allied-Logo-Bold_FullColor_Black.png" alt="Allied Logo" class="h-16 w-auto">
+                </div>
+                <div class="hidden lg:flex items-center gap-12">
+                    <a href="#solutions" class="text-sm font-bold uppercase tracking-wider text-abs-dark hover:text-abs-blue transition-colors">Solutions</a>
+                    <a href="#philosophy" class="text-sm font-bold uppercase tracking-wider text-abs-dark hover:text-abs-blue transition-colors">Philosophy</a>
+                    <a href="#network" class="text-sm font-bold uppercase tracking-wider text-abs-dark hover:text-abs-blue transition-colors">Network</a>
+                    <a href="#contact" class="bg-abs-blue text-white px-10 py-4 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-abs-dark transition-all shadow-lg shadow-abs-blue/20">
+                        Get Started
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero: The "Gradient Vision" -->
+    <section class="relative min-h-[90vh] flex items-center pt-28 overflow-hidden abs-gradient">
+        <!-- Centered Tactical Hex -->
+        <div class="tactical-hex-hero top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 animate-slow-spin"></div>
+        
+        <div class="max-w-7xl mx-auto px-8 lg:px-12 relative z-10 w-full text-center">
+            <div class="max-w-5xl mx-auto">
+                <div class="inline-flex items-center justify-center gap-4 mb-10 px-6 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
+                    <span class="font-accent text-abs-blue text-sm font-bold tracking-[0.2em] uppercase">Est. 2003</span>
+                    <div class="w-1 h-1 rounded-full bg-white/30"></div>
+                    <span class="text-white/60 text-xs font-bold uppercase tracking-widest">2026 Brand Vision</span>
+                </div>
+                
+                <h1 class="font-display text-6xl lg:text-[100px] font-black text-white leading-[0.9] tracking-[-0.04em] mb-12">
+                    Technology You <br>
+                    Can <span class="text-gradient">Trust.</span>
+                </h1>
+                
+                <p class="text-xl lg:text-2xl text-white/70 leading-relaxed font-medium mb-16 max-w-2xl mx-auto">
+                    Engineering high-performance digital infrastructure for organizations that demand absolute reliability.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-8 justify-center items-center">
+                    <a href="#contact" class="bg-white text-abs-dark px-14 py-6 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-abs-blue hover:text-white transition-all duration-500 shadow-2xl">
+                        Start Your Project
+                    </a>
+                    <a href="#solutions" class="group flex items-center gap-4 text-white font-bold uppercase tracking-widest text-sm">
+                        Explore Solutions
+                        <div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-abs-dark transition-all">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Floating Trust Bar -->
+                <div class="mt-24 grid grid-cols-3 gap-8 max-w-3xl mx-auto">
+                    <div class="glass-card p-8 rounded-[32px]">
+                        <p class="text-abs-blue font-accent text-3xl font-bold mb-1">100%</p>
+                        <p class="text-white/40 font-bold uppercase tracking-widest text-[9px]">Reliability</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-[32px]">
+                        <p class="text-abs-blue font-accent text-3xl font-bold mb-1">24/7</p>
+                        <p class="text-white/40 font-bold uppercase tracking-widest text-[9px]">Support</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-[32px]">
+                        <p class="text-abs-blue font-accent text-3xl font-bold mb-1">20+</p>
+                        <p class="text-white/40 font-bold uppercase tracking-widest text-[9px]">Years</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions: The "Modern Grid" -->
+    <section id="solutions" class="py-32 bg-white relative">
+        <div class="max-w-7xl mx-auto px-8 lg:px-12">
+            <div class="flex flex-col lg:flex-row justify-between items-end mb-24 gap-8">
+                <div class="max-w-2xl">
+                    <span class="font-accent text-abs-blue text-sm font-bold tracking-[0.4em] uppercase mb-6 block">Our Expertise</span>
+                    <h2 class="font-display text-5xl lg:text-6xl font-black text-abs-dark tracking-tight">Strategic Solutions.</h2>
+                </div>
+                <p class="text-xl text-abs-dark/50 font-medium max-w-sm">Eliminating complexity through engineered efficiency.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card-v2 rounded-[40px]">
+                    <div class="w-16 h-16 bg-abs-blue/5 rounded-2xl flex items-center justify-center mb-10">
+                        <svg class="w-8 h-8 text-abs-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-black mb-6">IT & Cloud Services</h3>
+                    <p class="text-abs-dark/60 leading-relaxed mb-10">Scalable infrastructure designed for the modern enterprise.</p>
+                    <a href="#" class="inline-flex items-center gap-3 text-[10px] font-black uppercase tracking-widest text-abs-blue group">
+                        Learn More
+                        <div class="w-8 h-8 rounded-full border border-abs-blue/20 flex items-center justify-center group-hover:bg-abs-blue group-hover:text-white transition-all">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </div>
+                    </a>
+                </div>
+                <div class="service-card-v2 rounded-[40px]">
+                    <div class="w-16 h-16 bg-abs-blue/5 rounded-2xl flex items-center justify-center mb-10">
+                        <svg class="w-8 h-8 text-abs-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-black mb-6">Security & Compliance</h3>
+                    <p class="text-abs-dark/60 leading-relaxed mb-10">Proactive frameworks to safeguard your critical business data.</p>
+                    <a href="#" class="inline-flex items-center gap-3 text-[10px] font-black uppercase tracking-widest text-abs-blue group">
+                        Learn More
+                        <div class="w-8 h-8 rounded-full border border-abs-blue/20 flex items-center justify-center group-hover:bg-abs-blue group-hover:text-white transition-all">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </div>
+                    </a>
+                </div>
+                <div class="service-card-v2 rounded-[40px]">
+                    <div class="w-16 h-16 bg-abs-blue/5 rounded-2xl flex items-center justify-center mb-10">
+                        <svg class="w-8 h-8 text-abs-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-black mb-6">Workflow Automation</h3>
+                    <p class="text-abs-dark/60 leading-relaxed mb-10">Intelligent tools that eliminate manual bottlenecks and drive growth.</p>
+                    <a href="#" class="inline-flex items-center gap-3 text-[10px] font-black uppercase tracking-widest text-abs-blue group">
+                        Learn More
+                        <div class="w-8 h-8 rounded-full border border-abs-blue/20 flex items-center justify-center group-hover:bg-abs-blue group-hover:text-white transition-all">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy: The "High-Contrast" Break -->
+    <section id="philosophy" class="py-32 bg-abs-dark relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-abs-blue/10 blur-[120px] rounded-full"></div>
+        <div class="max-w-7xl mx-auto px-8 lg:px-12 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-24 items-center">
+                <div>
+                    <h2 class="font-display text-6xl font-black text-white mb-12 leading-tight">Security Starts <br> <span class="text-abs-blue">At The Top.</span></h2>
+                    <p class="text-xl text-white/50 leading-relaxed mb-12">
+                        Technology should be a catalyst for growth, not a source of frustration. We provide the infrastructure that lets you focus on what you do best.
+                    </p>
+                    <div class="flex items-center gap-6">
+                        <div class="h-px w-16 bg-abs-blue"></div>
+                        <p class="font-accent text-abs-blue font-bold tracking-[0.3em] uppercase text-xs">The Allied Standard</p>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="bg-white p-16 rounded-[60px] shadow-2xl">
+                        <p class="text-abs-dark text-4xl font-black italic leading-tight mb-12">
+                            "Your Printer Shouldn’t Take <span class="text-abs-blue">PTO</span>."
+                        </p>
+                        <div class="flex items-center gap-6">
+                            <img src="Allied Logos/Allied-Logo-Bold_FullColor_Black.png" class="h-10 w-auto">
+                            <div class="h-10 w-px bg-abs-border"></div>
+                            <p class="text-abs-dark/30 font-black uppercase tracking-widest text-[10px]">Est. 2003</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Network: The "Node" Layout -->
+    <section id="network" class="py-32 bg-abs-gray">
+        <div class="max-w-7xl mx-auto px-8 lg:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-24">
+                <span class="font-accent text-abs-blue text-sm font-bold tracking-[0.4em] uppercase mb-6 block">Regional Network</span>
+                <h2 class="font-display text-5xl lg:text-6xl font-black text-abs-dark tracking-tight">Serving the Heart of the Region.</h2>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-12">
+                <div class="text-center group">
+                    <div class="w-24 h-24 mx-auto rounded-3xl bg-white border border-abs-border flex items-center justify-center mb-6 group-hover:bg-abs-blue group-hover:border-abs-blue transition-all duration-500 shadow-sm group-hover:shadow-xl group-hover:shadow-abs-blue/20">
+                        <span class="text-abs-dark font-black text-xl group-hover:text-white transition-colors">BS</span>
+                    </div>
+                    <p class="font-black text-abs-dark uppercase tracking-widest text-[10px]">Boise, ID</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-24 h-24 mx-auto rounded-3xl bg-white border border-abs-border flex items-center justify-center mb-6 group-hover:bg-abs-blue group-hover:border-abs-blue transition-all duration-500 shadow-sm group-hover:shadow-xl group-hover:shadow-abs-blue/20">
+                        <span class="text-abs-dark font-black text-xl group-hover:text-white transition-colors">ON</span>
+                    </div>
+                    <p class="font-black text-abs-dark uppercase tracking-widest text-[10px]">Ontario, OR</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-24 h-24 mx-auto rounded-3xl bg-white border border-abs-border flex items-center justify-center mb-6 group-hover:bg-abs-blue group-hover:border-abs-blue transition-all duration-500 shadow-sm group-hover:shadow-xl group-hover:shadow-abs-blue/20">
+                        <span class="text-abs-dark font-black text-xl group-hover:text-white transition-colors">PO</span>
+                    </div>
+                    <p class="font-black text-abs-dark uppercase tracking-widest text-[10px]">Pocatello, ID</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-24 h-24 mx-auto rounded-3xl bg-white border border-abs-border flex items-center justify-center mb-6 group-hover:bg-abs-blue group-hover:border-abs-blue transition-all duration-500 shadow-sm group-hover:shadow-xl group-hover:shadow-abs-blue/20">
+                        <span class="text-abs-dark font-black text-xl group-hover:text-white transition-colors">IF</span>
+                    </div>
+                    <p class="font-black text-abs-dark uppercase tracking-widest text-[10px]">Idaho Falls, ID</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-24 h-24 mx-auto rounded-3xl bg-white border border-abs-border flex items-center justify-center mb-6 group-hover:bg-abs-blue group-hover:border-abs-blue transition-all duration-500 shadow-sm group-hover:shadow-xl group-hover:shadow-abs-blue/20">
+                        <span class="text-abs-dark font-black text-xl group-hover:text-white transition-colors">SL</span>
+                    </div>
+                    <p class="font-black text-abs-dark uppercase tracking-widest text-[10px]">Salt Lake City, UT</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white pt-32 pb-16 border-t border-abs-border">
+        <div class="max-w-7xl mx-auto px-8 lg:px-12">
+            <div class="flex flex-col lg:flex-row justify-between gap-20 mb-32">
+                <div class="max-w-md">
+                    <img src="Allied Logos/Allied-Logo-Bold_FullColor_Black.png" class="h-16 w-auto mb-12">
+                    <p class="text-xl text-abs-dark/40 leading-relaxed font-medium">Engineering the future of business technology since 2003.</p>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-16">
+                    <div>
+                        <p class="font-black uppercase tracking-widest text-[10px] text-abs-dark mb-8">Solutions</p>
+                        <ul class="space-y-4 text-abs-dark/60 font-bold text-sm">
+                            <li><a href="#" class="hover:text-abs-blue transition-colors">Managed IT</a></li>
+                            <li><a href="#" class="hover:text-abs-blue transition-colors">Security</a></li>
+                            <li><a href="#" class="hover:text-abs-blue transition-colors">Automation</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="font-black uppercase tracking-widest text-[10px] text-abs-dark mb-8">Company</p>
+                        <ul class="space-y-4 text-abs-dark/60 font-bold text-sm">
+                            <li><a href="#" class="hover:text-abs-blue transition-colors">About</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors">Network</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="font-black uppercase tracking-widest text-[10px] text-abs-dark mb-8">Social</p>
+                        <ul class="space-y-4 text-abs-dark/60 font-bold text-sm">
+                            <li><a href="#" class="hover:text-abs-blue transition-colors">LinkedIn</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors">Instagram</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-16 border-t border-abs-border flex flex-col md:flex-row justify-between items-center gap-8">
+                <p class="text-[10px] font-black uppercase tracking-[0.3em] text-abs-dark/30">© 2026 Allied Business Solutions. All Rights Reserved.</p>
+                <div class="flex gap-12 text-[10px] font-black uppercase tracking-[0.3em] text-abs-dark/30">
+                    <a href="#" class="hover:text-abs-blue transition-colors">Privacy</a>
+                    <a href="#" class="hover:text-abs-blue transition-colors">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

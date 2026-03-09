@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Allied Business Solutions  2026 Marketing Proposal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ─── BRAND TOKENS ─────────────────────────────── */
+    :root {
+      --bg:          #06101a;
+      --bg2:         #0b1824;
+      --blue:        #01A6E6;
+      --blue-light:  #33b9ec;
+      --blue-dim:    rgba(1, 166, 230, 0.14);
+      --navy:        #093A51;
+      --text:        #eef4f8;
+      --text-dim:    #7a9ab0;
+      --card:        #0c1e2c;
+      --border:      rgba(1, 166, 230, 0.18);
+      --green:       #22c55e;
+      --red:         #f87171;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      width: 100vw; height: 100vh;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Noise overlay */
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.022;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ─── TAB BAR ──────────────────────────────────── */
+    .tab-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+      height: 54px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 36px;
+      background: rgba(6, 16, 26, 0.97);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tab-brand {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .tab-brand img {
+      height: 26px; width: auto;
+    }
+    .tab-divider {
+      width: 1px; height: 18px;
+      background: var(--border);
+    }
+    .tab-brand-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+    .tab-brand-label strong {
+      color: var(--blue);
+      font-weight: 600;
+    }
+
+    .tabs { display: flex; gap: 2px; }
+    .tab {
+      padding: 7px 22px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-dim);
+      background: transparent;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .tab:hover { color: var(--text); }
+    .tab.active {
+      color: var(--blue);
+      border-color: var(--border);
+      background: rgba(1,166,230,0.07);
+    }
+
+    /* ─── PROGRESS BAR ─────────────────────────────── */
+    #progress-wrap {
+      position: fixed; top: 54px; left: 0; right: 0; z-index: 500;
+      height: 2px;
+      background: rgba(1,166,230,0.1);
+    }
+    #progress-fill {
+      height: 100%;
+      background: linear-gradient(to right, var(--navy), var(--blue));
+      transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    /* ─── SLIDE COUNTER ────────────────────────────── */
+    #slide-counter {
+      position: fixed; bottom: 28px; right: 36px; z-index: 500;
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.2em;
+      color: rgba(122,154,176,0.55);
+    }
+
+    /* ─── VIEWS ────────────────────────────────────── */
+    .view { position: fixed; inset: 0; top: 56px; display: none; }
+    .view.active { display: block; }
+
+    /* ─── PROPOSAL SLIDES ──────────────────────────── */
+    #proposal-view { overflow: hidden; }
+
+    .slide {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      padding: 40px 80px;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.46s ease, transform 0.46s ease;
+      pointer-events: none;
+      cursor: pointer;
+    }
+    .slide.active  { opacity: 1; transform: translateY(0); pointer-events: all; }
+    .slide.exit    { opacity: 0; transform: translateY(-18px); }
+
+    /* Corner brackets */
+    .slide::before, .slide::after {
+      content: ''; position: absolute; width: 30px; height: 30px; opacity: 0.28;
+    }
+    .slide::before { top: 18px; left: 18px; border-top: 1.5px solid var(--blue); border-left: 1.5px solid var(--blue); }
+    .slide::after  { bottom: 18px; right: 18px; border-bottom: 1.5px solid var(--blue); border-right: 1.5px solid var(--blue); }
+
+    /* Hex watermark */
+    .slide-hex {
+      position: absolute;
+      background-image: url('Allied Logos/AlliedHex.png');
+      background-size: contain; background-repeat: no-repeat;
+      opacity: 0.027; pointer-events: none; z-index: 0;
+    }
+    .hex-tr { width: 520px; height: 520px; top: -120px; right: -100px; }
+    .hex-bl { width: 480px; height: 480px; bottom: -120px; left: -100px; }
+    .hex-center { width: 600px; height: 600px; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.018; }
+
+    /* ─── SHARED TYPOGRAPHY ────────────────────────── */
+    .eyebrow {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 18px;
+      position: relative; z-index: 1;
+    }
+
+    .headline {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--text); line-height: 1.08;
+      text-align: center; margin-bottom: 16px;
+      position: relative; z-index: 1;
+    }
+    h1.headline { font-size: clamp(36px, 4.8vw, 64px); font-weight: 900; letter-spacing: -0.02em; }
+    h2.headline { font-size: clamp(24px, 3vw, 44px); font-weight: 800; letter-spacing: -0.01em; }
+    .headline em { font-style: italic; color: var(--blue); }
+
+    .subhead {
+      font-size: clamp(13px, 1.25vw, 16px);
+      font-weight: 400; color: var(--text-dim);
+      text-align: center; max-width: 640px;
+      line-height: 1.72; margin-bottom: 36px;
+      position: relative; z-index: 1;
+    }
+
+    .blue-rule {
+      width: 40px; height: 2px;
+      background: var(--blue); opacity: 0.55;
+      margin: 0 auto 24px;
+    }
+
+    /* ─── SLIDE 1: COVER ───────────────────────────── */
+    #slide-1 {
+      text-align: center;
+      background: radial-gradient(ellipse at 25% 65%, rgba(1,166,230,0.07) 0%, transparent 55%),
+                  radial-gradient(ellipse at 75% 35%, rgba(9,58,81,0.35) 0%, transparent 55%);
+    }
+
+    .cover-logo {
+      height: 52px; width: auto;
+      margin: 0 auto 36px;
+      position: relative; z-index: 1;
+    }
+
+    .cover-tag {
+      display: inline-flex;
+      align-items: center; gap: 10px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--blue);
+      border: 1px solid var(--border);
+      padding: 7px 18px; margin-bottom: 28px;
+      position: relative; z-index: 1;
+    }
+    .cover-tag-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--blue);
+    }
+
+    .cover-footer {
+      position: absolute; bottom: 36px;
+      left: 50%; transform: translateX(-50%);
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
+      color: rgba(122,154,176,0.45); white-space: nowrap;
+    }
+
+    /* ─── SLIDE 2: HONEST ASSESSMENT ──────────────── */
+    .two-col {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 32px; width: 100%; max-width: 1060px;
+      position: relative; z-index: 1;
+    }
+
+    .col-head {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      padding-bottom: 12px; margin-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .col-head.bad  { color: var(--red); border-color: rgba(248,113,113,0.3); }
+    .col-head.good { color: var(--blue); }
+
+    .list-row {
+      display: flex; align-items: flex-start;
+      gap: 10px; margin-bottom: 9px;
+      font-size: 12.5px; line-height: 1.6;
+      color: rgba(238,244,248,0.78);
+      position: relative; z-index: 1;
+    }
+    .marker { flex-shrink: 0; font-size: 12px; font-weight: 700; line-height: 1.6; }
+    .marker.x     { color: var(--red); }
+    .marker.check { color: var(--blue); }
+
+    /* ─── SLIDE 3: WHY THIS HAPPENS ───────────────── */
+    .prob-cards {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 14px; width: 100%; max-width: 1060px;
+      position: relative; z-index: 1;
+    }
+    .prob-card-wide {
+      grid-column: span 3;
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .prob-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--blue);
+      padding: 18px 16px;
+    }
+    .prob-card-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 13px; font-weight: 600;
+      color: var(--text); margin-bottom: 7px;
+      letter-spacing: 0.05em; text-transform: uppercase;
+    }
+    .prob-card-body {
+      font-size: 11.5px; line-height: 1.65; color: var(--text-dim);
+    }
+
+    .closing-italic {
+      font-style: italic; font-size: clamp(13px,1.2vw,15px);
+      color: rgba(238,244,248,0.55);
+      text-align: center; max-width: 760px; line-height: 1.65;
+      margin-top: 18px; position: relative; z-index: 1;
+    }
+
+    /* ─── SLIDE 4: VISION ──────────────────────────── */
+    .three-cards {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 22px; width: 100%; max-width: 940px;
+      position: relative; z-index: 1;
+    }
+    .pillar-card {
+      background: var(--card); border: 1px solid var(--border);
+      padding: 36px 26px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .pillar-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--navy), var(--blue));
+    }
+    .pillar-num {
+      font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 600;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--blue); opacity: 0.55; margin-bottom: 16px;
+    }
+    .pillar-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 28px; font-weight: 700; color: var(--text);
+      margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .pillar-body {
+      font-size: 12.5px; line-height: 1.72; color: var(--text-dim);
+    }
+
+    /* ─── SLIDE 5: FIVE PRIORITIES ─────────────────── */
+    .priorities-wrap {
+      width: 100%; max-width: 880px;
+      position: relative; z-index: 1;
+    }
+    .priority-row {
+      display: flex; align-items: flex-start;
+      gap: 22px; padding: 13px 0;
+      border-bottom: 1px solid rgba(1,166,230,0.08);
+    }
+    .priority-row:last-child { border-bottom: none; }
+    .priority-num {
+      font-family: 'Oswald', sans-serif; font-size: 20px; font-weight: 700;
+      color: var(--blue); opacity: 0.28; width: 40px; flex-shrink: 0;
+      line-height: 1; padding-top: 2px;
+    }
+    .priority-name {
+      font-weight: 700; font-size: 14px; color: var(--text); margin-bottom: 3px;
+    }
+    .priority-sub { font-size: 11px; color: var(--blue); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px; }
+    .priority-desc { font-size: 12px; color: var(--text-dim); line-height: 1.6; }
+
+    /* ─── SLIDE 6: FULL SCOPE ──────────────────────── */
+    .four-col {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 16px; width: 100%; max-width: 1100px;
+      position: relative; z-index: 1;
+    }
+    .scope-col {
+      background: var(--card); border: 1px solid var(--border); padding: 22px 16px;
+    }
+    .scope-col-head {
+      font-family: 'Oswald', sans-serif; font-size: 13px; font-weight: 600;
+      color: var(--blue); text-transform: uppercase; letter-spacing: 0.1em;
+      margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border);
+    }
+    .scope-item {
+      font-size: 11.5px; color: var(--text-dim); line-height: 1.55;
+      padding: 5px 0; border-bottom: 1px solid rgba(1,166,230,0.05);
+      display: flex; gap: 7px; align-items: flex-start;
+    }
+    .scope-item:last-child { border-bottom: none; }
+    .scope-arrow { color: var(--blue); opacity: 0.5; flex-shrink: 0; }
+
+    /* ─── SLIDE 7: MOCKUP ──────────────────────────── */
+    #slide-7 { text-align: center; }
+    .mockup-frame {
+      width: 100%; max-width: 900px;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; overflow: hidden;
+      position: relative; z-index: 1;
+    }
+    .mockup-titlebar {
+      background: rgba(1,166,230,0.07);
+      border-bottom: 1px solid var(--border);
+      padding: 9px 16px;
+      display: flex; align-items: center; gap: 7px;
+    }
+    .m-dot { width: 9px; height: 9px; border-radius: 50%; background: rgba(122,154,176,0.25); }
+    .m-dot.blue { background: var(--blue); opacity: 0.5; }
+    .m-url {
+      margin-left: 10px;
+      font-size: 11px; color: rgba(122,154,176,0.45);
+      font-family: 'Montserrat', monospace;
+    }
+    .mockup-inner {
+      height: 320px;
+      background: linear-gradient(135deg, #06101a 0%, #0b1a27 100%);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .mockup-inner-hex {
+      position: absolute; inset: 0;
+      background-image: url('Allied Logos/AlliedHex.png');
+      background-size: 60%; background-position: center; background-repeat: no-repeat;
+      opacity: 0.04;
+    }
+    .mockup-preview-content {
+      text-align: center; position: relative; z-index: 2;
+    }
+    .mockup-preview-label {
+      font-family: 'Oswald', sans-serif; font-size: 10px; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: rgba(1,166,230,0.4);
+      border: 1px solid rgba(1,166,230,0.2);
+      padding: 8px 20px; display: inline-block; margin-bottom: 22px;
+    }
+    .mockup-switch-btn {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: #fff; background: var(--blue);
+      border: none; padding: 14px 38px;
+      border-radius: 2px; cursor: pointer;
+      transition: background 0.2s;
+    }
+    .mockup-switch-btn:hover { background: var(--blue-light); }
+    .mockup-sub {
+      font-size: 11px; color: rgba(122,154,176,0.45);
+      margin-top: 12px; letter-spacing: 0.08em;
+    }
+
+    /* ─── SLIDE 8: ATTRIBUTION ─────────────────────── */
+    .attr-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 22px; width: 100%; max-width: 900px;
+      position: relative; z-index: 1;
+    }
+    .attr-card {
+      background: var(--card); border: 1px solid var(--border);
+      padding: 32px 24px; text-align: center;
+    }
+    .attr-icon {
+      font-size: 36px; margin-bottom: 18px;
+      line-height: 1;
+    }
+    .attr-title {
+      font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 600;
+      color: var(--text); margin-bottom: 12px;
+      text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .attr-desc { font-size: 12.5px; line-height: 1.68; color: var(--text-dim); }
+    .attr-stat {
+      font-family: 'Montserrat', sans-serif; font-size: 36px; font-weight: 900;
+      color: var(--blue); margin-bottom: 8px; letter-spacing: -0.02em;
+    }
+
+    /* ─── SLIDE 9: HOW WE WORK ─────────────────────── */
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 18px; width: 100%; max-width: 900px;
+      position: relative; z-index: 1;
+    }
+    .step-card {
+      background: var(--card); border: 1px solid var(--border);
+      padding: 26px 22px; display: flex; gap: 20px;
+    }
+    .step-num-big {
+      font-family: 'Oswald', sans-serif; font-size: 42px; font-weight: 700;
+      color: var(--blue); opacity: 0.22; line-height: 1; flex-shrink: 0;
+    }
+    .step-title { font-weight: 700; font-size: 15px; color: var(--text); margin-bottom: 6px; }
+    .step-desc { font-size: 12.5px; color: var(--text-dim); line-height: 1.65; }
+
+    /* ─── SLIDE 10: ACTION STEPS ───────────────────── */
+    .action-steps {
+      display: flex; flex-direction: column; gap: 0;
+      width: 100%; max-width: 700px;
+      margin-bottom: 28px; position: relative; z-index: 1;
+    }
+    .action-step { display: flex; align-items: flex-start; gap: 22px; }
+    .action-tag {
+      font-family: 'Oswald', sans-serif; font-size: 10px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue);
+      width: 68px; flex-shrink: 0; padding-top: 14px;
+    }
+    .action-body {
+      flex: 1; padding: 14px 0;
+      border-bottom: 1px solid rgba(1,166,230,0.09);
+    }
+    .action-step:last-child .action-body { border-bottom: none; }
+    .action-title { font-weight: 700; font-size: 14px; color: var(--text); margin-bottom: 3px; }
+    .action-desc { font-size: 12px; color: var(--text-dim); line-height: 1.55; }
+
+    .closing-quote {
+      font-style: italic;
+      font-size: clamp(15px, 1.7vw, 20px);
+      color: var(--text); text-align: center;
+      max-width: 580px; line-height: 1.5;
+      opacity: 0.85; position: relative; z-index: 1;
+    }
+
+    /* ─── NAV HINT ─────────────────────────────────── */
+    #nav-hint {
+      position: fixed; bottom: 28px; left: 36px; z-index: 500;
+      font-size: 10px; letter-spacing: 0.14em;
+      color: rgba(122,154,176,0.38);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .hint-key {
+      border: 1px solid rgba(122,154,176,0.18);
+      padding: 2px 6px; font-size: 9px; letter-spacing: 0.04em;
+    }
+
+    /* ─── CONCEPT BADGE ────────────────────────────── */
+    #concept-badge {
+      position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%);
+      z-index: 600;
+      background: rgba(6,16,26,0.94); border: 1px solid var(--border);
+      padding: 6px 20px;
+      font-family: 'Oswald', sans-serif; font-size: 9.5px;
+      letter-spacing: 0.24em; text-transform: uppercase; color: var(--blue);
+      display: none; white-space: nowrap; backdrop-filter: blur(8px);
+    }
+
+    /* ═══════════════════════════════════════════════════
+       MOCKUP VIEW
+    ═══════════════════════════════════════════════════ */
+    #mockup-view {
+      overflow-y: auto; overflow-x: hidden;
+      background: #fff; color: #000;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* ─── MOCKUP NAV ────────────────────────────────── */
+    .m-nav {
+      position: sticky; top: 0; z-index: 200;
+      height: 90px; display: flex;
+      align-items: center; justify-content: space-between;
+      padding: 0 64px;
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid rgba(9,58,81,0.1);
+      backdrop-filter: blur(10px);
+    }
+    .m-logo { height: 50px; width: auto; }
+    .m-nav-links {
+      display: flex; gap: 36px; list-style: none;
+    }
+    .m-nav-links a {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: #093A51;
+      text-decoration: none; transition: color 0.2s;
+      position: relative;
+    }
+    .m-nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 2px; background: #01A6E6;
+      transition: width 0.3s ease;
+    }
+    .m-nav-links a:hover { color: #01A6E6; }
+    .m-nav-links a:hover::after { width: 100%; }
+    .m-nav-cta {
+      font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: #fff; background: #01A6E6;
+      border: none; padding: 13px 30px; border-radius: 50px;
+      cursor: pointer; transition: background 0.2s;
+      box-shadow: 0 8px 24px rgba(1,166,230,0.25);
+    }
+    .m-nav-cta:hover { background: #093A51; }
+
+    /* ─── MOCKUP HERO ───────────────────────────────── */
+    .m-hero {
+      min-height: calc(100vh - 90px);
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center;
+      background: #fff; position: relative; overflow: hidden;
+    }
+    .m-hero-left {
+      padding: 80px 64px 80px 80px;
+      position: relative; z-index: 1;
+    }
+    .m-hero-hex-deco {
+      position: absolute;
+      width: 700px; height: 700px;
+      background-image: url('Allied Logos/AlliedHex.png');
+      background-size: contain; background-repeat: no-repeat;
+      opacity: 0.045; pointer-events: none;
+      right: -180px; top: 50%; transform: translateY(-50%);
+      z-index: 0;
+    }
+    .m-eyebrow-tag {
+      display: inline-block;
+      font-family: 'Oswald', sans-serif; font-size: 12px; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: #01A6E6; background: rgba(1,166,230,0.08);
+      padding: 6px 16px; border-radius: 50px; margin-bottom: 28px;
+    }
+    .m-hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(40px, 5.5vw, 80px); font-weight: 900;
+      color: #093A51; line-height: 1.05; margin-bottom: 24px;
+      letter-spacing: -0.025em;
+    }
+    .m-hero h1 .blue-word { color: #01A6E6; }
+    .m-hero-sub {
+      font-size: 17px; font-weight: 400; color: #6b7280;
+      line-height: 1.78; margin-bottom: 44px; max-width: 480px;
+    }
+    .m-hero-btns { display: flex; gap: 16px; align-items: center; }
+    .m-btn-primary {
+      font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: #fff; background: #093A51; border: none;
+      padding: 16px 36px; border-radius: 50px;
+      cursor: pointer; transition: all 0.2s;
+      box-shadow: 0 8px 28px rgba(9,58,81,0.15);
+    }
+    .m-btn-primary:hover { background: #01A6E6; transform: translateY(-2px); }
+    .m-btn-ghost {
+      font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: #093A51; background: transparent; border: none;
+      cursor: pointer; display: flex; align-items: center; gap: 8px;
+      transition: color 0.2s;
+    }
+    .m-btn-ghost:hover { color: #01A6E6; }
+    .m-btn-ghost svg { transition: transform 0.2s; }
+    .m-btn-ghost:hover svg { transform: translateX(4px); }
+
+    .m-hero-right {
+      position: relative; height: 100%;
+      min-height: calc(100vh - 90px);
+      overflow: hidden;
+    }
+    .m-hero-right img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .m-hero-right-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(255,255,255,0.18) 0%, transparent 30%);
+    }
+    .m-hero-stat-card {
+      position: absolute; bottom: 40px; left: -24px;
+      background: #fff; border-radius: 20px;
+      padding: 22px 28px; box-shadow: 0 24px 60px rgba(9,58,81,0.18);
+      display: flex; align-items: center; gap: 16px;
+      border: 1px solid rgba(9,58,81,0.08);
+    }
+    .m-hero-stat-icon {
+      width: 48px; height: 48px; background: #01A6E6;
+      border-radius: 14px; display: flex; align-items: center; justify-content: center;
+    }
+    .m-hero-stat-num {
+      font-size: 28px; font-weight: 900; color: #093A51; letter-spacing: -0.02em;
+    }
+    .m-hero-stat-label {
+      font-family: 'Oswald', sans-serif; font-size: 10px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase; color: #9ca3af;
+    }
+
+    /* ─── STATS BAR ─────────────────────────────────── */
+    .m-stats-bar {
+      padding: 36px 80px; background: #093A51;
+      display: flex; justify-content: space-around; align-items: center;
+      border-top: 3px solid #01A6E6;
+    }
+    .m-stat-item { text-align: center; }
+    .m-stat-num {
+      font-size: 38px; font-weight: 900; color: #fff; letter-spacing: -0.02em; line-height: 1;
+    }
+    .m-stat-num span { color: #01A6E6; }
+    .m-stat-lbl {
+      font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(255,255,255,0.45); margin-top: 6px;
+    }
+    .m-stat-divider { width: 1px; height: 48px; background: rgba(255,255,255,0.1); }
+
+    /* ─── SERVICES SECTION ──────────────────────────── */
+    .m-services {
+      padding: 110px 80px; background: #F9FAFB;
+      position: relative; overflow: hidden;
+    }
+    .m-services-hex {
+      position: absolute; width: 400px; height: 400px;
+      background-image: url('Allied Logos/AlliedHex.png');
+      background-size: contain; background-repeat: no-repeat;
+      opacity: 0.05; pointer-events: none;
+      left: -100px; bottom: -80px;
+    }
+    .m-section-inner { max-width: 1200px; margin: 0 auto; }
+    .m-section-ew {
+      font-family: 'Oswald', sans-serif; font-size: 12px; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: #01A6E6; margin-bottom: 12px;
+    }
+    .m-section-h2 {
+      font-size: clamp(32px, 4vw, 52px); font-weight: 900; color: #093A51;
+      margin-bottom: 60px; line-height: 1.1; letter-spacing: -0.02em;
+    }
+    .m-services-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+      position: relative; z-index: 1;
+    }
+    .m-service-card {
+      background: #fff; border: 1px solid rgba(9,58,81,0.1);
+      border-radius: 24px; padding: 36px 28px;
+      transition: all 0.3s ease;
+    }
+    .m-service-card:hover {
+      border-color: #01A6E6; transform: translateY(-5px);
+      box-shadow: 0 16px 48px rgba(1,166,230,0.12);
+    }
+    .m-service-icon {
+      width: 56px; height: 56px; background: rgba(1,166,230,0.1);
+      border-radius: 16px; display: flex; align-items: center; justify-content: center;
+      margin-bottom: 22px; color: #01A6E6; font-size: 26px;
+    }
+    .m-service-title {
+      font-size: 19px; font-weight: 800; color: #093A51; margin-bottom: 12px;
+    }
+    .m-service-desc { font-size: 14px; color: #6b7280; line-height: 1.78; margin-bottom: 20px; }
+    .m-service-link {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: #01A6E6; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+      transition: gap 0.2s;
+    }
+    .m-service-link:hover { gap: 10px; }
+
+    /* Services CTA card */
+    .m-service-cta-card {
+      background: linear-gradient(135deg, #01A6E6 0%, #093A51 100%);
+      border-radius: 24px; padding: 36px 28px;
+      display: flex; flex-direction: column; justify-content: center; color: #fff;
+    }
+    .m-service-cta-card h4 { font-size: 22px; font-weight: 800; margin-bottom: 12px; }
+    .m-service-cta-card p { font-size: 14px; opacity: 0.85; line-height: 1.7; margin-bottom: 28px; }
+    .m-cta-btn {
+      font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: #01A6E6; background: #fff; border: none;
+      padding: 13px 28px; border-radius: 50px; cursor: pointer;
+      transition: all 0.2s; width: fit-content;
+    }
+    .m-cta-btn:hover { background: #093A51; color: #fff; }
+
+    /* ─── PHILOSOPHY ────────────────────────────────── */
+    .m-philosophy {
+      padding: 110px 80px; background: #093A51;
+      color: #fff; position: relative; overflow: hidden;
+    }
+    .m-philosophy-hex {
+      position: absolute; width: 500px; height: 500px;
+      background-image: url('Allied Logos/AlliedHex.png');
+      background-size: contain; background-repeat: no-repeat;
+      opacity: 0.08; pointer-events: none; right: -120px; top: 50%;
+      transform: translateY(-50%);
+    }
+    .m-philosophy-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+      max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;
+    }
+    .m-philosophy-label {
+      font-family: 'Oswald', sans-serif; font-size: 14px; font-weight: 600;
+      letter-spacing: 0.35em; text-transform: uppercase;
+      color: #01A6E6; margin-bottom: 24px;
+    }
+    .m-philosophy h2 {
+      font-size: clamp(32px, 4vw, 54px); font-weight: 900; line-height: 1.08;
+      margin-bottom: 24px; letter-spacing: -0.02em;
+    }
+    .m-philosophy h2 .blue-word { color: #01A6E6; }
+    .m-philosophy-body {
+      font-size: 16px; color: rgba(255,255,255,0.55);
+      line-height: 1.78; margin-bottom: 36px; max-width: 420px;
+    }
+    .m-philosophy-line {
+      display: flex; align-items: center; gap: 16px;
+    }
+    .m-phil-line-bar { width: 48px; height: 2px; background: #01A6E6; }
+    .m-phil-line-text {
+      font-family: 'Oswald', sans-serif; font-size: 12px; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase; color: #01A6E6;
+    }
+    .m-philosophy-quote {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 32px; padding: 50px 44px;
+    }
+    .m-philosophy-quote p {
+      font-size: 22px; font-weight: 700; line-height: 1.48;
+      color: #fff; font-style: italic; margin-bottom: 36px;
+    }
+    .m-philosophy-quote p .blue-word { color: #01A6E6; }
+    .m-quote-attr { display: flex; align-items: center; gap: 14px; }
+    .m-quote-badge {
+      width: 46px; height: 46px; border-radius: 50%; background: #01A6E6;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 11px; color: #fff; flex-shrink: 0;
+    }
+    .m-quote-name { font-weight: 700; font-size: 14px; color: #fff; }
+    .m-quote-sub { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 2px; }
+
+    /* ─── MOCKUP FOOTER ─────────────────────────────── */
+    .m-footer {
+      background: #000; color: #fff; padding: 72px 80px 44px;
+    }
+    .m-footer-top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px; margin-bottom: 56px; padding-bottom: 56px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .m-footer-logo { height: 42px; width: auto; margin-bottom: 20px; filter: brightness(0) invert(1); }
+    .m-footer-tagline { font-size: 14px; color: rgba(255,255,255,0.38); line-height: 1.8; max-width: 320px; }
+    .m-footer-col-title {
+      font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase; color: #01A6E6; margin-bottom: 22px;
+    }
+    .m-footer-links { list-style: none; }
+    .m-footer-links li { margin-bottom: 13px; }
+    .m-footer-links a {
+      font-size: 13px; color: rgba(255,255,255,0.38); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .m-footer-links a:hover { color: #fff; }
+    .m-footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .m-footer-copy { font-size: 11px; color: rgba(255,255,255,0.18); letter-spacing: 0.1em; text-transform: uppercase; }
+    .m-footer-concept {
+      font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 0.22em;
+      text-transform: uppercase; color: rgba(1,166,230,0.3); font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════
+       TAB BAR
+  ════════════════════════════════════════════════ -->
+  <div class="tab-bar">
+    <div class="tab-brand">
+      <img src="Allied Logos/Allied-Logo-Bold_FullColor_White.png" alt="Allied Business Solutions">
+      <div class="tab-divider"></div>
+      <span class="tab-brand-label"><strong>WebMarkets</strong> &nbsp;·&nbsp; 2026 Marketing Proposal</span>
+    </div>
+    <div class="tabs">
+      <button class="tab active" id="tab-proposal" onclick="switchTab('proposal')">Proposal</button>
+      <button class="tab" id="tab-mockup" onclick="switchTab('mockup')">Website Mockup</button>
+    </div>
+  </div>
+
+  <div id="progress-wrap">
+    <div id="progress-fill" style="width:10%"></div>
+  </div>
+
+  <div id="slide-counter">1 / 10</div>
+
+  <div id="nav-hint">
+    <span class="hint-key">←</span>
+    <span class="hint-key">→</span>
+    <span style="margin-left:3px;">or click to navigate</span>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       PROPOSAL VIEW
+  ════════════════════════════════════════════════ -->
+  <div class="view active" id="proposal-view">
+
+    <!-- ── SLIDE 1: COVER ── -->
+    <div class="slide active" id="slide-1">
+      <div class="slide-hex hex-tr"></div>
+      <div class="slide-hex hex-bl"></div>
+
+      <div class="cover-tag">
+        <span class="cover-tag-dot"></span>
+        Allied Business Solutions &nbsp;·&nbsp; 2026
+      </div>
+
+      <img src="Allied Logos/Allied-Logo-Bold_FullColor_White.png" alt="Allied Business Solutions" class="cover-logo">
+
+      <div class="blue-rule"></div>
+      <h1 class="headline">End-to-End<br><em>Marketing Ownership</em></h1>
+      <div class="blue-rule" style="margin-top:20px;"></div>
+      <p class="subhead">
+        What it looks like when Allied and WebMarkets stop playing it safe<br>and unlock a full, aggressive marketing strategy built for growth.
+      </p>
+
+      <div class="cover-footer">Prepared exclusively for Allied Business Solutions &nbsp;·&nbsp; March 2026 &nbsp;·&nbsp; WebMarkets</div>
+    </div>
+
+    <!-- ── SLIDE 2: THE HONEST ASSESSMENT ── -->
+    <div class="slide" id="slide-2">
+      <div class="slide-hex hex-tr"></div>
+      <div class="eyebrow">Where We Are Today</div>
+      <h2 class="headline" style="margin-bottom:18px;"><em>Marketing breaks when no one owns it.</em></h2>
+      <div class="two-col">
+        <div>
+          <div class="col-head bad">✕ &nbsp;The Current Reality</div>
+          <div class="list-row"><span class="marker x">✕</span><span>Task-driven execution  edits, ads, reactive requests</span></div>
+          <div class="list-row"><span class="marker x">✕</span><span>Too many approvals creating delays and lost momentum</span></div>
+          <div class="list-row"><span class="marker x">✕</span><span>Organic social consuming resources with limited return</span></div>
+          <div class="list-row"><span class="marker x">✕</span><span>Advertising budget constrained below the threshold where it compounds</span></div>
+          <div class="list-row"><span class="marker x">✕</span><span>No unified line between marketing spend and sales outcomes</span></div>
+        </div>
+        <div>
+          <div class="col-head good">→ &nbsp;What's Being Left on the Table</div>
+          <div class="list-row"><span class="marker check">→</span><span>A brand and digital presence that doesn't yet match your scale</span></div>
+          <div class="list-row"><span class="marker check">→</span><span>A website that isn't built for how search and buyers work in 2026</span></div>
+          <div class="list-row"><span class="marker check">→</span><span>No production-level content or video presence in the market</span></div>
+          <div class="list-row"><span class="marker check">→</span><span>No visibility into what's actually driving pipeline</span></div>
+          <div class="list-row"><span class="marker check">→</span><span>A competitor set that is outspending and out-publishing you right now</span></div>
+        </div>
+      </div>
+      <p class="subhead" style="margin-top:22px; margin-bottom:0; max-width:760px;">
+        We've done good work together inside a structure that wasn't built for speed or scale. What Allied hasn't seen yet is what WebMarkets looks like when we own the full stack  without the fragmentation.
+      </p>
+    </div>
+
+    <!-- ── SLIDE 3: WHY THIS HAPPENS ── -->
+    <div class="slide" id="slide-3">
+      <div class="slide-hex hex-center"></div>
+      <div class="eyebrow">Why This Happens</div>
+      <h2 class="headline" style="margin-bottom:12px;"><em>These aren't Allied problems.</em><br>They're marketing ownership problems.</h2>
+      <div class="prob-cards">
+        <div class="prob-card">
+          <div class="prob-card-title">Too Many Vendors</div>
+          <div class="prob-card-body">Silos, delays, and inconsistent output. When marketing is spread across multiple partners, nothing moves in the same direction at the same speed.</div>
+        </div>
+        <div class="prob-card">
+          <div class="prob-card-title">Strategy Disconnected from Delivery</div>
+          <div class="prob-card-body">When the people who set the strategy aren't the ones executing it, priorities drift and the work stops laddering up to the goal.</div>
+        </div>
+        <div class="prob-card">
+          <div class="prob-card-title">Development as a Bottleneck</div>
+          <div class="prob-card-body">Growth stalls when execution can't ship. A backlogged development queue doesn't just slow websites  it slows everything downstream.</div>
+        </div>
+        <div style="grid-column: span 3; display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div class="prob-card">
+            <div class="prob-card-title">Creative That Looks Good but Doesn't Perform</div>
+            <div class="prob-card-body">Design without conversion intent is decoration. Creative needs to be built around outcomes, measurement, and optimization  not aesthetics alone.</div>
+          </div>
+          <div class="prob-card">
+            <div class="prob-card-title">Leadership Stuck Managing Instead of Leading</div>
+            <div class="prob-card-body">When there's no true ownership partner, leadership ends up coordinating vendors and chasing timelines instead of focusing on growth.</div>
+          </div>
+        </div>
+      </div>
+      <p class="closing-italic">"This is the turning point. Marketing stops being a project  and becomes an operational responsibility owned by one partner."</p>
+    </div>
+
+    <!-- ── SLIDE 4: THE VISION ── -->
+    <div class="slide" id="slide-4">
+      <div class="slide-hex hex-tr"></div>
+      <div class="eyebrow">The Opportunity</div>
+      <h2 class="headline" style="margin-bottom:12px;"><em>From task factory<br>to marketing engine.</em></h2>
+      <p class="subhead" style="margin-bottom:32px;">
+        Allied is ready to compete at an enterprise level. WebMarkets is built exactly for this moment  one partner, one standard, full ownership of strategy, creative, and execution.
+      </p>
+      <div class="three-cards">
+        <div class="pillar-card">
+          <div class="pillar-num">01  Pillar</div>
+          <div class="pillar-title">Aggressive</div>
+          <div class="pillar-body">Campaigns and content that demand attention and position Allied as the dominant player in the room. No safe plays.</div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num">02  Pillar</div>
+          <div class="pillar-title">Unified</div>
+          <div class="pillar-body">One strategy, one voice, one partner owning every channel moving toward the same goal. No silos. No handoffs. No "that's not our job."</div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num">03  Pillar</div>
+          <div class="pillar-title">Accountable</div>
+          <div class="pillar-body">Full attribution visibility so leadership always knows what every dollar is producing. No dashboards collecting dust.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SLIDE 5: THE FIVE PRIORITIES ── -->
+    <div class="slide" id="slide-5">
+      <div class="slide-hex hex-bl"></div>
+      <div class="eyebrow">What Changes Now</div>
+      <h2 class="headline" style="margin-bottom:24px;">Five things we fix <em>immediately.</em></h2>
+      <div class="priorities-wrap">
+        <div class="priority-row">
+          <div class="priority-num">01</div>
+          <div>
+            <div class="priority-sub">Unified Strategy</div>
+            <div class="priority-name">The 2026 Allied Marketing Playbook</div>
+            <div class="priority-desc">A full 12-month roadmap delivered in the first 30 days. Quarterly sprints, campaign calendar, channel priorities, and success metrics. Everything we do traces back to it. No more reactive marketing. No more guesswork.</div>
+          </div>
+        </div>
+        <div class="priority-row">
+          <div class="priority-num">02</div>
+          <div>
+            <div class="priority-sub">Execution</div>
+            <div class="priority-name">Streamlined Approvals</div>
+            <div class="priority-desc">One decision-maker, one process. Speed is a competitive advantage and right now we're leaving it on the table. WebMarkets operates best when execution can move  and we're going to move.</div>
+          </div>
+        </div>
+        <div class="priority-row">
+          <div class="priority-num">03</div>
+          <div>
+            <div class="priority-sub">Advertising</div>
+            <div class="priority-name">Investment Reallocated Where It Compounds</div>
+            <div class="priority-desc">Shifting budget from underperforming scope into funded paid digital where attribution is clear, results are measurable, and spend compounds over time.</div>
+          </div>
+        </div>
+        <div class="priority-row">
+          <div class="priority-num">04</div>
+          <div>
+            <div class="priority-sub">Digital Presence</div>
+            <div class="priority-name">Website Revamped for 2026</div>
+            <div class="priority-desc">AI search, mobile-first, conversion-optimized. Built for how buyers actually find and evaluate vendors today. The mockups are already done  this is ready to move the moment we align.</div>
+          </div>
+        </div>
+        <div class="priority-row">
+          <div class="priority-num">05</div>
+          <div>
+            <div class="priority-sub">Performance</div>
+            <div class="priority-name">Attribution Clarity</div>
+            <div class="priority-desc">Custom-coded dashboards connecting your CRM, ad spend, and sales pipeline into one weekly picture. No dashboard overload  just the numbers leadership actually needs to make decisions.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SLIDE 6: FULL PARTNERSHIP SCOPE ── -->
+    <div class="slide" id="slide-6">
+      <div class="slide-hex hex-tr"></div>
+      <div class="eyebrow">End-to-End Execution  Owned by One Partner</div>
+      <h2 class="headline" style="margin-bottom:22px;">This is what WebMarkets looks like <em>unleashed.</em></h2>
+      <div class="four-col">
+        <div class="scope-col">
+          <div class="scope-col-head">Strategy &amp; Planning</div>
+          <div class="scope-item"><span class="scope-arrow">→</span>The 2026 Allied Marketing Playbook</div>
+          <div class="scope-item"><span class="scope-arrow">→</span>Quarterly sprint planning &amp; campaign architecture</div>
+          <div class="scope-item"><span class="scope-arrow">→</span>Competitive intelligence &amp; market positioning</div>
+          <div class="scope-item"><span class="scope-arrow">→</span>Priorities, positioning, and success metrics defined upfront</div>
+        </div>
+        <div class="scope-col">
+          <div class="scope-col-head">Creative &amp; Production</div>
+          <div class="scope-item"><span class="scope-arrow">→</span>Production-level video content &amp; original series</div>
+          <div class="scope-item"><span class="scope-arrow">→</span>Elevated commercials built to compete in your market</div>
+          <div class="scope-item"><span class="scope-arrow">→</span>Refreshed unified campaigns each quarter</div>
+          <div class="scope-item"><span class="scope-arrow">→</span>Full creative alignment  ads, social, web, email, print</div>
+        </div>
+        <div class="scope-col">
+          <div class="scope-col-head">Digital &amp; Technical</div>
+          <div class="scope-item"><span class="scope-arrow">→</span>Funded paid advertising  search, social, display</div>
+          <div class="scope-item"><span class="scope-arrow">→</span>AI-optimized SEO built for 2026 search behavior</div>
+          <div class="scope-item"><span class="scope-arrow">→</span>Website revamp  backend, UX, performance &amp; conversion</div>
+          <div class="scope-item"><span class="scope-arrow">→</span>Custom attribution dashboards &amp; CRM integration</div>
+        </div>
+        <div class="scope-col">
+          <div class="scope-col-head">Content &amp; Authority</div>
+          <div class="scope-item"><span class="scope-arrow">→</span>Email marketing &amp; lead nurture sequences</div>
+          <div class="scope-item"><span class="scope-arrow">→</span>Thought leadership &amp; executive visibility</div>
+          <div class="scope-item"><span class="scope-arrow">→</span>Reputation building against your top competitors</div>
+          <div class="scope-item"><span class="scope-arrow">→</span>Ongoing optimization  improve what works, fix what doesn't</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SLIDE 7: WEBSITE MOCKUP ── -->
+    <div class="slide" id="slide-7">
+      <div class="slide-hex hex-center"></div>
+      <div class="eyebrow">Already In Progress</div>
+      <h2 class="headline" style="margin-bottom:14px;">We didn't wait.</h2>
+      <p class="subhead" style="margin-bottom:28px;">This is what Allied's digital presence looks like when it matches the scale of the business. Built on your brand, optimized for 2026, ready to move.</p>
+      <div class="mockup-frame">
+        <div class="mockup-titlebar">
+          <div class="m-dot"></div>
+          <div class="m-dot"></div>
+          <div class="m-dot blue"></div>
+          <span class="m-url">alliedbusinesssolutions.com &nbsp;&nbsp; Concept Design · 2026</span>
+        </div>
+        <div class="mockup-inner">
+          <div class="mockup-inner-hex"></div>
+          <div class="mockup-preview-content">
+            <div class="mockup-preview-label">Allied Business Solutions · New Website Concept</div>
+            <button class="mockup-switch-btn" onclick="event.stopPropagation(); switchTab('mockup')">View Full Mockup &nbsp;→</button>
+            <div class="mockup-sub">Click to open the website mockup &nbsp;·&nbsp; or use the Mockup tab above</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SLIDE 8: ATTRIBUTION & CLARITY ── -->
+    <div class="slide" id="slide-8">
+      <div class="slide-hex hex-tr"></div>
+      <div class="eyebrow">Performance Visibility</div>
+      <h2 class="headline" style="margin-bottom:14px;">You should always know what<br><em>your marketing is doing.</em></h2>
+      <p class="subhead" style="margin-bottom:32px;">
+        We're building custom dashboards that connect Allied's CRM, ad spend, and pipeline into one clear weekly view. Reviewed together. No surprises. This is what accountability looks like.
+      </p>
+      <div class="attr-grid">
+        <div class="attr-card">
+          <div class="attr-stat">01</div>
+          <div class="attr-title">Leads by Source</div>
+          <div class="attr-desc">Every inquiry tracked to its origin. You'll know exactly which channel, campaign, or keyword is generating real business  not just activity.</div>
+        </div>
+        <div class="attr-card">
+          <div class="attr-stat">02</div>
+          <div class="attr-title">Cost Per Acquisition</div>
+          <div class="attr-desc">What you're actually paying to win business. Not cost-per-click, not impressions  what it costs to close a deal from each channel.</div>
+        </div>
+        <div class="attr-card">
+          <div class="attr-stat">03</div>
+          <div class="attr-title">Pipeline Influenced</div>
+          <div class="attr-desc">The revenue marketing is actively driving. Connected directly to your CRM so the connection between spend and sales is always visible.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SLIDE 9: HOW WE WORK TOGETHER ── -->
+    <div class="slide" id="slide-9">
+      <div class="slide-hex hex-bl"></div>
+      <div class="eyebrow">The WebMarkets Operating Model</div>
+      <h2 class="headline" style="margin-bottom:14px;"><em>Strategy aligned. Execution owned.<br>Performance visible.</em></h2>
+      <p class="subhead" style="margin-bottom:28px;">WebMarkets runs on a four-step model built for exactly this kind of partnership. Here's what Allied gets.</p>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num-big">01</div>
+          <div>
+            <div class="step-title">Strategy Alignment</div>
+            <div class="step-desc">We define the 2026 playbook together. Priorities, positioning, campaign calendar, success metrics. This is the north star everything else traces back to.</div>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num-big">02</div>
+          <div>
+            <div class="step-title">Execution Ownership</div>
+            <div class="step-desc">One point of contact on your side. One integrated team on ours. Creative, development, and campaigns moving through one system  fast.</div>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num-big">03</div>
+          <div>
+            <div class="step-title">Performance Visibility</div>
+            <div class="step-desc">Weekly dashboard reviews. You always know what's working, what isn't, and what's coming next. No guesswork, no surprises.</div>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num-big">04</div>
+          <div>
+            <div class="step-title">Continuous Improvement</div>
+            <div class="step-desc">We improve what works and fix what doesn't every single month. This isn't set-and-forget  it's a compounding system built for growth.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SLIDE 10: ACTION STEPS ── -->
+    <div class="slide" id="slide-10">
+      <div class="slide-hex hex-tr"></div>
+      <div class="eyebrow">What Happens Next</div>
+      <h2 class="headline" style="margin-bottom:14px;">We're ready to <em>own this.</em></h2>
+      <p class="subhead" style="margin-bottom:26px;">WebMarkets doesn't need months to ramp. Here's how we move from this conversation to full momentum.</p>
+      <div class="action-steps">
+        <div class="action-step">
+          <div class="action-tag">This Week</div>
+          <div class="action-body">
+            <div class="action-title">Align on Single Point of Contact &amp; Decision Structure</div>
+            <div class="action-desc">One decision-maker, one process. We set the structure that lets us move at the speed Allied deserves.</div>
+          </div>
+        </div>
+        <div class="action-step">
+          <div class="action-tag">Week 2</div>
+          <div class="action-body">
+            <div class="action-title">Website Mockup Review &amp; Revamp Kickoff</div>
+            <div class="action-desc">Website mockup review and revamp kickoff. Dashboard build begins  CRM data connection initiated.</div>
+          </div>
+        </div>
+        <div class="action-step">
+          <div class="action-tag">Week 3</div>
+          <div class="action-body">
+            <div class="action-title">2026 Allied Marketing Playbook Draft Delivered</div>
+            <div class="action-desc">Full 12-month roadmap, quarterly sprints, campaign calendar, and success metrics. Nothing reactive. Nothing scattered.</div>
+          </div>
+        </div>
+        <div class="action-step">
+          <div class="action-tag">Week 4</div>
+          <div class="action-body">
+            <div class="action-title">Q2 Campaign Strategy Presented &amp; First Content in Motion</div>
+            <div class="action-desc">Q2 campaign strategy presented for approval. First production content in motion  market presence begins compounding.</div>
+          </div>
+        </div>
+      </div>
+      <p class="closing-quote">"Allied is built to be the best in the room.<br>WebMarkets is built to make sure the market knows it."</p>
+    </div>
+
+  </div><!-- /proposal-view -->
+
+
+  <!-- ═══════════════════════════════════════════════
+       MOCKUP VIEW  Allied Homepage
+  ════════════════════════════════════════════════ -->
+  <div class="view" id="mockup-view">
+
+    <!-- Nav -->
+    <nav class="m-nav">
+      <img src="Allied Logos/Allied-Logo-Bold_FullColor_Black.png" alt="Allied Business Solutions" class="m-logo">
+      <ul class="m-nav-links">
+        <li><a href="#">Services</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Locations</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <button class="m-nav-cta">Get Started</button>
+    </nav>
+
+    <!-- Hero -->
+    <section class="m-hero">
+      <div class="m-hero-hex-deco"></div>
+      <div class="m-hero-left">
+        <div class="m-eyebrow-tag">Technology You Can Trust</div>
+        <h1>Technology<br>You Can <span class="blue-word">Trust.</span></h1>
+        <p class="m-hero-sub">
+          Empowering organizations with innovative IT solutions, secure infrastructure, and workflow automation designed for the 2026 digital landscape.
+        </p>
+        <div class="m-hero-btns">
+          <button class="m-btn-primary">Explore Services</button>
+          <button class="m-btn-ghost">
+            Contact Us
+            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="m-hero-right">
+        <img src="Allied Images/1.png" alt="Allied Business Solutions Office Technology" onerror="this.style.background='linear-gradient(135deg, #e8f4fd 0%, #d0eaf8 100%)'; this.style.display='block';">
+        <div class="m-hero-right-overlay"></div>
+        <div class="m-hero-stat-card">
+          <div class="m-hero-stat-icon">
+            <svg width="22" height="22" fill="currentColor" viewBox="0 0 20 20" style="color:#fff;"><path fill-rule="evenodd" d="M2.166 4.9L10 1.55l7.834 3.35a1 1 0 01.666.942V14.5a1 1 0 01-.666.943L10 18.81l-7.834-3.367A1 1 0 011.5 14.5V5.842a1 1 0 01.666-.943zM10 14.242l5.232-2.242V6.535L10 4.407 4.768 6.535v5.465L10 14.242z" clip-rule="evenodd"/></svg>
+          </div>
+          <div>
+            <div class="m-hero-stat-num">100%</div>
+            <div class="m-hero-stat-label">Secure Systems</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="m-stats-bar">
+      <div class="m-stat-item">
+        <div class="m-stat-num">20<span>+</span></div>
+        <div class="m-stat-lbl">Years in Business</div>
+      </div>
+      <div class="m-stat-divider"></div>
+      <div class="m-stat-item">
+        <div class="m-stat-num">5</div>
+        <div class="m-stat-lbl">Regional Offices</div>
+      </div>
+      <div class="m-stat-divider"></div>
+      <div class="m-stat-item">
+        <div class="m-stat-num">1K<span>+</span></div>
+        <div class="m-stat-lbl">Clients Served</div>
+      </div>
+      <div class="m-stat-divider"></div>
+      <div class="m-stat-item">
+        <div class="m-stat-num">24<span>/7</span></div>
+        <div class="m-stat-lbl">Support Available</div>
+      </div>
+    </div>
+
+    <!-- Services -->
+    <section class="m-services">
+      <div class="m-services-hex"></div>
+      <div class="m-section-inner">
+        <div class="m-section-ew">Our Expertise</div>
+        <div class="m-section-h2">Strategic Solutions<br>for Growth</div>
+        <div class="m-services-grid">
+          <div class="m-service-card">
+            <div class="m-service-icon">
+              <svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>
+            </div>
+            <div class="m-service-title">IT &amp; Cloud Services</div>
+            <div class="m-service-desc">Scalable cloud infrastructure and managed IT support tailored to your business needs and growth trajectory.</div>
+            <a href="#" class="m-service-link">Learn More <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+          </div>
+          <div class="m-service-card">
+            <div class="m-service-icon">
+              <svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <div class="m-service-title">Security &amp; Compliance</div>
+            <div class="m-service-desc">Comprehensive cybersecurity frameworks to protect your data and ensure regulatory compliance across all systems.</div>
+            <a href="#" class="m-service-link">Learn More <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+          </div>
+          <div class="m-service-card">
+            <div class="m-service-icon">
+              <svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <div class="m-service-title">Workflow Automation</div>
+            <div class="m-service-desc">Streamline operations with intelligent automation tools that eliminate manual bottlenecks and free your team to focus.</div>
+            <a href="#" class="m-service-link">Learn More <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+          </div>
+          <div class="m-service-card">
+            <div class="m-service-icon">
+              <svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+            </div>
+            <div class="m-service-title">Printers &amp; Copiers</div>
+            <div class="m-service-desc">High-performance hardware solutions with proactive maintenance and on-site support  your technology won't take PTO.</div>
+            <a href="#" class="m-service-link">Learn More <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+          </div>
+          <div class="m-service-card">
+            <div class="m-service-icon">
+              <svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+            </div>
+            <div class="m-service-title">Production Print Systems</div>
+            <div class="m-service-desc">Industrial-grade printing technology for high-volume, professional-quality output that scales with your business demands.</div>
+            <a href="#" class="m-service-link">Learn More <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+          </div>
+          <div class="m-service-cta-card">
+            <h4>Need a Custom Solution?</h4>
+            <p>Our experts are ready to design a technology roadmap specifically for your business goals and budget.</p>
+            <button class="m-cta-btn">Start Planning</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section class="m-philosophy">
+      <div class="m-philosophy-hex"></div>
+      <div class="m-philosophy-grid">
+        <div>
+          <div class="m-philosophy-label">Our Philosophy</div>
+          <h2>Security Starts<br>At <span class="blue-word">The Top</span></h2>
+          <p class="m-philosophy-body">
+            We believe that technology should be a catalyst for growth, not a source of frustration. Our mission is to provide the infrastructure that lets you focus on what you do best.
+          </p>
+          <div class="m-philosophy-line">
+            <div class="m-phil-line-bar"></div>
+            <div class="m-phil-line-text">The Allied Standard</div>
+          </div>
+        </div>
+        <div class="m-philosophy-quote">
+          <p>"Your Printer Shouldn't Take <span class="blue-word">PTO</span>. Neither Should Your Technology Partner."</p>
+          <div class="m-quote-attr">
+            <div class="m-quote-badge">ABS</div>
+            <div>
+              <div class="m-quote-name">Allied Business Solutions</div>
+              <div class="m-quote-sub">Est. 2003</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="m-footer">
+      <div class="m-footer-top">
+        <div>
+          <img src="Allied Logos/Allied-Logo-Bold_White.png" alt="Allied Business Solutions" class="m-footer-logo">
+          <p class="m-footer-tagline">Allied Business Solutions is committed to providing world-class technology services with a local touch. We empower businesses to grow through innovation and reliability.</p>
+        </div>
+        <div>
+          <div class="m-footer-col-title">Quick Links</div>
+          <ul class="m-footer-links">
+            <li><a href="#">Services</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Locations</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="m-footer-col-title">Connect</div>
+          <ul class="m-footer-links">
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Twitter / X</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="m-footer-bottom">
+        <span class="m-footer-copy">&copy; 2026 Allied Business Solutions. All Rights Reserved.</span>
+        <span class="m-footer-concept">Concept Design &nbsp;·&nbsp; WebMarkets 2026</span>
+      </div>
+    </footer>
+
+  </div><!-- /mockup-view -->
+
+  <div id="concept-badge">Concept Design &nbsp;·&nbsp; WebMarkets 2026</div>
+
+
+  <!-- ═══════════════════════════════════════════════
+       JAVASCRIPT
+  ════════════════════════════════════════════════ -->
+  <script>
+    const TOTAL = 10;
+    let current = 1;
+    let transitioning = false;
+
+    /* ── Tab switching ── */
+    function switchTab(tab) {
+      const tabProposal  = document.getElementById('tab-proposal');
+      const tabMockup    = document.getElementById('tab-mockup');
+      const viewProposal = document.getElementById('proposal-view');
+      const viewMockup   = document.getElementById('mockup-view');
+      const progress     = document.getElementById('progress-wrap');
+      const counter      = document.getElementById('slide-counter');
+      const hint         = document.getElementById('nav-hint');
+      const badge        = document.getElementById('concept-badge');
+
+      if (tab === 'proposal') {
+        tabProposal.classList.add('active');
+        tabMockup.classList.remove('active');
+        viewProposal.classList.add('active');
+        viewMockup.classList.remove('active');
+        progress.style.display = 'block';
+        counter.style.display  = 'block';
+        hint.style.display     = 'flex';
+        badge.style.display    = 'none';
+      } else {
+        tabMockup.classList.add('active');
+        tabProposal.classList.remove('active');
+        viewMockup.classList.add('active');
+        viewProposal.classList.remove('active');
+        progress.style.display = 'none';
+        counter.style.display  = 'none';
+        hint.style.display     = 'none';
+        badge.style.display    = 'block';
+        viewMockup.scrollTop   = 0;
+      }
+    }
+
+    /* ── Slide navigation ── */
+    function goTo(n) {
+      if (transitioning) return;
+      if (n < 1 || n > TOTAL || n === current) return;
+      transitioning = true;
+
+      const from = document.getElementById('slide-' + current);
+      const to   = document.getElementById('slide-' + n);
+
+      from.classList.remove('active');
+      from.classList.add('exit');
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          to.classList.add('active');
+          current = n;
+          updateUI();
+        });
+      });
+
+      setTimeout(() => {
+        from.classList.remove('exit');
+        transitioning = false;
+      }, 500);
+    }
+
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
+
+    function updateUI() {
+      document.getElementById('progress-fill').style.width = ((current / TOTAL) * 100) + '%';
+      document.getElementById('slide-counter').textContent  = current + ' / ' + TOTAL;
+    }
+
+    /* ── Click to advance (proposal only) ── */
+    document.getElementById('proposal-view').addEventListener('click', function(e) {
+      if (e.target.closest('a, button')) return;
+      next();
+    });
+
+    /* ── Keyboard ── */
+    document.addEventListener('keydown', function(e) {
+      if (!document.getElementById('proposal-view').classList.contains('active')) return;
+      if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+      if (e.key === 'ArrowLeft')                    { e.preventDefault(); prev(); }
+      if (e.key === 'Escape') switchTab('proposal');
+    });
+
+    /* ── Touch / swipe ── */
+    let touchStartX = 0;
+    document.getElementById('proposal-view').addEventListener('touchstart', function(e) {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    document.getElementById('proposal-view').addEventListener('touchend', function(e) {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 50) { dx < 0 ? next() : prev(); }
+    }, { passive: true });
+
+    /* ── Init ── */
+    updateUI();
+  </script>
+</body>
+</html>

@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebMarkets | Brand Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            graphite: '#0C111D',
+                            panel: '#111827',
+                            steel: '#1F2937',
+                            red: '#EF4444',
+                            blue: '#3B82F6',
+                            cyan: '#06B6D4',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0C111D;
+            color: #F9FAFB;
+        }
+        .grid-texture {
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(31, 41, 55, 1);
+            padding-bottom: 1rem;
+        }
+        .section-header h2 {
+            margin-bottom: 0;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .section-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: #3B82F6;
+            background: rgba(59, 130, 246, 0.1);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        .radius-card {
+            background: rgba(17, 24, 39, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+        .radius-card:hover {
+            border-color: rgba(59, 130, 246, 0.3);
+            background: rgba(17, 24, 39, 0.6);
+        }
+        .panel-border {
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-effect {
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .glow-red {
+            box-shadow: 0 0 30px rgba(239, 68, 68, 0.25), 0 0 60px rgba(239, 68, 68, 0.1);
+        }
+        .headline-gradient {
+            background: linear-gradient(135deg, #FFFFFF 0%, #E5E7EB 50%, #9CA3AF 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding-bottom: 0.1em;
+            margin-bottom: -0.1em;
+        }
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.85em;
+            color: #3B82F6;
+        }
+        .component-card {
+            transition: all 0.3s ease;
+        }
+        .component-card:hover {
+            border-color: rgba(59, 130, 246, 0.4);
+            transform: translateY(-2px);
+        }
+        .mm-card {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1rem;
+            background: rgba(17, 24, 39, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .mm-card:hover {
+            background: rgba(17, 24, 39, 0.6);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+        .mm-image-wrapper {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+        .mm-card-icon-red {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            color: #EF4444;
+        }
+        .mm-card-icon-blue {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            color: #3B82F6;
+        }
+        .mm-card-icon-cyan {
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            color: #06B6D4;
+        }
+        .mm-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #FFFFFF;
+            margin-bottom: 0.125rem;
+        }
+        .mm-description {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            color: #9CA3AF;
+        }
+        aside {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        aside::-webkit-scrollbar {
+            display: none; /* Chrome, Safari and Opera */
+        }
+        .copy-toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #3B82F6;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            display: none;
+            animation: fadeInUp 0.3s ease-out;
+            z-index: 100;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="font-sans selection:bg-brand-blue selection:text-white">
+
+    <div class="fixed inset-0 grid-texture pointer-events-none z-0"></div>
+
+    <div class="flex min-h-screen relative z-10">
+        <!-- Sidebar Navigation -->
+        <aside class="w-64 border-r border-brand-steel glass-effect sticky top-0 h-screen overflow-y-auto hidden lg:block">
+            <div class="p-8">
+                <div class="mb-12">
+                    <a href="https://webmarketsonline.com/" target="_blank" class="block hover:opacity-80 transition-opacity">
+                        <img src="https://webmarketsonline.com/Portals/0/WMLogoWhite.png" alt="WebMarkets Logo" class="w-full h-auto mb-4">
+                    </a>
+                    <div class="flex items-center gap-2">
+                        <div class="h-px flex-1 bg-brand-steel"></div>
+                        <span class="font-display font-bold text-[10px] tracking-[0.3em] text-gray-500 uppercase">Brand Guide</span>
+                        <div class="h-px flex-1 bg-brand-steel"></div>
+                    </div>
+                </div>
+                
+                <nav class="space-y-8">
+                    <div>
+                        <p class="font-mono text-[10px] text-gray-500 uppercase tracking-[0.2em] mb-4">Foundations</p>
+                        <div class="space-y-1">
+                            <a href="#mission" class="block py-2 text-sm text-gray-400 hover:text-white transition-colors">Mission</a>
+                            <a href="#voice" class="block py-2 text-sm text-gray-400 hover:text-white transition-colors">Voice & Tone</a>
+                            <a href="#colors" class="block py-2 text-sm text-gray-400 hover:text-white transition-colors">Colors</a>
+                            <a href="#typography" class="block py-2 text-sm text-gray-400 hover:text-white transition-colors">Typography</a>
+                            <a href="#radius" class="block py-2 text-sm text-gray-400 hover:text-white transition-colors">Corner Radius</a>
+                            <a href="#grids" class="block py-2 text-sm text-gray-400 hover:text-white transition-colors">Grid & Spacing</a>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <p class="font-mono text-[10px] text-gray-500 uppercase tracking-[0.2em] mb-4">Components</p>
+                        <div class="space-y-1">
+                            <a href="#buttons" class="block py-2 text-sm text-gray-400 hover:text-white transition-colors">Buttons</a>
+                            <a href="#cards" class="block py-2 text-sm text-gray-400 hover:text-white transition-colors">Cards & Panels</a>
+                            <a href="#forms" class="block py-2 text-sm text-gray-400 hover:text-white transition-colors">Form Elements</a>
+                            <a href="#navigation" class="block py-2 text-sm text-gray-400 hover:text-white transition-colors">Navigation</a>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <p class="font-mono text-[10px] text-gray-500 uppercase tracking-[0.2em] mb-4">Creative Assets</p>
+                        <div class="space-y-1">
+                            <a href="#social" class="block py-2 text-sm text-gray-400 hover:text-white transition-colors">Social & Ads</a>
+                            <a href="#imagery" class="block py-2 text-sm text-gray-400 hover:text-white transition-colors">Imagery Style</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="font-mono text-[10px] text-gray-500 uppercase tracking-[0.2em] mb-4">Special Effects</p>
+                        <div class="space-y-1">
+                            <a href="#animations" class="block py-2 text-sm text-gray-400 hover:text-white transition-colors">Animations</a>
+                            <a href="#glows" class="block py-2 text-sm text-gray-400 hover:text-white transition-colors">Glows & Gradients</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8 lg:p-16 max-w-5xl">
+            <header class="mb-20">
+                <h1 class="font-display text-5xl font-bold mb-4 headline-gradient">Brand Guide</h1>
+                <p class="text-xl text-gray-400 max-w-2xl leading-relaxed">
+                    This interactive guide documents the visual language and components used across WebMarkets digital products.
+                </p>
+            </header>
+
+            <!-- MISSION STATEMENT -->
+            <section id="mission" class="mb-24 scroll-mt-20">
+                <div class="p-6 rounded-xl radius-card">
+                    <h4 class="font-display font-bold text-brand-red mb-3">Our Mission</h4>
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        WebMarkets is a marketing partner that owns strategy, creative, and technical execution end-to-end so growth-stage organizations can scale without building internal marketing or development teams.
+                    </p>
+                </div>
+            </section>
+
+            <!-- BRAND VOICE -->
+            <section id="voice" class="mb-24 scroll-mt-20">
+                <div class="section-header">
+                    <span class="section-number">01</span>
+                    <h2 class="font-display text-3xl font-bold">Brand Voice & Tone</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="p-6 rounded-xl radius-card">
+                        <h4 class="font-display font-bold text-brand-blue mb-3">Authoritative</h4>
+                        <p class="text-sm text-gray-400 leading-relaxed">We don't guess. We speak with the confidence of experts who own the execution and the results.</p>
+                    </div>
+                    <div class="p-6 rounded-xl radius-card">
+                        <h4 class="font-display font-bold text-brand-red mb-3">Direct</h4>
+                        <p class="text-sm text-gray-400 leading-relaxed">No fluff. No agency jargon. We focus on what matters: performance, delivery, and growth.</p>
+                    </div>
+                    <div class="p-6 rounded-xl radius-card">
+                        <h4 class="font-display font-bold text-brand-cyan mb-3">Technical</h4>
+                        <p class="text-sm text-gray-400 leading-relaxed">We embrace the complexity of the stack. Our tone reflects our deep technical depth and discipline.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- COLORS -->
+            <section id="colors" class="mb-24 scroll-mt-20">
+                <div class="section-header">
+                    <span class="section-number">02</span>
+                    <h2 class="font-display text-3xl font-bold">Colors</h2>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                    <div class="group cursor-pointer" onclick="copyToClipboard('#0C111D')">
+                        <div class="h-24 w-full bg-[#0C111D] rounded-xl border border-white/10 mb-3"></div>
+                        <p class="font-mono text-xs font-bold">Graphite</p>
+                        <p class="font-mono text-[10px] text-gray-500 uppercase">#0C111D (Background)</p>
+                    </div>
+                    <div class="group cursor-pointer" onclick="copyToClipboard('#111827')">
+                        <div class="h-24 w-full bg-[#111827] rounded-xl border border-white/10 mb-3"></div>
+                        <p class="font-mono text-xs font-bold">Panel</p>
+                        <p class="font-mono text-[10px] text-gray-500 uppercase">#111827 (Cards)</p>
+                    </div>
+                    <div class="group cursor-pointer" onclick="copyToClipboard('#EF4444')">
+                        <div class="h-24 w-full bg-[#EF4444] rounded-xl mb-3"></div>
+                        <p class="font-mono text-xs font-bold text-brand-red">Heat</p>
+                        <p class="font-mono text-[10px] text-gray-500 uppercase">#EF4444 (Primary)</p>
+                    </div>
+                    <div class="group cursor-pointer" onclick="copyToClipboard('#3B82F6')">
+                        <div class="h-24 w-full bg-[#3B82F6] rounded-xl mb-3"></div>
+                        <p class="font-mono text-xs font-bold text-brand-blue">Ice</p>
+                        <p class="font-mono text-[10px] text-gray-500 uppercase">#3B82F6 (Secondary)</p>
+                    </div>
+                    <div class="group cursor-pointer" onclick="copyToClipboard('#06B6D4')">
+                        <div class="h-24 w-full bg-[#06B6D4] rounded-xl mb-3"></div>
+                        <p class="font-mono text-xs font-bold text-brand-cyan">Powder</p>
+                        <p class="font-mono text-[10px] text-gray-500 uppercase">#06B6D4 (Accent)</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TYPOGRAPHY -->
+            <section id="typography" class="mb-24 scroll-mt-20">
+                <div class="section-header">
+                    <span class="section-number">03</span>
+                    <h2 class="font-display text-3xl font-bold">Typography</h2>
+                </div>
+                <div class="space-y-12">
+                    <div class="p-8 rounded-xl panel-border bg-brand-panel/30">
+                        <p class="font-mono text-[10px] text-gray-500 uppercase tracking-widest mb-4">Display (Space Grotesk)</p>
+                        <h1 class="font-display text-5xl font-bold mb-4">Main Heading</h1>
+                        <p class="text-sm text-gray-500">Usage: Hero headlines, section titles.</p>
+                    </div>
+                    <div class="p-8 rounded-xl panel-border bg-brand-panel/30">
+                        <p class="font-mono text-[10px] text-gray-500 uppercase tracking-widest mb-4">Sans (Inter)</p>
+                        <p class="text-lg leading-relaxed">
+                            Inter is used for body copy and general content. It should always have a high line-height for readability.
+                        </p>
+                        <p class="text-sm text-gray-500 mt-4">Usage: Body text, paragraphs.</p>
+                    </div>
+                    <div class="p-8 rounded-xl panel-border bg-brand-panel/30">
+                        <p class="font-mono text-[10px] text-gray-500 uppercase tracking-widest mb-4">Mono (JetBrains Mono)</p>
+                        <p class="font-mono text-sm uppercase tracking-[0.2em] text-brand-blue">SECTION LABEL 01</p>
+                        <p class="text-sm text-gray-500 mt-4">Usage: Labels, numbers, technical data.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CORNER RADIUS -->
+            <section id="radius" class="mb-24 scroll-mt-20">
+                <div class="section-header">
+                    <span class="section-number">04</span>
+                    <h2 class="font-display text-3xl font-bold">Corner Radius</h2>
+                </div>
+                <div class="max-w-md">
+                    <div class="p-8 rounded-xl radius-card flex flex-col items-center gap-6">
+                        <div class="w-32 h-32 bg-brand-blue rounded-xl glow-blue/20"></div>
+                        <div class="text-center">
+                            <p class="font-display text-xl font-bold mb-2">Standard Radius</p>
+                            <p class="font-mono text-sm text-brand-blue mb-4">12px / 0.75rem</p>
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                To maintain a consistent technical aesthetic, we use a uniform 12px radius across all primary components, including cards, buttons, and image containers.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- GRID & SPACING -->
+            <section id="grids" class="mb-24 scroll-mt-20">
+                <div class="section-header">
+                    <span class="section-number">05</span>
+                    <h2 class="font-display text-3xl font-bold">Grid & Spacing</h2>
+                </div>
+                <div class="space-y-12">
+                    <div class="p-8 rounded-xl radius-card relative overflow-hidden">
+                        <div class="absolute inset-0 grid-texture opacity-40"></div>
+                        <div class="relative z-10">
+                            <p class="font-mono text-[10px] text-brand-blue tracking-widest mb-4">Background Texture</p>
+                            <h4 class="font-display font-bold mb-4">The Signature Grid</h4>
+                            <p class="text-sm text-gray-400 max-w-xl leading-relaxed mb-6">
+                                Our visual identity is built on a 40px x 40px technical grid. This represents the precision and technical depth of our execution.
+                            </p>
+                            <div class="flex gap-4">
+                                <div class="px-4 py-2 bg-brand-graphite border border-brand-steel rounded-md font-mono text-[10px] text-gray-400">Size: 40px</div>
+                                <div class="px-4 py-2 bg-brand-graphite border border-brand-steel rounded-md font-mono text-[10px] text-gray-400">Color: rgba(255,255,255,0.03)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BUTTONS -->
+            <section id="buttons" class="mb-24 scroll-mt-20">
+                <div class="section-header">
+                    <span class="section-number">06</span>
+                    <h2 class="font-display text-3xl font-bold">Buttons</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="p-8 rounded-xl panel-border bg-brand-panel/30 flex flex-col items-center justify-center gap-6">
+                        <button class="bg-brand-red hover:bg-red-600 text-white px-8 py-3.5 rounded-lg font-display font-bold text-lg glow-red transition-all">
+                            Primary CTA
+                        </button>
+                    </div>
+                    <div class="p-8 rounded-xl panel-border bg-brand-panel/30 flex flex-col items-center justify-center gap-6">
+                        <button class="bg-brand-panel/50 hover:bg-brand-panel border border-brand-steel text-white px-8 py-3.5 rounded-lg font-display font-semibold text-lg transition-all">
+                            Secondary Button
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CARDS & PANELS -->
+            <section id="cards" class="mb-24 scroll-mt-20">
+                <div class="section-header">
+                    <span class="section-number">07</span>
+                    <h2 class="font-display text-3xl font-bold">Cards & Panels</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="p-8 rounded-xl radius-card">
+                        <p class="font-mono text-[10px] text-brand-blue tracking-widest mb-4">Standard Card</p>
+                        <h4 class="font-display font-bold mb-4">Interactive Panel</h4>
+                        <p class="text-sm text-gray-400 leading-relaxed">Our standard container for content blocks. Features a subtle border and glass-morphism background.</p>
+                    </div>
+                    <div class="p-8 rounded-xl border border-brand-steel bg-brand-panel/50">
+                        <p class="font-mono text-[10px] text-brand-red tracking-widest mb-4">Alternative Style</p>
+                        <h4 class="font-display font-bold mb-4">Flat Panel</h4>
+                        <p class="text-sm text-gray-400 leading-relaxed">A more structured, non-glass alternative for technical documentation or data-heavy views.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FORMS -->
+            <section id="forms" class="mb-24 scroll-mt-20">
+                <div class="section-header">
+                    <span class="section-number">08</span>
+                    <h2 class="font-display text-3xl font-bold">Form Elements</h2>
+                </div>
+                <div class="p-8 rounded-xl panel-border bg-brand-panel/30 max-w-md mx-auto">
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block font-mono text-[10px] text-gray-500 uppercase tracking-widest mb-2">Input Label</label>
+                            <input type="text" placeholder="Input placeholder text" 
+                                   class="w-full bg-brand-graphite border border-brand-steel rounded-lg px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-brand-blue/50 transition-all">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- NAVIGATION -->
+            <section id="navigation" class="mb-24 scroll-mt-20">
+                <div class="section-header">
+                    <span class="section-number">09</span>
+                    <h2 class="font-display text-3xl font-bold">Navigation</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="mm-card nav-red">
+                        <div class="mm-image-wrapper nav-icon-red mm-card-icon-red">
+                            <svg width="24px" height="24px" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M1 20C1 18.8954 1.89543 18 3 18H6C7.10457 18 8 18.8954 8 20V25C8 26.1046 7.10457 27 6 27H3C1.89543 27 1 26.1046 1 25V20ZM6 20.4C6 20.1791 5.82091 20 5.6 20H3.4C3.17909 20 3 20.1791 3 20.4V24.6C3 24.8209 3.17909 25 3.4 25H5.6C5.82091 25 6 24.8209 6 24.6V20.4Z" fill="currentColor" fill-rule="evenodd"></path><path clip-rule="evenodd" d="M10 3C10 1.89543 10.8954 1 12 1H15C16.1046 1 17 1.89543 17 3V25C17 26.1046 16.1046 27 15 27H12C10.8954 27 10 26.1046 10 25V3ZM15 3.4C15 3.17909 14.8209 3 14.6 3L12.4 3C12.1791 3 12 3.17909 12 3.4V24.6C12 24.8209 12.1791 25 12.4 25H14.6C14.8209 25 15 24.8209 15 24.6V3.4Z" fill="currentColor" fill-rule="evenodd"></path><path clip-rule="evenodd" d="M19 11C19 9.89543 19.8954 9 21 9H24C25.1046 9 26 9.89543 26 11V25C26 26.1046 25.1046 27 24 27H21C19.8954 27 19 26.1046 19 25V11ZM24 11.4C24 11.1791 23.8209 11 23.6 11H21.4C21.1791 11 21 11.1791 21 11.4V24.6C21 24.8209 21.1791 25 21.4 25H23.6C23.8209 25 24 24.8209 24 24.6V11.4Z" fill="currentColor" fill-rule="evenodd"></path></svg>
+                        </div>
+                        <div class="mm-content">
+                            <h4 class="mm-title">Analytics</h4>
+                            <p class="mm-description">Placeholder</p>
+                        </div>
+                    </div>
+
+                    <div class="mm-card nav-blue">
+                        <div class="mm-image-wrapper nav-icon-blue mm-card-icon-blue">
+                            <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="mm-content">
+                            <h4 class="mm-title">SEO</h4>
+                            <p class="mm-description">Placeholder</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SOCIAL & ADS -->
+            <section id="social" class="mb-24 scroll-mt-20">
+                <div class="section-header">
+                    <span class="section-number">10</span>
+                    <h2 class="font-display text-3xl font-bold">Social & Ads</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="p-8 rounded-xl panel-border bg-brand-panel/30">
+                        <p class="font-mono text-[10px] text-gray-500 uppercase tracking-widest mb-6">Instagram / Facebook (1080x1080)</p>
+                        <div class="aspect-square w-full bg-brand-graphite rounded-xl relative overflow-hidden flex flex-col p-8 border border-white/5">
+                            <div class="absolute inset-0 grid-texture opacity-30"></div>
+                            <div class="relative z-10 flex flex-col h-full">
+                                <img src="https://webmarketsonline.com/Portals/0/WMLogoWhite.png" alt="WebMarkets Logo" class="h-6 w-auto mb-auto self-start">
+                                <div class="w-12 h-1 bg-brand-red mb-4"></div>
+                                <h3 class="font-display text-2xl font-bold mb-2 leading-tight">High-Performance<br>Marketing Execution</h3>
+                                <p class="text-sm text-gray-400 mb-4">We own the strategy, creative, and technical delivery end-to-end.</p>
+                                <p class="text-[10px] text-gray-500 font-mono uppercase tracking-widest">webmarkets.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8 rounded-xl panel-border bg-brand-panel/30">
+                        <p class="font-mono text-[10px] text-gray-500 uppercase tracking-widest mb-6">LinkedIn / Display (1200x628)</p>
+                        <div class="aspect-[1200/628] w-full bg-brand-graphite rounded-xl relative overflow-hidden flex items-center p-8 border border-white/5">
+                            <div class="absolute inset-0 grid-texture opacity-30"></div>
+                            <div class="relative z-10 w-full flex items-center justify-between">
+                                <div>
+                                    <img src="https://webmarketsonline.com/Portals/0/WMLogoWhite.png" alt="WebMarkets Logo" class="h-6 w-auto mb-6">
+                                    <h3 class="font-display text-3xl font-bold headline-gradient mb-4">Own the Work.</h3>
+                                    <button class="bg-brand-red text-white px-6 py-2 rounded-md font-display font-bold text-sm glow-red">Discovery Call</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- IMAGERY STYLE -->
+            <section id="imagery" class="mb-24 scroll-mt-20">
+                <div class="section-header">
+                    <span class="section-number">11</span>
+                    <h2 class="font-display text-3xl font-bold">Imagery Style</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="space-y-4">
+                        <div class="aspect-video bg-brand-steel rounded-xl overflow-hidden relative group">
+                            <div class="absolute inset-0 bg-brand-graphite/40 mix-blend-multiply transition-opacity group-hover:opacity-0"></div>
+                            <div class="absolute inset-0 flex items-center justify-center text-white/20 font-display font-bold italic">High Contrast</div>
+                        </div>
+                        <p class="text-xs text-gray-500 leading-relaxed"><span class="font-bold text-white">Contrast:</span> Use deep blacks and high-contrast lighting for a premium, technical feel.</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="aspect-video bg-brand-steel rounded-xl overflow-hidden relative group">
+                            <div class="absolute inset-0 bg-brand-blue/10 mix-blend-overlay transition-opacity group-hover:opacity-0"></div>
+                            <div class="absolute inset-0 flex items-center justify-center text-white/20 font-display font-bold italic">Blue Tint</div>
+                        </div>
+                        <p class="text-xs text-gray-500 leading-relaxed"><span class="font-bold text-white">Tints:</span> Apply subtle brand blue/red overlays to stock photography for consistency.</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="aspect-video bg-brand-steel rounded-xl overflow-hidden relative group">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-graphite to-transparent"></div>
+                            <div class="absolute inset-0 flex items-center justify-center text-white/20 font-display font-bold italic">Gradients</div>
+                        </div>
+                        <p class="text-xs text-gray-500 leading-relaxed"><span class="font-bold text-white">Depth:</span> Use bottom-up gradients to ensure text legibility over images.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ANIMATIONS -->
+            <section id="animations" class="mb-24 scroll-mt-20">
+                <div class="section-header">
+                    <span class="section-number">12</span>
+                    <h2 class="font-display text-3xl font-bold">Animations</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="p-8 rounded-xl radius-card flex flex-col items-center justify-center gap-6">
+                        <div class="w-12 h-12 bg-brand-red rounded animate-bounce"></div>
+                        <p class="font-mono text-xs text-gray-500">Standard Bounce</p>
+                    </div>
+                    <div class="p-8 rounded-xl radius-card flex flex-col items-center justify-center gap-6">
+                        <div class="w-12 h-12 bg-brand-blue rounded animate-pulse"></div>
+                        <p class="font-mono text-xs text-gray-500">Pulse Glow</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- GLOWS & GRADIENTS -->
+            <section id="glows" class="mb-24 scroll-mt-20">
+                <div class="section-header">
+                    <span class="section-number">13</span>
+                    <h2 class="font-display text-3xl font-bold">Glows & Gradients</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="p-8 rounded-xl radius-card relative overflow-hidden h-40 flex items-center justify-center">
+                        <div class="absolute -top-10 -right-10 w-32 h-32 bg-brand-blue/20 rounded-full blur-3xl"></div>
+                        <p class="font-mono text-xs">Background Blur Glow</p>
+                    </div>
+                    <div class="p-8 rounded-xl radius-card h-40 flex items-center justify-center">
+                        <h3 class="font-display text-3xl font-bold headline-gradient">Headline Gradient</h3>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="mt-40 pt-10 border-t border-brand-steel text-center">
+                <p class="text-xs text-gray-600 uppercase tracking-widest font-mono">Internal Documentation • 2026 WebMarkets</p>
+            </footer
+        </main>
+    </div>
+
+    <!-- Copy Notification -->
+    <div id="copyToast" class="copy-toast">Copied to clipboard!</div>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const toast = document.getElementById('copyToast');
+                toast.style.display = 'block';
+                setTimeout(() => {
+                    toast.style.display = 'none';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

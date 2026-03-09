@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allied Business Solutions | Technology You Can Trust</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        abs: {
+                            blue: '#01A6E6',
+                            dark: '#093A51',
+                            black: '#000000',
+                            white: '#FFFFFF',
+                            gray: '#F9FAFB',
+                            border: 'rgba(9, 58, 81, 0.1)',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                        accent: ['Oswald', 'sans-serif'],
+                    },
+                    animation: {
+                        marquee: 'marquee 25s linear infinite',
+                        marquee2: 'marquee2 25s linear infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        },
+                        marquee2: {
+                            '0%': { transform: 'translateX(100%)' },
+                            '100%': { transform: 'translateX(0%)' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FFFFFF;
+            color: #000000;
+            overflow-x: hidden;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #01A6E6 0%, #093A51 100%);
+        }
+        .tactical-hex {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background-image: url('Allied Logos/AlliedHex.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .hex-right { right: -150px; top: 10%; }
+        .hex-left { left: -150px; bottom: 10%; }
+        
+        .abs-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(9, 58, 81, 0.1);
+            transition: all 0.3s ease;
+        }
+        .abs-card:hover {
+            border-color: #01A6E6;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(1, 166, 230, 0.1);
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #01A6E6;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="font-sans selection:bg-abs-blue selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-abs-border">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex justify-between items-center h-32">
+                <div class="flex-shrink-0">
+                    <img src="Allied Logos/Allied-Logo-Bold_FullColor_Black.png" alt="Allied Logo" class="h-20 w-auto">
+                </div>
+                <div class="hidden md:flex space-x-12 items-center">
+                    <a href="#services" class="nav-link text-sm font-bold text-abs-dark uppercase tracking-wider">Services</a>
+                    <a href="#about" class="nav-link text-sm font-bold text-abs-dark uppercase tracking-wider">About</a>
+                    <a href="#locations" class="nav-link text-sm font-bold text-abs-dark uppercase tracking-wider">Locations</a>
+                    <a href="#contact" class="bg-abs-blue text-white px-8 py-3 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-abs-dark transition-colors shadow-lg shadow-abs-blue/20">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-24 overflow-hidden bg-white">
+        <!-- Tactical Hex - Top Right -->
+        <div class="tactical-hex hex-right opacity-10 scale-125"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="inline-block px-4 py-1.5 bg-abs-blue/10 rounded-full mb-6">
+                        <span class="font-accent text-abs-blue text-sm font-bold tracking-[0.2em] uppercase">Technology You Can Trust</span>
+                    </div>
+                    <h1 class="font-display text-6xl lg:text-8xl font-extrabold text-abs-dark leading-[1.1] mb-8 tracking-tight">
+                        Technology You Can <span class="text-abs-blue">Trust.</span>
+                    </h1>
+                    <p class="text-xl text-gray-500 mb-12 leading-relaxed max-w-xl font-medium">
+                        Empowering organizations with innovative IT solutions, secure infrastructure, and workflow automation designed for the 2026 digital landscape.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-6">
+                        <a href="#services" class="bg-abs-dark text-white px-12 py-5 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-abs-blue transition-all text-center shadow-xl shadow-abs-dark/10">Explore Services</a>
+                        <a href="#contact" class="group flex items-center justify-center gap-3 text-abs-dark px-12 py-5 rounded-full text-sm font-bold uppercase tracking-widest hover:text-abs-blue transition-all">
+                            Contact Us
+                            <svg class="w-5 h-5 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2 relative">
+                    <!-- Modern Abstract Background Element -->
+                    <div class="absolute -top-20 -right-20 w-96 h-96 bg-abs-blue/5 rounded-full blur-3xl"></div>
+                    <div class="absolute -bottom-20 -left-20 w-96 h-96 bg-abs-dark/5 rounded-full blur-3xl"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="rounded-[2.5rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(9,58,81,0.25)] border-8 border-white">
+                            <img src="Allied Images/1.png" alt="Modern Office Technology" class="w-full h-auto scale-105 hover:scale-100 transition-transform duration-700">
+                        </div>
+                        
+                        <!-- Floating Stats Card -->
+                        <div class="absolute -bottom-10 -right-10 bg-white p-8 rounded-3xl shadow-2xl border border-abs-border hidden xl:block">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-abs-blue rounded-2xl flex items-center justify-center text-white">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.9L10 1.55l7.834 3.35a1 1 0 01.666.942V14.5a1 1 0 01-.666.943L10 18.81l-7.834-3.367A1 1 0 011.5 14.5V5.842a1 1 0 01.666-.943zM10 14.242l5.232-2.242V6.535L10 4.407 4.768 6.535v5.465L10 14.242z" clip-rule="evenodd"></path></svg>
+                                </div>
+                                <div>
+                                    <p class="text-2xl font-extrabold text-abs-dark">100%</p>
+                                    <p class="text-xs text-gray-400 font-bold uppercase tracking-widest">Secure Systems</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logo Scroller Section -->
+    <section class="py-12 bg-white border-y border-abs-border overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 mb-8">
+            <p class="text-center font-accent text-gray-400 text-xs font-bold tracking-[0.3em] uppercase">Trusted by Industry Leaders</p>
+        </div>
+        <div class="relative flex overflow-x-hidden">
+            <div class="flex animate-marquee whitespace-nowrap items-center">
+                <img src="Allied Logos/Allied-Logo-Bold_FullColor_Black.png" alt="Partner" class="h-10 mx-12 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <img src="Allied Logos/Allied-Logo-Bold_Black.png" alt="Partner" class="h-10 mx-12 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <img src="Allied Logos/Allied-Logo-Bold_FullColor_Black.png" alt="Partner" class="h-10 mx-12 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <img src="Allied Logos/Allied-Logo-Bold_Black.png" alt="Partner" class="h-10 mx-12 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <img src="Allied Logos/Allied-Logo-Bold_FullColor_Black.png" alt="Partner" class="h-10 mx-12 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <img src="Allied Logos/Allied-Logo-Bold_Black.png" alt="Partner" class="h-10 mx-12 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+            </div>
+
+            <div class="absolute top-0 flex animate-marquee2 whitespace-nowrap items-center">
+                <img src="Allied Logos/Allied-Logo-Bold_FullColor_Black.png" alt="Partner" class="h-10 mx-12 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <img src="Allied Logos/Allied-Logo-Bold_Black.png" alt="Partner" class="h-10 mx-12 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <img src="Allied Logos/Allied-Logo-Bold_FullColor_Black.png" alt="Partner" class="h-10 mx-12 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <img src="Allied Logos/Allied-Logo-Bold_Black.png" alt="Partner" class="h-10 mx-12 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <img src="Allied Logos/Allied-Logo-Bold_FullColor_Black.png" alt="Partner" class="h-10 mx-12 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <img src="Allied Logos/Allied-Logo-Bold_Black.png" alt="Partner" class="h-10 mx-12 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-abs-gray relative overflow-hidden">
+        <div class="tactical-hex hex-left" style="opacity: 0.06;"></div>
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="font-accent text-abs-blue text-sm font-bold tracking-[0.3em] mb-4 uppercase">Our Expertise</h2>
+                <h3 class="font-display text-4xl font-extrabold text-abs-dark">Strategic Solutions for Growth</h3>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1: IT & Cloud -->
+                <div class="abs-card p-10 rounded-3xl">
+                    <div class="w-16 h-16 bg-abs-blue/10 rounded-2xl flex items-center justify-center mb-8">
+                        <svg class="w-8 h-8 text-abs-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
+                    </div>
+                    <h4 class="font-display text-xl font-bold text-abs-dark mb-4">IT & Cloud Services</h4>
+                    <p class="text-gray-600 leading-relaxed mb-6">Scalable cloud infrastructure and managed IT support tailored to your business needs.</p>
+                    <a href="#" class="text-abs-blue font-bold text-sm uppercase tracking-wider flex items-center group">
+                        Learn More 
+                        <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+
+                <!-- Service 2: Security -->
+                <div class="abs-card p-10 rounded-3xl">
+                    <div class="w-16 h-16 bg-abs-blue/10 rounded-2xl flex items-center justify-center mb-8">
+                        <svg class="w-8 h-8 text-abs-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                    <h4 class="font-display text-xl font-bold text-abs-dark mb-4">Security & Compliance</h4>
+                    <p class="text-gray-600 leading-relaxed mb-6">Comprehensive cybersecurity frameworks to protect your data and ensure regulatory compliance.</p>
+                    <a href="#" class="text-abs-blue font-bold text-sm uppercase tracking-wider flex items-center group">
+                        Learn More 
+                        <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+
+                <!-- Service 3: Workflow -->
+                <div class="abs-card p-10 rounded-3xl">
+                    <div class="w-16 h-16 bg-abs-blue/10 rounded-2xl flex items-center justify-center mb-8">
+                        <svg class="w-8 h-8 text-abs-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h4 class="font-display text-xl font-bold text-abs-dark mb-4">Workflow Automation</h4>
+                    <p class="text-gray-600 leading-relaxed mb-6">Streamline operations with intelligent automation tools that eliminate manual bottlenecks.</p>
+                    <a href="#" class="text-abs-blue font-bold text-sm uppercase tracking-wider flex items-center group">
+                        Learn More 
+                        <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+
+                <!-- Service 4: Printers -->
+                <div class="abs-card p-10 rounded-3xl">
+                    <div class="w-16 h-16 bg-abs-blue/10 rounded-2xl flex items-center justify-center mb-8">
+                        <svg class="w-8 h-8 text-abs-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                    </div>
+                    <h4 class="font-display text-xl font-bold text-abs-dark mb-4">Printers & Copiers</h4>
+                    <p class="text-gray-600 leading-relaxed mb-6">High-performance hardware solutions with proactive maintenance and support.</p>
+                    <a href="#" class="text-abs-blue font-bold text-sm uppercase tracking-wider flex items-center group">
+                        Learn More 
+                        <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+
+                <!-- Service 5: Production Print -->
+                <div class="abs-card p-10 rounded-3xl">
+                    <div class="w-16 h-16 bg-abs-blue/10 rounded-2xl flex items-center justify-center mb-8">
+                        <svg class="w-8 h-8 text-abs-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                    </div>
+                    <h4 class="font-display text-xl font-bold text-abs-dark mb-4">Production Print Systems</h4>
+                    <p class="text-gray-600 leading-relaxed mb-6">Industrial-grade printing technology for high-volume, professional-quality output.</p>
+                    <a href="#" class="text-abs-blue font-bold text-sm uppercase tracking-wider flex items-center group">
+                        Learn More 
+                        <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+
+                <!-- Call to Action Card -->
+                <div class="hero-gradient p-10 rounded-3xl flex flex-col justify-center text-white">
+                    <h4 class="font-display text-2xl font-bold mb-4">Need a Custom Solution?</h4>
+                    <p class="opacity-90 mb-8">Our experts are ready to design a technology roadmap specifically for your business.</p>
+                    <a href="#contact" class="bg-white text-abs-blue px-8 py-3 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-abs-dark hover:text-white transition-all text-center">Start Planning</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Phrase Section -->
+    <section class="py-32 bg-abs-dark text-white relative overflow-hidden">
+        <div class="tactical-hex hex-right opacity-10 scale-150" style="top: -100px;"></div>
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="font-accent text-abs-blue text-lg font-bold tracking-[0.4em] mb-8 uppercase">Our Philosophy</h2>
+                    <p class="font-display text-4xl md:text-6xl font-extrabold leading-tight mb-8">
+                        Security Starts At <span class="text-abs-blue">The Top</span>
+                    </p>
+                    <p class="text-xl text-gray-400 leading-relaxed mb-10 max-w-lg">
+                        We believe that technology should be a catalyst for growth, not a source of frustration. Our mission is to provide the infrastructure that lets you focus on what you do best.
+                    </p>
+                    <div class="flex items-center gap-6">
+                        <div class="h-px w-20 bg-abs-blue"></div>
+                        <p class="font-accent text-abs-blue font-bold tracking-widest uppercase">The Allied Standard</p>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="bg-white/5 backdrop-blur-sm p-12 rounded-[3rem] border border-white/10">
+                        <p class="font-display text-3xl font-bold leading-tight italic">
+                            "Your Printer Shouldn’t Take <span class="text-abs-blue">PTO</span>. Neither Should Your Technology Partner."
+                        </p>
+                        <div class="mt-8 flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-abs-blue flex items-center justify-center font-bold text-white">ABS</div>
+                            <div>
+                                <p class="font-bold">Allied Business Solutions</p>
+                                <p class="text-sm text-gray-400">Est. 2003</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Decorative element -->
+                    <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-abs-blue rounded-full blur-2xl opacity-20"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section id="locations" class="py-32 relative bg-white overflow-hidden">
+        <div class="tactical-hex hex-left opacity-10 scale-150" style="bottom: -100px;"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-24 items-center">
+                <div>
+                    <div class="inline-block px-4 py-1.5 bg-abs-blue/10 rounded-full mb-6">
+                        <span class="font-accent text-abs-blue text-sm font-bold tracking-[0.2em] uppercase">Local Presence</span>
+                    </div>
+                    <h3 class="font-display text-5xl font-extrabold text-abs-dark mb-8 leading-tight">Serving the Heart of the Region</h3>
+                    <p class="text-lg text-gray-500 mb-12 leading-relaxed">
+                        With offices across Idaho and Utah, we provide world-class technology services with a local touch you can trust.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="group p-6 bg-abs-gray rounded-3xl border border-abs-border hover:border-abs-blue hover:bg-white transition-all duration-300">
+                            <div class="flex items-center gap-4 mb-2">
+                                <div class="w-2 h-2 rounded-full bg-abs-blue"></div>
+                                <p class="font-bold text-abs-dark text-lg">Boise, ID</p>
+                            </div>
+                            <p class="text-sm text-gray-400 font-bold uppercase tracking-widest ml-6">Corporate HQ</p>
+                        </div>
+                        <div class="group p-6 bg-abs-gray rounded-3xl border border-abs-border hover:border-abs-blue hover:bg-white transition-all duration-300">
+                            <div class="flex items-center gap-4 mb-2">
+                                <div class="w-2 h-2 rounded-full bg-abs-blue"></div>
+                                <p class="font-bold text-abs-dark text-lg">Ontario, OR</p>
+                            </div>
+                            <p class="text-sm text-gray-400 font-bold uppercase tracking-widest ml-6">Regional Office</p>
+                        </div>
+                        <div class="group p-6 bg-abs-gray rounded-3xl border border-abs-border hover:border-abs-blue hover:bg-white transition-all duration-300">
+                            <div class="flex items-center gap-4 mb-2">
+                                <div class="w-2 h-2 rounded-full bg-abs-blue"></div>
+                                <p class="font-bold text-abs-dark text-lg">Pocatello, ID</p>
+                            </div>
+                            <p class="text-sm text-gray-400 font-bold uppercase tracking-widest ml-6">Regional Office</p>
+                        </div>
+                        <div class="group p-6 bg-abs-gray rounded-3xl border border-abs-border hover:border-abs-blue hover:bg-white transition-all duration-300">
+                            <div class="flex items-center gap-4 mb-2">
+                                <div class="w-2 h-2 rounded-full bg-abs-blue"></div>
+                                <p class="font-bold text-abs-dark text-lg">Idaho Falls, ID</p>
+                            </div>
+                            <p class="text-sm text-gray-400 font-bold uppercase tracking-widest ml-6">Regional Office</p>
+                        </div>
+                        <div class="group p-6 bg-abs-gray rounded-3xl border border-abs-border hover:border-abs-blue hover:bg-white transition-all duration-300">
+                            <div class="flex items-center gap-4 mb-2">
+                                <div class="w-2 h-2 rounded-full bg-abs-blue"></div>
+                                <p class="font-bold text-abs-dark text-lg">Salt Lake City, UT</p>
+                            </div>
+                            <p class="text-sm text-gray-400 font-bold uppercase tracking-widest ml-6">Regional Office</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <!-- Decorative Background for Image -->
+                    <div class="absolute -top-10 -left-10 w-full h-full bg-abs-blue/5 rounded-[3rem] -rotate-3"></div>
+                    <div class="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl">
+                        <img src="Allied Images/13.png" alt="Allied Team at Work" class="w-full h-auto">
+                    </div>
+                    
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-10 -right-10 bg-abs-dark text-white p-10 rounded-[2.5rem] shadow-2xl z-20 max-w-[280px]">
+                        <p class="font-accent text-abs-blue text-xs font-bold tracking-[0.2em] uppercase mb-4">Our Commitment</p>
+                        <p class="text-lg font-bold leading-tight">"Technology You Can Trust, People You Can Depend On."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-abs-black text-white py-24">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid md:grid-cols-4 gap-16 mb-20">
+                <div class="col-span-2">
+                    <img src="Allied Logos/Allied-Logo-Bold_White.png" alt="Allied Logo" class="h-20 w-auto mb-10">
+                    <p class="text-gray-400 max-w-sm leading-relaxed text-lg">
+                        Allied Business Solutions is committed to providing world-class technology services with a local touch. We empower businesses to grow through innovation and reliability.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-accent text-abs-blue font-bold tracking-widest mb-6 uppercase">Quick Links</h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li><a href="#services" class="hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#about" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#locations" class="hover:text-white transition-colors">Locations</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-accent text-abs-blue font-bold tracking-widest mb-6 uppercase">Connect</h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">LinkedIn</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Facebook</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Instagram</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-xs text-gray-500 uppercase tracking-widest">© 2026 Allied Business Solutions. All Rights Reserved.</p>
+                <div class="flex gap-8 text-xs text-gray-500 uppercase tracking-widest">
+                    <a href="#" class="hover:text-white">Privacy Policy</a>
+                    <a href="#" class="hover:text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

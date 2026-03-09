@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Technology | Managed IT | Print Production | Boise SLC — Allied Business Solutions</title>
+    <meta name="description" content="From elite office equipment technology &amp; production printing to cutting edge business IT &amp; remote working solutions, Allied Business Solutions empowers growth.">
+
+    <!-- 2026 Brand Guide Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Oswald:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <style>
+        /* ============================================================
+           2026 BRAND GUIDE — CSS VARIABLES
+        ============================================================ */
+        :root {
+            --blue:      #01A6E6;
+            --navy:      #093A51;
+            --black:     #000000;
+            --white:     #FFFFFF;
+            --gray:      #F9FAFB;
+            --border:    rgba(9, 58, 81, 0.1);
+            --gradient:  linear-gradient(135deg, #01A6E6 0%, #093A51 100%);
+            --font-main:   'Montserrat', sans-serif;
+            --font-accent: 'Oswald', sans-serif;
+            --font-mono:   'JetBrains Mono', monospace;
+        }
+
+        /* ============================================================
+           RESET & BASE
+        ============================================================ */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-main);
+            color: var(--black);
+            background: var(--white);
+            overflow-x: hidden;
+            line-height: 1.65;
+        }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; height: auto; display: block; }
+        ul { list-style: none; }
+
+        /* ============================================================
+           TYPOGRAPHY
+        ============================================================ */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-main);
+            font-weight: 800;
+            line-height: 1.08;
+        }
+        .eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            color: var(--blue);
+            display: block;
+            margin-bottom: 0.6rem;
+        }
+        .eyebrow-light { color: rgba(255,255,255,0.5); }
+        .section-title {
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            color: var(--black);
+        }
+        .section-title-light { color: var(--white); }
+        .accent { color: var(--blue); }
+
+        /* ============================================================
+           BUTTONS
+        ============================================================ */
+        .btn {
+            display: inline-block;
+            font-family: var(--font-main);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.9rem 2rem;
+            border-radius: 4px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+        .btn-primary {
+            background: var(--gradient);
+            color: var(--white);
+        }
+        .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+        .btn-outline:hover { background: var(--white); color: var(--navy); }
+        .btn-outline-blue {
+            background: transparent;
+            color: var(--blue);
+            border-color: var(--blue);
+        }
+        .btn-outline-blue:hover { background: var(--blue); color: var(--white); }
+
+        /* ============================================================
+           LAYOUT
+        ============================================================ */
+        .container      { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .container-wide { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
+        .container-narrow { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+        .section-pad    { padding: 5rem 0; }
+        .section-pad-sm { padding: 2.75rem 0; }
+        .text-center    { text-align: center; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+
+        /* ============================================================
+           TACTICAL HEX (brand guide signature element)
+        ============================================================ */
+        .tactical-hex {
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.05;
+            width: 480px;
+        }
+        .hex-right { right: -8%; top: 50%; transform: translateY(-50%); }
+        .hex-left  { left: -8%;  top: 20%; }
+
+        /* ============================================================
+           HEADER / NAV
+        ============================================================ */
+        #site-header {
+            position: static;
+            background: #ffffff;
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 2px 16px rgba(9, 58, 81, 0.07);
+        }
+
+        /* Main bar */
+        .header-main {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo img { height: 52px; width: auto; }
+
+        /* Primary nav */
+        .primary-nav { display: flex; align-items: center; }
+        .nav-item { position: relative; }
+        .nav-link {
+            display: block;
+            padding: 0.6rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            color: var(--navy);
+            transition: color 0.2s;
+            cursor: pointer;
+        }
+        .nav-link:hover, .nav-item:hover > .nav-link { color: var(--blue); }
+        .nav-link.has-sub::after {
+            content: '▾';
+            margin-left: 3px;
+            font-size: 0.6em;
+            vertical-align: middle;
+        }
+
+        /* Dropdowns */
+        .dropdown {
+            position: absolute;
+            top: calc(100% + 2px);
+            left: 0;
+            min-width: 215px;
+            background: var(--navy);
+            border-top: 2px solid var(--blue);
+            border-radius: 0 0 8px 8px;
+            padding: 0.4rem 0;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(6px);
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            z-index: 200;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+        }
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            pointer-events: all;
+            transform: translateY(0);
+        }
+        .dropdown a {
+            display: block;
+            padding: 0.5rem 1.2rem;
+            font-size: 0.76rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.7);
+            border-left: 2px solid transparent;
+            transition: all 0.15s;
+        }
+        .dropdown a:hover {
+            color: var(--blue);
+            border-left-color: var(--blue);
+            background: rgba(1, 166, 230, 0.07);
+            padding-left: 1.5rem;
+        }
+
+        /* Mobile button */
+        .mobile-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.4rem;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .mobile-btn span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--navy);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        /* ============================================================
+           HERO
+        ============================================================ */
+        .hero {
+            min-height: 62vh;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 80% 50%, rgba(255,255,255,0.06) 0%, transparent 55%);
+            pointer-events: none;
+        }
+        .hero-hex-bg {
+            position: absolute;
+            right: -4%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48vw;
+            max-width: 620px;
+            opacity: 0.06;
+            pointer-events: none;
+        }
+        .hero-content { position: relative; z-index: 1; text-align: left; }
+        .hero h1 {
+            font-size: clamp(1.9rem, 3.8vw, 3.2rem);
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 1.4rem;
+            line-height: 1.1;
+        }
+        .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+        /* ============================================================
+           AWARDS MARQUEE
+        ============================================================ */
+        .marquee-section {
+            background: var(--white);
+            padding: 1.75rem 0;
+            overflow: hidden;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .marquee-track {
+            display: flex;
+            gap: 3.5rem;
+            align-items: center;
+            animation: marquee 28s linear infinite;
+            width: max-content;
+        }
+        .marquee-track img {
+            height: 52px;
+            width: auto;
+            object-fit: contain;
+            opacity: 0.65;
+            filter: grayscale(15%);
+            flex-shrink: 0;
+        }
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+
+        /* ============================================================
+           HELP CARDS  ("What Can We Help You Find?")
+        ============================================================ */
+        .help-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        @media (min-width: 992px) {
+            .help-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+        .help-card {
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            background: var(--navy);
+            padding: 2.5rem 2rem 2rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1.25rem;
+            min-height: 220px;
+            border: 1px solid var(--border);
+        }
+        .help-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: inherit;
+        }
+        .help-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(1,166,230,0.22); }
+        .help-card:hover::before { opacity: 1; }
+        .help-card-icon {
+            position: relative;
+            z-index: 1;
+            width: 52px; height: 52px;
+            border-radius: 12px;
+            background: rgba(1,166,230,0.15);
+            border: 1px solid rgba(1,166,230,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: background 0.3s, border-color 0.3s;
+        }
+        .help-card:hover .help-card-icon {
+            background: rgba(255,255,255,0.18);
+            border-color: rgba(255,255,255,0.4);
+        }
+        .help-card-icon svg {
+            width: 26px; height: 26px;
+            stroke: var(--blue);
+            fill: none;
+            stroke-width: 1.6;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: stroke 0.3s;
+        }
+        .help-card:hover .help-card-icon svg { stroke: #fff; }
+        .help-card-body { position: relative; z-index: 1; }
+        .help-card-title {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 0.35rem;
+            line-height: 1.2;
+        }
+        .help-card-sub {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.5;
+        }
+        .help-card-cta {
+            position: relative;
+            z-index: 1;
+            margin-top: auto;
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--blue);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: color 0.2s, gap 0.2s;
+        }
+        .help-card:hover .help-card-cta { color: #fff; gap: 0.65rem; }
+        .help-card-cta::after { content: '→'; font-family: inherit; }
+
+        /* ============================================================
+           SERVICES LIST
+        ============================================================ */
+        .services-divider { border: none; border-top: 1px solid var(--border); }
+        .service-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            align-items: center;
+            padding: 1.4rem 0;
+        }
+        .service-name {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+        .service-name a { color: inherit; transition: color 0.2s; }
+        .service-name a:hover { color: var(--blue); }
+        .service-arrow {
+            width: 22px; height: 22px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 0.65rem;
+            color: var(--white);
+        }
+        .service-desc { font-size: 0.88rem; color: #5a6270; }
+
+        /* ============================================================
+           PRINTER QUIZ DARK CARD
+        ============================================================ */
+        .quiz-section { background: var(--navy); padding: 4rem 0; }
+        .quiz-card {
+            background: rgba(1,166,230,0.08);
+            border: 1px solid rgba(1,166,230,0.22);
+            border-radius: 16px;
+            padding: 3rem 3.5rem;
+        }
+        .quiz-card h3 {
+            font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+            color: var(--white);
+            margin-bottom: 0.75rem;
+        }
+        .quiz-card p { color: rgba(255,255,255,0.7); margin-bottom: 1.75rem; max-width: 520px; }
+
+        /* ============================================================
+           REVIEWS STRIP
+        ============================================================ */
+        .reviews-strip {
+            background: var(--gradient);
+            padding: 2.5rem 0;
+        }
+        .reviews-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .reviews-inner h2 {
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
+            color: var(--white);
+        }
+        .reviews-inner h5 {
+            color: rgba(255,255,255,0.75);
+            font-weight: 400;
+            margin-top: 0.3rem;
+            font-size: 0.95rem;
+        }
+
+        /* ============================================================
+           BLOG SECTION
+        ============================================================ */
+        .blog-section { background: var(--navy); }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .blog-featured {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            min-height: 400px;
+        }
+        .blog-featured img {
+            position: absolute;
+            inset: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+        .blog-featured-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(9,58,81,0.97) 0%, rgba(9,58,81,0.2) 55%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+        }
+        .blog-featured-overlay h2 {
+            font-size: 1.35rem;
+            color: var(--white);
+            margin-bottom: 0.4rem;
+            line-height: 1.25;
+        }
+        .blog-featured-overlay h2 a { color: inherit; }
+        .blog-featured-overlay h2 a:hover { color: var(--blue); }
+        .blog-featured-overlay p { color: rgba(255,255,255,0.65); font-size: 0.82rem; }
+
+        .blog-list { display: flex; flex-direction: column; }
+        .blog-item {
+            display: flex;
+            gap: 1rem;
+            padding: 0.85rem 0.75rem;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+            align-items: flex-start;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+        .blog-item:hover { background: rgba(1,166,230,0.08); }
+        .blog-item img {
+            width: 78px; height: 78px;
+            object-fit: cover;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+        .blog-item-text h3 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.35;
+            margin-bottom: 0.3rem;
+        }
+        .blog-item-text h3 a { color: inherit; transition: color 0.2s; }
+        .blog-item-text h3 a:hover { color: var(--blue); }
+        .blog-item-text p { font-size: 0.76rem; color: rgba(255,255,255,0.45); }
+
+        /* ============================================================
+           ALLIED DIFFERENCE (VIDEO)
+        ============================================================ */
+        .difference-section {
+            background: var(--navy);
+            border-top: 1px solid rgba(1,166,230,0.14);
+        }
+        .video-wrap {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .video-wrap iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%; height: 100%;
+            border: 0;
+        }
+
+        /* ============================================================
+           TEAM CAROUSEL
+        ============================================================ */
+        .team-section { background: var(--black); overflow: hidden; }
+        .team-card { position: relative; }
+        .team-card img {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+        }
+        .team-overlay {
+            position: absolute;
+            inset: auto 0 0 0;
+            background: linear-gradient(to top, rgba(9,58,81,0.96) 0%, transparent 60%);
+            padding: 1.75rem 1rem 1rem;
+            color: var(--white);
+            display: block;
+        }
+        .team-name { font-size: 0.88rem; font-weight: 700; }
+        .team-role { font-size: 0.7rem; color: var(--blue); margin-top: 0.15rem; font-weight: 500; }
+
+        /* ============================================================
+           CTA BANNER
+        ============================================================ */
+        .cta-banner {
+            background: var(--navy);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('/Portals/0/Images/Dark-lines.png') center/cover;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+        .cta-banner .container { position: relative; z-index: 1; }
+        .cta-banner h2 {
+            font-size: clamp(2.1rem, 4vw, 3.1rem);
+            color: var(--white);
+            margin-bottom: 0.75rem;
+        }
+        .cta-banner p { color: rgba(255,255,255,0.65); margin-bottom: 1.75rem; }
+
+        /* ============================================================
+           SOCIAL SECTION
+        ============================================================ */
+        .social-section { background: var(--white); }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+        .soc-link {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .soc-link:hover { background: var(--blue); transform: translateY(-2px); }
+        .soc-link img { width: 20px; height: 20px; filter: invert(1); }
+
+        /* ============================================================
+           FOOTER
+        ============================================================ */
+        .footer-main {
+            background: #060d11;
+            padding: 4.5rem 0 2rem;
+            border-top: 2px solid var(--blue);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            gap: 4rem;
+            align-items: start;
+        }
+        .footer-logo-wrap { text-align: center; }
+        .footer-logo-wrap img {
+            height: 38px; width: auto;
+            margin: 0 auto 1.5rem;
+        }
+        .footer-social { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .footer-social a {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.18);
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s;
+        }
+        .footer-social a:hover { border-color: var(--blue); background: var(--blue); }
+        .footer-social svg { width: 13px; height: 13px; fill: rgba(255,255,255,0.65); }
+        .footer-social a:hover svg { fill: var(--white); }
+
+        .footer-label {
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-top: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+        .footer-label:first-child { margin-top: 0; }
+        .footer-val {
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.7);
+        }
+        .footer-val a { color: inherit; transition: color 0.2s; }
+        .footer-val a:hover { color: var(--blue); }
+
+        .footer-ctas { display: flex; flex-direction: column; gap: 0.85rem; }
+
+        .footer-rule { border: none; border-top: 1px solid rgba(255,255,255,0.06); margin: 2rem 0; }
+
+        .footer-bottom {
+            background: var(--gradient);
+            padding: 1.3rem 0;
+        }
+        .footer-bottom-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.65rem;
+        }
+        .footer-locations {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .footer-locations a {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--white);
+            transition: opacity 0.2s;
+        }
+        .footer-locations a:hover { opacity: 0.7; }
+        .footer-credit {
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            color: rgba(255,255,255,0.6);
+        }
+        .footer-credit a { color: rgba(160,220,255,0.85); }
+
+        /* ============================================================
+           RESPONSIVE
+        ============================================================ */
+        @media (max-width: 991px) {
+            .primary-nav  { display: none; }
+            .mobile-btn   { display: flex; }
+            .grid-2       { grid-template-columns: 1fr; }
+            .blog-grid    { grid-template-columns: 1fr; }
+            .footer-grid  { grid-template-columns: 1fr; gap: 2.5rem; }
+            .service-row  { grid-template-columns: 1fr; gap: 0.2rem; }
+            .quiz-card    { padding: 2rem; }
+        }
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 1.7rem; }
+            .reviews-inner { justify-content: center; text-align: center; }
+            .help-grid { grid-template-columns: 1fr 1fr; }
+            .footer-locations { gap: 1.25rem; }
+        }
+
+        /* ============================================================
+           MOBILE NAV (JS-toggled)
+        ============================================================ */
+        .primary-nav.is-open {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0; right: 0;
+            background: var(--navy);
+            border-top: 1px solid rgba(1,166,230,0.2);
+            padding: 1rem 1.5rem 1.5rem;
+            z-index: 500;
+            box-shadow: 0 16px 32px rgba(0,0,0,0.4);
+        }
+        .primary-nav.is-open .nav-link { padding: 0.55rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .primary-nav.is-open .dropdown {
+            position: static;
+            opacity: 1;
+            transform: none;
+            pointer-events: all;
+            border-top: none;
+            border-radius: 0;
+            background: rgba(1,166,230,0.06);
+            padding: 0.25rem 0 0.25rem 1rem;
+            margin-bottom: 0.25rem;
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==============================================================
+     HEADER
+============================================================== -->
+<header id="site-header">
+    <div class="header-main">
+        <div class="logo">
+            <a href="https://allied.tech/" title="Allied Business Solutions">
+                <img src="Allied Logos/Allied-Logo-Bold_FullColor_Black.png"
+                     alt="Allied Business Solutions"
+                     onerror="this.src='https://allied.tech/Portals/0/ThemePluginPro/uploads/2025/3/12/allied_logo.png'">
+            </a>
+        </div>
+
+        <nav class="primary-nav" id="primary-nav" aria-label="Primary menu">
+            <div class="nav-item">
+                <a href="https://allied.tech/digital-business-solutions" class="nav-link has-sub">About</a>
+                <div class="dropdown">
+                    <a href="https://allied.tech/service-guarantee">The Allied Guarantee</a>
+                    <a href="https://allied.tech/why-partner-with-allied">Why Partner With Allied?</a>
+                    <a href="https://allied.tech/about/meet-the-team">Meet the Team</a>
+                    <a href="https://allied.tech/careers">Careers</a>
+                    <a href="https://allied.tech/events">Events</a>
+                    <a href="https://allied.tech/office-technology-blog">Blog</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="https://allied.tech/equipment" class="nav-link has-sub">Equipment</a>
+                <div class="dropdown">
+                    <a href="https://allied.tech/catalog">Catalog</a>
+                    <a href="https://allied.tech/technology-equipment/office-printers-and-printer-services">Office Printers</a>
+                    <a href="https://allied.tech/multifunction-printers">Multifunction Printers</a>
+                    <a href="https://allied.tech/technology-equipment/production-printing-systems">Production Printers</a>
+                    <a href="https://allied.tech/print-finishing-products">Print Finishing Products</a>
+                    <a href="https://allied.tech/technology-equipment/wide-format-printers">Wide Format Printers</a>
+                    <a href="https://allied.tech/thermal-and-receipt-printers">Thermal &amp; Receipt Printers</a>
+                    <a href="https://allied.tech/technology-equipment/unified-communications-and-the-collaborative-workplace">Unified Communications</a>
+                    <a href="https://allied.tech/equipment/mailing-systems">Mailing Systems</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="https://allied.tech/managed-services" class="nav-link has-sub">Managed Services</a>
+                <div class="dropdown">
+                    <a href="https://allied.tech/managed-services/managed-print">Managed Print</a>
+                    <a href="https://allied.tech/managed-services/managed-it">Managed IT</a>
+                    <a href="https://allied.tech/managed-services/managed-security">Managed Network Security</a>
+                    <a href="https://allied.tech/managed-services/managed-documents-digital">Digital Document Management</a>
+                    <a href="https://allied.tech/managed-services/m-files-workflow-management">M-Files Workflow Management</a>
+                    <a href="https://allied.tech/assessment-request">Assessment Request</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="https://allied.tech/serve-industries" class="nav-link has-sub">Industries Served</a>
+                <div class="dropdown">
+                    <a href="https://allied.tech/serve-industries/education">Education</a>
+                    <a href="https://allied.tech/serve-industries/government-technology-solutions">Government</a>
+                    <a href="https://allied.tech/serve-industries/legal-services-solutions">Legal</a>
+                    <a href="https://allied.tech/serve-industries/manufacturing-technology-solutions">Manufacturing</a>
+                    <a href="https://allied.tech/serve-industries/healthcare-technology-solutions">Healthcare</a>
+                    <a href="https://allied.tech/serve-industries/finance-services-technology">Finance</a>
+                    <a href="https://allied.tech/serve-industries/non-profit-technology-solutions">Non-Profit</a>
+                    <a href="https://allied.tech/serve-industries/automotive-digital-technology">Automotive</a>
+                    <a href="https://allied.tech/serve-industries/retail-technology-solutions">Retail</a>
+                    <a href="https://allied.tech/technology-equipment/production-printing-systems">Print Production</a>
+                    <a href="https://allied.tech/serve-industries/smb">Small to Medium Size Business (SMB)</a>
+                    <a href="https://allied.tech/serve-industries/enterprise-accounts">Enterprise Accounts</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="https://allied.tech/resources" class="nav-link">Resources</a>
+            </div>
+            <div class="nav-item">
+                <a href="https://allied.tech/contact-us" class="nav-link has-sub">Contact</a>
+                <div class="dropdown">
+                    <a href="https://allied.tech/boise">Boise</a>
+                    <a href="https://allied.tech/idaho-falls">Idaho Falls</a>
+                    <a href="https://allied.tech/ontario">Ontario</a>
+                    <a href="https://allied.tech/pocatello">Pocatello</a>
+                    <a href="https://allied.tech/salt-lake">Salt Lake City</a>
+                </div>
+            </div>
+        </nav>
+
+        <button class="mobile-btn" id="mobile-btn" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
+
+
+<!-- ==============================================================
+     HERO
+============================================================== -->
+<section class="hero">
+    <img src="Allied Logos/AlliedHex.png" alt="" class="hero-hex-bg" aria-hidden="true"
+         onerror="this.style.display='none'">
+    <div class="hero-content" style="width:100%; padding-left: clamp(2rem, 10vw, 11rem); padding-right: 2rem;">
+        <div style="max-width: 520px;">
+            <span class="eyebrow eyebrow-light">Allied Business Solutions</span>
+            <h1>
+                Your Tech <span style="color: rgba(255,255,255,0.72);">Experts</span> In
+                Print, IT, Document
+                Management &amp; Phones
+            </h1>
+            <div class="hero-ctas">
+                <a href="https://allied.tech/contact-us" class="btn btn-outline">Contact Us</a>
+                <a href="https://allied.tech/managed-services" class="btn" style="background:rgba(255,255,255,0.15); color:var(--white); border-color:rgba(255,255,255,0.4); backdrop-filter:blur(4px);">View Tech Solutions</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ==============================================================
+     AWARDS MARQUEE
+============================================================== -->
+<div class="marquee-section">
+    <div class="marquee-track" aria-hidden="true">
+        <img src="https://allied.tech/Portals/0/Images/pro-elite.png" alt="Pro Elite Award">
+        <img src="https://allied.tech/Portals/0/Images/bbb.png" alt="BBB Award">
+        <img src="https://allied.tech/Portals/0/Images/promasters_award_2025.jpg" alt="Pro Masters Award 2025">
+        <img src="https://allied.tech/Portals/0/Images/bestPlacesToWork.png" alt="Best Places to Work Idaho">
+        <img src="https://allied.tech/Portals/0/ThemePluginPro/uploads/2023/1/20/2021-Elite-Dealer-logo.jpg" alt="2021 ENX Elite Dealer">
+        <img src="https://allied.tech/Portals/0/ThemePluginPro/uploads/2023/1/20/Allied-INC-2020-3.png" alt="INC 5000 2020">
+        <img src="https://allied.tech/Portals/0/Images/Top-Companies-in-Treasure-Valley_IBR-logo.jpg" alt="Top Companies Treasure Valley">
+        <img src="https://allied.tech/Portals/0/Images/IT_Man_Co.webp" alt="Best IT Management Company">
+        <img src="https://allied.tech/Portals/0/Images/Office_Equip_Co.webp" alt="Best Office Equipment Company">
+        <img src="https://allied.tech/Portals/0/Images/Cyber_Security_Provider.webp" alt="Best Cybersecurity Provider">
+        <!-- Duplicate for seamless loop -->
+        <img src="https://allied.tech/Portals/0/Images/pro-elite.png" alt="Pro Elite Award">
+        <img src="https://allied.tech/Portals/0/Images/bbb.png" alt="BBB Award">
+        <img src="https://allied.tech/Portals/0/Images/promasters_award_2025.jpg" alt="Pro Masters Award 2025">
+        <img src="https://allied.tech/Portals/0/Images/bestPlacesToWork.png" alt="Best Places to Work Idaho">
+        <img src="https://allied.tech/Portals/0/ThemePluginPro/uploads/2023/1/20/2021-Elite-Dealer-logo.jpg" alt="2021 ENX Elite Dealer">
+        <img src="https://allied.tech/Portals/0/ThemePluginPro/uploads/2023/1/20/Allied-INC-2020-3.png" alt="INC 5000 2020">
+        <img src="https://allied.tech/Portals/0/Images/Top-Companies-in-Treasure-Valley_IBR-logo.jpg" alt="Top Companies Treasure Valley">
+        <img src="https://allied.tech/Portals/0/Images/IT_Man_Co.webp" alt="Best IT Management Company">
+        <img src="https://allied.tech/Portals/0/Images/Office_Equip_Co.webp" alt="Best Office Equipment Company">
+        <img src="https://allied.tech/Portals/0/Images/Cyber_Security_Provider.webp" alt="Best Cybersecurity Provider">
+    </div>
+</div>
+
+
+<!-- ==============================================================
+     WHAT CAN WE HELP YOU FIND?
+============================================================== -->
+<section class="section-pad" style="background: var(--white);">
+    <div class="container">
+        <div class="text-center" style="margin-bottom: 3rem;">
+            <span class="eyebrow">Let's Optimize Your Tech</span>
+            <h2 class="section-title">What Can We Help You Find?</h2>
+        </div>
+        <div class="help-grid">
+
+            <!-- Copiers & Printers -->
+            <a href="https://allied.tech/technology-equipment/office-printers-and-printer-services" class="help-card">
+                <div class="help-card-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <rect x="6" y="2" width="12" height="8" rx="1"/>
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                        <rect x="6" y="14" width="12" height="8" rx="1"/>
+                        <line x1="9" y1="20" x2="15" y2="20"/>
+                        <line x1="9" y1="17" x2="12" y2="17"/>
+                    </svg>
+                </div>
+                <div class="help-card-body">
+                    <div class="help-card-title">Copiers &amp; Printers</div>
+                    <div class="help-card-sub">Office, multifunction, wide-format &amp; more</div>
+                </div>
+                <span class="help-card-cta">Explore</span>
+            </a>
+
+            <!-- Managed IT -->
+            <a href="https://allied.tech/managed-services/managed-it" class="help-card">
+                <div class="help-card-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <rect x="2" y="3" width="20" height="14" rx="2"/>
+                        <path d="M8 21h8M12 17v4"/>
+                        <path d="M9 8l2 2 4-4"/>
+                    </svg>
+                </div>
+                <div class="help-card-body">
+                    <div class="help-card-title">Managed IT</div>
+                    <div class="help-card-sub">Security, support &amp; infrastructure management</div>
+                </div>
+                <span class="help-card-cta">Explore</span>
+            </a>
+
+            <!-- Production Print -->
+            <a href="https://allied.tech/technology-equipment/production-printing-systems" class="help-card">
+                <div class="help-card-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M4 6h16M4 10h16M4 14h10"/>
+                        <rect x="14" y="13" width="7" height="7" rx="1"/>
+                        <path d="M16 17h3M17.5 15v4"/>
+                    </svg>
+                </div>
+                <div class="help-card-body">
+                    <div class="help-card-title">Production Print</div>
+                    <div class="help-card-sub">High-volume &amp; commercial printing systems</div>
+                </div>
+                <span class="help-card-cta">Explore</span>
+            </a>
+
+            <!-- Document Management -->
+            <a href="https://allied.tech/managed-services/managed-documents-digital" class="help-card">
+                <div class="help-card-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="9" y1="13" x2="15" y2="13"/>
+                        <line x1="9" y1="17" x2="13" y2="17"/>
+                    </svg>
+                </div>
+                <div class="help-card-body">
+                    <div class="help-card-title">Document Management</div>
+                    <div class="help-card-sub">Digital workflows, M-Files &amp; compliance</div>
+                </div>
+                <span class="help-card-cta">Explore</span>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ==============================================================
+     SCALE YOUR BUSINESS — SERVICES LIST
+============================================================== -->
+<section class="section-pad" style="background: var(--gray);">
+    <div class="container">
+        <div class="grid-2">
+            <div style="position: relative; overflow: hidden; padding: 2rem 0;">
+                <img src="Allied Logos/AlliedHex.png" alt="" class="tactical-hex hex-left"
+                     aria-hidden="true" onerror="this.style.display='none'">
+                <div style="position: relative; z-index: 1;">
+                    <span class="eyebrow">Our Services</span>
+                    <h2 class="section-title" style="margin-bottom: 1rem;">
+                        Scale Your Business<br>Without Limitations
+                    </h2>
+                </div>
+            </div>
+            <div>
+                <hr class="services-divider">
+                <div class="service-row">
+                    <div class="service-name">
+                        <span class="service-arrow">›</span>
+                        <a href="https://allied.tech/technology-equipment/office-printers-and-printer-services">Copiers and Printers</a>
+                    </div>
+                    <p class="service-desc">Including a variety of equipment types including inkjet, laser, and multifunction.</p>
+                </div>
+                <hr class="services-divider">
+                <div class="service-row">
+                    <div class="service-name">
+                        <span class="service-arrow">›</span>
+                        <a href="https://allied.tech/managed-services/managed-it">Managed IT</a>
+                    </div>
+                    <p class="service-desc">Helping organizations design and strengthen their technology.</p>
+                </div>
+                <hr class="services-divider">
+                <div class="service-row">
+                    <div class="service-name">
+                        <span class="service-arrow">›</span>
+                        <a href="https://allied.tech/technology-equipment/production-printing-systems">Production Print</a>
+                    </div>
+                    <p class="service-desc">Equipped with the latest technology to achieve your business goals.</p>
+                </div>
+                <hr class="services-divider">
+                <div class="service-row">
+                    <div class="service-name">
+                        <span class="service-arrow">›</span>
+                        <a href="https://allied.tech/managed-services/managed-documents-digital">Document Management</a>
+                    </div>
+                    <p class="service-desc">Streamline workflows with intelligent document and data management.</p>
+                </div>
+                <hr class="services-divider">
+                <div class="service-row">
+                    <div class="service-name">
+                        <span class="service-arrow">›</span>
+                        <a href="https://allied.tech/technology-equipment/unified-communications-and-the-collaborative-workplace">Phone Systems</a>
+                    </div>
+                    <p class="service-desc">Ensuring smooth, unified communications for your business.</p>
+                </div>
+                <hr class="services-divider">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ==============================================================
+     PRINTER QUIZ CTA
+============================================================== -->
+<section class="quiz-section">
+    <div class="container">
+        <div class="quiz-card">
+            <h3>Find the Right Printer for Your Needs</h3>
+            <p>Take our comprehensive quiz and get specific recommendations on what printers fit your needs best.</p>
+            <a href="https://allied.tech/equipment/printer-quiz" class="btn btn-outline">Take Quiz</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ==============================================================
+     REVIEWS STRIP
+============================================================== -->
+<div class="reviews-strip">
+    <div class="container-wide">
+        <div class="reviews-inner">
+            <div>
+                <h2>4.9+ Review Rating And Counting!</h2>
+                <h5>From 125+ Google Reviews</h5>
+            </div>
+            <a href="https://www.google.com/search?q=Allied+Business+Solutions+Reviews"
+               target="_blank" rel="noopener" class="btn btn-outline">See Raving Reviews</a>
+        </div>
+    </div>
+</div>
+
+
+<!-- ==============================================================
+     BLOG SECTION
+============================================================== -->
+<section class="blog-section section-pad">
+    <div class="container">
+        <div class="text-center" style="margin-bottom: 3rem;">
+            <h2 class="section-title section-title-light">What's New In Tech?</h2>
+            <span class="eyebrow eyebrow-light" style="margin-top: 0.5rem;">Check Out Our Blog</span>
+        </div>
+        <div class="blog-grid">
+            <!-- Featured post (first article) -->
+            <div class="blog-featured">
+                <img src="https://allied.tech/Portals/0/xBlog/uploads/2026/2/5/(Q1)DataLossPreventionforCloud-BasedBusinessEnvironments(bannerphoto).jpg"
+                     alt="Data Loss Prevention for Cloud-Based Business Environments" loading="lazy">
+                <div class="blog-featured-overlay">
+                    <span class="eyebrow" style="color: var(--blue); margin-bottom: 0.5rem;">Security</span>
+                    <h2>
+                        <a href="https://allied.tech/office-technology-blog/data-loss-prevention-for-cloud-business-environments">
+                            Data Loss Prevention for Cloud-Based Business Environments
+                        </a>
+                    </h2>
+                    <p>Data loss prevention helps protect sensitive business data across cloud-based environments…</p>
+                </div>
+            </div>
+
+            <!-- Blog list (remaining articles) -->
+            <div class="blog-list">
+                <div class="blog-item">
+                    <img src="https://allied.tech/Portals/0/xBlog/uploads/2026/2/5/(Q1)AdvancedThreatDetectionHowtoStayAheadofEvolvingCyberThreats(bannerphoto).jpg"
+                         alt="Advanced Threat Detection" loading="lazy">
+                    <div class="blog-item-text">
+                        <h3><a href="https://allied.tech/office-technology-blog/advanced-threat-detection-for-business-networks">Advanced Threat Detection: How to Stay Ahead of Evolving Cyber Threats</a></h3>
+                        <p>Advanced threat detection helps businesses identify and stop cyber threats before breaches occur…</p>
+                    </div>
+                </div>
+                <div class="blog-item">
+                    <img src="https://allied.tech/Portals/0/xBlog/uploads/2026/2/5/(Q1)Security_RiskAssessmentsWhatTheyRevealandHowtoActonFindings(bannerphoto).jpg"
+                         alt="Security and Risk Assessments" loading="lazy">
+                    <div class="blog-item-text">
+                        <h3><a href="https://allied.tech/office-technology-blog/security-and-risk-assessments-for-business-networks">Security &amp; Risk Assessments: What They Reveal and How to Act on Findings</a></h3>
+                        <p>Security and risk assessments help businesses identify vulnerabilities and reduce exposure…</p>
+                    </div>
+                </div>
+                <div class="blog-item">
+                    <img src="https://allied.tech/Portals/0/xBlog/uploads/2026/2/5/(Q1)RemoteMonitoring_DNSFilteringSecuringaDistributedWorkforce(bannerphoto).jpg"
+                         alt="Remote Monitoring and DNS Filtering" loading="lazy">
+                    <div class="blog-item-text">
+                        <h3><a href="https://allied.tech/office-technology-blog/remote-monitoring-dns-filtering-distributed-workforce">Remote Monitoring &amp; DNS Filtering: Securing a Distributed Workforce</a></h3>
+                        <p>Remote monitoring and DNS filtering help secure remote workforces against cyber threats…</p>
+                    </div>
+                </div>
+                <div class="blog-item">
+                    <img src="https://allied.tech/Portals/0/xBlog/uploads/2026/2/5/(Q1)HowFirewallandIntrusionPreventionProtectBusinessNetworks(bannerphoto).jpg"
+                         alt="Firewall and Intrusion Prevention" loading="lazy">
+                    <div class="blog-item-text">
+                        <h3><a href="https://allied.tech/office-technology-blog/firewall-and-intrusion-prevention-for-business-networks">How Firewall and Intrusion Prevention Protect Business Networks</a></h3>
+                        <p>Firewall and intrusion prevention help protect business networks from evolving cyber threats…</p>
+                    </div>
+                </div>
+                <div class="blog-item">
+                    <img src="https://allied.tech/Portals/0/xBlog/uploads/2026/1/20/(Q1)HelpDeskvsOn-SiteSupportChoosingtheRightTierforYourBusiness(bannerphoto).jpg"
+                         alt="Help Desk vs On-Site Support" loading="lazy">
+                    <div class="blog-item-text">
+                        <h3><a href="https://allied.tech/office-technology-blog/help-desk-vs-on-site-it-support">Help Desk vs On-Site Support: Choosing the Right Tier for Your Business</a></h3>
+                        <p>Help desk services and on-site IT support serve different business needs…</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ==============================================================
+     THE ALLIED DIFFERENCE (VIDEO)
+============================================================== -->
+<section class="difference-section section-pad">
+    <div class="container">
+        <div class="grid-2">
+            <div>
+                <span class="eyebrow" style="color: var(--blue);">Why Allied?</span>
+                <h2 class="section-title section-title-light" style="margin-bottom: 1rem;">The Allied Difference.</h2>
+                <p style="color: rgba(255,255,255,0.72); margin-bottom: 1.75rem; font-size: 0.95rem;">
+                    Our customers tell us it's our people, our experience with technology, and our commitment to service excellence that make us different.
+                </p>
+                <a href="https://allied.tech/digital-business-solutions" class="btn btn-primary">Partner With An Expert</a>
+            </div>
+            <div>
+                <div class="video-wrap">
+                    <iframe src="https://www.youtube.com/embed/tRjwKg6ya8U?si=m7TqWkFIXJnYqLZr&enablejsapi=1"
+                            title="The Allied Story: Part 1"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ==============================================================
+     TEAM CAROUSEL
+============================================================== -->
+<section class="team-section">
+    <div class="swiper" id="team-swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><div class="team-card">
+                <img src="https://allied.tech/Portals/0/ThemePluginPro/uploads/2025/9/15/2025-TOM-BEELES-3.jpg" alt="Tom Beeles" loading="lazy">
+                <a href="https://allied.tech/about/meet-the-team?bio=a0a8ca3b-e8b6-48ab-89ae-97dbcabe1608" class="team-overlay">
+                    <div class="team-name">Tom Beeles</div>
+                    <div class="team-role">President &amp; CEO</div>
+                </a>
+            </div></div>
+            <div class="swiper-slide"><div class="team-card">
+                <img src="https://allied.tech/Portals/0/ThemePluginPro/uploads/2025/9/15/2025-LISA-MESENKO-11.jpg" alt="Lisa Mesenko" loading="lazy">
+                <a href="https://allied.tech/about/meet-the-team?bio=c2bf1ae2-b607-41ca-ae12-031c8ea809bf" class="team-overlay">
+                    <div class="team-name">Lisa Mesenko</div>
+                    <div class="team-role">SVP HR, Marketing &amp; Strategic Growth</div>
+                </a>
+            </div></div>
+            <div class="swiper-slide"><div class="team-card">
+                <img src="https://allied.tech/Portals/0/ThemePluginPro/uploads/2025/9/15/2025-LISA-NOVOTNY-7.jpg" alt="Lisa Novotny" loading="lazy">
+                <a href="https://allied.tech/about/meet-the-team?bio=1e3d035b-4b05-4a18-915f-9dfbccc2aac5" class="team-overlay">
+                    <div class="team-name">Lisa Novotny</div>
+                    <div class="team-role">VP of Administration</div>
+                </a>
+            </div></div>
+            <div class="swiper-slide"><div class="team-card">
+                <img src="https://allied.tech/Portals/0/ThemePluginPro/uploads/2025/9/15/2025-TERRY-SELLMAN-2.jpg" alt="Terry Sellman" loading="lazy">
+                <a href="https://allied.tech/about/meet-the-team?bio=19d05c2a-8aaf-4de8-86ab-d64d5a19f112" class="team-overlay">
+                    <div class="team-name">Terry Sellman</div>
+                    <div class="team-role">VP of Client Services</div>
+                </a>
+            </div></div>
+            <div class="swiper-slide"><div class="team-card">
+                <img src="https://allied.tech/Portals/0/ThemePluginPro/uploads/2025/9/15/2025-KORY-BECK-3.jpg" alt="Kory Beck" loading="lazy">
+                <div class="team-overlay">
+                    <div class="team-name">Kory Beck</div>
+                    <div class="team-role">VP of Sales</div>
+                </div>
+            </div></div>
+            <div class="swiper-slide"><div class="team-card">
+                <img src="https://allied.tech/Portals/0/ThemePluginPro/uploads/2023/1/19/CRITCHFIELD-500x500.jpg" alt="Joe Critchfield" loading="lazy">
+                <a href="https://allied.tech/about/meet-the-team?bio=a4cdd8c9-3911-46db-b996-8994695560f7" class="team-overlay">
+                    <div class="team-name">Joe Critchfield</div>
+                    <div class="team-role">VP of Business Development</div>
+                </a>
+            </div></div>
+            <div class="swiper-slide"><div class="team-card">
+                <img src="https://allied.tech/Portals/0/ThemePluginPro/uploads/2023/1/19/MATT-ROTHDEUTSCH-500x500.jpg" alt="Matt Rothdeutsch" loading="lazy">
+                <a href="https://allied.tech/about/meet-the-team?bio=b56b2c55-0988-48b3-b67f-2b327982d9e6" class="team-overlay">
+                    <div class="team-name">Matt Rothdeutsch</div>
+                    <div class="team-role">Network Administrator</div>
+                </a>
+            </div></div>
+            <div class="swiper-slide"><div class="team-card">
+                <img src="https://allied.tech/Portals/0/ThemePluginPro/uploads/2023/1/19/BRENT-MEACHAM-500x500.jpg" alt="Brent Meacham" loading="lazy">
+                <a href="https://allied.tech/about/meet-the-team?bio=096da56a-c5d8-41ef-b8c9-2c859238f645" class="team-overlay">
+                    <div class="team-name">Brent Meacham</div>
+                    <div class="team-role">Business Analyst / Project Manager</div>
+                </a>
+            </div></div>
+            <div class="swiper-slide"><div class="team-card">
+                <img src="https://allied.tech/Portals/0/ThemePluginPro/uploads/2026/2/17/justin.jpg" alt="Justin Wilborn" loading="lazy">
+                <a href="https://allied.tech/about/meet-the-team?bio=966c3a88-4715-4977-8a3d-deab61a3cb2f" class="team-overlay">
+                    <div class="team-name">Justin Wilborn</div>
+                    <div class="team-role">IT Service Manager</div>
+                </a>
+            </div></div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ==============================================================
+     CTA BANNER
+============================================================== -->
+<section class="cta-banner section-pad">
+    <div class="container">
+        <h2>Interested in Taking<br>The Next Steps?</h2>
+        <p>We're ready when you are!</p>
+        <a href="https://allied.tech/contact-us" class="btn btn-primary">Partner With An Expert</a>
+    </div>
+</section>
+
+
+<!-- ==============================================================
+     SOCIAL SECTION
+============================================================== -->
+<section class="social-section section-pad-sm">
+    <div class="container text-center">
+        <h2 class="section-title" style="margin-bottom: 0.25rem;">Follow Along On All Things Tech!</h2>
+        <div class="social-icons">
+            <a href="https://twitter.com/meetALLIED" class="soc-link" aria-label="Twitter / X">
+                <img src="https://allied.tech/Portals/0/Images/Icons/x-twitter.svg" alt="X Twitter" width="20" height="20">
+            </a>
+            <a href="https://www.instagram.com/meetallied/" class="soc-link" aria-label="Instagram">
+                <img src="https://allied.tech/Portals/0/Images/Icons/instagram.svg" alt="Instagram" width="20" height="20">
+            </a>
+            <a href="https://www.tiktok.com/@meetallied" class="soc-link" aria-label="TikTok">
+                <img src="https://allied.tech/Portals/0/Images/Icons/tiktok.svg" alt="TikTok" width="20" height="20">
+            </a>
+            <a href="https://www.linkedin.com/company/meet-allied/" class="soc-link" aria-label="LinkedIn">
+                <img src="https://allied.tech/Portals/0/Images/Icons/linkedin.svg" alt="LinkedIn" width="20" height="20">
+            </a>
+            <a href="https://www.youtube.com/@alliedbusinesssolutions6342" class="soc-link" aria-label="YouTube">
+                <img src="https://allied.tech/Portals/0/Images/Icons/youtube.svg" alt="YouTube" width="20" height="20">
+            </a>
+            <a href="https://www.facebook.com/meetALLIED/" class="soc-link" aria-label="Facebook">
+                <img src="https://allied.tech/Portals/0/Images/Icons/facebook.svg" alt="Facebook" width="20" height="20">
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ==============================================================
+     FOOTER
+============================================================== -->
+<footer class="footer-main">
+    <div class="container">
+        <div class="footer-grid">
+
+            <!-- Logo + social -->
+            <div class="footer-logo-wrap">
+                <img src="https://allied.tech/Portals/0/ThemePluginPro/uploads/2025/6/2/allied_blue_logo.png"
+                     alt="Allied Business Solutions">
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/meetALLIED/" aria-label="Facebook">
+                        <svg viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/meetallied/" aria-label="Instagram">
+                        <svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+                    </a>
+                    <a href="https://twitter.com/meetALLIED" aria-label="X / Twitter">
+                        <svg viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8l164.9-188.5L26.8 48H172.4l102.5 135.5zm-24.8 373.8h39.1L151.1 88h-42z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/meet-allied/" aria-label="LinkedIn">
+                        <svg viewBox="0 0 448 512"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@alliedbusinesssolutions6342" aria-label="YouTube">
+                        <svg viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+                    </a>
+                    <a href="https://www.tiktok.com/@meetallied" aria-label="TikTok">
+                        <svg viewBox="0 0 448 512"><path d="M448 209.9a210.1 210.1 0 0 1-122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Contact info -->
+            <div>
+                <p class="footer-label">Call Us Directly</p>
+                <p class="footer-val"><a href="tel:208-344-3833">208-344-3833</a></p>
+                <p class="footer-label">Service Inquiries</p>
+                <p class="footer-val"><a href="tel:1-888-800-7717">1-888-800-7717</a></p>
+                <p class="footer-label">Supplies</p>
+                <p class="footer-val"><a href="tel:1-888-800-7718">1-888-800-7718</a></p>
+                <p class="footer-label">Remote Support</p>
+                <p class="footer-val"><a href="https://cwc.allied.tech/" target="_blank" rel="noopener">Get Technical Assistance</a></p>
+            </div>
+
+            <!-- CTAs -->
+            <div class="footer-ctas">
+                <a href="https://allied.tech/contact-us" class="btn btn-primary">Request Assessment</a>
+                <a href="https://allied.tech/portal-login" class="btn btn-outline" target="_blank" rel="noopener">Customer Login</a>
+            </div>
+
+        </div>
+        <hr class="footer-rule">
+    </div>
+</footer>
+
+<div class="footer-bottom">
+    <div class="footer-bottom-inner">
+        <nav class="footer-locations" aria-label="Office locations">
+            <a href="https://allied.tech/boise">Boise</a>
+            <a href="https://allied.tech/idaho-falls">Idaho Falls</a>
+            <a href="https://allied.tech/ontario">Ontario</a>
+            <a href="https://allied.tech/pocatello">Pocatello</a>
+            <a href="https://allied.tech/salt-lake">Salt Lake City</a>
+        </nav>
+        <p class="footer-credit">
+            Website SEO by <a href="https://webmarketsonline.com/" target="_blank" rel="noopener">WebMarkets</a>
+        </p>
+    </div>
+</div>
+
+
+<!-- ==============================================================
+     SWIPER JS
+============================================================== -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    // Team carousel
+    new Swiper('#team-swiper', {
+        slidesPerView: 1.4,
+        spaceBetween: 0,
+        loop: true,
+        autoplay: { delay: 3200, disableOnInteraction: false },
+        breakpoints: {
+            480:  { slidesPerView: 2 },
+            768:  { slidesPerView: 3 },
+            992:  { slidesPerView: 4 },
+            1400: { slidesPerView: 5 },
+        }
+    });
+
+    // Mobile nav toggle
+    const mobileBtn = document.getElementById('mobile-btn');
+    const primaryNav = document.getElementById('primary-nav');
+    if (mobileBtn && primaryNav) {
+        mobileBtn.addEventListener('click', () => {
+            const isOpen = primaryNav.classList.toggle('is-open');
+            mobileBtn.setAttribute('aria-expanded', isOpen);
+        });
+    }
+
+</script>
+
+</body>
+</html>

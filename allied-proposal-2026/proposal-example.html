@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Binion's & Four Queens — Digital Proposal 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --bg2: #0f0f0f;
+      --gold: #c9a84c;
+      --gold-light: #e2c06a;
+      --gold-dim: rgba(201, 168, 76, 0.25);
+      --text: #f5f0e8;
+      --text-dim: #9a9282;
+      --red-bad: #b03030;
+      --green-good: #5a9e60;
+      --card: #111111;
+      --border: rgba(201, 168, 76, 0.22);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      width: 100vw; height: 100vh;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Noise texture */
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.035;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ─── TAB BAR ─────────────────────────────────── */
+    .tab-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+      height: 52px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 36px;
+      background: rgba(10,10,10,0.97);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tab-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.85;
+    }
+
+    .tabs { display: flex; gap: 2px; }
+
+    .tab {
+      padding: 7px 22px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      background: transparent;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .tab:hover { color: var(--text); }
+    .tab.active {
+      color: var(--gold);
+      border-color: var(--border);
+      background: rgba(201,168,76,0.06);
+    }
+
+    /* ─── PROGRESS BAR ─────────────────────────────── */
+    #progress-wrap {
+      position: fixed; top: 52px; left: 0; right: 0; z-index: 500;
+      height: 2px;
+      background: rgba(201,168,76,0.12);
+    }
+    #progress-fill {
+      height: 100%;
+      background: linear-gradient(to right, var(--gold), var(--gold-light));
+      transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ─── SLIDE COUNTER ────────────────────────────── */
+    #slide-counter {
+      position: fixed; bottom: 26px; right: 36px; z-index: 500;
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      color: rgba(154,146,130,0.6);
+    }
+
+    /* ─── VIEWS ────────────────────────────────────── */
+    .view {
+      position: fixed; inset: 0; top: 54px;
+      display: none;
+    }
+    .view.active { display: block; }
+
+    /* ─── PROPOSAL / SLIDES ────────────────────────── */
+    #proposal-view { overflow: hidden; }
+
+    .slide {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      padding: 40px 72px;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.48s ease, transform 0.48s ease;
+      pointer-events: none;
+      cursor: pointer;
+    }
+    .slide.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+    .slide.exit {
+      opacity: 0;
+      transform: translateY(-18px);
+    }
+
+    /* Corner bracket decorations */
+    .slide::before, .slide::after {
+      content: '';
+      position: absolute;
+      width: 36px; height: 36px;
+      opacity: 0.35;
+    }
+    .slide::before {
+      top: 20px; left: 20px;
+      border-top: 1px solid var(--gold);
+      border-left: 1px solid var(--gold);
+    }
+    .slide::after {
+      bottom: 20px; right: 20px;
+      border-bottom: 1px solid var(--gold);
+      border-right: 1px solid var(--gold);
+    }
+
+    /* ─── SHARED TYPOGRAPHY ────────────────────────── */
+    .eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+
+    .headline {
+      font-family: 'Playfair Display', serif;
+      color: var(--text);
+      line-height: 1.12;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    h1.headline { font-size: clamp(38px, 5vw, 66px); font-weight: 700; }
+    h2.headline { font-size: clamp(26px, 3.2vw, 46px); font-weight: 700; }
+
+    .subhead {
+      font-size: clamp(13px, 1.3vw, 17px);
+      font-weight: 300;
+      color: var(--text-dim);
+      text-align: center;
+      max-width: 620px;
+      line-height: 1.65;
+      margin-bottom: 36px;
+    }
+
+    .gold-rule {
+      width: 44px; height: 1px;
+      background: var(--gold);
+      opacity: 0.5;
+      margin: 0 auto 22px;
+    }
+
+    /* ─── SLIDE 1: COVER ──────────────────────────── */
+    #slide-1 { text-align: center; }
+
+    .slide-suit {
+      position: absolute;
+      font-size: 240px;
+      color: var(--gold);
+      opacity: 0.028;
+      user-select: none;
+      pointer-events: none;
+      line-height: 1;
+    }
+
+    #slide-1 h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .cover-footer {
+      position: absolute;
+      bottom: 36px;
+      left: 50%; transform: translateX(-50%);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(154,146,130,0.5);
+      white-space: nowrap;
+    }
+
+    /* ─── SLIDE 2: PROBLEM ────────────────────────── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      width: 100%;
+      max-width: 1020px;
+    }
+
+    .col-head {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .col-head.bad  { color: var(--red-bad); border-color: rgba(176,48,48,0.3); }
+    .col-head.good { color: var(--gold); }
+
+    .list-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 12.5px;
+      line-height: 1.55;
+      color: rgba(245,240,232,0.8);
+    }
+    .marker {
+      flex-shrink: 0;
+      margin-top: 0px;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.55;
+    }
+    .marker.x     { color: var(--red-bad); }
+    .marker.check { color: var(--gold); }
+
+    /* ─── SLIDE 3: WHO WE ARE ─────────────────────── */
+    .three-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      width: 100%;
+      max-width: 960px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 28px 22px;
+    }
+
+    .card-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: var(--gold);
+      opacity: 0.28;
+      margin-bottom: 14px;
+      line-height: 1;
+    }
+
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .card-body {
+      font-size: 12.5px;
+      line-height: 1.68;
+      color: var(--text-dim);
+    }
+
+    /* ─── SLIDE 4: PHASES ────────────────────────── */
+    .phase-table {
+      width: 100%;
+      max-width: 1020px;
+      border-collapse: collapse;
+    }
+
+    .phase-table th {
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding: 8px 14px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+    }
+
+    .phase-table td {
+      font-size: 12.5px;
+      padding: 11px 14px;
+      border-bottom: 1px solid rgba(201,168,76,0.07);
+      color: var(--text);
+      vertical-align: top;
+    }
+
+    .phase-table td.num {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      color: var(--gold);
+      opacity: 0.35;
+      width: 44px;
+      padding-right: 8px;
+    }
+
+    .phase-table td.pname {
+      font-weight: 500;
+      white-space: nowrap;
+      padding-right: 20px;
+    }
+
+    .phase-table td.deliver {
+      font-size: 11.5px;
+      color: var(--text-dim);
+    }
+
+    .phase-table td.weeks {
+      font-size: 11.5px;
+      color: var(--text-dim);
+      white-space: nowrap;
+    }
+
+    .phase-table td.price {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      color: var(--gold);
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    /* ─── SLIDE 5: TIMELINE ──────────────────────── */
+    .tl-track {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 100%;
+      max-width: 920px;
+      padding-top: 32px;
+    }
+
+    .tl-line {
+      position: absolute;
+      top: 40px; left: 40px; right: 40px;
+      height: 1px;
+      background: var(--gold-dim);
+    }
+
+    .tl-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      flex: 1;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tl-dot {
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--gold);
+      margin-bottom: 18px;
+      position: relative;
+    }
+    .tl-dot::after {
+      content: '';
+      position: absolute;
+      inset: 3px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .tl-week {
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 7px;
+    }
+
+    .tl-label {
+      font-family: 'Playfair Display', serif;
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.35;
+      max-width: 110px;
+    }
+
+    /* ─── SLIDE 6: ROI ───────────────────────────── */
+    .roi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      width: 100%;
+      max-width: 880px;
+    }
+
+    .roi-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 26px 24px;
+    }
+
+    .roi-stat {
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .roi-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--text);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .roi-desc {
+      font-size: 12px;
+      line-height: 1.65;
+      color: var(--text-dim);
+    }
+
+    /* ─── SLIDE 7: INVESTMENT ────────────────────── */
+    .invest-wrap {
+      width: 100%;
+      max-width: 740px;
+    }
+
+    .line-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 11px 0;
+      border-bottom: 1px solid rgba(201,168,76,0.09);
+    }
+
+    .li-name {
+      font-size: 14px;
+      color: var(--text);
+    }
+    .li-sub {
+      font-size: 10.5px;
+      color: var(--text-dim);
+      display: block;
+      margin-top: 2px;
+      letter-spacing: 0.04em;
+    }
+    .li-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      color: var(--text);
+    }
+
+    .line-item.discount .li-price { color: #6eb55a; }
+
+    .line-item.total {
+      border-bottom: none;
+      border-top: 1px solid rgba(201,168,76,0.5);
+      margin-top: 6px;
+      padding-top: 16px;
+    }
+    .line-item.total .li-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .line-item.total .li-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      color: var(--gold);
+    }
+
+    .pay-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .pay-item {
+      flex: 1;
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 11px 8px;
+      text-align: center;
+    }
+    .pay-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .pay-label {
+      font-size: 9.5px;
+      color: var(--text-dim);
+      letter-spacing: 0.06em;
+      line-height: 1.3;
+    }
+
+    .retainer-note {
+      margin-top: 14px;
+      font-size: 11.5px;
+      color: var(--text-dim);
+      text-align: center;
+      padding: 10px 16px;
+      border: 1px solid rgba(201,168,76,0.12);
+      line-height: 1.6;
+    }
+    .retainer-note strong { color: var(--gold); }
+
+    /* ─── SLIDE 8: WHY BUNDLE ────────────────────── */
+    .stat-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      width: 100%;
+      max-width: 960px;
+    }
+
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 36px 24px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 52px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .stat-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .stat-desc {
+      font-size: 12.5px;
+      line-height: 1.68;
+      color: var(--text-dim);
+    }
+
+    /* ─── SLIDE 9: NEXT STEPS ─────────────────────── */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      width: 100%;
+      max-width: 700px;
+      margin-bottom: 30px;
+    }
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 22px;
+    }
+
+    .step-tag {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      text-transform: uppercase;
+      width: 72px;
+      flex-shrink: 0;
+      padding-top: 14px;
+    }
+
+    .step-body {
+      flex: 1;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+    }
+    .step:last-child .step-body { border-bottom: none; }
+
+    .step-title {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .step-desc {
+      font-size: 12.5px;
+      color: var(--text-dim);
+      line-height: 1.55;
+    }
+
+    .closing-quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(17px, 1.9vw, 22px);
+      color: var(--text);
+      text-align: center;
+      max-width: 580px;
+      line-height: 1.5;
+      opacity: 0.82;
+    }
+
+    /* ─── MOCKUP VIEW ────────────────────────────── */
+    #mockup-view {
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    /* Mockup Nav */
+    .m-nav {
+      position: sticky; top: 0; z-index: 200;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 60px;
+      background: rgba(8,8,8,0.97);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+    }
+
+    .m-logo-mark  {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      display: block;
+    }
+    .m-logo-sub {
+      font-size: 8.5px;
+      letter-spacing: 0.28em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      display: block;
+      margin-top: 1px;
+    }
+
+    .m-nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+    .m-nav-links a {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .m-nav-links a:hover { color: var(--text); }
+
+    .m-nav-cta {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #0a0a0a;
+      background: var(--gold);
+      border: none;
+      padding: 10px 22px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .m-nav-cta:hover { background: var(--gold-light); }
+
+    /* Hero */
+    .m-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 100px 40px 80px;
+      background: radial-gradient(ellipse at 40% 60%, #160606 0%, #0a0505 35%, #080808 65%, #0a0a0a 100%);
+      overflow: hidden;
+    }
+
+    .m-hero-deco {
+      position: absolute; inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .m-suit {
+      position: absolute;
+      font-size: 400px;
+      color: var(--gold);
+      opacity: 0.022;
+      user-select: none;
+      line-height: 1;
+    }
+    .m-suit-1 { top: -100px; left: -80px; }
+    .m-suit-2 { bottom: -120px; right: -80px; transform: rotate(15deg); }
+
+    .m-hero-ew {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 22px;
+      position: relative;
+    }
+
+    .m-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(54px, 9vw, 104px);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.03;
+      margin-bottom: 26px;
+      position: relative;
+    }
+    .m-hero h1 strong { color: var(--gold); }
+
+    .m-hero-sub {
+      font-size: clamp(14px, 1.4vw, 17px);
+      font-weight: 300;
+      color: var(--text-dim);
+      max-width: 520px;
+      line-height: 1.75;
+      margin-bottom: 44px;
+      position: relative;
+    }
+
+    .m-hero-btns {
+      display: flex;
+      gap: 14px;
+      position: relative;
+    }
+
+    .btn-gold {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: #0a0a0a; background: var(--gold);
+      border: none; padding: 14px 30px;
+      cursor: pointer; transition: background 0.2s;
+    }
+    .btn-gold:hover { background: var(--gold-light); }
+
+    .btn-outline {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); background: transparent;
+      border: 1px solid var(--gold);
+      padding: 14px 30px;
+      cursor: pointer; transition: background 0.2s;
+    }
+    .btn-outline:hover { background: rgba(201,168,76,0.1); }
+
+    /* Poker Section */
+    .m-poker {
+      padding: 90px 60px;
+      background: #070c07;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .m-poker-inner { max-width: 1080px; margin: 0 auto; text-align: center; }
+
+    .m-section-ew {
+      font-size: 9.5px; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .m-section-h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 50px;
+      line-height: 1.12;
+    }
+
+    .poker-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .poker-card {
+      background: rgba(0,0,0,0.45);
+      border: 1px solid rgba(201,168,76,0.18);
+      padding: 34px 24px;
+    }
+    .poker-card-icon {
+      font-size: 26px;
+      color: var(--gold);
+      margin-bottom: 14px;
+      opacity: 0.7;
+    }
+    .poker-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px; color: var(--text);
+      margin-bottom: 10px;
+    }
+    .poker-card-desc {
+      font-size: 12.5px; color: var(--text-dim);
+      line-height: 1.65;
+    }
+
+    .m-link {
+      display: inline-block;
+      margin-top: 38px;
+      font-size: 12.5px; font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(201,168,76,0.35);
+      padding-bottom: 3px;
+    }
+
+    /* Hotel Section */
+    .m-hotel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 520px;
+    }
+
+    .m-hotel-img {
+      background: linear-gradient(135deg, #131320 0%, #0d0d18 50%, #090910 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .m-hotel-img::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 30px,
+        rgba(201,168,76,0.015) 30px,
+        rgba(201,168,76,0.015) 31px
+      );
+    }
+    .m-hotel-img-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(201,168,76,0.3);
+      border: 1px solid rgba(201,168,76,0.15);
+      padding: 10px 18px;
+      position: relative;
+    }
+
+    .m-hotel-content {
+      display: flex; flex-direction: column;
+      justify-content: center;
+      padding: 72px 80px;
+      background: #0c0c0c;
+    }
+    .m-hotel-content .m-section-h2 {
+      font-size: clamp(28px, 3.5vw, 46px);
+      margin-bottom: 18px;
+      text-align: left;
+    }
+    .m-hotel-content p {
+      font-size: 14px; color: var(--text-dim);
+      line-height: 1.75; max-width: 400px;
+      margin-bottom: 30px;
+    }
+
+    /* Steakhouse */
+    .m-steak {
+      padding: 90px 80px;
+      background: linear-gradient(135deg, #0d0505 0%, #0a0606 50%, #0a0a0a 100%);
+      border-top: 1px solid var(--border);
+    }
+    .m-steak-inner { max-width: 600px; }
+    .m-steak-inner p {
+      font-size: 14px; color: var(--text-dim);
+      line-height: 1.75; margin-bottom: 28px;
+    }
+    .m-steak-inner .m-section-h2 {
+      text-align: left;
+      font-size: clamp(28px, 3.5vw, 44px);
+    }
+
+    /* Footer */
+    .m-footer {
+      background: #060606;
+      border-top: 1px solid var(--border);
+      padding: 60px 80px 40px;
+    }
+
+    .m-footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+      margin-bottom: 36px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+    }
+
+    .m-footer-info {
+      font-size: 12.5px;
+      color: var(--text-dim);
+      line-height: 1.9;
+    }
+
+    .m-footer-socials { display: flex; gap: 10px; }
+
+    .m-social {
+      width: 34px; height: 34px;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px;
+      color: var(--text-dim);
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .m-social:hover { border-color: var(--gold); color: var(--gold); }
+
+    .m-footer-links {
+      display: flex; gap: 24px;
+      list-style: none;
+      margin-bottom: 32px;
+    }
+    .m-footer-links a {
+      font-size: 11.5px;
+      color: var(--text-dim);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      transition: color 0.2s;
+    }
+    .m-footer-links a:hover { color: var(--text); }
+
+    .m-footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .m-copy {
+      font-size: 10.5px;
+      color: rgba(154,146,130,0.45);
+    }
+    .m-concept {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(201,168,76,0.3);
+      font-style: italic;
+    }
+
+    /* Concept badge */
+    #concept-badge {
+      position: fixed;
+      bottom: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 600;
+      background: rgba(10,10,10,0.92);
+      border: 1px solid var(--border);
+      padding: 6px 18px;
+      font-size: 9.5px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: none;
+      white-space: nowrap;
+      backdrop-filter: blur(8px);
+    }
+
+    /* Navigation hint */
+    #nav-hint {
+      position: fixed;
+      bottom: 26px; left: 36px;
+      z-index: 500;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      color: rgba(154,146,130,0.4);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .hint-key {
+      border: 1px solid rgba(154,146,130,0.2);
+      padding: 2px 6px;
+      font-size: 9px;
+      letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       TAB BAR
+  ════════════════════════════════════════════ -->
+  <div class="tab-bar">
+    <div class="tab-brand">Binion's &amp; Four Queens &nbsp;·&nbsp; Digital Proposal</div>
+    <div class="tabs">
+      <button class="tab active" id="tab-proposal" onclick="switchTab('proposal')">Proposal</button>
+      <button class="tab" id="tab-mockup" onclick="switchTab('mockup')">Mockup</button>
+    </div>
+  </div>
+
+  <div id="progress-wrap">
+    <div id="progress-fill" style="width:11.11%"></div>
+  </div>
+
+  <div id="slide-counter">1 / 9</div>
+
+  <div id="nav-hint">
+    <span class="hint-key">←</span>
+    <span class="hint-key">→</span>
+    <span style="margin-left:2px;">or click to navigate</span>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       PROPOSAL VIEW
+  ════════════════════════════════════════════ -->
+  <div class="view active" id="proposal-view">
+
+    <!-- ── SLIDE 1: COVER ── -->
+    <div class="slide active" id="slide-1">
+      <span class="slide-suit" style="top:-40px; left:-30px;">♠</span>
+      <span class="slide-suit" style="bottom:-50px; right:-20px; transform:rotate(12deg);">♥</span>
+
+      <div class="eyebrow">Confidential Proposal</div>
+      <h1 class="headline">A New Era for <em>Downtown<br>Las Vegas</em></h1>
+      <div class="gold-rule"></div>
+      <p class="subhead">
+        A complete digital transformation for Binion's Gambling Hall<br>and Four Queens Hotel &amp; Casino
+      </p>
+      <div class="cover-footer">Prepared by [Your Agency] &nbsp;·&nbsp; 2026</div>
+    </div>
+
+    <!-- ── SLIDE 2: THE PROBLEM ── -->
+    <div class="slide" id="slide-2">
+      <h2 class="headline" style="margin-bottom:22px;">The Digital Gap Is Costing You Business</h2>
+      <div class="two-col">
+        <div>
+          <div class="col-head bad">✕ &nbsp;Today's Reality</div>
+          <div class="list-row"><span class="marker x">✕</span><span>Websites that haven't meaningfully evolved in a decade</span></div>
+          <div class="list-row"><span class="marker x">✕</span><span>No mobile-first experience — over 60% of visitors search on their phones</span></div>
+          <div class="list-row"><span class="marker x">✕</span><span>Zero direct booking optimization — OTAs are taking 15–25% commission on every room</span></div>
+          <div class="list-row"><span class="marker x">✕</span><span>Poker tournament pages that are static, outdated, and hard to find</span></div>
+          <div class="list-row"><span class="marker x">✕</span><span>No local SEO presence competing against MGM, Caesars, and the Strip</span></div>
+          <div class="list-row"><span class="marker x">✕</span><span>A digital presence that doesn't reflect the legendary status of these properties</span></div>
+        </div>
+        <div>
+          <div class="col-head good">✓ &nbsp;What's Possible</div>
+          <div class="list-row"><span class="marker check">✓</span><span>Modern, fast, mobile-first websites that convert visitors into guests</span></div>
+          <div class="list-row"><span class="marker check">✓</span><span>Direct booking engine that recaptures OTA commissions</span></div>
+          <div class="list-row"><span class="marker check">✓</span><span>Live poker room feeds — schedules, blinds, waitlists, tournament registration</span></div>
+          <div class="list-row"><span class="marker check">✓</span><span>Restaurant reservations, promotions, and loyalty program integration</span></div>
+          <div class="list-row"><span class="marker check">✓</span><span>Dominant local search presence on Fremont Street</span></div>
+          <div class="list-row"><span class="marker check">✓</span><span>A digital experience worthy of two iconic Las Vegas institutions</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SLIDE 3: WHO WE ARE ── -->
+    <div class="slide" id="slide-3">
+      <h2 class="headline">[Your Agency]</h2>
+      <p class="subhead">We build digital experiences for hospitality brands that need to compete — and win.</p>
+      <div class="three-cards">
+        <div class="card">
+          <div class="card-num">01</div>
+          <div class="card-title">Hospitality-Focused</div>
+          <div class="card-body">We understand hotel booking funnels, F&amp;B promotion, and gaming audiences. This isn't our first casino rodeo.</div>
+        </div>
+        <div class="card">
+          <div class="card-num">02</div>
+          <div class="card-title">Full-Service</div>
+          <div class="card-body">Strategy, design, development, content production, SEO, and ongoing growth — all under one roof.</div>
+        </div>
+        <div class="card">
+          <div class="card-num">03</div>
+          <div class="card-title">Results-Driven</div>
+          <div class="card-body">Every decision we make is tied to a metric that matters: direct bookings, table covers, poker entries, organic traffic.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SLIDE 4: APPROACH ── -->
+    <div class="slide" id="slide-4">
+      <h2 class="headline">Built in Five Phases</h2>
+      <p class="subhead" style="margin-bottom:20px;">No big scary lump sum. Every payment is tied to a delivered milestone.</p>
+      <table class="phase-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Phase</th>
+            <th>Deliverable</th>
+            <th>Timeline</th>
+            <th style="text-align:right;">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num">01</td>
+            <td class="pname">Discovery &amp; Strategy</td>
+            <td class="deliver">Brand audit, competitive analysis, sitemap, tech stack recommendations, stakeholder interviews</td>
+            <td class="weeks">Weeks 1–6</td>
+            <td class="price">$25,000</td>
+          </tr>
+          <tr>
+            <td class="num">02</td>
+            <td class="pname">Design</td>
+            <td class="deliver">Full design system, UI for both sites, mobile-first wireframes, stakeholder approval rounds</td>
+            <td class="weeks">Weeks 7–18</td>
+            <td class="price">$65,000</td>
+          </tr>
+          <tr>
+            <td class="num">03</td>
+            <td class="pname">Development &amp; Integrations</td>
+            <td class="deliver">Both sites built, hotel booking engine, poker room feeds, restaurant reservations, ADA compliance</td>
+            <td class="weeks">Weeks 19–36</td>
+            <td class="price">$120,000</td>
+          </tr>
+          <tr>
+            <td class="num">04</td>
+            <td class="pname">Content Production</td>
+            <td class="deliver">Professional photography, copywriting, video for both properties</td>
+            <td class="weeks">Weeks 20–38</td>
+            <td class="price">$45,000</td>
+          </tr>
+          <tr>
+            <td class="num">05</td>
+            <td class="pname">Launch, SEO &amp; Training</td>
+            <td class="deliver">QA, launch, Google Search setup, staff CMS training, 90-day post-launch support</td>
+            <td class="weeks">Weeks 38–44</td>
+            <td class="price">$25,000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ── SLIDE 5: TIMELINE ── -->
+    <div class="slide" id="slide-5">
+      <h2 class="headline">Ready to Launch in Under 11 Months</h2>
+      <p class="subhead">From first meeting to live websites — with a 2027 launch well within scope.</p>
+      <div class="tl-track">
+        <div class="tl-line"></div>
+        <div class="tl-node">
+          <div class="tl-dot"></div>
+          <div class="tl-week">Week 1</div>
+          <div class="tl-label">Kickoff &amp; Discovery</div>
+        </div>
+        <div class="tl-node">
+          <div class="tl-dot"></div>
+          <div class="tl-week">Week 7</div>
+          <div class="tl-label">Design Begins</div>
+        </div>
+        <div class="tl-node">
+          <div class="tl-dot"></div>
+          <div class="tl-week">Week 19</div>
+          <div class="tl-label">Development Begins</div>
+        </div>
+        <div class="tl-node">
+          <div class="tl-dot"></div>
+          <div class="tl-week">Week 38</div>
+          <div class="tl-label">Content Complete</div>
+        </div>
+        <div class="tl-node">
+          <div class="tl-dot"></div>
+          <div class="tl-week">Week 44</div>
+          <div class="tl-label">Both Sites Live</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SLIDE 6: ROI ── -->
+    <div class="slide" id="slide-6">
+      <h2 class="headline">This Investment Pays for Itself</h2>
+      <p class="subhead">Conservative projections based on industry benchmarks for independent hotel-casino properties.</p>
+      <div class="roi-grid">
+        <div class="roi-card">
+          <div class="roi-stat">$60K+</div>
+          <div class="roi-label">per year recovered</div>
+          <div class="roi-desc">Recaptured OTA commissions from just 50 additional direct room bookings per month at an average $89/night rate.</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-stat">18–24</div>
+          <div class="roi-label">month payback period</div>
+          <div class="roi-desc">Estimated payback period on the full project investment based on direct booking uplift alone.</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-stat">$0</div>
+          <div class="roi-label">cost per organic visitor</div>
+          <div class="roi-desc">A properly optimized site ranks for "downtown Las Vegas hotel," "Fremont Street poker," and hundreds of local queries — permanently.</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-stat">10×</div>
+          <div class="roi-label">tournament entries</div>
+          <div class="roi-desc">A live, searchable poker tournament page drives entries from players actively searching for Vegas poker — a largely untapped channel today.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SLIDE 7: INVESTMENT ── -->
+    <div class="slide" id="slide-7">
+      <h2 class="headline">Total Investment</h2>
+      <p class="subhead" style="margin-bottom:20px;">One package. Two iconic properties. One agency relationship.</p>
+      <div class="invest-wrap">
+        <div class="line-item">
+          <div>
+            <span class="li-name">Binion's Gambling Hall</span>
+            <span class="li-sub">Full site rebuild</span>
+          </div>
+          <span class="li-price">$160,000</span>
+        </div>
+        <div class="line-item">
+          <div>
+            <span class="li-name">Four Queens Hotel &amp; Casino</span>
+            <span class="li-sub">Full site rebuild</span>
+          </div>
+          <span class="li-price">$120,000</span>
+        </div>
+        <div class="line-item discount">
+          <div>
+            <span class="li-name">Package Discount</span>
+          </div>
+          <span class="li-price">($25,000)</span>
+        </div>
+        <div class="line-item total">
+          <span class="li-name">Total Build</span>
+          <span class="li-price">$255,000</span>
+        </div>
+        <div class="pay-row">
+          <div class="pay-item"><span class="pay-amount">$51,000</span><span class="pay-label">On Signing</span></div>
+          <div class="pay-item"><span class="pay-amount">$51,000</span><span class="pay-label">Design Approval</span></div>
+          <div class="pay-item"><span class="pay-amount">$51,000</span><span class="pay-label">Dev Milestone</span></div>
+          <div class="pay-item"><span class="pay-amount">$51,000</span><span class="pay-label">Content Delivery</span></div>
+          <div class="pay-item"><span class="pay-amount">$51,000</span><span class="pay-label">Launch Day</span></div>
+        </div>
+        <div class="retainer-note">
+          Following launch, we recommend a 12-month growth retainer at <strong>$10,000/month</strong> — SEO, paid search, social media, content &amp; monthly reporting. <strong>Total first-year value: $375,000.</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SLIDE 8: WHY BUNDLE ── -->
+    <div class="slide" id="slide-8">
+      <h2 class="headline">Why Bundle Both Properties?</h2>
+      <div class="stat-cards" style="margin-top:32px;">
+        <div class="stat-card">
+          <div class="stat-num">~$40K</div>
+          <div class="stat-title">Saved</div>
+          <div class="stat-desc">Shared discovery, design system, and vendor negotiations eliminate redundant work. Two custom sites for less than the price of building them separately.</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">One</div>
+          <div class="stat-title">Relationship</div>
+          <div class="stat-desc">One agency. One contract. One point of accountability. No coordinating between vendors, no inconsistent brand decisions, no finger-pointing.</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">2×</div>
+          <div class="stat-title">Compound SEO</div>
+          <div class="stat-desc">Two interlinked downtown Las Vegas properties creates a local search ecosystem that individually neither site could achieve — driving traffic to both.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SLIDE 9: NEXT STEPS ── -->
+    <div class="slide" id="slide-9">
+      <h2 class="headline">How We Move Forward</h2>
+      <p class="subhead" style="margin-bottom:20px;">We're ready to begin immediately upon agreement.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-tag">This Week</div>
+          <div class="step-body">
+            <div class="step-title">Technical &amp; Marketing Alignment</div>
+            <div class="step-desc">Follow-up meeting with your IT Director and marketing team to confirm technical requirements and integrations</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-tag">Week 2</div>
+          <div class="step-body">
+            <div class="step-title">Proposal Revision &amp; Contract</div>
+            <div class="step-desc">Proposal revision incorporating your feedback; contract issued</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-tag">Week 3</div>
+          <div class="step-body">
+            <div class="step-title">Contract Signed</div>
+            <div class="step-desc">Contract signed; 20% deposit invoice issued ($51,000)</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-tag">Week 4</div>
+          <div class="step-body">
+            <div class="step-title">Discovery Kickoff</div>
+            <div class="step-desc">Discovery kickoff; your dedicated team assigned</div>
+          </div>
+        </div>
+      </div>
+      <div class="closing-quote">"Binion's invented the World Series of Poker.<br>Let's make sure the world can find it."</div>
+    </div>
+
+  </div><!-- /proposal-view -->
+
+
+  <!-- ═══════════════════════════════════════════
+       MOCKUP VIEW
+  ════════════════════════════════════════════ -->
+  <div class="view" id="mockup-view">
+
+    <!-- Nav -->
+    <nav class="m-nav">
+      <div>
+        <span class="m-logo-mark">BINION'S</span>
+        <span class="m-logo-sub">Est. 1951 &nbsp;·&nbsp; Downtown Las Vegas</span>
+      </div>
+      <ul class="m-nav-links">
+        <li><a href="#">Hotel</a></li>
+        <li><a href="#">Poker</a></li>
+        <li><a href="#">Restaurants</a></li>
+        <li><a href="#">Promotions</a></li>
+        <li><a href="#">History</a></li>
+      </ul>
+      <button class="m-nav-cta">Book a Room</button>
+    </nav>
+
+    <!-- Hero -->
+    <section class="m-hero">
+      <div class="m-hero-deco">
+        <div class="m-suit m-suit-1">♠</div>
+        <div class="m-suit m-suit-2">♥</div>
+      </div>
+      <div class="m-hero-ew">The Heart of Fremont Street</div>
+      <h1>Where Las Vegas <strong>Was Born</strong></h1>
+      <p class="m-hero-sub">World-class poker. Legendary steakhouse. Classic Vegas hospitality. Right in the heart of it all.</p>
+      <div class="m-hero-btns">
+        <button class="btn-gold">Book Your Stay</button>
+        <button class="btn-outline">View Poker Schedule</button>
+      </div>
+    </section>
+
+    <!-- Poker Room -->
+    <section class="m-poker">
+      <div class="m-poker-inner">
+        <div class="m-section-ew">Open Daily &nbsp;·&nbsp; Cash Games &amp; Tournaments</div>
+        <div class="m-section-h2">The Poker Room</div>
+        <div class="poker-cards">
+          <div class="poker-card">
+            <div class="poker-card-icon">♣</div>
+            <div class="poker-card-title">Daily Cash Games</div>
+            <div class="poker-card-desc">Live action around the clock. Texas Hold'em, Omaha, and more. All skill levels welcome at every limit.</div>
+          </div>
+          <div class="poker-card">
+            <div class="poker-card-icon">♦</div>
+            <div class="poker-card-title">Weekend Tournaments</div>
+            <div class="poker-card-desc">Structured tournaments every weekend with guaranteed prize pools. Register online or at the cage.</div>
+          </div>
+          <div class="poker-card">
+            <div class="poker-card-icon">♠</div>
+            <div class="poker-card-title">WSOP Heritage</div>
+            <div class="poker-card-desc">Binion's is the birthplace of the World Series of Poker. You're sitting at the table where legends were made.</div>
+          </div>
+        </div>
+        <a href="#" class="m-link">See Full Schedule &rarr;</a>
+      </div>
+    </section>
+
+    <!-- Hotel -->
+    <div class="m-hotel">
+      <div class="m-hotel-img">
+        <div class="m-hotel-img-label">Hotel Imagery</div>
+      </div>
+      <div class="m-hotel-content">
+        <div class="m-section-ew">Best Rate Guaranteed</div>
+        <div class="m-section-h2">Stay Downtown</div>
+        <p>Comfortable rooms steps from the Fremont Street Experience. Best rate guaranteed when you book direct — no OTA markup, no hidden fees.</p>
+        <button class="btn-gold" style="width:fit-content;">Book Direct &amp; Save</button>
+      </div>
+    </div>
+
+    <!-- Steakhouse -->
+    <section class="m-steak">
+      <div class="m-steak-inner">
+        <div class="m-section-ew">Est. 1951</div>
+        <div class="m-section-h2">Binion's Ranch Steakhouse</div>
+        <p>Classic cuts. Iconic views. A Las Vegas tradition since 1951. Join us for dinner high above Fremont Street.</p>
+        <button class="btn-outline" style="width:fit-content;">Reserve a Table</button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="m-footer">
+      <div class="m-footer-top">
+        <div>
+          <span class="m-logo-mark" style="font-size:18px;">BINION'S</span>
+          <span class="m-logo-sub" style="margin-top:6px;">Est. 1951 &nbsp;·&nbsp; Downtown Las Vegas</span>
+        </div>
+        <div class="m-footer-info">
+          128 E Fremont St<br>
+          Las Vegas, NV 89101<br>
+          (702) 382-1600
+        </div>
+        <div class="m-footer-socials">
+          <div class="m-social">𝕏</div>
+          <div class="m-social">f</div>
+          <div class="m-social">in</div>
+        </div>
+      </div>
+      <ul class="m-footer-links">
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Responsible Gaming</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+      <div class="m-footer-bottom">
+        <span class="m-copy">&copy; 2026 Binion's Gambling Hall. All rights reserved.</span>
+        <span class="m-concept">Concept Design &nbsp;·&nbsp; Not a Real Site</span>
+      </div>
+    </footer>
+
+  </div><!-- /mockup-view -->
+
+  <div id="concept-badge">Concept Design &nbsp;·&nbsp; Not a Real Site</div>
+
+
+  <!-- ═══════════════════════════════════════════
+       JAVASCRIPT
+  ════════════════════════════════════════════ -->
+  <script>
+    const TOTAL = 9;
+    let current = 1;
+    let transitioning = false;
+
+    /* ── Tab switching ── */
+    function switchTab(tab) {
+      const tabProposal  = document.getElementById('tab-proposal');
+      const tabMockup    = document.getElementById('tab-mockup');
+      const viewProposal = document.getElementById('proposal-view');
+      const viewMockup   = document.getElementById('mockup-view');
+      const progress     = document.getElementById('progress-wrap');
+      const counter      = document.getElementById('slide-counter');
+      const hint         = document.getElementById('nav-hint');
+      const badge        = document.getElementById('concept-badge');
+
+      if (tab === 'proposal') {
+        tabProposal.classList.add('active');
+        tabMockup.classList.remove('active');
+        viewProposal.classList.add('active');
+        viewMockup.classList.remove('active');
+        progress.style.display = 'block';
+        counter.style.display  = 'block';
+        hint.style.display     = 'flex';
+        badge.style.display    = 'none';
+      } else {
+        tabMockup.classList.add('active');
+        tabProposal.classList.remove('active');
+        viewMockup.classList.add('active');
+        viewProposal.classList.remove('active');
+        progress.style.display = 'none';
+        counter.style.display  = 'none';
+        hint.style.display     = 'none';
+        badge.style.display    = 'block';
+        viewMockup.scrollTop   = 0;
+      }
+    }
+
+    /* ── Slide navigation ── */
+    function goTo(n) {
+      if (transitioning) return;
+      if (n < 1 || n > TOTAL || n === current) return;
+
+      transitioning = true;
+
+      const from = document.getElementById('slide-' + current);
+      const to   = document.getElementById('slide-' + n);
+
+      /* Exit current slide upward */
+      from.classList.remove('active');
+      from.classList.add('exit');
+
+      /* Enter new slide from below (slight delay so CSS sees the base state) */
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          to.classList.add('active');
+          current = n;
+          updateUI();
+        });
+      });
+
+      setTimeout(() => {
+        from.classList.remove('exit');
+        transitioning = false;
+      }, 520);
+    }
+
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
+
+    function updateUI() {
+      document.getElementById('progress-fill').style.width = ((current / TOTAL) * 100) + '%';
+      document.getElementById('slide-counter').textContent = current + ' / ' + TOTAL;
+    }
+
+    /* ── Click to advance ── */
+    document.getElementById('proposal-view').addEventListener('click', function (e) {
+      if (e.target.closest('a, button')) return;
+      next();
+    });
+
+    /* ── Keyboard navigation ── */
+    document.addEventListener('keydown', function (e) {
+      if (!document.getElementById('proposal-view').classList.contains('active')) return;
+      if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+      if (e.key === 'ArrowLeft')                    { e.preventDefault(); prev(); }
+    });
+
+    /* ── Touch / swipe ── */
+    let touchStartX = 0;
+    document.getElementById('proposal-view').addEventListener('touchstart', function (e) {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    document.getElementById('proposal-view').addEventListener('touchend', function (e) {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 50) { dx < 0 ? next() : prev(); }
+    }, { passive: true });
+
+    /* ── Init ── */
+    updateUI();
+  </script>
+</body>
+</html>

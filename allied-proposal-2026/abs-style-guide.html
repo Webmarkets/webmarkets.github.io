@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allied Business Solutions | 2026 Brand Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Oswald:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        abs: {
+                            blue: '#01A6E6',
+                            dark: '#093A51',
+                            black: '#000000',
+                            white: '#FFFFFF',
+                            gray: '#F9FAFB',
+                            border: 'rgba(9, 58, 81, 0.1)',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                        accent: ['Oswald', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FFFFFF;
+            color: #000000;
+            overflow-x: hidden;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #01A6E6;
+            padding-bottom: 1rem;
+        }
+        .section-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: #FFFFFF;
+            background: #01A6E6;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+        }
+        .abs-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(9, 58, 81, 0.1);
+            box-shadow: 0 4px 20px rgba(9, 58, 81, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+        .abs-card:hover {
+            border-color: #01A6E6;
+            transform: translateY(-2px);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #01A6E6 0%, #093A51 100%);
+        }
+        .headline-accent {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .copy-toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #093A51;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            display: none;
+            animation: fadeInUp 0.3s ease-out;
+            z-index: 100;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Tactical Hex Styling */
+        .tactical-hex {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background-image: url('Allied Logos/AlliedHex.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .hex-right { right: -100px; top: 50%; transform: translateY(-50%); }
+        .hex-left { left: -100px; top: 20%; }
+    </style>
+</head>
+<body class="font-sans selection:bg-abs-blue selection:text-white">
+
+    <div class="flex min-h-screen relative z-10">
+        <!-- Sidebar Navigation -->
+        <aside class="w-72 border-r border-abs-border bg-white/80 backdrop-blur-md sticky top-0 h-screen overflow-y-auto hidden lg:block">
+            <div class="p-8">
+                <div class="mb-12">
+                    <!-- Updated to PNG as requested -->
+                    <img src="Allied Logos/Allied-Logo-Bold_Black.png" alt="Allied Logo" class="w-full h-auto mb-4">
+                    <div class="flex items-center gap-2">
+                        <div class="h-px flex-1 bg-abs-blue/20"></div>
+                        <span class="font-accent font-bold text-[10px] tracking-[0.3em] text-abs-dark uppercase">2026 Brand Guide</span>
+                        <div class="h-px flex-1 bg-abs-blue/20"></div>
+                    </div>
+                </div>
+                
+                <nav class="space-y-8">
+                    <div>
+                        <p class="font-mono text-[10px] text-gray-400 uppercase tracking-[0.2em] mb-4">Foundations</p>
+                        <div class="space-y-1">
+                            <a href="#purpose" class="block py-2 text-sm text-abs-dark hover:text-abs-blue font-semibold transition-colors">Brand Purpose</a>
+                            <a href="#voice" class="block py-2 text-sm text-abs-dark hover:text-abs-blue font-semibold transition-colors">Personality Tags</a>
+                            <a href="#colors" class="block py-2 text-sm text-abs-dark hover:text-abs-blue font-semibold transition-colors">Color Palette</a>
+                            <a href="#typography" class="block py-2 text-sm text-abs-dark hover:text-abs-blue font-semibold transition-colors">Typography</a>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <p class="font-mono text-[10px] text-gray-400 uppercase tracking-[0.2em] mb-4">Assets</p>
+                        <div class="space-y-1">
+                            <a href="#logos" class="block py-2 text-sm text-abs-dark hover:text-abs-blue font-semibold transition-colors">Logo System</a>
+                            <a href="#hex" class="block py-2 text-sm text-abs-dark hover:text-abs-blue font-semibold transition-colors">Tactical Hex</a>
+                            <a href="#phrases" class="block py-2 text-sm text-abs-dark hover:text-abs-blue font-semibold transition-colors">Brand Phrases</a>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <p class="font-mono text-[10px] text-gray-400 uppercase tracking-[0.2em] mb-4">Structure</p>
+                        <div class="space-y-1">
+                            <a href="#services" class="block py-2 text-sm text-abs-dark hover:text-abs-blue font-semibold transition-colors">Service Order</a>
+                            <a href="#locations" class="block py-2 text-sm text-abs-dark hover:text-abs-blue font-semibold transition-colors">Locations</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8 lg:p-16 max-w-5xl relative">
+            <header class="mb-20">
+                <h1 class="font-display text-5xl font-extrabold mb-4 text-abs-dark">Creative Brand Guide</h1>
+                <p class="text-xl text-gray-500 max-w-2xl leading-relaxed">
+                    A comprehensive guide for incorporating creative branding into Allied Business Solutions projects for 2026.
+                </p>
+            </header>
+
+            <!-- PURPOSE -->
+            <section id="purpose" class="mb-24 scroll-mt-20 relative">
+                <div class="tactical-hex hex-right"></div>
+                <div class="p-8 rounded-2xl hero-gradient text-white relative z-10">
+                    <h4 class="font-accent text-sm tracking-widest mb-3 opacity-80 uppercase">BRAND GUIDELINE PURPOSE</h4>
+                    <p class="text-2xl font-bold leading-tight">
+                        This guide serves as a resource for <span class="text-abs-white underline decoration-abs-white/30">when</span> and <span class="text-abs-white underline decoration-abs-white/30">how to use our creative branding</span>.
+                    </p>
+                </div>
+            </section>
+
+            <!-- VOICE & PERSONALITY -->
+            <section id="voice" class="mb-24 scroll-mt-20 relative">
+                <div class="tactical-hex hex-left"></div>
+                <div class="section-header relative z-10">
+                    <span class="section-number">01</span>
+                    <h2 class="font-display text-3xl font-bold text-abs-dark">Brand Personality</h2>
+                </div>
+                <div class="mb-8 p-6 bg-abs-gray rounded-xl border border-abs-border relative z-10">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <span class="px-4 py-2 bg-white border border-abs-blue/20 rounded-full text-center text-sm font-bold text-abs-blue">SMART</span>
+                        <span class="px-4 py-2 bg-white border border-abs-blue/20 rounded-full text-center text-sm font-bold text-abs-blue">INNOVATIVE</span>
+                        <span class="px-4 py-2 bg-white border border-abs-blue/20 rounded-full text-center text-sm font-bold text-abs-blue">CLEVER</span>
+                        <span class="px-4 py-2 bg-white border border-abs-blue/20 rounded-full text-center text-sm font-bold text-abs-blue">FRIENDLY</span>
+                        <span class="px-4 py-2 bg-white border border-abs-blue/20 rounded-full text-center text-sm font-bold text-abs-blue">MODERN</span>
+                        <span class="px-4 py-2 bg-white border border-abs-blue/20 rounded-full text-center text-sm font-bold text-abs-blue">RELIABLE</span>
+                        <span class="px-4 py-2 bg-white border border-abs-blue/20 rounded-full text-center text-sm font-bold text-abs-blue">EFFICIENT</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- COLORS -->
+            <section id="colors" class="mb-24 scroll-mt-20 relative">
+                <div class="section-header">
+                    <span class="section-number">02</span>
+                    <h2 class="font-display text-3xl font-bold text-abs-dark">Color Palette</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+                    <div class="group cursor-pointer" onclick="copyToClipboard('#01A6E6')">
+                        <div class="h-32 w-full bg-[#01A6E6] rounded-2xl mb-3 shadow-lg shadow-abs-blue/20"></div>
+                        <p class="font-bold text-abs-dark">Allied Blue</p>
+                        <p class="font-mono text-[10px] text-gray-500 uppercase">#01A6E6</p>
+                    </div>
+                    <div class="group cursor-pointer" onclick="copyToClipboard('#093A51')">
+                        <div class="h-32 w-full bg-[#093A51] rounded-2xl mb-3 shadow-lg shadow-abs-dark/20"></div>
+                        <p class="font-bold text-abs-dark">Deep Navy</p>
+                        <p class="font-mono text-[10px] text-gray-500 uppercase">#093A51</p>
+                    </div>
+                    <div class="group cursor-pointer" onclick="copyToClipboard('#000000')">
+                        <div class="h-32 w-full bg-[#000000] rounded-2xl mb-3"></div>
+                        <p class="font-bold text-abs-dark">True Black</p>
+                        <p class="font-mono text-[10px] text-gray-500 uppercase">#000000</p>
+                    </div>
+                    <div class="group cursor-pointer">
+                        <div class="h-32 w-full hero-gradient rounded-2xl mb-3"></div>
+                        <p class="font-bold text-abs-dark">Primary Gradient</p>
+                        <p class="font-mono text-[10px] text-gray-500 uppercase">Blue to Navy</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TYPOGRAPHY -->
+            <section id="typography" class="mb-24 scroll-mt-20 relative">
+                <div class="tactical-hex hex-right" style="top: 0;"></div>
+                <div class="section-header relative z-10">
+                    <span class="section-number">03</span>
+                    <h2 class="font-display text-3xl font-bold text-abs-dark">Typography</h2>
+                </div>
+                <div class="space-y-8 relative z-10">
+                    <div class="p-8 rounded-2xl abs-card">
+                        <p class="font-mono text-[10px] text-abs-blue uppercase tracking-widest mb-4">Headlines & Body (Montserrat)</p>
+                        <h1 class="font-display text-4xl font-extrabold text-abs-dark mb-4">Scale Your Business Without Limitations</h1>
+                        <p class="text-abs-dark leading-relaxed">
+                            Montserrat is our primary typeface for all professional collateral. Used for both headlines and body copy to maintain a clean, modern aesthetic.
+                        </p>
+                    </div>
+                    <div class="p-8 rounded-2xl abs-card bg-abs-dark text-white">
+                        <p class="font-mono text-[10px] text-abs-blue uppercase tracking-widest mb-4">Emphasis & Accents (Oswald)</p>
+                        <h2 class="font-accent text-3xl font-medium tracking-wide uppercase">TECHNOLOGY YOU CAN TRUST</h2>
+                        <p class="text-gray-400 mt-4 text-sm">
+                            Oswald is used for short, impactful phrases, emphasis, or casual callouts.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- LOGOS -->
+            <section id="logos" class="mb-24 scroll-mt-20 relative">
+                <div class="section-header">
+                    <span class="section-number">04</span>
+                    <h2 class="font-display text-3xl font-bold text-abs-dark">Logo System (PNG)</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8 relative z-10">
+                    <div class="p-6 rounded-xl border border-abs-border bg-abs-blue/5">
+                        <img src="Allied Logos/Allied-Logo-Bold_FullColor_Black.png" alt="Primary" class="w-full h-auto mb-6">
+                        <p class="font-bold text-abs-dark text-sm">Primary</p>
+                        <p class="text-xs text-gray-500">For White Backgrounds</p>
+                    </div>
+                    <div class="p-6 rounded-xl border border-abs-border bg-abs-dark">
+                        <img src="Allied Logos/Allied-Logo-Bold_FullColor_White.png" alt="Secondary" class="w-full h-auto mb-6">
+                        <p class="font-bold text-white text-sm">Secondary</p>
+                        <p class="text-xs text-gray-400">For Blue Backgrounds</p>
+                    </div>
+                    <div class="p-6 rounded-xl border border-abs-border bg-abs-black">
+                        <img src="Allied Logos/Allied-Logo-Bold_White.png" alt="Alternate" class="w-full h-auto mb-6">
+                        <p class="font-bold text-white text-sm">Alternate</p>
+                        <p class="text-xs text-gray-400">For Dark Backgrounds</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- THE TACTICAL HEX -->
+            <section id="hex" class="mb-24 scroll-mt-20 relative">
+                <div class="section-header">
+                    <span class="section-number">05</span>
+                    <h2 class="font-display text-3xl font-bold text-abs-dark">Tactical Hex Usage</h2>
+                </div>
+                <div class="p-12 rounded-2xl abs-card relative overflow-hidden bg-abs-gray">
+                    <div class="tactical-hex hex-right" style="opacity: 0.15;"></div>
+                    <div class="relative z-10 text-center">
+                        <img src="Allied Logos/AlliedHex.png" alt="Hex" class="w-24 mx-auto mb-6">
+                        <h4 class="font-display font-bold text-abs-dark mb-2">Signature Mark</h4>
+                        <p class="text-sm text-gray-500 max-w-md mx-auto">
+                            The hex is no longer a pattern. It is used once per section, faded and positioned off to the side as a tactical background element.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PHRASES -->
+            <section id="phrases" class="mb-24 scroll-mt-20 relative">
+                <div class="tactical-hex hex-left" style="top: -50px;"></div>
+                <div class="section-header relative z-10">
+                    <span class="section-number">06</span>
+                    <h2 class="font-display text-3xl font-bold text-abs-dark">Brand Phrases</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-4 relative z-10">
+                    <div class="p-4 bg-white border-l-4 border-abs-blue shadow-sm font-bold text-abs-dark">Security Starts At The Top</div>
+                    <div class="p-4 bg-white border-l-4 border-abs-blue shadow-sm font-bold text-abs-dark">Technology You Can Trust</div>
+                    <div class="p-4 bg-white border-l-4 border-abs-blue shadow-sm font-bold text-abs-dark">Your Printer Shouldn’t Take PTO</div>
+                    <div class="p-4 bg-white border-l-4 border-abs-blue shadow-sm font-bold text-abs-dark">Start Planning For Growth</div>
+                </div>
+            </section>
+
+            <!-- SERVICES -->
+            <section id="services" class="mb-24 scroll-mt-20">
+                <div class="section-header">
+                    <span class="section-number">07</span>
+                    <h2 class="font-display text-3xl font-bold text-abs-dark">Service Order</h2>
+                </div>
+                <div class="space-y-2">
+                    <div class="flex items-center gap-4 p-4 abs-card rounded-lg">
+                        <span class="font-mono text-abs-blue font-bold">01</span>
+                        <span class="font-bold text-abs-dark">IT & Cloud Services</span>
+                    </div>
+                    <div class="flex items-center gap-4 p-4 abs-card rounded-lg">
+                        <span class="font-mono text-abs-blue font-bold">02</span>
+                        <span class="font-bold text-abs-dark">Security & Compliance</span>
+                    </div>
+                    <div class="flex items-center gap-4 p-4 abs-card rounded-lg">
+                        <span class="font-mono text-abs-blue font-bold">03</span>
+                        <span class="font-bold text-abs-dark">Workflow Automation</span>
+                    </div>
+                    <div class="flex items-center gap-4 p-4 abs-card rounded-lg">
+                        <span class="font-mono text-abs-blue font-bold">04</span>
+                        <span class="font-bold text-abs-dark">Printers & Copiers</span>
+                    </div>
+                    <div class="flex items-center gap-4 p-4 abs-card rounded-lg">
+                        <span class="font-mono text-abs-blue font-bold">05</span>
+                        <span class="font-bold text-abs-dark">Production Print Systems</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- LOCATIONS -->
+            <section id="locations" class="mb-24 scroll-mt-20">
+                <div class="section-header">
+                    <span class="section-number">08</span>
+                    <h2 class="font-display text-3xl font-bold text-abs-dark">Locations</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="p-4 abs-card rounded-lg border-l-4 border-abs-blue">
+                        <p class="font-bold text-abs-dark">Boise, ID</p>
+                        <p class="text-xs text-gray-500 uppercase tracking-widest">Corporate HQ</p>
+                    </div>
+                    <div class="p-4 abs-card rounded-lg border-l-4 border-abs-blue">
+                        <p class="font-bold text-abs-dark">Ontario, OR</p>
+                        <p class="text-xs text-gray-400 uppercase tracking-widest">Regional Office</p>
+                    </div>
+                    <div class="p-4 abs-card rounded-lg border-l-4 border-abs-blue">
+                        <p class="font-bold text-abs-dark">Pocatello, ID</p>
+                        <p class="text-xs text-gray-400 uppercase tracking-widest">Regional Office</p>
+                    </div>
+                    <div class="p-4 abs-card rounded-lg border-l-4 border-abs-blue">
+                        <p class="font-bold text-abs-dark">Idaho Falls, ID</p>
+                        <p class="text-xs text-gray-400 uppercase tracking-widest">Regional Office</p>
+                    </div>
+                    <div class="p-4 abs-card rounded-lg border-l-4 border-abs-blue">
+                        <p class="font-bold text-abs-dark">Salt Lake City, UT</p>
+                        <p class="text-xs text-gray-400 uppercase tracking-widest">Regional Office</p>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="mt-40 pt-10 border-t border-abs-border text-center">
+                <p class="text-xs text-gray-400 uppercase tracking-widest font-mono">Allied Business Solutions • 2026 Brand Guide</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Copy Notification -->
+    <div id="copyToast" class="copy-toast">Copied to clipboard!</div>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const toast = document.getElementById('copyToast');
+                toast.style.display = 'block';
+                setTimeout(() => {
+                    toast.style.display = 'none';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
