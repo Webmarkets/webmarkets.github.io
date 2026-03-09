@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Allied Business Solutions 2026 Partnership Proposal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            abs: {
+              blue: '#01A6E6',
+              dark: '#093A51',
+              black: '#000000',
+              white: '#FFFFFF',
+              gray: '#F9FAFB',
+              border: 'rgba(9, 58, 81, 0.1)',
+            }
+          },
+          fontFamily: {
+            sans: ['Montserrat', 'sans-serif'],
+            display: ['Montserrat', 'sans-serif'],
+            accent: ['Oswald', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --bg: #FFFFFF;
+      --bg-alt: #F9FAFB;
+      --primary: #01A6E6;
+      --primary-dark: #008ec4;
+      --text-main: #093A51;
+      --text-muted: #6B7280;
+      --border: rgba(9, 58, 81, 0.1);
+      --card-bg: #FFFFFF;
+      --card-shadow: 0 10px 30px -5px rgba(9, 58, 81, 0.1);
+      --success: #10B981;
+      --error: #EF4444;
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--text-main);
+      font-family: 'Montserrat', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Tactical Hex Background */
+    .hex-bg {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      background-image: url('Allied Logos/AlliedHex.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.03;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hex-1 {
+      top: -100px;
+      right: -100px;
+    }
+
+    .hex-2 {
+      bottom: -100px;
+      left: -100px;
+    }
+
+    /* ─── TAB BAR ─────────────────────────────────── */
+    .tab-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 500;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 36px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tab-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .tab-brand img {
+      height: 24px;
+    }
+
+    .tab-brand span {
+      font-family: 'Oswald', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border-left: 1px solid var(--border);
+      padding-left: 12px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 4px;
+      background: var(--bg-alt);
+      padding: 4px;
+      border-radius: 8px;
+    }
+
+    .tab {
+      padding: 6px 20px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: transparent;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .tab:hover {
+      color: var(--text-main);
+    }
+
+    .tab.active {
+      color: white;
+      background: var(--primary);
+      box-shadow: 0 2px 4px rgba(1, 166, 230, 0.2);
+    }
+
+    /* ─── PROGRESS BAR ─────────────────────────────── */
+    #progress-wrap {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      z-index: 500;
+      height: 3px;
+      background: transparent;
+    }
+
+    #progress-fill {
+      height: 100%;
+      background: var(--primary);
+      transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ─── SLIDE COUNTER ────────────────────────────── */
+    #slide-counter {
+      position: fixed;
+      bottom: 30px;
+      right: 40px;
+      z-index: 500;
+      font-family: 'Oswald', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+
+    /* ─── VIEWS ────────────────────────────────────── */
+    .view {
+      position: fixed;
+      inset: 0;
+      top: 63px;
+      display: none;
+    }
+
+    .view.active {
+      display: block;
+    }
+
+    /* ─── PROPOSAL / SLIDES ────────────────────────── */
+    #proposal-view {
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 80px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      pointer-events: none;
+    }
+
+    .slide.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+
+    .slide.exit {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+
+    /* ─── TYPOGRAPHY ────────────────────────── */
+    .eyebrow {
+      font-family: 'Oswald', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 20px;
+      background: rgba(1, 166, 230, 0.1);
+      padding: 6px 16px;
+      border-radius: 100px;
+    }
+
+    .headline {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--text-main);
+      line-height: 1.1;
+      text-align: center;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    h1.headline {
+      font-size: clamp(40px, 5vw, 72px);
+      font-weight: 800;
+    }
+
+    h2.headline {
+      font-size: clamp(32px, 3.5vw, 56px);
+      font-weight: 700;
+    }
+
+    .subhead {
+      font-size: clamp(17px, 1.4vw, 22px);
+      font-weight: 500;
+      color: var(--text-muted);
+      text-align: center;
+      max-width: 700px;
+      line-height: 1.65;
+      margin-bottom: 48px;
+    }
+
+    /* ─── COMPONENTS ────────────────────────── */
+
+    /* Cards */
+    .card-grid {
+      display: grid;
+      gap: 24px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .card-grid-2 {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .card-grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card-grid-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .abs-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 32px;
+      border-radius: 16px;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .abs-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(1, 166, 230, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .card-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 12px;
+    }
+
+    .card-body {
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+
+    /* Lists */
+    .check-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .check-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    .check-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .check-icon.good {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--success);
+    }
+
+    .check-icon.bad {
+      background: rgba(239, 68, 68, 0.15);
+      color: var(--error);
+    }
+
+    /* Timeline */
+    .timeline {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1000px;
+      position: relative;
+      margin-top: 40px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 24px;
+      left: 40px;
+      right: 40px;
+      height: 2px;
+      background: var(--border);
+      z-index: 0;
+    }
+
+    .tl-step {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      flex: 1;
+    }
+
+    .tl-dot {
+      width: 50px;
+      height: 50px;
+      background: var(--bg);
+      border: 2px solid var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 16px;
+      box-shadow: 0 0 0 8px var(--bg);
+    }
+
+    .tl-title {
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 4px;
+      color: var(--text-main);
+    }
+
+    .tl-desc {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      max-width: 140px;
+    }
+
+    /* ─── MOCKUP VIEW ────────────────────────────── */
+    #mockup-view {
+      overflow-y: auto;
+      overflow-x: hidden;
+      background: white;
+    }
+
+    /* Navigation hint */
+    #nav-hint {
+      position: fixed;
+      bottom: 30px;
+      left: 40px;
+      z-index: 500;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      opacity: 0.6;
+    }
+
+    .hint-key {
+      border: 1px solid rgba(9, 58, 81, 0.2);
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 10px;
+    }
+
+    /* Concept Badge */
+    .concept-badge {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--text-main);
+      color: white;
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      z-index: 1000;
+      pointer-events: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- PASSWORD GATE -->
+  <div id="pw-gate" style="position:fixed; inset:0; z-index:99999; background:#093A51; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:32px;">
+    <!-- Faded hex background -->
+    <div style="position:absolute; right:-80px; top:50%; transform:translateY(-50%); width:520px; height:520px; background-image:url('Allied Logos/AlliedHex.png'); background-size:contain; background-repeat:no-repeat; opacity:0.06; pointer-events:none;"></div>
+    <div style="position:absolute; left:-100px; bottom:-60px; width:400px; height:400px; background-image:url('Allied Logos/AlliedHex.png'); background-size:contain; background-repeat:no-repeat; opacity:0.04; pointer-events:none;"></div>
+    <!-- Card -->
+    <div style="position:relative; z-index:1; text-align:center; max-width:420px; width:100%;">
+      <img src="Allied Logos/Allied-Logo-Bold_White.png" alt="Allied Business Solutions" style="height:36px; margin-bottom:40px; opacity:0.9;">
+      <h2 style="font-family:'Oswald',sans-serif; font-size:clamp(22px,3vw,32px); font-weight:700; color:#fff; letter-spacing:-0.01em; margin-bottom:10px;">This proposal is private.</h2>
+      <p style="font-size:14px; font-weight:500; color:rgba(255,255,255,0.45); line-height:1.6; margin-bottom:36px;">Enter the access code you were given to continue.</p>
+      <div style="position:relative; margin-bottom:12px;">
+        <input id="pw-input" type="password" placeholder="Access code" autocomplete="off" style="width:100%; box-sizing:border-box; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.15); border-radius:14px; padding:16px 20px; font-size:16px; font-weight:600; color:#fff; outline:none; letter-spacing:0.08em; caret-color:#01A6E6;" onkeydown="if(event.key==='Enter') checkPW()">
+      </div>
+      <div id="pw-error" style="font-size:13px; font-weight:600; color:#f87171; min-height:20px; margin-bottom:16px; opacity:0; transition:opacity 0.2s;"></div>
+      <button onclick="checkPW()" style="width:100%; background:#01A6E6; color:#fff; border:none; border-radius:14px; padding:17px; font-family:'Oswald',sans-serif; font-size:14px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; cursor:pointer;">
+        Unlock Proposal
+      </button>
+    </div>
+  </div>
+
+  <script>
+      (function () {
+        // Hide body content until unlocked
+        document.documentElement.style.overflow = 'hidden';
+        // Auto-focus the input once DOM is ready
+        window.addEventListener('DOMContentLoaded', function () {
+          var inp = document.getElementById('pw-input');
+          if (inp) inp.focus();
+        });
+      })();
+
+    function checkPW () {
+      var val = document.getElementById('pw-input').value.trim().toLowerCase();
+      var err = document.getElementById('pw-error');
+      if (val === 'growth') {
+        var gate = document.getElementById('pw-gate');
+        gate.style.transition = 'opacity 0.5s';
+        gate.style.opacity = '0';
+        document.documentElement.style.overflow = '';
+        setTimeout(function () {gate.style.display = 'none';}, 500);
+      } else {
+        err.textContent = 'Incorrect code. Please try again.';
+        err.style.opacity = '1';
+        var inp = document.getElementById('pw-input');
+        inp.style.borderColor = 'rgba(248,113,113,0.6)';
+        inp.value = '';
+        inp.focus();
+        setTimeout(function () {
+          err.style.opacity = '0';
+          inp.style.borderColor = 'rgba(255,255,255,0.15)';
+        }, 2500);
+      }
+    }
+  </script>
+
+  <div class="hex-bg hex-1"></div>
+  <div class="hex-bg hex-2"></div>
+
+  <!-- ═══════════════════════════════════════════
+       TAB BAR
+  ════════════════════════════════════════════ -->
+  <div class="tab-bar">
+    <div class="tab-brand">
+      <img src="Allied Logos/Allied-Logo-Bold_FullColor_Black.png" alt="Allied Business Solutions">
+      <span>2026 Partnership Proposal</span>
+    </div>
+    <div class="tabs">
+      <button class="tab active" id="tab-proposal" onclick="switchTab('proposal')">Proposal</button>
+      <button class="tab" id="tab-mockup" onclick="switchTab('mockup')">Website Mockup</button>
+    </div>
+  </div>
+
+  <div id="progress-wrap">
+    <div id="progress-fill" style="width:10%"></div>
+  </div>
+
+  <div id="slide-counter">01 / 10</div>
+
+  <div id="nav-hint">
+    <span class="hint-key">←</span>
+    <span class="hint-key">→</span>
+    <span>Use arrows to navigate</span>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       PROPOSAL VIEW
+  ════════════════════════════════════════════ -->
+  <div class="view active" id="proposal-view">
+
+    <!-- ── SLIDE 1: COVER ── -->
+    <div class="slide active" id="slide-1">
+      <div class="eyebrow">Allied Business Solutions · 2026</div>
+      <h1 class="headline">End-to-End<br><span style="color:var(--primary)">Marketing Ownership</span></h1>
+      <p class="subhead">
+        The vision for what this brand looks like when we remove the ceiling and build the full, aggressive marketing strategy that Allied deserves.
+      </p>
+      <div style="font-size:12px; font-weight:600; color:var(--text-muted); letter-spacing:0.1em; text-transform:uppercase;">
+        Prepared exclusively for Allied Business Solutions
+      </div>
+    </div>
+
+    <!-- ── SLIDE 2: THE ASSESSMENT ── -->
+    <div class="slide" id="slide-2">
+      <h2 class="headline">The Current Picture<br><span style="color:var(--primary)">Operating at 30–45% Capacity</span></h2>
+      <p class="subhead">Allied has the brand, the reputation, and the market position. What's missing is a marketing engine built to match it.</p>
+
+      <div class="card-grid card-grid-2">
+        <div class="abs-card" style="border-top: 4px solid var(--error);">
+          <div class="card-title text-red-500">The Current Reality</div>
+          <div class="check-list">
+            <div class="check-item">
+              <div class="check-icon bad">✕</div>
+              <div>Task-driven execution and reactive requests instead of strategy and measurable KPIs that drive growth.</div>
+            </div>
+            <div class="check-item">
+              <div class="check-icon bad">✕</div>
+              <div>Too many approvals creating delays and lost momentum.</div>
+            </div>
+            <div class="check-item">
+              <div class="check-icon bad">✕</div>
+              <div>Organic social consuming resources with limited return.</div>
+            </div>
+            <div class="check-item">
+              <div class="check-icon bad">✕</div>
+              <div>No unified line between marketing spend and sales outcomes.</div>
+            </div>
+          </div>
+        </div>
+        <div class="abs-card" style="border-top: 4px solid var(--primary);">
+          <div class="card-title text-abs-blue">What's Being Left on the Table</div>
+          <div class="check-list">
+            <div class="check-item">
+              <div class="check-icon good">✓</div>
+              <div>A unified and aggressive marketing strategy that matches your enterprise scale.</div>
+            </div>
+            <div class="check-item">
+              <div class="check-icon good">✓</div>
+              <div>A website built for how buyers research in 2026 (AI & Mobile).</div>
+            </div>
+            <div class="check-item">
+              <div class="check-icon good">✓</div>
+              <div>Production-level video content and market authority.</div>
+            </div>
+            <div class="check-item">
+              <div class="check-icon good">✓</div>
+              <div>Clear visibility into what is actually driving pipeline.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SLIDE 3: WHY THIS HAPPENS ── -->
+    <div class="slide" id="slide-3">
+      <h2 class="headline">Why This Happens</h2>
+      <p class="subhead">These aren't Allied problems. They're problems many growth organizations face. Growth stalls when execution gets fragmented.</p>
+
+      <div class="card-grid card-grid-3">
+        <div class="abs-card">
+          <div class="card-icon">⚡</div>
+          <div class="card-title">Too Many Vendors</div>
+          <div class="card-body">Silos, delays, and inconsistent output. When marketing is spread across multiple partners, nothing moves in the same direction.</div>
+        </div>
+        <div class="abs-card">
+          <div class="card-icon">🎯</div>
+          <div class="card-title">Strategy Disconnected</div>
+          <div class="card-body">When strategists aren't the ones executing, priorities drift and work stops laddering up to the goal.</div>
+        </div>
+        <div class="abs-card">
+          <div class="card-icon">🚧</div>
+          <div class="card-title">Dev Bottlenecks</div>
+          <div class="card-body">Growth stalls when execution can't ship. A backlogged development queue slows everything downstream.</div>
+        </div>
+      </div>
+      <div style="margin-top:40px; font-weight:500; color:var(--text-muted); font-size:15px; text-align:center; max-width:700px; line-height:1.7;">
+        At this stage, organizations like Allied have three options: build an internal marketing team, coordinate multiple vendors, or find a single trusted partner who owns it all. Each path is a real choice — and each comes with a very different outcome.
+      </div>
+    </div>
+
+    <!-- ── SLIDE 4: THE VISION ── -->
+    <div class="slide" id="slide-4">
+      <div class="eyebrow">The Opportunity</div>
+      <h2 class="headline">From Task Factory to<br>Marketing Engine</h2>
+      <p class="subhead">Allied already competes at an enterprise level. WebMarkets just needs the ownership and the green light to prove it to the market.</p>
+
+      <div class="flex gap-8 w-full max-w-4xl">
+        <div class="flex-1 text-center p-8 rounded-2xl bg-abs-dark text-white shadow-xl">
+          <div class="text-4xl mb-4 font-accent font-bold text-abs-blue">AGGRESSIVE</div>
+          <p class="text-sm text-gray-300 leading-relaxed">Campaigns and content that demand attention and position Allied as the dominant player in the room.</p>
+        </div>
+        <div class="flex-1 text-center p-8 rounded-2xl bg-white border border-abs-border shadow-lg">
+          <div class="text-4xl mb-4 font-accent font-bold text-abs-dark">UNIFIED</div>
+          <p class="text-sm text-gray-500 leading-relaxed">One strategy, one voice, one partner owning every channel moving toward the same goal.</p>
+        </div>
+        <div class="flex-1 text-center p-8 rounded-2xl bg-white border border-abs-border shadow-lg">
+          <div class="text-4xl mb-4 font-accent font-bold text-abs-dark">ACCOUNTABLE</div>
+          <p class="text-sm text-gray-500 leading-relaxed">Full attribution visibility so leadership always knows what every dollar is producing.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SLIDE 5: FIVE PRIORITIES ── -->
+    <div class="slide" id="slide-5">
+      <div class="eyebrow">What Changes Now</div>
+      <h2 class="headline" style="margin-bottom:28px;">Immediate Action Steps<br>to <span style="color:var(--primary)">Unlock Marketing</span></h2>
+
+      <div style="display:flex; gap:12px; width:100%; max-width:1100px;">
+
+        <div style="flex:1; background:#f9fafb; border:1px solid var(--border); border-top:3px solid var(--primary); border-radius:12px; padding:24px 20px;">
+          <div style="font-family:'Oswald',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--primary); margin-bottom:14px;">01</div>
+          <div style="font-size:15px; font-weight:800; color:var(--text-main); margin-bottom:8px; line-height:1.2;">Unified Strategy Playbook</div>
+          <div style="font-size:13px; font-weight:500; color:var(--text-muted); line-height:1.6;">A full roadmap for the rest of Q2 delivered in 30 days. No more reactive marketing.</div>
+        </div>
+
+        <div style="flex:1; background:#f9fafb; border:1px solid var(--border); border-top:3px solid var(--primary); border-radius:12px; padding:24px 20px;">
+          <div style="font-family:'Oswald',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--primary); margin-bottom:14px;">02</div>
+          <div style="font-size:15px; font-weight:800; color:var(--text-main); margin-bottom:8px; line-height:1.2;">Streamlined & Reduced Approvals</div>
+          <div style="font-size:13px; font-weight:500; color:var(--text-muted); line-height:1.6;">One decision-maker, one process. Speed is a competitive advantage we're not using.</div>
+        </div>
+
+        <div style="flex:1; background:#f9fafb; border:1px solid var(--border); border-top:3px solid var(--primary); border-radius:12px; padding:24px 20px;">
+          <div style="font-family:'Oswald',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--primary); margin-bottom:14px;">03</div>
+          <div style="font-size:15px; font-weight:800; color:var(--text-main); margin-bottom:8px; line-height:1.2;">Ad Investment Reallocated</div>
+          <div style="font-size:13px; font-weight:500; color:var(--text-muted); line-height:1.6;">Shifting budget to funded paid digital where attribution is clear and spend compounds.</div>
+        </div>
+
+        <div style="flex:1; background:#f9fafb; border:1px solid var(--border); border-top:3px solid var(--primary); border-radius:12px; padding:24px 20px;">
+          <div style="font-family:'Oswald',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--primary); margin-bottom:14px;">04</div>
+          <div style="font-size:15px; font-weight:800; color:var(--text-main); margin-bottom:8px; line-height:1.2;">Website Revamp for 2026</div>
+          <div style="font-size:13px; font-weight:500; color:var(--text-muted); line-height:1.6;">AI search-ready, mobile-first, conversion-optimized. Mockups are already done.</div>
+        </div>
+
+        <div style="flex:1; background:var(--text-main); border:1px solid var(--text-main); border-top:3px solid var(--primary); border-radius:12px; padding:24px 20px;">
+          <div style="font-family:'Oswald',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--primary); margin-bottom:14px;">05</div>
+          <div style="font-size:15px; font-weight:800; color:#fff; margin-bottom:8px; line-height:1.2;">Attribution Clarity</div>
+          <div style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.6); line-height:1.6;">Custom dashboards connecting CRM, ad spend, and pipeline into one clear weekly view.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── SLIDE 6: PARTNERSHIP SCOPE ── -->
+    <div class="slide" id="slide-6">
+      <h2 class="headline">The Full Partnership Scope</h2>
+      <p class="subhead">This is what WebMarkets looks like unleashed.</p>
+
+      <div class="grid grid-cols-4 gap-6 w-full max-w-6xl">
+        <!-- Col 1 -->
+        <div class="bg-abs-gray p-6 rounded-xl border border-abs-border">
+          <h3 class="font-accent text-abs-blue font-bold uppercase tracking-widest text-sm mb-4">Strategy</h3>
+          <ul class="space-y-3 text-base text-abs-dark font-medium">
+            <li>• 2026 Marketing Playbook</li>
+            <li>• Quarterly Sprint Planning</li>
+            <li>• Competitive Intelligence</li>
+            <li>• Success Metrics Defined</li>
+          </ul>
+        </div>
+        <!-- Col 2 -->
+        <div class="bg-abs-gray p-6 rounded-xl border border-abs-border">
+          <h3 class="font-accent text-abs-blue font-bold uppercase tracking-widest text-sm mb-4">Creative</h3>
+          <ul class="space-y-3 text-base text-abs-dark font-medium">
+            <li>• Production-Level Video</li>
+            <li>• Elevated Commercials</li>
+            <li>• Unified Campaigns</li>
+            <li>• Full Creative Alignment</li>
+          </ul>
+        </div>
+        <!-- Col 3 -->
+        <div class="bg-abs-gray p-6 rounded-xl border border-abs-border">
+          <h3 class="font-accent text-abs-blue font-bold uppercase tracking-widest text-sm mb-4">Technical</h3>
+          <ul class="space-y-3 text-base text-abs-dark font-medium">
+            <li>• Funded Paid Ads</li>
+            <li>• AI-Optimized SEO</li>
+            <li>• Website Revamp</li>
+            <li>• CRM Integration</li>
+          </ul>
+        </div>
+        <!-- Col 4 -->
+        <div class="bg-abs-gray p-6 rounded-xl border border-abs-border">
+          <h3 class="font-accent text-abs-blue font-bold uppercase tracking-widest text-sm mb-4">Authority</h3>
+          <ul class="space-y-3 text-base text-abs-dark font-medium">
+            <li>• Email Nurture</li>
+            <li>• Thought Leadership</li>
+            <li>• Reputation Management</li>
+            <li>• Continuous Optimization</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SLIDE 7: ATTRIBUTION ── -->
+    <div class="slide" id="slide-7">
+      <h2 class="headline">Performance Visibility</h2>
+      <p class="subhead">You should always know what your marketing is doing. We're building custom dashboards that connect CRM, spend, and pipeline.</p>
+
+      <div class="card-grid card-grid-3">
+        <div class="abs-card text-center">
+          <div class="text-4xl font-bold text-abs-dark mb-2">Leads</div>
+          <div class="text-xs font-bold text-abs-blue uppercase tracking-widest mb-4">By Source</div>
+          <p class="text-base text-gray-500">Every inquiry tracked to its origin so we know what works.</p>
+        </div>
+        <div class="abs-card text-center">
+          <div class="text-4xl font-bold text-abs-dark mb-2">CPA</div>
+          <div class="text-xs font-bold text-abs-blue uppercase tracking-widest mb-4">Cost Per Acquisition</div>
+          <p class="text-base text-gray-500">Knowing exactly what you pay to win new business.</p>
+        </div>
+        <div class="abs-card text-center">
+          <div class="text-4xl font-bold text-abs-dark mb-2">Pipeline</div>
+          <div class="text-xs font-bold text-abs-blue uppercase tracking-widest mb-4">Revenue Influenced</div>
+          <p class="text-base text-gray-500">The actual revenue marketing is actively driving.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SLIDE 8: OPERATING MODEL ── -->
+    <div class="slide" id="slide-8">
+      <h2 class="headline">How We Work Together</h2>
+      <p class="subhead">Strategy aligned. Execution owned. Performance visible.</p>
+
+      <div class="timeline">
+        <div class="tl-step">
+          <div class="tl-dot">01</div>
+          <div class="tl-title">Alignment</div>
+          <div class="tl-desc">We define the 2026 playbook together. Priorities & metrics.</div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-dot">02</div>
+          <div class="tl-title">Ownership</div>
+          <div class="tl-desc">One point of contact. One integrated team executing fast.</div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-dot">03</div>
+          <div class="tl-title">Visibility</div>
+          <div class="tl-desc">Weekly dashboard reviews. No surprises.</div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-dot">04</div>
+          <div class="tl-title">Growth</div>
+          <div class="tl-desc">Continuous improvement. We improve what works every month.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SLIDE 9: ACTION STEPS ── -->
+    <div class="slide" id="slide-9">
+      <h2 class="headline">We're Ready to Own This</h2>
+      <p class="subhead">WebMarkets doesn't need months to ramp. Here's how we move from this dinner to full momentum.</p>
+
+      <div class="bg-white rounded-2xl border border-abs-border shadow-xl overflow-hidden w-full max-w-2xl">
+        <div class="p-6 border-b border-abs-border flex gap-4 items-center">
+          <div class="font-bold text-abs-blue w-24">This Week</div>
+          <div class="text-abs-dark">Align on single point of contact and decision structure.</div>
+        </div>
+        <div class="p-6 border-b border-abs-border flex gap-4 items-center">
+          <div class="font-bold text-abs-blue w-24">Week 2</div>
+          <div class="text-abs-dark">Website mockup review & revamp kickoff. Dashboard build begins.</div>
+        </div>
+        <div class="p-6 border-b border-abs-border flex gap-4 items-center">
+          <div class="font-bold text-abs-blue w-24">Week 3</div>
+          <div class="text-abs-dark">2026 Allied Marketing Playbook draft delivered.</div>
+        </div>
+        <div class="p-6 flex gap-4 items-center bg-abs-gray">
+          <div class="font-bold text-abs-blue w-24">Week 4</div>
+          <div class="text-abs-dark font-bold">Q2 campaign strategy approved. First production content in motion.</div>
+        </div>
+      </div>
+
+      <div class="mt-12 text-center">
+        <p class="font-display text-xl font-bold text-abs-dark italic">Allied is built to be the best in the room.<br>WebMarkets is built to make sure the market knows it.</p>
+      </div>
+    </div>
+
+    <!-- ── SLIDE 10: MOCKUP INTRO ── -->
+    <div class="slide" id="slide-10">
+      <div class="eyebrow">Already In Progress</div>
+      <h2 class="headline">We Didn't Wait.</h2>
+      <p class="subhead">This is what Allied's digital presence looks like when it matches the scale of the business. Built on your brand, optimized for 2026.</p>
+
+      <button onclick="switchTab('mockup')" class="px-8 py-4 bg-abs-blue text-white font-bold rounded-full shadow-lg hover:bg-abs-dark transition-all transform hover:scale-105">
+        View Website Mockup
+      </button>
+    </div>
+
+  </div><!-- /proposal-view -->
+
+
+  <!-- ═══════════════════════════════════════════
+       MOCKUP VIEW
+  ════════════════════════════════════════════ -->
+  <div class="view" id="mockup-view">
+
+    <!-- ANNOUNCEMENT BAR -->
+    <div style="background:var(--primary); padding:10px 0; text-align:center;">
+      <p style="font-family:'Oswald',sans-serif; font-size:12px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:#fff;">
+        Now Serving Boise, Salt Lake City, Twin Falls, Pocatello &amp; Nampa &nbsp;·&nbsp; <span style="text-decoration:underline; cursor:pointer;">Find Your Location →</span>
+      </p>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav style="position:sticky; top:0; z-index:200; background:rgba(255,255,255,0.97); backdrop-filter:blur(12px); border-bottom:1px solid rgba(9,58,81,0.1);">
+      <div style="max-width:1280px; margin:0 auto; padding:0 48px; display:flex; justify-content:space-between; align-items:center; height:88px;">
+        <img src="Allied Logos/Allied-Logo-Bold_FullColor_Black.png" alt="Allied Business Solutions" style="height:48px; width:auto;">
+        <div style="display:flex; gap:36px; align-items:center;">
+          <a href="#" style="font-size:13px; font-weight:700; color:#093A51; text-decoration:none; letter-spacing:0.08em; text-transform:uppercase;">Services</a>
+          <a href="#" style="font-size:13px; font-weight:700; color:#093A51; text-decoration:none; letter-spacing:0.08em; text-transform:uppercase;">Industries</a>
+          <a href="#" style="font-size:13px; font-weight:700; color:#093A51; text-decoration:none; letter-spacing:0.08em; text-transform:uppercase;">About</a>
+          <a href="#" style="font-size:13px; font-weight:700; color:#093A51; text-decoration:none; letter-spacing:0.08em; text-transform:uppercase;">Locations</a>
+          <a href="#" style="font-size:13px; font-weight:700; color:#093A51; text-decoration:none; letter-spacing:0.08em; text-transform:uppercase;">Contact</a>
+          <a href="#" style="font-size:13px; font-weight:700; color:#fff; background:#01A6E6; padding:14px 32px; border-radius:50px; text-decoration:none; letter-spacing:0.08em; text-transform:uppercase; box-shadow:0 8px 24px rgba(1,166,230,0.3);">Get a Quote</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section style="padding:110px 48px 100px; display:flex; flex-direction:column; align-items:center; justify-content:center; background:#fff; position:relative; overflow:hidden; text-align:center;">
+      <!-- Background radial glow -->
+      <div style="position:absolute; inset:0; background:radial-gradient(ellipse at 50% 30%, rgba(1,166,230,0.07) 0%, transparent 65%); pointer-events:none;"></div>
+      <!-- Floating faded hex — right side -->
+      <div style="position:absolute; right:-80px; top:50%; transform:translateY(-50%); width:420px; height:420px; background-image:url('Allied Logos/AlliedHex.png'); background-size:contain; background-repeat:no-repeat; opacity:0.05; pointer-events:none; z-index:0;"></div>
+      <!-- Floating faded hex — left side, offset up -->
+      <div style="position:absolute; left:-120px; top:10%; width:340px; height:340px; background-image:url('Allied Logos/AlliedHex.png'); background-size:contain; background-repeat:no-repeat; opacity:0.04; pointer-events:none; z-index:0;"></div>
+      <!-- Content -->
+      <div style="position:relative; z-index:1; display:flex; flex-direction:column; align-items:center;">
+        <!-- Eyebrow -->
+        <div style="display:inline-block; background:rgba(1,166,230,0.1); padding:6px 16px; border-radius:50px; margin-bottom:16px;">
+          <span style="font-family:'Oswald',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.24em; text-transform:uppercase; color:#01A6E6;">Trusted Technology Partner Since 2003</span>
+        </div>
+        <!-- Headline -->
+        <h1 style="font-size:clamp(32px,4.2vw,60px); font-weight:900; color:#093A51; line-height:1.06; margin-bottom:14px; letter-spacing:-0.025em; max-width:760px;">
+          The Technology Your<br>Business <span style="color:#01A6E6;">Runs On.</span>
+        </h1>
+        <!-- Subhead -->
+        <p style="font-size:16px; font-weight:500; color:#6b7280; line-height:1.65; margin-bottom:26px; max-width:500px;">
+          Managed IT, cybersecurity, print solutions, and workflow automation — one partner keeping your business at full capacity, every day.
+        </p>
+        <!-- CTAs -->
+        <div style="display:flex; gap:12px; align-items:center; justify-content:center; margin-bottom:28px;">
+          <a href="#" style="background:#093A51; color:#fff; padding:13px 32px; border-radius:50px; font-size:12px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; box-shadow:0 10px 28px rgba(9,58,81,0.2);">Explore Our Services</a>
+          <a href="#" style="background:transparent; color:#093A51; padding:13px 32px; border-radius:50px; font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; border:2px solid rgba(9,58,81,0.15);">Talk to an Expert</a>
+        </div>
+        <!-- Stats row -->
+        <div style="display:flex; gap:28px; align-items:center; justify-content:center;">
+          <div style="text-align:center;">
+            <div style="font-size:20px; font-weight:900; color:#093A51; letter-spacing:-0.02em; line-height:1;">20<span style="color:#01A6E6;">+</span></div>
+            <div style="font-size:10px; font-weight:700; color:#9ca3af; letter-spacing:0.12em; text-transform:uppercase; margin-top:3px;">Years</div>
+          </div>
+          <div style="width:1px; height:24px; background:rgba(9,58,81,0.1);"></div>
+          <div style="text-align:center;">
+            <div style="font-size:20px; font-weight:900; color:#093A51; letter-spacing:-0.02em; line-height:1;">1K<span style="color:#01A6E6;">+</span></div>
+            <div style="font-size:10px; font-weight:700; color:#9ca3af; letter-spacing:0.12em; text-transform:uppercase; margin-top:3px;">Clients</div>
+          </div>
+          <div style="width:1px; height:24px; background:rgba(9,58,81,0.1);"></div>
+          <div style="text-align:center;">
+            <div style="font-size:20px; font-weight:900; color:#093A51; letter-spacing:-0.02em; line-height:1;">5</div>
+            <div style="font-size:10px; font-weight:700; color:#9ca3af; letter-spacing:0.12em; text-transform:uppercase; margin-top:3px;">Offices</div>
+          </div>
+          <div style="width:1px; height:24px; background:rgba(9,58,81,0.1);"></div>
+          <div style="text-align:center;">
+            <div style="font-size:20px; font-weight:900; color:#093A51; letter-spacing:-0.02em; line-height:1;">24<span style="color:#01A6E6;">/7</span></div>
+            <div style="font-size:10px; font-weight:700; color:#9ca3af; letter-spacing:0.12em; text-transform:uppercase; margin-top:3px;">Support</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUSTED BY -->
+    <section style="padding:28px 80px; background:#f9fafb; border-top:1px solid rgba(9,58,81,0.07); border-bottom:1px solid rgba(9,58,81,0.07);">
+      <div style="max-width:1280px; margin:0 auto; display:flex; align-items:center; gap:48px;">
+        <span style="font-family:'Oswald',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:#9ca3af; white-space:nowrap; flex-shrink:0;">Trusted By</span>
+        <div style="height:1px; background:rgba(9,58,81,0.1); width:24px; flex-shrink:0;"></div>
+        <div style="display:flex; gap:48px; align-items:center; opacity:0.35;">
+          <span style="font-family:'Oswald',sans-serif; font-size:18px; font-weight:700; color:#093A51; letter-spacing:0.06em; text-transform:uppercase;">Acme Corp</span>
+          <span style="font-family:'Montserrat',sans-serif; font-size:15px; font-weight:800; color:#093A51; letter-spacing:-0.02em;">NorthPoint</span>
+          <span style="font-family:'Oswald',sans-serif; font-size:17px; font-weight:600; color:#093A51; letter-spacing:0.1em; text-transform:uppercase;">Veritek</span>
+          <span style="font-family:'Montserrat',sans-serif; font-size:15px; font-weight:900; color:#093A51; letter-spacing:-0.01em;">BluePeak</span>
+          <span style="font-family:'Oswald',sans-serif; font-size:18px; font-weight:700; color:#093A51; letter-spacing:0.05em; text-transform:uppercase;">Crestline</span>
+          <span style="font-family:'Montserrat',sans-serif; font-size:14px; font-weight:800; color:#093A51; letter-spacing:0.02em;">SummitGroup</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section style="padding:110px 80px; background:#fff;">
+      <div style="max-width:1280px; margin:0 auto;">
+        <div style="text-align:center; margin-bottom:72px;">
+          <div style="font-family:'Oswald',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.28em; text-transform:uppercase; color:#01A6E6; margin-bottom:16px;">What We Do</div>
+          <h2 style="font-size:clamp(32px,3.5vw,52px); font-weight:900; color:#093A51; margin-bottom:20px; letter-spacing:-0.02em; line-height:1.1;">Everything Your Business<br>Needs to Stay Running.</h2>
+          <p style="font-size:17px; font-weight:500; color:#6b7280; max-width:560px; margin:0 auto; line-height:1.7;">One partner. One point of contact. Full coverage across every technology your organization depends on.</p>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px;">
+          <div style="background:#f9fafb; border:1px solid rgba(9,58,81,0.08); border-radius:24px; padding:40px 32px;">
+            <div style="width:60px; height:60px; background:rgba(1,166,230,0.1); border-radius:18px; display:flex; align-items:center; justify-content:center; margin-bottom:24px;">
+              <svg width="28" height="28" fill="none" stroke="#01A6E6" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h4 style="font-size:20px; font-weight:800; color:#093A51; margin-bottom:12px;">Managed IT Services</h4>
+            <p style="font-size:15px; font-weight:500; color:#6b7280; line-height:1.72; margin-bottom:20px;">Proactive monitoring, helpdesk support, and infrastructure management so your team stays focused on the work that matters.</p>
+            <a href="#" style="font-size:13px; font-weight:700; color:#01A6E6; text-decoration:none; letter-spacing:0.06em; text-transform:uppercase;">Learn More →</a>
+          </div>
+          <div style="background:#f9fafb; border:1px solid rgba(9,58,81,0.08); border-radius:24px; padding:40px 32px;">
+            <div style="width:60px; height:60px; background:rgba(1,166,230,0.1); border-radius:18px; display:flex; align-items:center; justify-content:center; margin-bottom:24px;">
+              <svg width="28" height="28" fill="none" stroke="#01A6E6" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+              </svg>
+            </div>
+            <h4 style="font-size:20px; font-weight:800; color:#093A51; margin-bottom:12px;">Cloud Solutions</h4>
+            <p style="font-size:15px; font-weight:500; color:#6b7280; line-height:1.72; margin-bottom:20px;">Scalable cloud infrastructure, Microsoft 365 management, and hybrid environments designed to grow with your business.</p>
+            <a href="#" style="font-size:13px; font-weight:700; color:#01A6E6; text-decoration:none; letter-spacing:0.06em; text-transform:uppercase;">Learn More →</a>
+          </div>
+          <div style="background:#f9fafb; border:1px solid rgba(9,58,81,0.08); border-radius:24px; padding:40px 32px;">
+            <div style="width:60px; height:60px; background:rgba(1,166,230,0.1); border-radius:18px; display:flex; align-items:center; justify-content:center; margin-bottom:24px;">
+              <svg width="28" height="28" fill="none" stroke="#01A6E6" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <h4 style="font-size:20px; font-weight:800; color:#093A51; margin-bottom:12px;">Cybersecurity &amp; Compliance</h4>
+            <p style="font-size:15px; font-weight:500; color:#6b7280; line-height:1.72; margin-bottom:20px;">End-to-end security frameworks, threat monitoring, and compliance support that protects your data and your reputation.</p>
+            <a href="#" style="font-size:13px; font-weight:700; color:#01A6E6; text-decoration:none; letter-spacing:0.06em; text-transform:uppercase;">Learn More →</a>
+          </div>
+          <div style="background:#f9fafb; border:1px solid rgba(9,58,81,0.08); border-radius:24px; padding:40px 32px;">
+            <div style="width:60px; height:60px; background:rgba(1,166,230,0.1); border-radius:18px; display:flex; align-items:center; justify-content:center; margin-bottom:24px;">
+              <svg width="28" height="28" fill="none" stroke="#01A6E6" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+              </svg>
+            </div>
+            <h4 style="font-size:20px; font-weight:800; color:#093A51; margin-bottom:12px;">Print &amp; Copier Solutions</h4>
+            <p style="font-size:15px; font-weight:500; color:#6b7280; line-height:1.72; margin-bottom:20px;">High-performance print hardware, managed print programs, and on-site service that keeps your devices running when you need them.</p>
+            <a href="#" style="font-size:13px; font-weight:700; color:#01A6E6; text-decoration:none; letter-spacing:0.06em; text-transform:uppercase;">Learn More →</a>
+          </div>
+          <div style="background:#f9fafb; border:1px solid rgba(9,58,81,0.08); border-radius:24px; padding:40px 32px;">
+            <div style="width:60px; height:60px; background:rgba(1,166,230,0.1); border-radius:18px; display:flex; align-items:center; justify-content:center; margin-bottom:24px;">
+              <svg width="28" height="28" fill="none" stroke="#01A6E6" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h4 style="font-size:20px; font-weight:800; color:#093A51; margin-bottom:12px;">Workflow Automation</h4>
+            <p style="font-size:15px; font-weight:500; color:#6b7280; line-height:1.72; margin-bottom:20px;">Intelligent automation that eliminates manual bottlenecks, reduces error, and frees your team to focus on higher-value work.</p>
+            <a href="#" style="font-size:13px; font-weight:700; color:#01A6E6; text-decoration:none; letter-spacing:0.06em; text-transform:uppercase;">Learn More →</a>
+          </div>
+          <div style="background:linear-gradient(135deg, #01A6E6 0%, #093A51 100%); border-radius:24px; padding:40px 32px; display:flex; flex-direction:column; justify-content:center;">
+            <h4 style="font-size:22px; font-weight:900; color:#fff; margin-bottom:14px; line-height:1.2;">Not sure where to start?</h4>
+            <p style="font-size:15px; color:rgba(255,255,255,0.8); line-height:1.7; margin-bottom:28px; font-weight:500;">Our team will assess your current environment and recommend exactly what your business needs — no fluff, no oversell.</p>
+            <a href="#" style="display:inline-block; background:#fff; color:#01A6E6; padding:14px 30px; border-radius:50px; font-size:13px; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; width:fit-content;">Get a Free Assessment</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY ALLIED -->
+    <section style="padding:110px 80px; background:#093A51; position:relative; overflow:hidden;">
+      <div style="position:absolute; right:-120px; top:50%; transform:translateY(-50%); width:600px; height:600px; background-image:url('Allied Logos/AlliedHex.png'); background-size:contain; background-repeat:no-repeat; opacity:0.06; pointer-events:none;"></div>
+      <div style="max-width:1280px; margin:0 auto; position:relative; z-index:1;">
+        <div style="text-align:center; margin-bottom:72px;">
+          <div style="font-family:'Oswald',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.28em; text-transform:uppercase; color:#01A6E6; margin-bottom:16px;">Why Allied</div>
+          <h2 style="font-size:clamp(32px,3.5vw,52px); font-weight:900; color:#fff; letter-spacing:-0.02em; line-height:1.1;">We Show Up Different.</h2>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:24px;">
+          <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:20px; padding:36px 28px; text-align:center;">
+            <div style="width:56px; height:56px; border-radius:16px; background:rgba(1,166,230,0.15); display:flex; align-items:center; justify-content:center; margin:0 auto 20px;">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#01A6E6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </div>
+            <h4 style="font-size:17px; font-weight:800; color:#fff; margin-bottom:12px;">Local Relationships</h4>
+            <p style="font-size:14px; font-weight:500; color:rgba(255,255,255,0.55); line-height:1.7;">We're not a call center. We're your neighbors. Real people, local offices, and technicians who know you by name.</p>
+          </div>
+          <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:20px; padding:36px 28px; text-align:center;">
+            <div style="width:56px; height:56px; border-radius:16px; background:rgba(1,166,230,0.15); display:flex; align-items:center; justify-content:center; margin:0 auto 20px;">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#01A6E6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+              </svg>
+            </div>
+            <h4 style="font-size:17px; font-weight:800; color:#fff; margin-bottom:12px;">Same-Day Response</h4>
+            <p style="font-size:14px; font-weight:500; color:rgba(255,255,255,0.55); line-height:1.7;">When something breaks, every minute counts. Our team is on-site fast — no ticket queues, no runaround.</p>
+          </div>
+          <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:20px; padding:36px 28px; text-align:center;">
+            <div style="width:56px; height:56px; border-radius:16px; background:rgba(1,166,230,0.15); display:flex; align-items:center; justify-content:center; margin:0 auto 20px;">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#01A6E6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </div>
+            <h4 style="font-size:17px; font-weight:800; color:#fff; margin-bottom:12px;">Enterprise-Grade Security</h4>
+            <p style="font-size:14px; font-weight:500; color:rgba(255,255,255,0.55); line-height:1.7;">The same security standards used by large enterprises — built and managed for businesses of every size.</p>
+          </div>
+          <div style="background:rgba(1,166,230,0.15); border:1px solid rgba(1,166,230,0.35); border-radius:20px; padding:36px 28px; text-align:center;">
+            <div style="width:56px; height:56px; border-radius:16px; background:rgba(1,166,230,0.2); display:flex; align-items:center; justify-content:center; margin:0 auto 20px;">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#01A6E6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                <polyline points="17 6 23 6 23 12" />
+              </svg>
+            </div>
+            <h4 style="font-size:17px; font-weight:800; color:#fff; margin-bottom:12px;">Built for Growth</h4>
+            <p style="font-size:14px; font-weight:500; color:rgba(255,255,255,0.55); line-height:1.7;">Our solutions scale with you. As your organization grows, your technology grows with it — no costly overhauls required.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section style="padding:110px 80px; background:#f9fafb;">
+      <div style="max-width:1280px; margin:0 auto;">
+        <div style="text-align:center; margin-bottom:72px;">
+          <div style="font-family:'Oswald',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.28em; text-transform:uppercase; color:#01A6E6; margin-bottom:16px;">Client Stories</div>
+          <h2 style="font-size:clamp(32px,3.5vw,52px); font-weight:900; color:#093A51; letter-spacing:-0.02em;">What Our Clients Say.</h2>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px;">
+          <div style="background:#fff; border:1px solid rgba(9,58,81,0.08); border-radius:24px; padding:40px 36px;">
+            <div style="margin-bottom:20px; color:#01A6E6; font-size:18px;">★★★★★</div>
+            <p style="font-size:16px; font-weight:500; color:#374151; line-height:1.75; margin-bottom:28px; font-style:italic;">Allied transformed how our office operates. The response time alone is worth every penny — we never wait more than a couple hours for a technician on-site.</p>
+            <div style="display:flex; align-items:center; gap:14px;">
+              <div style="width:46px; height:46px; background:#01A6E6; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:900; color:#fff; flex-shrink:0;">JM</div>
+              <div>
+                <div style="font-size:15px; font-weight:800; color:#093A51;">James M.</div>
+                <div style="font-size:12px; font-weight:600; color:#9ca3af; letter-spacing:0.06em; text-transform:uppercase;">Operations Director</div>
+              </div>
+            </div>
+          </div>
+          <div style="background:#093A51; border-radius:24px; padding:40px 36px;">
+            <div style="margin-bottom:20px; color:#01A6E6; font-size:18px;">★★★★★</div>
+            <p style="font-size:16px; font-weight:500; color:rgba(255,255,255,0.8); line-height:1.75; margin-bottom:28px; font-style:italic;">We consolidated three different IT vendors into Allied and immediately saw cost savings and better service. It's a completely different experience when one team owns it all.</p>
+            <div style="display:flex; align-items:center; gap:14px;">
+              <div style="width:46px; height:46px; background:#01A6E6; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:900; color:#fff; flex-shrink:0;">SK</div>
+              <div>
+                <div style="font-size:15px; font-weight:800; color:#fff;">Sarah K.</div>
+                <div style="font-size:12px; font-weight:600; color:rgba(255,255,255,0.4); letter-spacing:0.06em; text-transform:uppercase;">CEO, Regional Healthcare Group</div>
+              </div>
+            </div>
+          </div>
+          <div style="background:#fff; border:1px solid rgba(9,58,81,0.08); border-radius:24px; padding:40px 36px;">
+            <div style="margin-bottom:20px; color:#01A6E6; font-size:18px;">★★★★★</div>
+            <p style="font-size:16px; font-weight:500; color:#374151; line-height:1.75; margin-bottom:28px; font-style:italic;">The print management program alone cut our costs by 30%. Their team is proactive, responsive, and genuinely invested in how we operate.</p>
+            <div style="display:flex; align-items:center; gap:14px;">
+              <div style="width:46px; height:46px; background:#01A6E6; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:900; color:#fff; flex-shrink:0;">TR</div>
+              <div>
+                <div style="font-size:15px; font-weight:800; color:#093A51;">Tom R.</div>
+                <div style="font-size:12px; font-weight:600; color:#9ca3af; letter-spacing:0.06em; text-transform:uppercase;">CFO, Construction Firm</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHILOSOPHY -->
+    <section style="padding:110px 80px; background:#fff; overflow:hidden;">
+      <div style="max-width:1280px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;">
+        <div>
+          <div style="font-family:'Oswald',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.28em; text-transform:uppercase; color:#01A6E6; margin-bottom:20px;">Our Philosophy</div>
+          <h2 style="font-size:clamp(36px,4vw,56px); font-weight:900; color:#093A51; line-height:1.08; margin-bottom:24px; letter-spacing:-0.02em;">Security Starts<br>At <span style="color:#01A6E6;">The Top.</span></h2>
+          <p style="font-size:17px; font-weight:500; color:#6b7280; line-height:1.78; margin-bottom:36px; max-width:460px;">We believe technology should be a catalyst for growth, not a source of downtime, frustration, or vulnerability. When Allied is your partner, your systems work so you can.</p>
+          <div style="display:flex; align-items:center; gap:16px;">
+            <div style="width:48px; height:2px; background:#01A6E6;"></div>
+            <span style="font-family:'Oswald',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:#01A6E6;">The Allied Standard</span>
+          </div>
+        </div>
+        <div style="background:#f9fafb; border:1px solid rgba(9,58,81,0.1); border-radius:32px; padding:52px 48px;">
+          <p style="font-size:24px; font-weight:800; color:#093A51; line-height:1.45; font-style:italic; margin-bottom:36px;">Your Printer Shouldn't Take <span style="color:#01A6E6;">PTO</span>. Neither Should Your Technology Partner.</p>
+          <div style="display:flex; align-items:center; gap:14px;">
+            <div style="width:46px; height:46px; background:#01A6E6; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:13px; color:#fff; flex-shrink:0;">ABS</div>
+            <div>
+              <div style="font-size:15px; font-weight:800; color:#093A51;">Allied Business Solutions</div>
+              <div style="font-size:12px; font-weight:600; color:#9ca3af; text-transform:uppercase; letter-spacing:0.08em;">Est. 2003</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATIONS -->
+    <section style="padding:110px 80px; background:#f9fafb;">
+      <div style="max-width:1280px; margin:0 auto;">
+        <div style="text-align:center; margin-bottom:64px;">
+          <div style="font-family:'Oswald',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.28em; text-transform:uppercase; color:#01A6E6; margin-bottom:16px;">Where We Operate</div>
+          <h2 style="font-size:clamp(32px,3.5vw,52px); font-weight:900; color:#093A51; letter-spacing:-0.02em; line-height:1.1;">Local Presence.<br>Regional Reach.</h2>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-bottom:64px;">
+          <div style="background:#fff; border:1px solid rgba(9,58,81,0.08); border-radius:20px; padding:28px 20px; text-align:center;">
+            <div style="font-size:24px; margin-bottom:12px;">📍</div>
+            <div style="font-size:16px; font-weight:800; color:#093A51; margin-bottom:4px;">Boise, ID</div>
+            <div style="font-size:11px; font-weight:700; color:#01A6E6; letter-spacing:0.12em; text-transform:uppercase;">Corporate HQ</div>
+          </div>
+          <div style="background:#fff; border:1px solid rgba(9,58,81,0.08); border-radius:20px; padding:28px 20px; text-align:center;">
+            <div style="font-size:24px; margin-bottom:12px;">📍</div>
+            <div style="font-size:16px; font-weight:800; color:#093A51; margin-bottom:4px;">Salt Lake City, UT</div>
+            <div style="font-size:11px; font-weight:700; color:#9ca3af; letter-spacing:0.12em; text-transform:uppercase;">Regional Office</div>
+          </div>
+          <div style="background:#fff; border:1px solid rgba(9,58,81,0.08); border-radius:20px; padding:28px 20px; text-align:center;">
+            <div style="font-size:24px; margin-bottom:12px;">📍</div>
+            <div style="font-size:16px; font-weight:800; color:#093A51; margin-bottom:4px;">Twin Falls, ID</div>
+            <div style="font-size:11px; font-weight:700; color:#9ca3af; letter-spacing:0.12em; text-transform:uppercase;">Regional Office</div>
+          </div>
+          <div style="background:#fff; border:1px solid rgba(9,58,81,0.08); border-radius:20px; padding:28px 20px; text-align:center;">
+            <div style="font-size:24px; margin-bottom:12px;">📍</div>
+            <div style="font-size:16px; font-weight:800; color:#093A51; margin-bottom:4px;">Pocatello, ID</div>
+            <div style="font-size:11px; font-weight:700; color:#9ca3af; letter-spacing:0.12em; text-transform:uppercase;">Regional Office</div>
+          </div>
+          <div style="background:#fff; border:1px solid rgba(9,58,81,0.08); border-radius:20px; padding:28px 20px; text-align:center;">
+            <div style="font-size:24px; margin-bottom:12px;">📍</div>
+            <div style="font-size:16px; font-weight:800; color:#093A51; margin-bottom:4px;">Nampa, ID</div>
+            <div style="font-size:11px; font-weight:700; color:#9ca3af; letter-spacing:0.12em; text-transform:uppercase;">Regional Office</div>
+          </div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;">
+          <img src="Allied Images/13.png" alt="Allied Team" style="width:100%; border-radius:28px; box-shadow:0 24px 60px rgba(9,58,81,0.12);">
+          <div>
+            <h3 style="font-size:34px; font-weight:900; color:#093A51; margin-bottom:16px; line-height:1.2;">20+ Years Serving the Region</h3>
+            <p style="font-size:16px; font-weight:500; color:#6b7280; line-height:1.75; margin-bottom:32px;">With five offices across Idaho and Utah, Allied's team is close by when it matters most. We're not a national call center — we're your local technology partner with the resources of a regional leader.</p>
+            <a href="#" style="display:inline-block; background:#01A6E6; color:#fff; padding:16px 36px; border-radius:50px; font-size:13px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none;">Find Your Nearest Office</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section style="padding:100px 80px; background:linear-gradient(135deg, #093A51 0%, #01A6E6 100%); position:relative; overflow:hidden;">
+      <div style="position:absolute; right:-80px; bottom:-80px; width:500px; height:500px; background-image:url('Allied Logos/AlliedHex.png'); background-size:contain; background-repeat:no-repeat; opacity:0.08; pointer-events:none;"></div>
+      <div style="max-width:1280px; margin:0 auto; display:grid; grid-template-columns:1fr auto; gap:48px; align-items:center; position:relative; z-index:1;">
+        <div>
+          <div style="font-family:'Oswald',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.28em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:16px;">Ready to Get Started?</div>
+          <h2 style="font-size:clamp(32px,3.5vw,52px); font-weight:900; color:#fff; line-height:1.1; letter-spacing:-0.02em; margin-bottom:16px;">Let's Talk About What<br>Your Business Needs.</h2>
+          <p style="font-size:17px; font-weight:500; color:rgba(255,255,255,0.75); max-width:520px; line-height:1.7;">No long contracts, no complicated sales process. Just a conversation about where you are and how Allied can help you get where you're going.</p>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:16px; flex-shrink:0;">
+          <a href="#" style="display:block; background:#fff; color:#093A51; padding:18px 44px; border-radius:50px; font-size:14px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; text-align:center; white-space:nowrap; box-shadow:0 12px 32px rgba(0,0,0,0.2);">Schedule a Consultation</a>
+          <a href="#" style="display:block; background:transparent; color:rgba(255,255,255,0.85); padding:16px 44px; border-radius:50px; font-size:14px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; text-align:center; border:2px solid rgba(255,255,255,0.3);">Call Us: (208) 555-0100</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer style="background:#000; color:#fff; padding:80px 80px 44px;">
+      <div style="max-width:1280px; margin:0 auto;">
+        <div style="display:grid; grid-template-columns:2.5fr 1fr 1fr 1fr; gap:56px; margin-bottom:64px; padding-bottom:64px; border-bottom:1px solid rgba(255,255,255,0.08);">
+          <div>
+            <img src="Allied Logos/Allied-Logo-Bold_White.png" alt="Allied Business Solutions" style="height:40px; width:auto; margin-bottom:24px; filter:brightness(0) invert(1);">
+            <p style="font-size:14px; font-weight:500; color:rgba(255,255,255,0.4); line-height:1.8; max-width:340px; margin-bottom:28px;">Allied Business Solutions is committed to providing world-class technology services with a local touch. Est. 2003.</p>
+            <div style="display:flex; gap:12px;">
+              <a href="#" style="width:38px; height:38px; border:1px solid rgba(255,255,255,0.15); border-radius:50%; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.5); text-decoration:none; font-size:13px; font-weight:700;">in</a>
+              <a href="#" style="width:38px; height:38px; border:1px solid rgba(255,255,255,0.15); border-radius:50%; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.5); text-decoration:none; font-size:13px; font-weight:700;">f</a>
+              <a href="#" style="width:38px; height:38px; border:1px solid rgba(255,255,255,0.15); border-radius:50%; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.5); text-decoration:none; font-size:13px; font-weight:700;">ig</a>
+            </div>
+          </div>
+          <div>
+            <div style="font-family:'Oswald',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:#01A6E6; margin-bottom:22px;">Services</div>
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:12px;">
+              <li><a href="#" style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.4); text-decoration:none;">Managed IT</a></li>
+              <li><a href="#" style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.4); text-decoration:none;">Cloud Solutions</a></li>
+              <li><a href="#" style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.4); text-decoration:none;">Cybersecurity</a></li>
+              <li><a href="#" style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.4); text-decoration:none;">Print &amp; Copiers</a></li>
+              <li><a href="#" style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.4); text-decoration:none;">Workflow Automation</a></li>
+            </ul>
+          </div>
+          <div>
+            <div style="font-family:'Oswald',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:#01A6E6; margin-bottom:22px;">Company</div>
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:12px;">
+              <li><a href="#" style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.4); text-decoration:none;">About Us</a></li>
+              <li><a href="#" style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.4); text-decoration:none;">Our Team</a></li>
+              <li><a href="#" style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.4); text-decoration:none;">Careers</a></li>
+              <li><a href="#" style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.4); text-decoration:none;">Blog</a></li>
+              <li><a href="#" style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.4); text-decoration:none;">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <div style="font-family:'Oswald',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:#01A6E6; margin-bottom:22px;">Locations</div>
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:12px;">
+              <li><a href="#" style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.4); text-decoration:none;">Boise, ID</a></li>
+              <li><a href="#" style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.4); text-decoration:none;">Salt Lake City, UT</a></li>
+              <li><a href="#" style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.4); text-decoration:none;">Twin Falls, ID</a></li>
+              <li><a href="#" style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.4); text-decoration:none;">Pocatello, ID</a></li>
+              <li><a href="#" style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.4); text-decoration:none;">Nampa, ID</a></li>
+            </ul>
+          </div>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:11px; color:rgba(255,255,255,0.18); letter-spacing:0.1em; text-transform:uppercase;">© 2026 Allied Business Solutions. All Rights Reserved.</span>
+          <span style="font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(1,166,230,0.35); font-style:italic;">Concept Design · WebMarkets 2026</span>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- /mockup-view -->
+  <div class="concept-badge">WebMarkets Concept Design</div>
+
+  <!-- ═══════════════════════════════════════════
+       JAVASCRIPT
+  ════════════════════════════════════════════ -->
+  <script>
+    const TOTAL = 10;
+    let current = 1;
+    let transitioning = false;
+
+    /* ── Tab switching ── */
+    function switchTab (tab) {
+      const tabProposal = document.getElementById('tab-proposal');
+      const tabMockup = document.getElementById('tab-mockup');
+      const viewProposal = document.getElementById('proposal-view');
+      const viewMockup = document.getElementById('mockup-view');
+      const progress = document.getElementById('progress-wrap');
+      const counter = document.getElementById('slide-counter');
+      const hint = document.getElementById('nav-hint');
+
+      if (tab === 'proposal') {
+        tabProposal.classList.add('active');
+        tabMockup.classList.remove('active');
+        viewProposal.classList.add('active');
+        viewMockup.classList.remove('active');
+        progress.style.display = 'block';
+        counter.style.display = 'block';
+        hint.style.display = 'flex';
+      } else {
+        tabMockup.classList.add('active');
+        tabProposal.classList.remove('active');
+        viewMockup.classList.add('active');
+        viewProposal.classList.remove('active');
+        progress.style.display = 'none';
+        counter.style.display = 'none';
+        hint.style.display = 'none';
+        viewMockup.scrollTop = 0;
+      }
+    }
+
+    /* ── Slide navigation ── */
+    function goTo (n) {
+      if (transitioning) return;
+      if (n < 1 || n > TOTAL || n === current) return;
+
+      transitioning = true;
+
+      const from = document.getElementById('slide-' + current);
+      const to = document.getElementById('slide-' + n);
+
+      /* Exit current slide upward */
+      from.classList.remove('active');
+      from.classList.add('exit');
+
+      /* Enter new slide from below (slight delay so CSS sees the base state) */
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          to.classList.add('active');
+          current = n;
+          updateUI();
+        });
+      });
+
+      setTimeout(() => {
+        from.classList.remove('exit');
+        transitioning = false;
+      }, 520);
+    }
+
+    function next () {goTo(current + 1);}
+    function prev () {goTo(current - 1);}
+
+    function updateUI () {
+      document.getElementById('progress-fill').style.width = ((current / TOTAL) * 100) + '%';
+      document.getElementById('slide-counter').textContent = (current < 10 ? '0' + current : current) + ' / ' + TOTAL;
+    }
+
+    /* ── Click to advance ── */
+    document.getElementById('proposal-view').addEventListener('click', function (e) {
+      if (e.target.closest('a, button')) return;
+      next();
+    });
+
+    /* ── Keyboard navigation ── */
+    document.addEventListener('keydown', function (e) {
+      if (!document.getElementById('proposal-view').classList.contains('active')) return;
+      if (e.key === 'ArrowRight' || e.key === ' ') {e.preventDefault(); next();}
+      if (e.key === 'ArrowLeft') {e.preventDefault(); prev();}
+    });
+
+    /* ── Touch / swipe ── */
+    let touchStartX = 0;
+    document.getElementById('proposal-view').addEventListener('touchstart', function (e) {
+      touchStartX = e.touches[0].clientX;
+    }, {passive: true});
+    document.getElementById('proposal-view').addEventListener('touchend', function (e) {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 50) {dx < 0 ? next() : prev();}
+    }, {passive: true});
+
+    /* ── Init ── */
+    updateUI();
+  </script>
+</body>
+
+</html> <!-- ═══════════════════════════════════════════
+       MOCKUP VIEW
+  ════════════════════════════════════════════ -->
+<div class="view" id="mockup-view">
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div style="background:var(--primary); padding:10px 0; text-align:center;">
+    <p style="font-family:'Oswald',sans-serif; font-size:12px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:#fff;">
+      Now Serving Boise, Salt Lake City, Twin Falls, Pocatello &amp; Nampa &nbsp;·&nbsp; <span style="text-decoration:underline; cursor:pointer;">Find Your Location →</span>
+    </p>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav style="position:sticky; top:0; z-index:200; background:rgba(255,255,255,0.97); backdrop-filter:blur(12px); border-bottom:1px solid rgba(9,58,81,0.1);">
+    <div style="max-width:1280px; margin:0 auto; padding:0 48px; display:flex; justify-content:space-between; align-items:center; height:88px;">
+      <img src="Allied Logos/Allied-Logo-Bold_FullColor_Black.png" alt="Allied Business Solutions" style="height:48px; width:auto;">
+      <div style="display:flex; gap:36px; align-items:center;">
+        <a href="#" style="font-size:13px; font-weight:700; color:#093A51; text-decoration:none; letter-spacing:0.08em; text-transform:uppercase;">Services</a>
+        <a href="#" style="font-size:13px; font-weight:700; color:#093A51; text-decoration:none; letter-spacing:0.08em; text-transform:uppercase;">Industries</a>
+        <a href="#" style="font-size:13px; font-weight:700; color:#093A51; text-decoration:none; letter-spacing:0.08em; text-transform:uppercase;">About</a>
+        <a href="#" style="font-size:13px; font-weight:700; color:#093A51; text-decoration:none; letter-spacing:0.08em; text-transform:uppercase;">Locations</a>
+        <a href="#" style="font-size:13px; font-weight:700; color:#093A51; text-decoration:none; letter-spacing:0.08em; text-transform:uppercase;">Contact</a>
+        <a href="#" style="font-size:13px; font-weight:700; color:#fff; background:#01A6E6; padding:14px 32px; border-radius:50px; text-decoration:none; letter-spacing:0.08em; text-transform:uppercase; box-shadow:0 8px 24px rgba(1,166,230,0.3);">Get a Quote</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section style="height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; background:#fff; position:relative; overflow:hidden; text-align:center; padding:0 48px;">
+    <div style="position:absolute; inset:0; background:radial-gradient(ellipse at 50% 30%, rgba(1,166,230,0.07) 0%, transparent 65%); pointer-events:none;"></div>
+    <!-- Eyebrow -->
+    <div style="display:inline-block; background:rgba(1,166,230,0.1); padding:7px 18px; border-radius:50px; margin-bottom:20px;">
+      <span style="font-family:'Oswald',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.24em; text-transform:uppercase; color:#01A6E6;">Trusted Technology Partner Since 2003</span>
+    </div>
+    <!-- Headline -->
+    <h1 style="font-size:clamp(36px,5vw,68px); font-weight:900; color:#093A51; line-height:1.06; margin-bottom:18px; letter-spacing:-0.025em; max-width:820px;">
+      The Technology Your<br>Business <span style="color:#01A6E6;">Runs On.</span>
+    </h1>
+    <!-- Subhead -->
+    <p style="font-size:17px; font-weight:500; color:#6b7280; line-height:1.7; margin-bottom:32px; max-width:520px;">
+      Managed IT, cybersecurity, print solutions, and workflow automation — one partner keeping your business at full capacity, every day.
+    </p>
+    <!-- CTAs -->
+    <div style="display:flex; gap:14px; align-items:center; justify-content:center; margin-bottom:36px;">
+      <a href="#" style="background:#093A51; color:#fff; padding:15px 36px; border-radius:50px; font-size:13px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; box-shadow:0 10px 28px rgba(9,58,81,0.2);">Explore Our Services</a>
+      <a href="#" style="background:transparent; color:#093A51; padding:15px 36px; border-radius:50px; font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; border:2px solid rgba(9,58,81,0.15);">Talk to an Expert</a>
+    </div>
+    <!-- Stats row -->
+    <div style="display:flex; gap:32px; align-items:center; justify-content:center; margin-bottom:40px;">
+      <div style="text-align:center;">
+        <div style="font-size:22px; font-weight:900; color:#093A51; letter-spacing:-0.02em; line-height:1;">20<span style="color:#01A6E6;">+</span></div>
+        <div style="font-size:10px; font-weight:700; color:#9ca3af; letter-spacing:0.12em; text-transform:uppercase; margin-top:3px;">Years</div>
+      </div>
+      <div style="width:1px; height:28px; background:rgba(9,58,81,0.1);"></div>
+      <div style="text-align:center;">
+        <div style="font-size:22px; font-weight:900; color:#093A51; letter-spacing:-0.02em; line-height:1;">1K<span style="color:#01A6E6;">+</span></div>
+        <div style="font-size:10px; font-weight:700; color:#9ca3af; letter-spacing:0.12em; text-transform:uppercase; margin-top:3px;">Clients</div>
+      </div>
+      <div style="width:1px; height:28px; background:rgba(9,58,81,0.1);"></div>
+      <div style="text-align:center;">
+        <div style="font-size:22px; font-weight:900; color:#093A51; letter-spacing:-0.02em; line-height:1;">5</div>
+        <div style="font-size:10px; font-weight:700; color:#9ca3af; letter-spacing:0.12em; text-transform:uppercase; margin-top:3px;">Offices</div>
+      </div>
+      <div style="width:1px; height:28px; background:rgba(9,58,81,0.1);"></div>
+      <div style="text-align:center;">
+        <div style="font-size:22px; font-weight:900; color:#093A51; letter-spacing:-0.02em; line-height:1;">24<span style="color:#01A6E6;">/7</span></div>
+        <div style="font-size:10px; font-weight:700; color:#9ca3af; letter-spacing:0.12em; text-transform:uppercase; margin-top:3px;">Support</div>
+      </div>
+    </div>
+    <!-- Hero image preview -->
+    <div style="width:100%; max-width:860px; position:relative; z-index:1;">
+      <div style="border-radius:16px 16px 0 0; overflow:hidden; box-shadow:0 -8px 60px rgba(9,58,81,0.12); border:1px solid rgba(9,58,81,0.08); border-bottom:none;">
+        <div style="background:#f1f5f9; padding:10px 16px; display:flex; align-items:center; gap:6px; border-bottom:1px solid rgba(9,58,81,0.08);">
+          <span style="width:10px; height:10px; border-radius:50%; background:#f87171; display:inline-block;"></span>
+          <span style="width:10px; height:10px; border-radius:50%; background:#fbbf24; display:inline-block;"></span>
+          <span style="width:10px; height:10px; border-radius:50%; background:#34d399; display:inline-block;"></span>
+          <span style="font-size:11px; color:#9ca3af; margin-left:10px; font-weight:500;">alliedbusinesssolutions.com</span>
+        </div>
+        <img src="Allied Images/1.png" alt="Allied Business Solutions" style="width:100%; display:block; max-height:260px; object-fit:cover; object-position:top;">
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUSTED BY -->
+  <section style="padding:28px 80px; background:#f9fafb; border-top:1px solid rgba(9,58,81,0.07); border-bottom:1px solid rgba(9,58,81,0.07);">
+    <div style="max-width:1280px; margin:0 auto; display:flex; align-items:center; gap:48px;">
+      <span style="font-family:'Oswald',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:#9ca3af; white-space:nowrap; flex-shrink:0;">Trusted By</span>
+      <div style="height:1px; background:rgba(9,58,81,0.1); width:24px; flex-shrink:0;"></div>
+      <div style="display:flex; gap:48px; align-items:center; opacity:0.35;">
+        <span style="font-family:'Oswald',sans-serif; font-size:18px; font-weight:700; color:#093A51; letter-spacing:0.06em; text-transform:uppercase;">Acme Corp</span>
+        <span style="font-family:'Montserrat',sans-serif; font-size:15px; font-weight:800; color:#093A51; letter-spacing:-0.02em;">NorthPoint</span>
+        <span style="font-family:'Oswald',sans-serif; font-size:17px; font-weight:600; color:#093A51; letter-spacing:0.1em; text-transform:uppercase;">Veritek</span>
+        <span style="font-family:'Montserrat',sans-serif; font-size:15px; font-weight:900; color:#093A51; letter-spacing:-0.01em;">BluePeak</span>
+        <span style="font-family:'Oswald',sans-serif; font-size:18px; font-weight:700; color:#093A51; letter-spacing:0.05em; text-transform:uppercase;">Crestline</span>
+        <span style="font-family:'Montserrat',sans-serif; font-size:14px; font-weight:800; color:#093A51; letter-spacing:0.02em;">SummitGroup</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section style="padding:110px 80px; background:#fff;">
+    <div style="max-width:1280px; margin:0 auto;">
+      <div style="text-align:center; margin-bottom:72px;">
+        <div style="font-family:'Oswald',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.28em; text-transform:uppercase; color:#01A6E6; margin-bottom:16px;">What We Do</div>
+        <h2 style="font-size:clamp(32px,3.5vw,52px); font-weight:900; color:#093A51; margin-bottom:20px; letter-spacing:-0.02em; line-height:1.1;">Everything Your Business<br>Needs to Stay Running.</h2>
+        <p style="font-size:17px; font-weight:500; color:#6b7280; max-width:560px; margin:0 auto; line-height:1.7;">One partner. One point of contact. Full coverage across every technology your organization depends on.</p>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px;">
+        <div style="background:#f9fafb; border:1px solid rgba(9,58,81,0.08); border-radius:24px; padding:40px 32px;">
+          <div style="width:60px; height:60px; background:rgba(1,166,230,0.1); border-radius:18px; display:flex; align-items:center; justify-content:center; margin-bottom:24px;">
+            <svg width="28" height="28" fill="none" stroke="#01A6E6" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h4 style="font-size:20px; font-weight:800; color:#093A51; margin-bottom:12px;">Managed IT Services</h4>
+          <p style="font-size:15px; font-weight:500; color:#6b7280; line-height:1.72; margin-bottom:20px;">Proactive monitoring, helpdesk support, and infrastructure management so your team stays focused on the work that matters.</p>
+          <a href="#" style="font-size:13px; font-weight:700; color:#01A6E6; text-decoration:none; letter-spacing:0.06em; text-transform:uppercase;">Learn More →</a>
+        </div>
+        <div style="background:#f9fafb; border:1px solid rgba(9,58,81,0.08); border-radius:24px; padding:40px 32px;">
+          <div style="width:60px; height:60px; background:rgba(1,166,230,0.1); border-radius:18px; display:flex; align-items:center; justify-content:center; margin-bottom:24px;">
+            <svg width="28" height="28" fill="none" stroke="#01A6E6" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+            </svg>
+          </div>
+          <h4 style="font-size:20px; font-weight:800; color:#093A51; margin-bottom:12px;">Cloud Solutions</h4>
+          <p style="font-size:15px; font-weight:500; color:#6b7280; line-height:1.72; margin-bottom:20px;">Scalable cloud infrastructure, Microsoft 365 management, and hybrid environments designed to grow with your business.</p>
+          <a href="#" style="font-size:13px; font-weight:700; color:#01A6E6; text-decoration:none; letter-spacing:0.06em; text-transform:uppercase;">Learn More →</a>
+        </div>
+        <div style="background:#f9fafb; border:1px solid rgba(9,58,81,0.08); border-radius:24px; padding:40px 32px;">
+          <div style="width:60px; height:60px; background:rgba(1,166,230,0.1); border-radius:18px; display:flex; align-items:center; justify-content:center; margin-bottom:24px;">
+            <svg width="28" height="28" fill="none" stroke="#01A6E6" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <h4 style="font-size:20px; font-weight:800; color:#093A51; margin-bottom:12px;">Cybersecurity &amp; Compliance</h4>
+          <p style="font-size:15px; font-weight:500; color:#6b7280; line-height:1.72; margin-bottom:20px;">End-to-end security frameworks, threat monitoring, and compliance support that protects your data and your reputation.</p>
+          <a href="#" style="font-size:13px; font-weight:700; color:#01A6E6; text-decoration:none; letter-spacing:0.06em; text-transform:uppercase;">Learn More →</a>
+        </div>
+        <div style="background:#f9fafb; border:1px solid rgba(9,58,81,0.08); border-radius:24px; padding:40px 32px;">
+          <div style="width:60px; height:60px; background:rgba(1,166,230,0.1); border-radius:18px; display:flex; align-items:center; justify-content:center; margin-bottom:24px;">
+            <svg width="28" height="28" fill="none" stroke="#01A6E6" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+            </svg>
+          </div>
+          <h4 style="font-size:20px; font-weight:800; color:#093A51; margin-bottom:12px;">Print &amp; Copier Solutions</h4>
+          <p style="font-size:15px; font-weight:500; color:#6b7280; line-height:1.72; margin-bottom:20px;">High-performance print hardware, managed print programs, and on-site service that keeps your devices running when you need them.</p>
+          <a href="#" style="font-size:13px; font-weight:700; color:#01A6E6; text-decoration:none; letter-spacing:0.06em; text-transform:uppercase;">Learn More →</a>
+        </div>
+        <div style="background:#f9fafb; border:1px solid rgba(9,58,81,0.08); border-radius:24px; padding:40px 32px;">
+          <div style="width:60px; height:60px; background:rgba(1,166,230,0.1); border-radius:18px; display:flex; align-items:center; justify-content:center; margin-bottom:24px;">
+            <svg width="28" height="28" fill="none" stroke="#01A6E6" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h4 style="font-size:20px; font-weight:800; color:#093A51; margin-bottom:12px;">Workflow Automation</h4>
+          <p style="font-size:15px; font-weight:500; color:#6b7280; line-height:1.72; margin-bottom:20px;">Intelligent automation that eliminates manual bottlenecks, reduces error, and frees your team to focus on higher-value work.</p>
+          <a href="#" style="font-size:13px; font-weight:700; color:#01A6E6; text-decoration:none; letter-spacing:0.06em; text-transform:uppercase;">Learn More →</a>
+        </div>
+        <div style="background:linear-gradient(135deg, #01A6E6 0%, #093A51 100%); border-radius:24px; padding:40px 32px; display:flex; flex-direction:column; justify-content:center;">
+          <h4 style="font-size:22px; font-weight:900; color:#fff; margin-bottom:14px; line-height:1.2;">Not sure where to start?</h4>
+          <p style="font-size:15px; color:rgba(255,255,255,0.8); line-height:1.7; margin-bottom:28px; font-weight:500;">Our team will assess your current environment and recommend exactly what your business needs — no fluff, no oversell.</p>
+          <a href="#" style="display:inline-block; background:#fff; color:#01A6E6; padding:14px 30px; border-radius:50px; font-size:13px; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; width:fit-content;">Get a Free Assessment</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY ALLIED -->
+  <section style="padding:110px 80px; background:#093A51; position:relative; overflow:hidden;">
+    <div style="position:absolute; right:-120px; top:50%; transform:translateY(-50%); width:600px; height:600px; background-image:url('Allied Logos/AlliedHex.png'); background-size:contain; background-repeat:no-repeat; opacity:0.06; pointer-events:none;"></div>
+    <div style="max-width:1280px; margin:0 auto; position:relative; z-index:1;">
+      <div style="text-align:center; margin-bottom:72px;">
+        <div style="font-family:'Oswald',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.28em; text-transform:uppercase; color:#01A6E6; margin-bottom:16px;">Why Allied</div>
+        <h2 style="font-size:clamp(32px,3.5vw,52px); font-weight:900; color:#fff; letter-spacing:-0.02em; line-height:1.1;">We Show Up Different.</h2>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:24px;">
+        <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:20px; padding:36px 28px; text-align:center;">
+          <div style="width:56px; height:56px; border-radius:16px; background:rgba(1,166,230,0.15); display:flex; align-items:center; justify-content:center; margin:0 auto 20px;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#01A6E6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+          </div>
+          <h4 style="font-size:17px; font-weight:800; color:#fff; margin-bottom:12px;">Local Relationships</h4>
+          <p style="font-size:14px; font-weight:500; color:rgba(255,255,255,0.55); line-height:1.7;">We're not a call center. We're your neighbors. Real people, local offices, and technicians who know you by name.</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:20px; padding:36px 28px; text-align:center;">
+          <div style="width:56px; height:56px; border-radius:16px; background:rgba(1,166,230,0.15); display:flex; align-items:center; justify-content:center; margin:0 auto 20px;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#01A6E6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+            </svg>
+          </div>
+          <h4 style="font-size:17px; font-weight:800; color:#fff; margin-bottom:12px;">Same-Day Response</h4>
+          <p style="font-size:14px; font-weight:500; color:rgba(255,255,255,0.55); line-height:1.7;">When something breaks, every minute counts. Our team is on-site fast — no ticket queues, no runaround.</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:20px; padding:36px 28px; text-align:center;">
+          <div style="width:56px; height:56px; border-radius:16px; background:rgba(1,166,230,0.15); display:flex; align-items:center; justify-content:center; margin:0 auto 20px;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#01A6E6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+          </div>
+          <h4 style="font-size:17px; font-weight:800; color:#fff; margin-bottom:12px;">Enterprise-Grade Security</h4>
+          <p style="font-size:14px; font-weight:500; color:rgba(255,255,255,0.55); line-height:1.7;">The same security standards used by large enterprises — built and managed for businesses of every size.</p>
+        </div>
+        <div style="background:rgba(1,166,230,0.15); border:1px solid rgba(1,166,230,0.35); border-radius:20px; padding:36px 28px; text-align:center;">
+          <div style="width:56px; height:56px; border-radius:16px; background:rgba(1,166,230,0.2); display:flex; align-items:center; justify-content:center; margin:0 auto 20px;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#01A6E6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+              <polyline points="17 6 23 6 23 12" />
+            </svg>
+          </div>
+          <h4 style="font-size:17px; font-weight:800; color:#fff; margin-bottom:12px;">Built for Growth</h4>
+          <p style="font-size:14px; font-weight:500; color:rgba(255,255,255,0.55); line-height:1.7;">Our solutions scale with you. As your organization grows, your technology grows with it — no costly overhauls required.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section style="padding:110px 80px; background:#f9fafb;">
+    <div style="max-width:1280px; margin:0 auto;">
+      <div style="text-align:center; margin-bottom:72px;">
+        <div style="font-family:'Oswald',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.28em; text-transform:uppercase; color:#01A6E6; margin-bottom:16px;">Client Stories</div>
+        <h2 style="font-size:clamp(32px,3.5vw,52px); font-weight:900; color:#093A51; letter-spacing:-0.02em;">What Our Clients Say.</h2>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px;">
+        <div style="background:#fff; border:1px solid rgba(9,58,81,0.08); border-radius:24px; padding:40px 36px;">
+          <div style="margin-bottom:20px; color:#01A6E6; font-size:18px;">★★★★★</div>
+          <p style="font-size:16px; font-weight:500; color:#374151; line-height:1.75; margin-bottom:28px; font-style:italic;">Allied transformed how our office operates. The response time alone is worth every penny — we never wait more than a couple hours for a technician on-site.</p>
+          <div style="display:flex; align-items:center; gap:14px;">
+            <div style="width:46px; height:46px; background:#01A6E6; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:900; color:#fff; flex-shrink:0;">JM</div>
+            <div>
+              <div style="font-size:15px; font-weight:800; color:#093A51;">James M.</div>
+              <div style="font-size:12px; font-weight:600; color:#9ca3af; letter-spacing:0.06em; text-transform:uppercase;">Operations Director</div>
+            </div>
+          </div>
+        </div>
+        <div style="background:#093A51; border-radius:24px; padding:40px 36px;">
+          <div style="margin-bottom:20px; color:#01A6E6; font-size:18px;">★★★★★</div>
+          <p style="font-size:16px; font-weight:500; color:rgba(255,255,255,0.8); line-height:1.75; margin-bottom:28px; font-style:italic;">We consolidated three different IT vendors into Allied and immediately saw cost savings and better service. It's a completely different experience when one team owns it all.</p>
+          <div style="display:flex; align-items:center; gap:14px;">
+            <div style="width:46px; height:46px; background:#01A6E6; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:900; color:#fff; flex-shrink:0;">SK</div>
+            <div>
+              <div style="font-size:15px; font-weight:800; color:#fff;">Sarah K.</div>
+              <div style="font-size:12px; font-weight:600; color:rgba(255,255,255,0.4); letter-spacing:0.06em; text-transform:uppercase;">CEO, Regional Healthcare Group</div>
+            </div>
+          </div>
+        </div>
+        <div style="background:#fff; border:1px solid rgba(9,58,81,0.08); border-radius:24px; padding:40px 36px;">
+          <div style="margin-bottom:20px; color:#01A6E6; font-size:18px;">★★★★★</div>
+          <p style="font-size:16px; font-weight:500; color:#374151; line-height:1.75; margin-bottom:28px; font-style:italic;">The print management program alone cut our costs by 30%. Their team is proactive, responsive, and genuinely invested in how we operate.</p>
+          <div style="display:flex; align-items:center; gap:14px;">
+            <div style="width:46px; height:46px; background:#01A6E6; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:900; color:#fff; flex-shrink:0;">TR</div>
+            <div>
+              <div style="font-size:15px; font-weight:800; color:#093A51;">Tom R.</div>
+              <div style="font-size:12px; font-weight:600; color:#9ca3af; letter-spacing:0.06em; text-transform:uppercase;">CFO, Construction Firm</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section style="padding:110px 80px; background:#fff; overflow:hidden;">
+    <div style="max-width:1280px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;">
+      <div>
+        <div style="font-family:'Oswald',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.28em; text-transform:uppercase; color:#01A6E6; margin-bottom:20px;">Our Philosophy</div>
+        <h2 style="font-size:clamp(36px,4vw,56px); font-weight:900; color:#093A51; line-height:1.08; margin-bottom:24px; letter-spacing:-0.02em;">Security Starts<br>At <span style="color:#01A6E6;">The Top.</span></h2>
+        <p style="font-size:17px; font-weight:500; color:#6b7280; line-height:1.78; margin-bottom:36px; max-width:460px;">We believe technology should be a catalyst for growth, not a source of downtime, frustration, or vulnerability. When Allied is your partner, your systems work so you can.</p>
+        <div style="display:flex; align-items:center; gap:16px;">
+          <div style="width:48px; height:2px; background:#01A6E6;"></div>
+          <span style="font-family:'Oswald',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:#01A6E6;">The Allied Standard</span>
+        </div>
+      </div>
+      <div style="background:#f9fafb; border:1px solid rgba(9,58,81,0.1); border-radius:32px; padding:52px 48px;">
+        <p style="font-size:24px; font-weight:800; color:#093A51; line-height:1.45; font-style:italic; margin-bottom:36px;">Your Printer Shouldn't Take <span style="color:#01A6E6;">PTO</span>. Neither Should Your Technology Partner.</p>
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div style="width:46px; height:46px; background:#01A6E6; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:13px; color:#fff; flex-shrink:0;">ABS</div>
+          <div>
+            <div style="font-size:15px; font-weight:800; color:#093A51;">Allied Business Solutions</div>
+            <div style="font-size:12px; font-weight:600; color:#9ca3af; text-transform:uppercase; letter-spacing:0.08em;">Est. 2003</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATIONS -->
+  <section style="padding:110px 80px; background:#f9fafb;">
+    <div style="max-width:1280px; margin:0 auto;">
+      <div style="text-align:center; margin-bottom:64px;">
+        <div style="font-family:'Oswald',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.28em; text-transform:uppercase; color:#01A6E6; margin-bottom:16px;">Where We Operate</div>
+        <h2 style="font-size:clamp(32px,3.5vw,52px); font-weight:900; color:#093A51; letter-spacing:-0.02em; line-height:1.1;">Local Presence.<br>Regional Reach.</h2>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-bottom:64px;">
+        <div style="background:#fff; border:1px solid rgba(9,58,81,0.08); border-radius:20px; padding:28px 20px; text-align:center;">
+          <div style="font-size:24px; margin-bottom:12px;">📍</div>
+          <div style="font-size:16px; font-weight:800; color:#093A51; margin-bottom:4px;">Boise, ID</div>
+          <div style="font-size:11px; font-weight:700; color:#01A6E6; letter-spacing:0.12em; text-transform:uppercase;">Corporate HQ</div>
+        </div>
+        <div style="background:#fff; border:1px solid rgba(9,58,81,0.08); border-radius:20px; padding:28px 20px; text-align:center;">
+          <div style="font-size:24px; margin-bottom:12px;">📍</div>
+          <div style="font-size:16px; font-weight:800; color:#093A51; margin-bottom:4px;">Salt Lake City, UT</div>
+          <div style="font-size:11px; font-weight:700; color:#9ca3af; letter-spacing:0.12em; text-transform:uppercase;">Regional Office</div>
+        </div>
+        <div style="background:#fff; border:1px solid rgba(9,58,81,0.08); border-radius:20px; padding:28px 20px; text-align:center;">
+          <div style="font-size:24px; margin-bottom:12px;">📍</div>
+          <div style="font-size:16px; font-weight:800; color:#093A51; margin-bottom:4px;">Twin Falls, ID</div>
+          <div style="font-size:11px; font-weight:700; color:#9ca3af; letter-spacing:0.12em; text-transform:uppercase;">Regional Office</div>
+        </div>
+        <div style="background:#fff; border:1px solid rgba(9,58,81,0.08); border-radius:20px; padding:28px 20px; text-align:center;">
+          <div style="font-size:24px; margin-bottom:12px;">📍</div>
+          <div style="font-size:16px; font-weight:800; color:#093A51; margin-bottom:4px;">Pocatello, ID</div>
+          <div style="font-size:11px; font-weight:700; color:#9ca3af; letter-spacing:0.12em; text-transform:uppercase;">Regional Office</div>
+        </div>
+        <div style="background:#fff; border:1px solid rgba(9,58,81,0.08); border-radius:20px; padding:28px 20px; text-align:center;">
+          <div style="font-size:24px; margin-bottom:12px;">📍</div>
+          <div style="font-size:16px; font-weight:800; color:#093A51; margin-bottom:4px;">Nampa, ID</div>
+          <div style="font-size:11px; font-weight:700; color:#9ca3af; letter-spacing:0.12em; text-transform:uppercase;">Regional Office</div>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;">
+        <img src="Allied Images/13.png" alt="Allied Team" style="width:100%; border-radius:28px; box-shadow:0 24px 60px rgba(9,58,81,0.12);">
+        <div>
+          <h3 style="font-size:34px; font-weight:900; color:#093A51; margin-bottom:16px; line-height:1.2;">20+ Years Serving the Region</h3>
+          <p style="font-size:16px; font-weight:500; color:#6b7280; line-height:1.75; margin-bottom:32px;">With five offices across Idaho and Utah, Allied's team is close by when it matters most. We're not a national call center — we're your local technology partner with the resources of a regional leader.</p>
+          <a href="#" style="display:inline-block; background:#01A6E6; color:#fff; padding:16px 36px; border-radius:50px; font-size:13px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none;">Find Your Nearest Office</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section style="padding:100px 80px; background:linear-gradient(135deg, #093A51 0%, #01A6E6 100%); position:relative; overflow:hidden;">
+    <div style="position:absolute; right:-80px; bottom:-80px; width:500px; height:500px; background-image:url('Allied Logos/AlliedHex.png'); background-size:contain; background-repeat:no-repeat; opacity:0.08; pointer-events:none;"></div>
+    <div style="max-width:1280px; margin:0 auto; display:grid; grid-template-columns:1fr auto; gap:48px; align-items:center; position:relative; z-index:1;">
+      <div>
+        <div style="font-family:'Oswald',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.28em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:16px;">Ready to Get Started?</div>
+        <h2 style="font-size:clamp(32px,3.5vw,52px); font-weight:900; color:#fff; line-height:1.1; letter-spacing:-0.02em; margin-bottom:16px;">Let's Talk About What<br>Your Business Needs.</h2>
+        <p style="font-size:17px; font-weight:500; color:rgba(255,255,255,0.75); max-width:520px; line-height:1.7;">No long contracts, no complicated sales process. Just a conversation about where you are and how Allied can help you get where you're going.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:16px; flex-shrink:0;">
+        <a href="#" style="display:block; background:#fff; color:#093A51; padding:18px 44px; border-radius:50px; font-size:14px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; text-align:center; white-space:nowrap; box-shadow:0 12px 32px rgba(0,0,0,0.2);">Schedule a Consultation</a>
+        <a href="#" style="display:block; background:transparent; color:rgba(255,255,255,0.85); padding:16px 44px; border-radius:50px; font-size:14px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; text-align:center; border:2px solid rgba(255,255,255,0.3);">Call Us: (208) 555-0100</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#000; color:#fff; padding:80px 80px 44px;">
+    <div style="max-width:1280px; margin:0 auto;">
+      <div style="display:grid; grid-template-columns:2.5fr 1fr 1fr 1fr; gap:56px; margin-bottom:64px; padding-bottom:64px; border-bottom:1px solid rgba(255,255,255,0.08);">
+        <div>
+          <img src="Allied Logos/Allied-Logo-Bold_White.png" alt="Allied Business Solutions" style="height:40px; width:auto; margin-bottom:24px; filter:brightness(0) invert(1);">
+          <p style="font-size:14px; font-weight:500; color:rgba(255,255,255,0.4); line-height:1.8; max-width:340px; margin-bottom:28px;">Allied Business Solutions is committed to providing world-class technology services with a local touch. Est. 2003.</p>
+          <div style="display:flex; gap:12px;">
+            <a href="#" style="width:38px; height:38px; border:1px solid rgba(255,255,255,0.15); border-radius:50%; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.5); text-decoration:none; font-size:13px; font-weight:700;">in</a>
+            <a href="#" style="width:38px; height:38px; border:1px solid rgba(255,255,255,0.15); border-radius:50%; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.5); text-decoration:none; font-size:13px; font-weight:700;">f</a>
+            <a href="#" style="width:38px; height:38px; border:1px solid rgba(255,255,255,0.15); border-radius:50%; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.5); text-decoration:none; font-size:13px; font-weight:700;">ig</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Oswald',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:#01A6E6; margin-bottom:22px;">Services</div>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:12px;">
+            <li><a href="#" style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.4); text-decoration:none;">Managed IT</a></li>
+            <li><a href="#" style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.4); text-decoration:none;">Cloud Solutions</a></li>
+            <li><a href="#" style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.4); text-decoration:none;">Cybersecurity</a></li>
+            <li><a href="#" style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.4); text-decoration:none;">Print &amp; Copiers</a></li>
+            <li><a href="#" style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.4); text-decoration:none;">Workflow Automation</a></li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-family:'Oswald',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:#01A6E6; margin-bottom:22px;">Company</div>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:12px;">
+            <li><a href="#" style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.4); text-decoration:none;">About Us</a></li>
+            <li><a href="#" style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.4); text-decoration:none;">Our Team</a></li>
+            <li><a href="#" style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.4); text-decoration:none;">Careers</a></li>
+            <li><a href="#" style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.4); text-decoration:none;">Blog</a></li>
+            <li><a href="#" style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.4); text-decoration:none;">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-family:'Oswald',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:#01A6E6; margin-bottom:22px;">Locations</div>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:12px;">
+            <li><a href="#" style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.4); text-decoration:none;">Boise, ID</a></li>
+            <li><a href="#" style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.4); text-decoration:none;">Salt Lake City, UT</a></li>
+            <li><a href="#" style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.4); text-decoration:none;">Twin Falls, ID</a></li>
+            <li><a href="#" style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.4); text-decoration:none;">Pocatello, ID</a></li>
+            <li><a href="#" style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.4); text-decoration:none;">Nampa, ID</a></li>
+          </ul>
+        </div>
+      </div>
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <span style="font-size:11px; color:rgba(255,255,255,0.18); letter-spacing:0.1em; text-transform:uppercase;">© 2026 Allied Business Solutions. All Rights Reserved.</span>
+        <span style="font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(1,166,230,0.35); font-style:italic;">Concept Design · WebMarkets 2026</span>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /mockup-view -->
+<div class="concept-badge">WebMarkets Concept Design</div>
+
+<!-- ═══════════════════════════════════════════
+       JAVASCRIPT
+  ════════════════════════════════════════════ -->
+<script>
+  const TOTAL = 10;
+  let current = 1;
+  let transitioning = false;
+
+  /* ── Tab switching ── */
+  function switchTab (tab) {
+    const tabProposal = document.getElementById('tab-proposal');
+    const tabMockup = document.getElementById('tab-mockup');
+    const viewProposal = document.getElementById('proposal-view');
+    const viewMockup = document.getElementById('mockup-view');
+    const progress = document.getElementById('progress-wrap');
+    const counter = document.getElementById('slide-counter');
+    const hint = document.getElementById('nav-hint');
+
+    if (tab === 'proposal') {
+      tabProposal.classList.add('active');
+      tabMockup.classList.remove('active');
+      viewProposal.classList.add('active');
+      viewMockup.classList.remove('active');
+      progress.style.display = 'block';
+      counter.style.display = 'block';
+      hint.style.display = 'flex';
+    } else {
+      tabMockup.classList.add('active');
+      tabProposal.classList.remove('active');
+      viewMockup.classList.add('active');
+      viewProposal.classList.remove('active');
+      progress.style.display = 'none';
+      counter.style.display = 'none';
+      hint.style.display = 'none';
+      viewMockup.scrollTop = 0;
+    }
+  }
+
+  /* ── Slide navigation ── */
+  function goTo (n) {
+    if (transitioning) return;
+    if (n < 1 || n > TOTAL || n === current) return;
+
+    transitioning = true;
+
+    const from = document.getElementById('slide-' + current);
+    const to = document.getElementById('slide-' + n);
+
+    /* Exit current slide upward */
+    from.classList.remove('active');
+    from.classList.add('exit');
+
+    /* Enter new slide from below (slight delay so CSS sees the base state) */
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        to.classList.add('active');
+        current = n;
+        updateUI();
+      });
+    });
+
+    setTimeout(() => {
+      from.classList.remove('exit');
+      transitioning = false;
+    }, 520);
+  }
+
+  function next () {goTo(current + 1);}
+  function prev () {goTo(current - 1);}
+
+  function updateUI () {
+    document.getElementById('progress-fill').style.width = ((current / TOTAL) * 100) + '%';
+    document.getElementById('slide-counter').textContent = (current < 10 ? '0' + current : current) + ' / ' + TOTAL;
+  }
+
+  /* ── Click to advance ── */
+  document.getElementById('proposal-view').addEventListener('click', function (e) {
+    if (e.target.closest('a, button')) return;
+    next();
+  });
+
+  /* ── Keyboard navigation ── */
+  document.addEventListener('keydown', function (e) {
+    if (!document.getElementById('proposal-view').classList.contains('active')) return;
+    if (e.key === 'ArrowRight' || e.key === ' ') {e.preventDefault(); next();}
+    if (e.key === 'ArrowLeft') {e.preventDefault(); prev();}
+  });
+
+  /* ── Touch / swipe ── */
+  let touchStartX = 0;
+  document.getElementById('proposal-view').addEventListener('touchstart', function (e) {
+    touchStartX = e.touches[0].clientX;
+  }, {passive: true});
+  document.getElementById('proposal-view').addEventListener('touchend', function (e) {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) {dx < 0 ? next() : prev();}
+  }, {passive: true});
+
+  /* ── Init ── */
+  updateUI();
+</script>
+</body>
+
+</html>
