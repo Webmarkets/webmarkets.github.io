@@ -1,0 +1,2699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francini Inc. — Brand Style Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+
+    /* =============================================
+       CSS VARIABLES — Francini Brand Tokens
+    ============================================= */
+    :root {
+        /* Backgrounds & Surfaces */
+        --bg:           #FAF8F5;   /* page base — warm cream */
+        --panel:        #FFFFFF;   /* panels, cards */
+        --raised:       #F2EEE9;   /* lifted surfaces */
+        --stone:        #E8E2DB;   /* stone surface */
+        --stone-dark:   #D4CCC3;   /* deeper stone */
+
+        /* Borders */
+        --border:       #DDD7CF;
+        --border-lt:    #EAE5DF;
+
+        /* Gold Accent — Carrara warmth */
+        --gold:         #C2965C;   /* primary gold */
+        --gold-light:   #D4AF7A;   /* lighter gold */
+        --gold-dark:    #A07840;   /* deep gold / pressed */
+        --gold-dim:     rgba(194, 150, 92, 0.10);
+        --gold-border:  rgba(194, 150, 92, 0.30);
+
+        /* Charcoal — Ink */
+        --ink:          #1A1714;   /* primary dark */
+        --ink-2:        #2C2825;   /* secondary dark */
+        --ink-3:        #3E3632;   /* tertiary dark */
+
+        /* Stone Neutrals — Text */
+        --stone-mid:    #6B5F58;   /* secondary text */
+        --stone-lt:     #9B908A;   /* muted text */
+        --stone-xlt:    #C4BAB3;   /* very muted */
+
+        /* Marble White */
+        --marble:       #F7F5F2;   /* marble surface */
+        --marble-vein:  rgba(194, 150, 92, 0.06); /* subtle gold vein */
+
+        /* Typography */
+        --font-display: 'Cinzel', serif;
+        --font-body:    'Poppins', sans-serif;
+        --font-mono:    'DM Mono', monospace;
+
+        /* Radii — refined */
+        --radius:       2px;
+        --radius-sm:    1px;
+        --radius-md:    6px;
+        --radius-lg:    12px;
+
+        --max-w:        1400px;
+        --ease:         all 0.3s ease;
+    }
+
+    /* =============================================
+       BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--font-body);
+        font-size: 15px;
+        line-height: 1.65;
+        overflow-x: hidden;
+    }
+    a { color: var(--gold); text-decoration: none; transition: var(--ease); }
+    a:hover { color: var(--gold-dark); }
+    img { display: block; max-width: 100%; }
+
+    /* =============================================
+       MARBLE SVG PATTERN BACKGROUND
+    ============================================= */
+    body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background-image:
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cpath d='M0 80 Q50 60 100 80 T200 80' stroke='rgba(194%2C150%2C92%2C0.06)' stroke-width='1.5' fill='none'/%3E%3Cpath d='M0 130 Q60 110 120 130 T200 130' stroke='rgba(194%2C150%2C92%2C0.04)' stroke-width='1' fill='none'/%3E%3Cpath d='M40 0 Q60 50 40 100 T40 200' stroke='rgba(194%2C150%2C92%2C0.04)' stroke-width='1' fill='none'/%3E%3Cpath d='M140 0 Q120 70 140 140 T140 200' stroke='rgba(194%2C150%2C92%2C0.03)' stroke-width='0.8' fill='none'/%3E%3C/svg%3E");
+        background-size: 200px 200px;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    /* =============================================
+       LAYOUT
+    ============================================= */
+    .layout {
+        display: flex;
+        min-height: 100vh;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* =============================================
+       SIDEBAR
+    ============================================= */
+    aside {
+        width: 272px;
+        background: var(--ink);
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow-y: auto;
+        flex-shrink: 0;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    aside::-webkit-scrollbar { display: none; }
+    .sidebar-inner { padding: 2.5rem 2rem; }
+
+    .brand-block { margin-bottom: 2.5rem; }
+
+    .sidebar-logo-mark {
+        width: 52px; height: 52px;
+        border: 1px solid var(--gold-border);
+        background: rgba(194,150,92,0.08);
+        display: flex; align-items: center; justify-content: center;
+        margin-bottom: 1.25rem;
+        position: relative;
+        overflow: hidden;
+    }
+    .sidebar-logo-mark svg { width: 28px; height: 28px; }
+    .sidebar-logo-mark::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, transparent 40%, rgba(194,150,92,0.12) 100%);
+    }
+
+    .sidebar-brand-name {
+        font-family: var(--font-display);
+        font-size: 1.35rem;
+        font-weight: 500;
+        color: #FAF8F5;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        line-height: 1.2;
+        margin-bottom: 0.2rem;
+    }
+    .sidebar-brand-sub {
+        font-family: var(--font-mono);
+        font-size: 0.52rem;
+        letter-spacing: 0.22em;
+        color: var(--gold);
+        text-transform: uppercase;
+    }
+
+    .sidebar-rule {
+        height: 1px;
+        background: linear-gradient(90deg, var(--gold-border), transparent);
+        margin: 1.5rem 0;
+    }
+
+    .sidebar-section-label {
+        font-family: var(--font-mono);
+        font-size: 0.48rem;
+        text-transform: uppercase;
+        letter-spacing: 0.24em;
+        color: var(--stone-lt);
+        margin-bottom: 0.625rem;
+        margin-top: 1.5rem;
+    }
+    .sidebar-section-label:first-of-type { margin-top: 0; }
+
+    nav ul { list-style: none; }
+    nav ul li a {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.45rem 0;
+        font-family: var(--font-body);
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        color: var(--stone-xlt);
+        transition: var(--ease);
+        border-left: 2px solid transparent;
+        padding-left: 0.75rem;
+        margin-left: -0.75rem;
+    }
+    nav ul li a:hover {
+        color: #FAF8F5;
+        border-left-color: var(--gold);
+    }
+    nav ul li a .nav-dot {
+        width: 4px; height: 4px;
+        border-radius: 50%;
+        background: var(--stone-lt);
+        flex-shrink: 0;
+        transition: var(--ease);
+    }
+    nav ul li a:hover .nav-dot { background: var(--gold); }
+
+    .sidebar-footer {
+        margin-top: auto;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255,255,255,0.06);
+        margin-top: 3rem;
+    }
+    .sidebar-footer-text {
+        font-family: var(--font-mono);
+        font-size: 0.48rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--stone-lt);
+        line-height: 1.8;
+    }
+    .sidebar-footer-text span { color: var(--gold); }
+
+    /* =============================================
+       MAIN CONTENT
+    ============================================= */
+    main { flex: 1; min-width: 0; }
+
+    /* =============================================
+       GUIDE HELPERS
+    ============================================= */
+    .guide-section {
+        padding: 5rem 4rem;
+        position: relative;
+    }
+    .guide-section + .guide-section {
+        border-top: 1px solid var(--border-lt);
+    }
+    .guide-section--dark {
+        background: var(--ink);
+        border-top: none;
+    }
+    .guide-section--stone {
+        background: var(--raised);
+    }
+    .guide-section--marble {
+        background: var(--marble);
+    }
+    .inner { max-width: var(--max-w); }
+
+    .guide-label {
+        font-family: var(--font-mono);
+        font-size: 0.54rem;
+        text-transform: uppercase;
+        letter-spacing: 0.28em;
+        color: var(--gold);
+        margin-bottom: 0.625rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    .guide-label::before {
+        content: '';
+        display: block;
+        width: 28px; height: 1px;
+        background: var(--gold);
+        flex-shrink: 0;
+    }
+
+    .guide-title {
+        font-family: var(--font-display);
+        font-size: 3.25rem;
+        font-weight: 400;
+        letter-spacing: 0.04em;
+        color: var(--ink);
+        line-height: 1.1;
+        margin-bottom: 0.5rem;
+    }
+    .guide-title em { font-family: var(--font-body); font-style: italic; font-weight: 300; color: var(--gold-dark); font-size: 0.75em; letter-spacing: 0.08em; }
+    .guide-section--dark .guide-title { color: #FAF8F5; }
+
+    .guide-desc {
+        font-size: 0.82rem;
+        color: var(--stone-mid);
+        letter-spacing: 0.01em;
+        max-width: 560px;
+        margin-bottom: 3rem;
+        line-height: 1.75;
+    }
+    .guide-section--dark .guide-desc { color: var(--stone-lt); }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+    .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; }
+    .flex-row { display: flex; align-items: flex-start; gap: 1.25rem; flex-wrap: wrap; }
+    .flex-row--center { align-items: center; }
+
+    .spec {
+        font-family: var(--font-mono);
+        font-size: 0.52rem;
+        color: var(--stone-lt);
+        letter-spacing: 0.08em;
+        margin-top: 0.375rem;
+        line-height: 1.6;
+    }
+    .spec-dark { color: var(--stone-mid); }
+
+    .divider { height: 1px; background: var(--border-lt); margin: 3rem 0; }
+    .divider--gold { background: linear-gradient(90deg, var(--gold-border), transparent); }
+
+    /* =============================================
+       HERO HEADER
+    ============================================= */
+    .sg-hero {
+        background: var(--ink);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 6rem 4rem;
+        position: relative;
+        overflow: hidden;
+    }
+    .sg-hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image:
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cpath d='M0 160 Q100 120 200 160 T400 160' stroke='rgba(194%2C150%2C92%2C0.08)' stroke-width='1.5' fill='none'/%3E%3Cpath d='M0 260 Q120 220 240 260 T400 260' stroke='rgba(194%2C150%2C92%2C0.05)' stroke-width='1' fill='none'/%3E%3Cpath d='M80 0 Q120 100 80 200 T80 400' stroke='rgba(194%2C150%2C92%2C0.05)' stroke-width='1' fill='none'/%3E%3Cpath d='M280 0 Q240 140 280 280 T280 400' stroke='rgba(194%2C150%2C92%2C0.04)' stroke-width='0.8' fill='none'/%3E%3Cpath d='M0 40 Q200 20 400 40' stroke='rgba(194%2C150%2C92%2C0.03)' stroke-width='0.6' fill='none'/%3E%3C/svg%3E");
+        background-size: 400px 400px;
+        pointer-events: none;
+    }
+    .sg-hero::after {
+        content: '';
+        position: absolute;
+        bottom: 0; right: 0;
+        width: 55%;
+        height: 100%;
+        background: linear-gradient(135deg, transparent 30%, rgba(194,150,92,0.04) 100%);
+        pointer-events: none;
+    }
+
+    .sg-hero-content { position: relative; z-index: 1; }
+
+    .sg-hero-eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.54rem;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    .sg-hero-eyebrow::before {
+        content: '';
+        display: block;
+        width: 40px; height: 1px;
+        background: var(--gold);
+    }
+
+    .sg-hero-title {
+        font-family: var(--font-display);
+        font-size: clamp(4rem, 8vw, 7.5rem);
+        font-weight: 300;
+        letter-spacing: 0.06em;
+        color: #FAF8F5;
+        text-transform: uppercase;
+        line-height: 0.92;
+        margin-bottom: 0.25em;
+    }
+    .sg-hero-title em {
+        font-family: var(--font-body);
+        font-style: italic;
+        font-weight: 300;
+        color: var(--gold-light);
+        display: block;
+        font-size: 0.42em;
+        letter-spacing: 0.16em;
+        margin-top: 0.4em;
+        line-height: 1;
+    }
+
+    .sg-hero-rule {
+        width: 80px; height: 1px;
+        background: linear-gradient(90deg, var(--gold), transparent);
+        margin: 2.5rem 0;
+    }
+
+    .sg-hero-desc {
+        font-size: 0.78rem;
+        color: var(--stone-lt);
+        letter-spacing: 0.05em;
+        max-width: 420px;
+        line-height: 1.9;
+        margin-bottom: 3rem;
+    }
+
+    .sg-hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        border: 1px solid var(--gold-border);
+        background: rgba(194,150,92,0.06);
+        padding: 0.625rem 1.5rem;
+        font-family: var(--font-mono);
+        font-size: 0.52rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold-light);
+    }
+    .sg-hero-badge-dot {
+        width: 5px; height: 5px;
+        background: var(--gold);
+        border-radius: 50%;
+    }
+
+    .sg-hero-nav {
+        margin-top: 4rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        list-style: none;
+    }
+    .sg-hero-nav a {
+        display: inline-block;
+        padding: 0.4rem 1rem;
+        border: 1px solid rgba(194,150,92,0.2);
+        font-family: var(--font-mono);
+        font-size: 0.52rem;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: var(--stone-lt);
+        transition: var(--ease);
+    }
+    .sg-hero-nav a:hover {
+        border-color: var(--gold);
+        color: var(--gold-light);
+        background: rgba(194,150,92,0.06);
+    }
+
+    .sg-scroll-hint {
+        position: absolute;
+        bottom: 2.5rem; left: 4rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-family: var(--font-mono);
+        font-size: 0.48rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--stone-lt);
+        z-index: 1;
+    }
+    .sg-scroll-line {
+        width: 1px; height: 40px;
+        background: linear-gradient(to bottom, var(--gold), transparent);
+        animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+        0%,100% { opacity: 1; transform: scaleY(1); }
+        50% { opacity: 0.4; transform: scaleY(0.7); }
+    }
+
+    /* =============================================
+       SECTION: COLORS
+    ============================================= */
+    .color-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1rem;
+    }
+    .color-swatch {
+        overflow: hidden;
+        border: 1px solid var(--border-lt);
+    }
+    .swatch-chip {
+        height: 88px;
+        position: relative;
+    }
+    .swatch-chip--tall { height: 140px; }
+    .swatch-info {
+        padding: 0.875rem 1rem;
+        background: var(--panel);
+        border-top: 1px solid var(--border-lt);
+    }
+    .guide-section--dark .swatch-info {
+        background: var(--ink-2);
+        border-top-color: rgba(255,255,255,0.06);
+    }
+    .swatch-name {
+        font-family: var(--font-body);
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: var(--ink);
+        letter-spacing: 0.04em;
+        margin-bottom: 0.15rem;
+    }
+    .guide-section--dark .swatch-name { color: #FAF8F5; }
+    .swatch-var {
+        font-family: var(--font-mono);
+        font-size: 0.48rem;
+        color: var(--stone-lt);
+        letter-spacing: 0.06em;
+        display: block;
+        margin-bottom: 0.1rem;
+    }
+    .swatch-hex {
+        font-family: var(--font-mono);
+        font-size: 0.52rem;
+        color: var(--stone-mid);
+        letter-spacing: 0.06em;
+    }
+    .guide-section--dark .swatch-hex { color: var(--stone-lt); }
+    .color-group-label {
+        font-family: var(--font-mono);
+        font-size: 0.52rem;
+        text-transform: uppercase;
+        letter-spacing: 0.22em;
+        color: var(--stone-mid);
+        margin-bottom: 0.75rem;
+        margin-top: 2.5rem;
+        padding-bottom: 0.625rem;
+        border-bottom: 1px solid var(--border-lt);
+    }
+    .guide-section--dark .color-group-label { color: var(--stone-lt); border-bottom-color: rgba(255,255,255,0.08); }
+    .color-group-label:first-child { margin-top: 0; }
+
+    /* =============================================
+       SECTION: TYPOGRAPHY
+    ============================================= */
+    .type-specimen {
+        padding: 2.5rem 0;
+        border-bottom: 1px solid var(--border-lt);
+    }
+    .type-specimen:last-child { border-bottom: none; }
+    .type-specimen--dark {
+        border-bottom-color: rgba(255,255,255,0.06);
+    }
+    .type-label-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+    .type-token {
+        font-family: var(--font-mono);
+        font-size: 0.5rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--gold);
+        background: var(--gold-dim);
+        border: 1px solid var(--gold-border);
+        padding: 0.25rem 0.625rem;
+        display: inline-block;
+    }
+    .type-specs {
+        font-family: var(--font-mono);
+        font-size: 0.48rem;
+        color: var(--stone-lt);
+        text-align: right;
+        line-height: 1.7;
+    }
+    .t-display {
+        font-family: var(--font-display);
+        font-size: 6rem;
+        font-weight: 300;
+        line-height: 0.9;
+        letter-spacing: 0.04em;
+        color: var(--ink);
+        text-transform: uppercase;
+    }
+    .t-display-italic {
+        font-family: var(--font-body);
+        font-size: 5rem;
+        font-weight: 300;
+        font-style: italic;
+        line-height: 1;
+        letter-spacing: 0.02em;
+        color: var(--ink);
+    }
+    .t-h1 {
+        font-family: var(--font-display);
+        font-size: 3.5rem;
+        font-weight: 400;
+        line-height: 1.05;
+        letter-spacing: 0.04em;
+        color: var(--ink);
+        text-transform: uppercase;
+    }
+    .t-h2 {
+        font-family: var(--font-display);
+        font-size: 2.5rem;
+        font-weight: 400;
+        line-height: 1.1;
+        letter-spacing: 0.04em;
+        color: var(--ink);
+    }
+    .t-h3 {
+        font-family: var(--font-display);
+        font-size: 1.75rem;
+        font-weight: 500;
+        line-height: 1.2;
+        letter-spacing: 0.03em;
+        color: var(--ink);
+    }
+    .t-h4 {
+        font-family: var(--font-body);
+        font-size: 0.78rem;
+        font-weight: 700;
+        line-height: 1.4;
+        letter-spacing: 0.18em;
+        color: var(--ink);
+        text-transform: uppercase;
+    }
+    .t-body-lg {
+        font-family: var(--font-body);
+        font-size: 1rem;
+        font-weight: 300;
+        line-height: 1.8;
+        color: var(--ink-3);
+    }
+    .t-body {
+        font-family: var(--font-body);
+        font-size: 0.875rem;
+        font-weight: 400;
+        line-height: 1.75;
+        color: var(--stone-mid);
+    }
+    .t-caption {
+        font-family: var(--font-body);
+        font-size: 0.72rem;
+        font-weight: 400;
+        line-height: 1.65;
+        color: var(--stone-lt);
+        letter-spacing: 0.02em;
+    }
+    .t-label {
+        font-family: var(--font-mono);
+        font-size: 0.58rem;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--stone-mid);
+    }
+    .t-label-gold {
+        font-family: var(--font-mono);
+        font-size: 0.54rem;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--gold);
+    }
+    .t-quote {
+        font-family: var(--font-body);
+        font-size: 1.5rem;
+        font-weight: 300;
+        font-style: italic;
+        line-height: 1.5;
+        color: var(--ink-3);
+    }
+
+    /* on dark bg overrides */
+    .guide-section--dark .t-display,
+    .guide-section--dark .t-display-italic,
+    .guide-section--dark .t-h1,
+    .guide-section--dark .t-h2,
+    .guide-section--dark .t-h3 { color: #FAF8F5; }
+    .guide-section--dark .t-h4 { color: var(--stone-xlt); }
+    .guide-section--dark .t-body-lg { color: var(--stone-lt); }
+    .guide-section--dark .t-body { color: var(--stone-mid); }
+    .guide-section--dark .t-caption { color: var(--stone-lt); }
+    .guide-section--dark .t-label { color: var(--stone-mid); }
+    .guide-section--dark .t-quote { color: var(--stone-lt); }
+
+    /* =============================================
+       SECTION: BUTTONS
+    ============================================= */
+    .btn-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1.25rem;
+    }
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-family: var(--font-body);
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        cursor: pointer;
+        border: none;
+        transition: var(--ease);
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+    }
+    .btn::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(255,255,255,0);
+        transition: var(--ease);
+    }
+    .btn:hover::after { background: rgba(255,255,255,0.08); }
+
+    /* Primary */
+    .btn-primary {
+        background: var(--ink);
+        color: #FAF8F5;
+        padding: 1rem 2.25rem;
+    }
+    .btn-primary:hover { background: var(--ink-2); color: #FAF8F5; }
+
+    /* Gold */
+    .btn-gold {
+        background: var(--gold);
+        color: var(--ink);
+        padding: 1rem 2.25rem;
+    }
+    .btn-gold:hover { background: var(--gold-dark); color: var(--ink); }
+
+    /* Outline Dark */
+    .btn-outline {
+        background: transparent;
+        color: var(--ink);
+        border: 1px solid var(--ink);
+        padding: 1rem 2.25rem;
+    }
+    .btn-outline:hover { background: var(--ink); color: #FAF8F5; }
+
+    /* Outline Gold */
+    .btn-outline-gold {
+        background: transparent;
+        color: var(--gold);
+        border: 1px solid var(--gold);
+        padding: 1rem 2.25rem;
+    }
+    .btn-outline-gold:hover { background: var(--gold); color: var(--ink); }
+
+    /* Ghost (on dark) */
+    .btn-ghost {
+        background: rgba(250,248,245,0.08);
+        color: #FAF8F5;
+        border: 1px solid rgba(250,248,245,0.2);
+        padding: 1rem 2.25rem;
+    }
+    .btn-ghost:hover { background: rgba(250,248,245,0.14); }
+
+    /* Text link button */
+    .btn-text {
+        background: transparent;
+        color: var(--gold);
+        padding: 0;
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        border-bottom: 1px solid var(--gold-border);
+        padding-bottom: 2px;
+    }
+    .btn-text:hover { color: var(--gold-dark); border-bottom-color: var(--gold-dark); }
+    .btn-text::after { display: none; }
+
+    /* Small */
+    .btn-sm { padding: 0.625rem 1.5rem; font-size: 0.6rem; }
+    /* Large */
+    .btn-lg { padding: 1.25rem 3rem; font-size: 0.75rem; letter-spacing: 0.25em; }
+
+    /* Arrow Icon */
+    .btn-arrow {
+        width: 12px; height: 12px;
+        transition: transform 0.3s ease;
+    }
+    .btn:hover .btn-arrow { transform: translateX(3px); }
+
+    /* =============================================
+       SECTION: FORMS
+    ============================================= */
+    .form-group { margin-bottom: 1.5rem; }
+    .form-label {
+        display: block;
+        font-family: var(--font-mono);
+        font-size: 0.52rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--stone-mid);
+        margin-bottom: 0.5rem;
+    }
+    .form-input {
+        display: block;
+        width: 100%;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        color: var(--ink);
+        font-family: var(--font-body);
+        font-size: 0.82rem;
+        padding: 0.875rem 1.125rem;
+        outline: none;
+        transition: var(--ease);
+        appearance: none;
+        border-radius: 0;
+    }
+    .form-input:focus {
+        border-color: var(--gold);
+        box-shadow: 0 0 0 3px var(--gold-dim);
+    }
+    .form-input::placeholder { color: var(--stone-xlt); font-size: 0.78rem; }
+
+    .form-select {
+        display: block;
+        width: 100%;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        color: var(--ink);
+        font-family: var(--font-body);
+        font-size: 0.82rem;
+        padding: 0.875rem 2.5rem 0.875rem 1.125rem;
+        outline: none;
+        transition: var(--ease);
+        appearance: none;
+        border-radius: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B5F58' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        cursor: pointer;
+    }
+    .form-select:focus { border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-dim); }
+
+    .form-textarea {
+        display: block;
+        width: 100%;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        color: var(--ink);
+        font-family: var(--font-body);
+        font-size: 0.82rem;
+        padding: 0.875rem 1.125rem;
+        outline: none;
+        transition: var(--ease);
+        resize: vertical;
+        min-height: 120px;
+        border-radius: 0;
+    }
+    .form-textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-dim); }
+
+    .form-hint {
+        font-family: var(--font-mono);
+        font-size: 0.48rem;
+        letter-spacing: 0.1em;
+        color: var(--stone-lt);
+        margin-top: 0.375rem;
+    }
+    .form-error { color: #B34040; }
+
+    .checkbox-row {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        cursor: pointer;
+    }
+    .checkbox-custom {
+        width: 18px; height: 18px;
+        border: 1px solid var(--border);
+        background: var(--panel);
+        flex-shrink: 0;
+        position: relative;
+        transition: var(--ease);
+    }
+    .checkbox-custom.checked {
+        background: var(--ink);
+        border-color: var(--ink);
+    }
+    .checkbox-custom.checked::after {
+        content: '';
+        position: absolute;
+        top: 3px; left: 5px;
+        width: 6px; height: 9px;
+        border-right: 1.5px solid var(--gold);
+        border-bottom: 1.5px solid var(--gold);
+        transform: rotate(45deg);
+    }
+    .checkbox-label {
+        font-size: 0.78rem;
+        color: var(--stone-mid);
+    }
+
+    /* =============================================
+       SECTION: CARDS
+    ============================================= */
+
+    /* Stone Collection Card */
+    .stone-card {
+        background: var(--panel);
+        border: 1px solid var(--border-lt);
+        overflow: hidden;
+        transition: var(--ease);
+        cursor: pointer;
+    }
+    .stone-card:hover { border-color: var(--gold-border); box-shadow: 0 8px 32px rgba(26,23,20,0.06); }
+    .stone-card-img {
+        height: 220px;
+        background: var(--stone);
+        position: relative;
+        overflow: hidden;
+    }
+    .stone-card-img-inner {
+        position: absolute;
+        inset: 0;
+        transition: transform 0.6s ease;
+    }
+    .stone-card:hover .stone-card-img-inner { transform: scale(1.04); }
+    .stone-card-badge {
+        position: absolute;
+        top: 1rem; left: 1rem;
+        background: var(--ink);
+        color: #FAF8F5;
+        font-family: var(--font-mono);
+        font-size: 0.46rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        padding: 0.3rem 0.75rem;
+    }
+    .stone-card-body { padding: 1.5rem; }
+    .stone-card-category {
+        font-family: var(--font-mono);
+        font-size: 0.48rem;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.375rem;
+    }
+    .stone-card-name {
+        font-family: var(--font-display);
+        font-size: 1.375rem;
+        font-weight: 500;
+        color: var(--ink);
+        letter-spacing: 0.02em;
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
+    }
+    .stone-card-desc {
+        font-size: 0.72rem;
+        color: var(--stone-mid);
+        line-height: 1.65;
+        margin-bottom: 1.25rem;
+    }
+    .stone-card-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-lt);
+    }
+    .stone-card-tag {
+        font-family: var(--font-mono);
+        font-size: 0.46rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--stone-lt);
+        background: var(--raised);
+        padding: 0.25rem 0.625rem;
+        border: 1px solid var(--border-lt);
+    }
+    .stone-card-arrow {
+        color: var(--gold);
+        font-size: 1rem;
+        transition: transform 0.3s ease;
+    }
+    .stone-card:hover .stone-card-arrow { transform: translateX(4px); }
+
+    /* Blog Card */
+    .blog-card {
+        background: var(--panel);
+        border: 1px solid var(--border-lt);
+        overflow: hidden;
+        transition: var(--ease);
+    }
+    .blog-card:hover { border-color: var(--gold-border); }
+    .blog-card-img {
+        height: 180px;
+        background: var(--raised);
+        position: relative;
+    }
+    .blog-card-body { padding: 1.375rem; }
+    .blog-card-date {
+        font-family: var(--font-mono);
+        font-size: 0.46rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--stone-lt);
+        margin-bottom: 0.5rem;
+    }
+    .blog-card-title {
+        font-family: var(--font-display);
+        font-size: 1.125rem;
+        font-weight: 500;
+        color: var(--ink);
+        line-height: 1.3;
+        margin-bottom: 0.625rem;
+        letter-spacing: 0.01em;
+    }
+    .blog-card-excerpt {
+        font-size: 0.72rem;
+        color: var(--stone-mid);
+        line-height: 1.65;
+    }
+    .blog-card-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 1rem;
+        font-family: var(--font-mono);
+        font-size: 0.48rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold);
+        transition: var(--ease);
+    }
+    .blog-card-link:hover { color: var(--gold-dark); }
+
+    /* Location Card */
+    .location-card {
+        background: var(--ink-2);
+        border: 1px solid rgba(255,255,255,0.06);
+        padding: 2rem;
+        transition: var(--ease);
+    }
+    .location-card:hover { border-color: var(--gold-border); background: var(--ink-3); }
+    .location-card-city {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: #FAF8F5;
+        letter-spacing: 0.04em;
+        margin-bottom: 0.25rem;
+    }
+    .location-card-state {
+        font-family: var(--font-mono);
+        font-size: 0.5rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 1rem;
+    }
+    .location-card-address {
+        font-size: 0.72rem;
+        color: var(--stone-lt);
+        line-height: 1.7;
+    }
+
+    /* Testimonial Card */
+    .testimonial-card {
+        background: var(--panel);
+        border: 1px solid var(--border-lt);
+        border-left: 3px solid var(--gold);
+        padding: 2rem 2rem 2rem 1.75rem;
+    }
+    .testimonial-quote {
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        font-style: italic;
+        font-weight: 300;
+        color: var(--ink-3);
+        line-height: 1.55;
+        margin-bottom: 1.25rem;
+    }
+    .testimonial-quote::before { content: '\201C'; color: var(--gold); margin-right: 2px; }
+    .testimonial-quote::after { content: '\201D'; color: var(--gold); margin-left: 2px; }
+    .testimonial-author {
+        font-family: var(--font-mono);
+        font-size: 0.5rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--stone-mid);
+    }
+    .testimonial-author span { color: var(--gold); }
+
+    /* =============================================
+       SECTION: NAVIGATION
+    ============================================= */
+    .nav-demo {
+        background: var(--ink);
+        padding: 0 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 72px;
+    }
+    .nav-demo-logo {
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        font-weight: 400;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #FAF8F5;
+    }
+    .nav-demo-links {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+        list-style: none;
+    }
+    .nav-demo-links a {
+        font-family: var(--font-body);
+        font-size: 0.62rem;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--stone-lt);
+        transition: var(--ease);
+    }
+    .nav-demo-links a:hover { color: #FAF8F5; }
+    .nav-demo-links a.active { color: var(--gold); }
+    .nav-demo-cta {
+        font-family: var(--font-body);
+        font-size: 0.6rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--ink);
+        background: var(--gold);
+        padding: 0.6rem 1.5rem;
+        transition: var(--ease);
+    }
+    .nav-demo-cta:hover { background: var(--gold-dark); color: var(--ink); }
+
+    /* =============================================
+       SECTION: BADGES & TAGS
+    ============================================= */
+    .badge-row { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+    .badge {
+        font-family: var(--font-mono);
+        font-size: 0.5rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        padding: 0.35rem 0.875rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .badge-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+    .badge-ink { background: var(--ink); color: #FAF8F5; }
+    .badge-gold { background: var(--gold); color: var(--ink); }
+    .badge-stone { background: var(--stone); color: var(--stone-mid); border: 1px solid var(--border); }
+    .badge-outline { background: transparent; color: var(--ink); border: 1px solid var(--border); }
+    .badge-outline-gold { background: transparent; color: var(--gold); border: 1px solid var(--gold-border); }
+    .badge-new { background: #2A4A2E; color: #7EC880; }
+    .badge-featured { background: var(--gold-dim); color: var(--gold-dark); border: 1px solid var(--gold-border); }
+
+    /* =============================================
+       SECTION: DIVIDERS & ORNAMENTS
+    ============================================= */
+    .ornament-rule {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+    }
+    .ornament-line { flex: 1; height: 1px; background: var(--border); }
+    .ornament-line-gold { background: var(--gold-border); }
+    .ornament-diamond {
+        width: 6px; height: 6px;
+        background: var(--gold);
+        transform: rotate(45deg);
+        flex-shrink: 0;
+    }
+    .ornament-text {
+        font-family: var(--font-mono);
+        font-size: 0.48rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--stone-lt);
+        flex-shrink: 0;
+    }
+
+    .section-label-block {
+        margin-bottom: 3rem;
+    }
+    .section-label-block .overline {
+        font-family: var(--font-mono);
+        font-size: 0.52rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.625rem;
+        display: flex;
+        align-items: center;
+        gap: 0.875rem;
+    }
+    .section-label-block .overline::before {
+        content: '';
+        display: block;
+        width: 24px; height: 1px;
+        background: var(--gold);
+    }
+    .section-label-block .heading {
+        font-family: var(--font-display);
+        font-size: 2.25rem;
+        font-weight: 400;
+        color: var(--ink);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        line-height: 1.05;
+    }
+    .section-label-block .sub {
+        font-family: var(--font-body);
+        font-size: 1.5rem;
+        font-style: italic;
+        font-weight: 300;
+        color: var(--stone-mid);
+        display: block;
+        margin-top: 0.1em;
+    }
+
+    /* =============================================
+       SECTION: GRID LAYOUT EXAMPLES
+    ============================================= */
+    .layout-block {
+        background: var(--raised);
+        border: 1px solid var(--border-lt);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-mono);
+        font-size: 0.48rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--stone-lt);
+        padding: 1.75rem;
+        text-align: center;
+    }
+
+    /* =============================================
+       SECTION: MARBLE TEXTURE SWATCHES
+    ============================================= */
+    .texture-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+    }
+    .texture-swatch {
+        height: 160px;
+        border: 1px solid var(--border-lt);
+        position: relative;
+        overflow: hidden;
+    }
+    .texture-label {
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        padding: 0.625rem 0.875rem;
+        background: rgba(26,23,20,0.75);
+        font-family: var(--font-mono);
+        font-size: 0.46rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--gold-light);
+    }
+
+    /* Marble texture patterns (CSS-only) */
+    .tx-carrara {
+        background: #F2F0EE;
+        background-image:
+            repeating-linear-gradient(125deg, transparent 0px, transparent 8px, rgba(180,175,170,0.15) 8px, rgba(180,175,170,0.15) 9px),
+            repeating-linear-gradient(55deg, transparent 0px, transparent 20px, rgba(160,155,150,0.1) 20px, rgba(160,155,150,0.1) 21px);
+    }
+    .tx-calacatta {
+        background: #F5F3F0;
+        background-image:
+            repeating-linear-gradient(30deg, transparent 0px, transparent 15px, rgba(194,150,92,0.08) 15px, rgba(194,150,92,0.08) 16px),
+            repeating-linear-gradient(140deg, transparent 0px, transparent 25px, rgba(160,140,120,0.07) 25px, rgba(160,140,120,0.07) 26px);
+    }
+    .tx-nero {
+        background: #1A1714;
+        background-image:
+            repeating-linear-gradient(115deg, transparent 0px, transparent 12px, rgba(255,255,255,0.04) 12px, rgba(255,255,255,0.04) 13px),
+            repeating-linear-gradient(45deg, transparent 0px, transparent 30px, rgba(255,255,255,0.02) 30px, rgba(255,255,255,0.02) 31px);
+    }
+    .tx-travertine {
+        background: #D4C5A9;
+        background-image:
+            repeating-linear-gradient(0deg, transparent 0px, transparent 6px, rgba(180,165,140,0.2) 6px, rgba(180,165,140,0.2) 7px),
+            repeating-linear-gradient(90deg, transparent 0px, transparent 40px, rgba(160,140,110,0.1) 40px, rgba(160,140,110,0.1) 41px);
+    }
+    .tx-quartzite {
+        background: #C8C0B8;
+        background-image:
+            repeating-linear-gradient(75deg, transparent 0px, transparent 5px, rgba(150,140,130,0.15) 5px, rgba(150,140,130,0.15) 6px),
+            repeating-linear-gradient(165deg, transparent 0px, transparent 20px, rgba(120,110,100,0.08) 20px, rgba(120,110,100,0.08) 21px);
+    }
+    .tx-onyx {
+        background: #0D2B1E;
+        background-image:
+            repeating-linear-gradient(20deg, transparent 0px, transparent 10px, rgba(0,200,100,0.05) 10px, rgba(0,200,100,0.05) 11px),
+            radial-gradient(ellipse 60% 40% at 30% 40%, rgba(0,120,60,0.1) 0%, transparent 70%);
+    }
+    .tx-granite {
+        background: #58504A;
+        background-image:
+            radial-gradient(circle 1px at 20% 30%, rgba(255,255,255,0.3) 0%, transparent 100%),
+            radial-gradient(circle 1px at 60% 70%, rgba(255,255,255,0.2) 0%, transparent 100%),
+            radial-gradient(circle 2px at 80% 20%, rgba(255,255,255,0.15) 0%, transparent 100%),
+            radial-gradient(circle 1px at 40% 80%, rgba(194,150,92,0.4) 0%, transparent 100%);
+    }
+    .tx-soapstone {
+        background: #2A2C30;
+        background-image:
+            repeating-linear-gradient(165deg, transparent 0px, transparent 8px, rgba(255,255,255,0.03) 8px, rgba(255,255,255,0.03) 9px),
+            repeating-linear-gradient(75deg, transparent 0px, transparent 30px, rgba(255,255,255,0.02) 30px, rgba(255,255,255,0.02) 31px);
+    }
+
+    /* =============================================
+       SECTION: SPACING SCALE
+    ============================================= */
+    .spacing-row {
+        display: flex;
+        align-items: flex-end;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+    .spacing-item { text-align: center; }
+    .spacing-block {
+        background: var(--gold-dim);
+        border: 1px solid var(--gold-border);
+        margin: 0 auto 0.5rem;
+    }
+    .spacing-label {
+        font-family: var(--font-mono);
+        font-size: 0.46rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--stone-mid);
+    }
+
+    /* =============================================
+       SECTION: ICON SYSTEM
+    ============================================= */
+    .icon-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 1rem;
+    }
+    .icon-item {
+        background: var(--panel);
+        border: 1px solid var(--border-lt);
+        padding: 1.5rem 1rem;
+        text-align: center;
+        transition: var(--ease);
+        cursor: pointer;
+    }
+    .icon-item:hover { border-color: var(--gold-border); background: var(--gold-dim); }
+    .icon-item svg { width: 24px; height: 24px; margin: 0 auto 0.625rem; display: block; }
+    .icon-name {
+        font-family: var(--font-mono);
+        font-size: 0.44rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--stone-lt);
+    }
+
+    /* =============================================
+       SECTION: HERO PATTERNS (Live Examples)
+    ============================================= */
+    .hero-example {
+        height: 420px;
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        padding: 3rem;
+        overflow: hidden;
+    }
+    .hero-example-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+    }
+    .hero-example-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    /* =============================================
+       SECTION: MOTION / ANIMATION
+    ============================================= */
+    .motion-demo {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+    .motion-box {
+        width: 64px; height: 64px;
+        background: var(--ink);
+        border: 1px solid var(--gold-border);
+        position: relative;
+    }
+    .motion-box--hover { transition: all 0.3s ease; }
+    .motion-box--hover:hover { transform: translateY(-6px); background: var(--gold); }
+    .motion-label {
+        font-family: var(--font-mono);
+        font-size: 0.5rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--stone-mid);
+        margin-top: 0.5rem;
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    .sg-footer {
+        background: var(--ink);
+        padding: 4rem;
+        border-top: 1px solid var(--gold-border);
+    }
+    .sg-footer-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+    .sg-footer-brand {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        font-weight: 400;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #FAF8F5;
+    }
+    .sg-footer-meta {
+        font-family: var(--font-mono);
+        font-size: 0.48rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--stone-lt);
+        text-align: right;
+        line-height: 1.9;
+    }
+    .sg-footer-meta span { color: var(--gold); }
+
+    </style>
+</head>
+<body>
+
+<div class="layout">
+
+    <!-- ======================== SIDEBAR ======================== -->
+    <aside>
+        <div class="sidebar-inner">
+            <div class="brand-block">
+                <div class="sidebar-logo-mark">
+                    <!-- Francini Diamond Icon -->
+                    <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <polygon points="14,2 26,14 14,26 2,14" stroke="#C2965C" stroke-width="1" fill="none"/>
+                        <polygon points="14,6 22,14 14,22 6,14" stroke="#C2965C" stroke-width="0.5" fill="rgba(194,150,92,0.08)"/>
+                        <circle cx="14" cy="14" r="2" fill="#C2965C"/>
+                    </svg>
+                </div>
+                <div class="sidebar-brand-name">Francini</div>
+                <div class="sidebar-brand-sub">Brand Style Guide — 2026</div>
+            </div>
+
+            <div class="sidebar-rule"></div>
+
+            <nav>
+                <div class="sidebar-section-label">Brand Identity</div>
+                <ul>
+                    <li><a href="#colors"><span class="nav-dot"></span>Color System</a></li>
+                    <li><a href="#typography"><span class="nav-dot"></span>Typography</a></li>
+                    <li><a href="#logo"><span class="nav-dot"></span>Logo & Mark</a></li>
+                    <li><a href="#textures"><span class="nav-dot"></span>Stone Textures</a></li>
+                </ul>
+
+                <div class="sidebar-section-label">Components</div>
+                <ul>
+                    <li><a href="#buttons"><span class="nav-dot"></span>Buttons</a></li>
+                    <li><a href="#forms"><span class="nav-dot"></span>Forms</a></li>
+                    <li><a href="#badges"><span class="nav-dot"></span>Badges & Tags</a></li>
+                    <li><a href="#navigation"><span class="nav-dot"></span>Navigation</a></li>
+                </ul>
+
+                <div class="sidebar-section-label">Patterns</div>
+                <ul>
+                    <li><a href="#cards"><span class="nav-dot"></span>Cards</a></li>
+                    <li><a href="#ornaments"><span class="nav-dot"></span>Ornaments</a></li>
+                    <li><a href="#icons"><span class="nav-dot"></span>Icons</a></li>
+                    <li><a href="#spacing"><span class="nav-dot"></span>Spacing</a></li>
+                    <li><a href="#layout"><span class="nav-dot"></span>Layout Grid</a></li>
+                    <li><a href="#motion"><span class="nav-dot"></span>Motion</a></li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-footer-text">
+                    Prepared by <span>WebMarkets</span><br>
+                    Client — Francini Inc.<br>
+                    Version <span>1.0</span> · March 2026
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ======================== MAIN ======================== -->
+    <main>
+
+        <!-- HERO -->
+        <section class="sg-hero" id="top">
+            <div class="sg-hero-content">
+                <div class="sg-hero-eyebrow">Brand Style Guide</div>
+                <h1 class="sg-hero-title">
+                    Francini
+                    <em>Inc.</em>
+                </h1>
+                <div class="sg-hero-rule"></div>
+                <p class="sg-hero-desc">
+                    A living design system capturing the elegance of Italian natural stone — the colors, type,
+                    components, and visual language that express Francini's luxury heritage and timeless quality.
+                </p>
+                <div class="sg-hero-badge">
+                    <span class="sg-hero-badge-dot"></span>
+                    Founded 1996 · Sun Valley, CA · Carrara, Italy
+                </div>
+                <ul class="sg-hero-nav">
+                    <li><a href="#colors">Colors</a></li>
+                    <li><a href="#typography">Typography</a></li>
+                    <li><a href="#textures">Textures</a></li>
+                    <li><a href="#buttons">Buttons</a></li>
+                    <li><a href="#forms">Forms</a></li>
+                    <li><a href="#cards">Cards</a></li>
+                    <li><a href="#navigation">Navigation</a></li>
+                    <li><a href="#icons">Icons</a></li>
+                </ul>
+            </div>
+            <div class="sg-scroll-hint">
+                <div class="sg-scroll-line"></div>
+                Scroll
+            </div>
+        </section>
+
+
+        <!-- ======================== COLORS ======================== -->
+        <section class="guide-section" id="colors">
+            <div class="guide-label">01 — Color System</div>
+            <h2 class="guide-title">The <em>Palette</em></h2>
+            <p class="guide-desc">Drawn from warm Carrara marble, Italian stone quarries, and the rich ink of artisan craftwork. Every color serves a functional role — warm cream for space, charcoal for depth, and burnished gold to accent the handcrafted luxury of natural stone.</p>
+
+            <div class="color-group-label">Backgrounds & Surfaces</div>
+            <div class="color-grid">
+                <div class="color-swatch">
+                    <div class="swatch-chip swatch-chip--tall" style="background:#FAF8F5;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Cream</div>
+                        <span class="swatch-var">--bg</span>
+                        <div class="swatch-hex">#FAF8F5</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="swatch-chip swatch-chip--tall" style="background:#FFFFFF;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">White</div>
+                        <span class="swatch-var">--panel</span>
+                        <div class="swatch-hex">#FFFFFF</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="swatch-chip swatch-chip--tall" style="background:#F2EEE9;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Raised</div>
+                        <span class="swatch-var">--raised</span>
+                        <div class="swatch-hex">#F2EEE9</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="swatch-chip swatch-chip--tall" style="background:#E8E2DB;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Stone</div>
+                        <span class="swatch-var">--stone</span>
+                        <div class="swatch-hex">#E8E2DB</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="swatch-chip swatch-chip--tall" style="background:#D4CCC3;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Stone Dark</div>
+                        <span class="swatch-var">--stone-dark</span>
+                        <div class="swatch-hex">#D4CCC3</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-group-label">Gold Accent — Carrara Warmth</div>
+            <div class="color-grid">
+                <div class="color-swatch">
+                    <div class="swatch-chip swatch-chip--tall" style="background:#C2965C;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Gold</div>
+                        <span class="swatch-var">--gold</span>
+                        <div class="swatch-hex">#C2965C</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="swatch-chip swatch-chip--tall" style="background:#D4AF7A;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Gold Light</div>
+                        <span class="swatch-var">--gold-light</span>
+                        <div class="swatch-hex">#D4AF7A</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="swatch-chip swatch-chip--tall" style="background:#A07840;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Gold Dark</div>
+                        <span class="swatch-var">--gold-dark</span>
+                        <div class="swatch-hex">#A07840</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="swatch-chip swatch-chip--tall" style="background:rgba(194,150,92,0.10); border: 1px dashed #DDD7CF;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Gold Dim</div>
+                        <span class="swatch-var">--gold-dim</span>
+                        <div class="swatch-hex">rgba(194,150,92,0.10)</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="swatch-chip swatch-chip--tall" style="background:rgba(194,150,92,0.30); border: 1px dashed #DDD7CF;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Gold Border</div>
+                        <span class="swatch-var">--gold-border</span>
+                        <div class="swatch-hex">rgba(194,150,92,0.30)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-group-label">Ink — Charcoal Scale</div>
+            <div class="color-grid">
+                <div class="color-swatch">
+                    <div class="swatch-chip swatch-chip--tall" style="background:#1A1714;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Ink</div>
+                        <span class="swatch-var">--ink</span>
+                        <div class="swatch-hex">#1A1714</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="swatch-chip swatch-chip--tall" style="background:#2C2825;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Ink 2</div>
+                        <span class="swatch-var">--ink-2</span>
+                        <div class="swatch-hex">#2C2825</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="swatch-chip swatch-chip--tall" style="background:#3E3632;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Ink 3</div>
+                        <span class="swatch-var">--ink-3</span>
+                        <div class="swatch-hex">#3E3632</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="swatch-chip swatch-chip--tall" style="background:#6B5F58;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Stone Mid</div>
+                        <span class="swatch-var">--stone-mid</span>
+                        <div class="swatch-hex">#6B5F58</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="swatch-chip swatch-chip--tall" style="background:#9B908A;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Stone Lt</div>
+                        <span class="swatch-var">--stone-lt</span>
+                        <div class="swatch-hex">#9B908A</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-group-label">Borders</div>
+            <div class="color-grid">
+                <div class="color-swatch">
+                    <div class="swatch-chip" style="background:#DDD7CF;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Border</div>
+                        <span class="swatch-var">--border</span>
+                        <div class="swatch-hex">#DDD7CF</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="swatch-chip" style="background:#EAE5DF;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Border Light</div>
+                        <span class="swatch-var">--border-lt</span>
+                        <div class="swatch-hex">#EAE5DF</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="swatch-chip" style="background:#C4BAB3;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Stone XLt</div>
+                        <span class="swatch-var">--stone-xlt</span>
+                        <div class="swatch-hex">#C4BAB3</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ======================== TYPOGRAPHY ======================== -->
+        <section class="guide-section guide-section--stone" id="typography">
+            <div class="guide-label">02 — Typography</div>
+            <h2 class="guide-title">Type <em>System</em></h2>
+            <p class="guide-desc">Two complementary typefaces define Francini's voice: <strong>Cinzel</strong> — a classical Roman-cut serif that evokes ancient stone inscriptions and Italian heritage — paired with the clean geometric warmth of <strong>Poppins</strong> for body and UI elements.</p>
+
+            <!-- Font Families -->
+            <div class="grid-2" style="margin-bottom:3rem;">
+                <div style="background:var(--panel);border:1px solid var(--border-lt);padding:2rem;">
+                    <div class="guide-label" style="margin-bottom:1rem;">Display — Cinzel</div>
+                    <div style="font-family:'Cinzel',serif;font-size:3rem;font-weight:400;letter-spacing:0.06em;color:var(--ink);line-height:1;">
+                        Aa Bb Cc
+                    </div>
+                    <div style="font-family:'Cinzel',serif;font-size:1.5rem;font-weight:400;letter-spacing:0.08em;color:var(--stone-mid);margin-top:0.5rem;line-height:1.2;">
+                        ABCDEFGHIJKLMNOPQRSTUVWXYZ
+                    </div>
+                    <div style="font-family:'Cinzel',serif;font-size:1rem;font-weight:400;color:var(--ink-3);margin-top:0.5rem;line-height:1.4;letter-spacing:0.04em;">
+                        abcdefghijklmnopqrstuvwxyz 0123456789
+                    </div>
+                    <div class="spec" style="margin-top:1.25rem;">Google Fonts · Weights: 400, 500, 600, 700 · Classical Roman serif — no italics</div>
+                </div>
+                <div style="background:var(--panel);border:1px solid var(--border-lt);padding:2rem;">
+                    <div class="guide-label" style="margin-bottom:1rem;">Body — Poppins</div>
+                    <div style="font-family:'Poppins',sans-serif;font-size:2rem;font-weight:300;letter-spacing:0.02em;color:var(--ink);line-height:1;">
+                        Aa Bb Cc
+                    </div>
+                    <div style="font-family:'Poppins',sans-serif;font-size:1.1rem;font-weight:400;color:var(--stone-mid);margin-top:0.5rem;letter-spacing:0.03em;line-height:1.4;">
+                        ABCDEFGHIJKLMNOPQRSTUVWXYZ
+                    </div>
+                    <div style="font-family:'Poppins',sans-serif;font-size:0.95rem;font-weight:400;color:var(--ink-3);margin-top:0.5rem;line-height:1.6;">
+                        abcdefghijklmnopqrstuvwxyz 0123456789
+                    </div>
+                    <div class="spec" style="margin-top:1.25rem;">Google Fonts · Weights: 300, 400, 500, 600, 700 · Used for body, UI, nav, forms</div>
+                </div>
+            </div>
+
+            <!-- Type Scale -->
+            <div class="type-specimen">
+                <div class="type-label-row">
+                    <span class="type-token">Display</span>
+                    <div class="type-specs">Cinzel · 96px / 400 · Uppercase<br>Letter spacing: 0.06em · Line height: 0.9</div>
+                </div>
+                <div class="t-display">Natural Stone</div>
+            </div>
+
+            <div class="type-specimen">
+                <div class="type-label-row">
+                    <span class="type-token">Display Italic</span>
+                    <div class="type-specs">Poppins · 80px / 300 · Italic<br>Letter spacing: 0.01em · Line height: 1.0</div>
+                </div>
+                <div class="t-display-italic">Luxury stone selections</div>
+            </div>
+
+            <div class="type-specimen">
+                <div class="type-label-row">
+                    <span class="type-token">Heading 1</span>
+                    <div class="type-specs">Cinzel · 56px / 400 · Uppercase<br>Letter spacing: 0.06em · Line height: 1.05</div>
+                </div>
+                <div class="t-h1">Francini Inc.</div>
+            </div>
+
+            <div class="type-specimen">
+                <div class="type-label-row">
+                    <span class="type-token">Heading 2</span>
+                    <div class="type-specs">Cinzel · 40px / 400<br>Letter spacing: 0.05em · Line height: 1.1</div>
+                </div>
+                <div class="t-h2">Granite Collection</div>
+            </div>
+
+            <div class="type-specimen">
+                <div class="type-label-row">
+                    <span class="type-token">Heading 3</span>
+                    <div class="type-specs">Cinzel · 28px / 500<br>Letter spacing: 0.04em · Line height: 1.2</div>
+                </div>
+                <div class="t-h3">Luxury stone selections</div>
+            </div>
+
+            <div class="type-specimen">
+                <div class="type-label-row">
+                    <span class="type-token">Heading 4 / Overline</span>
+                    <div class="type-specs">Poppins · 12.5px / 700 · Uppercase<br>Letter spacing: 0.18em · Line height: 1.4</div>
+                </div>
+                <div class="t-h4">Natural Stone Collections</div>
+            </div>
+
+            <div class="type-specimen">
+                <div class="type-label-row">
+                    <span class="type-token">Body Large</span>
+                    <div class="type-specs">Poppins · 16px / 300<br>Letter spacing: 0 · Line height: 1.8</div>
+                </div>
+                <div class="t-body-lg">Francini Inc. is one of the largest importers and distributors of natural and engineered stone products in the country. Founded in 1996, we are headquartered in Southern California with showrooms across the nation.</div>
+            </div>
+
+            <div class="type-specimen">
+                <div class="type-label-row">
+                    <span class="type-token">Body</span>
+                    <div class="type-specs">Poppins · 14px / 400<br>Letter spacing: 0.01em · Line height: 1.75</div>
+                </div>
+                <div class="t-body">Granite is an intrusive, igneous stone usually found in the continental plates of the Earth's crust. Granites are primarily composed of mica, feldspar and quartz, though additional minerals and trace elements give the stone a stunning array of possible colors.</div>
+            </div>
+
+            <div class="type-specimen">
+                <div class="type-label-row">
+                    <span class="type-token">Caption</span>
+                    <div class="type-specs">Poppins · 11.5px / 400<br>Letter spacing: 0.02em · Line height: 1.65</div>
+                </div>
+                <div class="t-caption">Calacatta Panda · Natural Marble · Origin: Carrara, Italy · Available in polished, honed, and leathered finishes.</div>
+            </div>
+
+            <div class="type-specimen">
+                <div class="type-label-row">
+                    <span class="type-token">Label / Mono</span>
+                    <div class="type-specs">DM Mono · 8.5px / 400 · Uppercase<br>Letter spacing: 0.24em</div>
+                </div>
+                <div class="t-label">Stone Type · Origin · Available Finishes</div>
+            </div>
+
+            <div class="type-specimen">
+                <div class="type-label-row">
+                    <span class="type-token">Label Gold</span>
+                    <div class="type-specs">DM Mono · 8px / 400 · Uppercase<br>Letter spacing: 0.28em · Color: Gold</div>
+                </div>
+                <div class="t-label-gold">Featured Collection · Natural Stone · Luxury</div>
+            </div>
+
+            <div class="type-specimen" style="border-bottom:none;">
+                <div class="type-label-row">
+                    <span class="type-token">Pull Quote</span>
+                    <div class="type-specs">Poppins · 24px / 300 · Italic<br>Letter spacing: 0 · Line height: 1.55</div>
+                </div>
+                <div class="t-quote">"We pride ourselves on selecting the best blocks, slabs, and tiles in order to offer you the very best product available."</div>
+                <div class="t-caption" style="margin-top:0.5rem;color:var(--gold);">— Andrea Francini, Founder</div>
+            </div>
+        </section>
+
+
+        <!-- ======================== LOGO ======================== -->
+        <section class="guide-section guide-section--dark" id="logo">
+            <div class="guide-label">03 — Logo & Mark</div>
+            <h2 class="guide-title">Identity <em>System</em></h2>
+            <p class="guide-desc">The Francini wordmark is rendered in Cinzel — wide-tracked, classical, and carved with purpose. The geometric diamond mark references the faceted precision of stone-cutting and the Carrara quarry tradition.</p>
+
+            <div class="grid-3" style="gap:2rem;">
+                <!-- Logo on Dark -->
+                <div style="background:var(--ink-2);border:1px solid rgba(255,255,255,0.06);padding:3rem 2rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;min-height:200px;">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <polygon points="20,2 38,20 20,38 2,20" stroke="#C2965C" stroke-width="1" fill="none"/>
+                        <polygon points="20,8 32,20 20,32 8,20" stroke="#C2965C" stroke-width="0.5" fill="rgba(194,150,92,0.06)"/>
+                        <circle cx="20" cy="20" r="3" fill="#C2965C"/>
+                    </svg>
+                    <div style="font-family:'Cinzel',serif;font-size:1.25rem;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:#FAF8F5;">Francini</div>
+                    <div class="spec spec-dark" style="text-align:center;">Primary — Dark Background</div>
+                </div>
+                <!-- Logo on Cream -->
+                <div style="background:#FAF8F5;border:1px solid var(--border-lt);padding:3rem 2rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;min-height:200px;">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <polygon points="20,2 38,20 20,38 2,20" stroke="#1A1714" stroke-width="1" fill="none"/>
+                        <polygon points="20,8 32,20 20,32 8,20" stroke="#1A1714" stroke-width="0.5" fill="rgba(26,23,20,0.04)"/>
+                        <circle cx="20" cy="20" r="3" fill="#1A1714"/>
+                    </svg>
+                    <div style="font-family:'Cinzel',serif;font-size:1.25rem;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:#1A1714;">Francini</div>
+                    <div class="spec" style="text-align:center;color:var(--stone-lt);">Primary — Light Background</div>
+                </div>
+                <!-- Logo on Gold -->
+                <div style="background:var(--gold);border:1px solid var(--gold-dark);padding:3rem 2rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;min-height:200px;">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <polygon points="20,2 38,20 20,38 2,20" stroke="#1A1714" stroke-width="1" fill="none"/>
+                        <polygon points="20,8 32,20 20,32 8,20" stroke="#1A1714" stroke-width="0.5" fill="rgba(26,23,20,0.06)"/>
+                        <circle cx="20" cy="20" r="3" fill="#1A1714"/>
+                    </svg>
+                    <div style="font-family:'Cinzel',serif;font-size:1.25rem;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:#1A1714;">Francini</div>
+                    <div class="spec" style="text-align:center;color:rgba(26,23,20,0.6);">Accent — Gold Background</div>
+                </div>
+            </div>
+
+            <!-- Mark sizes -->
+            <div style="margin-top:3rem;">
+                <div class="guide-label" style="margin-bottom:1.5rem;">Diamond Mark — Scale</div>
+                <div class="flex-row flex-row--center">
+                    <div style="text-align:center;">
+                        <svg width="16" height="16" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin:0 auto;">
+                            <polygon points="20,2 38,20 20,38 2,20" stroke="#C2965C" stroke-width="1.5" fill="none"/>
+                            <circle cx="20" cy="20" r="3.5" fill="#C2965C"/>
+                        </svg>
+                        <div class="spec spec-dark" style="margin-top:0.5rem;">16px<br>Favicon</div>
+                    </div>
+                    <div style="text-align:center;">
+                        <svg width="24" height="24" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin:0 auto;">
+                            <polygon points="20,2 38,20 20,38 2,20" stroke="#C2965C" stroke-width="1.2" fill="none"/>
+                            <circle cx="20" cy="20" r="3.5" fill="#C2965C"/>
+                        </svg>
+                        <div class="spec spec-dark" style="margin-top:0.5rem;">24px<br>Icon</div>
+                    </div>
+                    <div style="text-align:center;">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin:0 auto;">
+                            <polygon points="20,2 38,20 20,38 2,20" stroke="#C2965C" stroke-width="1" fill="none"/>
+                            <polygon points="20,8 32,20 20,32 8,20" stroke="#C2965C" stroke-width="0.5" fill="rgba(194,150,92,0.08)"/>
+                            <circle cx="20" cy="20" r="3" fill="#C2965C"/>
+                        </svg>
+                        <div class="spec spec-dark" style="margin-top:0.5rem;">40px<br>UI</div>
+                    </div>
+                    <div style="text-align:center;">
+                        <svg width="64" height="64" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin:0 auto;">
+                            <polygon points="20,2 38,20 20,38 2,20" stroke="#C2965C" stroke-width="0.8" fill="none"/>
+                            <polygon points="20,8 32,20 20,32 8,20" stroke="#C2965C" stroke-width="0.4" fill="rgba(194,150,92,0.08)"/>
+                            <circle cx="20" cy="20" r="3" fill="#C2965C"/>
+                        </svg>
+                        <div class="spec spec-dark" style="margin-top:0.5rem;">64px<br>Display</div>
+                    </div>
+                    <div style="text-align:center;">
+                        <svg width="96" height="96" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin:0 auto;">
+                            <polygon points="20,2 38,20 20,38 2,20" stroke="#C2965C" stroke-width="0.6" fill="none"/>
+                            <polygon points="20,8 32,20 20,32 8,20" stroke="#C2965C" stroke-width="0.3" fill="rgba(194,150,92,0.06)"/>
+                            <circle cx="20" cy="20" r="3" fill="#C2965C"/>
+                        </svg>
+                        <div class="spec spec-dark" style="margin-top:0.5rem;">96px<br>Hero</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ======================== TEXTURES ======================== -->
+        <section class="guide-section" id="textures">
+            <div class="guide-label">04 — Stone Textures</div>
+            <h2 class="guide-title">Material <em>Library</em></h2>
+            <p class="guide-desc">CSS-rendered visual references for Francini's stone collections. These patterns inform background textures, placeholder imagery, and section accents throughout the brand experience.</p>
+
+            <div class="texture-grid">
+                <div class="texture-swatch tx-carrara">
+                    <div class="texture-label">Carrara White · Marble</div>
+                </div>
+                <div class="texture-swatch tx-calacatta">
+                    <div class="texture-label">Calacatta Panda · Marble</div>
+                </div>
+                <div class="texture-swatch tx-travertine">
+                    <div class="texture-label">Classic Travertine</div>
+                </div>
+                <div class="texture-swatch tx-quartzite">
+                    <div class="texture-label">Silver Quartzite</div>
+                </div>
+                <div class="texture-swatch tx-granite">
+                    <div class="texture-label">Agata Terra · Granite</div>
+                </div>
+                <div class="texture-swatch tx-nero">
+                    <div class="texture-label">Nero Marquina · Marble</div>
+                </div>
+                <div class="texture-swatch tx-onyx">
+                    <div class="texture-label">Onyx Verde · Exotic</div>
+                </div>
+                <div class="texture-swatch tx-soapstone">
+                    <div class="texture-label">Black Soapstone</div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ======================== BUTTONS ======================== -->
+        <section class="guide-section guide-section--stone" id="buttons">
+            <div class="guide-label">05 — Buttons</div>
+            <h2 class="guide-title">Actions &amp; <em>CTAs</em></h2>
+            <p class="guide-desc">Square-edged and purposeful. Buttons use Poppins uppercase with generous letter-spacing — communicating confidence and quality. Gold is reserved for primary conversion moments; ink black for strong directional calls.</p>
+
+            <div class="guide-label" style="margin-bottom:1rem;">Primary Variants</div>
+            <div class="btn-row" style="margin-bottom:2rem;">
+                <a href="#" class="btn btn-primary">
+                    Find A Showroom
+                    <svg class="btn-arrow" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                <a href="#" class="btn btn-gold">
+                    View Collections
+                    <svg class="btn-arrow" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                <a href="#" class="btn btn-outline">Shop Natural Stone</a>
+                <a href="#" class="btn btn-outline-gold">Request a Sample</a>
+            </div>
+
+            <div class="guide-label" style="margin-bottom:1rem;">On Dark Background</div>
+            <div style="background:var(--ink);padding:2rem;margin-bottom:2rem;">
+                <div class="btn-row">
+                    <a href="#" class="btn btn-gold">View Collections</a>
+                    <a href="#" class="btn btn-ghost">Find A Showroom</a>
+                    <a href="#" class="btn btn-outline-gold">Learn More</a>
+                    <a href="#" class="btn btn-text">Shop This Look →</a>
+                </div>
+            </div>
+
+            <div class="guide-label" style="margin-bottom:1rem;">Sizes</div>
+            <div class="btn-row" style="margin-bottom:2.5rem;">
+                <a href="#" class="btn btn-primary btn-sm">Small Button</a>
+                <a href="#" class="btn btn-primary">Default Button</a>
+                <a href="#" class="btn btn-primary btn-lg">Large Button</a>
+            </div>
+
+            <div class="guide-label" style="margin-bottom:1rem;">Text Link Styles</div>
+            <div class="flex-row flex-row--center">
+                <a href="#" class="btn btn-text">Shop This Look →</a>
+                <a href="#" style="font-family:var(--font-body);font-size:0.72rem;font-weight:500;color:var(--gold);letter-spacing:0.06em;border-bottom:1px solid var(--gold-border);padding-bottom:2px;transition:var(--ease);">Read The Blog</a>
+                <a href="#" style="font-family:var(--font-mono);font-size:0.52rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--stone-mid);transition:var(--ease);">View All Locations →</a>
+            </div>
+        </section>
+
+
+        <!-- ======================== FORMS ======================== -->
+        <section class="guide-section" id="forms">
+            <div class="guide-label">06 — Forms</div>
+            <h2 class="guide-title">Input <em>Elements</em></h2>
+            <p class="guide-desc">Clean, borderless aesthetics with a razor-sharp 1px border system. Gold focus states carry the accent language into the interactive layer. No rounded corners — geometry is flat and precise, like stone-cut edges.</p>
+
+            <div class="grid-2">
+                <div>
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-input" placeholder="Andrea Francini">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-input" placeholder="hello@francinimarble.com">
+                        <div class="form-hint">We'll never share your email with anyone.</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Stone Type</label>
+                        <select class="form-select">
+                            <option>Select a collection...</option>
+                            <option>Marble</option>
+                            <option>Granite</option>
+                            <option>Quartzite</option>
+                            <option>Travertine</option>
+                            <option>Soapstone</option>
+                            <option>FORTE Porcelain</option>
+                            <option>Diamante Porcelain</option>
+                            <option>Exotic Stone</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Nearest Location</label>
+                        <select class="form-select">
+                            <option>Select a showroom...</option>
+                            <option>Sun Valley, CA</option>
+                            <option>Indio, CA</option>
+                            <option>Boise, ID</option>
+                            <option>Salt Lake City, UT</option>
+                            <option>Denver, CO</option>
+                            <option>Houston, TX</option>
+                            <option>Raleigh, NC</option>
+                            <option>Kernersville, NC</option>
+                            <option>Wilmington, NC</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group">
+                        <label class="form-label">Project Details</label>
+                        <textarea class="form-textarea" placeholder="Tell us about your project — countertops, flooring, vanities, or something custom..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Preferred Contact</label>
+                        <input type="text" class="form-input" placeholder="Phone or email" style="border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-dim);">
+                        <div class="form-hint" style="color:var(--gold);">Focus state shown above</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Project Name — Error State</label>
+                        <input type="text" class="form-input" value="Kitchen reno" style="border-color: #B34040; box-shadow: 0 0 0 3px rgba(179,64,64,0.08);">
+                        <div class="form-hint form-error">Please provide a valid project name.</div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:0.75rem;margin-top:0.5rem;">
+                        <label class="checkbox-row">
+                            <span class="checkbox-custom checked"></span>
+                            <span class="checkbox-label">I'm interested in natural stone samples</span>
+                        </label>
+                        <label class="checkbox-row">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">I'd like to schedule a virtual consultation</span>
+                        </label>
+                        <label class="checkbox-row">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Subscribe to the Francini newsletter</span>
+                        </label>
+                    </div>
+                    <div style="margin-top:1.75rem;">
+                        <a href="#" class="btn btn-primary btn-lg">Submit Inquiry</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ======================== BADGES ======================== -->
+        <section class="guide-section guide-section--marble" id="badges">
+            <div class="guide-label">07 — Badges &amp; Tags</div>
+            <h2 class="guide-title">Labels &amp; <em>Chips</em></h2>
+            <p class="guide-desc">Metadata chips and category labels communicate stone type, collection status, and origin. Always in DM Mono uppercase with wide tracking — a nod to catalog and archival typography.</p>
+
+            <div class="guide-label" style="margin-bottom:0.875rem;">Status Badges</div>
+            <div class="badge-row" style="margin-bottom:2rem;">
+                <span class="badge badge-ink"><span class="badge-dot"></span>Natural Stone</span>
+                <span class="badge badge-gold">Featured</span>
+                <span class="badge badge-stone">In Stock</span>
+                <span class="badge badge-outline">Porcelain</span>
+                <span class="badge badge-outline-gold"><span class="badge-dot"></span>New Arrival</span>
+                <span class="badge badge-new"><span class="badge-dot"></span>Available Now</span>
+                <span class="badge badge-featured">Best Seller</span>
+            </div>
+
+            <div class="guide-label" style="margin-bottom:0.875rem;">Collection Tags</div>
+            <div class="badge-row" style="margin-bottom:2rem;">
+                <span class="badge badge-stone">Marble</span>
+                <span class="badge badge-stone">Granite</span>
+                <span class="badge badge-stone">Quartzite</span>
+                <span class="badge badge-stone">Soapstone</span>
+                <span class="badge badge-stone">Travertine</span>
+                <span class="badge badge-stone">Limestone</span>
+                <span class="badge badge-stone">FORTE Porcelain</span>
+                <span class="badge badge-stone">Diamante</span>
+                <span class="badge badge-stone">Vetrite</span>
+                <span class="badge badge-stone">Exotics</span>
+            </div>
+
+            <div class="guide-label" style="margin-bottom:0.875rem;">Origin Labels</div>
+            <div class="badge-row">
+                <span class="badge badge-outline-gold">🇮🇹 Carrara, Italy</span>
+                <span class="badge badge-outline-gold">🇧🇷 Brazil</span>
+                <span class="badge badge-outline-gold">🇮🇳 India</span>
+                <span class="badge badge-outline">Polished</span>
+                <span class="badge badge-outline">Honed</span>
+                <span class="badge badge-outline">Leathered</span>
+                <span class="badge badge-outline">Brushed</span>
+            </div>
+        </section>
+
+
+        <!-- ======================== NAVIGATION ======================== -->
+        <section class="guide-section" id="navigation">
+            <div class="guide-label">08 — Navigation</div>
+            <h2 class="guide-title">Nav <em>Patterns</em></h2>
+            <p class="guide-desc">Primary navigation sits within a charcoal-black bar — commanding, grounded, and elegantly understated. Active items glow in gold; hover states reveal the full warm white. Mobile nav collapses gracefully.</p>
+
+            <!-- Primary Nav Demo -->
+            <div class="guide-label" style="margin-bottom:0.875rem;">Primary Navigation</div>
+            <div class="nav-demo" style="margin-bottom:2rem;">
+                <div class="nav-demo-logo">Francini</div>
+                <ul class="nav-demo-links">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Collections</a></li>
+                    <li><a href="#">Locations</a></li>
+                    <li><a href="#">Resources</a></li>
+                </ul>
+                <a href="#" class="nav-demo-cta">Find A Showroom</a>
+            </div>
+
+            <!-- Breadcrumb -->
+            <div class="guide-label" style="margin-bottom:0.875rem;">Breadcrumb</div>
+            <div style="margin-bottom:2rem;display:flex;align-items:center;gap:0.625rem;flex-wrap:wrap;">
+                <a href="#" style="font-family:var(--font-mono);font-size:0.5rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--stone-lt);">Home</a>
+                <span style="color:var(--gold);font-size:0.6rem;">›</span>
+                <a href="#" style="font-family:var(--font-mono);font-size:0.5rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--stone-lt);">Collections</a>
+                <span style="color:var(--gold);font-size:0.6rem;">›</span>
+                <span style="font-family:var(--font-mono);font-size:0.5rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);">Marble</span>
+            </div>
+
+            <!-- Tab Navigation -->
+            <div class="guide-label" style="margin-bottom:0.875rem;">Tab Navigation</div>
+            <div style="border-bottom:1px solid var(--border);display:flex;gap:0;margin-bottom:2rem;">
+                <a href="#" style="font-family:var(--font-mono);font-size:0.52rem;letter-spacing:0.2em;text-transform:uppercase;padding:0.875rem 1.5rem;color:var(--ink);border-bottom:2px solid var(--ink);margin-bottom:-1px;background:transparent;">All Stone</a>
+                <a href="#" style="font-family:var(--font-mono);font-size:0.52rem;letter-spacing:0.2em;text-transform:uppercase;padding:0.875rem 1.5rem;color:var(--stone-lt);border-bottom:2px solid transparent;margin-bottom:-1px;background:transparent;transition:all 0.3s;">Marble</a>
+                <a href="#" style="font-family:var(--font-mono);font-size:0.52rem;letter-spacing:0.2em;text-transform:uppercase;padding:0.875rem 1.5rem;color:var(--gold);border-bottom:2px solid var(--gold);margin-bottom:-1px;background:transparent;">Granite</a>
+                <a href="#" style="font-family:var(--font-mono);font-size:0.52rem;letter-spacing:0.2em;text-transform:uppercase;padding:0.875rem 1.5rem;color:var(--stone-lt);border-bottom:2px solid transparent;margin-bottom:-1px;background:transparent;transition:all 0.3s;">Quartzite</a>
+                <a href="#" style="font-family:var(--font-mono);font-size:0.52rem;letter-spacing:0.2em;text-transform:uppercase;padding:0.875rem 1.5rem;color:var(--stone-lt);border-bottom:2px solid transparent;margin-bottom:-1px;background:transparent;transition:all 0.3s;">Porcelain</a>
+            </div>
+
+            <!-- Pagination -->
+            <div class="guide-label" style="margin-bottom:0.875rem;">Pagination</div>
+            <div style="display:flex;align-items:center;gap:0.375rem;">
+                <a href="#" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);font-family:var(--font-mono);font-size:0.52rem;color:var(--stone-mid);transition:var(--ease);">←</a>
+                <a href="#" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);font-family:var(--font-mono);font-size:0.52rem;color:var(--stone-mid);transition:var(--ease);">1</a>
+                <a href="#" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;border:1px solid var(--ink);background:var(--ink);font-family:var(--font-mono);font-size:0.52rem;color:#FAF8F5;">2</a>
+                <a href="#" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);font-family:var(--font-mono);font-size:0.52rem;color:var(--stone-mid);transition:var(--ease);">3</a>
+                <a href="#" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);font-family:var(--font-mono);font-size:0.52rem;color:var(--stone-mid);transition:var(--ease);">4</a>
+                <span style="font-family:var(--font-mono);font-size:0.52rem;color:var(--stone-xlt);padding:0 0.5rem;">···</span>
+                <a href="#" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);font-family:var(--font-mono);font-size:0.52rem;color:var(--stone-mid);transition:var(--ease);">12</a>
+                <a href="#" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);font-family:var(--font-mono);font-size:0.52rem;color:var(--stone-mid);transition:var(--ease);">→</a>
+            </div>
+        </section>
+
+
+        <!-- ======================== CARDS ======================== -->
+        <section class="guide-section guide-section--stone" id="cards">
+            <div class="guide-label">09 — Cards</div>
+            <h2 class="guide-title">Content <em>Cards</em></h2>
+            <p class="guide-desc">Cards present stone collections, blog articles, showroom locations, and testimonials. Each pattern is built with flat geometry, precise borders, and a subtle hover elevation to signal interactivity without visual noise.</p>
+
+            <!-- Stone Cards -->
+            <div class="guide-label" style="margin-bottom:0.875rem;">Stone Collection Card</div>
+            <div class="grid-3" style="margin-bottom:3rem;">
+                <div class="stone-card">
+                    <div class="stone-card-img tx-calacatta">
+                        <div class="stone-card-img-inner"></div>
+                        <span class="stone-card-badge">Featured</span>
+                    </div>
+                    <div class="stone-card-body">
+                        <div class="stone-card-category">Marble · Italy</div>
+                        <div class="stone-card-name">Calacatta Panda</div>
+                        <div class="stone-card-desc">A striking white marble with bold, dramatic black veining sourced from the renowned quarries of Carrara, Italy.</div>
+                        <div class="stone-card-footer">
+                            <span class="stone-card-tag">Polished · Honed</span>
+                            <span class="stone-card-arrow">→</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="stone-card">
+                    <div class="stone-card-img tx-travertine">
+                        <div class="stone-card-img-inner"></div>
+                        <span class="stone-card-badge">New</span>
+                    </div>
+                    <div class="stone-card-body">
+                        <div class="stone-card-category">Travertine · Italy</div>
+                        <div class="stone-card-name">Navona Classic</div>
+                        <div class="stone-card-desc">Warm ivory travertine with characteristic cross-cut pores and subtle layered movement — timeless for floors and walls.</div>
+                        <div class="stone-card-footer">
+                            <span class="stone-card-tag">Filled · Honed</span>
+                            <span class="stone-card-arrow">→</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="stone-card">
+                    <div class="stone-card-img tx-onyx">
+                        <div class="stone-card-img-inner"></div>
+                        <span class="stone-card-badge">Exotic</span>
+                    </div>
+                    <div class="stone-card-body">
+                        <div class="stone-card-category">Onyx · Exotic</div>
+                        <div class="stone-card-name">Onyx Verde</div>
+                        <div class="stone-card-desc">A rare translucent green onyx with luminous depth — extraordinary when backlit in feature walls and luxury interiors.</div>
+                        <div class="stone-card-footer">
+                            <span class="stone-card-tag">Polished · Backlit</span>
+                            <span class="stone-card-arrow">→</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Cards -->
+            <div class="guide-label" style="margin-bottom:0.875rem;">Blog / Article Card</div>
+            <div class="grid-3" style="margin-bottom:3rem;">
+                <div class="blog-card">
+                    <div class="blog-card-img tx-soapstone"></div>
+                    <div class="blog-card-body">
+                        <div class="blog-card-date">Jan 12, 2026</div>
+                        <div class="blog-card-title">Why Soapstone Countertops Are a Timeless Choice for Kitchens</div>
+                        <div class="blog-card-excerpt">Discover why soapstone countertops are a top choice for kitchens. Known for their durability, heat resistance, and timeless style.</div>
+                        <a href="#" class="blog-card-link">Read More →</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-card-img tx-quartzite"></div>
+                    <div class="blog-card-body">
+                        <div class="blog-card-date">Jun 23, 2025</div>
+                        <div class="blog-card-title">Backlit Stone Designs: How FORTE Porcelain Illuminates Luxury Spaces</div>
+                        <div class="blog-card-excerpt">Illuminate your interiors with backlit stone from Francini. Explore how translucent quartzite creates stunning focal points.</div>
+                        <a href="#" class="blog-card-link">Read More →</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-card-img tx-granite"></div>
+                    <div class="blog-card-body">
+                        <div class="blog-card-date">Sep 23, 2025</div>
+                        <div class="blog-card-title">What Makes Natural Stone a Luxury Choice for Modern Homes?</div>
+                        <div class="blog-card-excerpt">Natural stone is the ultimate choice for luxury home design. Learn how Francini's premium slabs bring elegance and lasting value.</div>
+                        <a href="#" class="blog-card-link">Read More →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Location Cards -->
+            <div class="guide-label" style="margin-bottom:0.875rem;">Location Card</div>
+            <div class="grid-3" style="background:var(--ink);padding:2rem;margin-bottom:3rem;">
+                <div class="location-card">
+                    <div class="location-card-city">Sun Valley</div>
+                    <div class="location-card-state">California · HQ</div>
+                    <div class="location-card-address">11796 Sheldon St.<br>Sun Valley, CA 91352<br>Est. 1996</div>
+                </div>
+                <div class="location-card">
+                    <div class="location-card-city">Denver</div>
+                    <div class="location-card-state">Colorado</div>
+                    <div class="location-card-address">10035 E. 40th Ave, Ste 200<br>Denver, CO 80238<br>Est. 2020</div>
+                </div>
+                <div class="location-card">
+                    <div class="location-card-city">Houston</div>
+                    <div class="location-card-state">Texas</div>
+                    <div class="location-card-address">7108 Old Katy Road, Ste 100<br>Houston, TX 77024<br>Est. 2023</div>
+                </div>
+            </div>
+
+            <!-- Testimonial -->
+            <div class="guide-label" style="margin-bottom:0.875rem;">Testimonial / Pull Quote Card</div>
+            <div class="grid-2">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">We pride ourselves on selecting the best blocks, slabs, and tiles in order to offer you the very best product available.</div>
+                    <div class="testimonial-author">Andrea Francini · <span>Founder & CEO</span></div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">The Calacatta we selected for our primary bath exceeded every expectation. Francini's team made the entire process seamless and inspiring.</div>
+                    <div class="testimonial-author">3 Ivy Design · <span>Featured Client</span></div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ======================== ORNAMENTS ======================== -->
+        <section class="guide-section" id="ornaments">
+            <div class="guide-label">10 — Ornaments &amp; Dividers</div>
+            <h2 class="guide-title">Decorative <em>Elements</em></h2>
+            <p class="guide-desc">Subtle ornamentation — single-pixel lines, diamond punctuation, and spaced gold rules — carries the editorial Italian stonecraft tradition into the digital layout without overwhelming content.</p>
+
+            <div style="display:flex;flex-direction:column;gap:2rem;max-width:700px;">
+                <!-- Simple rule -->
+                <div>
+                    <div class="spec" style="margin-bottom:0.5rem;">Simple Border Rule</div>
+                    <div style="height:1px;background:var(--border);"></div>
+                </div>
+                <!-- Gold gradient rule -->
+                <div>
+                    <div class="spec" style="margin-bottom:0.5rem;">Gold Gradient Rule</div>
+                    <div class="divider--gold" style="height:1px;background:linear-gradient(90deg, var(--gold-border), transparent);"></div>
+                </div>
+                <!-- Diamond ornament -->
+                <div>
+                    <div class="spec" style="margin-bottom:0.5rem;">Diamond Ornament Rule</div>
+                    <div class="ornament-rule">
+                        <div class="ornament-line"></div>
+                        <div class="ornament-diamond"></div>
+                        <div class="ornament-line"></div>
+                    </div>
+                </div>
+                <!-- Centered label rule -->
+                <div>
+                    <div class="spec" style="margin-bottom:0.5rem;">Centered Label Rule</div>
+                    <div class="ornament-rule">
+                        <div class="ornament-line ornament-line-gold"></div>
+                        <div class="ornament-text">Natural Stone</div>
+                        <div class="ornament-line ornament-line-gold"></div>
+                    </div>
+                </div>
+                <!-- Double diamond -->
+                <div>
+                    <div class="spec" style="margin-bottom:0.5rem;">Double Diamond Rule</div>
+                    <div class="ornament-rule">
+                        <div class="ornament-line"></div>
+                        <div class="ornament-diamond" style="width:4px;height:4px;"></div>
+                        <div style="width:10px;height:1px;background:var(--gold-border);"></div>
+                        <div class="ornament-diamond"></div>
+                        <div style="width:10px;height:1px;background:var(--gold-border);"></div>
+                        <div class="ornament-diamond" style="width:4px;height:4px;"></div>
+                        <div class="ornament-line"></div>
+                    </div>
+                </div>
+
+                <!-- Section Label Block -->
+                <div style="margin-top:1rem;">
+                    <div class="spec" style="margin-bottom:1rem;">Section Label Block</div>
+                    <div class="section-label-block">
+                        <div class="overline">Stone Collections</div>
+                        <div class="heading">Luxury Stone
+                            <span class="sub">For Every Project</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ======================== ICONS ======================== -->
+        <section class="guide-section guide-section--stone" id="icons">
+            <div class="guide-label">11 — Icon System</div>
+            <h2 class="guide-title">UI <em>Icons</em></h2>
+            <p class="guide-desc">Line-weight icons at 24px — minimal, precise strokes matching the precision of stone-cutting. All icons use 1.5px strokes, no fills, with square linecaps to align with the brand's flat geometry aesthetic.</p>
+
+            <div class="icon-grid">
+                <!-- Location -->
+                <div class="icon-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                        <circle cx="12" cy="9" r="2.5"/>
+                    </svg>
+                    <div class="icon-name">Location</div>
+                </div>
+                <!-- Stone/Slab -->
+                <div class="icon-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.5" stroke-linecap="square" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="3" y="5" width="18" height="14"/>
+                        <line x1="3" y1="10" x2="21" y2="10"/>
+                        <line x1="8" y1="5" x2="8" y2="19"/>
+                    </svg>
+                    <div class="icon-name">Stone Slab</div>
+                </div>
+                <!-- Search -->
+                <div class="icon-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.5" stroke-linecap="square" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="11" cy="11" r="7"/>
+                        <line x1="16.5" y1="16.5" x2="22" y2="22"/>
+                    </svg>
+                    <div class="icon-name">Search</div>
+                </div>
+                <!-- Arrow Right -->
+                <div class="icon-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.5" stroke-linecap="square" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="2" y1="12" x2="22" y2="12"/>
+                        <polyline points="15 5 22 12 15 19"/>
+                    </svg>
+                    <div class="icon-name">Arrow Right</div>
+                </div>
+                <!-- Phone -->
+                <div class="icon-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.5" stroke-linecap="square" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.06 2.18 2 2 0 012.03 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+                    </svg>
+                    <div class="icon-name">Phone</div>
+                </div>
+                <!-- Email -->
+                <div class="icon-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.5" stroke-linecap="square" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="4" width="20" height="16"/>
+                        <polyline points="2,4 12,13 22,4"/>
+                    </svg>
+                    <div class="icon-name">Email</div>
+                </div>
+                <!-- Calendar -->
+                <div class="icon-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.5" stroke-linecap="square" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="3" y="4" width="18" height="18"/>
+                        <line x1="16" y1="2" x2="16" y2="6"/>
+                        <line x1="8" y1="2" x2="8" y2="6"/>
+                        <line x1="3" y1="10" x2="21" y2="10"/>
+                    </svg>
+                    <div class="icon-name">Schedule</div>
+                </div>
+                <!-- Download -->
+                <div class="icon-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.5" stroke-linecap="square" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="12" y1="3" x2="12" y2="15"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <path d="M3 18h18v3H3z"/>
+                    </svg>
+                    <div class="icon-name">Download</div>
+                </div>
+                <!-- Instagram -->
+                <div class="icon-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.5" stroke-linecap="square" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="2" width="20" height="20" rx="5"/>
+                        <circle cx="12" cy="12" r="4"/>
+                        <circle cx="17.5" cy="6.5" r="0.5" fill="var(--ink)"/>
+                    </svg>
+                    <div class="icon-name">Instagram</div>
+                </div>
+                <!-- Menu -->
+                <div class="icon-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.5" stroke-linecap="square" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="3" y1="7" x2="21" y2="7"/>
+                        <line x1="3" y1="12" x2="21" y2="12"/>
+                        <line x1="3" y1="17" x2="21" y2="17"/>
+                    </svg>
+                    <div class="icon-name">Menu</div>
+                </div>
+                <!-- Close -->
+                <div class="icon-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.5" stroke-linecap="square" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="4" y1="4" x2="20" y2="20"/>
+                        <line x1="20" y1="4" x2="4" y2="20"/>
+                    </svg>
+                    <div class="icon-name">Close</div>
+                </div>
+                <!-- Diamond / Brand -->
+                <div class="icon-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="square" xmlns="http://www.w3.org/2000/svg">
+                        <polygon points="12,2 22,12 12,22 2,12"/>
+                        <circle cx="12" cy="12" r="2" fill="var(--gold)"/>
+                    </svg>
+                    <div class="icon-name">Brand Mark</div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ======================== SPACING ======================== -->
+        <section class="guide-section" id="spacing">
+            <div class="guide-label">12 — Spacing Scale</div>
+            <h2 class="guide-title">Space &amp; <em>Scale</em></h2>
+            <p class="guide-desc">An 8px base grid governs all spacing decisions — from component padding to section margins. The generous scale reflects the visual breathing room found in luxury editorial design and high-end showroom environments.</p>
+
+            <div class="spacing-row">
+                <div class="spacing-item">
+                    <div class="spacing-block" style="width:8px;height:8px;"></div>
+                    <div class="spacing-label">4px<br>--space-xs</div>
+                </div>
+                <div class="spacing-item">
+                    <div class="spacing-block" style="width:16px;height:16px;"></div>
+                    <div class="spacing-label">8px<br>--space-sm</div>
+                </div>
+                <div class="spacing-item">
+                    <div class="spacing-block" style="width:24px;height:24px;"></div>
+                    <div class="spacing-label">12px<br>--space-base</div>
+                </div>
+                <div class="spacing-item">
+                    <div class="spacing-block" style="width:32px;height:32px;"></div>
+                    <div class="spacing-label">16px<br>--space-md</div>
+                </div>
+                <div class="spacing-item">
+                    <div class="spacing-block" style="width:48px;height:48px;"></div>
+                    <div class="spacing-label">24px<br>--space-lg</div>
+                </div>
+                <div class="spacing-item">
+                    <div class="spacing-block" style="width:64px;height:64px;"></div>
+                    <div class="spacing-label">32px<br>--space-xl</div>
+                </div>
+                <div class="spacing-item">
+                    <div class="spacing-block" style="width:80px;height:80px;"></div>
+                    <div class="spacing-label">48px<br>--space-2xl</div>
+                </div>
+                <div class="spacing-item">
+                    <div class="spacing-block" style="width:96px;height:96px;"></div>
+                    <div class="spacing-label">64px<br>--space-3xl</div>
+                </div>
+                <div class="spacing-item">
+                    <div class="spacing-block" style="width:120px;height:120px;"></div>
+                    <div class="spacing-label">80px<br>--space-4xl</div>
+                </div>
+            </div>
+
+            <!-- Border Radius (minimal) -->
+            <div style="margin-top:3rem;">
+                <div class="guide-label" style="margin-bottom:1.5rem;">Border Radius — Francini uses near-flat geometry</div>
+                <div class="flex-row flex-row--center">
+                    <div style="text-align:center;">
+                        <div style="width:64px;height:64px;background:var(--stone);border:1px solid var(--border);border-radius:0;margin:0 auto 0.5rem;"></div>
+                        <div class="spec">0px<br>Sharp</div>
+                    </div>
+                    <div style="text-align:center;">
+                        <div style="width:64px;height:64px;background:var(--stone);border:1px solid var(--border);border-radius:2px;margin:0 auto 0.5rem;"></div>
+                        <div class="spec">2px<br>--radius-sm</div>
+                    </div>
+                    <div style="text-align:center;">
+                        <div style="width:64px;height:64px;background:var(--stone);border:1px solid var(--border);border-radius:4px;margin:0 auto 0.5rem;"></div>
+                        <div class="spec">4px<br>--radius</div>
+                    </div>
+                    <div style="text-align:center;">
+                        <div style="width:64px;height:64px;background:var(--stone);border:1px solid var(--border);border-radius:8px;margin:0 auto 0.5rem;"></div>
+                        <div class="spec">8px<br>--radius-md</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ======================== LAYOUT ======================== -->
+        <section class="guide-section guide-section--stone" id="layout">
+            <div class="guide-label">13 — Layout Grid</div>
+            <h2 class="guide-title">Grid <em>System</em></h2>
+            <p class="guide-desc">A 12-column fluid grid with a 1400px max-width container. Francini pages favor bold asymmetry — wide image bleeds beside contained text columns — reflecting the drama of full-slab stone displays in showrooms.</p>
+
+            <div style="margin-bottom:2rem;">
+                <div class="spec" style="margin-bottom:0.625rem;">1 Column — Full Width Hero</div>
+                <div class="layout-block" style="height:64px;">Full Width · Max 1400px</div>
+            </div>
+            <div style="margin-bottom:2rem;">
+                <div class="spec" style="margin-bottom:0.625rem;">2 Column — 50 / 50</div>
+                <div class="grid-2">
+                    <div class="layout-block" style="height:64px;">Col 1</div>
+                    <div class="layout-block" style="height:64px;">Col 2</div>
+                </div>
+            </div>
+            <div style="margin-bottom:2rem;">
+                <div class="spec" style="margin-bottom:0.625rem;">2 Column — 60 / 40 (Editorial)</div>
+                <div style="display:grid;grid-template-columns:3fr 2fr;gap:1.5rem;">
+                    <div class="layout-block" style="height:64px;">Content — 60%</div>
+                    <div class="layout-block" style="height:64px;">Media — 40%</div>
+                </div>
+            </div>
+            <div style="margin-bottom:2rem;">
+                <div class="spec" style="margin-bottom:0.625rem;">3 Column — Stone Cards Grid</div>
+                <div class="grid-3">
+                    <div class="layout-block" style="height:64px;">Col 1</div>
+                    <div class="layout-block" style="height:64px;">Col 2</div>
+                    <div class="layout-block" style="height:64px;">Col 3</div>
+                </div>
+            </div>
+            <div style="margin-bottom:2rem;">
+                <div class="spec" style="margin-bottom:0.625rem;">4 Column — Collection Thumbnails</div>
+                <div class="grid-4">
+                    <div class="layout-block" style="height:64px;">Col 1</div>
+                    <div class="layout-block" style="height:64px;">Col 2</div>
+                    <div class="layout-block" style="height:64px;">Col 3</div>
+                    <div class="layout-block" style="height:64px;">Col 4</div>
+                </div>
+            </div>
+            <div>
+                <div class="spec" style="margin-bottom:0.625rem;">Asymmetric — Hero (70 / 30)</div>
+                <div style="display:grid;grid-template-columns:7fr 3fr;gap:1.5rem;">
+                    <div class="layout-block" style="height:120px;background:var(--stone);">Stone Imagery — 70%</div>
+                    <div class="layout-block" style="height:120px;display:flex;flex-direction:column;gap:0.5rem;">
+                        <div style="flex:1;background:var(--stone-dark);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:0.44rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--stone-lt);">Text</div>
+                        <div style="flex:1;background:var(--gold-dim);border:1px solid var(--gold-border);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:0.44rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-dark);">CTA</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ======================== MOTION ======================== -->
+        <section class="guide-section" id="motion">
+            <div class="guide-label">14 — Motion &amp; Transitions</div>
+            <h2 class="guide-title">Animation <em>Principles</em></h2>
+            <p class="guide-desc">Motion is restrained and intentional — like the slow reveal of a stone slab emerging from wrapping. All transitions use ease curves (never linear), keeping movement organic and refined. Hover states shift in 300ms; page transitions in 500ms.</p>
+
+            <div class="motion-demo">
+                <div style="text-align:center;">
+                    <div class="motion-box motion-box--hover"></div>
+                    <div class="motion-label">Hover Lift<br>300ms ease</div>
+                </div>
+                <div style="text-align:center;">
+                    <div class="motion-box" style="transition:border-color 0.3s ease,background 0.3s ease;" onmouseover="this.style.borderColor='var(--gold)';this.style.background='var(--gold-dim)';" onmouseout="this.style.borderColor='rgba(194,150,92,0.30)';this.style.background='var(--ink)';"></div>
+                    <div class="motion-label">Border Reveal<br>300ms ease</div>
+                </div>
+                <div style="text-align:center;">
+                    <div style="width:64px;height:64px;background:var(--gold);transition:opacity 0.3s ease,transform 0.3s ease;cursor:pointer;" onmouseover="this.style.opacity='0.75';this.style.transform='scale(0.96)';" onmouseout="this.style.opacity='1';this.style.transform='scale(1)';"></div>
+                    <div class="motion-label">Press Scale<br>300ms ease</div>
+                </div>
+                <div style="text-align:center;">
+                    <div style="overflow:hidden;width:64px;height:64px;background:var(--stone);border:1px solid var(--border);cursor:pointer;position:relative;" onmouseover="this.querySelector('div').style.transform='scale(1.08)';" onmouseout="this.querySelector('div').style.transform='scale(1)';">
+                        <div class="tx-calacatta" style="position:absolute;inset:0;transition:transform 0.6s ease;"></div>
+                    </div>
+                    <div class="motion-label">Image Zoom<br>600ms ease</div>
+                </div>
+                <div style="text-align:center;">
+                    <a href="#" class="btn btn-gold btn-sm" style="display:block;text-align:center;width:64px;">CTA</a>
+                    <div class="motion-label" style="margin-top:0.5rem;">Button Shift<br>300ms ease</div>
+                </div>
+            </div>
+
+            <div style="margin-top:3rem;background:var(--raised);border:1px solid var(--border-lt);padding:2rem;">
+                <div class="guide-label" style="margin-bottom:1rem;">Timing Reference</div>
+                <div class="grid-3" style="gap:1rem;">
+                    <div>
+                        <div class="t-label-gold" style="margin-bottom:0.375rem;">Micro</div>
+                        <div class="t-body">150ms ease — icon swaps, checkbox ticks, immediate feedback</div>
+                    </div>
+                    <div>
+                        <div class="t-label-gold" style="margin-bottom:0.375rem;">Standard</div>
+                        <div class="t-body">300ms ease — hover states, color changes, border shifts</div>
+                    </div>
+                    <div>
+                        <div class="t-label-gold" style="margin-bottom:0.375rem;">Reveal</div>
+                        <div class="t-body">500–600ms ease — image zooms, section entries, modal opens</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ======================== FOOTER ======================== -->
+        <footer class="sg-footer">
+            <div class="sg-footer-inner">
+                <div>
+                    <div class="sg-footer-brand">Francini Inc.</div>
+                    <div style="font-family:var(--font-mono);font-size:0.48rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--stone-lt);margin-top:0.375rem;">Industry Leader in Natural Stone & Porcelain Slabs</div>
+                </div>
+                <div>
+                    <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <polygon points="20,2 38,20 20,38 2,20" stroke="rgba(194,150,92,0.4)" stroke-width="1" fill="none"/>
+                        <polygon points="20,8 32,20 20,32 8,20" stroke="rgba(194,150,92,0.2)" stroke-width="0.5" fill="none"/>
+                        <circle cx="20" cy="20" r="2.5" fill="rgba(194,150,92,0.6)"/>
+                    </svg>
+                </div>
+                <div class="sg-footer-meta">
+                    Prepared by <span>WebMarkets</span><br>
+                    webmarketsonline.com<br>
+                    Client — <span>Francini Inc.</span><br>
+                    Version 1.0 · March 2026
+                </div>
+            </div>
+        </footer>
+
+    </main>
+</div>
+
+</body>
+</html>
