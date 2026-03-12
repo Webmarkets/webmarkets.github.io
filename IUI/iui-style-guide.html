@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IUI | 2026 Brand Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Barlow+Condensed:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        iui: {
+                            blue:   '#0279BF',
+                            navy:   '#0C2240',
+                            black:  '#000000',
+                            white:  '#FFFFFF',
+                            gray:   '#F3F7FC',
+                            border: 'rgba(12, 34, 64, 0.1)',
+                        }
+                    },
+                    fontFamily: {
+                        sans:    ['Inter', 'sans-serif'],
+                        display: ['Inter', 'sans-serif'],
+                        accent:  ['Barlow Condensed', 'sans-serif'],
+                        mono:    ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FFFFFF;
+            color: #0C2240;
+            overflow-x: hidden;
+        }
+
+        /* Section header rule */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #0279BF;
+            padding-bottom: 1rem;
+        }
+        .section-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: #FFFFFF;
+            background: #0279BF;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        /* Cards */
+        .iui-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(12, 34, 64, 0.1);
+            box-shadow: 0 4px 20px rgba(12, 34, 64, 0.06);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+        .iui-card:hover {
+            border-color: #0279BF;
+            transform: translateY(-2px);
+        }
+
+        /* Hero gradient */
+        .hero-gradient {
+            background: linear-gradient(135deg, #0279BF 0%, #0C2240 100%);
+        }
+
+        /* Accent headline style */
+        .headline-accent {
+            font-family: 'Barlow Condensed', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Copy toast */
+        .copy-toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #0C2240;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            display: none;
+            animation: fadeInUp 0.3s ease-out;
+            z-index: 100;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Medical cross watermark */
+        .medical-mark {
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.04;
+        }
+        .mark-right { right: -80px; top: 50%; transform: translateY(-50%); }
+        .mark-left  { left: -80px; top: 20%; }
+
+        /* Logo placeholder blocks */
+        .logo-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-height: 90px;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body class="font-sans selection:bg-iui-blue selection:text-white">
+
+    <div class="flex min-h-screen relative z-10">
+
+        <!-- ─── SIDEBAR NAV ──────────────────────────────── -->
+        <aside class="w-72 border-r border-iui-border bg-white/80 backdrop-blur-md sticky top-0 h-screen overflow-y-auto hidden lg:block">
+            <div class="p-8">
+                <div class="mb-12">
+                    <!-- Logo area -->
+                    <div class="mb-5">
+                        <img src="iui-logo-blue.png.webp" alt="IUI Logo" class="w-full h-auto max-h-16 object-contain object-left">
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <div class="h-px flex-1 bg-iui-blue/20"></div>
+                        <span class="font-accent font-bold text-[10px] tracking-[0.3em] text-iui-navy uppercase">2026 Brand Guide</span>
+                        <div class="h-px flex-1 bg-iui-blue/20"></div>
+                    </div>
+                </div>
+
+                <nav class="space-y-8">
+                    <div>
+                        <p class="font-mono text-[10px] text-gray-400 uppercase tracking-[0.2em] mb-4">Foundations</p>
+                        <div class="space-y-1">
+                            <a href="#purpose"    class="block py-2 text-sm text-iui-navy hover:text-iui-blue font-semibold transition-colors">Brand Purpose</a>
+                            <a href="#voice"      class="block py-2 text-sm text-iui-navy hover:text-iui-blue font-semibold transition-colors">Personality Tags</a>
+                            <a href="#colors"     class="block py-2 text-sm text-iui-navy hover:text-iui-blue font-semibold transition-colors">Color Palette</a>
+                            <a href="#typography" class="block py-2 text-sm text-iui-navy hover:text-iui-blue font-semibold transition-colors">Typography</a>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="font-mono text-[10px] text-gray-400 uppercase tracking-[0.2em] mb-4">Assets</p>
+                        <div class="space-y-1">
+                            <a href="#logos"   class="block py-2 text-sm text-iui-navy hover:text-iui-blue font-semibold transition-colors">Logo System</a>
+                            <a href="#phrases" class="block py-2 text-sm text-iui-navy hover:text-iui-blue font-semibold transition-colors">Brand Phrases</a>
+                            <a href="#imagery" class="block py-2 text-sm text-iui-navy hover:text-iui-blue font-semibold transition-colors">Imagery Direction</a>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="font-mono text-[10px] text-gray-400 uppercase tracking-[0.2em] mb-4">Structure</p>
+                        <div class="space-y-1">
+                            <a href="#services"  class="block py-2 text-sm text-iui-navy hover:text-iui-blue font-semibold transition-colors">Service Order</a>
+                            <a href="#locations" class="block py-2 text-sm text-iui-navy hover:text-iui-blue font-semibold transition-colors">Locations</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- ─── MAIN CONTENT ─────────────────────────────── -->
+        <main class="flex-1 p-8 lg:p-16 max-w-5xl relative">
+            <header class="mb-20">
+                <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full border border-iui-blue/20 bg-iui-blue/5">
+                    <span class="font-mono text-[10px] text-iui-blue uppercase tracking-widest">Creative Brand Guide</span>
+                </div>
+                <h1 class="font-display text-5xl font-extrabold mb-4 text-iui-navy leading-tight">IUI Brand Guide</h1>
+                <p class="text-xl text-gray-400 max-w-2xl leading-relaxed">
+                    A comprehensive guide for maintaining brand consistency and incorporating creative identity into all Idaho Urology Institute projects for 2026.
+                </p>
+            </header>
+
+            <!-- ── 00: BRAND PURPOSE ─────────────────────── -->
+            <section id="purpose" class="mb-24 scroll-mt-20 relative">
+                <!-- Medical cross watermark -->
+                <svg class="medical-mark mark-right" viewBox="0 0 100 100" fill="#0279BF">
+                    <rect x="35" y="5" width="30" height="90" rx="6"/>
+                    <rect x="5" y="35" width="90" height="30" rx="6"/>
+                </svg>
+                <div class="p-8 rounded-2xl hero-gradient text-white relative z-10">
+                    <h4 class="font-accent text-sm tracking-widest mb-3 opacity-75 uppercase">Brand Guideline Purpose</h4>
+                    <p class="text-2xl font-bold leading-tight">
+                        This guide serves as the source of truth for <span class="underline decoration-white/30">how IUI shows up visually</span> — ensuring every patient touchpoint reflects the practice's authority, compassion, and clinical excellence.
+                    </p>
+                </div>
+            </section>
+
+            <!-- ── 01: BRAND PERSONALITY ─────────────────── -->
+            <section id="voice" class="mb-24 scroll-mt-20 relative">
+                <svg class="medical-mark mark-left" viewBox="0 0 100 100" fill="#0C2240">
+                    <rect x="35" y="5" width="30" height="90" rx="6"/>
+                    <rect x="5" y="35" width="90" height="30" rx="6"/>
+                </svg>
+                <div class="section-header relative z-10">
+                    <span class="section-number">01</span>
+                    <h2 class="font-display text-3xl font-bold text-iui-navy">Brand Personality</h2>
+                </div>
+                <div class="mb-8 p-6 bg-iui-gray rounded-xl border border-iui-border relative z-10">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                        <span class="px-4 py-2 bg-white border border-iui-blue/20 rounded-full text-center text-sm font-bold text-iui-blue">CLINICAL</span>
+                        <span class="px-4 py-2 bg-white border border-iui-blue/20 rounded-full text-center text-sm font-bold text-iui-blue">COMPASSIONATE</span>
+                        <span class="px-4 py-2 bg-white border border-iui-blue/20 rounded-full text-center text-sm font-bold text-iui-blue">TRUSTWORTHY</span>
+                        <span class="px-4 py-2 bg-white border border-iui-blue/20 rounded-full text-center text-sm font-bold text-iui-blue">PRECISE</span>
+                        <span class="px-4 py-2 bg-white border border-iui-blue/20 rounded-full text-center text-sm font-bold text-iui-blue">ACCESSIBLE</span>
+                        <span class="px-4 py-2 bg-white border border-iui-blue/20 rounded-full text-center text-sm font-bold text-iui-blue">AUTHORITATIVE</span>
+                        <span class="px-4 py-2 bg-white border border-iui-blue/20 rounded-full text-center text-sm font-bold text-iui-blue">PATIENT-FIRST</span>
+                    </div>
+                    <div class="pt-5 border-t border-iui-border">
+                        <p class="font-mono text-[10px] text-gray-400 uppercase tracking-widest mb-3">Tone In Practice</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <div class="flex items-start gap-3">
+                                <span class="text-iui-blue font-bold mt-0.5">✓</span>
+                                <span class="text-sm text-gray-600 font-medium">Calm, confident, reassuring — never clinical to the point of cold</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-iui-blue font-bold mt-0.5">✓</span>
+                                <span class="text-sm text-gray-600 font-medium">Plain language first — jargon only when it builds authority</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-iui-blue font-bold mt-0.5">✓</span>
+                                <span class="text-sm text-gray-600 font-medium">Lead with the patient outcome, not the procedure</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-iui-blue font-bold mt-0.5">✓</span>
+                                <span class="text-sm text-gray-600 font-medium">Numbers and credentials reinforce trust — use them</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── 02: COLOR PALETTE ──────────────────────── -->
+            <section id="colors" class="mb-24 scroll-mt-20 relative">
+                <div class="section-header">
+                    <span class="section-number">02</span>
+                    <h2 class="font-display text-3xl font-bold text-iui-navy">Color Palette</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10 mb-8">
+                    <div class="group cursor-pointer" onclick="copyToClipboard('#0279BF')">
+                        <div class="h-32 w-full bg-[#0279BF] rounded-2xl mb-3 shadow-lg shadow-[#0279BF]/25 group-hover:scale-[1.02] transition-transform"></div>
+                        <p class="font-bold text-iui-navy">IUI Blue</p>
+                        <p class="font-mono text-[10px] text-gray-500 uppercase">#0279BF</p>
+                        <p class="text-xs text-gray-400 mt-1">Primary action, CTAs, links</p>
+                    </div>
+                    <div class="group cursor-pointer" onclick="copyToClipboard('#0C2240')">
+                        <div class="h-32 w-full bg-[#0C2240] rounded-2xl mb-3 shadow-lg shadow-[#0C2240]/20 group-hover:scale-[1.02] transition-transform"></div>
+                        <p class="font-bold text-iui-navy">Deep Navy</p>
+                        <p class="font-mono text-[10px] text-gray-500 uppercase">#0C2240</p>
+                        <p class="text-xs text-gray-400 mt-1">Headlines, authority sections</p>
+                    </div>
+                    <div class="group cursor-pointer" onclick="copyToClipboard('#F3F7FC')">
+                        <div class="h-32 w-full bg-[#F3F7FC] rounded-2xl mb-3 border border-gray-100 group-hover:scale-[1.02] transition-transform"></div>
+                        <p class="font-bold text-iui-navy">Clinical White</p>
+                        <p class="font-mono text-[10px] text-gray-500 uppercase">#F3F7FC</p>
+                        <p class="text-xs text-gray-400 mt-1">Section backgrounds, alt fill</p>
+                    </div>
+                    <div class="group cursor-pointer">
+                        <div class="h-32 w-full hero-gradient rounded-2xl mb-3 shadow-lg group-hover:scale-[1.02] transition-transform"></div>
+                        <p class="font-bold text-iui-navy">Primary Gradient</p>
+                        <p class="font-mono text-[10px] text-gray-500 uppercase">Blue → Navy</p>
+                        <p class="text-xs text-gray-400 mt-1">Hero sections, CTAs, gates</p>
+                    </div>
+                </div>
+                <!-- Usage rules -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 relative z-10">
+                    <div class="p-4 rounded-xl bg-iui-gray border border-iui-border">
+                        <p class="font-mono text-[10px] text-iui-blue uppercase tracking-widest mb-2">On Light Backgrounds</p>
+                        <p class="text-sm text-gray-600 font-medium">Use IUI Blue for links, buttons, and icons. Use Deep Navy for all headline text.</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-[#0C2240] border border-white/10">
+                        <p class="font-mono text-[10px] text-[#0279BF] uppercase tracking-widest mb-2">On Dark Backgrounds</p>
+                        <p class="text-sm text-white/70 font-medium">Use IUI Blue for accent elements only. White for all body and headline text.</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-[#0279BF] border border-white/20">
+                        <p class="font-mono text-[10px] text-white/70 uppercase tracking-widest mb-2">On Blue Backgrounds</p>
+                        <p class="text-sm text-white font-medium">White for all text. Use sparingly — reserve gradient for hero and CTA blocks.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── 03: TYPOGRAPHY ─────────────────────────── -->
+            <section id="typography" class="mb-24 scroll-mt-20 relative">
+                <svg class="medical-mark mark-right" style="top: 0; opacity: 0.03;" viewBox="0 0 100 100" fill="#0279BF">
+                    <rect x="35" y="5" width="30" height="90" rx="6"/>
+                    <rect x="5" y="35" width="90" height="30" rx="6"/>
+                </svg>
+                <div class="section-header relative z-10">
+                    <span class="section-number">03</span>
+                    <h2 class="font-display text-3xl font-bold text-iui-navy">Typography</h2>
+                </div>
+                <div class="space-y-6 relative z-10">
+                    <!-- Inter -->
+                    <div class="p-8 rounded-2xl iui-card">
+                        <p class="font-mono text-[10px] text-iui-blue uppercase tracking-widest mb-4">Headlines & Body — Inter</p>
+                        <h1 class="font-display text-4xl font-extrabold text-iui-navy mb-4 leading-tight">Expert Urological Care<br>Across Idaho.</h1>
+                        <p class="text-iui-navy/70 leading-relaxed text-base font-normal">
+                            Inter is our primary typeface for all patient-facing and marketing materials. Clean, highly readable across all sizes, and professional without being cold. Used for both headlines and body copy to maintain a modern clinical aesthetic.
+                        </p>
+                        <div class="mt-6 flex flex-wrap gap-3">
+                            <span class="px-3 py-1 bg-iui-gray rounded-full font-mono text-[11px] text-gray-500">300 Light</span>
+                            <span class="px-3 py-1 bg-iui-gray rounded-full font-mono text-[11px] text-gray-500">400 Regular</span>
+                            <span class="px-3 py-1 bg-iui-gray rounded-full font-mono text-[11px] text-gray-500">500 Medium</span>
+                            <span class="px-3 py-1 bg-iui-gray rounded-full font-mono text-[11px] text-gray-500">600 Semibold</span>
+                            <span class="px-3 py-1 bg-iui-gray rounded-full font-mono text-[11px] text-gray-500">700 Bold</span>
+                            <span class="px-3 py-1 bg-iui-blue/10 rounded-full font-mono text-[11px] text-iui-blue border border-iui-blue/20">800 Extrabold ← headlines</span>
+                        </div>
+                    </div>
+                    <!-- Barlow Condensed -->
+                    <div class="p-8 rounded-2xl iui-card bg-iui-navy text-white">
+                        <p class="font-mono text-[10px] text-iui-blue uppercase tracking-widest mb-4">Eyebrows & Labels — Barlow Condensed</p>
+                        <h2 class="font-accent text-3xl font-semibold tracking-wide uppercase text-white mb-4">PRECISION CARE · COMPASSIONATE OUTCOMES</h2>
+                        <p class="text-gray-400 text-sm font-normal leading-relaxed">
+                            Barlow Condensed is used for section eyebrows, navigation labels, service tags, and any short uppercase callout text. It carries authority without bulk — keeping the layout clean while adding structure.
+                        </p>
+                    </div>
+                    <!-- Type scale -->
+                    <div class="p-8 rounded-2xl iui-card bg-iui-gray">
+                        <p class="font-mono text-[10px] text-iui-blue uppercase tracking-widest mb-6">Type Scale Reference</p>
+                        <div class="space-y-4">
+                            <div class="flex items-baseline gap-4 pb-3 border-b border-iui-border">
+                                <span class="font-mono text-[10px] text-gray-400 w-28 flex-shrink-0">H1 / 64px / 800</span>
+                                <span class="font-display font-extrabold text-5xl text-iui-navy leading-none">Aa</span>
+                            </div>
+                            <div class="flex items-baseline gap-4 pb-3 border-b border-iui-border">
+                                <span class="font-mono text-[10px] text-gray-400 w-28 flex-shrink-0">H2 / 48px / 700</span>
+                                <span class="font-display font-bold text-4xl text-iui-navy leading-none">Aa</span>
+                            </div>
+                            <div class="flex items-baseline gap-4 pb-3 border-b border-iui-border">
+                                <span class="font-mono text-[10px] text-gray-400 w-28 flex-shrink-0">H3 / 30px / 700</span>
+                                <span class="font-display font-bold text-3xl text-iui-navy leading-none">Aa</span>
+                            </div>
+                            <div class="flex items-baseline gap-4">
+                                <span class="font-mono text-[10px] text-gray-400 w-28 flex-shrink-0">Body / 16px / 400</span>
+                                <span class="font-display font-normal text-base text-iui-navy/70 leading-none">Aa — patients trust the clarity</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── 04: LOGO SYSTEM ────────────────────────── -->
+            <section id="logos" class="mb-24 scroll-mt-20 relative">
+                <div class="section-header">
+                    <span class="section-number">04</span>
+                    <h2 class="font-display text-3xl font-bold text-iui-navy">Logo System</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8 relative z-10 mb-8">
+                    <!-- Primary — Blue logo on white -->
+                    <div class="p-6 rounded-xl border border-iui-border bg-white">
+                        <div class="flex items-center justify-center min-h-[90px] mb-6">
+                            <img src="iui-logo-blue.png.webp" alt="IUI Logo — Primary" class="max-h-16 w-full object-contain">
+                        </div>
+                        <p class="font-bold text-iui-navy text-sm">Primary</p>
+                        <p class="text-xs text-gray-400">Blue Logo · White Backgrounds</p>
+                    </div>
+                    <!-- Navy — logo inverted white on navy -->
+                    <div class="p-6 rounded-xl border border-white/10 bg-iui-navy">
+                        <div class="flex items-center justify-center min-h-[90px] mb-6">
+                            <img src="iui-logo-blue.png.webp" alt="IUI Logo — White" class="max-h-16 w-full object-contain" style="filter: brightness(0) invert(1);">
+                        </div>
+                        <p class="font-bold text-white text-sm">Reversed — White</p>
+                        <p class="text-xs text-gray-400">White Logo · Navy & Dark Backgrounds</p>
+                    </div>
+                    <!-- Gradient — logo white on blue gradient -->
+                    <div class="p-6 rounded-xl border border-white/20 hero-gradient">
+                        <div class="flex items-center justify-center min-h-[90px] mb-6">
+                            <img src="iui-logo-blue.png.webp" alt="IUI Logo — Gradient" class="max-h-16 w-full object-contain" style="filter: brightness(0) invert(1);">
+                        </div>
+                        <p class="font-bold text-white text-sm">Reversed — Gradient</p>
+                        <p class="text-xs text-blue-200">White Logo · Blue / Gradient Backgrounds</p>
+                    </div>
+                </div>
+                <!-- Logo rules -->
+                <div class="p-6 rounded-xl bg-iui-gray border border-iui-border relative z-10">
+                    <p class="font-mono text-[10px] text-iui-blue uppercase tracking-widest mb-4">Logo Usage Rules</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div class="flex items-start gap-3">
+                            <span class="text-iui-blue font-bold mt-0.5">✓</span>
+                            <span class="text-sm text-gray-600 font-medium">Always maintain clear space equal to the height of the "I" on all sides</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-iui-blue font-bold mt-0.5">✓</span>
+                            <span class="text-sm text-gray-600 font-medium">Minimum display size: 120px wide for digital, 1 inch for print</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-red-400 font-bold mt-0.5">✕</span>
+                            <span class="text-sm text-gray-600 font-medium">Do not stretch, rotate, or alter logo proportions</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-red-400 font-bold mt-0.5">✕</span>
+                            <span class="text-sm text-gray-600 font-medium">Do not place on busy photography without a protective overlay</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── 05: BRAND PHRASES ──────────────────────── -->
+            <section id="phrases" class="mb-24 scroll-mt-20 relative">
+                <svg class="medical-mark mark-left" style="top: -50px; opacity: 0.035;" viewBox="0 0 100 100" fill="#0C2240">
+                    <rect x="35" y="5" width="30" height="90" rx="6"/>
+                    <rect x="5" y="35" width="90" height="30" rx="6"/>
+                </svg>
+                <div class="section-header relative z-10">
+                    <span class="section-number">05</span>
+                    <h2 class="font-display text-3xl font-bold text-iui-navy">Brand Phrases</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-4 relative z-10">
+                    <div class="p-5 bg-white border-l-4 border-iui-blue shadow-sm iui-card rounded-r-xl">
+                        <p class="font-bold text-iui-navy text-base">Expert Care. Right Here in Idaho.</p>
+                        <p class="text-xs text-gray-400 mt-1 font-medium">Tagline — Hero sections, ads</p>
+                    </div>
+                    <div class="p-5 bg-white border-l-4 border-iui-blue shadow-sm iui-card rounded-r-xl">
+                        <p class="font-bold text-iui-navy text-base">Precision Matters. Compassion Leads.</p>
+                        <p class="text-xs text-gray-400 mt-1 font-medium">Mission tone — About page, collateral</p>
+                    </div>
+                    <div class="p-5 bg-white border-l-4 border-iui-blue shadow-sm iui-card rounded-r-xl">
+                        <p class="font-bold text-iui-navy text-base">From Diagnosis to Recovery — We're With You.</p>
+                        <p class="text-xs text-gray-400 mt-1 font-medium">Patient journey — Service pages, email</p>
+                    </div>
+                    <div class="p-5 bg-white border-l-4 border-iui-blue shadow-sm iui-card rounded-r-xl">
+                        <p class="font-bold text-iui-navy text-base">Idaho's Urology Specialists.</p>
+                        <p class="text-xs text-gray-400 mt-1 font-medium">Authority — Google Ads, local SEO</p>
+                    </div>
+                    <div class="p-5 bg-white border-l-4 border-iui-blue shadow-sm iui-card rounded-r-xl">
+                        <p class="font-bold text-iui-navy text-base">You Shouldn't Have to Wait for Answers.</p>
+                        <p class="text-xs text-gray-400 mt-1 font-medium">Urgency — Booking CTAs, ads</p>
+                    </div>
+                    <div class="p-5 bg-white border-l-4 border-iui-blue shadow-sm iui-card rounded-r-xl">
+                        <p class="font-bold text-iui-navy text-base">Advanced. Accessible. Always Close to Home.</p>
+                        <p class="text-xs text-gray-400 mt-1 font-medium">Multi-location — Location pages, footer</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── 06: IMAGERY DIRECTION ──────────────────── -->
+            <section id="imagery" class="mb-24 scroll-mt-20 relative">
+                <div class="section-header">
+                    <span class="section-number">06</span>
+                    <h2 class="font-display text-3xl font-bold text-iui-navy">Imagery Direction</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6 relative z-10">
+                    <!-- Do -->
+                    <div class="p-6 rounded-2xl iui-card border-t-4 border-iui-blue bg-iui-gray">
+                        <p class="font-accent font-bold text-iui-blue uppercase tracking-widest text-sm mb-5">Use This</p>
+                        <div class="space-y-3">
+                            <div class="flex items-start gap-3">
+                                <span class="text-iui-blue font-bold mt-0.5 flex-shrink-0">✓</span>
+                                <span class="text-sm text-gray-700 font-medium">Warm, natural lighting — clean clinical environments without sterile coldness</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-iui-blue font-bold mt-0.5 flex-shrink-0">✓</span>
+                                <span class="text-sm text-gray-700 font-medium">Physicians in white coats or scrubs — approachable, direct eye contact</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-iui-blue font-bold mt-0.5 flex-shrink-0">✓</span>
+                                <span class="text-sm text-gray-700 font-medium">Diverse patient demographics — men, women, all ages represented</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-iui-blue font-bold mt-0.5 flex-shrink-0">✓</span>
+                                <span class="text-sm text-gray-700 font-medium">Idaho landscapes and community imagery for location pages</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-iui-blue font-bold mt-0.5 flex-shrink-0">✓</span>
+                                <span class="text-sm text-gray-700 font-medium">Modern, clean facility photography that communicates quality of care</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Don't -->
+                    <div class="p-6 rounded-2xl iui-card border-t-4 border-red-400 bg-red-50/50">
+                        <p class="font-accent font-bold text-red-500 uppercase tracking-widest text-sm mb-5">Avoid This</p>
+                        <div class="space-y-3">
+                            <div class="flex items-start gap-3">
+                                <span class="text-red-400 font-bold mt-0.5 flex-shrink-0">✕</span>
+                                <span class="text-sm text-gray-700 font-medium">Generic stock imagery with over-posed or obviously fake interactions</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-red-400 font-bold mt-0.5 flex-shrink-0">✕</span>
+                                <span class="text-sm text-gray-700 font-medium">Graphic medical imagery — keep all visuals patient-safe and approachable</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-red-400 font-bold mt-0.5 flex-shrink-0">✕</span>
+                                <span class="text-sm text-gray-700 font-medium">Cold, harsh lighting that makes facilities feel intimidating</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-red-400 font-bold mt-0.5 flex-shrink-0">✕</span>
+                                <span class="text-sm text-gray-700 font-medium">Imagery with unrelated colors that fight the IUI blue and navy palette</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-red-400 font-bold mt-0.5 flex-shrink-0">✕</span>
+                                <span class="text-sm text-gray-700 font-medium">Outdated or low-resolution photography — quality signals clinical quality</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── 07: SERVICE ORDER ──────────────────────── -->
+            <section id="services" class="mb-24 scroll-mt-20">
+                <div class="section-header">
+                    <span class="section-number">07</span>
+                    <h2 class="font-display text-3xl font-bold text-iui-navy">Service Order</h2>
+                </div>
+                <p class="text-gray-500 text-sm font-medium mb-6 -mt-2">Services should always appear in this order across the website, ads, and collateral.</p>
+                <div class="space-y-2">
+                    <div class="flex items-center gap-4 p-4 iui-card rounded-lg">
+                        <span class="font-mono text-iui-blue font-bold w-8">01</span>
+                        <span class="font-bold text-iui-navy">Men's Health & Urology</span>
+                        <span class="ml-auto text-xs font-medium text-gray-400 font-mono">ED · BPH · Prostate · Vasectomy</span>
+                    </div>
+                    <div class="flex items-center gap-4 p-4 iui-card rounded-lg">
+                        <span class="font-mono text-iui-blue font-bold w-8">02</span>
+                        <span class="font-bold text-iui-navy">Women's Urology</span>
+                        <span class="ml-auto text-xs font-medium text-gray-400 font-mono">Incontinence · OAB · Pelvic Floor</span>
+                    </div>
+                    <div class="flex items-center gap-4 p-4 iui-card rounded-lg">
+                        <span class="font-mono text-iui-blue font-bold w-8">03</span>
+                        <span class="font-bold text-iui-navy">Kidney & Stone Care</span>
+                        <span class="ml-auto text-xs font-medium text-gray-400 font-mono">Kidney Stones · Lithotripsy</span>
+                    </div>
+                    <div class="flex items-center gap-4 p-4 iui-card rounded-lg">
+                        <span class="font-mono text-iui-blue font-bold w-8">04</span>
+                        <span class="font-bold text-iui-navy">Urologic Oncology</span>
+                        <span class="ml-auto text-xs font-medium text-gray-400 font-mono">Prostate · Bladder · Kidney Cancer</span>
+                    </div>
+                    <div class="flex items-center gap-4 p-4 iui-card rounded-lg">
+                        <span class="font-mono text-iui-blue font-bold w-8">05</span>
+                        <span class="font-bold text-iui-navy">Robotic & Minimally Invasive Surgery</span>
+                        <span class="ml-auto text-xs font-medium text-gray-400 font-mono">da Vinci · Laparoscopic</span>
+                    </div>
+                    <div class="flex items-center gap-4 p-4 iui-card rounded-lg">
+                        <span class="font-mono text-iui-blue font-bold w-8">06</span>
+                        <span class="font-bold text-iui-navy">General Urology</span>
+                        <span class="ml-auto text-xs font-medium text-gray-400 font-mono">UTI · Hematuria · Diagnostics</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── 08: LOCATIONS ──────────────────────────── -->
+            <section id="locations" class="mb-24 scroll-mt-20">
+                <div class="section-header">
+                    <span class="section-number">08</span>
+                    <h2 class="font-display text-3xl font-bold text-iui-navy">Locations</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="p-4 iui-card rounded-lg border-l-4 border-iui-blue">
+                        <p class="font-bold text-iui-navy">Boise, ID</p>
+                        <p class="text-xs text-iui-blue uppercase tracking-widest font-mono mt-0.5">Primary Location</p>
+                    </div>
+                    <div class="p-4 iui-card rounded-lg border-l-4 border-iui-blue">
+                        <p class="font-bold text-iui-navy">Meridian, ID</p>
+                        <p class="text-xs text-gray-400 uppercase tracking-widest font-mono mt-0.5">Regional Office</p>
+                    </div>
+                    <div class="p-4 iui-card rounded-lg border-l-4 border-iui-blue">
+                        <p class="font-bold text-iui-navy">Nampa, ID</p>
+                        <p class="text-xs text-gray-400 uppercase tracking-widest font-mono mt-0.5">Regional Office</p>
+                    </div>
+                    <div class="p-4 iui-card rounded-lg border-l-4 border-iui-blue">
+                        <p class="font-bold text-iui-navy">Twin Falls, ID</p>
+                        <p class="text-xs text-gray-400 uppercase tracking-widest font-mono mt-0.5">Regional Office</p>
+                    </div>
+                    <div class="p-4 iui-card rounded-lg border-l-4 border-iui-blue">
+                        <p class="font-bold text-iui-navy">Caldwell, ID</p>
+                        <p class="text-xs text-gray-400 uppercase tracking-widest font-mono mt-0.5">Regional Office</p>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="mt-40 pt-10 border-t border-iui-border text-center">
+                <p class="text-xs text-gray-400 uppercase tracking-widest font-mono">Idaho Urology Institute · 2026 Brand Guide · Prepared by WebMarkets</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Copy Notification -->
+    <div id="copyToast" class="copy-toast">Copied to clipboard!</div>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const toast = document.getElementById('copyToast');
+                toast.style.display = 'block';
+                setTimeout(() => { toast.style.display = 'none'; }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
