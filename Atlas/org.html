@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WebMarkets | Org Chart 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --graphite: #0C111D;
+    --panel: #111827;
+    --steel: #1F2937;
+    --red: #EF4444;
+    --blue: #3B82F6;
+    --cyan: #06B6D4;
+    --white: #F9FAFB;
+    --gray-4: #9CA3AF;
+    --gray-5: #6B7280;
+    --gray-6: #374151;
+  }
+
+  body {
+    background-color: var(--graphite);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+  }
+
+  .grid-texture {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  header {
+    position: relative; z-index: 10;
+    padding: 2rem 2rem 1.5rem;
+    border-bottom: 1px solid rgba(31,41,55,1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    background: rgba(12,17,29,0.9);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    position: sticky; top: 0;
+  }
+
+  header .brand { display: flex; align-items: center; gap: 1rem; }
+  header img { height: 28px; width: auto; }
+  header .divider { width: 1px; height: 28px; background: var(--steel); }
+  header .page-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem; font-weight: 700; color: var(--white);
+  }
+  header .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; color: var(--blue);
+    background: rgba(59,130,246,0.1);
+    border: 1px solid rgba(59,130,246,0.2);
+    padding: 0.25rem 0.6rem; border-radius: 4px;
+  }
+
+  .chart-wrapper {
+    position: relative; z-index: 5;
+    padding: 1rem 2rem 6rem;
+  }
+
+  .chart-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  /* ── TIER LAYOUT ──────────────────────────────────────────────── */
+  .tier {
+    display: flex;
+    gap: 3rem;
+    padding: 2.25rem 0;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    align-items: flex-start;
+  }
+  .tier:first-child { border-top: none; }
+
+  .tier-label {
+    width: 88px;
+    flex-shrink: 0;
+    padding-top: 0.2rem;
+  }
+  .tier-level-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--blue);
+    letter-spacing: 0.04em;
+    margin-bottom: 0.2rem;
+  }
+  .tier-level-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.58rem;
+    color: var(--gray-5);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
+
+  .tier-content {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    align-items: flex-start;
+  }
+
+  /* ── DEPARTMENT CLUSTERS (L4) ─────────────────────────────────── */
+  .dept-cluster {
+    background: rgba(255,255,255,0.015);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: 0.85rem 1rem 1rem;
+  }
+  .dept-cluster-header {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.58rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    padding-bottom: 0.55rem;
+    border-bottom: 1px solid currentColor;
+    margin-bottom: 0.75rem;
+    opacity: 0.7;
+  }
+  .dept-cluster-nodes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  /* ── NODES ─────────────────────────────────── */
+  .node {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.9rem 1.1rem;
+    background: rgba(17,24,39,0.6);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    width: 175px;
+    flex-shrink: 0;
+    text-align: left;
+    position: relative;
+  }
+  .node:hover {
+    border-color: rgba(59,130,246,0.5);
+    background: rgba(17,24,39,0.85);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  }
+  .node.active {
+    border-color: var(--blue);
+    background: rgba(59,130,246,0.1);
+    box-shadow: 0 0 0 2px rgba(59,130,246,0.3);
+  }
+  .node .dept-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    margin-bottom: 0.5rem;
+  }
+  .node .name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--white);
+    margin-bottom: 0.2rem;
+    line-height: 1.2;
+  }
+  .node .title {
+    font-size: 0.72rem;
+    color: var(--gray-4);
+    line-height: 1.3;
+  }
+  .node .click-hint {
+    position: absolute; top: 0.5rem; right: 0.6rem;
+    font-size: 0.6rem; color: var(--blue); opacity: 0.6;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* COLOR VARIANTS */
+  .tag-leadership { background: rgba(239,68,68,0.12); color: #EF4444; border: 1px solid rgba(239,68,68,0.2); }
+  .tag-accounts   { background: rgba(59,130,246,0.12); color: #3B82F6; border: 1px solid rgba(59,130,246,0.2); }
+  .tag-perf       { background: rgba(6,182,212,0.12); color: #06B6D4; border: 1px solid rgba(6,182,212,0.2); }
+  .tag-creative   { background: rgba(168,85,247,0.12); color: #A855F7; border: 1px solid rgba(168,85,247,0.2); }
+  .tag-dev        { background: rgba(34,197,94,0.12); color: #22C55E; border: 1px solid rgba(34,197,94,0.2); }
+  .tag-sales      { background: rgba(245,158,11,0.12); color: #F59E0B; border: 1px solid rgba(245,158,11,0.2); }
+  .tag-tb         { background: rgba(249,115,22,0.12); color: #F97316; border: 1px solid rgba(249,115,22,0.2); }
+
+  .node-ceo   { border-color: rgba(239,68,68,0.35); }
+  .node-ops   { border-color: rgba(59,130,246,0.35); }
+  .node-dir   { border-color: rgba(59,130,246,0.25); }
+
+  /* (tree layout removed — replaced by tier swimlane) */
+
+  /* Connector lines via SVG overlay */
+  .connectors { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+
+  .level-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--gray-5);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  /* ── DETAIL PANEL ───────────────────────────────────────────────── */
+  #detail-panel {
+    position: fixed;
+    top: 0; right: -520px;
+    width: 480px;
+    height: 100vh;
+    background: rgba(17,24,39,0.97);
+    border-left: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    z-index: 100;
+    display: flex; flex-direction: column;
+    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+  }
+  #detail-panel.open { right: 0; }
+
+  .panel-header {
+    padding: 1.5rem 1.5rem 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    flex-shrink: 0;
+  }
+  .panel-header .dept-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em;
+    padding: 0.2rem 0.5rem; border-radius: 4px;
+    display: inline-block; margin-bottom: 0.75rem;
+  }
+  .panel-header h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem; font-weight: 700; color: var(--white);
+    margin-bottom: 0.2rem;
+  }
+  .panel-header .panel-title {
+    font-size: 0.85rem; color: var(--blue); font-weight: 500;
+  }
+  .panel-close {
+    position: absolute; top: 1.2rem; right: 1.2rem;
+    background: none; border: none; color: var(--gray-4);
+    cursor: pointer; font-size: 1.2rem; padding: 0.25rem 0.5rem;
+    border-radius: 6px; transition: all 0.2s;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  .panel-close:hover { color: var(--white); background: rgba(255,255,255,0.08); }
+
+  .panel-meta {
+    display: flex; gap: 0.75rem; flex-wrap: wrap; padding: 0.75rem 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    flex-shrink: 0;
+  }
+  .meta-chip {
+    font-size: 0.72rem; color: var(--gray-4);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px; padding: 0.3rem 0.6rem;
+    display: flex; align-items: center; gap: 0.35rem;
+  }
+  .meta-chip span { color: var(--white); font-weight: 500; }
+
+  .panel-body {
+    flex: 1; overflow-y: auto; padding: 1.25rem 1.5rem 2rem;
+    scrollbar-width: thin; scrollbar-color: var(--steel) transparent;
+  }
+  .panel-body::-webkit-scrollbar { width: 4px; }
+  .panel-body::-webkit-scrollbar-track { background: transparent; }
+  .panel-body::-webkit-scrollbar-thumb { background: var(--steel); border-radius: 2px; }
+
+  .panel-section { margin-bottom: 1.5rem; }
+  .panel-section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em;
+    color: var(--blue); margin-bottom: 0.6rem;
+  }
+  .panel-section p {
+    font-size: 0.82rem; color: #D1D5DB; line-height: 1.65;
+  }
+  .resp-list { list-style: none; }
+  .resp-list li {
+    font-size: 0.8rem; color: #D1D5DB; line-height: 1.6;
+    padding: 0.35rem 0 0.35rem 1.1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    position: relative;
+  }
+  .resp-list li::before {
+    content: "→";
+    position: absolute; left: 0;
+    color: var(--blue); font-size: 0.7rem;
+  }
+  .success-list li::before { color: #22C55E; content: "✓"; }
+  .boundary-list li::before { color: #EF4444; content: "✕"; }
+  .boundary-list li { color: #FCA5A5; }
+
+  /* Overlay for mobile */
+  #overlay {
+    display: none; position: fixed; inset: 0; z-index: 99;
+    background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
+  }
+  #overlay.show { display: block; }
+
+  /* Legend */
+  .legend {
+    position: relative; z-index: 5;
+    display: flex; flex-wrap: wrap; gap: 0.75rem;
+    justify-content: center; padding: 0 1rem 2rem;
+  }
+  .legend-item {
+    display: flex; align-items: center; gap: 0.4rem;
+    font-size: 0.7rem; color: var(--gray-4);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  /* Tree connectors */
+  .tree { position: relative; }
+  .tree-row {
+    display: flex; justify-content: center; gap: 1.5rem;
+    position: relative; padding-top: 2rem;
+  }
+  .tree-row::before {
+    content: '';
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 1px; height: 2rem;
+    background: linear-gradient(to bottom, rgba(59,130,246,0.6), rgba(59,130,246,0.2));
+  }
+  .tree-children {
+    display: flex; gap: 1.5rem; position: relative;
+    padding-top: 2rem;
+  }
+  .tree-children::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: rgba(59,130,246,0.25);
+  }
+  .tree-child { display: flex; flex-direction: column; align-items: center; position: relative; }
+  .tree-child::before {
+    content: '';
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 1px; height: 2rem;
+    background: rgba(59,130,246,0.25);
+  }
+
+  /* Main layout */
+  .org-layout { position: relative; z-index: 5; }
+
+  /* Dept groups */
+  .dept-group {
+    display: flex; flex-direction: column; align-items: center;
+    position: relative;
+  }
+  .dept-group-header {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.2em;
+    color: var(--gray-5); text-align: center;
+    margin-bottom: 0.75rem;
+  }
+
+  /* SVG connector lines */
+  .connector-svg {
+    position: absolute; top: 0; left: 0;
+    width: 100%; pointer-events: none; z-index: 1;
+    overflow: visible;
+  }
+
+  /* Responsive  */
+  @media (max-width: 768px) {
+    #detail-panel { width: 100%; right: -100%; }
+    #detail-panel.open { right: 0; }
+  }
+
+  #panel-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .animate-fade-in { animation: fadeIn 0.4s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: translateX(0); } }
+
+  /* Instruction bar */
+  .hint-bar {
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem; color: var(--gray-5);
+    padding: 0.75rem; letter-spacing: 0.05em;
+    position: relative; z-index: 5;
+  }
+
+  /* ── PASSWORD GATE ───────────────────────────────────────────── */
+  #pw-gate {
+    position: fixed; inset: 0; z-index: 9999;
+    background: var(--graphite);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .pw-box {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 1.5rem; width: 100%; max-width: 340px; padding: 2rem;
+  }
+  .pw-box img { height: 28px; width: auto; margin-bottom: 0.5rem; }
+  .pw-box h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem; font-weight: 700; color: var(--white);
+    text-align: center;
+  }
+  .pw-box p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem; color: var(--gray-5);
+    text-align: center; letter-spacing: 0.06em;
+  }
+  .pw-input-wrap { position: relative; width: 100%; }
+  .pw-input-wrap input {
+    width: 100%; padding: 0.75rem 1rem;
+    background: var(--steel); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px; color: var(--white);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;
+    letter-spacing: 0.12em; outline: none;
+    transition: border-color 0.2s;
+  }
+  .pw-input-wrap input:focus { border-color: var(--blue); }
+  .pw-input-wrap input.error { border-color: var(--red); animation: shake 0.3s ease; }
+  .pw-btn {
+    width: 100%; padding: 0.75rem;
+    background: var(--blue); border: none; border-radius: 8px;
+    color: var(--white); font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.9rem; font-weight: 600; cursor: pointer;
+    transition: background 0.2s;
+  }
+  .pw-btn:hover { background: #2563EB; }
+  .pw-error {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem; color: var(--red);
+    letter-spacing: 0.06em; min-height: 1rem;
+  }
+  @keyframes shake {
+    0%,100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    75% { transform: translateX(6px); }
+  }
+</style>
+</head>
+<body>
+
+<!-- PASSWORD GATE -->
+<div id="pw-gate">
+  <div class="pw-box">
+    <img src="https://webmarketsonline.com/Portals/0/WMLogoWhite.png" alt="WebMarkets">
+    <h2>Organizational Chart</h2>
+    <p>ENTER PASSWORD TO CONTINUE</p>
+    <div class="pw-input-wrap">
+      <input id="pw-input" type="password" placeholder="Password" autocomplete="off"
+        onkeydown="if(event.key==='Enter')checkPassword()">
+    </div>
+    <button class="pw-btn" onclick="checkPassword()">Unlock</button>
+    <div class="pw-error" id="pw-error"></div>
+  </div>
+</div>
+
+<div class="grid-texture"></div>
+
+<!-- HEADER -->
+<header>
+  <div class="brand">
+    <img src="https://webmarketsonline.com/Portals/0/WMLogoWhite.png" alt="WebMarkets">
+    <div class="divider"></div>
+    <div class="page-title">Organizational Chart</div>
+  </div>
+  <div style="display:flex;gap:0.75rem;align-items:center;flex-wrap:wrap;">
+    <div class="meta">15 Team Members</div>
+    <div class="meta">Effective: April 2026</div>
+    <div class="meta">6 Departments</div>
+  </div>
+</header>
+
+<div class="hint-bar">Click any team member card to view their full role profile →</div>
+
+
+<!-- ORG CHART -->
+<div class="chart-wrapper">
+<div class="chart-inner">
+
+  <!-- TIER 1: Executive -->
+  <div class="tier">
+    <div class="tier-label">
+      <div class="tier-level-num">L1</div>
+      <div class="tier-level-name">Executive</div>
+    </div>
+    <div class="tier-content">
+      <div class="node node-ceo" onclick="openPanel('kris')">
+        <span class="click-hint">VIEW ↗</span>
+        <div class="dept-tag tag-leadership">Leadership</div>
+        <div class="name">Kris Lloyd</div>
+        <div class="title">Chief Executive Officer</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIER 2: Operations -->
+  <div class="tier">
+    <div class="tier-label">
+      <div class="tier-level-num">L2</div>
+      <div class="tier-level-name">Leadership</div>
+    </div>
+    <div class="tier-content">
+      <div class="node node-ceo" onclick="openPanel('derrick')" style="width:auto;white-space:nowrap;">
+        <span class="click-hint">VIEW ↗</span>
+        <div class="dept-tag tag-leadership">Leadership</div>
+        <div class="name">Derrick Lawter</div>
+        <div class="title">Director of Operations &amp; Sales</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIER 3: Directors -->
+  <div class="tier">
+    <div class="tier-label">
+      <div class="tier-level-num">L3</div>
+      <div class="tier-level-name">Directors</div>
+    </div>
+    <div class="tier-content">
+      <div class="node node-dir" onclick="openPanel('tanner')">
+        <span class="click-hint">VIEW ↗</span>
+        <div class="dept-tag tag-accounts">Accounts</div>
+        <div class="name">Tanner Williams</div>
+        <div class="title">Director of Marketing</div>
+      </div>
+      <div class="node" onclick="openPanel('lauren')" style="border-color:rgba(249,115,22,0.3);">
+        <span class="click-hint">VIEW ↗</span>
+        <div class="dept-tag tag-tb">Totally Boise</div>
+        <div class="name">Lauren Schaack</div>
+        <div class="title">Totally Boise Director</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIER 4: Team — grouped by department -->
+  <div class="tier">
+    <div class="tier-label">
+      <div class="tier-level-num">L4</div>
+      <div class="tier-level-name">Team</div>
+    </div>
+    <div class="tier-content">
+
+      <!-- Accounts & Delivery -->
+      <div class="dept-cluster">
+        <div class="dept-cluster-header" style="color:#3B82F6;">Accounts &amp; Delivery</div>
+        <div class="dept-cluster-nodes">
+          <div class="node" onclick="openPanel('dillion')">
+            <span class="click-hint">VIEW ↗</span>
+            <div class="dept-tag tag-accounts">Accounts</div>
+            <div class="name">Dillion Goldsmith</div>
+            <div class="title">Account Manager</div>
+          </div>
+          <div class="node" onclick="openPanel('holland')">
+            <span class="click-hint">VIEW ↗</span>
+            <div class="dept-tag tag-accounts">Operations</div>
+            <div class="name">Holland Stull</div>
+            <div class="title">Operations Specialist</div>
+          </div>
+          <div class="node" onclick="openPanel('mc')">
+            <span class="click-hint">VIEW ↗</span>
+            <div class="dept-tag tag-perf">Performance</div>
+            <div class="name">Mary-Claire</div>
+            <div class="title">Performance Marketing Manager</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sales -->
+      <div class="dept-cluster">
+        <div class="dept-cluster-header" style="color:#F59E0B;">Sales</div>
+        <div class="dept-cluster-nodes">
+          <div class="node" onclick="openPanel('emanuel')">
+            <span class="click-hint">VIEW ↗</span>
+            <div class="dept-tag tag-sales">Sales</div>
+            <div class="name">Emanuel Nunez</div>
+            <div class="title">Sales Consultant</div>
+          </div>
+          <div class="node" onclick="openPanel('jake')">
+            <span class="click-hint">VIEW ↗</span>
+            <div class="dept-tag tag-sales">Sales</div>
+            <div class="name">Jake Schaack</div>
+            <div class="title">Sales Consultant</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Creative & Content -->
+      <div class="dept-cluster">
+        <div class="dept-cluster-header" style="color:#A855F7;">Creative &amp; Content</div>
+        <div class="dept-cluster-nodes">
+          <div class="node" onclick="openPanel('noelle')">
+            <span class="click-hint">VIEW ↗</span>
+            <div class="dept-tag tag-creative">Creative</div>
+            <div class="name">Noelle Foster</div>
+            <div class="title">Creative Strategist</div>
+          </div>
+          <div class="node" onclick="openPanel('spencer')">
+            <span class="click-hint">VIEW ↗</span>
+            <div class="dept-tag tag-creative">Creative</div>
+            <div class="name">Spencer Durell</div>
+            <div class="title">Creative Specialist — Video</div>
+          </div>
+          <div class="node" onclick="openPanel('danielle')">
+            <span class="click-hint">VIEW ↗</span>
+            <div class="dept-tag tag-creative">Creative</div>
+            <div class="name">Danielle Lawter</div>
+            <div class="title">Creative Specialist — Graphics</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Development -->
+      <div class="dept-cluster">
+        <div class="dept-cluster-header" style="color:#22C55E;">Development</div>
+        <div class="dept-cluster-nodes">
+          <div class="node" onclick="openPanel('bradley')" style="border-color:rgba(34,197,94,0.25);">
+            <span class="click-hint">VIEW ↗</span>
+            <div class="dept-tag tag-dev">Development</div>
+            <div class="name">Bradley Graham</div>
+            <div class="title">Senior Developer</div>
+          </div>
+          <div class="node" onclick="openPanel('carson')">
+            <span class="click-hint">VIEW ↗</span>
+            <div class="dept-tag tag-dev">Development</div>
+            <div class="name">Carson McMahan</div>
+            <div class="title">Jr. Developer — Software</div>
+          </div>
+          <div class="node" onclick="openPanel('jessna')">
+            <span class="click-hint">VIEW ↗</span>
+            <div class="dept-tag tag-dev">Development</div>
+            <div class="name">Jessna Rodriguez</div>
+            <div class="title">Jr. Developer — UI/UX</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- end L4 tier -->
+
+</div><!-- chart-inner -->
+</div><!-- chart-wrapper -->
+
+
+<!-- OVERLAY -->
+<div id="overlay" onclick="closePanel()"></div>
+
+<!-- DETAIL PANEL -->
+<div id="detail-panel">
+  <div id="panel-content"></div>
+</div>
+
+
+<script>
+function checkPassword() {
+  const input = document.getElementById('pw-input');
+  const error = document.getElementById('pw-error');
+  if (input.value === 'redrock') {
+    document.getElementById('pw-gate').style.display = 'none';
+    input.value = '';
+  } else {
+    error.textContent = 'Incorrect password. Try again.';
+    input.classList.add('error');
+    input.value = '';
+    setTimeout(() => { input.classList.remove('error'); error.textContent = ''; }, 1000);
+  }
+}
+
+const people = {
+  kris: {
+    name: "Kris Lloyd",
+    title: "Chief Executive Officer",
+    dept: "Leadership",
+    deptClass: "tag-leadership",
+    reportsTo: "Board / Ownership",
+    manages: null,
+    primaryFn: "Set strategic vision, cultivate high-value external partnerships, and position WebMarkets for long-term growth. The CEO is the primary external face of the company and the generator of enterprise-level pipeline.",
+    responsibilities: [
+      "Develop and close strategic partnerships and enterprise-level business relationships.",
+      "Represent WebMarkets at key industry events, community touchpoints, and high-value client interactions.",
+      "Set company vision, values, and culture in partnership with the Director of Operations.",
+      "Review and approve major business decisions: pricing, new service lines, key hires, software product direction.",
+      "Maintain board-level relationships and investor/partner communications.",
+      "Conduct periodic team culture check-ins and staff recognition.",
+      "Serve as executive sponsor on select high-value client relationships where executive presence adds strategic credibility."
+    ],
+    success: [
+      "Partnership pipeline contribution is measurable and reported monthly.",
+      "Enterprise-level deals are advanced or closed without operational dependency on Derrick.",
+      "Team culture and morale indicators remain high.",
+      "Strategic positioning decisions are communicated clearly and quickly."
+    ],
+    boundaries: [
+      "Day-to-day management of any team member below Director level.",
+      "Client account management or fulfillment oversight.",
+      "Sales pipeline tracking or CRM management."
+    ]
+  },
+  derrick: {
+    name: "Derrick Lawter",
+    title: "Director of Operations & Sales",
+    dept: "Leadership",
+    deptClass: "tag-accounts",
+    reportsTo: "CEO (Kris Lloyd)",
+    manages: null,
+    primaryFn: "Own the internal operating infrastructure of WebMarkets. Responsible for how the company runs: systems, people, technology, revenue infrastructure, product development, and AI implementation. Zero client account management.",
+    responsibilities: [
+      "Own and continuously improve internal operating systems, SOPs, and project management infrastructure (Monday.com).",
+      "Oversee all department directors and ensure executional accountability across the company.",
+      "Lead development team as Technical Product Manager: sprint planning, product roadmap, architecture oversight.",
+      "Lead AI adoption and automation implementation company-wide.",
+      "Manage the sales function: own strategy, pipeline oversight, close enterprise and partnership deals personally.",
+      "Lead company marketing strategy and brand direction.",
+      "Manage HR and payroll administration. Maintain all compensation structures in writing.",
+      "Serve as product manager for internal software product: roadmap, go-to-market, distribution strategy.",
+      "Conduct regular 1-on-1s with all direct reports. Hold performance to documented standards.",
+      "Provide weekly performance summary to CEO.",
+      "Build and deploy automation tools that increase delivery capacity across the team."
+    ],
+    success: [
+      "Every department has a documented operating cadence and performance is tracked.",
+      "Bottlenecks are identified and resolved before creating client-facing issues.",
+      "Company EBITDA trends positively quarter over quarter.",
+      "Sales pipeline is healthy and the team closes without Derrick's involvement in standard deals.",
+      "AI and automation tools are actively reducing manual work across departments."
+    ],
+    boundaries: [
+      "Direct client account management of any kind (exception: enterprise partnership introductions only).",
+      "Day-to-day creative execution or fulfillment review.",
+      "Attending standard client check-in calls."
+    ]
+  },
+  tanner: {
+    name: "Tanner Williams",
+    title: "Director of Marketing & Accounts",
+    dept: "Account Management & Delivery",
+    deptClass: "tag-accounts",
+    reportsTo: "Director of Operations & Sales (Derrick Lawter)",
+    manages: null,
+    primaryFn: "Own everything that happens after the sale. Accountable for client retention, fulfillment quality, account strategy, and the performance of the entire client delivery team. If a client is unhappy or not renewing, this role is responsible.",
+    responsibilities: [
+      "Serve as the primary strategic lead for all active client accounts — set strategy, oversee execution, drive retention.",
+      "Lead all high-value client meetings, strategy reviews, and QBRs.",
+      "Manage and develop the account management team (Dillion) and creative delivery team.",
+      "Own client communication standards — ensure proactive relationship management, not reactive.",
+      "Review all major deliverables for quality before client delivery.",
+      "Track and report on retention rates, client NPS, and fulfillment performance.",
+      "Identify upsell opportunities and coordinate with sales team on expansion proposals.",
+      "Escalate client risks to Director of Operations proactively with documentation and proposed resolutions.",
+      "Own the new client onboarding process — ensure clean handoff from sales.",
+      "Drive creative and performance strategy alignment across all delivery teams."
+    ],
+    success: [
+      "Client retention rate at or above 90%.",
+      "All active accounts have documented strategy reviewed at least quarterly.",
+      "Fulfillment is delivered on time and to SOP standard.",
+      "Director of Operations receives zero client escalation surprises.",
+      "Upsell activity is tracked and contributes to revenue growth."
+    ],
+    boundaries: [
+      "New business prospecting or cold outreach.",
+      "Operational system management (Monday.com administration — that is Holland's role).",
+      "Execution-level creative work."
+    ]
+  },
+  dillion: {
+    name: "Dillion Goldsmith",
+    title: "Account Manager",
+    dept: "Account Management & Delivery",
+    deptClass: "tag-accounts",
+    reportsTo: "Director of Operations & Sales (Derrick Lawter)",
+    manages: null,
+    primaryFn: "Be the most reliable, responsive, and organized point of contact for assigned client accounts. Dillion's value is in execution consistency — clients should never wonder what is happening or whether someone is on top of their account.",
+    responsibilities: [
+      "Own day-to-day client communication: respond promptly, proactively update, never let a client wonder about their status.",
+      "Send weekly account update emails to all assigned clients — structured, professional, and on time without exception.",
+      "Create and maintain meeting agendas, summaries, and action items in Monday.com after every client interaction.",
+      "Coordinate internally with creative, performance, and operations teams to keep deliverables on track.",
+      "Flag potential account risks or delivery concerns to Tanner immediately.",
+      "Support paid advertising reporting in coordination with Mary-Claire.",
+      "Assist with operational tasks as assigned when account management capacity allows.",
+      "Maintain clean CRM and account documentation in Monday.com."
+    ],
+    success: [
+      "Weekly client emails go out on schedule, without exception.",
+      "No client ever has to ask for an update — they receive it proactively.",
+      "Action items from client meetings are documented and assigned within 24 hours.",
+      "Client satisfaction on assigned accounts is measurably high."
+    ],
+    boundaries: [
+      "Setting account strategy — strategy is set by Tanner.",
+      "Making pricing or scope decisions — require director approval.",
+      "Running enterprise-level QBRs without Tanner present."
+    ]
+  },
+  holland: {
+    name: "Holland Stull",
+    title: "Operations Specialist",
+    dept: "Operations",
+    deptClass: "tag-accounts",
+    reportsTo: "Director of Operations & Sales (Derrick Lawter)",
+    manages: null,
+    primaryFn: "Keep the internal operating system of WebMarkets organized, current, and functioning. Holland is the guardian of operational order — the system health owner for Monday.com and the automation builder working alongside Derrick.",
+    responsibilities: [
+      "Maintain and enforce task structure in Monday.com: all active work should be assigned, dated, and in correct status.",
+      "Audit Monday.com weekly and flag overdue, unassigned, or incorrectly structured tasks to the responsible team lead.",
+      "Coordinate cross-department task handoffs — ensure smooth transitions between teams.",
+      "Prepare weekly project delivery status report for Director of Operations.",
+      "Own and build automations in Monday.com and adjacent tools in collaboration with Derrick.",
+      "Document SOPs for recurring operational processes as directed by Director of Operations.",
+      "Monitor team workload queues and surface capacity issues before they become delivery problems.",
+      "Support internal meeting logistics and operational communications."
+    ],
+    success: [
+      "Monday.com is always current — no orphaned tasks, no missing assignees, no mystery deadlines.",
+      "Director of Operations receives a weekly operational health summary without having to ask.",
+      "At least one new automation or process improvement is implemented per month.",
+      "Cross-department handoffs happen without confusion or dropped tasks."
+    ],
+    boundaries: [
+      "Client-facing communication (route to Dillion or Tanner).",
+      "Creative execution or review.",
+      "Account strategy decisions."
+    ]
+  },
+  mc: {
+    name: "Mary-Claire",
+    title: "Performance Marketing Manager",
+    dept: "Performance Marketing",
+    deptClass: "tag-perf",
+    reportsTo: "Director of Operations & Sales (Derrick Lawter)",
+    manages: null,
+    primaryFn: "Own the performance marketing function across SEO and paid advertising for WebMarkets clients. This is a strategist and optimizer role — not an execution operator. Mary-Claire sets strategy, monitors performance, and drives recommendations. The automation software expands this capacity significantly.",
+    responsibilities: [
+      "Lead SEO strategy for all assigned accounts: keyword planning, site audits, content strategy, organic visibility growth.",
+      "Manage paid advertising strategy across Google, Meta, and LinkedIn: campaign structure, targeting, bidding, creative direction.",
+      "Conduct weekly performance audits across paid and organic channels. Identify what is working and adjust.",
+      "Deliver monthly performance reports to Account Managers — clear, decision-oriented, not just data.",
+      "Leverage the internal automation software to accelerate SEO content production and ad copy creation.",
+      "Maintain a structured content calendar in coordination with the creative team.",
+      "Train and guide execution-level support on publishing, scheduling, and trafficking tasks.",
+      "Stay current on algorithm changes, platform updates, and performance benchmarks.",
+      "Collaborate with Tanner to ensure performance marketing aligns with client goals."
+    ],
+    success: [
+      "Organic traffic trends positively across managed accounts.",
+      "Paid advertising delivers leads at or below target CPL.",
+      "Monthly reports are delivered on time and are actionable — clients make decisions from them.",
+      "The automation software is actively used and reducing execution time per account."
+    ],
+    boundaries: [
+      "Day-to-day client communication (route to Dillion).",
+      "Creative asset production (direct Spencer or Danielle).",
+      "Cold outreach or new business development."
+    ]
+  },
+  noelle: {
+    name: "Noelle Foster",
+    title: "Creative Strategist",
+    dept: "Creative & Content",
+    deptClass: "tag-creative",
+    reportsTo: "Director of Operations & Sales (Derrick Lawter)",
+    manages: null,
+    primaryFn: "Lead the creative direction for WebMarkets clients. Ensure that creative work is not just well-executed but strategically aligned — video concepts, campaign ideas, and content approaches are grounded in what will actually perform for each client.",
+    responsibilities: [
+      "Develop creative strategies for client accounts: brief the concept, map the content approach, align with account strategy.",
+      "Lead pre-production planning for video shoots: storyboarding, shot lists, talent direction, location scouting.",
+      "Direct on-location video shoots — provide creative direction to ensure assets meet the strategic brief.",
+      "Review final creative deliverables before client submission.",
+      "Manage the creative project calendar: track all active creative projects, deadlines, and delivery status.",
+      "Brainstorm and present new creative concepts to clients — position WebMarkets as a creative partner.",
+      "Coordinate with Spencer (video) and Danielle (graphics) to ensure deliverables are assigned and on track.",
+      "Provide input on campaign creative for performance marketing in collaboration with Mary-Claire.",
+      "Support WebMarkets own brand creative when capacity allows."
+    ],
+    success: [
+      "Creative deliverables are delivered on brief, on brand, and on time.",
+      "Clients proactively express satisfaction with the creative direction.",
+      "No deliverable reaches the client without Noelle's creative review.",
+      "The creative team operates with a clear, maintained project calendar."
+    ],
+    boundaries: [
+      "Account relationship management — belongs to Dillion and Tanner.",
+      "Performance data analysis — route to Mary-Claire.",
+      "Operations or task management — route to Holland."
+    ]
+  },
+  spencer: {
+    name: "Spencer Durell",
+    title: "Creative Specialist — Video",
+    dept: "Creative & Content",
+    deptClass: "tag-creative",
+    reportsTo: "Director of Operations & Sales (Derrick Lawter)",
+    manages: null,
+    primaryFn: "Produce, edit, and deliver high-quality video content for WebMarkets clients across production and social media formats. Spencer is the primary video execution resource.",
+    responsibilities: [
+      "Edit and produce client video content: long-form production video, social media short-form, reels, and ads.",
+      "Attend client video shoots and manage on-location audio capture and technical execution.",
+      "Format and export video assets to platform specifications (Instagram, YouTube, LinkedIn, Meta Ads).",
+      "Manage video asset libraries and organize files for access and revision.",
+      "Coordinate with Noelle on creative briefs before production begins — do not start without a brief.",
+      "Deliver edited videos on the timeline set by the project calendar.",
+      "Flag any quality concerns or technical issues before final delivery.",
+      "Contribute audio editing expertise across relevant projects.",
+      "Stay current on video trends, editing techniques, and platform format requirements."
+    ],
+    success: [
+      "Video deliverables are published on or before deadline.",
+      "Revision requests are minimal — output aligns with creative brief on first delivery.",
+      "Technical quality (audio, color, export specs) is consistently professional."
+    ],
+    boundaries: [
+      "Graphic design — route to Danielle.",
+      "Creative strategy — route to Noelle.",
+      "Client communication of any kind."
+    ]
+  },
+  danielle: {
+    name: "Danielle Lawter",
+    title: "Creative Specialist — Graphics",
+    dept: "Creative & Content",
+    deptClass: "tag-creative",
+    reportsTo: "Director of Operations & Sales (Derrick Lawter)",
+    manages: null,
+    primaryFn: "Design and produce graphic assets for WebMarkets clients across digital, social, and print formats. Danielle is the primary graphic resource — output should be clean, on-brand, and ready for deployment without heavy revision.",
+    responsibilities: [
+      "Design social media graphics, ad creatives, and digital assets for assigned client accounts.",
+      "Produce print materials: flyers, one-pagers, signage, and branded collateral.",
+      "Design internal WebMarkets brand assets, marketing materials, and presentations.",
+      "Build and maintain brand asset libraries for each client account — organized and version-controlled.",
+      "Develop proficiency in Adobe Creative Suite (Illustrator, Photoshop, InDesign) as the primary design toolset.",
+      "Maintain strong working knowledge of Canva for rapid-production social assets.",
+      "Work from creative briefs provided by Noelle — do not begin design work without a clear brief.",
+      "Deliver assets formatted and sized correctly for intended platforms without requiring corrections."
+    ],
+    success: [
+      "Deliverables are on-brand, properly formatted, and delivered on time.",
+      "Adobe proficiency improves measurably over the next 6 months.",
+      "Revision requests are low — output matches brief on first delivery."
+    ],
+    boundaries: [
+      "Video editing — route to Spencer.",
+      "Creative direction decisions — route to Noelle.",
+      "Client communication of any kind."
+    ]
+  },
+  bradley: {
+    name: "Bradley Graham",
+    title: "Senior Developer",
+    dept: "Development",
+    deptClass: "tag-dev",
+    reportsTo: "Director of Operations & Sales (Derrick Lawter)",
+    manages: null,
+    primaryFn: "Lead the technical architecture and execution quality of all development work at WebMarkets. Bradley is the technical standard-setter — his decisions on architecture, code quality, and system design define how the team builds.",
+    responsibilities: [
+      "Design and architect scalable systems for client websites, internal software, and technical marketing infrastructure.",
+      "Oversee code quality across all development projects — review, enforce standards, mentor junior developers.",
+      "Lead sprint execution: plan scope with Director of Operations, assign tasks, ensure delivery on schedule.",
+      "Manage DevOps, hosting environments, deployment pipelines, and system stability.",
+      "Provide technical guidance to junior developers on architecture decisions and best practices.",
+      "Identify and flag technical debt or systemic risks before they become delivery problems.",
+      "Report sprint progress and deliverable status to Director of Operations at weekly check-in.",
+      "Contribute to the internal software product architecture as primary technical lead.",
+      "Document technical decisions and system architecture so knowledge is not locked in one person."
+    ],
+    success: [
+      "Development projects ship on time and to spec.",
+      "Code quality reviews happen on every project — no ad-hoc releases.",
+      "Junior developers are actively improving under technical mentorship.",
+      "Architecture documentation exists for all major systems."
+    ],
+    boundaries: [
+      "Client-facing account communication.",
+      "Sales or marketing strategy.",
+      "Operational task management (route to Holland)."
+    ]
+  },
+  carson: {
+    name: "Carson McMahan",
+    title: "Junior Developer — Software Focus",
+    dept: "Development",
+    deptClass: "tag-dev",
+    reportsTo: "Director of Operations & Sales (Derrick Lawter)",
+    manages: null,
+    primaryFn: "Build and maintain software systems with a primary focus on the internal WebMarkets automation software product and backend infrastructure. Strength in systems architecture and speed.",
+    responsibilities: [
+      "Develop backend systems, APIs, and database architecture for the internal software product.",
+      "Build and maintain client technical marketing infrastructure as assigned.",
+      "Collaborate with Bradley on sprint planning and technical architecture decisions.",
+      "Write clean, maintainable, well-documented code — prioritize long-term stability.",
+      "Test systems thoroughly before handoff — no production releases without QA.",
+      "Report blockers and progress in weekly sprint check-in.",
+      "Develop proficiency in AI-assisted development tools.",
+      "Support Jessna on technical implementation of UI/UX designs."
+    ],
+    success: [
+      "Software product backend is stable, well-documented, and on schedule.",
+      "Code is clean and maintainable — minimal rework required after delivery.",
+      "Sprint commitments are met consistently."
+    ],
+    boundaries: [
+      "UI/UX design decisions — route to Jessna.",
+      "Client communication.",
+      "Creative or marketing execution."
+    ]
+  },
+  jessna: {
+    name: "Jessna Rodriguez",
+    title: "Junior Developer — UI/UX Focus",
+    dept: "Development",
+    deptClass: "tag-dev",
+    reportsTo: "Director of Operations & Sales (Derrick Lawter)",
+    manages: null,
+    primaryFn: "Own the user interface and user experience design for WebMarkets' digital products, primarily the internal software product. Strength is visual thinking and AI-assisted design.",
+    responsibilities: [
+      "Create wireframes, mockups, and high-fidelity UI designs for the internal software product and client websites.",
+      "Develop and maintain design systems and component libraries for consistency across all digital products.",
+      "Conduct user flow mapping for new product features before they are built.",
+      "Collaborate with Carson on technical implementation of designs.",
+      "Use AI tools to accelerate mockup creation and design iteration.",
+      "Present design concepts to Director of Operations for approval before development begins.",
+      "Build client website pages and landing pages as assigned.",
+      "Stay current on UI/UX best practices, accessibility standards, and design tooling."
+    ],
+    success: [
+      "The software product UI is clean, intuitive, and consistent.",
+      "Designs are delivered with enough specificity that Carson can implement without constant clarification.",
+      "A design system or component library is established for the software product within 60 days."
+    ],
+    boundaries: [
+      "Backend architecture — route to Carson.",
+      "Client communication.",
+      "Creative direction for marketing assets — route to Noelle."
+    ]
+  },
+  emanuel: {
+    name: "Emanuel Nunez",
+    title: "Sales Consultant",
+    dept: "Sales",
+    deptClass: "tag-sales",
+    reportsTo: "Director of Operations & Sales (Derrick Lawter)",
+    manages: null,
+    primaryFn: "Own the close process for WebMarkets new business. Primary relationship-builder and deal-closer for qualified prospects. Owns the discovery-to-signed-contract phase for all standard accounts.",
+    responsibilities: [
+      "Lead proposal calls, present WebMarkets solutions, handle objections, and close new business.",
+      "Receive qualified leads from Jake and conduct structured discovery and proposal calls.",
+      "Maintain detailed CRM records for all active prospects — every touch, every next step documented.",
+      "Track and forecast personal pipeline performance — know your numbers at all times.",
+      "Coordinate with Director of Operations on pricing, scope, and contract terms.",
+      "Support Jake's development as a sales professional — share objection-handling and closing frameworks.",
+      "Flag high-value or complex deals to Director of Operations for executive involvement.",
+      "Meet weekly with Director of Operations to review pipeline health and deal progression.",
+      "Continuously develop sales craft: recordings, objections, pitch refinement."
+    ],
+    success: [
+      "Monthly close rate on qualified leads meets or exceeds target.",
+      "CRM is clean and current — no mystery deals, no missing next steps.",
+      "Pipeline forecast is accurate within 10% of actual close volume.",
+      "Discovery-to-proposal conversion rate improves quarter over quarter."
+    ],
+    boundaries: [
+      "Cold outreach or lead generation — that is Jake's function.",
+      "Account management after close — hand off cleanly to Tanner/Dillion.",
+      "Enterprise or partnership deals — escalate to Derrick."
+    ]
+  },
+  jake: {
+    name: "Jake Schaack",
+    title: "Sales Consultant",
+    dept: "Sales",
+    deptClass: "tag-sales",
+    reportsTo: "Director of Operations & Sales (Derrick Lawter)",
+    manages: null,
+    primaryFn: "Generate qualified outbound pipeline and conduct initial discovery calls. Jake is the top-of-funnel engine — output directly determines how much qualified pipeline Emanuel has to close. Going full-time in May represents a significant capacity increase that must be structured with clear targets.",
+    responsibilities: [
+      "Conduct structured outbound prospecting via email, phone, and LinkedIn.",
+      "Qualify inbound leads against defined ICP criteria before advancing to Emanuel.",
+      "Run initial discovery calls and hand off qualified prospects with a clear call summary.",
+      "Maintain CRM discipline — every contact, every outreach, every outcome documented in real time.",
+      "Report weekly on outreach volume, connection rate, appointment rate, and discovery quality.",
+      "Develop closing skills in preparation for running full discovery-to-proposal cycles as role evolves.",
+      "Refine outreach messaging based on what is actually generating responses.",
+      "Learn proposal structure and objection handling from Emanuel in preparation for expanded role."
+    ],
+    success: [
+      "Weekly appointment targets are met consistently.",
+      "Qualified lead handoffs to Emanuel are well-documented and need minimal re-qualification.",
+      "CRM is maintained without prompting.",
+      "By Q3 2026, Jake is running at least some full discovery-to-proposal cycles independently."
+    ],
+    boundaries: [
+      "Closing deals independently without Director of Operations approval in early ramp period.",
+      "Account management after close.",
+      "Operational or marketing work outside the sales function."
+    ]
+  },
+  lauren: {
+    name: "Lauren Schaack",
+    title: "Totally Boise Director",
+    dept: "Totally Boise — App Division",
+    deptClass: "tag-tb",
+    reportsTo: "Director of Operations & Sales (Derrick Lawter)",
+    manages: null,
+    primaryFn: "Lead all sales, market development, and revenue activity for the Totally Boise app. Mandate is to grow the revenue base in the current Boise market and execute an expansion plan into new markets.",
+    responsibilities: [
+      "Own all Totally Boise sales: prospect local businesses, present the platform, and close partnerships.",
+      "Build and execute a multi-market expansion plan — identify new markets, develop launch playbooks.",
+      "Maintain the Totally Boise sales pipeline in the CRM — prospects, active conversations, closed deals, churn.",
+      "Develop client relationships and ensure local business partners have a positive experience.",
+      "Coordinate with Director of Operations on product development priorities — surface user and client feedback.",
+      "Track and report on Totally Boise revenue, retention, and market growth metrics monthly.",
+      "Identify and pursue partnership opportunities that increase local market footprint.",
+      "Represent the Totally Boise brand at local events and community touchpoints."
+    ],
+    success: [
+      "Totally Boise revenue grows month over month.",
+      "A documented multi-market expansion plan is presented within 60 days.",
+      "Client retention in the Boise market is strong — businesses renew their participation.",
+      "Product feedback from clients is consistently documented and communicated to product management."
+    ],
+    boundaries: [
+      "Software product development — Derrick owns the technical roadmap.",
+      "Agency client account management.",
+      "WebMarkets sales or marketing activity."
+    ]
+  }
+};
+
+function openPanel(id) {
+  const p = people[id];
+  if (!p) return;
+
+  const panel = document.getElementById('detail-panel');
+  const overlay = document.getElementById('overlay');
+  const content = document.getElementById('panel-content');
+
+  document.querySelectorAll('.node').forEach(n => n.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+
+  content.innerHTML = `
+    <div class="panel-header">
+      <button class="panel-close" onclick="closePanel()">✕</button>
+      <div class="dept-tag ${p.deptClass}">${p.dept}</div>
+      <h2>${p.name}</h2>
+      <div class="panel-title">${p.title}</div>
+    </div>
+    <div class="panel-meta">
+      <div class="meta-chip">Reports to <span>${p.reportsTo}</span></div>
+    </div>
+    <div class="panel-body animate-fade-in">
+      <div class="panel-section">
+        <div class="panel-section-label">Primary Function</div>
+        <p>${p.primaryFn}</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section-label">Core Responsibilities</div>
+        <ul class="resp-list">
+          ${p.responsibilities.map(r => `<li>${r}</li>`).join('')}
+        </ul>
+      </div>
+      ${p.success ? `
+      <div class="panel-section">
+        <div class="panel-section-label">Success Looks Like</div>
+        <ul class="resp-list success-list">
+          ${p.success.map(s => `<li>${s}</li>`).join('')}
+        </ul>
+      </div>` : ''}
+      ${p.boundaries ? `
+      <div class="panel-section">
+        <div class="panel-section-label">Not In This Role</div>
+        <ul class="resp-list boundary-list">
+          ${p.boundaries.map(b => `<li>${b}</li>`).join('')}
+        </ul>
+      </div>` : ''}
+    </div>
+  `;
+
+  panel.classList.add('open');
+  overlay.classList.add('show');
+}
+
+function closePanel() {
+  document.getElementById('detail-panel').classList.remove('open');
+  document.getElementById('overlay').classList.remove('show');
+  document.querySelectorAll('.node').forEach(n => n.classList.remove('active'));
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closePanel();
+});
+</script>
+</body>
+</html>
