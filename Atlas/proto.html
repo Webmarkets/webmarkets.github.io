@@ -1,0 +1,1844 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas — Content Approval · V2 Review Pipeline</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            graphite: '#0C111D',
+                            panel: '#111827',
+                            steel: '#1F2937',
+                            red: '#EF4444',
+                            blue: '#3B82F6',
+                            cyan: '#06B6D4',
+                            green: '#10B981',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { box-sizing: border-box; }
+        html, body { height: 100%; overflow: hidden; }
+        body { background-color: #0C111D; color: #F9FAFB; }
+
+        .grid-texture {
+            background-image:
+                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .glass { background: rgba(17,24,39,0.82); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        .glass-dark { background: rgba(12,17,29,0.9); backdrop-filter: blur(20px); }
+        .panel-border { border: 1px solid rgba(255,255,255,0.07); }
+
+        /* SCROLLBAR */
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 99px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.15); }
+
+        /* NAV SIDEBAR */
+        .nav-sidebar {
+            position: fixed; left: 0; top: 0; bottom: 0;
+            width: 224px;
+            background: #0a0f1c;
+            border-right: 1px solid rgba(255,255,255,0.07);
+            z-index: 300;
+            display: flex; flex-direction: column;
+            transform: translateX(-100%);
+            transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .nav-sidebar.open { transform: translateX(0); }
+
+        .nav-backdrop {
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(3px);
+            z-index: 299;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.25s ease;
+        }
+        .nav-backdrop.open { opacity: 1; pointer-events: all; }
+
+        .nav-item {
+            display: flex; align-items: center; gap: 11px;
+            padding: 9px 14px; border-radius: 10px; margin: 1px 10px;
+            font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 500;
+            color: #6B7280; cursor: pointer;
+            transition: all 0.15s;
+            border: 1px solid transparent;
+        }
+        .nav-item:hover { background: rgba(255,255,255,0.05); color: #D1D5DB; }
+        .nav-item.active {
+            background: rgba(239,68,68,0.15);
+            border-color: rgba(239,68,68,0.25);
+            color: #fff;
+        }
+        .nav-item.active svg { color: #EF4444; }
+        .nav-item svg { color: #4B5563; flex-shrink: 0; transition: color 0.15s; }
+        .nav-item:hover svg { color: #9CA3AF; }
+
+        .nav-section-label {
+            font-family: 'JetBrains Mono', monospace; font-size: 9px;
+            color: #374151; letter-spacing: 0.1em; text-transform: uppercase;
+            padding: 14px 24px 6px;
+        }
+
+        /* STATUS */
+        .status-published { background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3); color: #10B981; }
+        .status-draft      { background: rgba(156,163,175,0.1); border: 1px solid rgba(156,163,175,0.2); color: #9CA3AF; }
+        .status-scheduled  { background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.3); color: #3B82F6; }
+
+        /* SIDEBAR LIST ITEMS */
+        .list-item {
+            padding: 14px 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.15s;
+            border: 1px solid transparent;
+            position: relative;
+        }
+        .list-item:hover { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.07); }
+        .list-item.selected { background: rgba(59,130,246,0.08); border-color: rgba(59,130,246,0.25); }
+        .list-item.selected .item-title { color: #fff; }
+        .list-item.hidden-by-filter { display: none; }
+
+        /* LEFT ACCENT LINE ON SELECTED */
+        .list-item.selected::before {
+            content: ''; position: absolute; left: 0; top: 20%; bottom: 20%;
+            width: 2px; background: #3B82F6; border-radius: 99px;
+        }
+
+        /* FILTER BUTTONS */
+        .list-filter-btn {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid transparent;
+            color: #6B7280;
+            cursor: pointer;
+            transition: all 0.15s;
+            background: transparent;
+        }
+        .list-filter-btn:hover { color: #D1D5DB; }
+        .list-filter-btn.active {
+            background: rgba(255,255,255,0.07);
+            border-color: rgba(255,255,255,0.12);
+            color: #F9FAFB;
+        }
+        .list-filter-btn[data-filter="pending"].active  { background: rgba(251,191,36,0.1);  border-color: rgba(251,191,36,0.2);  color: #FBB024; }
+        .list-filter-btn[data-filter="approved"].active { background: rgba(16,185,129,0.1);  border-color: rgba(16,185,129,0.2);  color: #10B981; }
+        .list-filter-btn[data-filter="rejected"].active { background: rgba(239,68,68,0.1);   border-color: rgba(239,68,68,0.2);   color: #EF4444; }
+
+        .platform-yt  { background: rgba(255,0,0,0.1); color: #ff0000; }
+
+        /* STATUS DOTS */
+        @keyframes pulse-dot { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+        .pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+
+        /* MINI MENU */
+        .mini-menu {
+            position: absolute; right: 0; top: 100%; margin-top: 0.5rem;
+            background: #111827; border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px; padding: 0.5rem; min-width: 200px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6); z-index: 200;
+            display: none;
+        }
+        .mini-menu.open { display: block; animation: menuIn 0.15s ease-out; }
+        @keyframes menuIn { from { opacity:0; transform: translateY(-6px) scale(0.97); } to { opacity:1; transform: translateY(0) scale(1); } }
+        .menu-item { display: flex; align-items: center; gap: 0.625rem; padding: 0.5rem 0.75rem; border-radius: 8px; font-size: 0.8125rem; color: #D1D5DB; transition: all 0.15s; cursor: pointer; }
+        .menu-item:hover { background: rgba(255,255,255,0.06); color: #fff; }
+        .menu-item.danger { color: #EF4444; }
+        .menu-item.danger:hover { background: rgba(239,68,68,0.1); }
+        .menu-separator { height: 1px; background: rgba(255,255,255,0.07); margin: 0.375rem 0.5rem; }
+
+        /* APPROVE/REJECT */
+        .btn-approve { background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.2); color: #10B981; transition: all 0.2s; }
+        .btn-approve:hover { background: rgba(16,185,129,0.2); border-color: rgba(16,185,129,0.4); }
+        .btn-approve.active { background: #10B981; border-color: #10B981; color: #fff; box-shadow: 0 0 20px rgba(16,185,129,0.25); }
+        .btn-reject { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.15); color: #EF4444; transition: all 0.2s; }
+        .btn-reject:hover { background: rgba(239,68,68,0.15); border-color: rgba(239,68,68,0.35); }
+        .btn-reject.active { background: #EF4444; border-color: #EF4444; color: #fff; box-shadow: 0 0 20px rgba(239,68,68,0.25); }
+
+        /* WEEK TABS / SEO TABS */
+        .week-tab, .seo-tab { padding: 6px 14px; border-radius: 8px; font-size: 0.75rem; cursor: pointer; transition: all 0.15s; color: #6B7280; font-family: 'Space Grotesk', sans-serif; font-weight: 600; }
+        .week-tab:hover, .seo-tab:hover { color: #D1D5DB; background: rgba(255,255,255,0.05); }
+        .seo-tab.active { background: rgba(255,255,255,0.08); color: #fff; border: 1px solid rgba(255,255,255,0.1); }
+
+        /* SEO KEYWORD LIST ITEMS — reuse list-item base */
+        .kw-item { padding: 12px 14px; border-radius: 10px; cursor: pointer; transition: all 0.15s; border: 1px solid transparent; position: relative; }
+        .kw-item:hover { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.07); }
+        .kw-item.selected { background: rgba(59,130,246,0.08); border-color: rgba(59,130,246,0.25); }
+        .kw-item.selected .kw-title { color: #fff; }
+        .kw-item.hidden-by-filter { display: none; }
+        .kw-item.selected::before { content:''; position:absolute; left:0; top:20%; bottom:20%; width:2px; background:#3B82F6; border-radius:99px; }
+
+        /* KEYWORD TABLE */
+        .kw-row { border-bottom: 1px solid rgba(255,255,255,0.04); transition: background 0.1s; }
+        .kw-row:hover { background: rgba(255,255,255,0.03); }
+        .kw-row td { padding: 11px 16px; font-size: 12px; vertical-align: middle; }
+        .kw-row.hidden-by-filter { display: none; }
+        .kw-intent-filter.active-intent { background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.15); color: #fff; }
+
+        /* DIFFICULTY BADGES */
+        .diff-low    { background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.25); color: #10B981; }
+        .diff-medium { background: rgba(245,158,11,0.12); border: 1px solid rgba(245,158,11,0.25); color: #F59E0B; }
+        .diff-hard   { background: rgba(239,68,68,0.12);  border: 1px solid rgba(239,68,68,0.25);  color: #EF4444; }
+
+        /* INTENT BADGES */
+        .intent-commercial    { background: rgba(139,92,246,0.12); border: 1px solid rgba(139,92,246,0.25); color: #A78BFA; }
+        .intent-informational { background: rgba(6,182,212,0.12);  border: 1px solid rgba(6,182,212,0.25);  color: #22D3EE; }
+        .intent-transactional { background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.25); color: #10B981; }
+        .intent-navigational  { background: rgba(245,158,11,0.12); border: 1px solid rgba(245,158,11,0.25); color: #F59E0B; }
+
+        /* MODAL */
+        .modal-backdrop { position:fixed; inset:0; background:rgba(0,0,0,0.65); backdrop-filter:blur(6px); z-index:500; display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity 0.2s ease; }
+        .modal-backdrop.open { opacity:1; pointer-events:all; }
+        .modal-box { background:#111827; border:1px solid rgba(255,255,255,0.09); border-radius:16px; width:440px; max-width:95vw; padding:28px; box-shadow:0 24px 80px rgba(0,0,0,0.5); transform:translateY(12px); transition:transform 0.2s ease; }
+        .modal-backdrop.open .modal-box { transform:translateY(0); }
+        .modal-label { font-family:'Space Grotesk',sans-serif; font-size:11px; font-weight:600; color:#6B7280; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px; display:block; }
+        .modal-input { width:100%; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:9px 12px; font-family:'Inter',sans-serif; font-size:13px; color:#F9FAFB; outline:none; transition:border-color 0.15s; }
+        .modal-input:focus { border-color:rgba(59,130,246,0.5); }
+        .modal-select { appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M2.5 3.75L5 6.25L7.5 3.75' stroke='%236B7280' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 10px center; }
+        .week-tab.active { background: rgba(59,130,246,0.12); color: #3B82F6; border: 1px solid rgba(59,130,246,0.2); }
+        .week-tab:not(.active) { border: 1px solid transparent; }
+
+        /* DETAIL PANEL IMG */
+        .detail-img {
+            background: linear-gradient(135deg, #141d2e 0%, #1a2540 50%, #111827 100%);
+            position: relative; overflow: hidden;
+        }
+        .detail-img::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        /* NOTE AREA */
+        .note-area {
+            background: rgba(12,17,29,0.8);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8125rem;
+            color: #D1D5DB;
+            padding: 10px 12px;
+            width: 100%;
+            resize: none;
+            min-height: 72px;
+            transition: border-color 0.15s;
+            line-height: 1.5;
+        }
+        .note-area:focus { outline: none; border-color: rgba(59,130,246,0.35); }
+        .note-area::placeholder { color: #374151; }
+
+        /* LINK INPUT */
+        .link-input {
+            background: rgba(12,17,29,0.8);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: #9CA3AF;
+            padding: 8px 12px;
+            width: 100%;
+            transition: border-color 0.15s;
+        }
+        .link-input:focus { outline: none; border-color: rgba(59,130,246,0.4); color: #E5E7EB; }
+        .link-input::placeholder { color: #374151; }
+
+        /* GLOW */
+        .glow-blue { box-shadow: 0 0 24px rgba(59,130,246,0.25); }
+
+        /* BUBBLE POPOVERS */
+        .bubble-popover {
+            position: absolute;
+            background: #131c2e;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 24px 64px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.04);
+            z-index: 300;
+            display: none;
+        }
+        .bubble-popover.open {
+            display: block;
+            animation: bubbleIn 0.18s cubic-bezier(0.34, 1.4, 0.64, 1);
+        }
+        @keyframes bubbleIn {
+            from { opacity: 0; transform: translateY(-8px) scale(0.96); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        /* Arrow pointer */
+        .bubble-arrow {
+            position: absolute;
+            top: -5px;
+            width: 10px; height: 10px;
+            background: #131c2e;
+            border-left: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            transform: rotate(45deg);
+        }
+
+        /* TOOLTIP (data-tooltip attr) */
+        [data-tooltip] { position: relative; }
+        [data-tooltip]::after {
+            content: attr(data-tooltip); position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%);
+            background: #1F2937; border: 1px solid rgba(255,255,255,0.1); color: #E5E7EB;
+            font-size: 0.7rem; white-space: nowrap; padding: 3px 8px; border-radius: 6px;
+            pointer-events: none; opacity: 0; transition: opacity 0.15s; z-index: 99;
+        }
+        [data-tooltip]:hover::after { opacity: 1; }
+
+        /* PROGRESS BAR */
+        .progress-track { background: rgba(255,255,255,0.06); border-radius: 99px; height: 3px; overflow: hidden; }
+        .progress-fill { height: 100%; border-radius: 99px; }
+
+        /* FIELD ROW */
+        .field-row { display: flex; align-items: center; gap: 8px; }
+        .field-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #4B5563; text-transform: uppercase; letter-spacing: 0.1em; white-space: nowrap; min-width: 70px; }
+
+        /* TOOLTIP */
+        [data-tip] { position: relative; }
+        [data-tip]::after {
+            content: attr(data-tip); position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%);
+            background: #1F2937; border: 1px solid rgba(255,255,255,0.1); color: #E5E7EB;
+            font-size: 0.68rem; white-space: nowrap; padding: 3px 8px; border-radius: 6px;
+            pointer-events: none; opacity: 0; transition: opacity 0.15s; z-index: 99;
+        }
+        [data-tip]:hover::after { opacity: 1; }
+
+        /* ACTIVITY FEED */
+        .activity-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+    </style>
+</head>
+<body class="font-sans selection:bg-brand-blue selection:text-white">
+
+<!-- Nav backdrop -->
+<div class="nav-backdrop" id="navBackdrop" onclick="closeNav()"></div>
+
+<!-- Slide-in sidebar -->
+<nav class="nav-sidebar" id="navSidebar">
+    <!-- Sidebar header -->
+    <div class="flex items-center gap-3 px-5 h-14 border-b border-white/[0.06] flex-shrink-0">
+        <div class="w-7 h-7 bg-brand-red rounded-lg flex items-center justify-center flex-shrink-0">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L13 4V10L7 13L1 10V4L7 1Z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </div>
+        <span class="font-display font-bold text-sm tracking-tight text-white">Atlas</span>
+        <button onclick="closeNav()" class="ml-auto w-7 h-7 rounded-lg flex items-center justify-center text-gray-600 hover:text-gray-300 hover:bg-white/[0.06] transition-all">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+    </div>
+
+    <!-- Nav items -->
+    <div class="flex-1 overflow-y-auto py-3">
+        <p class="nav-section-label">Navigation</p>
+
+        <div class="nav-item" onclick="switchTab('dashboard')">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+            Dashboard
+        </div>
+        <div class="nav-item" onclick="switchTab('seo')">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg>
+            SEO
+        </div>
+        <div class="nav-item" onclick="switchTab('ai-seo')">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></svg>
+            AI SEO
+        </div>
+        <div class="nav-item active" id="nav-social-media" onclick="switchTab('social-media')">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.59 13.51l6.83 3.98M15.41 6.51L8.59 10.49"/></svg>
+            Social Media
+        </div>
+        <div class="nav-item" onclick="switchTab('advertising')">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+            Advertising
+        </div>
+        <div class="nav-item" onclick="switchTab('projects')">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
+            Projects
+        </div>
+        <div class="nav-item" onclick="switchTab('analytics')">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            Analytics
+        </div>
+
+        <p class="nav-section-label mt-2">Account</p>
+        <div class="nav-item" onclick="switchTab('settings')">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
+            Settings
+        </div>
+    </div>
+
+    <!-- Client pill at bottom -->
+    <div class="px-4 py-4 border-t border-white/[0.05] flex-shrink-0">
+        <div class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-white/[0.04] border border-white/[0.06]">
+            <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-[10px] font-bold font-display flex-shrink-0">RX</div>
+            <div class="min-w-0">
+                <p class="font-display font-semibold text-xs text-white leading-none truncate">Renew Health Clinic</p>
+                <p class="font-mono text-[9px] text-gray-600 mt-0.5 leading-none">Social Media</p>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Tab placeholder (shown for non-social-media tabs) -->
+<div id="tabPlaceholder" class="fixed inset-0 z-10 flex flex-col items-center justify-center" style="display:none!important; background:#0C111D;">
+    <div class="fixed inset-0 grid-texture pointer-events-none opacity-50"></div>
+    <div class="relative text-center">
+        <div class="w-14 h-14 rounded-2xl bg-white/[0.04] border border-white/[0.07] flex items-center justify-center mx-auto mb-5" id="placeholder-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4B5563" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        </div>
+        <h2 class="font-display font-bold text-xl text-white mb-2" id="placeholder-title">Dashboard</h2>
+        <p class="font-sans text-sm text-gray-600 max-w-xs">This section is coming soon.<br>You're currently viewing the Social Media module.</p>
+        <button onclick="switchTab('social-media')" class="mt-6 flex items-center gap-2 px-4 py-2 rounded-lg bg-white/[0.06] border border-white/10 text-sm font-display font-medium text-gray-400 hover:text-white hover:bg-white/10 transition-all mx-auto">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+            Back to Social Media
+        </button>
+    </div>
+</div>
+
+<div class="fixed inset-0 grid-texture pointer-events-none z-0 opacity-50"></div>
+
+<div class="flex flex-col h-full relative z-10">
+
+    <!-- ========== TOPBAR ========== -->
+    <header class="glass panel-border flex-shrink-0 border-b border-white/[0.06] z-50">
+        <div class="px-6 h-14 flex items-center gap-4">
+
+            <!-- Hamburger -->
+            <button onclick="openNav()" class="w-8 h-8 rounded-lg flex items-center justify-center text-gray-500 hover:text-gray-200 hover:bg-white/[0.07] transition-all flex-shrink-0 -ml-1" data-tooltip="Open navigation">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+
+            <!-- Logo -->
+            <div class="flex items-center gap-3 mr-4">
+                <div class="w-7 h-7 bg-brand-red rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L13 4V10L7 13L1 10V4L7 1Z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </div>
+                <span class="font-display font-bold text-sm tracking-tight">Atlas</span>
+            </div>
+
+            <div class="h-4 w-px bg-white/10"></div>
+
+            <!-- Client info -->
+            <div class="flex items-center gap-2.5">
+                <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-[10px] font-bold font-display flex-shrink-0">RX</div>
+                <div>
+                    <p class="font-display font-semibold text-sm leading-none text-white">Renew Health Clinic</p>
+                    <p class="font-mono text-[9px] text-gray-500 mt-0.5 leading-none">Social Media</p>
+                </div>
+            </div>
+
+            <div class="h-4 w-px bg-white/10 mx-1"></div>
+
+            <!-- Published Status -->
+            <div class="relative" id="statusMenuWrap">
+                <button onclick="toggleMenu('statusMenu')" class="flex items-center gap-2 px-3 py-1.5 rounded-lg status-published font-mono text-[10px] font-medium tracking-wide cursor-pointer hover:opacity-80 transition-opacity">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-dot"></span>
+                    PUBLISHED
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" class="opacity-60"><path d="M2.5 3.75L5 6.25L7.5 3.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div id="statusMenu" class="mini-menu" style="min-width:180px">
+                    <div class="menu-item" onclick="setStatus('published')">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Published
+                    </div>
+                    <div class="menu-item" onclick="setStatus('scheduled')">
+                        <span class="w-2 h-2 rounded-full bg-blue-400"></span> Scheduled
+                    </div>
+                    <div class="menu-item" onclick="setStatus('draft')">
+                        <span class="w-2 h-2 rounded-full bg-gray-500"></span> Draft
+                    </div>
+                    <div class="menu-separator"></div>
+                    <div class="menu-item danger" onclick="closeAllMenus()">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                        Unpublish
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats chips -->
+            <div class="flex items-center gap-2 ml-1">
+                <span class="px-2.5 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/20 font-mono text-[10px] text-emerald-400">12 Approved</span>
+                <span class="px-2.5 py-1 rounded-md bg-red-500/10 border border-red-500/20 font-mono text-[10px] text-red-400">3 Rejected</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 font-mono text-[10px] text-gray-500">5 Pending</span>
+            </div>
+
+            <div class="flex-1"></div>
+
+            <!-- Right actions -->
+            <div class="flex items-center gap-2">
+                <button class="flex items-center gap-2 px-3.5 py-2 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition-all font-display font-semibold text-xs text-gray-300 hover:text-white" data-tooltip="Export PDF">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                    Export
+                </button>
+                <button class="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-brand-blue hover:bg-blue-500 glow-blue transition-all font-display font-semibold text-xs text-white">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2L15 22 11 13 2 9l20-7z"/></svg>
+                    Send for Review
+                </button>
+
+                <!-- Overflow / Context menu -->
+                <div class="relative" id="ctxMenuWrap">
+                    <button onclick="toggleMenu('ctxMenu')" class="w-8 h-8 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition-all flex items-center justify-center text-gray-400 hover:text-white" data-tooltip="More options">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+                    </button>
+                    <div id="ctxMenu" class="mini-menu">
+                        <div class="menu-item">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                            Edit Campaign Details
+                        </div>
+                        <div class="menu-item">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                            Duplicate Campaign
+                        </div>
+                        <div class="menu-item" onclick="openModal('newCampaignModal')">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            New Campaign
+                        </div>
+                        <div class="menu-separator"></div>
+                        <div class="menu-item">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13"/></svg>
+                            Share Link
+                        </div>
+                        <div class="menu-item">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg>
+                            Client Preview Mode
+                        </div>
+                        <div class="menu-separator"></div>
+                        <div class="menu-item">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            Approval Settings
+                        </div>
+                        <div class="menu-separator"></div>
+                        <div class="menu-item danger">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6M10 11v6M14 11v6M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2"/></svg>
+                            Delete Campaign
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== SOCIAL MEDIA VIEW ========== -->
+    <div id="view-social-media" class="flex flex-col flex-1 overflow-hidden">
+
+    <!-- ========== WEEK TABS ========== -->
+    <div class="glass-dark flex-shrink-0 border-b border-white/[0.05] px-5 py-2 flex items-center gap-2 overflow-x-auto z-40">
+        <div class="flex items-center gap-1.5 mr-2 flex-shrink-0">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4B5563" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span class="font-mono text-[10px] text-gray-600 uppercase tracking-wider">Timeline</span>
+        </div>
+        <button class="week-tab active" onclick="switchWeek(this)">Week 1</button>
+        <button class="week-tab" onclick="switchWeek(this)">Week 2</button>
+        <button class="week-tab" onclick="switchWeek(this)">Week 3</button>
+        <button class="week-tab" onclick="switchWeek(this)">Week 4</button>
+        <button class="week-tab" onclick="switchWeek(this)">Bonus</button>
+
+        <div class="flex-1"></div>
+
+        <div class="flex items-center gap-1.5 flex-shrink-0">
+            <span class="font-mono text-[10px] text-gray-700">View</span>
+            <button onclick="setView('list')" id="viewList" class="w-6 h-6 rounded flex items-center justify-center bg-blue-500/15 border border-blue-500/25 text-blue-400" data-tip="List view">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+            </button>
+            <button onclick="setView('grid')" id="viewGrid" class="w-6 h-6 rounded flex items-center justify-center border border-white/10 bg-white/5 text-gray-500 hover:text-white hover:bg-white/10 transition-all" data-tip="Grid view">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- ========== MAIN SPLIT PANEL ========== -->
+    <div class="flex flex-1 overflow-hidden">
+
+        <!-- LEFT: Post list -->
+        <div class="w-80 xl:w-96 flex-shrink-0 glass-dark border-r border-white/[0.05] flex flex-col overflow-hidden">
+
+            <!-- List search & filter -->
+            <div class="px-4 py-3 border-b border-white/[0.04] flex items-center gap-2">
+                <div class="flex-1 flex items-center gap-2 bg-white/[0.04] border border-white/[0.06] rounded-lg px-3 py-2">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4B5563" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <input type="text" id="postSearch" oninput="searchPosts(this.value)" placeholder="Search posts..." class="bg-transparent border-none outline-none text-xs text-gray-400 placeholder:text-gray-700 flex-1 font-sans">
+                </div>
+                <button class="w-8 h-8 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition-all flex items-center justify-center text-gray-500 hover:text-white" data-tip="Filter">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+                </button>
+            </div>
+
+            <!-- Filter tabs -->
+            <div class="px-4 py-2.5 flex items-center gap-1.5 border-b border-white/[0.04]">
+                <button onclick="filterList(this,'all')"      data-filter="all"      class="list-filter-btn active">All <span class="opacity-50 ml-0.5" id="count-all"></span></button>
+                <button onclick="filterList(this,'pending')"  data-filter="pending"  class="list-filter-btn">Pending <span class="opacity-60 ml-0.5" id="count-pending"></span></button>
+                <button onclick="filterList(this,'approved')" data-filter="approved" class="list-filter-btn">Approved <span class="opacity-60 ml-0.5" id="count-approved"></span></button>
+                <button onclick="filterList(this,'rejected')" data-filter="rejected" class="list-filter-btn">Rejected <span class="opacity-60 ml-0.5" id="count-rejected"></span></button>
+            </div>
+
+            <!-- List scroll area -->
+            <div class="flex-1 overflow-y-auto px-3 py-3 space-y-1.5" id="postList">
+
+                <!-- Post list items -->
+                <div class="list-item selected" onclick="selectPost(this)" data-idx="0" data-status="approved">
+                    <div class="flex items-start gap-3">
+                        <div class="w-11 h-11 rounded-lg flex-shrink-0 detail-img flex items-center justify-center">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(148,163,184,0.5)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-1.5 mb-1">
+                                <span class="font-mono text-[9px] text-gray-600">Apr 1 · 10:00 AM</span>
+                                <span class="ml-auto w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span>
+                            </div>
+                            <p class="item-title font-display font-semibold text-xs text-white leading-tight truncate">Spring Wellness Goals 🌿</p>
+                            <p class="font-sans text-[11px] text-gray-600 leading-tight mt-0.5 truncate">Book your complimentary consultation...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="list-item" onclick="selectPost(this)" data-idx="1" data-status="rejected">
+                    <div class="flex items-start gap-3">
+                        <div class="w-11 h-11 rounded-lg flex-shrink-0 detail-img flex items-center justify-center">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(148,163,184,0.5)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-1.5 mb-1">
+                                <span class="font-mono text-[9px] text-gray-600">Apr 2 · 2:00 PM</span>
+                                <span class="ml-auto w-2 h-2 rounded-full bg-red-400 flex-shrink-0"></span>
+                            </div>
+                            <p class="item-title font-display font-semibold text-xs text-gray-400 leading-tight truncate">Limited Time Offer — 20% Off</p>
+                            <p class="font-sans text-[11px] text-gray-600 leading-tight mt-0.5 truncate">Don't miss out — slots filling fast!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="list-item" onclick="selectPost(this)" data-idx="2" data-status="pending">
+                    <div class="flex items-start gap-3">
+                        <div class="w-11 h-11 rounded-lg flex-shrink-0 detail-img flex items-center justify-center">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(148,163,184,0.5)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-1.5 mb-1">
+                                <span class="font-mono text-[9px] text-gray-600">Apr 3 · 9:00 AM</span>
+                                <span class="ml-auto w-2 h-2 rounded-full bg-amber-400 pulse-dot flex-shrink-0"></span>
+                            </div>
+                            <p class="item-title font-display font-semibold text-xs text-gray-400 leading-tight truncate">80% of Chronic Pain Cases...</p>
+                            <p class="font-sans text-[11px] text-gray-600 leading-tight mt-0.5 truncate">Our team is here to guide you</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="list-item" onclick="selectPost(this)" data-idx="3" data-status="pending">
+                    <div class="flex items-start gap-3">
+                        <div class="w-11 h-11 rounded-lg flex-shrink-0 detail-img flex items-center justify-center">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(148,163,184,0.5)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-1.5 mb-1">
+                                <span class="font-mono text-[9px] text-gray-600">Apr 4 · 8:30 AM</span>
+                                <span class="ml-auto w-2 h-2 rounded-full bg-amber-400 pulse-dot flex-shrink-0"></span>
+                            </div>
+                            <p class="item-title font-display font-semibold text-xs text-gray-400 leading-tight truncate">Regenerative Therapy Expansion</p>
+                            <p class="font-sans text-[11px] text-gray-600 leading-tight mt-0.5 truncate">Helping our community heal better</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="list-item" onclick="selectPost(this)" data-idx="4" data-status="approved">
+                    <div class="flex items-start gap-3">
+                        <div class="w-11 h-11 rounded-lg flex-shrink-0 detail-img flex items-center justify-center">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(148,163,184,0.5)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-1.5 mb-1">
+                                <span class="font-mono text-[9px] text-gray-600">Apr 5 · 12:00 PM</span>
+                                <span class="ml-auto w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span>
+                            </div>
+                            <p class="item-title font-display font-semibold text-xs text-gray-400 leading-tight truncate">PRP Therapy Explained 🎥</p>
+                            <p class="font-sans text-[11px] text-gray-600 leading-tight mt-0.5 truncate">Watch Dr. Chen in under 60 seconds</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Empty state -->
+                <div id="listEmptyState" class="hidden-by-filter flex-col items-center justify-center py-10 gap-3 text-center" style="display:none">
+                    <div class="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.07] flex items-center justify-center">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4B5563" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    </div>
+                    <p class="font-display font-semibold text-xs text-gray-600">No posts found</p>
+                    <button onclick="filterList(document.querySelector('.list-filter-btn'),'all')" class="font-mono text-[10px] text-blue-400 hover:text-blue-300 transition-colors">Clear filter</button>
+                </div>
+
+                <!-- Add post button -->
+                <button class="w-full list-item border-dashed border border-white/10 hover:border-blue-500/30 hover:bg-blue-500/5 flex items-center justify-center gap-2 py-4 text-gray-600 hover:text-blue-400 transition-all group">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    <span class="font-display font-semibold text-xs">Add Post</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- CENTER: Detail panel -->
+        <div class="flex-1 overflow-y-auto bg-transparent" id="detailPanel">
+            <div class="max-w-2xl mx-auto px-6 py-6">
+
+                <!-- Detail header -->
+                <div class="flex items-start justify-between mb-5">
+                    <div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <span id="detail-status-badge" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 border border-emerald-500/25 text-emerald-400 text-[10px] font-mono font-medium flex items-center gap-1">
+                                <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                                Approved
+                            </span>
+                        </div>
+                        <h2 id="detail-title" class="font-display font-bold text-xl text-white leading-tight">Spring Wellness Goals 🌿</h2>
+                        <p id="detail-meta" class="font-mono text-[10px] text-gray-600 mt-1">Scheduled for Apr 1, 2025 · 10:00 AM EDT · Created by J. Lopez</p>
+                    </div>
+                    <div class="flex items-center gap-1.5 flex-shrink-0 ml-4">
+
+                        <!-- Notes bubble trigger -->
+                        <div class="relative" id="notesBubbleWrap">
+                            <button onclick="toggleBubble('notesBubble')" class="flex items-center gap-1.5 h-8 px-3 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition-all text-gray-400 hover:text-white font-display font-semibold text-xs" data-tip="Notes">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                                Notes
+                            </button>
+                            <!-- Notes popover -->
+                            <div id="notesBubble" class="bubble-popover" style="width:320px; right:0; top:calc(100% + 10px)">
+                                <div class="bubble-arrow" style="right:18px"></div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <p class="font-display font-bold text-sm text-white">Internal Notes</p>
+                                    <span class="font-mono text-[9px] text-gray-600">Team only · not visible to client</span>
+                                </div>
+                                <textarea class="note-area" style="min-height:88px" placeholder="Leave a note for the team...">Caption copy approved. Image needs minor color correction on the gradient overlay — please resubmit asset before go-live.</textarea>
+                                <div class="flex items-center justify-between mt-2.5">
+                                    <span class="font-mono text-[9px] text-gray-700">Last edited by D. Lawter · Mar 15</span>
+                                    <button class="px-3 py-1.5 rounded-lg bg-blue-500/15 border border-blue-500/25 hover:bg-blue-500/25 transition-all font-display font-semibold text-xs text-blue-400">Save Note</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Comments bubble trigger -->
+                        <div class="relative" id="commentsBubbleWrap">
+                            <button onclick="toggleBubble('commentsBubble')" class="flex items-center gap-1.5 h-8 px-3 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition-all text-gray-400 hover:text-white font-display font-semibold text-xs" data-tip="Comments">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                                Comments
+                                <span class="w-4 h-4 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center font-mono text-[9px] text-blue-400 leading-none">2</span>
+                            </button>
+                            <!-- Comments popover -->
+                            <div id="commentsBubble" class="bubble-popover" style="width:340px; right:0; top:calc(100% + 10px)">
+                                <div class="bubble-arrow" style="right:42px"></div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <p class="font-display font-bold text-sm text-white">Comments</p>
+                                    <span class="font-mono text-[9px] text-gray-600">2 comments</span>
+                                </div>
+                                <!-- Thread -->
+                                <div class="space-y-3 mb-3">
+                                    <div class="flex gap-2.5">
+                                        <div class="w-6 h-6 rounded-full bg-gradient-to-br from-violet-500 to-purple-600 flex-shrink-0 flex items-center justify-center text-[8px] font-bold">RX</div>
+                                        <div class="flex-1 min-w-0">
+                                            <div class="flex items-baseline gap-2 mb-1">
+                                                <span class="font-display font-semibold text-xs text-white">Client</span>
+                                                <span class="font-mono text-[9px] text-gray-700">Mar 14 · 11:02 AM</span>
+                                            </div>
+                                            <div class="p-2.5 rounded-xl rounded-tl-sm bg-white/[0.05] border border-white/[0.07]">
+                                                <p class="text-xs text-gray-300 leading-relaxed">Love the spring vibe! Can we make the CTA a bit more specific — maybe "Book a Free Consult"?</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-2.5 flex-row-reverse">
+                                        <div class="w-6 h-6 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex-shrink-0 flex items-center justify-center text-[8px] font-bold">DL</div>
+                                        <div class="flex-1 min-w-0">
+                                            <div class="flex items-baseline gap-2 justify-end mb-1">
+                                                <span class="font-mono text-[9px] text-gray-700">Mar 14 · 2:45 PM</span>
+                                                <span class="font-display font-semibold text-xs text-white">You</span>
+                                            </div>
+                                            <div class="p-2.5 rounded-xl rounded-tr-sm bg-blue-500/10 border border-blue-500/20">
+                                                <p class="text-xs text-gray-300 leading-relaxed">Updated the caption — J. Lopez is revising the image overlay before final approval.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Reply input -->
+                                <div class="flex gap-2 pt-3 border-t border-white/[0.05]">
+                                    <input type="text" placeholder="Write a comment..." class="note-area flex-1 resize-none" style="min-height:unset; padding:8px 12px; border-radius:10px;">
+                                    <button class="w-8 h-8 flex-shrink-0 self-end rounded-lg bg-blue-500/15 border border-blue-500/25 hover:bg-blue-500/25 transition-all flex items-center justify-center text-blue-400">
+                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w-px h-4 bg-white/10"></div>
+
+                        <button class="w-8 h-8 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition-all flex items-center justify-center text-gray-500 hover:text-white" data-tip="Edit post">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image preview -->
+                <div id="detail-img-wrap" class="detail-img rounded-2xl overflow-hidden mb-4 panel-border relative group" style="height: 240px;">
+                    <div class="absolute inset-0 flex items-center justify-center z-10">
+                        <div class="text-center">
+                            <div id="detail-img-icon" class="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-500/15 to-red-500/15 border border-pink-500/20 flex items-center justify-center mx-auto mb-3">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(225,48,108,0.6)" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                            </div>
+                            <p class="font-display font-semibold text-sm text-gray-500">Image Preview</p>
+                            <p id="detail-img-dims" class="font-mono text-[10px] text-gray-700 mt-1">1080 × 1080 px · JPEG · 2.4 MB</p>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-black/60 backdrop-blur-sm border border-white/15 text-xs text-white font-display font-semibold">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                            Download Asset
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="space-y-3">
+
+                    <!-- Caption -->
+                    <div class="p-4 rounded-xl panel-border bg-brand-panel/30">
+                        <p class="font-mono text-[9px] text-gray-600 uppercase tracking-wider mb-2.5">Caption</p>
+                        <p id="detail-caption" class="text-sm text-gray-300 leading-relaxed">Spring is here and so are your wellness goals 🌿 Book your complimentary consultation and take the first step toward feeling your best. Our team is ready to guide you every step of the way. ✨</p>
+                    </div>
+
+                    <!-- Approval Action — hero zone -->
+                    <div class="rounded-xl overflow-hidden panel-border">
+                        <!-- Status bar -->
+                        <div id="detail-decision-bar" class="px-4 py-3 bg-emerald-500/[0.07] border-b border-emerald-500/15 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                                <p class="font-mono text-[9px] text-gray-500 uppercase tracking-wider">Decision</p>
+                            </div>
+                            <span id="detail-decision-by" class="flex items-center gap-1.5 font-mono text-[10px] text-emerald-400">
+                                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                Approved by D. Lawter · Mar 15
+                            </span>
+                        </div>
+                        <!-- Buttons -->
+                        <div class="flex">
+                            <button id="mainApprove" class="btn-approve active flex-1 flex items-center justify-center gap-2 py-4 font-display font-bold text-sm transition-all rounded-none" onclick="toggleApproval('approve')">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                Approve Post
+                            </button>
+                            <div class="w-px bg-white/[0.06]"></div>
+                            <button id="mainReject" class="btn-reject flex-1 flex items-center justify-center gap-2 py-4 font-display font-bold text-sm transition-all rounded-none" onclick="toggleApproval('reject')">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                                Request Revision
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="h-8"></div>
+            </div>
+        </div>
+
+        <!-- RIGHT: Activity sidebar -->
+        <div class="w-64 xl:w-72 flex-shrink-0 glass-dark border-l border-white/[0.05] flex flex-col overflow-hidden hidden xl:flex">
+            <div class="px-4 py-3.5 border-b border-white/[0.04]">
+                <p class="font-display font-bold text-sm">Activity</p>
+                <p class="font-mono text-[9px] text-gray-600 mt-0.5">Recent updates on this post</p>
+            </div>
+            <div class="flex-1 overflow-y-auto px-4 py-4 space-y-4">
+
+                <div class="flex gap-3">
+                    <div class="activity-dot bg-emerald-400 mt-1.5"></div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-xs text-gray-300 leading-snug">Post <span class="text-emerald-400 font-semibold">approved</span> by D. Lawter</p>
+                        <p class="font-mono text-[9px] text-gray-700 mt-0.5">Mar 15 · 2:43 PM</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-3">
+                    <div class="activity-dot bg-blue-400 mt-1.5"></div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-xs text-gray-300 leading-snug">Caption updated by J. Lopez</p>
+                        <p class="font-mono text-[9px] text-gray-700 mt-0.5">Mar 14 · 5:17 PM</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-3">
+                    <div class="activity-dot bg-gray-600 mt-1.5"></div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-xs text-gray-300 leading-snug">Note added by D. Lawter</p>
+                        <p class="font-mono text-[9px] text-gray-700 mt-0.5">Mar 14 · 4:02 PM</p>
+                        <div class="mt-1.5 p-2 rounded-lg bg-white/[0.04] border border-white/[0.06]">
+                            <p class="text-[11px] text-gray-500 leading-snug italic">"Caption approved. Image needs minor color correction..."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex gap-3">
+                    <div class="activity-dot bg-amber-400 mt-1.5"></div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-xs text-gray-300 leading-snug">Post submitted for review</p>
+                        <p class="font-mono text-[9px] text-gray-700 mt-0.5">Mar 13 · 10:30 AM</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-3">
+                    <div class="activity-dot bg-gray-700 mt-1.5"></div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-xs text-gray-500 leading-snug">Post created by J. Lopez</p>
+                        <p class="font-mono text-[9px] text-gray-700 mt-0.5">Mar 12 · 3:00 PM</p>
+                    </div>
+                </div>
+
+                <div class="border-t border-white/[0.04] pt-4">
+                    <p class="font-mono text-[9px] text-gray-700 uppercase tracking-wider mb-3">Assigned To</p>
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2.5">
+                            <div class="w-7 h-7 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex-shrink-0 flex items-center justify-center text-[9px] font-bold">JL</div>
+                            <div>
+                                <p class="text-xs text-gray-300 font-display font-semibold leading-none">J. Lopez</p>
+                                <p class="font-mono text-[9px] text-gray-700 mt-0.5">Content Creator</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <div class="w-7 h-7 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex-shrink-0 flex items-center justify-center text-[9px] font-bold">DL</div>
+                            <div>
+                                <p class="text-xs text-gray-300 font-display font-semibold leading-none">D. Lawter</p>
+                                <p class="font-mono text-[9px] text-gray-700 mt-0.5">Reviewer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick stats -->
+                <div class="border-t border-white/[0.04] pt-4">
+                    <p class="font-mono text-[9px] text-gray-700 uppercase tracking-wider mb-3">Week 1 Progress</p>
+                    <div class="space-y-2.5">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-mono text-[9px] text-gray-600">Approved</span>
+                                <span class="font-mono text-[9px] text-emerald-500">2/5</span>
+                            </div>
+                            <div class="progress-track">
+                                <div class="progress-fill bg-emerald-500" style="width:40%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-mono text-[9px] text-gray-600">Rejected</span>
+                                <span class="font-mono text-[9px] text-red-500">1/5</span>
+                            </div>
+                            <div class="progress-track">
+                                <div class="progress-fill bg-red-500" style="width:20%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-mono text-[9px] text-gray-600">Pending</span>
+                                <span class="font-mono text-[9px] text-amber-500">2/5</span>
+                            </div>
+                            <div class="progress-track">
+                                <div class="progress-fill bg-amber-500" style="width:40%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div><!-- /view-social-media -->
+
+    <!-- ========== SEO VIEW ========== -->
+    <div id="view-seo" class="flex flex-col flex-1 overflow-hidden" style="display:none">
+
+        <!-- Campaign timeline tabs (mirrors social media's week-tab bar) -->
+        <div class="glass-dark flex-shrink-0 border-b border-white/[0.05] px-5 py-2 flex items-center gap-2 overflow-x-auto z-40">
+            <div class="flex items-center gap-1.5 mr-2 flex-shrink-0">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4B5563" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                <span class="font-mono text-[10px] text-gray-600 uppercase tracking-wider">Campaigns</span>
+            </div>
+            <button class="week-tab active" onclick="switchSeoCampaign(this)">Spring 2025</button>
+            <button class="week-tab" onclick="switchSeoCampaign(this)">Summer 2025</button>
+            <button class="week-tab" onclick="switchSeoCampaign(this)">Q3 Push</button>
+            <button class="week-tab" onclick="switchSeoCampaign(this)">Q4 Holiday</button>
+
+            <div class="flex-1"></div>
+
+            <button onclick="runSeoBot(this)" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-brand-blue hover:bg-blue-500 glow-blue transition-all font-display font-semibold text-xs text-white flex-shrink-0">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                Run SEO Bot
+            </button>
+        </div>
+
+        <!-- Section sub-tabs -->
+        <div class="glass-dark flex-shrink-0 border-b border-white/[0.05] px-5 py-2 flex items-center gap-1 z-39">
+            <button class="seo-tab active" id="seo-tab-keywords" onclick="switchSeoTab('keywords')">Keyword Research</button>
+            <button class="seo-tab" id="seo-tab-content" onclick="switchSeoTab('content')">Content</button>
+        </div>
+
+        <!-- SEO main body -->
+        <div class="flex flex-1 overflow-hidden">
+
+            <!-- ======= KEYWORD RESEARCH PANEL (table) ======= -->
+            <div id="seo-view-keywords" class="flex flex-col flex-1 overflow-hidden">
+
+                <!-- Table toolbar -->
+                <div class="flex items-center gap-3 px-5 py-3 border-b border-white/[0.05] flex-shrink-0" style="background:rgba(10,14,23,0.5)">
+                    <div class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/[0.04] border border-white/[0.07] w-64">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4B5563" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                        <input type="text" placeholder="Filter keywords..." class="bg-transparent flex-1 font-sans text-xs text-gray-300 placeholder-gray-700 outline-none" oninput="searchKeywords(this.value)">
+                    </div>
+                    <!-- Intent filters -->
+                    <div class="flex items-center gap-1.5">
+                        <button onclick="filterKwIntent(this,'all')" data-intent="all" class="px-2.5 py-1 rounded-md text-[10px] font-mono border border-white/10 bg-white/[0.05] text-gray-400 hover:text-white transition-all kw-intent-filter active-intent">All</button>
+                        <button onclick="filterKwIntent(this,'Commercial')" data-intent="Commercial" class="px-2.5 py-1 rounded-md text-[10px] font-mono border intent-commercial hover:opacity-80 transition-all kw-intent-filter">Commercial</button>
+                        <button onclick="filterKwIntent(this,'Informational')" data-intent="Informational" class="px-2.5 py-1 rounded-md text-[10px] font-mono border intent-informational hover:opacity-80 transition-all kw-intent-filter">Informational</button>
+                        <button onclick="filterKwIntent(this,'Transactional')" data-intent="Transactional" class="px-2.5 py-1 rounded-md text-[10px] font-mono border intent-transactional hover:opacity-80 transition-all kw-intent-filter">Transactional</button>
+                        <button onclick="filterKwIntent(this,'Navigational')" data-intent="Navigational" class="px-2.5 py-1 rounded-md text-[10px] font-mono border intent-navigational hover:opacity-80 transition-all kw-intent-filter">Navigational</button>
+                    </div>
+                    <div class="flex-1"></div>
+                    <span class="font-mono text-[10px] text-gray-700" id="kw-row-count">10 keywords</span>
+                </div>
+
+                <!-- Table -->
+                <div class="flex-1 overflow-y-auto" style="background:rgba(12,17,29,0.5)">
+                    <table class="w-full border-collapse">
+                        <thead class="sticky top-0 z-10" style="background:#0a0f1c">
+                            <tr class="border-b border-white/[0.06]">
+                                <th class="text-left px-5 py-3 font-mono text-[9px] text-gray-600 uppercase tracking-wider font-normal w-[35%]">Keyword</th>
+                                <th class="text-right px-4 py-3 font-mono text-[9px] text-gray-600 uppercase tracking-wider font-normal">Vol / mo</th>
+                                <th class="text-center px-4 py-3 font-mono text-[9px] text-gray-600 uppercase tracking-wider font-normal">Difficulty</th>
+                                <th class="text-right px-4 py-3 font-mono text-[9px] text-gray-600 uppercase tracking-wider font-normal">CPC</th>
+                                <th class="text-center px-4 py-3 font-mono text-[9px] text-gray-600 uppercase tracking-wider font-normal">Intent</th>
+                                <th class="text-left px-4 py-3 font-mono text-[9px] text-gray-600 uppercase tracking-wider font-normal">Cluster</th>
+                                <th class="text-center px-4 py-3 font-mono text-[9px] text-gray-600 uppercase tracking-wider font-normal">Trend</th>
+                                <th class="text-center px-4 py-3 font-mono text-[9px] text-gray-600 uppercase tracking-wider font-normal">SERP</th>
+                            </tr>
+                        </thead>
+                        <tbody id="kwTableBody">
+                            <!-- rows injected by JS -->
+                        </tbody>
+                    </table>
+                    <div id="kwEmptyState" class="hidden py-16 text-center">
+                        <p class="font-sans text-sm text-gray-700">No keywords match your filter</p>
+                    </div>
+                </div>
+
+            </div><!-- /seo-view-keywords -->
+
+            <!-- ======= CONTENT PANEL ======= -->
+            <div id="seo-view-content" class="flex flex-1 overflow-hidden" style="display:none">
+
+                <!-- Left: content list -->
+                <div class="w-64 flex-shrink-0 flex flex-col border-r border-white/[0.05]" style="background:rgba(10,14,23,0.6)">
+                    <div class="px-3 pt-3 pb-2">
+                        <div class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/[0.04] border border-white/[0.07]">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4B5563" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                            <input type="text" placeholder="Search content..." class="bg-transparent flex-1 font-sans text-xs text-gray-300 placeholder-gray-700 outline-none" oninput="searchContent(this.value)">
+                        </div>
+                    </div>
+                    <div class="px-3 pb-2 flex items-center gap-1 flex-wrap">
+                        <button onclick="filterContent(this,'all')" data-filter="all" class="list-filter-btn active">All <span class="opacity-60 ml-0.5" id="ct-count-all"></span></button>
+                        <button onclick="filterContent(this,'pending')" data-filter="pending" class="list-filter-btn">Pending <span class="opacity-60 ml-0.5" id="ct-count-pending"></span></button>
+                        <button onclick="filterContent(this,'approved')" data-filter="approved" class="list-filter-btn">Approved <span class="opacity-60 ml-0.5" id="ct-count-approved"></span></button>
+                        <button onclick="filterContent(this,'rejected')" data-filter="rejected" class="list-filter-btn">Rejected <span class="opacity-60 ml-0.5" id="ct-count-rejected"></span></button>
+                    </div>
+                    <div class="flex-1 overflow-y-auto px-2 py-1 space-y-0.5" id="ctList">
+
+                        <div class="list-item selected" onclick="selectContent(this)" data-idx="0" data-status="approved">
+                            <div class="flex items-start gap-3">
+                                <div class="w-11 h-11 rounded-lg flex-shrink-0 detail-img flex items-center justify-center">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(148,163,184,0.5)" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center gap-1.5 mb-1">
+                                        <span class="font-mono text-[9px] text-gray-600">Apr 1, 2025</span>
+                                        <span class="ml-auto w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span>
+                                    </div>
+                                    <p class="item-title font-display font-semibold text-xs text-white leading-tight truncate">5 Ways to Boost Your Wellness</p>
+                                    <p class="font-sans text-[11px] text-gray-600 leading-tight mt-0.5 truncate">Blog post · 1,200 words</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="list-item" onclick="selectContent(this)" data-idx="1" data-status="rejected">
+                            <div class="flex items-start gap-3">
+                                <div class="w-11 h-11 rounded-lg flex-shrink-0 detail-img flex items-center justify-center">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(148,163,184,0.5)" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center gap-1.5 mb-1">
+                                        <span class="font-mono text-[9px] text-gray-600">Apr 3, 2025</span>
+                                        <span class="ml-auto w-2 h-2 rounded-full bg-red-400 flex-shrink-0"></span>
+                                    </div>
+                                    <p class="item-title font-display font-semibold text-xs text-gray-400 leading-tight truncate">Understanding Chronic Pain</p>
+                                    <p class="font-sans text-[11px] text-gray-600 leading-tight mt-0.5 truncate">Blog post · 1,800 words</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="list-item" onclick="selectContent(this)" data-idx="2" data-status="pending">
+                            <div class="flex items-start gap-3">
+                                <div class="w-11 h-11 rounded-lg flex-shrink-0 detail-img flex items-center justify-center">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(148,163,184,0.5)" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center gap-1.5 mb-1">
+                                        <span class="font-mono text-[9px] text-gray-600">Apr 7, 2025</span>
+                                        <span class="ml-auto w-2 h-2 rounded-full bg-amber-400 pulse-dot flex-shrink-0"></span>
+                                    </div>
+                                    <p class="item-title font-display font-semibold text-xs text-gray-400 leading-tight truncate">PRP Therapy: What to Expect</p>
+                                    <p class="font-sans text-[11px] text-gray-600 leading-tight mt-0.5 truncate">Blog post · 950 words</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="list-item" onclick="selectContent(this)" data-idx="3" data-status="pending">
+                            <div class="flex items-start gap-3">
+                                <div class="w-11 h-11 rounded-lg flex-shrink-0 detail-img flex items-center justify-center">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(148,163,184,0.5)" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center gap-1.5 mb-1">
+                                        <span class="font-mono text-[9px] text-gray-600">Apr 10, 2025</span>
+                                        <span class="ml-auto w-2 h-2 rounded-full bg-amber-400 pulse-dot flex-shrink-0"></span>
+                                    </div>
+                                    <p class="item-title font-display font-semibold text-xs text-gray-400 leading-tight truncate">The Science of Regenerative Med.</p>
+                                    <p class="font-sans text-[11px] text-gray-600 leading-tight mt-0.5 truncate">Blog post · 2,100 words</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="ctEmptyState" class="hidden py-8 text-center">
+                            <p class="font-sans text-xs text-gray-700">No content matches</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center: content detail -->
+                <div class="flex-1 overflow-y-auto" id="ctDetailPanel" style="background:rgba(12,17,29,0.5)">
+                    <!-- Decision bar -->
+                    <div id="ct-decision-bar" class="px-4 py-3 bg-emerald-500/[0.07] border-b border-emerald-500/15 flex items-center justify-between flex-shrink-0">
+                        <span class="font-mono text-[10px] text-gray-600 uppercase tracking-wider">Content Review</span>
+                        <span id="ct-decision-by" class="flex items-center gap-1.5 font-mono text-[10px] text-emerald-400">
+                            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            Approved by D. Lawter · Mar 15
+                        </span>
+                    </div>
+
+                    <div class="p-5">
+                        <!-- Header -->
+                        <div class="flex items-start justify-between mb-5">
+                            <div>
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span id="ct-status-badge" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 border border-emerald-500/25 text-emerald-400 text-[10px] font-mono font-medium flex items-center gap-1">
+                                        <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                                        Approved
+                                    </span>
+                                    <span class="px-2.5 py-1 rounded-lg bg-white/[0.05] border border-white/[0.08] text-[10px] font-mono text-gray-500">Blog Post</span>
+                                </div>
+                                <h2 id="ct-title" class="font-display font-bold text-xl text-white leading-tight mb-1">5 Ways to Boost Your Wellness This Spring</h2>
+                                <p id="ct-meta" class="font-mono text-[10px] text-gray-600">Published Apr 1, 2025 · Created by A. Lin · 1,200 words</p>
+                            </div>
+                            <!-- Notes popover -->
+                            <div class="relative flex-shrink-0 flex items-center gap-2" id="ctActionGroup">
+                                <div class="relative" id="ctNotesBubbleWrap">
+                                    <button onclick="toggleBubble('ctNotesBubble')" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/10 bg-white/[0.04] hover:bg-white/[0.08] transition-all font-display font-semibold text-xs text-gray-400 hover:text-white">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                        Notes
+                                    </button>
+                                    <div class="bubble-popover" id="ctNotesBubble" style="right:0;top:calc(100% + 10px);width:280px">
+                                        <div class="bubble-arrow" style="right:16px;left:auto"></div>
+                                        <p class="font-mono text-[9px] text-gray-600 uppercase tracking-wider mb-2">Internal Notes</p>
+                                        <textarea rows="4" placeholder="Add a note about this content piece..." class="w-full bg-white/[0.04] border border-white/[0.08] rounded-lg p-2.5 font-sans text-xs text-gray-300 placeholder-gray-700 outline-none resize-none focus:border-blue-500/40"></textarea>
+                                        <button class="mt-2 w-full py-1.5 rounded-lg bg-white/[0.06] border border-white/[0.08] font-display font-semibold text-xs text-gray-400 hover:text-white hover:bg-white/10 transition-all">Save Note</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Content excerpt -->
+                        <div class="rounded-xl border border-white/[0.06] p-5 mb-4" style="background:rgba(255,255,255,0.02)">
+                            <p class="font-mono text-[9px] text-gray-600 uppercase tracking-wider mb-3">Content Excerpt</p>
+                            <p id="ct-excerpt" class="font-sans text-sm text-gray-300 leading-relaxed">Spring is the perfect season to reset your health and wellness routine. Whether you're looking to address chronic pain, explore regenerative therapies, or simply feel more energized day-to-day, our clinic offers a personalized path forward. From nutrition guidance to cutting-edge treatment options, our team is here to help you thrive...</p>
+                        </div>
+
+                        <!-- Target keywords -->
+                        <div class="rounded-xl border border-white/[0.06] p-4 mb-4" style="background:rgba(255,255,255,0.02)">
+                            <p class="font-mono text-[9px] text-gray-600 uppercase tracking-wider mb-2.5">Target Keywords</p>
+                            <div id="ct-keywords" class="flex flex-wrap gap-2">
+                                <span class="px-2.5 py-1 rounded-lg bg-blue-500/10 border border-blue-500/20 font-mono text-[10px] text-blue-400">spring wellness consultation</span>
+                                <span class="px-2.5 py-1 rounded-lg bg-blue-500/10 border border-blue-500/20 font-mono text-[10px] text-blue-400">wellness clinic appointments</span>
+                                <span class="px-2.5 py-1 rounded-lg bg-blue-500/10 border border-blue-500/20 font-mono text-[10px] text-blue-400">health consultation near me</span>
+                            </div>
+                        </div>
+
+                        <!-- PDF Preview CTA -->
+                        <div class="rounded-xl border border-white/[0.06] p-4 mb-5 flex items-center gap-4" style="background:rgba(255,255,255,0.02)">
+                            <div class="w-12 h-14 rounded-lg flex-shrink-0 flex items-center justify-center" style="background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.2)">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="font-display font-semibold text-sm text-white truncate" id="ct-pdf-name">spring-wellness-5-ways.pdf</p>
+                                <p class="font-mono text-[10px] text-gray-600 mt-0.5">Full article · Ready for review</p>
+                            </div>
+                            <a id="ct-pdf-link" href="#" target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-red hover:bg-red-500 transition-all font-display font-semibold text-xs text-white flex-shrink-0">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                                View PDF
+                            </a>
+                        </div>
+
+                        <!-- Approve / Reject -->
+                        <div class="rounded-xl border border-white/[0.06] overflow-hidden" style="background:rgba(255,255,255,0.02)">
+                            <div class="px-4 py-3 border-b border-white/[0.05]">
+                                <p class="font-mono text-[9px] text-gray-600 uppercase tracking-wider">Content Decision</p>
+                            </div>
+                            <div class="flex gap-0">
+                                <button id="ctApprove" onclick="toggleContentApproval('approve')" class="btn-approve flex-1 flex items-center justify-center gap-2 px-4 py-3.5 font-display font-semibold text-sm border-r border-white/[0.05] active">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                    Approve Content
+                                </button>
+                                <button id="ctReject" onclick="toggleContentApproval('reject')" class="btn-reject flex-1 flex items-center justify-center gap-2 px-4 py-3.5 font-display font-semibold text-sm">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                                    Request Revision
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: content activity -->
+                <div class="w-56 flex-shrink-0 border-l border-white/[0.05] overflow-y-auto p-4 space-y-5" style="background:rgba(10,14,23,0.6)">
+                    <div>
+                        <p class="font-mono text-[9px] text-gray-700 uppercase tracking-wider mb-3">Content Progress</p>
+                        <div class="space-y-2.5">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-mono text-[9px] text-gray-600">Approved</span>
+                                    <span class="font-mono text-[9px] text-emerald-500" id="ct-stat-approved">1/4</span>
+                                </div>
+                                <div class="progress-track"><div class="progress-fill bg-emerald-500" id="ct-bar-approved" style="width:25%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-mono text-[9px] text-gray-600">Pending</span>
+                                    <span class="font-mono text-[9px] text-amber-500" id="ct-stat-pending">2/4</span>
+                                </div>
+                                <div class="progress-track"><div class="progress-fill bg-amber-500" id="ct-bar-pending" style="width:50%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-mono text-[9px] text-gray-600">Rejected</span>
+                                    <span class="font-mono text-[9px] text-red-400" id="ct-stat-rejected">1/4</span>
+                                </div>
+                                <div class="progress-track"><div class="progress-fill bg-red-500" id="ct-bar-rejected" style="width:25%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-t border-white/[0.04] pt-4">
+                        <p class="font-mono text-[9px] text-gray-700 uppercase tracking-wider mb-3">Assigned To</p>
+                        <div class="flex items-center gap-2">
+                            <div class="w-7 h-7 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex-shrink-0 flex items-center justify-center text-[9px] font-bold">AL</div>
+                            <div>
+                                <p class="text-xs text-gray-300 font-display font-semibold leading-none">A. Lin</p>
+                                <p class="font-mono text-[9px] text-gray-700 mt-0.5">Content Writer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /seo-view-content -->
+
+        </div><!-- /seo main body -->
+    </div><!-- /view-seo -->
+
+</div>
+
+<!-- ========== NEW CAMPAIGN MODAL ========== -->
+<div class="modal-backdrop" id="newCampaignModal" onclick="handleModalBackdropClick(event)">
+    <div class="modal-box">
+        <div class="flex items-center justify-between mb-6">
+            <div>
+                <h3 class="font-display font-bold text-base text-white">New Campaign</h3>
+                <p class="font-mono text-[10px] text-gray-600 mt-0.5">Creates a new timeline for this client</p>
+            </div>
+            <button onclick="closeModal('newCampaignModal')" class="w-7 h-7 rounded-lg flex items-center justify-center text-gray-600 hover:text-gray-300 hover:bg-white/[0.06] transition-all">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+        </div>
+
+        <div class="space-y-4">
+            <div>
+                <label class="modal-label">Campaign Name</label>
+                <input type="text" class="modal-input" placeholder="e.g. March Social Media, Q2 SEO Push..." id="campaignNameInput">
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+                <div>
+                    <label class="modal-label">Type</label>
+                    <select class="modal-input modal-select">
+                        <option>Social Media</option>
+                        <option>SEO</option>
+                        <option>AI SEO</option>
+                        <option>Advertising</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="modal-label">Client</label>
+                    <input type="text" class="modal-input" value="Renew Health Clinic" readonly style="opacity:0.5;cursor:default">
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+                <div>
+                    <label class="modal-label">Start Date</label>
+                    <input type="date" class="modal-input" style="color-scheme:dark">
+                </div>
+                <div>
+                    <label class="modal-label">End Date</label>
+                    <input type="date" class="modal-input" style="color-scheme:dark">
+                </div>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-2 mt-6 pt-5 border-t border-white/[0.07]">
+            <button onclick="closeModal('newCampaignModal')" class="flex-1 py-2.5 rounded-lg border border-white/10 bg-white/[0.04] hover:bg-white/[0.08] transition-all font-display font-semibold text-sm text-gray-400 hover:text-white">
+                Cancel
+            </button>
+            <button onclick="createCampaign()" class="flex-1 py-2.5 rounded-lg bg-brand-blue hover:bg-blue-500 glow-blue transition-all font-display font-semibold text-sm text-white">
+                Create Campaign
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Version label -->
+<div class="fixed bottom-4 left-4 z-50">
+    <span class="font-mono text-[10px] text-gray-700 bg-black/40 border border-white/5 px-2.5 py-1 rounded-md">V2 · Review Pipeline</span>
+</div>
+
+<script>
+    // Close menus + bubbles on outside click
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('#statusMenuWrap')) document.getElementById('statusMenu').classList.remove('open');
+        if (!e.target.closest('#ctxMenuWrap')) document.getElementById('ctxMenu').classList.remove('open');
+        if (!e.target.closest('#notesBubbleWrap')) document.getElementById('notesBubble').classList.remove('open');
+        if (!e.target.closest('#commentsBubbleWrap')) document.getElementById('commentsBubble').classList.remove('open');
+        if (!e.target.closest('#kwNotesBubbleWrap')) { const b = document.getElementById('kwNotesBubble'); if(b) b.classList.remove('open'); }
+        if (!e.target.closest('#ctNotesBubbleWrap')) { const b = document.getElementById('ctNotesBubble'); if(b) b.classList.remove('open'); }
+    });
+
+    function toggleBubble(id) {
+        const bubble = document.getElementById(id);
+        const isOpen = bubble.classList.contains('open');
+        // close all bubbles and menus first
+        document.querySelectorAll('.bubble-popover').forEach(b => b.classList.remove('open'));
+        document.querySelectorAll('.mini-menu').forEach(m => m.classList.remove('open'));
+        if (!isOpen) bubble.classList.add('open');
+    }
+
+    function toggleMenu(id) {
+        const menu = document.getElementById(id);
+        const isOpen = menu.classList.contains('open');
+        document.querySelectorAll('.mini-menu').forEach(m => m.classList.remove('open'));
+        if (!isOpen) menu.classList.add('open');
+    }
+
+    function closeAllMenus() {
+        document.querySelectorAll('.mini-menu').forEach(m => m.classList.remove('open'));
+    }
+
+    function setStatus(status) {
+        const btn = document.querySelector('#statusMenuWrap > button');
+        const configs = {
+            published: { cls: 'status-published', dot: 'bg-emerald-400', label: 'PUBLISHED' },
+            scheduled:  { cls: 'status-scheduled', dot: 'bg-blue-400', label: 'SCHEDULED' },
+            draft:      { cls: 'status-draft', dot: 'bg-gray-500', label: 'DRAFT' },
+        };
+        const c = configs[status];
+        btn.className = btn.className.replace(/status-\w+/g, c.cls);
+        btn.innerHTML = `<span class="w-1.5 h-1.5 rounded-full ${c.dot} pulse-dot"></span> ${c.label} <svg width="10" height="10" viewBox="0 0 10 10" fill="none" class="opacity-60"><path d="M2.5 3.75L5 6.25L7.5 3.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+        closeAllMenus();
+    }
+
+    function switchWeek(el) {
+        document.querySelectorAll('.week-tab').forEach(b => b.classList.remove('active'));
+        el.classList.add('active');
+    }
+
+    function selectPost(el) {
+        document.querySelectorAll('.list-item').forEach(i => i.classList.remove('selected'));
+        el.classList.add('selected');
+        const idx = parseInt(el.dataset.idx);
+        if (!isNaN(idx)) renderDetail(idx);
+    }
+
+    function renderDetail(idx) {
+        const p = POSTS[idx];
+        if (!p) return;
+        activePostIdx = idx;
+
+        // Status badge
+        const sb = document.getElementById('detail-status-badge');
+        const statusCfg = {
+            approved: { bg: 'bg-emerald-500/15 border-emerald-500/25 text-emerald-400', icon: '<svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>', label: 'Approved' },
+            rejected:  { bg: 'bg-red-500/15 border-red-500/25 text-red-400',             icon: '<svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>', label: 'Rejected' },
+            pending:   { bg: 'bg-amber-500/12 border-amber-500/22 text-amber-400',        icon: '<span class="w-1.5 h-1.5 rounded-full bg-amber-400 pulse-dot"></span>', label: 'Pending' },
+        };
+        const sc = statusCfg[p.status];
+        sb.className = `px-2.5 py-1 rounded-lg border ${sc.bg} text-[10px] font-mono font-medium flex items-center gap-1`;
+        sb.innerHTML = `${sc.icon} ${sc.label}`;
+
+        // Title + meta
+        document.getElementById('detail-title').textContent = p.title;
+        document.getElementById('detail-meta').textContent = `Scheduled for ${p.date} · Created by ${p.creator}`;
+
+        // Image
+        document.getElementById('detail-img-wrap').style.cssText = `height:240px; ${p.imgIconBg}`;
+        const iconEl = document.getElementById('detail-img-icon');
+        iconEl.className = `w-16 h-16 rounded-2xl bg-gradient-to-br ${p.imgIconClass} flex items-center justify-center mx-auto mb-3`;
+        iconEl.innerHTML = p.imgIconSvg;
+        document.getElementById('detail-img-dims').textContent = `${p.dims} · 2.4 MB`;
+
+        // Caption
+        document.getElementById('detail-caption').textContent = p.caption;
+
+        // Decision bar
+        const bar = document.getElementById('detail-decision-bar');
+        const byEl = document.getElementById('detail-decision-by');
+        if (p.status === 'approved') {
+            bar.className = 'px-4 py-3 bg-emerald-500/[0.07] border-b border-emerald-500/15 flex items-center justify-between';
+            byEl.className = 'flex items-center gap-1.5 font-mono text-[10px] text-emerald-400';
+            byEl.innerHTML = `<svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> ${p.decisionBy}`;
+        } else if (p.status === 'rejected') {
+            bar.className = 'px-4 py-3 bg-red-500/[0.06] border-b border-red-500/15 flex items-center justify-between';
+            byEl.className = 'flex items-center gap-1.5 font-mono text-[10px] text-red-400';
+            byEl.innerHTML = `<svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> ${p.decisionBy}`;
+        } else {
+            bar.className = 'px-4 py-3 bg-amber-500/[0.05] border-b border-amber-500/12 flex items-center justify-between';
+            byEl.className = 'flex items-center gap-1.5 font-mono text-[10px] text-amber-500';
+            byEl.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-amber-400 pulse-dot"></span> ${p.decisionBy}`;
+        }
+
+        // Approve / reject button states
+        const approveBtn = document.getElementById('mainApprove');
+        const rejectBtn  = document.getElementById('mainReject');
+        approveBtn.classList.toggle('active', p.status === 'approved');
+        rejectBtn.classList.toggle('active',  p.status === 'rejected');
+
+        // Scroll detail panel to top
+        document.getElementById('detailPanel').scrollTop = 0;
+    }
+
+    // ── Post data ──────────────────────────────────────────────────────────────
+    const _postIcon = `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(148,163,184,0.45)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>`;
+    const _postIconBg = 'background: linear-gradient(135deg, #111827 0%, #1e2a3a 100%)';
+    const _postIconClass = 'from-slate-500/10 to-slate-700/10 border-slate-500/15';
+
+    const POSTS = [
+        {
+            idx: 0, status: 'approved',
+            imgIconSvg: _postIcon, imgIconBg: _postIconBg, imgIconClass: _postIconClass,
+            date: 'Apr 1, 2025 · 10:00 AM EDT', creator: 'J. Lopez',
+            dims: '1080 × 1080 px · JPEG',
+            title: 'Spring Wellness Goals 🌿',
+            caption: 'Spring is here and so are your wellness goals 🌿 Book your complimentary consultation and take the first step toward feeling your best. Our team is ready to guide you every step of the way. ✨',
+            decisionBy: 'Approved by D. Lawter · Mar 15',
+        },
+        {
+            idx: 1, status: 'rejected',
+            imgIconSvg: _postIcon, imgIconBg: _postIconBg, imgIconClass: _postIconClass,
+            date: 'Apr 2, 2025 · 2:00 PM EDT', creator: 'M. Torres',
+            dims: '1200 × 630 px · JPEG',
+            title: 'Limited Time Offer — 20% Off',
+            caption: 'Limited time offer! Our most popular treatment package at 20% off this month only. Don\'t miss out — slots filling fast!',
+            decisionBy: 'Rejected by D. Lawter · Mar 14',
+        },
+        {
+            idx: 2, status: 'pending',
+            imgIconSvg: _postIcon, imgIconBg: _postIconBg, imgIconClass: _postIconClass,
+            date: 'Apr 3, 2025 · 9:00 AM EDT', creator: 'A. Lin',
+            dims: '1080 × 1350 px · PNG',
+            title: '80% of Chronic Pain Cases...',
+            caption: 'Did you know that 80% of chronic pain cases can be managed without surgery? Our team is here to guide you every step of the way.',
+            decisionBy: 'Awaiting review',
+        },
+        {
+            idx: 3, status: 'pending',
+            imgIconSvg: _postIcon, imgIconBg: _postIconBg, imgIconClass: _postIconClass,
+            date: 'Apr 4, 2025 · 8:30 AM EDT', creator: 'S. Roberts',
+            dims: '1200 × 628 px · PNG',
+            title: 'Regenerative Therapy Expansion',
+            caption: 'We\'re proud to announce the expansion of our regenerative therapy program. Helping our community heal better, faster, and with more personalized care.',
+            decisionBy: 'Awaiting review',
+        },
+        {
+            idx: 4, status: 'approved',
+            imgIconSvg: _postIcon, imgIconBg: _postIconBg, imgIconClass: _postIconClass,
+            date: 'Apr 5, 2025 · 12:00 PM EDT', creator: 'J. Lopez',
+            dims: '1080 × 1920 px · MP4',
+            title: 'PRP Therapy Explained 🎥',
+            caption: 'Watch Dr. Chen explain our cutting-edge PRP therapy in under 60 seconds. Your questions answered.',
+            decisionBy: 'Approved by D. Lawter · Mar 16',
+        },
+    ];
+
+    // Track current active filter so search respects it
+    let activeFilter = 'all';
+    let activeSearch = '';
+    let activePostIdx = 0;
+
+    function updateCounts() {
+        const items = document.querySelectorAll('#postList .list-item[data-status]');
+        const counts = { all: 0, pending: 0, approved: 0, rejected: 0 };
+        items.forEach(item => {
+            counts.all++;
+            if (counts[item.dataset.status] !== undefined) counts[item.dataset.status]++;
+        });
+        document.getElementById('count-all').textContent      = counts.all      || '';
+        document.getElementById('count-pending').textContent  = counts.pending  || '';
+        document.getElementById('count-approved').textContent = counts.approved || '';
+        document.getElementById('count-rejected').textContent = counts.rejected || '';
+    }
+
+    function applyListFilter() {
+        const items = document.querySelectorAll('#postList .list-item[data-status]');
+        let visibleCount = 0;
+        let firstVisible = null;
+        let currentStillVisible = false;
+
+        items.forEach(item => {
+            const matchesFilter = activeFilter === 'all' || item.dataset.status === activeFilter;
+            const title = item.querySelector('.item-title')?.textContent.toLowerCase() || '';
+            const matchesSearch = !activeSearch || title.includes(activeSearch.toLowerCase());
+
+            if (matchesFilter && matchesSearch) {
+                item.classList.remove('hidden-by-filter');
+                if (visibleCount === 0) firstVisible = item;
+                visibleCount++;
+                if (parseInt(item.dataset.idx) === activePostIdx) currentStillVisible = true;
+            } else {
+                item.classList.add('hidden-by-filter');
+                item.classList.remove('selected');
+            }
+        });
+
+        // If current post is hidden, select + render the first visible one
+        if (!currentStillVisible && firstVisible) {
+            firstVisible.classList.add('selected');
+            renderDetail(parseInt(firstVisible.dataset.idx));
+        }
+
+        // Show empty state if nothing visible
+        const emptyEl = document.getElementById('listEmptyState');
+        if (emptyEl) emptyEl.style.display = visibleCount === 0 ? 'flex' : 'none';
+    }
+
+    function filterList(el, status) {
+        activeFilter = status;
+        document.querySelectorAll('.list-filter-btn').forEach(b => b.classList.remove('active'));
+        el.classList.add('active');
+        applyListFilter();
+    }
+
+    function searchPosts(val) {
+        activeSearch = val.trim();
+        applyListFilter();
+    }
+
+    function toggleApproval(action) {
+        const newStatus = action === 'approve' ? 'approved' : 'rejected';
+        POSTS[activePostIdx].status = newStatus;
+
+        // Update approve/reject buttons
+        document.getElementById('mainApprove').classList.toggle('active', newStatus === 'approved');
+        document.getElementById('mainReject').classList.toggle('active',  newStatus === 'rejected');
+
+        // Update the detail header status badge + decision bar without full re-render
+        renderDetail(activePostIdx);
+
+        // Update the sidebar list item's status dot + data-status attr
+        const sidebarItem = document.querySelector(`#postList .list-item[data-idx="${activePostIdx}"]`);
+        if (sidebarItem) {
+            sidebarItem.dataset.status = newStatus;
+            const dot = sidebarItem.querySelector('.ml-auto.rounded-full');
+            if (dot) {
+                dot.className = `ml-auto w-2 h-2 rounded-full flex-shrink-0 ${
+                    newStatus === 'approved' ? 'bg-emerald-400' :
+                    newStatus === 'rejected' ? 'bg-red-400' :
+                    'bg-amber-400 pulse-dot'
+                }`;
+            }
+        }
+
+        // Refresh counts in filter tabs
+        updateCounts();
+    }
+
+    // Init counts on load
+    document.addEventListener('DOMContentLoaded', updateCounts);
+
+    function setView(v) {
+        document.getElementById('viewList').className = v === 'list'
+            ? 'w-6 h-6 rounded flex items-center justify-center bg-blue-500/15 border border-blue-500/25 text-blue-400'
+            : 'w-6 h-6 rounded flex items-center justify-center border border-white/10 bg-white/5 text-gray-500 hover:text-white hover:bg-white/10 transition-all';
+        document.getElementById('viewGrid').className = v === 'grid'
+            ? 'w-6 h-6 rounded flex items-center justify-center bg-blue-500/15 border border-blue-500/25 text-blue-400'
+            : 'w-6 h-6 rounded flex items-center justify-center border border-white/10 bg-white/5 text-gray-500 hover:text-white hover:bg-white/10 transition-all';
+    }
+
+    // ── Sidebar nav ───────────────────────────────────────────────────────────
+    function openNav() {
+        document.getElementById('navSidebar').classList.add('open');
+        document.getElementById('navBackdrop').classList.add('open');
+    }
+    function closeNav() {
+        document.getElementById('navSidebar').classList.remove('open');
+        document.getElementById('navBackdrop').classList.remove('open');
+    }
+
+    const TAB_META = {
+        dashboard:    { label: 'Dashboard',   icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4B5563" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>' },
+        'ai-seo':     { label: 'AI SEO',       icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4B5563" stroke-width="1.5"><path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></svg>' },
+        advertising:  { label: 'Advertising',  icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4B5563" stroke-width="1.5"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>' },
+        projects:     { label: 'Projects',     icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4B5563" stroke-width="1.5"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>' },
+        analytics:    { label: 'Analytics',    icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4B5563" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>' },
+        settings:     { label: 'Settings',     icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4B5563" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>' },
+    };
+
+    function switchTab(tab) {
+        closeNav();
+        document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+        const activeEl = document.getElementById('nav-' + tab) || document.querySelector(`.nav-item[onclick="switchTab('${tab}')"]`);
+        if (activeEl) activeEl.classList.add('active');
+
+        const smView = document.getElementById('view-social-media');
+        const seoView = document.getElementById('view-seo');
+        const placeholder = document.getElementById('tabPlaceholder');
+
+        smView.style.display = 'none';
+        seoView.style.display = 'none';
+        placeholder.style.setProperty('display', 'none', 'important');
+
+        if (tab === 'social-media') {
+            smView.style.display = '';
+        } else if (tab === 'seo') {
+            seoView.style.display = '';
+        } else {
+            const meta = TAB_META[tab] || { label: tab, icon: '' };
+            document.getElementById('placeholder-title').textContent = meta.label;
+            document.getElementById('placeholder-icon').innerHTML = meta.icon;
+            placeholder.style.setProperty('display', 'flex', 'important');
+        }
+    }
+
+    // ── SEO Sub-tab ───────────────────────────────────────────────────────────
+    function switchSeoTab(panel) {
+        document.getElementById('seo-view-keywords').style.display = panel === 'keywords' ? '' : 'none';
+        document.getElementById('seo-view-content').style.display  = panel === 'content'  ? '' : 'none';
+        document.getElementById('seo-tab-keywords').classList.toggle('active', panel === 'keywords');
+        document.getElementById('seo-tab-content').classList.toggle('active',  panel === 'content');
+    }
+
+    function switchSeoCampaign(btn) {
+        btn.closest('div').querySelectorAll('.week-tab').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+    }
+
+    function runSeoBot(btn) {
+        btn.innerHTML = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 11-6.219-8.56" stroke-linecap="round"/></svg> Running...';
+        btn.disabled = true;
+        setTimeout(() => {
+            btn.innerHTML = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run SEO Bot';
+            btn.disabled = false;
+        }, 2200);
+    }
+
+    // ── SEO Keyword data & table ──────────────────────────────────────────────
+    const KEYWORDS = [
+        { keyword:'spring wellness consultation',   volume:'9,800', volRaw:9800,  diff:35, diffClass:'diff-low',    diffLabel:'Low',    cpc:'$3.20', intent:'Commercial',    intentClass:'intent-commercial',    cluster:'Wellness Services',    serp:'Featured Snippet', trend:'up' },
+        { keyword:'chronic pain management clinic', volume:'8,900', volRaw:8900,  diff:52, diffClass:'diff-hard',   diffLabel:'Hard',   cpc:'$4.80', intent:'Informational', intentClass:'intent-informational', cluster:'Pain Management',      serp:'People Also Ask',  trend:'up' },
+        { keyword:'PRP therapy near me',            volume:'6,200', volRaw:6200,  diff:45, diffClass:'diff-medium', diffLabel:'Medium', cpc:'$6.20', intent:'Transactional', intentClass:'intent-transactional', cluster:'PRP Treatments',       serp:'Local Pack',       trend:'up' },
+        { keyword:'regenerative medicine specialist',volume:'4,100',volRaw:4100,  diff:41, diffClass:'diff-medium', diffLabel:'Medium', cpc:'$8.50', intent:'Navigational',  intentClass:'intent-navigational',  cluster:'Regenerative Medicine',serp:'Knowledge Panel',  trend:'flat' },
+        { keyword:'wellness clinic appointments',   volume:'7,400', volRaw:7400,  diff:38, diffClass:'diff-low',    diffLabel:'Low',    cpc:'$2.90', intent:'Commercial',    intentClass:'intent-commercial',    cluster:'Wellness Services',    serp:'Featured Snippet', trend:'up' },
+        { keyword:'holistic health clinic',         volume:'5,600', volRaw:5600,  diff:34, diffClass:'diff-low',    diffLabel:'Low',    cpc:'$2.40', intent:'Commercial',    intentClass:'intent-commercial',    cluster:'Wellness Services',    serp:'People Also Ask',  trend:'up' },
+        { keyword:'pain management doctors near me',volume:'4,400', volRaw:4400,  diff:49, diffClass:'diff-medium', diffLabel:'Medium', cpc:'$5.10', intent:'Transactional', intentClass:'intent-transactional', cluster:'Pain Management',      serp:'Local Pack',       trend:'flat' },
+        { keyword:'stem cell therapy specialist',   volume:'2,400', volRaw:2400,  diff:55, diffClass:'diff-hard',   diffLabel:'Hard',   cpc:'$9.80', intent:'Navigational',  intentClass:'intent-navigational',  cluster:'Regenerative Medicine',serp:'Knowledge Panel',  trend:'down' },
+        { keyword:'book wellness appointment',      volume:'4,100', volRaw:4100,  diff:29, diffClass:'diff-low',    diffLabel:'Low',    cpc:'$2.10', intent:'Commercial',    intentClass:'intent-commercial',    cluster:'Wellness Services',    serp:'Sitelinks',        trend:'up' },
+        { keyword:'platelet rich plasma therapy',   volume:'2,900', volRaw:2900,  diff:47, diffClass:'diff-medium', diffLabel:'Medium', cpc:'$7.40', intent:'Informational', intentClass:'intent-informational', cluster:'PRP Treatments',       serp:'Featured Snippet', trend:'up' },
+    ];
+
+    let activeKwSearch = '', activeKwIntent = 'all';
+
+    function renderKwTable() {
+        const tbody = document.getElementById('kwTableBody');
+        const trendIcon = {
+            up:   `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>`,
+            down: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.5"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg>`,
+            flat: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#6B7280" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>`,
+        };
+        let visible = 0;
+        tbody.innerHTML = KEYWORDS.map(k => {
+            const matchSearch = !activeKwSearch || k.keyword.toLowerCase().includes(activeKwSearch.toLowerCase());
+            const matchIntent = activeKwIntent === 'all' || k.intent === activeKwIntent;
+            const hidden = !(matchSearch && matchIntent);
+            if (!hidden) visible++;
+            return `<tr class="kw-row${hidden ? ' hidden-by-filter' : ''}">
+                <td class="px-5 font-sans text-sm text-gray-200">${k.keyword}</td>
+                <td class="px-4 text-right font-mono text-sm text-gray-300">${k.volume}</td>
+                <td class="px-4 text-center">
+                    <div class="flex items-center justify-center gap-1.5">
+                        <div class="h-1.5 w-16 rounded-full overflow-hidden" style="background:rgba(255,255,255,0.06)">
+                            <div class="h-full rounded-full ${k.diffClass}" style="width:${k.diff}%;background:currentColor;opacity:0.6"></div>
+                        </div>
+                        <span class="px-1.5 py-px rounded text-[9px] font-bold ${k.diffClass} border w-6 text-center">${k.diff}</span>
+                    </div>
+                </td>
+                <td class="px-4 text-right font-mono text-sm text-gray-400">${k.cpc}</td>
+                <td class="px-4 text-center"><span class="px-2 py-0.5 rounded text-[10px] font-mono border ${k.intentClass}">${k.intent}</span></td>
+                <td class="px-4 font-sans text-xs text-gray-600">${k.cluster}</td>
+                <td class="px-4 text-center">${trendIcon[k.trend]}</td>
+                <td class="px-4 font-mono text-[10px] text-gray-600">${k.serp}</td>
+            </tr>`;
+        }).join('');
+        const countEl = document.getElementById('kw-row-count');
+        if (countEl) countEl.textContent = `${visible} keyword${visible !== 1 ? 's' : ''}`;
+        document.getElementById('kwEmptyState').classList.toggle('hidden', visible > 0);
+    }
+
+    function searchKeywords(val) { activeKwSearch = val.trim(); renderKwTable(); }
+
+    function filterKwIntent(btn, intent) {
+        activeKwIntent = intent;
+        document.querySelectorAll('.kw-intent-filter').forEach(b => b.classList.remove('active-intent'));
+        btn.classList.add('active-intent');
+        renderKwTable();
+    }
+
+    // ── SEO Content data & logic ──────────────────────────────────────────────
+    const CONTENT = [
+        { idx:0, status:'approved', title:'5 Ways to Boost Your Wellness This Spring', date:'Apr 1, 2025', creator:'A. Lin', words:'1,200', excerpt:'Spring is the perfect season to reset your health and wellness routine. Whether you\'re looking to address chronic pain, explore regenerative therapies, or simply feel more energized day-to-day, our clinic offers a personalized path forward...', keywords:['spring wellness consultation','wellness clinic appointments','health consultation near me'], pdfName:'spring-wellness-5-ways.pdf', pdfLink:'#', decisionBy:'Approved by D. Lawter · Mar 15' },
+        { idx:1, status:'rejected', title:'Understanding Chronic Pain: A Patient\'s Guide', date:'Apr 3, 2025', creator:'A. Lin', words:'1,800', excerpt:'Chronic pain affects millions of Americans every year, yet many patients don\'t know their full range of treatment options. In this guide, we break down the most effective evidence-based approaches to pain management available at our clinic...', keywords:['chronic pain management clinic','pain management doctors near me'], pdfName:'chronic-pain-patient-guide.pdf', pdfLink:'#', decisionBy:'Rejected by D. Lawter · Mar 14' },
+        { idx:2, status:'pending', title:'PRP Therapy: What to Expect at Your First Visit', date:'Apr 7, 2025', creator:'S. Roberts', words:'950', excerpt:'Platelet-Rich Plasma (PRP) therapy is one of the fastest-growing regenerative treatments available today. If you\'ve been referred for your first PRP session, you likely have questions about what to expect, how long it takes, and when you\'ll feel results...', keywords:['PRP therapy near me','PRP injection clinic'], pdfName:'prp-therapy-first-visit.pdf', pdfLink:'#', decisionBy:'Awaiting review' },
+        { idx:3, status:'pending', title:'The Science Behind Regenerative Medicine', date:'Apr 10, 2025', creator:'S. Roberts', words:'2,100', excerpt:'Regenerative medicine represents one of the most exciting frontiers in modern healthcare. By harnessing the body\'s own healing mechanisms, treatments like PRP, stem cell therapy, and prolotherapy offer patients a path to recovery without surgery or heavy medication...', keywords:['regenerative medicine specialist','regenerative medicine clinic'], pdfName:'science-regenerative-medicine.pdf', pdfLink:'#', decisionBy:'Awaiting review' },
+    ];
+
+    let activeCtFilter = 'all', activeCtSearch = '', activeCtIdx = 0;
+
+    function updateCtCounts() {
+        const items = document.querySelectorAll('#ctList .list-item[data-status]');
+        const c = {all:0,pending:0,approved:0,rejected:0};
+        items.forEach(i => { c.all++; if(c[i.dataset.status]!==undefined) c[i.dataset.status]++; });
+        document.getElementById('ct-count-all').textContent      = c.all      || '';
+        document.getElementById('ct-count-pending').textContent  = c.pending  || '';
+        document.getElementById('ct-count-approved').textContent = c.approved || '';
+        document.getElementById('ct-count-rejected').textContent = c.rejected || '';
+    }
+
+    function filterContent(btn, filter) {
+        activeCtFilter = filter;
+        document.querySelectorAll('#ctList').forEach(() => {});
+        btn.closest('.px-3').querySelectorAll('.list-filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        applyCtFilter();
+    }
+    function searchContent(val) { activeCtSearch = val.trim(); applyCtFilter(); }
+
+    function applyCtFilter() {
+        const items = document.querySelectorAll('#ctList .list-item[data-status]');
+        let firstVisible = null, currentVisible = false;
+        items.forEach(item => {
+            const match = (activeCtFilter === 'all' || item.dataset.status === activeCtFilter)
+                       && (!activeCtSearch || item.querySelector('.item-title')?.textContent.toLowerCase().includes(activeCtSearch.toLowerCase()));
+            item.classList.toggle('hidden-by-filter', !match);
+            if (match) { if (!firstVisible) firstVisible = item; if (parseInt(item.dataset.idx) === activeCtIdx) currentVisible = true; }
+        });
+        document.getElementById('ctEmptyState').classList.toggle('hidden', !!firstVisible);
+        if (!currentVisible && firstVisible) selectContent(firstVisible);
+    }
+
+    function selectContent(el) {
+        document.querySelectorAll('#ctList .list-item').forEach(i => i.classList.remove('selected'));
+        el.classList.add('selected');
+        renderContent(parseInt(el.dataset.idx));
+    }
+
+    function renderContent(idx) {
+        const c = CONTENT[idx]; if (!c) return;
+        activeCtIdx = idx;
+        const isApproved = c.status === 'approved', isRejected = c.status === 'rejected';
+        // Decision bar
+        const bar = document.getElementById('ct-decision-bar');
+        const byEl = document.getElementById('ct-decision-by');
+        bar.className = isApproved ? 'px-4 py-3 bg-emerald-500/[0.07] border-b border-emerald-500/15 flex items-center justify-between'
+                      : isRejected ? 'px-4 py-3 bg-red-500/[0.06] border-b border-red-500/15 flex items-center justify-between'
+                      : 'px-4 py-3 bg-amber-500/[0.05] border-b border-amber-500/12 flex items-center justify-between';
+        byEl.className = isApproved ? 'flex items-center gap-1.5 font-mono text-[10px] text-emerald-400' : isRejected ? 'flex items-center gap-1.5 font-mono text-[10px] text-red-400' : 'flex items-center gap-1.5 font-mono text-[10px] text-amber-500';
+        byEl.innerHTML = isApproved ? `<svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> ${c.decisionBy}` : isRejected ? `<svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> ${c.decisionBy}` : `<span class="w-1.5 h-1.5 rounded-full bg-amber-400 pulse-dot"></span> ${c.decisionBy}`;
+        // Status badge
+        const statusMap = { approved:{cls:'bg-emerald-500/15 border-emerald-500/25 text-emerald-400',icon:'<svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>',lbl:'Approved'}, rejected:{cls:'bg-red-500/15 border-red-500/25 text-red-400',icon:'<svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>',lbl:'Rejected'}, pending:{cls:'bg-amber-500/12 border-amber-500/22 text-amber-400',icon:'<span class="w-1.5 h-1.5 rounded-full bg-amber-400 pulse-dot"></span>',lbl:'Pending'} };
+        const sc = statusMap[c.status];
+        const sb = document.getElementById('ct-status-badge');
+        sb.className = `px-2.5 py-1 rounded-lg border ${sc.cls} text-[10px] font-mono font-medium flex items-center gap-1`;
+        sb.innerHTML = `${sc.icon} ${sc.lbl}`;
+        document.getElementById('ct-title').textContent = c.title;
+        document.getElementById('ct-meta').textContent = `Published ${c.date} · Created by ${c.creator} · ${c.words} words`;
+        document.getElementById('ct-excerpt').textContent = c.excerpt;
+        document.getElementById('ct-pdf-name').textContent = c.pdfName;
+        document.getElementById('ct-pdf-link').href = c.pdfLink;
+        document.getElementById('ct-keywords').innerHTML = c.keywords.map(kw => `<span class="px-2.5 py-1 rounded-lg bg-blue-500/10 border border-blue-500/20 font-mono text-[10px] text-blue-400">${kw}</span>`).join('');
+        document.getElementById('ctApprove').classList.toggle('active', isApproved);
+        document.getElementById('ctReject').classList.toggle('active',  isRejected);
+        document.getElementById('ctDetailPanel').scrollTop = 0;
+    }
+
+    function toggleContentApproval(action) {
+        const newStatus = action === 'approve' ? 'approved' : 'rejected';
+        CONTENT[activeCtIdx].status = newStatus;
+        const item = document.querySelector(`#ctList .list-item[data-idx="${activeCtIdx}"]`);
+        if (item) {
+            item.dataset.status = newStatus;
+            const dot = item.querySelector('.ml-auto.rounded-full');
+            if (dot) dot.className = `ml-auto w-2 h-2 rounded-full flex-shrink-0 ${newStatus==='approved'?'bg-emerald-400':newStatus==='rejected'?'bg-red-400':'bg-amber-400 pulse-dot'}`;
+        }
+        renderContent(activeCtIdx);
+        updateCtCounts();
+    }
+
+    // ── Modal ──────────────────────────────────────────────────────────────────
+    function openModal(id) {
+        closeAllMenus();
+        document.getElementById(id).classList.add('open');
+    }
+    function closeModal(id) {
+        document.getElementById(id).classList.remove('open');
+    }
+    function handleModalBackdropClick(e) {
+        if (e.target === e.currentTarget) closeModal(e.currentTarget.id);
+    }
+    function createCampaign() {
+        const name = document.getElementById('campaignNameInput').value.trim();
+        if (!name) { document.getElementById('campaignNameInput').focus(); return; }
+        closeModal('newCampaignModal');
+        document.getElementById('campaignNameInput').value = '';
+    }
+
+    // Init on load
+    document.addEventListener('DOMContentLoaded', () => {
+        renderKwTable();
+        updateCtCounts();
+    });
+</script>
+</body>
+</html>
