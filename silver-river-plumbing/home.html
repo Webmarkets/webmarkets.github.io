@@ -1,0 +1,3115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Silver River Plumbing — Boise's Trusted Plumber</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* =============================================
+   CSS VARIABLES
+   ============================================= */
+      :root {
+        --navy: #0b2545;
+        --navy-mid: #1a3d6e;
+        --blue: #1e6fbf;
+        --blue-light: #4da6e8;
+        --copper: #c2703a;
+        --copper-dark: #9e5a2c;
+        --copper-light: #e8a87c;
+        --silver: #8ea3b6;
+        --silver-light: #c4d4e0;
+        --bg: #ffffff;
+        --surface-1: #f0f7ff;
+        --surface-2: #dff0fa;
+        --surface-dark: #0b2545;
+        --surface-copper: #fdf3ec;
+        --stone: #f5f3ef;
+        --text: #0d1f35;
+        --text-muted: #5a7a94;
+        --text-light: #8ea3b6;
+        --on-dark: #c8dff0;
+        --font-display: "Barlow Condensed", sans-serif;
+        --font-body: "Inter", system-ui, sans-serif;
+        --font-mono: "Space Mono", monospace;
+        --max-w: 1160px;
+        --radius: 6px;
+        --radius-lg: 14px;
+        --radius-xl: 24px;
+        --shadow-sm: 0 1px 4px rgba(11, 37, 69, 0.08);
+        --shadow-md: 0 4px 20px rgba(11, 37, 69, 0.12);
+        --shadow-lg: 0 12px 40px rgba(11, 37, 69, 0.2);
+      }
+
+      /* =============================================
+   RESET & BASE
+   ============================================= */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--font-body);
+        color: var(--text);
+        background: var(--bg);
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      a {
+        color: var(--blue);
+        text-decoration: none;
+      }
+
+      /* =============================================
+   SHARED UTILITIES
+   ============================================= */
+      .section-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-bottom: 0.9rem;
+      }
+      .sl-line {
+        display: block;
+        width: 24px;
+        height: 1.5px;
+        background: var(--blue);
+        flex-shrink: 0;
+      }
+      .sl-line.copper {
+        background: var(--copper);
+      }
+      .section-h2 {
+        font-family: var(--font-display);
+        font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+        font-weight: 900;
+        line-height: 1;
+        color: var(--navy);
+        text-transform: uppercase;
+        letter-spacing: 0.01em;
+        margin-bottom: 0.75rem;
+      }
+      .section-h2 em {
+        font-style: italic;
+        color: var(--blue);
+      }
+      .section-h2.white {
+        color: #fff;
+      }
+      .section-h2.white em {
+        color: var(--blue-light);
+      }
+      .section-h2.copper-em em {
+        color: var(--copper);
+      }
+      .section-sub {
+        font-size: 1rem;
+        color: var(--text-muted);
+        line-height: 1.75;
+        max-width: 540px;
+      }
+      .section-sub.white {
+        color: rgba(200, 223, 240, 0.65);
+        max-width: 500px;
+      }
+      .inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+      }
+
+      /* Buttons */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.8rem 1.8rem;
+        border-radius: var(--radius);
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        font-weight: 700;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: all 0.22s ease;
+        white-space: nowrap;
+      }
+      .btn-navy {
+        background: var(--navy);
+        color: #fff;
+        border-color: var(--navy);
+      }
+      .btn-navy:hover {
+        background: var(--navy-mid);
+        border-color: var(--navy-mid);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 22px rgba(11, 37, 69, 0.3);
+        color: #fff;
+      }
+      .btn-copper {
+        background: var(--copper);
+        color: #fff;
+        border-color: var(--copper);
+      }
+      .btn-copper:hover {
+        background: var(--copper-dark);
+        border-color: var(--copper-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 22px rgba(194, 112, 58, 0.35);
+        color: #fff;
+      }
+      .btn-outline-white {
+        background: transparent;
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.5);
+      }
+      .btn-outline-white:hover {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: #fff;
+        transform: translateY(-2px);
+        color: #fff;
+      }
+      .btn-outline-navy {
+        background: transparent;
+        color: var(--navy);
+        border-color: var(--navy);
+      }
+      .btn-outline-navy:hover {
+        background: var(--navy);
+        color: #fff;
+        transform: translateY(-2px);
+      }
+      .btn-arrow::after {
+        content: "→";
+        transition: transform 0.2s;
+      }
+      .btn-arrow:hover::after {
+        transform: translateX(4px);
+      }
+      .btn-lg {
+        padding: 0.95rem 2.2rem;
+        font-size: 0.98rem;
+      }
+      .btn-pill {
+        border-radius: 100px;
+      }
+      @keyframes copper-ring {
+        0% {
+          box-shadow: 0 0 0 0 rgba(194, 112, 58, 0.45);
+        }
+        70% {
+          box-shadow: 0 0 0 14px rgba(194, 112, 58, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(194, 112, 58, 0);
+        }
+      }
+      .btn-emergency {
+        background: var(--copper);
+        color: #fff;
+        border-color: var(--copper);
+        animation: copper-ring 2.2s ease-in-out infinite;
+        font-family: var(--font-display);
+        font-size: 0.95rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      .btn-emergency:hover {
+        background: var(--copper-dark);
+        color: #fff;
+        transform: translateY(-2px);
+      }
+
+      /* Wave dividers */
+      .wave {
+        line-height: 0;
+        overflow: hidden;
+      }
+      .wave svg {
+        display: block;
+        width: 100%;
+      }
+
+      /* Live dot */
+      .live-dot {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #4ade80;
+        margin-right: 0.35rem;
+        animation: pulse-dot 2s ease-in-out infinite;
+      }
+      @keyframes pulse-dot {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.4;
+          transform: scale(0.65);
+        }
+      }
+
+      /* =============================================
+   NAVIGATION
+   ============================================= */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        padding: 1.1rem 2rem;
+        transition:
+          background 0.35s ease,
+          box-shadow 0.35s ease,
+          padding 0.35s ease;
+      }
+      .nav.scrolled {
+        background: rgba(255, 255, 255, 0.94);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        box-shadow:
+          0 1px 0 rgba(196, 212, 224, 0.5),
+          var(--shadow-sm);
+        padding: 0.8rem 2rem;
+      }
+      .nav-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+      }
+      .nav-drop {
+        width: 38px;
+        height: 46px;
+        background: linear-gradient(160deg, var(--blue) 0%, var(--navy) 100%);
+        border-radius: 50% 50% 50% 50% / 55% 55% 45% 45%;
+        flex-shrink: 0;
+      }
+      .nav-brand-name {
+        font-family: var(--font-display);
+        font-size: 1.05rem;
+        font-weight: 900;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        line-height: 1.2;
+        transition: color 0.35s ease;
+      }
+      .nav-brand-name span {
+        display: block;
+        font-family: var(--font-body);
+        font-size: 0.6rem;
+        font-weight: 400;
+        text-transform: none;
+        letter-spacing: 0.01em;
+        color: rgba(200, 223, 240, 0.55);
+        transition: color 0.35s ease;
+      }
+      .nav.scrolled .nav-brand-name {
+        color: var(--navy);
+      }
+      .nav.scrolled .nav-brand-name span {
+        color: var(--text-muted);
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        list-style: none;
+      }
+      .nav-links a {
+        font-size: 0.86rem;
+        font-weight: 600;
+        color: rgba(200, 223, 240, 0.8);
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: #fff;
+      }
+      .nav.scrolled .nav-links a {
+        color: var(--text-muted);
+      }
+      .nav.scrolled .nav-links a:hover {
+        color: var(--navy);
+      }
+      .nav-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.55rem 1.2rem;
+        background: var(--copper);
+        color: #fff;
+        border-radius: var(--radius);
+        font-family: var(--font-display);
+        font-size: 0.9rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .nav-cta:hover {
+        background: var(--copper-dark);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 18px rgba(194, 112, 58, 0.35);
+        color: #fff;
+      }
+
+      /* =============================================
+   HERO
+   ============================================= */
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        background: var(--navy);
+        display: flex;
+        align-items: center;
+        padding: 9rem 2rem 6rem;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: repeating-linear-gradient(
+          -55deg,
+          transparent,
+          transparent 30px,
+          rgba(30, 111, 191, 0.05) 30px,
+          rgba(30, 111, 191, 0.05) 31px
+        );
+        pointer-events: none;
+        z-index: 0;
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        bottom: -100px;
+        right: -100px;
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(30, 111, 191, 0.18) 0%,
+          transparent 65%
+        );
+        pointer-events: none;
+        z-index: 0;
+      }
+      .hero-glow-top {
+        position: absolute;
+        top: -80px;
+        left: 30%;
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(194, 112, 58, 0.1) 0%,
+          transparent 65%
+        );
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .hero-inner {
+        position: relative;
+        z-index: 2;
+        max-width: var(--max-w);
+        margin: 0 auto;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--copper-light);
+        background: rgba(194, 112, 58, 0.15);
+        border: 1px solid rgba(232, 168, 124, 0.25);
+        padding: 0.4rem 0.9rem;
+        border-radius: 100px;
+        margin-bottom: 1.8rem;
+      }
+      .hero-h1 {
+        font-family: var(--font-display);
+        font-size: clamp(3.5rem, 8vw, 7.5rem);
+        font-weight: 900;
+        line-height: 0.93;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: -0.01em;
+        margin-bottom: 1.5rem;
+      }
+      .hero-h1 .h1-blue {
+        color: var(--blue-light);
+      }
+      .hero-h1 .h1-copper {
+        color: var(--copper-light);
+      }
+      .hero-sub {
+        font-size: clamp(0.95rem, 1.5vw, 1.08rem);
+        color: rgba(200, 223, 240, 0.65);
+        line-height: 1.75;
+        max-width: 440px;
+        margin-bottom: 2.5rem;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-bottom: 3rem;
+      }
+      .hero-trust {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+      .trust-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: rgba(200, 223, 240, 0.65);
+      }
+      .trust-check {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: rgba(30, 111, 191, 0.25);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.65rem;
+        color: var(--blue-light);
+        flex-shrink: 0;
+      }
+
+      /* Hero art — pipe schematic */
+      .hero-art {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        height: 460px;
+      }
+
+      /* Blueprint panel */
+      .pipe-schematic {
+        position: relative;
+        width: 440px;
+        height: 420px;
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+        flex-shrink: 0;
+        box-shadow:
+          0 20px 60px rgba(11, 37, 69, 0.55),
+          0 0 0 1px rgba(77, 166, 232, 0.1);
+      }
+      /* Blueprint grid fill */
+      .pipe-schematic::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: #091f3e;
+        background-image:
+          linear-gradient(rgba(77, 166, 232, 0.07) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(77, 166, 232, 0.07) 1px, transparent 1px);
+        background-size: 28px 28px;
+        background-position: -1px -1px;
+      }
+      /* Ambient copper glow top-right */
+      .pipe-schematic::after {
+        content: "";
+        position: absolute;
+        top: -50px;
+        right: -50px;
+        width: 230px;
+        height: 230px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(194, 112, 58, 0.2) 0%,
+          transparent 65%
+        );
+        pointer-events: none;
+      }
+
+      /* Pipe segments */
+      .ps-pipe {
+        position: absolute;
+        z-index: 1;
+        border-radius: 3px;
+      }
+      .ps-h { height: 6px; }
+      .ps-v { width: 6px; }
+      .ps-blue {
+        background: linear-gradient(
+          90deg,
+          var(--blue) 0%,
+          var(--blue-light) 50%,
+          var(--blue) 100%
+        );
+        box-shadow: 0 0 12px rgba(77, 166, 232, 0.28);
+      }
+      .ps-v.ps-blue {
+        background: linear-gradient(
+          180deg,
+          var(--blue-light) 0%,
+          var(--blue) 60%,
+          var(--blue) 100%
+        );
+      }
+      .ps-copper {
+        background: linear-gradient(
+          90deg,
+          var(--copper-dark) 0%,
+          var(--copper-light) 50%,
+          var(--copper-dark) 100%
+        );
+        box-shadow: 0 0 12px rgba(194, 112, 58, 0.22);
+      }
+      .ps-v.ps-copper {
+        background: linear-gradient(
+          180deg,
+          var(--copper) 0%,
+          var(--copper-light) 50%,
+          var(--copper-dark) 100%
+        );
+      }
+
+      /* Junction connectors */
+      .ps-joint {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--blue-light);
+        border: 3px solid #091f3e;
+        box-shadow:
+          0 0 0 2px var(--blue),
+          0 0 8px rgba(77, 166, 232, 0.35);
+        z-index: 4;
+      }
+      .ps-joint.copper {
+        background: var(--copper-light);
+        box-shadow:
+          0 0 0 2px var(--copper),
+          0 0 8px rgba(194, 112, 58, 0.35);
+      }
+
+      /* Valve wheel */
+      .ps-valve {
+        position: absolute;
+        width: 72px;
+        height: 72px;
+        border: 5px solid var(--copper);
+        border-radius: 50%;
+        box-shadow:
+          0 0 0 1px rgba(194, 112, 58, 0.2),
+          0 0 22px rgba(194, 112, 58, 0.18);
+        z-index: 5;
+        animation: ps-valve-turn 14s linear infinite;
+      }
+      @keyframes ps-valve-turn {
+        from { transform: rotate(0deg); }
+        to   { transform: rotate(360deg); }
+      }
+      .ps-valve::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--copper);
+        transform: translateY(-50%);
+      }
+      .ps-valve::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: var(--copper);
+        transform: translateX(-50%);
+      }
+      .ps-valve-hub {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--copper-light);
+        border: 3px solid var(--copper-dark);
+        z-index: 2;
+      }
+
+      /* Pipe end caps */
+      .ps-endcap {
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        z-index: 3;
+      }
+      .ps-endcap.blue {
+        background: var(--blue);
+        box-shadow: 0 0 6px rgba(77, 166, 232, 0.5);
+      }
+      .ps-endcap.copper {
+        background: var(--copper);
+        box-shadow: 0 0 6px rgba(194, 112, 58, 0.5);
+      }
+
+      /* Blueprint label text */
+      .ps-label {
+        position: absolute;
+        font-family: var(--font-mono);
+        font-size: 0.55rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(77, 166, 232, 0.38);
+        z-index: 2;
+        white-space: nowrap;
+      }
+
+      /* Water drip at pipe terminus */
+      .ps-drip {
+        position: absolute;
+        width: 7px;
+        height: 9px;
+        background: rgba(77, 166, 232, 0.75);
+        border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+        animation: ps-drip-fall 2.8s ease-in infinite;
+        opacity: 0;
+        z-index: 3;
+      }
+      @keyframes ps-drip-fall {
+        0%   { opacity: 0;   transform: translateY(0); }
+        8%   { opacity: 0.8; }
+        80%  { opacity: 0.4; }
+        100% { opacity: 0;   transform: translateY(40px); }
+      }
+
+      /* Floating stat cards (positioned relative to .hero-art) */
+      .art-float {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.07);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: var(--radius-lg);
+        padding: 0.9rem 1.3rem;
+        z-index: 10;
+      }
+      .af-label {
+        font-size: 0.6rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(200, 223, 240, 0.55);
+        margin-bottom: 0.2rem;
+      }
+      .af-value {
+        font-family: var(--font-display);
+        font-size: 1.6rem;
+        font-weight: 900;
+        color: #fff;
+        text-transform: uppercase;
+        line-height: 1;
+      }
+      .af-value.copper { color: var(--copper-light); }
+      .af-sub {
+        font-size: 0.68rem;
+        color: rgba(200, 223, 240, 0.5);
+        margin-top: 0.15rem;
+      }
+      .art-float-1 { top: 6%;    right: 2%;  min-width: 140px; }
+      .art-float-2 { bottom: 12%; left: 4%;  min-width: 150px; }
+
+      /* =============================================
+   SERVICE STRIP
+   ============================================= */
+      .service-strip {
+        background: var(--surface-1);
+        padding: 2rem;
+      }
+      .service-strip-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 1px;
+        background: var(--silver-light);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+      }
+      .ss-item {
+        background: var(--bg);
+        padding: 1.2rem 1rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.4rem;
+        transition: background 0.2s;
+      }
+      .ss-item:hover {
+        background: var(--surface-1);
+      }
+      .ss-icon {
+        font-size: 1.4rem;
+      }
+      .ss-name {
+        font-family: var(--font-display);
+        font-size: 0.85rem;
+        font-weight: 800;
+        color: var(--navy);
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        line-height: 1.2;
+      }
+      .ss-tag {
+        font-size: 0.65rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      .ss-tag.copper-text {
+        color: var(--copper);
+      }
+
+      /* =============================================
+   VALUE PROPS
+   ============================================= */
+      .value-section {
+        background: var(--bg);
+        padding: 7rem 2rem;
+      }
+      .value-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+      }
+      .value-header {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: end;
+        margin-bottom: 4rem;
+      }
+      .value-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+      .value-card {
+        background: var(--surface-1);
+        border: 1px solid rgba(30, 111, 191, 0.1);
+        border-radius: var(--radius-lg);
+        padding: 2.2rem;
+        position: relative;
+        transition: all 0.25s ease;
+        overflow: hidden;
+      }
+      .value-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+        border-color: rgba(30, 111, 191, 0.25);
+      }
+      .vc-num {
+        position: absolute;
+        top: 1rem;
+        right: 1.2rem;
+        font-family: var(--font-display);
+        font-size: 4.5rem;
+        font-weight: 900;
+        color: rgba(30, 111, 191, 0.06);
+        text-transform: uppercase;
+        line-height: 1;
+        pointer-events: none;
+      }
+      .vc-icon {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        display: block;
+      }
+      .vc-title {
+        font-family: var(--font-display);
+        font-size: 1.4rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        color: var(--navy);
+        margin-bottom: 0.55rem;
+      }
+      .vc-desc {
+        font-size: 0.88rem;
+        color: var(--text-muted);
+        line-height: 1.72;
+      }
+
+      .stat-bar {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        background: var(--silver-light);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        margin-top: 3rem;
+      }
+      .sb-cell {
+        background: var(--bg);
+        padding: 1.8rem;
+        text-align: center;
+      }
+      .sb-num {
+        font-family: var(--font-display);
+        font-size: clamp(2.2rem, 4vw, 3.2rem);
+        font-weight: 900;
+        text-transform: uppercase;
+        line-height: 1;
+        margin-bottom: 0.25rem;
+      }
+      .sb-num.blue {
+        color: var(--blue);
+      }
+      .sb-num.copper {
+        color: var(--copper);
+      }
+      .sb-label {
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+      }
+
+      /* =============================================
+   SERVICES
+   ============================================= */
+      .services-section {
+        background: var(--surface-1);
+        padding: 7rem 2rem;
+      }
+      .services-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+      }
+      .services-header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.2rem;
+      }
+      .svc-card {
+        background: var(--bg);
+        border: 1px solid rgba(0, 0, 0, 0.07);
+        border-radius: var(--radius-lg);
+        padding: 2rem;
+        position: relative;
+        transition: all 0.25s ease;
+        box-shadow: var(--shadow-sm);
+        overflow: hidden;
+      }
+      .svc-card::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: var(--blue);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+      .svc-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+        border-color: rgba(30, 111, 191, 0.2);
+      }
+      .svc-card:hover::before {
+        transform: scaleX(1);
+      }
+      .svc-card.emg::before {
+        background: var(--copper);
+      }
+      .svc-card.emg:hover {
+        border-color: rgba(194, 112, 58, 0.25);
+      }
+      .svc-num {
+        position: absolute;
+        top: 1rem;
+        right: 1.2rem;
+        font-family: var(--font-display);
+        font-size: 3.5rem;
+        font-weight: 900;
+        color: rgba(30, 111, 191, 0.07);
+        pointer-events: none;
+      }
+      .svc-num.c {
+        color: rgba(194, 112, 58, 0.08);
+      }
+      .svc-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: var(--radius);
+        background: var(--surface-1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        margin-bottom: 1.2rem;
+      }
+      .svc-icon.copper-bg {
+        background: var(--surface-copper);
+      }
+      .svc-title {
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        color: var(--navy);
+        margin-bottom: 0.5rem;
+      }
+      .svc-desc {
+        font-size: 0.87rem;
+        color: var(--text-muted);
+        line-height: 1.7;
+        margin-bottom: 1rem;
+      }
+      .svc-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--blue);
+        transition: gap 0.2s;
+      }
+      .svc-link:hover {
+        gap: 0.55rem;
+      }
+      .svc-link::after {
+        content: "→";
+      }
+      .svc-link.copper {
+        color: var(--copper);
+      }
+
+      /* =============================================
+   COPPER BAND
+   ============================================= */
+      .copper-band {
+        background: var(--copper);
+        padding: 3.5rem 2rem;
+        clip-path: polygon(0 20%, 100% 0%, 100% 80%, 0% 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      .copper-band::before {
+        content: "";
+        position: absolute;
+        top: -60px;
+        left: -40px;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.06);
+        pointer-events: none;
+      }
+      .copper-band::after {
+        content: "";
+        position: absolute;
+        bottom: -40px;
+        right: 10%;
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.05);
+        pointer-events: none;
+      }
+      .copper-band-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        position: relative;
+        z-index: 1;
+      }
+      .cb-eyebrow {
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.65);
+        margin-bottom: 0.4rem;
+      }
+      .cb-title {
+        font-family: var(--font-display);
+        font-size: clamp(1.8rem, 3.5vw, 3rem);
+        font-weight: 900;
+        text-transform: uppercase;
+        color: #fff;
+        line-height: 1;
+      }
+      .cb-actions {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .cb-phone {
+        font-family: var(--font-display);
+        font-size: clamp(1.5rem, 3vw, 2.4rem);
+        font-weight: 900;
+        text-transform: uppercase;
+        color: #fff;
+        letter-spacing: 0.04em;
+      }
+
+      /* =============================================
+   ABOUT — OVERLAPPING PANELS
+   ============================================= */
+      .about-section {
+        background: var(--bg);
+        padding: 7rem 2rem 0;
+      }
+      .about-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+      }
+      .about-header {
+        text-align: center;
+        margin-bottom: 5rem;
+      }
+      .about-header .section-sub {
+        margin: 0.75rem auto 0;
+        text-align: center;
+      }
+
+      .panels {
+        position: relative;
+      }
+      .panel {
+        border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+        padding: 5rem 4rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .panel-1 {
+        background: var(--navy);
+        color: var(--on-dark);
+        z-index: 1;
+      }
+      .panel-1::before {
+        content: "";
+        position: absolute;
+        top: -80px;
+        right: -60px;
+        width: 320px;
+        height: 320px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(30, 111, 191, 0.25) 0%,
+          transparent 65%
+        );
+        pointer-events: none;
+      }
+      .panel-1::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: repeating-linear-gradient(
+          -55deg,
+          transparent,
+          transparent 30px,
+          rgba(30, 111, 191, 0.04) 30px,
+          rgba(30, 111, 191, 0.04) 31px
+        );
+        pointer-events: none;
+      }
+      .panel-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+      .panel-points {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .pp {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+      .pp-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: var(--radius);
+        background: rgba(77, 166, 232, 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        flex-shrink: 0;
+        margin-top: 0.1rem;
+      }
+      .pp-title {
+        font-family: var(--font-display);
+        font-size: 1.05rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        color: #fff;
+        margin-bottom: 0.2rem;
+      }
+      .pp-desc {
+        font-size: 0.86rem;
+        opacity: 0.6;
+        line-height: 1.65;
+      }
+
+      .panel-2 {
+        background: var(--surface-1);
+        margin-top: -3.5rem;
+        padding-top: 6.5rem;
+        z-index: 2;
+        position: relative;
+      }
+      .panel-2-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+      .p2-card {
+        background: var(--bg);
+        border: 1px solid rgba(0, 0, 0, 0.07);
+        border-radius: var(--radius-lg);
+        padding: 1.6rem;
+        box-shadow: var(--shadow-sm);
+        transition: all 0.25s ease;
+      }
+      .p2-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+        border-color: var(--silver-light);
+      }
+      .p2-icon {
+        font-size: 1.5rem;
+        margin-bottom: 0.7rem;
+      }
+      .p2-title {
+        font-family: var(--font-display);
+        font-size: 1rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        color: var(--navy);
+        margin-bottom: 0.4rem;
+      }
+      .p2-desc {
+        font-size: 0.83rem;
+        color: var(--text-muted);
+        line-height: 1.65;
+      }
+
+      .panel-float {
+        position: absolute;
+        right: 4rem;
+        top: -0.5rem;
+        background: var(--copper);
+        color: #fff;
+        border-radius: var(--radius-lg);
+        padding: 1.1rem 1.6rem;
+        box-shadow: var(--shadow-lg);
+        z-index: 20;
+        min-width: 170px;
+      }
+      .pf-label {
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        opacity: 0.72;
+        margin-bottom: 0.2rem;
+      }
+      .pf-value {
+        font-family: var(--font-display);
+        font-size: 1.4rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        line-height: 1;
+      }
+      .pf-sub {
+        font-size: 0.68rem;
+        opacity: 0.65;
+        margin-top: 0.2rem;
+      }
+
+      /* =============================================
+   PROCESS
+   ============================================= */
+      .process-section {
+        background: var(--bg);
+        padding: 7rem 2rem;
+      }
+      .process-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+      }
+      .process-header {
+        text-align: center;
+        margin-bottom: 5rem;
+      }
+      .process-header .section-sub {
+        margin: 0.75rem auto 0;
+        text-align: center;
+      }
+      .process-steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        position: relative;
+      }
+      .process-steps::before {
+        content: "";
+        position: absolute;
+        top: 2.75rem;
+        left: calc(12.5% + 1.5rem);
+        right: calc(12.5% + 1.5rem);
+        height: 2px;
+        background: linear-gradient(90deg, var(--blue) 0%, var(--copper) 100%);
+        z-index: 0;
+      }
+      .ps {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0 1.5rem;
+        position: relative;
+      }
+      .ps-badge {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-size: 1.15rem;
+        font-weight: 900;
+        color: #fff;
+        margin-bottom: 1.5rem;
+        position: relative;
+        z-index: 1;
+        flex-shrink: 0;
+      }
+      .ps-badge.b1 {
+        background: var(--blue);
+        box-shadow:
+          0 0 0 4px var(--bg),
+          0 0 0 6px var(--blue);
+      }
+      .ps-badge.b2 {
+        background: var(--navy-mid);
+        box-shadow:
+          0 0 0 4px var(--bg),
+          0 0 0 6px var(--navy-mid);
+      }
+      .ps-badge.b3 {
+        background: var(--navy);
+        box-shadow:
+          0 0 0 4px var(--bg),
+          0 0 0 6px var(--navy);
+      }
+      .ps-badge.b4 {
+        background: var(--copper);
+        box-shadow:
+          0 0 0 4px var(--bg),
+          0 0 0 6px var(--copper);
+      }
+      .ps-icon {
+        font-size: 1.4rem;
+        margin-bottom: 0.7rem;
+      }
+      .ps-title {
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        color: var(--navy);
+        margin-bottom: 0.4rem;
+      }
+      .ps-desc {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        line-height: 1.7;
+      }
+
+      /* =============================================
+   TESTIMONIALS
+   ============================================= */
+      .testi-section {
+        background-color: var(--stone);
+        background-image:
+          repeating-linear-gradient(
+            0deg,
+            rgba(11, 37, 69, 0.03) 0,
+            rgba(11, 37, 69, 0.03) 1px,
+            transparent 1px,
+            transparent 9px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            rgba(11, 37, 69, 0.03) 0,
+            rgba(11, 37, 69, 0.03) 1px,
+            transparent 1px,
+            transparent 9px
+          );
+        padding: 7rem 2rem;
+      }
+      .testi-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+      }
+      .testi-header {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        margin-bottom: 3.5rem;
+      }
+      .testi-pull {
+        background: var(--navy);
+        border-radius: var(--radius-xl);
+        padding: 3rem;
+        color: var(--on-dark);
+        position: relative;
+        overflow: hidden;
+      }
+      .testi-pull::before {
+        content: "";
+        position: absolute;
+        top: -50px;
+        right: -50px;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background: rgba(30, 111, 191, 0.18);
+        pointer-events: none;
+      }
+      .pull-mark {
+        font-family: Georgia, serif;
+        font-size: 5rem;
+        line-height: 0.75;
+        color: var(--copper-light);
+        font-style: italic;
+        display: block;
+        margin-bottom: 0.8rem;
+        position: relative;
+        z-index: 1;
+      }
+      .pull-text {
+        font-size: clamp(1rem, 2vw, 1.25rem);
+        font-style: italic;
+        line-height: 1.65;
+        margin-bottom: 1.5rem;
+        position: relative;
+        z-index: 1;
+      }
+      .pull-name {
+        font-size: 0.88rem;
+        font-weight: 700;
+        position: relative;
+        z-index: 1;
+      }
+      .pull-loc {
+        font-size: 0.78rem;
+        opacity: 0.55;
+        margin-top: 0.15rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .testi-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+      }
+      .tc {
+        background: var(--bg);
+        border: 1px solid var(--silver-light);
+        border-radius: var(--radius-lg);
+        padding: 1.8rem;
+        box-shadow: var(--shadow-sm);
+        position: relative;
+        transition: all 0.25s ease;
+      }
+      .tc:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+        border-color: rgba(30, 111, 191, 0.2);
+      }
+      .tc.offset {
+        margin-top: 1.5rem;
+      }
+      .tc-stars {
+        font-size: 0.8rem;
+        color: var(--copper);
+        letter-spacing: 0.12em;
+        margin-bottom: 0.75rem;
+      }
+      .tc-quote {
+        font-size: 0.88rem;
+        font-style: italic;
+        color: var(--text);
+        line-height: 1.72;
+        margin-bottom: 1.1rem;
+      }
+      .tc-author {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+      }
+      .tc-avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-weight: 700;
+        font-size: 0.78rem;
+        flex-shrink: 0;
+      }
+      .tc-name {
+        font-size: 0.84rem;
+        font-weight: 700;
+        color: var(--text);
+      }
+      .tc-loc {
+        font-size: 0.74rem;
+        color: var(--text-muted);
+      }
+      .tc-mark {
+        position: absolute;
+        top: 1.1rem;
+        right: 1.3rem;
+        font-size: 3rem;
+        line-height: 1;
+        color: var(--surface-1);
+        font-style: italic;
+        font-family: Georgia, serif;
+        pointer-events: none;
+      }
+
+      /* =============================================
+   EMERGENCY CTA
+   ============================================= */
+      .emergency-section {
+        background: var(--navy);
+        padding: 7rem 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .emergency-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: repeating-linear-gradient(
+          -55deg,
+          transparent,
+          transparent 30px,
+          rgba(30, 111, 191, 0.04) 30px,
+          rgba(30, 111, 191, 0.04) 31px
+        );
+        pointer-events: none;
+      }
+      .emergency-section::after {
+        content: "";
+        position: absolute;
+        bottom: -100px;
+        left: 20%;
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(194, 112, 58, 0.14) 0%,
+          transparent 65%
+        );
+        pointer-events: none;
+      }
+      .emergency-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+      .emg-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        background: rgba(194, 112, 58, 0.18);
+        border: 1px solid rgba(232, 168, 124, 0.25);
+        color: var(--copper-light);
+        padding: 0.4rem 0.9rem;
+        border-radius: 100px;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        margin-bottom: 1.2rem;
+        width: fit-content;
+      }
+      .emg-h2 {
+        font-family: var(--font-display);
+        font-size: clamp(2.5rem, 5vw, 5rem);
+        font-weight: 900;
+        text-transform: uppercase;
+        line-height: 0.95;
+        margin-bottom: 1.2rem;
+        color: #fff;
+      }
+      .emg-h2 .emg-copper {
+        color: var(--copper-light);
+      }
+      .emg-body {
+        font-size: 0.95rem;
+        color: rgba(200, 223, 240, 0.6);
+        line-height: 1.75;
+        max-width: 400px;
+        margin-bottom: 2rem;
+      }
+      .emg-right {
+        text-align: center;
+      }
+      .emg-phone-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(200, 223, 240, 0.45);
+        margin-bottom: 0.5rem;
+      }
+      .emg-phone {
+        font-family: var(--font-display);
+        font-size: clamp(2.5rem, 5vw, 4.5rem);
+        font-weight: 900;
+        text-transform: uppercase;
+        color: var(--copper-light);
+        letter-spacing: 0.04em;
+        line-height: 1;
+        display: block;
+        margin-bottom: 0.4rem;
+        transition: color 0.2s;
+      }
+      .emg-phone:hover {
+        color: #fff;
+      }
+      .emg-avail {
+        font-size: 0.8rem;
+        color: rgba(200, 223, 240, 0.45);
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 2rem;
+      }
+      .emg-avail .green {
+        color: #4ade80;
+      }
+      .emg-pipe-rule {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        margin: 2rem 0;
+      }
+      .emg-pipe-line {
+        flex: 1;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          rgba(194, 112, 58, 0.4),
+          var(--copper-light)
+        );
+        border-radius: 1px;
+      }
+      .emg-pipe-cap {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--copper);
+        flex-shrink: 0;
+        box-shadow: 0 0 0 2px rgba(194, 112, 58, 0.3);
+      }
+      .emg-pipe-mid {
+        height: 18px;
+        width: 2px;
+        background: var(--copper);
+        margin: 0 2px;
+        flex-shrink: 0;
+      }
+
+      /* =============================================
+   CONTACT SPLIT
+   ============================================= */
+      .contact-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 700px;
+      }
+      .contact-left {
+        background: var(--surface-1);
+        padding: 6rem 4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .contact-left::before {
+        content: "";
+        position: absolute;
+        bottom: -80px;
+        right: -80px;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(30, 111, 191, 0.1) 0%,
+          transparent 65%
+        );
+        pointer-events: none;
+      }
+      .cl-eyebrow {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--blue);
+        margin-bottom: 1.3rem;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+      .cl-eyebrow::before {
+        content: "";
+        width: 24px;
+        height: 1.5px;
+        background: var(--blue);
+      }
+      .cl-h2 {
+        font-family: var(--font-display);
+        font-size: clamp(2.2rem, 4vw, 3.8rem);
+        font-weight: 900;
+        text-transform: uppercase;
+        color: var(--navy);
+        line-height: 1;
+        margin-bottom: 1.2rem;
+      }
+      .cl-h2 .cl-em {
+        color: var(--blue);
+      }
+      .cl-body {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        line-height: 1.75;
+        max-width: 380px;
+        margin-bottom: 2rem;
+      }
+      .cl-perks {
+        display: flex;
+        flex-direction: column;
+        gap: 0.65rem;
+      }
+      .cl-perk {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        font-size: 0.86rem;
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+      .cl-perk::before {
+        content: "✓";
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: rgba(30, 111, 191, 0.12);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.68rem;
+        color: var(--blue);
+        flex-shrink: 0;
+        text-align: center;
+        line-height: 20px;
+      }
+
+      .contact-right {
+        background: var(--navy);
+        padding: 6rem 4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .contact-right::before {
+        content: "";
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(30, 111, 191, 0.2) 0%,
+          transparent 65%
+        );
+        pointer-events: none;
+      }
+      .cr-title {
+        font-family: var(--font-display);
+        font-size: 1.8rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        color: #fff;
+        margin-bottom: 0.3rem;
+        position: relative;
+        z-index: 1;
+      }
+      .cr-sub {
+        font-size: 0.85rem;
+        color: rgba(200, 223, 240, 0.5);
+        margin-bottom: 2rem;
+        position: relative;
+        z-index: 1;
+      }
+      .form-group {
+        margin-bottom: 1.2rem;
+        position: relative;
+        z-index: 1;
+      }
+      .form-label {
+        display: block;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: rgba(200, 223, 240, 0.65);
+        margin-bottom: 0.4rem;
+      }
+      .form-input,
+      .form-select,
+      .form-textarea {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: 1.5px solid rgba(196, 212, 224, 0.2);
+        border-radius: var(--radius);
+        font-family: var(--font-body);
+        font-size: 0.88rem;
+        color: #fff;
+        background: rgba(255, 255, 255, 0.07);
+        outline: none;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+        -webkit-appearance: none;
+      }
+      .form-input:focus,
+      .form-select:focus,
+      .form-textarea:focus {
+        border-color: var(--blue-light);
+        box-shadow: 0 0 0 3px rgba(77, 166, 232, 0.15);
+      }
+      .form-input::placeholder,
+      .form-textarea::placeholder {
+        color: rgba(200, 223, 240, 0.3);
+      }
+      .form-select {
+        cursor: pointer;
+        color: rgba(200, 223, 240, 0.8);
+      }
+      .form-select option {
+        background: var(--navy);
+        color: #fff;
+      }
+      .form-textarea {
+        resize: vertical;
+        min-height: 90px;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+      .form-note {
+        font-size: 0.72rem;
+        color: rgba(200, 223, 240, 0.35);
+        margin-top: 0.3rem;
+      }
+      .form-submit {
+        width: 100%;
+        padding: 0.9rem 1.5rem;
+        background: var(--copper);
+        color: #fff;
+        border: none;
+        border-radius: var(--radius);
+        font-family: var(--font-display);
+        font-size: 1rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        transition: all 0.22s ease;
+        margin-top: 0.5rem;
+        position: relative;
+        z-index: 1;
+      }
+      .form-submit::after {
+        content: "→";
+        transition: transform 0.2s;
+      }
+      .form-submit:hover {
+        background: var(--copper-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 22px rgba(194, 112, 58, 0.35);
+      }
+      .form-submit:hover::after {
+        transform: translateX(4px);
+      }
+
+      /* =============================================
+   FOOTER
+   ============================================= */
+      .footer {
+        background: var(--navy);
+        padding: 5rem 2rem 2.5rem;
+        color: var(--on-dark);
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .footer-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr 1fr 1fr;
+        gap: 3rem;
+        margin-bottom: 4rem;
+      }
+      .footer-drop {
+        width: 46px;
+        height: 56px;
+        background: linear-gradient(
+          160deg,
+          var(--blue) 0%,
+          var(--navy-mid) 100%
+        );
+        border-radius: 50% 50% 50% 50% / 55% 55% 45% 45%;
+        margin-bottom: 0.9rem;
+      }
+      .footer-brand-name {
+        font-family: var(--font-display);
+        font-size: 1.4rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
+      }
+      .footer-tagline {
+        font-size: 0.83rem;
+        opacity: 0.5;
+        line-height: 1.7;
+        max-width: 250px;
+        margin-bottom: 1.2rem;
+      }
+      .footer-phone {
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        font-weight: 900;
+        color: var(--copper-light);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+      .footer-phone-note {
+        font-size: 0.75rem;
+        opacity: 0.38;
+        margin-top: 0.2rem;
+      }
+      .footer-col-title {
+        font-size: 0.67rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--blue-light);
+        margin-bottom: 0.9rem;
+      }
+      .footer-links {
+        list-style: none;
+      }
+      .footer-links li {
+        margin-bottom: 0.5rem;
+      }
+      .footer-links a {
+        font-size: 0.83rem;
+        color: rgba(200, 223, 240, 0.48);
+        transition: color 0.2s;
+      }
+      .footer-links a:hover {
+        color: var(--on-dark);
+      }
+      .footer-bar {
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        padding-top: 1.6rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      .footer-copy {
+        font-size: 0.76rem;
+        opacity: 0.35;
+      }
+
+      /* =============================================
+   RESPONSIVE
+   ============================================= */
+      @media (max-width: 1024px) {
+        .hero-inner {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+        .hero-art {
+          display: none;
+        }
+        .hero-actions {
+          justify-content: center;
+        }
+        .hero-trust {
+          justify-content: center;
+        }
+        .hero-sub {
+          margin: 0 auto 2.5rem;
+        }
+        .service-strip-inner {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .value-header {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+        .value-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .services-header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .services-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .copper-band {
+          clip-path: none;
+        }
+        .copper-band-inner {
+          flex-direction: column;
+          text-align: center;
+        }
+        .panel-grid {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+        .panel-float {
+          display: none;
+        }
+        .panel-2-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .process-steps {
+          grid-template-columns: 1fr 1fr;
+          gap: 3rem;
+        }
+        .process-steps::before {
+          display: none;
+        }
+        .testi-header {
+          grid-template-columns: 1fr;
+        }
+        .emergency-inner {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+        .emg-body {
+          margin: 0 auto 2rem;
+        }
+        .contact-section {
+          grid-template-columns: 1fr;
+        }
+        .contact-left,
+        .contact-right {
+          padding: 5rem 3rem;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .stat-bar {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 640px) {
+        .nav-links {
+          display: none;
+        }
+        .service-strip-inner {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .value-grid {
+          grid-template-columns: 1fr;
+        }
+        .stat-bar {
+          grid-template-columns: 1fr 1fr;
+        }
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+        .copper-band {
+          padding: 3rem 2rem;
+        }
+        .panel {
+          padding: 3rem 2rem;
+        }
+        .panel-2-grid {
+          grid-template-columns: 1fr;
+        }
+        .process-steps {
+          grid-template-columns: 1fr;
+        }
+        .testi-grid {
+          grid-template-columns: 1fr;
+        }
+        .tc.offset {
+          margin-top: 0;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+        .emg-pipe-rule {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav class="nav" id="nav">
+      <div class="nav-inner">
+        <a href="#" class="nav-brand">
+          <div class="nav-drop"></div>
+          <div class="nav-brand-name">
+            Silver River Plumbing<span>Boise & Treasure Valley</span>
+          </div>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="tel:+12085098480" class="nav-cta">(208) 509-8480</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-glow-top"></div>
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-eyebrow">
+            <span class="live-dot"></span>Serving Boise & Treasure Valley
+          </div>
+          <h1 class="hero-h1">
+            Fast.<br /><span class="h1-blue">Honest.</span><br /><span
+              class="h1-copper"
+              >Fixed.</span
+            >
+          </h1>
+          <p class="hero-sub">
+            Silver River Plumbing delivers dependable plumbing and drain service
+            across Boise and the Treasure Valley — without the runaround. We
+            show up on time, diagnose it correctly, and fix it right the first
+            time.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-copper btn-lg btn-arrow"
+              >Get a Free Quote</a
+            >
+            <a href="tel:+12085098480" class="btn btn-emergency btn-lg"
+              >(208) 509-8480</a
+            >
+          </div>
+          <div class="hero-trust">
+            <div class="trust-item">
+              <div class="trust-check">✓</div>
+              Same-Day Service
+            </div>
+            <div class="trust-item">
+              <div class="trust-check">✓</div>
+              24/7 Emergency
+            </div>
+            <div class="trust-item">
+              <div class="trust-check">✓</div>
+              Free Estimates
+            </div>
+            <div class="trust-item">
+              <div class="trust-check">✓</div>
+              Licensed & Insured
+            </div>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="pipe-schematic">
+            <!-- H1: Main horizontal blue supply line -->
+            <div class="ps-pipe ps-h ps-blue"   style="top:197px; left:0;    width:100%;"></div>
+            <!-- V1: Left vertical blue riser (top of panel → H2) -->
+            <div class="ps-pipe ps-v ps-blue"   style="left:140px; top:0;    height:300px;"></div>
+            <!-- H2: Lower copper branch line -->
+            <div class="ps-pipe ps-h ps-copper" style="top:297px; left:140px; width:300px;"></div>
+            <!-- V2: Right copper drop (H1 → bottom) -->
+            <div class="ps-pipe ps-v ps-copper" style="left:380px; top:197px; height:143px;"></div>
+            <!-- V-valve: Blue stub connecting shutoff valve to H1 -->
+            <div class="ps-pipe ps-v ps-blue"   style="left:287px; top:112px; height:85px;"></div>
+
+            <!-- Shutoff valve wheel (slowly rotates) -->
+            <div class="ps-valve" style="top:40px; left:254px;">
+              <div class="ps-valve-hub"></div>
+            </div>
+
+            <!-- Junctions -->
+            <div class="ps-joint"        style="top:191px; left:134px;"></div><!-- V1 ∩ H1 -->
+            <div class="ps-joint"        style="top:191px; left:281px;"></div><!-- V-valve ∩ H1 -->
+            <div class="ps-joint copper" style="top:191px; left:374px;"></div><!-- H1 ∩ V2 -->
+            <div class="ps-joint copper" style="top:291px; left:134px;"></div><!-- V1 ∩ H2 -->
+            <div class="ps-joint copper" style="top:291px; left:374px;"></div><!-- H2 ∩ V2 -->
+
+            <!-- End caps -->
+            <div class="ps-endcap blue"   style="top:194px;  left:-6px;"></div>
+            <div class="ps-endcap blue"   style="top:194px;  right:-6px;"></div>
+            <div class="ps-endcap blue"   style="top:-6px;   left:137px;"></div>
+            <div class="ps-endcap copper" style="bottom:-6px; left:377px;"></div>
+            <div class="ps-endcap copper" style="top:294px;  right:-6px;"></div>
+
+            <!-- Water drip falling off bottom of V1 -->
+            <div class="ps-drip" style="left:137px; top:300px;"></div>
+            <div class="ps-drip" style="left:137px; top:300px; animation-delay:1.4s;"></div>
+
+            <!-- Blueprint dimension labels -->
+            <div class="ps-label" style="top:181px; left:8px;">Main Supply</div>
+            <div class="ps-label" style="top:281px; left:150px;">Branch Line</div>
+            <div class="ps-label" style="top:22px;  left:258px;">Shutoff</div>
+          </div>
+
+          <div class="art-float art-float-1">
+            <div class="af-label">Availability</div>
+            <div class="af-value">24/7</div>
+            <div class="af-sub">
+              <span class="live-dot"></span>Emergency dispatch
+            </div>
+          </div>
+          <div class="art-float art-float-2">
+            <div class="af-label">Response</div>
+            <div class="af-value copper">Same Day</div>
+            <div class="af-sub">Most service calls</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wave: navy → surface-1 -->
+    <div class="wave" style="background: var(--navy)">
+      <svg
+        viewBox="0 0 1440 80"
+        preserveAspectRatio="none"
+        style="height: 80px"
+      >
+        <path
+          d="M0,45 C200,80 420,10 660,48 C880,82 1100,15 1300,44 C1380,60 1420,42 1440,50 L1440,80 L0,80 Z"
+          fill="var(--surface-1)"
+        />
+      </svg>
+    </div>
+
+    <!-- SERVICE STRIP -->
+    <div class="service-strip">
+      <div class="service-strip-inner">
+        <div class="ss-item">
+          <div class="ss-icon">🚿</div>
+          <div class="ss-name">Drain Cleaning</div>
+          <div class="ss-tag">Residential · Commercial</div>
+        </div>
+        <div class="ss-item">
+          <div class="ss-icon">🔥</div>
+          <div class="ss-name">Water Heaters</div>
+          <div class="ss-tag">Repair & Replace</div>
+        </div>
+        <div class="ss-item">
+          <div class="ss-icon">🔧</div>
+          <div class="ss-name">Leak Repair</div>
+          <div class="ss-tag">Detection & Fix</div>
+        </div>
+        <div class="ss-item">
+          <div class="ss-icon">⚡</div>
+          <div class="ss-name">Gas Lines</div>
+          <div class="ss-tag">Install & Repair</div>
+        </div>
+        <div class="ss-item">
+          <div class="ss-icon">🏗️</div>
+          <div class="ss-name">Remodeling</div>
+          <div class="ss-tag">Kitchen & Bath</div>
+        </div>
+        <div class="ss-item">
+          <div class="ss-icon">🚨</div>
+          <div class="ss-name">Emergency</div>
+          <div class="ss-tag copper-text">24/7 Available</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wave: surface-1 → white -->
+    <div class="wave" style="background: var(--surface-1)">
+      <svg
+        viewBox="0 0 1440 70"
+        preserveAspectRatio="none"
+        style="height: 70px"
+      >
+        <path
+          d="M0,35 C180,65 360,5 540,38 C720,70 900,8 1080,36 C1240,60 1360,18 1440,32 L1440,70 L0,70 Z"
+          fill="var(--bg)"
+        />
+      </svg>
+    </div>
+
+    <!-- VALUE PROPS -->
+    <section class="value-section" id="why-us">
+      <div class="value-inner">
+        <div class="value-header">
+          <div>
+            <div class="section-label">
+              <span class="sl-line"></span>Why Silver River
+            </div>
+            <h2 class="section-h2">
+              No Runaround.<br />Just <em>Results.</em>
+            </h2>
+          </div>
+          <p class="section-sub">
+            We built Silver River Plumbing around one idea: homeowners deserve a
+            plumber who treats their home and their time with respect. Honest
+            pricing, no upselling, no excuses. Just qualified people who show up
+            and fix things.
+          </p>
+        </div>
+        <div class="value-grid">
+          <div class="value-card">
+            <div class="vc-num">01</div>
+            <span class="vc-icon">🕐</span>
+            <div class="vc-title">We Show Up</div>
+            <p class="vc-desc">
+              On-time arrival, every time. We give you a real window — not a
+              four-hour block — and we stick to it. Because your schedule
+              matters.
+            </p>
+          </div>
+          <div class="value-card">
+            <div class="vc-num">02</div>
+            <span class="vc-icon">🔍</span>
+            <div class="vc-title">We Find the Real Problem</div>
+            <p class="vc-desc">
+              We diagnose root causes, not symptoms. That means fewer callbacks,
+              better repairs, and no recurring issues six weeks later.
+            </p>
+          </div>
+          <div class="value-card">
+            <div class="vc-num">03</div>
+            <span class="vc-icon">💬</span>
+            <div class="vc-title">We're Straight With You</div>
+            <p class="vc-desc">
+              Clear pricing before we start. We'll tell you what you need — and
+              what you don't. No pressure, no inflated invoices, no surprises.
+            </p>
+          </div>
+        </div>
+        <div class="stat-bar">
+          <div class="sb-cell">
+            <div class="sb-num blue">24/7</div>
+            <div class="sb-label">Emergency Available</div>
+          </div>
+          <div class="sb-cell">
+            <div class="sb-num copper">Same Day</div>
+            <div class="sb-label">Most Service Calls</div>
+          </div>
+          <div class="sb-cell">
+            <div class="sb-num blue">15+</div>
+            <div class="sb-label">Years Experience</div>
+          </div>
+          <div class="sb-cell">
+            <div class="sb-num copper">Free</div>
+            <div class="sb-label">Estimates & Quotes</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wave: white → surface-1 -->
+    <div class="wave">
+      <svg
+        viewBox="0 0 1440 70"
+        preserveAspectRatio="none"
+        style="height: 70px"
+      >
+        <path
+          d="M0,15 C300,55 600,0 900,40 C1100,65 1300,20 1440,35 L1440,70 L0,70 Z"
+          fill="var(--surface-1)"
+        />
+      </svg>
+    </div>
+
+    <!-- SERVICES -->
+    <section class="services-section" id="services">
+      <div class="services-inner">
+        <div class="services-header">
+          <div>
+            <div class="section-label">
+              <span class="sl-line"></span>What We Do
+            </div>
+            <h2 class="section-h2">
+              Every Plumbing<br />Problem, <em>One Call.</em>
+            </h2>
+          </div>
+          <p
+            style="
+              font-size: 0.9rem;
+              color: var(--text-muted);
+              max-width: 340px;
+              line-height: 1.72;
+            "
+          >
+            From a slow kitchen drain to a burst pipe at midnight — we have the
+            experience and the team to handle it fast.
+          </p>
+        </div>
+        <div class="services-grid">
+          <div class="svc-card">
+            <div class="svc-num">01</div>
+            <div class="svc-icon">🚿</div>
+            <div class="svc-title">Drain Cleaning & Repairs</div>
+            <p class="svc-desc">
+              Clogged drains cleared fast — from kitchen sinks and bathroom
+              drains to full main line blockages. We restore flow and find the
+              cause so it doesn't come back.
+            </p>
+            <a href="#contact" class="svc-link">Request service</a>
+          </div>
+          <div class="svc-card emg">
+            <div class="svc-num c">24</div>
+            <div class="svc-icon copper-bg">🔥</div>
+            <div class="svc-title">Water Heater Service</div>
+            <p class="svc-desc">
+              No hot water? We diagnose and repair on-site or replace your unit
+              same-day when needed. All brands, all types — tank and tankless.
+            </p>
+            <a href="#contact" class="svc-link copper">Emergency available</a>
+          </div>
+          <div class="svc-card">
+            <div class="svc-num">03</div>
+            <div class="svc-icon">🔧</div>
+            <div class="svc-title">Leak Detection & Repair</div>
+            <p class="svc-desc">
+              From a dripping faucet to a slow slab leak — we locate the source
+              accurately and make lasting repairs before the damage spreads.
+            </p>
+            <a href="#contact" class="svc-link">Request service</a>
+          </div>
+          <div class="svc-card emg">
+            <div class="svc-num c">04</div>
+            <div class="svc-icon copper-bg">⚡</div>
+            <div class="svc-title">Gas Line Services</div>
+            <p class="svc-desc">
+              Gas line installation, repair, and leak detection handled safely
+              and professionally. Every job is done to code — no shortcuts, no
+              guesswork.
+            </p>
+            <a href="#contact" class="svc-link copper"
+              >Call for safety issues</a
+            >
+          </div>
+          <div class="svc-card">
+            <div class="svc-num">05</div>
+            <div class="svc-icon">🏗️</div>
+            <div class="svc-title">Remodeling Plumbing</div>
+            <p class="svc-desc">
+              Upgrading your kitchen or bathroom? We handle all plumbing for
+              remodel projects — fixture installation, pipe relocation, and full
+              system upgrades.
+            </p>
+            <a href="#contact" class="svc-link">Get a project quote</a>
+          </div>
+          <div class="svc-card">
+            <div class="svc-num">06</div>
+            <div class="svc-icon">🏢</div>
+            <div class="svc-title">Commercial Plumbing</div>
+            <p class="svc-desc">
+              Offices, restaurants, and retail spaces rely on us for dependable
+              commercial plumbing. Repairs, maintenance, and system upgrades —
+              done around your schedule.
+            </p>
+            <a href="#contact" class="svc-link">Request commercial service</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COPPER BAND -->
+    <div class="copper-band">
+      <div class="copper-band-inner">
+        <div class="cb-text">
+          <div class="cb-eyebrow">Plumbing Doesn't Break on a Schedule</div>
+          <div class="cb-title">We Don't Either.</div>
+        </div>
+        <div class="cb-actions">
+          <div class="cb-phone">(208) 509-8480</div>
+          <a
+            href="tel:+12085098480"
+            class="btn btn-outline-white btn-lg btn-pill"
+            >Call for Emergency Service</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="about-section" id="about">
+      <div class="about-inner">
+        <div class="about-header">
+          <div class="section-label" style="justify-content: center">
+            <span class="sl-line"></span>Who We Are<span class="sl-line"></span>
+          </div>
+          <h2 class="section-h2" style="text-align: center">
+            Show Up. Fix It.<br /><em>Do It Right.</em>
+          </h2>
+          <p
+            class="section-sub"
+            style="margin: 0.75rem auto 0; text-align: center"
+          >
+            We started Silver River Plumbing because we believed Boise
+            homeowners deserved better than big-company impersonality and
+            small-company inconsistency. So we built something different.
+          </p>
+        </div>
+        <div class="panels">
+          <div class="panel panel-1">
+            <div class="panel-grid">
+              <div>
+                <div class="section-label" style="color: var(--blue-light)">
+                  <span
+                    class="sl-line"
+                    style="background: var(--blue-light)"
+                  ></span
+                  >Our Promise
+                </div>
+                <h3
+                  style="
+                    font-family: var(--font-display);
+                    font-size: clamp(2rem, 3.5vw, 3rem);
+                    font-weight: 900;
+                    text-transform: uppercase;
+                    color: #fff;
+                    line-height: 1;
+                    margin-bottom: 1.2rem;
+                  "
+                >
+                  Every Job.<br />Every Time.
+                </h3>
+                <p
+                  style="
+                    font-size: 0.92rem;
+                    color: rgba(200, 223, 240, 0.6);
+                    line-height: 1.75;
+                    max-width: 400px;
+                    margin-bottom: 2rem;
+                  "
+                >
+                  We treat your home the way we'd want our home treated — with
+                  care, respect, and the kind of honest communication that most
+                  trades companies have stopped bothering with. That's not a
+                  tagline. It's just how we work.
+                </p>
+                <a href="#contact" class="btn btn-copper btn-arrow"
+                  >Book a Service Call</a
+                >
+              </div>
+              <div class="panel-points">
+                <div class="pp">
+                  <div class="pp-icon">⏰</div>
+                  <div>
+                    <div class="pp-title">On-Time Arrival</div>
+                    <p class="pp-desc">
+                      We give you a real arrival window and we keep it. No
+                      four-hour waiting games.
+                    </p>
+                  </div>
+                </div>
+                <div class="pp">
+                  <div class="pp-icon">💬</div>
+                  <div>
+                    <div class="pp-title">Clear Communication</div>
+                    <p class="pp-desc">
+                      We explain what we found, what we're doing, and what it
+                      costs — before we start.
+                    </p>
+                  </div>
+                </div>
+                <div class="pp">
+                  <div class="pp-icon">🔧</div>
+                  <div>
+                    <div class="pp-title">Quality Workmanship</div>
+                    <p class="pp-desc">
+                      We don't patch problems. We fix them properly the first
+                      time so you don't call us again for the same issue.
+                    </p>
+                  </div>
+                </div>
+                <div class="pp">
+                  <div class="pp-icon">🏠</div>
+                  <div>
+                    <div class="pp-title">Respect for Your Home</div>
+                    <p class="pp-desc">
+                      We protect your floors, clean up after ourselves, and
+                      leave the job site cleaner than we found it.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-2" style="position: relative">
+            <div class="panel-float">
+              <div class="pf-label">Response Time</div>
+              <div class="pf-value">Same Day</div>
+              <div class="pf-sub">
+                <span class="live-dot"></span>Most service calls
+              </div>
+            </div>
+            <div style="margin-bottom: 2rem">
+              <div class="section-label">
+                <span class="sl-line"></span>What You Can Expect
+              </div>
+              <h3
+                style="
+                  font-family: var(--font-display);
+                  font-size: clamp(1.6rem, 3vw, 2.4rem);
+                  font-weight: 900;
+                  text-transform: uppercase;
+                  color: var(--navy);
+                  line-height: 1;
+                "
+              >
+                Service That Feels<br />Like It Should
+              </h3>
+            </div>
+            <div class="panel-2-grid">
+              <div class="p2-card">
+                <div class="p2-icon">📋</div>
+                <div class="p2-title">Upfront Pricing</div>
+                <p class="p2-desc">
+                  You'll know the cost before we touch a single pipe. No hidden
+                  fees, no invoice surprises.
+                </p>
+              </div>
+              <div class="p2-card">
+                <div class="p2-icon">✅</div>
+                <div class="p2-title">Licensed & Insured</div>
+                <p class="p2-desc">
+                  Fully licensed and insured for residential and commercial work
+                  across Idaho.
+                </p>
+              </div>
+              <div class="p2-card">
+                <div class="p2-icon">📍</div>
+                <div class="p2-title">Truly Local</div>
+                <p class="p2-desc">
+                  We live and work in the Treasure Valley. This community is our
+                  community.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="process-section" id="how-it-works">
+      <div class="process-inner">
+        <div class="process-header">
+          <div class="section-label" style="justify-content: center">
+            <span class="sl-line"></span>How It Works<span
+              class="sl-line"
+            ></span>
+          </div>
+          <h2 class="section-h2" style="text-align: center">
+            Getting Fixed Is<br /><em>Easier Than You Think.</em>
+          </h2>
+          <p
+            class="section-sub"
+            style="margin: 0.75rem auto 0; text-align: center"
+          >
+            From your first call to a working system — here's what you can
+            expect every time you call Silver River Plumbing.
+          </p>
+        </div>
+        <div class="process-steps">
+          <div class="ps">
+            <div class="ps-badge b1">01</div>
+            <div class="ps-icon">📞</div>
+            <div class="ps-title">Call or Request Online</div>
+            <p class="ps-desc">
+              Give us a call or fill out our quick quote form. We respond the
+              same day — usually within the hour for non-emergencies, faster for
+              urgent calls.
+            </p>
+          </div>
+          <div class="ps">
+            <div class="ps-badge b2">02</div>
+            <div class="ps-icon">🚗</div>
+            <div class="ps-title">We Dispatch Fast</div>
+            <p class="ps-desc">
+              A licensed plumber arrives at your door on time, with the tools
+              and parts to handle most common repairs on the first visit.
+            </p>
+          </div>
+          <div class="ps">
+            <div class="ps-badge b3">03</div>
+            <div class="ps-icon">🔍</div>
+            <div class="ps-title">Honest Diagnosis</div>
+            <p class="ps-desc">
+              We find the real problem, explain it in plain language, and give
+              you a clear price before we start any work. No pressure, no
+              surprises.
+            </p>
+          </div>
+          <div class="ps">
+            <div class="ps-badge b4">04</div>
+            <div class="ps-icon">✅</div>
+            <div class="ps-title">Fixed. Guaranteed.</div>
+            <p class="ps-desc">
+              We complete the repair correctly the first time, clean up when
+              we're done, and leave you with a system that works. Backed by our
+              guarantee.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wave: white → stone -->
+    <div class="wave">
+      <svg
+        viewBox="0 0 1440 70"
+        preserveAspectRatio="none"
+        style="height: 70px"
+      >
+        <path
+          d="M0,20 C240,65 480,5 720,42 C940,72 1180,12 1440,35 L1440,70 L0,70 Z"
+          fill="var(--stone)"
+        />
+      </svg>
+    </div>
+
+    <!-- TESTIMONIALS -->
+    <section class="testi-section" id="reviews">
+      <div class="testi-inner">
+        <div class="testi-header">
+          <div>
+            <div class="section-label">
+              <span class="sl-line"></span>What Customers Say
+            </div>
+            <h2 class="section-h2">
+              Don't Just Take<br />Our <em>Word for It.</em>
+            </h2>
+            <p class="section-sub" style="margin-top: 0.75rem">
+              Real Boise homeowners, real results. Here's what people across the
+              Treasure Valley are saying about Silver River Plumbing.
+            </p>
+          </div>
+          <div class="testi-pull">
+            <span class="pull-mark">"</span>
+            <p class="pull-text">
+              "I had a leaking pipe under my kitchen sink and needed a plumber
+              fast. Silver River responded the same day and had the issue
+              diagnosed and repaired before it caused any serious damage.
+              Professional, affordable, and efficient — exactly what you want in
+              a plumber."
+            </p>
+            <div class="pull-name">Donald H.</div>
+            <div class="pull-loc">Boise, Idaho</div>
+          </div>
+        </div>
+        <div class="testi-grid">
+          <div class="tc">
+            <span class="tc-mark">"</span>
+            <div class="tc-stars">★★★★★</div>
+            <p class="tc-quote">
+              "Our water heater stopped working late in the evening. Silver
+              River came out the next morning, explained the issue clearly, and
+              had us back with hot water by noon. Their knowledge and customer
+              service were outstanding."
+            </p>
+            <div class="tc-author">
+              <div class="tc-avatar">MH</div>
+              <div>
+                <div class="tc-name">Mike H.</div>
+                <div class="tc-loc">Meridian, Idaho</div>
+              </div>
+            </div>
+          </div>
+          <div class="tc tc-offset">
+            <span class="tc-mark">"</span>
+            <div class="tc-stars">★★★★★</div>
+            <p class="tc-quote">
+              "Called for drain cleaning after my bathroom sink kept clogging.
+              Plumber arrived on time, explained the blockage, and cleared it
+              quickly. They even gave me tips to prevent it happening again. I
+              won't use anyone else."
+            </p>
+            <div class="tc-author">
+              <div class="tc-avatar">RH</div>
+              <div>
+                <div class="tc-name">Rachel H.</div>
+                <div class="tc-loc">Eagle, Idaho</div>
+              </div>
+            </div>
+          </div>
+          <div class="tc">
+            <span class="tc-mark">"</span>
+            <div class="tc-stars">★★★★★</div>
+            <p class="tc-quote">
+              "Used Silver River for a bathroom remodel — new fixtures,
+              relocated drain, the works. They coordinated perfectly with my
+              contractor, showed up every day on schedule, and the work was
+              flawless. Highly recommend."
+            </p>
+            <div class="tc-author">
+              <div class="tc-avatar">JB</div>
+              <div>
+                <div class="tc-name">Jennifer B.</div>
+                <div class="tc-loc">Nampa, Idaho</div>
+              </div>
+            </div>
+          </div>
+          <div class="tc tc-offset">
+            <span class="tc-mark">"</span>
+            <div class="tc-stars">★★★★★</div>
+            <p class="tc-quote">
+              "Had a suspected gas leak at 9pm. They sent someone out within the
+              hour, found the issue, made it safe, and came back the next
+              morning to complete the repair. Fast, professional, and clearly
+              knew what they were doing."
+            </p>
+            <div class="tc-author">
+              <div class="tc-avatar">TC</div>
+              <div>
+                <div class="tc-name">Tom C.</div>
+                <div class="tc-loc">Caldwell, Idaho</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wave: stone → navy -->
+    <div class="wave" style="background: var(--stone)">
+      <svg
+        viewBox="0 0 1440 70"
+        preserveAspectRatio="none"
+        style="height: 70px"
+      >
+        <path
+          d="M0,35 C180,70 400,5 640,42 C860,74 1080,10 1300,38 C1380,52 1420,30 1440,36 L1440,70 L0,70 Z"
+          fill="var(--navy)"
+        />
+      </svg>
+    </div>
+
+    <!-- EMERGENCY -->
+    <section class="emergency-section" id="emergency">
+      <div class="emergency-inner">
+        <div>
+          <div class="emg-badge">
+            <span class="live-dot"></span>Emergency Dispatch Active
+          </div>
+          <h2 class="emg-h2">
+            Plumbing <span class="emg-copper">Emergency?</span><br />We Answer.
+          </h2>
+          <p class="emg-body">
+            Burst pipes, gas leaks, flooding, no hot water — these don't wait
+            until morning. Neither do we. Silver River dispatches fast across
+            the Treasure Valley, 24 hours a day, 365 days a year.
+          </p>
+          <a href="#contact" class="btn btn-copper btn-lg btn-arrow"
+            >Get Emergency Help</a
+          >
+        </div>
+        <div class="emg-right">
+          <div class="emg-phone-label">Call Us Directly</div>
+          <a href="tel:+12085098480" class="emg-phone">(208) 509-8480</a>
+          <div class="emg-avail">
+            <span class="green">●</span> Live Now — 24/7/365
+          </div>
+          <div class="emg-pipe-rule">
+            <div class="emg-pipe-cap"></div>
+            <div class="emg-pipe-line"></div>
+            <div class="emg-pipe-mid"></div>
+            <div class="emg-pipe-line" style="flex: 0.4"></div>
+            <div class="emg-pipe-cap"></div>
+          </div>
+          <a
+            href="tel:+12085098480"
+            class="btn btn-emergency btn-xl btn-pill"
+            style="font-size: 1rem"
+            >Call for Emergency Service</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+      <div class="contact-left">
+        <div class="cl-eyebrow">Free Quote — No Obligation</div>
+        <h2 class="cl-h2">Let's Fix It <span class="cl-em">Today.</span></h2>
+        <p class="cl-body">
+          Fill out the form and we'll get back to you the same day — usually
+          within the hour. No pressure, no commitment. Just a fast, honest
+          answer about what your repair will take.
+        </p>
+        <div class="cl-perks">
+          <div class="cl-perk">Free estimates on all work</div>
+          <div class="cl-perk">Same-day service available</div>
+          <div class="cl-perk">Upfront pricing before we start</div>
+          <div class="cl-perk">Licensed & insured technicians</div>
+          <div class="cl-perk">Serving all of the Treasure Valley</div>
+        </div>
+      </div>
+      <div class="contact-right">
+        <div class="cr-title">Get a Free Quote</div>
+        <p class="cr-sub">We respond the same day — usually within the hour.</p>
+        <form>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">First Name</label
+              ><input class="form-input" type="text" placeholder="First name" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Last Name</label
+              ><input class="form-input" type="text" placeholder="Last name" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number</label
+            ><input
+              class="form-input"
+              type="tel"
+              placeholder="(208) 000-0000"
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address</label
+            ><input
+              class="form-input"
+              type="email"
+              placeholder="your@email.com"
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Service Needed</label>
+            <select class="form-select">
+              <option value="">Select a service...</option>
+              <option>Drain Cleaning & Repairs</option>
+              <option>Water Heater Service</option>
+              <option>Leak Detection & Repair</option>
+              <option>Gas Line Services</option>
+              <option>Remodeling Plumbing</option>
+              <option>Commercial Plumbing</option>
+              <option>Emergency Service</option>
+              <option>Not Sure — Need a Diagnosis</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Tell us what's going on</label>
+            <textarea
+              class="form-textarea"
+              placeholder="Describe the issue, when it started, any details that might help..."
+            ></textarea>
+            <span class="form-note"
+              >Free quote · No commitment · Fast response</span
+            >
+          </div>
+          <button type="submit" class="form-submit">
+            Send My Free Quote Request
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-drop"></div>
+            <div class="footer-brand-name">Silver River<br />Plumbing</div>
+            <div class="footer-tagline">
+              Fast, dependable plumbing and drain service for homeowners and
+              businesses across Boise and the Treasure Valley.
+            </div>
+            <div class="footer-phone">(208) 509-8480</div>
+            <div class="footer-phone-note">
+              24/7 emergency service available
+            </div>
+          </div>
+          <div>
+            <div class="footer-col-title">Services</div>
+            <ul class="footer-links">
+              <li><a href="#">Drain Cleaning</a></li>
+              <li><a href="#">Water Heaters</a></li>
+              <li><a href="#">Leak Detection</a></li>
+              <li><a href="#">Gas Lines</a></li>
+              <li><a href="#">Remodeling</a></li>
+              <li><a href="#">Commercial</a></li>
+              <li><a href="#">Emergency</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer-col-title">Company</div>
+            <ul class="footer-links">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Testimonials</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer-col-title">Service Area</div>
+            <ul class="footer-links">
+              <li><a href="#">Boise</a></li>
+              <li><a href="#">Meridian</a></li>
+              <li><a href="#">Eagle</a></li>
+              <li><a href="#">Nampa</a></li>
+              <li><a href="#">Caldwell</a></li>
+              <li><a href="#">Star</a></li>
+              <li><a href="#">Treasure Valley</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bar">
+          <div class="footer-copy">
+            © 2026 Silver River Plumbing · Boise, Idaho · Licensed & Insured
+          </div>
+          <div class="footer-copy">Fast · Honest · Fixed</div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const nav = document.getElementById("nav");
+      window.addEventListener(
+        "scroll",
+        () => {
+          nav.classList.toggle("scrolled", window.scrollY > 50);
+        },
+        { passive: true },
+      );
+    </script>
+  </body>
+</html>
