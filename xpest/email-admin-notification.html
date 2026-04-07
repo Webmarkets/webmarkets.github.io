@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="x-apple-disable-message-reformatting">
+  <title>New Lead — xPest Contact Form</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" type="text/css">
+  <!--[if mso]>
+  <noscript>
+    <xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml>
+  </noscript>
+  <![endif]-->
+  <style type="text/css">
+    /* ── Resets ── */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body,
+    table,
+    td,
+    a {
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+
+    table,
+    td {
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+      border-collapse: collapse;
+    }
+
+    img {
+      -ms-interpolation-mode: bicubic;
+      display: block;
+      border: 0;
+    }
+
+    body {
+      margin: 0 !important;
+      padding: 0 !important;
+      background-color: #080D1A;
+      width: 100% !important;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* ── Mobile ── */
+    @media only screen and (max-width: 620px) {
+      .email-wrapper {
+        padding: 0 !important;
+      }
+
+      .email-container {
+        width: 100% !important;
+        border-radius: 0 !important;
+      }
+
+      .content-pad {
+        padding: 24px 20px !important;
+      }
+
+      .action-btn {
+        display: block !important;
+        width: 100% !important;
+        margin: 0 0 12px !important;
+        text-align: center !important;
+      }
+
+      .action-spacer {
+        display: none !important;
+      }
+
+      .meta-cell {
+        display: block !important;
+        width: 100% !important;
+        padding: 0 0 12px !important;
+      }
+    }
+  </style>
+</head>
+
+<body style="margin:0;padding:0;background-color:#080D1A;width:100%;">
+
+  <!-- Preview text -->
+  <div style="display:none;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;mso-hide:all;">
+    New contact form lead: {{contact.first_name}} {{contact.last_name}} — {{contact.type_of_pest_problem}} — {{contact.city}}, ID &#8204;&nbsp;&#8204;&nbsp;
+  </div>
+
+  <!-- ╔══════════════════════════════════════════╗ -->
+  <!-- ║            OUTER WRAPPER                 ║ -->
+  <!-- ╚══════════════════════════════════════════╝ -->
+  <table class="email-wrapper" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#080D1A;padding:32px 16px;">
+    <tr>
+      <td align="center">
+
+        <!-- Email container — 600px max -->
+        <table class="email-container" width="600" border="0" cellpadding="0" cellspacing="0" role="presentation" style="max-width:600px;width:100%;border-radius:3px;overflow:hidden;">
+
+
+          <!-- ═══════════════════════════════════════
+               ALERT HEADER — Amber "NEW LEAD" banner
+          ═══════════════════════════════════════ -->
+          <tr>
+            <td align="center" style="background-color:#F5A623;padding:18px 40px;">
+              <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="margin:0 auto;">
+                <tr>
+                  <td style="vertical-align:middle;padding-right:12px;">
+                    <!-- Hex icon -->
+                    <table border="0" cellpadding="0" cellspacing="0" role="presentation">
+                      <tr>
+                        <td style="width:32px;height:32px;
+                                   background-color:rgba(11,18,32,0.2);
+                                   border-radius:3px;
+                                   text-align:center;vertical-align:middle;
+                                   font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;
+                                   font-size:18px;font-weight:900;color:#0B1220;
+                                   line-height:32px;">
+                          &#9783;
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td style="vertical-align:middle;">
+                    <span style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;
+                                 font-weight:900;font-size:22px;
+                                 letter-spacing:0.1em;text-transform:uppercase;
+                                 color:#0B1220;">
+                      NEW FORM SUBMISSION
+                    </span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Amber→Navy gradient bar -->
+          <tr>
+            <td style="background:linear-gradient(to bottom,#CC8610 0%,#111C32 100%);height:6px;font-size:0;line-height:0;">&nbsp;</td>
+          </tr>
+
+
+          <!-- ═══════════════════════════════════════
+               LEAD NAME + QUICK SUMMARY
+          ═══════════════════════════════════════ -->
+          <tr>
+            <td class="content-pad" style="background-color:#111C32;padding:28px 40px 20px;
+                     border-left:1px solid rgba(61,180,232,0.15);
+                     border-right:1px solid rgba(61,180,232,0.15);">
+
+              <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation">
+                <tr>
+                  <td valign="middle">
+                    <h1 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;
+                               font-weight:900;font-size:2.2rem;line-height:1;
+                               letter-spacing:0.02em;text-transform:uppercase;
+                               color:#EAEFFB;margin:0 0 4px;">
+                      {{contact.first_name}} {{contact.last_name}}
+                    </h1>
+                    <p style="font-family:'DM Sans',Arial,Helvetica,sans-serif;
+                              font-size:13px;color:#5E7592;margin:0;">
+                      {{contact.city}}, ID &nbsp;&bull;&nbsp; Submitted {{contact.date_added}}
+                    </p>
+                  </td>
+                  <td valign="middle" align="right">
+                    <!-- Pest type pill -->
+                    <span style="display:inline-block;
+                                 background-color:rgba(232,59,26,0.12);
+                                 border:1px solid rgba(232,59,26,0.4);
+                                 border-radius:3px;
+                                 padding:5px 14px;
+                                 font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;
+                                 font-weight:700;font-size:12px;
+                                 letter-spacing:0.1em;text-transform:uppercase;
+                                 color:#E83B1A;">
+                      {{contact.type_of_pest_problem}}
+                    </span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Divider -->
+          <tr>
+            <td style="background-color:#111C32;padding:0 40px;
+                       border-left:1px solid rgba(61,180,232,0.15);
+                       border-right:1px solid rgba(61,180,232,0.15);">
+              <div style="height:1px;background:rgba(61,180,232,0.12);"></div>
+            </td>
+          </tr>
+
+
+          <!-- ═══════════════════════════════════════
+               LEAD DETAILS TABLE
+          ═══════════════════════════════════════ -->
+          <tr>
+            <td class="content-pad" style="background-color:#111C32;padding:20px 40px 28px;
+                     border-left:1px solid rgba(61,180,232,0.15);
+                     border-right:1px solid rgba(61,180,232,0.15);">
+
+              <p style="font-family:'Courier New',Courier,monospace;
+                        font-size:10px;font-weight:700;
+                        letter-spacing:0.22em;text-transform:uppercase;
+                        color:#3DB4E8;margin:0 0 14px;">
+                &#9135;&nbsp; Contact Information
+              </p>
+
+              <!-- Details card -->
+              <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#192640;
+                       border:1px solid rgba(61,180,232,0.15);
+                       border-radius:3px;">
+
+                <!-- Phone -->
+                <tr>
+                  <td style="padding:12px 20px;border-bottom:1px solid rgba(61,180,232,0.08);">
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation">
+                      <tr>
+                        <td width="36%" style="font-family:'Courier New',Courier,monospace;
+                                               font-size:10px;letter-spacing:0.1em;
+                                               text-transform:uppercase;color:#5E7592;">
+                          Phone
+                        </td>
+                        <td width="64%" style="font-family:'DM Sans',Arial,Helvetica,sans-serif;
+                                               font-size:14px;color:#3DB4E8;font-weight:600;">
+                          <a href="tel:{{contact.phone}}" style="color:#3DB4E8;text-decoration:none;">
+                            {{contact.phone}}
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- Email -->
+                <tr>
+                  <td style="padding:12px 20px;border-bottom:1px solid rgba(61,180,232,0.08);">
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation">
+                      <tr>
+                        <td width="36%" style="font-family:'Courier New',Courier,monospace;
+                                               font-size:10px;letter-spacing:0.1em;
+                                               text-transform:uppercase;color:#5E7592;">
+                          Email
+                        </td>
+                        <td width="64%" style="font-family:'DM Sans',Arial,Helvetica,sans-serif;
+                                               font-size:14px;color:#3DB4E8;font-weight:600;">
+                          <a href="mailto:{{contact.email}}" style="color:#3DB4E8;text-decoration:none;">
+                            {{contact.email}}
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- Property Address -->
+                <tr>
+                  <td style="padding:12px 20px;border-bottom:1px solid rgba(61,180,232,0.08);">
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation">
+                      <tr>
+                        <td width="36%" valign="top" style="font-family:'Courier New',Courier,monospace;
+                                 font-size:10px;letter-spacing:0.1em;
+                                 text-transform:uppercase;color:#5E7592;padding-top:1px;">
+                          Property
+                        </td>
+                        <td width="64%" style="font-family:'DM Sans',Arial,Helvetica,sans-serif;
+                                               font-size:14px;color:#DDE8F8;font-weight:600;line-height:1.5;">
+                          {{contact.address1}}<br>
+                          {{contact.city}}, ID&nbsp;{{contact.postal_code}}
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- Pest Type -->
+                <tr>
+                  <td style="padding:12px 20px;border-bottom:1px solid rgba(61,180,232,0.08);">
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation">
+                      <tr>
+                        <td width="36%" style="font-family:'Courier New',Courier,monospace;
+                                               font-size:10px;letter-spacing:0.1em;
+                                               text-transform:uppercase;color:#5E7592;">
+                          Pest Type
+                        </td>
+                        <td width="64%" style="font-family:'DM Sans',Arial,Helvetica,sans-serif;
+                                               font-size:14px;color:#F5A623;font-weight:700;">
+                          {{contact.type_of_pest_problem}}
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- Problem Description -->
+                <tr>
+                  <td style="padding:12px 20px;">
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation">
+                      <tr>
+                        <td width="36%" valign="top" style="font-family:'Courier New',Courier,monospace;
+                                 font-size:10px;letter-spacing:0.1em;
+                                 text-transform:uppercase;color:#5E7592;padding-top:1px;">
+                          Description
+                        </td>
+                        <td width="64%">
+                          <div style="background-color:#213252;
+                                      border-left:3px solid #F5A623;
+                                      border-radius:0 3px 3px 0;
+                                      padding:10px 14px;">
+                            <p style="font-family:'DM Sans',Arial,Helvetica,sans-serif;
+                                      font-size:13px;line-height:1.6;
+                                      color:#DDE8F8;margin:0;">
+                              {{contact.describe_the_problem}}
+                            </p>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+              </table>
+            </td>
+          </tr>
+
+
+          <!-- ═══════════════════════════════════════
+               QUICK ACTION BUTTONS
+          ═══════════════════════════════════════ -->
+          <tr>
+            <td class="content-pad" align="center" style="background-color:#192640;padding:24px 40px;
+                     border-left:1px solid rgba(61,180,232,0.15);
+                     border-right:1px solid rgba(61,180,232,0.15);">
+
+              <p style="font-family:'Courier New',Courier,monospace;
+                        font-size:10px;font-weight:700;
+                        letter-spacing:0.22em;text-transform:uppercase;
+                        color:#3DB4E8;margin:0 0 18px;">
+                &#9135;&nbsp; Quick Actions
+              </p>
+
+              <!-- Buttons row -->
+              <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="margin:0 auto;">
+                <tr>
+
+                  <!-- Call button -->
+                  <td class="action-btn" style="padding-right:10px;">
+                    <a href="tel:{{contact.phone}}" style="display:inline-block;
+                             background-color:#F5A623;color:#0B1220;
+                             font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;
+                             font-weight:800;font-size:13px;
+                             letter-spacing:0.12em;text-transform:uppercase;
+                             padding:13px 28px;border-radius:3px;
+                             text-decoration:none;">
+                      &#128222;&nbsp; Call Lead
+                    </a>
+                  </td>
+
+                  <!-- Email button -->
+                  <td class="action-btn" style="padding-right:10px;">
+                    <a href="mailto:{{contact.email}}?subject=Re%3A%20Your%20xPest%20Pest%20Control%20Request&body=Hi%20{{contact.first_name}}%2C%0A%0AThank%20you%20for%20reaching%20out%20to%20xPest." style="display:inline-block;
+                             background-color:transparent;color:#3DB4E8;
+                             font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;
+                             font-weight:800;font-size:13px;
+                             letter-spacing:0.12em;text-transform:uppercase;
+                             padding:11px 28px;border-radius:3px;
+                             border:2px solid rgba(61,180,232,0.4);
+                             text-decoration:none;">
+                      &#9993;&nbsp; Email Lead
+                    </a>
+                  </td>
+
+                  <!-- View in GHL button -->
+                  <td class="action-btn">
+                    <a href="https://app.gohighlevel.com/" style="display:inline-block;
+                             background-color:transparent;color:#7A92B2;
+                             font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;
+                             font-weight:800;font-size:13px;
+                             letter-spacing:0.12em;text-transform:uppercase;
+                             padding:11px 28px;border-radius:3px;
+                             border:2px solid rgba(61,180,232,0.15);
+                             text-decoration:none;">
+                      &#9654;&nbsp; Open in GHL
+                    </a>
+                  </td>
+
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+
+          <!-- ═══════════════════════════════════════
+               SUBMISSION METADATA
+          ═══════════════════════════════════════ -->
+          <tr>
+            <td class="content-pad" style="background-color:#111C32;padding:20px 40px;
+                     border-left:1px solid rgba(61,180,232,0.15);
+                     border-right:1px solid rgba(61,180,232,0.15);">
+
+              <p style="font-family:'Courier New',Courier,monospace;
+                        font-size:10px;font-weight:700;
+                        letter-spacing:0.22em;text-transform:uppercase;
+                        color:#3DB4E8;margin:0 0 14px;">
+                &#9135;&nbsp; Submission Metadata
+              </p>
+
+              <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#192640;
+                       border:1px solid rgba(61,180,232,0.1);
+                       border-radius:3px;">
+
+                <!-- Date submitted -->
+                <tr>
+                  <td style="padding:10px 18px;border-bottom:1px solid rgba(61,180,232,0.06);">
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation">
+                      <tr>
+                        <td width="36%" style="font-family:'Courier New',Courier,monospace;
+                                               font-size:9.5px;letter-spacing:0.1em;
+                                               text-transform:uppercase;color:#3A5070;">
+                          Submitted
+                        </td>
+                        <td width="64%" style="font-family:'Courier New',Courier,monospace;
+                                               font-size:11px;color:#5E7592;">
+                          {{contact.date_added}}
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- Source -->
+                <tr>
+                  <td style="padding:10px 18px;border-bottom:1px solid rgba(61,180,232,0.06);">
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation">
+                      <tr>
+                        <td width="36%" style="font-family:'Courier New',Courier,monospace;
+                                               font-size:9.5px;letter-spacing:0.1em;
+                                               text-transform:uppercase;color:#3A5070;">
+                          Source
+                        </td>
+                        <td width="64%" style="font-family:'Courier New',Courier,monospace;
+                                               font-size:11px;color:#5E7592;">
+                          {{contact.source}}
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- Form ID -->
+                <tr>
+                  <td style="padding:10px 18px;border-bottom:1px solid rgba(61,180,232,0.06);">
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation">
+                      <tr>
+                        <td width="36%" style="font-family:'Courier New',Courier,monospace;
+                                               font-size:9.5px;letter-spacing:0.1em;
+                                               text-transform:uppercase;color:#3A5070;">
+                          Form ID
+                        </td>
+                        <td width="64%" style="font-family:'Courier New',Courier,monospace;
+                                               font-size:11px;color:#5E7592;">
+                          mBQ27b7xIurTTuPikrxv
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- Form URL -->
+                <tr>
+                  <td style="padding:10px 18px;">
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation">
+                      <tr>
+                        <td width="36%" style="font-family:'Courier New',Courier,monospace;
+                                               font-size:9.5px;letter-spacing:0.1em;
+                                               text-transform:uppercase;color:#3A5070;">
+                          Form URL
+                        </td>
+                        <td width="64%" style="font-family:'Courier New',Courier,monospace;
+                                               font-size:11px;color:#5E7592;word-break:break-all;">
+                          links.webmarketsonline.com/widget/form/mBQ27b7xIurTTuPikrxv
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+              </table>
+            </td>
+          </tr>
+
+
+          <!-- Blue top accent line on footer -->
+          <tr>
+            <td style="background-color:#111C32;padding:0 40px;
+                       border-left:1px solid rgba(61,180,232,0.15);
+                       border-right:1px solid rgba(61,180,232,0.15);">
+              <div style="height:1px;background:rgba(61,180,232,0.2);"></div>
+            </td>
+          </tr>
+
+
+          <!-- ═══════════════════════════════════════
+               FOOTER
+          ═══════════════════════════════════════ -->
+          <tr>
+            <td class="content-pad" align="center" style="background-color:#080D1A;padding:22px 40px;
+                     border:1px solid rgba(61,180,232,0.08);
+                     border-top:none;border-radius:0 0 3px 3px;">
+
+              <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="margin:0 auto 12px;">
+                <tr>
+                  <td>
+                    <img src="https://webmarkets.github.io/xpest/Assets/XPest.png" alt="xPest" width="80" style="max-width:80px;height:auto;opacity:0.6;">
+                  </td>
+                </tr>
+              </table>
+
+              <p style="font-family:'Courier New',Courier,monospace;
+                        font-size:9.5px;letter-spacing:0.07em;
+                        color:#2E4560;margin:0;line-height:1.7;">
+                xPest Pest Control &bull; Internal Lead Notification<br>
+                This email was automatically generated by a GoHighLevel workflow.<br>
+                Do not reply — manage leads at
+                <a href="https://app.gohighlevel.com/" style="color:#3DB4E8;text-decoration:none;">app.gohighlevel.com</a>
+              </p>
+            </td>
+          </tr>
+
+
+        </table>
+        <!-- / email container -->
+
+      </td>
+    </tr>
+  </table>
+
+</body>
+
+</html>
