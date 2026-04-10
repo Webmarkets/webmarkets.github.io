@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WebMarkets — Q2 Alignment 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --graphite: #0C111D;
+  --panel:    #111827;
+  --steel:    #1F2937;
+  --red:      #EF4444;
+  --blue:     #3B82F6;
+  --cyan:     #06B6D4;
+  --white:    #FFFFFF;
+  --light:    #E5E7EB;
+  --gray:     #9CA3AF;
+  --dim:      #374151;
+}
+
+html, body {
+  width: 100%; height: 100%;
+  background: #000;
+  font-family: 'Inter', sans-serif;
+  color: var(--white);
+  overflow: hidden;
+}
+
+.grid-bg {
+  background-color: var(--graphite);
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+#deck { width: 100vw; height: 100vh; position: relative; overflow: hidden; }
+
+/* ── SLIDE BASE ── */
+.slide {
+  position: absolute; inset: 0;
+  background: var(--graphite);
+  display: flex; flex-direction: column;
+  opacity: 0; pointer-events: none;
+  transform: translateX(80px);
+  transition: opacity 0.38s ease, transform 0.38s ease;
+  overflow: hidden;
+}
+.slide.active  { opacity: 1; pointer-events: all; transform: translateX(0); }
+.slide.exit    { opacity: 0; transform: translateX(-80px); }
+.slide::before {
+  content: ''; position: absolute; left: 0; top: 0;
+  width: 6px; height: 100%; background: var(--red); z-index: 20;
+}
+.no-accent::before { display: none; }
+
+/* ── HEADER BAR ── */
+.hdr {
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--panel); border-bottom: 1px solid var(--steel);
+  padding: 0 3vw; height: 7vh; flex-shrink: 0; position: relative; z-index: 5;
+}
+.hdr-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(0.6rem, 1vw, 0.95rem);
+  letter-spacing: 0.28em; color: var(--white); font-weight: 600; text-transform: uppercase;
+}
+.hdr-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(0.55rem, 0.8vw, 0.8rem);
+  color: var(--blue); letter-spacing: 0.1em;
+}
+
+/* ── SLIDE BODY ── */
+.body {
+  flex: 1; padding: 2vh 3vw 2vh;
+  display: flex; flex-direction: column; min-height: 0;
+}
+.body.row { flex-direction: row; gap: 1.5vw; }
+
+/* ── EYEBROW ── */
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(0.7rem, 1.1vw, 1rem);
+  letter-spacing: 0.3em; color: var(--blue);
+  text-transform: uppercase; display: block;
+}
+
+/* ── 2-COL GRID ── */
+.grid2 {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1.2vh 1.5vw; flex: 1; min-height: 0;
+}
+
+/* ── CARD ── */
+.card {
+  background: var(--panel); border: 1px solid var(--steel);
+  border-radius: 10px; position: relative; overflow: hidden;
+  display: flex; flex-direction: column; padding: 2vh 1.8vw;
+}
+.card-bar { position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+.card-bar.red  { background: var(--red); }
+.card-bar.blue { background: var(--blue); }
+.card-bar.cyan { background: var(--cyan); }
+.card-inner { margin-top: 0.6vh; flex: 1; display: flex; flex-direction: column; }
+
+.card-title-row {
+  display: flex; align-items: center;
+  gap: 1vw; margin-bottom: 1.2vh;
+}
+.icon-circle {
+  width: clamp(36px, 3.6vh, 52px); height: clamp(36px, 3.6vh, 52px);
+  border-radius: 50%; display: flex; align-items: center;
+  justify-content: center; flex-shrink: 0;
+}
+.ic-red  { background: rgba(239,68,68,0.15);  border: 1px solid rgba(239,68,68,0.35);  color: var(--red); }
+.ic-blue { background: rgba(59,130,246,0.15); border: 1px solid rgba(59,130,246,0.35); color: var(--blue); }
+.ic-cyan { background: rgba(6,182,212,0.15);  border: 1px solid rgba(6,182,212,0.35);  color: var(--cyan); }
+.icon-circle svg { width: 48%; height: 48%; }
+
+.card-title {
+  font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+  font-size: clamp(1.3rem, 2.4vh, 2.2rem); line-height: 1.15; color: var(--white);
+}
+
+/* ── BULLETS ── */
+ul.bl { list-style: none; display: flex; flex-direction: column; gap: 0.8vh; flex: 1; }
+ul.bl li {
+  display: flex; gap: 0.6vw;
+  font-size: clamp(1.1rem, 2.2vh, 2rem); color: var(--gray); line-height: 1.55;
+}
+ul.bl li::before { content: '•'; color: var(--blue); flex-shrink: 0; }
+
+/* ── TAG ── */
+.tag {
+  display: inline-block; font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(0.6rem, 0.9vw, 0.9rem); letter-spacing: 0.15em;
+  padding: 0.28em 0.7em; border-radius: 4px; text-transform: uppercase; margin-bottom: 0.9vh;
+}
+.tag.red  { background: rgba(239,68,68,0.12);  color: var(--red);  border: 1px solid rgba(239,68,68,0.3); }
+.tag.blue { background: rgba(59,130,246,0.12); color: var(--blue); border: 1px solid rgba(59,130,246,0.3); }
+.tag.cyan { background: rgba(6,182,212,0.12);  color: var(--cyan); border: 1px solid rgba(6,182,212,0.3); }
+
+/* ── SECTION BREAK ── */
+.sec-break { display: flex; height: 100%; }
+.sec-left {
+  width: 44%; background: var(--panel); border-right: 1px solid var(--steel);
+  padding: 5vh 3.5vw; display: flex; flex-direction: column;
+  justify-content: center; position: relative; z-index: 2;
+}
+.sec-right {
+  flex: 1; display: flex; align-items: center;
+  justify-content: center; position: relative; overflow: hidden;
+}
+.sec-bignum {
+  font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+  font-size: clamp(12rem, 28vw, 28rem); line-height: 0.85;
+  opacity: 0.07; user-select: none; position: relative; z-index: 2;
+}
+.glow {
+  position: absolute; border-radius: 50%;
+  filter: blur(90px); pointer-events: none;
+}
+
+/* ── STAT CARD ── */
+.stat-card {
+  background: var(--panel); border: 1px solid var(--steel);
+  border-radius: 10px; padding: 1.8vh 1.5vw;
+  position: relative; overflow: hidden;
+}
+.stat-val {
+  font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+  font-size: clamp(2.8rem, 5.5vh, 5.5rem); line-height: 1; color: var(--white);
+}
+.stat-lbl {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(0.5rem, 0.72vw, 0.72rem);
+  letter-spacing: 0.18em; margin-top: 0.4vh; margin-bottom: 0.3vh; text-transform: uppercase;
+}
+.stat-sub { font-size: clamp(0.7rem, 1vh, 0.92rem); color: var(--gray); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.slide.active .a  { animation: fadeUp 0.42s ease both; }
+.slide.active .d1 { animation-delay: 0.04s; }
+.slide.active .d2 { animation-delay: 0.10s; }
+.slide.active .d3 { animation-delay: 0.16s; }
+.slide.active .d4 { animation-delay: 0.22s; }
+.slide.active .d5 { animation-delay: 0.28s; }
+.slide.active .d6 { animation-delay: 0.34s; }
+
+/* ── NAV ── */
+#nav {
+  position: fixed; bottom: 1.5vh; right: 2vw;
+  display: flex; align-items: center; gap: 0.8vw; z-index: 100;
+}
+#nav button {
+  width: 4vh; height: 4vh; border-radius: 7px;
+  border: 1px solid var(--steel); background: var(--panel);
+  color: var(--gray); cursor: pointer; font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.15s; line-height: 1;
+}
+#nav button:hover { border-color: var(--blue); color: var(--white); }
+#nav button:disabled { opacity: 0.22; cursor: default; }
+#prog {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(0.48rem, 0.65vw, 0.65rem); color: var(--dim); letter-spacing: 0.1em;
+}
+#dots {
+  position: fixed; bottom: 1.8vh; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 7px; z-index: 100;
+}
+.dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--steel); cursor: pointer; transition: all 0.2s;
+}
+.dot.on { background: var(--red); width: 22px; border-radius: 4px; }
+#hint {
+  position: fixed; bottom: 1.8vh; left: 2.5vw;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(0.42rem, 0.55vw, 0.56rem);
+  color: var(--dim); letter-spacing: 0.12em; z-index: 100;
+}
+</style>
+</head>
+<body>
+<div id="deck">
+
+<!-- ══ SLIDE 1: TITLE ══ -->
+<div class="slide grid-bg active" id="s1">
+  <div class="body" style="justify-content:center;">
+    <span class="eyebrow a d1" style="margin-bottom:2.5vh;">Q2 Alignment · April 2026</span>
+    <h1 class="a d2" style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(4.5rem,13vh,12rem); line-height:0.9; letter-spacing:-0.03em;">Raise<br>the Bar.</h1>
+    <p class="a d3" style="margin-top:2.5vh; font-size:clamp(1.2rem,2.5vh,2.2rem); color:var(--gray);">Standards. Systems. Growth.</p>
+    <div class="a d4" style="margin-top:2.5vh; width:90px; height:4px; background:var(--red);"></div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 2: AGENDA ══ -->
+<div class="slide" id="s2">
+  <div class="hdr"><span class="hdr-label">Today's Agenda</span><span class="hdr-num">00</span></div>
+  <div class="body">
+    <div class="grid2">
+      <div class="card a d1">
+        <div class="card-inner">
+          <div class="card-title-row">
+            <div class="icon-circle ic-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+            <span class="card-title">The Vision</span>
+          </div>
+          <p style="font-size:clamp(1.1rem,2.1vh,1.9rem); color:var(--gray);">Where we're going and why it matters</p>
+        </div>
+      </div>
+      <div class="card a d2">
+        <div class="card-inner">
+          <div class="card-title-row">
+            <div class="icon-circle ic-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <span class="card-title">Q2 Goals</span>
+          </div>
+          <p style="font-size:clamp(1.1rem,2.1vh,1.9rem); color:var(--gray);">Four targets. Full execution.</p>
+        </div>
+      </div>
+      <div class="card a d3">
+        <div class="card-inner">
+          <div class="card-title-row">
+            <div class="icon-circle ic-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <span class="card-title">Raised Standards</span>
+          </div>
+          <p style="font-size:clamp(1.1rem,2.1vh,1.9rem); color:var(--gray);">Every team. No exceptions.</p>
+        </div>
+      </div>
+      <div class="card a d4">
+        <div class="card-inner">
+          <div class="card-title-row">
+            <div class="icon-circle ic-cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M8.46 8.46a5 5 0 0 0 0 7.07"/></svg></div>
+            <span class="card-title">Atlas + Monday</span>
+          </div>
+          <p style="font-size:clamp(1.1rem,2.1vh,1.9rem); color:var(--gray);">How we operate. How we win.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 3: THE VISION ══ -->
+<div class="slide grid-bg" id="s3">
+  <div class="body" style="flex-direction:row; gap:3vw; align-items:stretch; padding-top:2.5vh;">
+
+    <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
+      <span class="eyebrow a d1" style="margin-bottom:2vh;">WebMarkets · Long-Term Vision</span>
+      <h1 class="a d2" style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(2.2rem,5.2vh,5rem); color:var(--gray); line-height:1.05; letter-spacing:-0.02em;">We could be average.</h1>
+      <h1 class="a d3" style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(2.2rem,5.2vh,5rem); color:var(--white); line-height:1.05; letter-spacing:-0.02em; margin-top:0.2vh;">We're choosing not to be.</h1>
+      <div class="a d4" style="margin-top:2vh; margin-bottom:1.8vh; width:80px; height:3px; background:var(--red);"></div>
+      <div class="a d5" style="display:flex; flex-direction:column; gap:1.1vh;">
+        <div style="display:flex; align-items:flex-start; gap:1vw;">
+          <span style="color:var(--red); font-family:'JetBrains Mono',monospace; font-size:clamp(0.6rem,1vh,0.9rem); margin-top:0.2em; flex-shrink:0;">01</span>
+          <p style="font-size:clamp(0.85rem,1.4vh,1.25rem); color:var(--light); line-height:1.55;">The <strong style="color:var(--white);">premier marketing agency in Las Vegas.</strong> That is the target. Not one of the best — the best.</p>
+        </div>
+        <div style="display:flex; align-items:flex-start; gap:1vw;">
+          <span style="color:var(--blue); font-family:'JetBrains Mono',monospace; font-size:clamp(0.6rem,1vh,0.9rem); margin-top:0.2em; flex-shrink:0;">02</span>
+          <p style="font-size:clamp(0.85rem,1.4vh,1.25rem); color:var(--light); line-height:1.55;">Operate as close as possible to a <strong style="color:var(--white);">software company internally.</strong> Atlas is the foundation. Systems replace chaos.</p>
+        </div>
+        <div style="display:flex; align-items:flex-start; gap:1vw;">
+          <span style="color:var(--cyan); font-family:'JetBrains Mono',monospace; font-size:clamp(0.6rem,1vh,0.9rem); margin-top:0.2em; flex-shrink:0;">03</span>
+          <p style="font-size:clamp(0.85rem,1.4vh,1.25rem); color:var(--light); line-height:1.55;"><strong style="color:var(--white);">Rebuild internal operating systems</strong> for companies from the ground up. That is a service offering — and a differentiator.</p>
+        </div>
+        <div style="display:flex; align-items:flex-start; gap:1vw;">
+          <span style="color:var(--red); font-family:'JetBrains Mono',monospace; font-size:clamp(0.6rem,1vh,0.9rem); margin-top:0.2em; flex-shrink:0;">04</span>
+          <p style="font-size:clamp(0.85rem,1.4vh,1.25rem); color:var(--light); line-height:1.55;"><strong style="color:var(--white);">Agency-level plans for low-budget clients.</strong> Democratize what we do. Scalable delivery without sacrificing quality.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="a d4" style="display:flex; flex-direction:column; gap:1.5vh; width:22vw; flex-shrink:0; justify-content:center;">
+      <div class="stat-card">
+        <div class="card-bar red"></div>
+        <div style="margin-top:0.6vh;">
+          <div class="stat-val">20</div>
+          <div class="stat-lbl" style="color:var(--red);">Month Plan</div>
+          <div class="stat-sub">Through end of 2027</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="card-bar blue"></div>
+        <div style="margin-top:0.6vh;">
+          <div class="stat-val">Q2</div>
+          <div class="stat-lbl" style="color:var(--blue);">Next Step</div>
+          <div class="stat-sub">Execution starts now</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="card-bar cyan"></div>
+        <div style="margin-top:0.6vh;">
+          <div class="stat-val" style="font-size:clamp(1.8rem,3.5vh,3.2rem);">4</div>
+          <div class="stat-lbl" style="color:var(--cyan);">Pillars</div>
+          <div class="stat-sub">LV · Software · OS · Access</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ SLIDE 4: GOALS SECTION BREAK ══ -->
+<div class="slide no-accent" id="s4">
+  <div class="sec-break">
+    <div class="sec-left">
+      <span class="eyebrow a d1" style="margin-bottom:2.5vh;">Section 01</span>
+      <h1 class="a d2" style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(4rem,10vh,9.5rem); line-height:0.93; color:var(--white); letter-spacing:-0.03em;">Q2<br>Goals.</h1>
+      <p class="a d3" style="margin-top:2.5vh; font-size:clamp(0.9rem,1.6vh,1.4rem); color:var(--gray); font-style:italic;">Four targets. Full execution.</p>
+      <div class="a d4" style="margin-top:2.5vh; width:70px; height:3px; background:var(--red);"></div>
+    </div>
+    <div class="sec-right">
+      <div class="glow" style="width:55vh; height:55vh; background:rgba(239,68,68,0.15); top:50%; left:50%; transform:translate(-50%,-50%);"></div>
+      <span class="sec-bignum" style="color:var(--red);">01</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 5: Q2 GOALS ══ -->
+<div class="slide" id="s5">
+  <div class="hdr"><span class="hdr-label">Q2 Goals</span><span class="hdr-num">01</span></div>
+  <div class="body">
+    <div class="grid2">
+      <div class="card a d1">
+        <div class="card-bar red"></div>
+        <div class="card-inner">
+          <div style="display:flex; align-items:center; gap:0.8vw; margin-bottom:0.8vh;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:clamp(0.52rem,0.72vw,0.72rem); color:var(--red);">01</span>
+            <span class="card-title">6-9 Partner Plan Clients</span>
+          </div>
+          <span class="tag red">Las Vegas Market</span>
+          <p style="font-size:clamp(1.1rem,2.1vh,1.9rem); color:var(--gray); line-height:1.6;">Targeted outreach and conversion in our priority expansion market. Close partner-level accounts that anchor our LV presence.</p>
+        </div>
+      </div>
+      <div class="card a d2">
+        <div class="card-bar blue"></div>
+        <div class="card-inner">
+          <div style="display:flex; align-items:center; gap:0.8vw; margin-bottom:0.8vh;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:clamp(0.52rem,0.72vw,0.72rem); color:var(--blue);">02</span>
+            <span class="card-title">Full Atlas + Monday</span>
+          </div>
+          <span class="tag blue">Internal Operating System</span>
+          <p style="font-size:clamp(1.1rem,2.1vh,1.9rem); color:var(--gray); line-height:1.6;">Every client workflow moves into Atlas. All task and project management runs through Monday. We live in the system.</p>
+        </div>
+      </div>
+      <div class="card a d3">
+        <div class="card-bar cyan"></div>
+        <div class="card-inner">
+          <div style="display:flex; align-items:center; gap:0.8vw; margin-bottom:0.8vh;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:clamp(0.52rem,0.72vw,0.72rem); color:var(--cyan);">03</span>
+            <span class="card-title">Totally Vegas App Launch</span>
+          </div>
+          <span class="tag cyan">Product Go-Live</span>
+          <p style="font-size:clamp(1.1rem,2.1vh,1.9rem); color:var(--gray); line-height:1.6;">Launch on schedule. Coordinate across dev, marketing, and ops for a clean, supported go-live.</p>
+        </div>
+      </div>
+      <div class="card a d4">
+        <div class="card-bar red"></div>
+        <div class="card-inner">
+          <div style="display:flex; align-items:center; gap:0.8vw; margin-bottom:0.8vh;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:clamp(0.52rem,0.72vw,0.72rem); color:var(--red);">04</span>
+            <span class="card-title">Office Relocation</span>
+          </div>
+          <span class="tag red">Smooth Transition</span>
+          <p style="font-size:clamp(1.1rem,2.1vh,1.9rem); color:var(--gray); line-height:1.6;">Move efficiently with zero client disruption. Operations stay continuous throughout the move.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 6: STANDARDS SECTION BREAK ══ -->
+<div class="slide no-accent" id="s6">
+  <div class="sec-break">
+    <div class="sec-left">
+      <span class="eyebrow a d1" style="margin-bottom:2.5vh; color:var(--blue);">Section 02</span>
+      <h1 class="a d2" style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(3.5rem,9vh,8.5rem); line-height:0.93; color:var(--white); letter-spacing:-0.03em;">Raised<br>Standards.</h1>
+      <p class="a d3" style="margin-top:2.5vh; font-size:clamp(0.9rem,1.6vh,1.4rem); color:var(--gray); font-style:italic;">This is the new baseline. Not the ceiling.</p>
+      <div class="a d4" style="margin-top:2.5vh; width:70px; height:3px; background:var(--blue);"></div>
+    </div>
+    <div class="sec-right">
+      <div class="glow" style="width:55vh; height:55vh; background:rgba(59,130,246,0.12); top:50%; left:50%; transform:translate(-50%,-50%);"></div>
+      <span class="sec-bignum" style="color:var(--blue);">02</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 7: THE NEW STANDARD ══ -->
+<div class="slide" id="s7">
+  <div class="hdr"><span class="hdr-label">The New Standard</span><span class="hdr-num">02</span></div>
+  <div class="body">
+    <div class="grid2">
+      <div class="card a d1">
+        <div class="card-inner">
+          <div class="card-title-row">
+            <div class="icon-circle ic-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <span class="card-title">Professionalism</span>
+          </div>
+          <ul class="bl">
+            <li>Every interaction represents the brand</li>
+            <li>Communication is clear, timely, and accountable</li>
+            <li>No dropped balls. Own it start to finish.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card a d2">
+        <div class="card-inner">
+          <div class="card-title-row">
+            <div class="icon-circle ic-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <span class="card-title">Quality of Work</span>
+          </div>
+          <ul class="bl">
+            <li>Review your work before it leaves your hands</li>
+            <li>We hold ourselves to the standard we sell</li>
+            <li>Good enough is not the bar. Great is.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card a d3">
+        <div class="card-inner">
+          <div class="card-title-row">
+            <div class="icon-circle ic-cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+            <span class="card-title">Autonomy</span>
+          </div>
+          <ul class="bl">
+            <li>Know your role. Don't wait to be directed.</li>
+            <li>Solve problems before escalating them</li>
+            <li>Lead your lane. Execute with ownership.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card a d4">
+        <div class="card-inner">
+          <div class="card-title-row">
+            <div class="icon-circle ic-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></div>
+            <span class="card-title">Systems Buy-In</span>
+          </div>
+          <ul class="bl">
+            <li>Atlas and Monday are the source of truth</li>
+            <li>Consistency in process = consistency in results</li>
+            <li>If it's not in the system, it doesn't exist</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 8: STANDARDS BY TEAM ══ -->
+<div class="slide" id="s8">
+  <div class="hdr"><span class="hdr-label">Standards by Team</span><span class="hdr-num">02</span></div>
+  <div class="body">
+    <div class="grid2">
+      <div class="card a d1">
+        <div class="card-bar red"></div>
+        <div class="card-inner">
+          <span class="eyebrow" style="color:var(--red); margin-bottom:0.4vh;">Account Team</span>
+          <span class="card-title" style="display:block; margin-bottom:1.2vh;">Account</span>
+          <ul class="bl">
+            <li>Own your clients. Know their goals before they remind you.</li>
+            <li>Proactive updates, not reactive damage control</li>
+            <li>If a client is unhappy, you know first</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card a d2">
+        <div class="card-bar blue"></div>
+        <div class="card-inner">
+          <span class="eyebrow" style="color:var(--blue); margin-bottom:0.4vh;">Development</span>
+          <span class="card-title" style="display:block; margin-bottom:1.2vh;">Dev</span>
+          <ul class="bl">
+            <li>Own your projects. Build features without waiting for direction.</li>
+            <li>Front-end work is fully checked and polished before delivery. No exceptions.</li>
+            <li>Excellence in knowledge. Stay sharp on what we use and what is emerging.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card a d3">
+        <div class="card-bar cyan"></div>
+        <div class="card-inner">
+          <span class="eyebrow" style="color:var(--cyan); margin-bottom:0.4vh;">Performance</span>
+          <span class="card-title" style="display:block; margin-bottom:1.2vh;">Performance</span>
+          <ul class="bl">
+            <li>Stay on the cutting edge of AI search. Know what is working right now.</li>
+            <li>Find the best results for each client using the best tools in the current market.</li>
+            <li>Reporting is in Atlas. Insights are in the meeting.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card a d4">
+        <div class="card-bar red"></div>
+        <div class="card-inner">
+          <span class="eyebrow" style="color:var(--red); margin-bottom:0.4vh;">Creative</span>
+          <span class="card-title" style="display:block; margin-bottom:1.2vh;">Creative</span>
+          <ul class="bl">
+            <li>Deliver on brief. Revisions are not the standard.</li>
+            <li>Every asset is brand-accurate before it leaves.</li>
+            <li>Timelines are commitments, not estimates.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 9: ATLAS + MONDAY SECTION BREAK ══ -->
+<div class="slide no-accent" id="s9">
+  <div class="sec-break">
+    <div class="sec-left">
+      <span class="eyebrow a d1" style="margin-bottom:2.5vh; color:var(--cyan);">Section 03</span>
+      <h1 class="a d2" style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(3.5rem,9vh,8.5rem); line-height:0.93; color:var(--white); letter-spacing:-0.03em;">Atlas +<br>Monday.</h1>
+      <p class="a d3" style="margin-top:2.5vh; font-size:clamp(0.9rem,1.6vh,1.4rem); color:var(--gray); font-style:italic;">The operating system for everything we do.</p>
+      <div class="a d4" style="margin-top:2.5vh; width:70px; height:3px; background:var(--cyan);"></div>
+    </div>
+    <div class="sec-right">
+      <div class="glow" style="width:55vh; height:55vh; background:rgba(6,182,212,0.12); top:50%; left:50%; transform:translate(-50%,-50%);"></div>
+      <span class="sec-bignum" style="color:var(--cyan);">03</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 10: ATLAS ══ -->
+<div class="slide" id="s10">
+  <div class="hdr"><span class="hdr-label">Atlas: Client Portal + Deliverables</span><span class="hdr-num">03</span></div>
+  <div class="body row">
+    <div class="card a d1" style="flex:1;">
+      <div class="card-bar red"></div>
+      <div class="card-inner">
+        <span class="eyebrow" style="color:var(--red); margin-bottom:1.5vh;">What Atlas Is</span>
+        <ul class="bl">
+          <li>Client portal — the face of our work to every client</li>
+          <li>All deliverables, reports, and communication live here</li>
+          <li>STP workflow driving automated content per client</li>
+          <li>Projects and support requests tracked in Atlas</li>
+          <li>Real-time dashboards so clients see results, not just reports</li>
+          <li>Built for WebMarkets. Not a workaround.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card a d2" style="flex:1;">
+      <div class="card-bar blue"></div>
+      <div class="card-inner">
+        <span class="eyebrow" style="color:var(--blue); margin-bottom:1.5vh;">How We Run It</span>
+        <ul class="bl">
+          <li>Client communication goes through Atlas. Not email threads.</li>
+          <li>Deliverables are submitted and reviewed inside the portal</li>
+          <li>Every active client has a live dashboard before the month ends</li>
+          <li>Support requests are logged. Nothing falls through a DM.</li>
+          <li>If it didn't happen in Atlas, it didn't happen.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 11: MONDAY ══ -->
+<div class="slide" id="s11">
+  <div class="hdr"><span class="hdr-label">Monday: Task + Project Management</span><span class="hdr-num">03</span></div>
+  <div class="body row">
+    <div class="card a d1" style="flex:1;">
+      <div class="card-bar cyan"></div>
+      <div class="card-inner">
+        <span class="eyebrow" style="color:var(--cyan); margin-bottom:1.5vh;">What Monday Owns</span>
+        <ul class="bl">
+          <li>Internal task management for the entire company</li>
+          <li>Project timelines, sprint planning, and assignments</li>
+          <li>Cross-team coordination and dependency tracking</li>
+          <li>Dev builds, creative projects, and campaign rollouts</li>
+          <li>Capacity planning and workload visibility for leadership</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card a d2" style="flex:1;">
+      <div class="card-bar blue"></div>
+      <div class="card-inner">
+        <span class="eyebrow" style="color:var(--blue); margin-bottom:1.5vh;">The Atlas + Monday Connection</span>
+        <ul class="bl">
+          <li>Atlas faces the client. Monday runs the team.</li>
+          <li>Client requests in Atlas trigger tasks in Monday</li>
+          <li>Work is tracked internally before it ever reaches the client</li>
+          <li>One source of truth per side. No gaps, no lost context.</li>
+          <li>This connection is what makes us operate like a premier agency.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 12: CLOSING ══ -->
+<div class="slide grid-bg" id="s12">
+  <div class="body" style="justify-content:center;">
+    <span class="eyebrow a d1" style="margin-bottom:2vh;">The Expectation Is Clear.</span>
+    <h1 class="a d2" style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(3.5rem,11vh,10.5rem); line-height:0.92; letter-spacing:-0.03em;">Q2 is where<br>we level up.</h1>
+    <div class="a d3" style="display:grid; grid-template-columns:repeat(4,1fr); gap:1.2vw; margin-top:4vh;">
+      <div class="stat-card"><div class="card-bar red"></div><div style="margin-top:0.6vh;"><div class="stat-lbl" style="color:var(--red);">Vision</div><div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(1rem,1.8vh,1.6rem); color:var(--white); line-height:1.3; margin-top:0.5vh;">#1 Agency<br>in Las Vegas</div></div></div>
+      <div class="stat-card"><div class="card-bar red"></div><div style="margin-top:0.6vh;"><div class="stat-lbl" style="color:var(--red);">Goals</div><div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(1rem,1.8vh,1.6rem); color:var(--white); line-height:1.3; margin-top:0.5vh;">4 Clear<br>Targets</div></div></div>
+      <div class="stat-card"><div class="card-bar blue"></div><div style="margin-top:0.6vh;"><div class="stat-lbl" style="color:var(--blue);">Standard</div><div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(1rem,1.8vh,1.6rem); color:var(--white); line-height:1.3; margin-top:0.5vh;">Raised.<br>Non-negotiable.</div></div></div>
+      <div class="stat-card"><div class="card-bar cyan"></div><div style="margin-top:0.6vh;"><div class="stat-lbl" style="color:var(--cyan);">Systems</div><div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(1rem,1.8vh,1.6rem); color:var(--white); line-height:1.3; margin-top:0.5vh;">Atlas + Monday.<br>All-in.</div></div></div>
+    </div>
+    <div class="a d4" style="margin-top:3.5vh; padding-top:1.5vh; border-top:1px solid var(--steel);">
+      <span style="font-family:'JetBrains Mono',monospace; font-size:clamp(0.45rem,0.65vw,0.65rem); color:var(--dim); letter-spacing:0.2em;">WebMarkets · Q2 2026 · Internal</span>
+    </div>
+  </div>
+</div>
+
+</div><!-- #deck -->
+
+<div id="nav">
+  <button id="bp" onclick="go(-1)">&#8592;</button>
+  <span id="prog">1 / 12</span>
+  <button id="bn" onclick="go(1)">&#8594;</button>
+</div>
+<div id="dots"></div>
+<div id="hint">&#8592; &#8594; arrows or click to navigate</div>
+
+<script>
+const slides=document.querySelectorAll('.slide'), N=slides.length;
+let cur=0;
+const dotsEl=document.getElementById('dots');
+slides.forEach((_,i)=>{const d=document.createElement('div');d.className='dot'+(i===0?' on':'');d.onclick=()=>goTo(i);dotsEl.appendChild(d);});
+function goTo(idx){if(idx<0||idx>=N)return;slides[cur].classList.remove('active');slides[cur].classList.add('exit');const prev=cur;cur=idx;slides[cur].classList.add('active');setTimeout(()=>slides[prev].classList.remove('exit'),400);document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('on',i===cur));document.getElementById('prog').textContent=(cur+1)+' / '+N;document.getElementById('bp').disabled=cur===0;document.getElementById('bn').disabled=cur===N-1;}
+function go(d){goTo(cur+d);}
+document.addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' '].includes(e.key)){e.preventDefault();go(1);}if(['ArrowLeft','ArrowUp'].includes(e.key)){e.preventDefault();go(-1);}});
+let tx=0;document.addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});document.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50)go(dx<0?1:-1);},{passive:true});
+document.getElementById('bp').disabled=true;document.getElementById('bn').disabled=N<=1;
+</script>
+</body>
+</html>
