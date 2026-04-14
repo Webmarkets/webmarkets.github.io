@@ -1,0 +1,1978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meridian Window Tint | Idaho's #1 3M Prestige Dealer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ═══════════════════════════════════════════════
+           CUSTOM PROPERTIES — Light Mode
+        ═══════════════════════════════════════════════ */
+        :root {
+            --bg:        #F2F7FC;
+            --surface:   #FFFFFF;
+            --navy:      #0D1F3C;
+            --steel:     #1A3560;
+            --cyan:      #00ACBA;   /* slightly deeper for contrast on white */
+            --teal:      #007D8A;
+            --sky:       #44BFD0;
+            --sky-light: #D4F0F5;
+            --white:     #FFFFFF;
+            --mist:      rgba(13,31,60,0.62);   /* body text on light bg */
+            --dim:       rgba(13,31,60,0.38);   /* secondary text on light bg */
+
+            --font-display: 'Barlow Condensed', sans-serif;
+            --font-body:    'Barlow', sans-serif;
+            --font-mono:    'Space Mono', monospace;
+
+            --radius:    8px;
+            --radius-lg: 16px;
+            --max-w:     1280px;
+            --pad-x:     clamp(1.5rem, 5vw, 5rem);
+        }
+
+        /* ═══════════════════════════════════════════════
+           RESET & BASE
+        ═══════════════════════════════════════════════ */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--navy);
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 var(--pad-x);
+        }
+
+        /* ═══════════════════════════════════════════════
+           IMAGE PLACEHOLDER ZONES — Light palette
+        ═══════════════════════════════════════════════ */
+        .img-zone {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(160deg, #B4CCE8 0%, #AACCE8 50%, #B0C8E4 100%);
+        }
+        /* Subtle scan-line texture */
+        .img-zone::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 3px,
+                rgba(13,31,60,0.025) 3px,
+                rgba(13,31,60,0.025) 4px
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+        .img-zone-label {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+        .img-zone-label span {
+            font-family: var(--font-mono);
+            font-size: 0.58rem;
+            color: rgba(13,31,60,0.2);
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+        }
+        .img-zone-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1px solid rgba(0,172,186,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(0,172,186,0.45);
+        }
+
+        /* ═══════════════════════════════════════════════
+           NAV — White frosted glass
+        ═══════════════════════════════════════════════ */
+        .site-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(13,31,60,0.07);
+            box-shadow: 0 1px 24px rgba(13,31,60,0.06);
+        }
+        .nav-inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 var(--pad-x);
+            height: 72px;
+            display: flex;
+            align-items: center;
+            gap: 0;
+        }
+
+        /* Logo */
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            margin-right: auto;
+        }
+        .nav-logo-mark {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: transparent;
+            border: 2px solid var(--cyan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 0 16px rgba(0,172,186,0.18);
+        }
+        .nav-logo-mark span {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 0.72rem;
+            color: var(--cyan);
+            letter-spacing: 0.04em;
+        }
+        .nav-wordmark {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.15;
+        }
+        .nav-wordmark-top {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--navy);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .nav-wordmark-sub {
+            font-family: var(--font-mono);
+            font-size: 0.48rem;
+            color: var(--cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            opacity: 0.75;
+        }
+
+        /* Nav links */
+        .nav-links {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 0.25rem;
+        }
+        .nav-links a {
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(13,31,60,0.55);
+            text-decoration: none;
+            padding: 0.5rem 0.875rem;
+            border-radius: var(--radius);
+            transition: color 0.2s, background 0.2s;
+        }
+        .nav-links a:hover,
+        .nav-links a.active { color: var(--cyan); }
+
+        .nav-phone {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: rgba(13,31,60,0.45);
+            margin-left: 1rem;
+            margin-right: 1rem;
+            letter-spacing: 0.04em;
+        }
+        .nav-cta {
+            background: var(--cyan);
+            color: var(--white);
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.6rem 1.5rem;
+            border-radius: var(--radius);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s, box-shadow 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            box-shadow: 0 2px 16px rgba(0,172,186,0.25);
+        }
+        .nav-cta:hover {
+            background: var(--teal);
+            box-shadow: 0 4px 28px rgba(0,172,186,0.4);
+        }
+
+        /* ═══════════════════════════════════════════════
+           HERO — Light overlay over full-bleed photo zone
+        ═══════════════════════════════════════════════ */
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Full-bleed image zone — lighter placeholder gradient */
+        .hero-img {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(155deg, #7AACD8 0%, #8ABCE8 35%, #90C0EC 60%, #78A8D4 100%);
+            z-index: 0;
+        }
+        .hero-img-label {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 0.75rem;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .hero-img-label span {
+            font-family: var(--font-mono);
+            font-size: 0.58rem;
+            color: rgba(13,31,60,0.18);
+            text-transform: uppercase;
+            letter-spacing: 0.35em;
+        }
+
+        /* Light sweep — white shimmer */
+        .hero-sweep {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .hero-sweep::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -80%;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.08), transparent);
+            transform: skewX(-20deg);
+            animation: heroSweep 8s ease-in-out infinite;
+        }
+        @keyframes heroSweep {
+            0%   { left: -80%; }
+            50%  { left: 140%; }
+            100% { left: 140%; }
+        }
+
+        /* Light gradient overlay — white from left, fade to transparent */
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            background:
+                linear-gradient(to right,  rgba(242,247,252,0.94) 0%, rgba(242,247,252,0.65) 50%, rgba(242,247,252,0.1) 100%),
+                linear-gradient(to top,    rgba(242,247,252,0.6)  0%, transparent 50%),
+                linear-gradient(to bottom, rgba(242,247,252,0.5)  0%, transparent 30%);
+        }
+
+        /* Content */
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            padding-top: 72px;
+        }
+        .hero-inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 5rem var(--pad-x) 6rem;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            color: var(--cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            margin-bottom: 1.75rem;
+        }
+        .hero-eyebrow::before {
+            content: '';
+            display: block;
+            width: 32px;
+            height: 1px;
+            background: var(--cyan);
+            opacity: 0.6;
+        }
+
+        .hero-headline {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: clamp(3rem, 7vw, 6.5rem);
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            line-height: 0.95;
+            max-width: 820px;
+            margin-bottom: 1.75rem;
+        }
+        .hero-headline .line-cyan  { color: var(--cyan); }
+        .hero-headline .line-white { color: var(--navy); }  /* navy on light bg */
+
+        .hero-sub {
+            font-family: var(--font-body);
+            font-size: clamp(1rem, 1.4vw, 1.2rem);
+            color: var(--mist);
+            max-width: 540px;
+            line-height: 1.7;
+            margin-bottom: 2.75rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--cyan);
+            color: var(--white);
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.9rem 2.5rem;
+            border-radius: var(--radius);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.25s;
+            box-shadow: 0 4px 24px rgba(0,172,186,0.28);
+        }
+        .btn-primary:hover {
+            background: var(--teal);
+            box-shadow: 0 6px 40px rgba(0,172,186,0.45);
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            color: var(--navy);
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.9rem 2.5rem;
+            border-radius: var(--radius);
+            border: 1.5px solid rgba(13,31,60,0.3);
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.25s;
+        }
+        .btn-outline:hover {
+            border-color: var(--cyan);
+            color: var(--cyan);
+            transform: translateY(-2px);
+        }
+
+        /* Scroll indicator */
+        .hero-scroll {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .hero-scroll span {
+            font-family: var(--font-mono);
+            font-size: 0.5rem;
+            color: var(--dim);
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+        }
+        .scroll-line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--cyan), transparent);
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 0.4; transform: scaleY(1); }
+            50%       { opacity: 1;   transform: scaleY(1.15); }
+        }
+
+        /* ═══════════════════════════════════════════════
+           SERVICES STRIP — White with light borders
+        ═══════════════════════════════════════════════ */
+        .services-strip {
+            background: var(--surface);
+            border-top: 1px solid rgba(13,31,60,0.06);
+            border-bottom: 1px solid rgba(13,31,60,0.06);
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 4px 32px rgba(13,31,60,0.05);
+        }
+        .services-strip-inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 var(--pad-x);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+        .service-card {
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1rem;
+            position: relative;
+            transition: background 0.25s;
+        }
+        .service-card:hover { background: rgba(0,172,186,0.04); }
+        /* Thin divider between cards */
+        .service-card + .service-card::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 20%; bottom: 20%;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, rgba(13,31,60,0.1), transparent);
+        }
+        .service-icon-wrap {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(0,172,186,0.08);
+            border: 1px solid rgba(0,172,186,0.22);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cyan);
+            flex-shrink: 0;
+            transition: all 0.25s;
+        }
+        .service-card:hover .service-icon-wrap {
+            background: rgba(0,172,186,0.14);
+            box-shadow: 0 0 20px rgba(0,172,186,0.15);
+        }
+        .service-title {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--navy);
+        }
+        .service-desc {
+            font-size: 0.83rem;
+            color: var(--mist);
+            line-height: 1.65;
+        }
+
+        /* ═══════════════════════════════════════════════
+           SECTION COMMON
+        ═══════════════════════════════════════════════ */
+        .section-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            color: var(--cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            margin-bottom: 1rem;
+            opacity: 0.85;
+        }
+        .section-heading {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: clamp(2.4rem, 4vw, 3.8rem);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            line-height: 1;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+        .section-heading span { color: var(--cyan); }
+        .section-body {
+            font-size: 1rem;
+            color: var(--mist);
+            line-height: 1.8;
+            max-width: 560px;
+        }
+
+        /* ═══════════════════════════════════════════════
+           ABOUT SECTION
+        ═══════════════════════════════════════════════ */
+        .about-section {
+            background: var(--surface);
+            padding: 8rem 0;
+        }
+        .about-inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 var(--pad-x);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .about-list {
+            list-style: none;
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem 2rem;
+        }
+        .about-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.9rem;
+            color: var(--mist);
+            padding: 0.4rem 0;
+        }
+        .about-list li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--cyan);
+            flex-shrink: 0;
+        }
+        .about-actions {
+            margin-top: 2.5rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* About image zone — light blue placeholder */
+        .about-img-zone {
+            height: 580px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(155deg, #AACCE8 0%, #B8D4F0 50%, #A4C4E4 100%);
+            box-shadow: 0 8px 48px rgba(13,31,60,0.1);
+        }
+
+        /* ═══════════════════════════════════════════════
+           PARTNER CALLOUT (3M / Window Genie)
+           Soft light-blue section
+        ═══════════════════════════════════════════════ */
+        .partner-section {
+            position: relative;
+            overflow: hidden;
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+            background: #E6F2FA;
+        }
+
+        /* Full-bleed background placeholder — light */
+        .partner-img-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(155deg, #CCE4F4 0%, #BAD6F0 40%, #C4DCF4 70%, #BCCEE8 100%);
+            z-index: 0;
+        }
+        .partner-img-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 3px,
+                rgba(13,31,60,0.02) 3px,
+                rgba(13,31,60,0.02) 4px
+            );
+        }
+        .partner-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(230,242,250,0.96) 0%, rgba(230,242,250,0.75) 50%, rgba(230,242,250,0.92) 100%);
+            z-index: 1;
+        }
+        .partner-inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 7rem var(--pad-x);
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1px 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+        .partner-divider {
+            background: linear-gradient(to bottom, transparent, rgba(13,31,60,0.15), transparent);
+            align-self: stretch;
+        }
+        .partner-block { display: flex; flex-direction: column; gap: 1.5rem; }
+
+        .partner-logo-zone {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        .partner-logo-box {
+            height: 52px;
+            padding: 0 1.5rem;
+            background: rgba(0,172,186,0.08);
+            border: 1px solid rgba(0,172,186,0.22);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .partner-logo-box span {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .partner-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0,172,186,0.08);
+            border: 1px solid rgba(0,172,186,0.2);
+            border-radius: 4px;
+            padding: 0.3rem 0.8rem;
+            font-family: var(--font-mono);
+            font-size: 0.55rem;
+            color: var(--cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            width: fit-content;
+        }
+        .partner-heading {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: clamp(2rem, 3.5vw, 3.2rem);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            line-height: 1;
+            color: var(--navy);
+        }
+        .partner-heading span { color: var(--cyan); }
+        .partner-body {
+            font-size: 0.95rem;
+            color: var(--mist);
+            line-height: 1.75;
+            max-width: 460px;
+        }
+        .partner-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            color: var(--cyan);
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.75rem 2rem;
+            border-radius: var(--radius);
+            border: 1.5px solid var(--cyan);
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.25s;
+            width: fit-content;
+        }
+        .partner-cta:hover {
+            background: rgba(0,172,186,0.1);
+            transform: translateY(-2px);
+        }
+
+        /* ═══════════════════════════════════════════════
+           PORTFOLIO SECTION — Very light bg
+        ═══════════════════════════════════════════════ */
+        .portfolio-section {
+            background: var(--bg);
+            padding: 8rem 0;
+        }
+        .portfolio-header {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 var(--pad-x);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .portfolio-filters {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            font-family: var(--font-display);
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.5rem 1.5rem;
+            border-radius: 4px;
+            border: 1px solid rgba(13,31,60,0.15);
+            background: transparent;
+            color: var(--mist);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--cyan);
+            border-color: var(--cyan);
+            color: var(--white);
+        }
+
+        /* Portfolio grid */
+        .portfolio-grid {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 var(--pad-x);
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: auto;
+            gap: 1rem;
+        }
+        .port-item { position: relative; overflow: hidden; border-radius: var(--radius); }
+        .port-item-1 { grid-column: 1 / 7;  grid-row: 1 / 3; }
+        .port-item-2 { grid-column: 7 / 10; grid-row: 1; }
+        .port-item-3 { grid-column: 10 / 13; grid-row: 1; }
+        .port-item-4 { grid-column: 7 / 10; grid-row: 2; }
+        .port-item-5 { grid-column: 10 / 13; grid-row: 2; }
+        .port-item-6 { grid-column: 1 / 5;  grid-row: 3; }
+        .port-item-7 { grid-column: 5 / 9;  grid-row: 3; }
+        .port-item-8 { grid-column: 9 / 13; grid-row: 3; }
+
+        .port-img-zone {
+            width: 100%;
+            height: 100%;
+            min-height: 200px;
+            background: linear-gradient(155deg, #AACCE8, #B8D4F4, #A0C4E0);
+            position: relative;
+        }
+        .port-item-1 .port-img-zone { min-height: 440px; }
+
+        /* Hover overlay */
+        .port-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(13,31,60,0.78) 0%, transparent 55%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+            z-index: 2;
+        }
+        .port-item:hover .port-overlay { opacity: 1; }
+        .port-caption {
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--white);
+        }
+        .port-caption-sub {
+            font-family: var(--font-mono);
+            font-size: 0.55rem;
+            color: var(--sky);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-top: 0.2rem;
+        }
+        .port-zone-label {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .port-zone-label span {
+            font-family: var(--font-mono);
+            font-size: 0.5rem;
+            color: rgba(13,31,60,0.18);
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+        }
+
+        /* ═══════════════════════════════════════════════
+           WHY MWT / STATS — Unchanged (brand cyan band)
+        ═══════════════════════════════════════════════ */
+        .why-section {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--cyan) 50%, #00A0AD 100%);
+            padding: 7rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .why-section::before {
+            content: '';
+            position: absolute;
+            top: -80%;
+            left: -10%;
+            width: 60%;
+            height: 200%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.08), transparent);
+            transform: skewX(-25deg);
+            pointer-events: none;
+        }
+        .why-section::after {
+            content: '';
+            position: absolute;
+            top: -80%;
+            right: -5%;
+            width: 30%;
+            height: 200%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.05), transparent);
+            transform: skewX(-25deg);
+            pointer-events: none;
+        }
+        .why-inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 var(--pad-x);
+            position: relative;
+            z-index: 2;
+        }
+        .why-top {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .why-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            color: rgba(13,31,60,0.55);
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            margin-bottom: 0.875rem;
+        }
+        .why-heading {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: clamp(2.4rem, 4vw, 3.6rem);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            line-height: 1;
+            color: var(--navy);
+        }
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2px;
+        }
+        .why-stat {
+            background: rgba(13,31,60,0.1);
+            padding: 2.75rem 2rem;
+            text-align: center;
+            transition: background 0.2s;
+        }
+        .why-stat:hover { background: rgba(13,31,60,0.18); }
+        .why-stat:first-child { border-radius: var(--radius) 0 0 var(--radius); }
+        .why-stat:last-child  { border-radius: 0 var(--radius) var(--radius) 0; }
+
+        .why-stat-num {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 3.5rem;
+            color: var(--navy);
+            line-height: 1;
+            margin-bottom: 0.375rem;
+        }
+        .why-stat-label {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(13,31,60,0.72);
+            margin-bottom: 0.75rem;
+        }
+        .why-stat-desc {
+            font-size: 0.82rem;
+            color: rgba(13,31,60,0.58);
+            line-height: 1.65;
+        }
+
+        /* ═══════════════════════════════════════════════
+           CONTACT / QUOTE CTA SECTION — Light
+        ═══════════════════════════════════════════════ */
+        .contact-section {
+            position: relative;
+            overflow: hidden;
+            background: var(--surface);
+        }
+        .contact-img-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(155deg, #D8ECFA 0%, #C8E0F4 40%, #D0E8F8 70%, #C4DCF0 100%);
+            z-index: 0;
+        }
+        .contact-img-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 3px,
+                rgba(13,31,60,0.018) 3px,
+                rgba(13,31,60,0.018) 4px
+            );
+        }
+        .contact-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(242,247,252,0.82);
+            z-index: 1;
+        }
+        .contact-inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 8rem var(--pad-x);
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: start;
+        }
+        .contact-copy { padding-top: 0.5rem; }
+
+        /* Contact form */
+        .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+        .form-label {
+            font-family: var(--font-mono);
+            font-size: 0.52rem;
+            color: rgba(0,172,186,0.7);
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+        }
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            background: var(--surface);
+            border: 1px solid rgba(13,31,60,0.14);
+            border-radius: var(--radius);
+            padding: 0.75rem 1rem;
+            color: var(--navy);
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            appearance: none;
+        }
+        .form-input::placeholder,
+        .form-textarea::placeholder { color: rgba(13,31,60,0.28); }
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            border-color: rgba(0,172,186,0.5);
+            box-shadow: 0 0 0 3px rgba(0,172,186,0.08);
+        }
+        .form-textarea { resize: vertical; }
+        .form-submit {
+            background: var(--cyan);
+            color: var(--white);
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.9rem 2.5rem;
+            border-radius: var(--radius);
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s;
+            box-shadow: 0 4px 20px rgba(0,172,186,0.25);
+            margin-top: 0.5rem;
+            align-self: flex-start;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .form-submit:hover {
+            background: var(--teal);
+            box-shadow: 0 6px 36px rgba(0,172,186,0.4);
+            transform: translateY(-2px);
+        }
+
+        /* ═══════════════════════════════════════════════
+           FOOTER — Stays dark (intentional contrast)
+        ═══════════════════════════════════════════════ */
+        .site-footer {
+            background: #040A13;
+            padding: 5rem 0 2.5rem;
+        }
+        .footer-inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 var(--pad-x);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr;
+            gap: 5rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand {}
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .footer-logo-mark {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 2px solid rgba(0,172,186,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .footer-logo-mark span {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 0.7rem;
+            color: var(--cyan);
+            letter-spacing: 0.04em;
+        }
+        .footer-logo-text {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            line-height: 1.2;
+        }
+        .footer-logo-text small {
+            display: block;
+            font-family: var(--font-mono);
+            font-size: 0.48rem;
+            color: var(--cyan);
+            letter-spacing: 0.22em;
+            font-weight: 400;
+            text-transform: uppercase;
+            opacity: 0.65;
+        }
+        .footer-tagline {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.25);
+            line-height: 1.75;
+            margin-bottom: 2rem;
+            max-width: 300px;
+        }
+        .footer-socials {
+            display: flex;
+            gap: 0.625rem;
+        }
+        .social-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.25);
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+        .social-btn:hover {
+            background: rgba(0,172,186,0.12);
+            border-color: rgba(0,172,186,0.3);
+            color: var(--cyan);
+        }
+
+        .footer-col-heading {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #FFFFFF;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.875rem;
+        }
+        .footer-col-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 28px;
+            height: 2px;
+            background: var(--cyan);
+            border-radius: 2px;
+        }
+
+        .blog-posts { display: flex; flex-direction: column; gap: 1.25rem; }
+        .blog-post-item { display: flex; gap: 1rem; align-items: flex-start; }
+        .blog-thumb {
+            width: 60px;
+            height: 50px;
+            border-radius: 6px;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, #0D2040, #1A3560);
+            position: relative;
+            overflow: hidden;
+        }
+        .blog-thumb::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,172,186,0.08);
+        }
+        .blog-post-info {}
+        .blog-post-title {
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.5;
+            margin-bottom: 0.2rem;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
+        .blog-post-title:hover { color: var(--cyan); }
+        .blog-post-date {
+            font-family: var(--font-mono);
+            font-size: 0.52rem;
+            color: rgba(255,255,255,0.25);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .footer-contact { display: flex; flex-direction: column; gap: 1rem; }
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+        .footer-contact-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 6px;
+            background: rgba(0,172,186,0.08);
+            border: 1px solid rgba(0,172,186,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cyan);
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+        .footer-contact-text {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.25);
+            line-height: 1.6;
+        }
+        .footer-contact-text a {
+            color: var(--cyan);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .footer-contact-text a:hover { opacity: 0.75; }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .footer-copy {
+            font-family: var(--font-mono);
+            font-size: 0.55rem;
+            color: rgba(255,255,255,0.2);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .footer-links a {
+            font-family: var(--font-mono);
+            font-size: 0.55rem;
+            color: rgba(255,255,255,0.2);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--cyan); }
+
+        /* ═══════════════════════════════════════════════
+           FULL-WIDTH IMAGE ZONE HELPERS — Light palette
+        ═══════════════════════════════════════════════ */
+        .fullwidth-img-zone {
+            width: 100%;
+            height: 480px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(160deg, #A8C8E8 0%, #AACCEC 50%, #A4C4E4 100%);
+        }
+        .fullwidth-img-zone .fwiz-label {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            pointer-events: none;
+        }
+        .fullwidth-img-zone .fwiz-label span {
+            font-family: var(--font-mono);
+            font-size: 0.58rem;
+            color: rgba(13,31,60,0.18);
+            text-transform: uppercase;
+            letter-spacing: 0.35em;
+        }
+        /* Scan lines */
+        .fullwidth-img-zone::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 3px,
+                rgba(13,31,60,0.022) 3px,
+                rgba(13,31,60,0.022) 4px
+            );
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ═══════════════════════════════════════════════
+         NAV
+    ═══════════════════════════════════════════════ -->
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <div class="nav-logo-mark"><span>MWT</span></div>
+                <div class="nav-wordmark">
+                    <span class="nav-wordmark-top">Meridian Window Tint</span>
+                    <span class="nav-wordmark-sub">Idaho's Premier Dealer</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Blog</a></li>
+            </ul>
+            <span class="nav-phone">(208) 887-8468</span>
+            <a href="#contact" class="nav-cta">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                Contact Us
+            </a>
+        </div>
+    </nav>
+
+
+    <!-- ═══════════════════════════════════════════════
+         HERO — Full-bleed image zone, light overlay
+    ═══════════════════════════════════════════════ -->
+    <section class="hero">
+
+        <!-- BIG IMAGE ZONE — swap with real photo -->
+        <div class="hero-img">
+            <div class="hero-img-label">
+                <div style="width:56px;height:56px;border-radius:50%;border:1px solid rgba(0,172,186,0.25);display:flex;align-items:center;justify-content:center;color:rgba(0,172,186,0.35)">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                </div>
+                <span>Hero · Full-Width Background Photo</span>
+                <span style="opacity:0.5">Recommended: 1920 × 1080px+</span>
+            </div>
+        </div>
+        <div class="hero-sweep"></div>
+        <div class="hero-overlay"></div>
+
+        <!-- Hero content -->
+        <div class="hero-content">
+            <div class="hero-inner">
+                <div class="hero-eyebrow">Idaho's Premier Window Tinting</div>
+
+                <h1 class="hero-headline">
+                    <span class="line-cyan">Trustworthy, Knowledgeable,</span><br>
+                    <span class="line-white">Friendly, Responsive</span>
+                </h1>
+
+                <p class="hero-sub">
+                    Meridian Window Tinting is Idaho's #1 Premier 3M Prestige Dealer
+                    and Window Genie Partner — bringing professional results to every
+                    residential, commercial, and automotive project.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#about" class="btn-primary">
+                        About Us
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="#contact" class="btn-outline">Contact Us</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="hero-scroll">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════
+         SERVICES STRIP
+    ═══════════════════════════════════════════════ -->
+    <section id="services" class="services-strip">
+        <div class="services-strip-inner">
+
+            <div class="service-card">
+                <div class="service-icon-wrap">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                </div>
+                <div class="service-title">Residential Tinting</div>
+                <p class="service-desc">Block heat, reduce glare, and protect your home's interior with premium 3M films.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon-wrap">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+                </div>
+                <div class="service-title">Commercial Tinting</div>
+                <p class="service-desc">Energy-saving solutions for offices, storefronts, and commercial buildings of all sizes.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon-wrap">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div class="service-title">Safety &amp; Security</div>
+                <p class="service-desc">Shatter-resistant films that hold glass together during impacts, protecting what matters.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon-wrap">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-4"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                </div>
+                <div class="service-title">Automotive Tinting</div>
+                <p class="service-desc">Factory-grade precision cuts and installation for cars, trucks, and SUVs.</p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════
+         ABOUT SECTION
+    ═══════════════════════════════════════════════ -->
+    <section id="about" class="about-section">
+        <div class="about-inner">
+
+            <!-- Copy -->
+            <div>
+                <p class="section-eyebrow">About Us</p>
+                <h2 class="section-heading">Who Is Meridian<br><span>Window Tint?</span></h2>
+                <p class="section-body">
+                    We're a locally owned and operated window tinting company serving the Treasure Valley.
+                    As Idaho's only certified 3M Prestige Dealer and Window Genie partner, we bring
+                    professional-grade products and expertise to every job — big or small.
+                </p>
+                <p class="section-body" style="margin-top:1rem">
+                    From heat rejection and UV protection to privacy and decorative films, we have
+                    the right solution for your home, business, or vehicle.
+                </p>
+
+                <ul class="about-list">
+                    <li>Residential Tinting</li>
+                    <li>Commercial Tinting</li>
+                    <li>Decorative Images</li>
+                    <li>Safety Films</li>
+                    <li>Automotive Tinting</li>
+                    <li>Solar Control</li>
+                    <li>Privacy Films</li>
+                    <li>Security Films</li>
+                </ul>
+
+                <div class="about-actions">
+                    <a href="#" class="btn-primary">Learn More</a>
+                    <a href="#contact" class="btn-outline">Get a Quote</a>
+                </div>
+            </div>
+
+            <!-- IMAGE ZONE — About photo (worker installing, interior, etc.) -->
+            <div class="about-img-zone">
+                <div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(13,31,60,0.022) 3px,rgba(13,31,60,0.022) 4px)"></div>
+                <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.75rem">
+                    <div style="width:52px;height:52px;border-radius:50%;border:1px solid rgba(0,172,186,0.28);display:flex;align-items:center;justify-content:center;color:rgba(0,172,186,0.42)">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                    </div>
+                    <span style="font-family:var(--font-mono);font-size:0.55rem;color:rgba(13,31,60,0.22);text-transform:uppercase;letter-spacing:0.3em">About · Photo — Technician at Work</span>
+                    <span style="font-family:var(--font-mono);font-size:0.48rem;color:rgba(13,31,60,0.14);text-transform:uppercase;letter-spacing:0.2em">Recommended: 900 × 1100px</span>
+                </div>
+                <!-- Bottom gradient for any text overlay -->
+                <div style="position:absolute;bottom:0;left:0;right:0;height:180px;background:linear-gradient(to top,rgba(170,204,232,0.5),transparent);pointer-events:none"></div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════
+         FULL-WIDTH IMAGE ZONE
+         (between About and Partner sections)
+    ═══════════════════════════════════════════════ -->
+    <div class="fullwidth-img-zone" style="height:360px">
+        <div class="fwiz-label">
+            <div style="width:52px;height:52px;border-radius:50%;border:1px solid rgba(0,172,186,0.25);display:flex;align-items:center;justify-content:center;color:rgba(0,172,186,0.38)">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+            <span>Full-Width Feature Photo</span>
+            <span style="opacity:0.5">Commercial or Residential Install · 1920 × 720px+</span>
+        </div>
+        <!-- Gradient edges so content above/below reads cleanly -->
+        <div style="position:absolute;top:0;left:0;right:0;height:80px;background:linear-gradient(to bottom,var(--surface),transparent);z-index:3"></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(to top,rgba(230,242,250,0.95),transparent);z-index:3"></div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════════
+         PARTNER CALLOUT — 3M & Window Genie
+         Light section with soft blue bg
+    ═══════════════════════════════════════════════ -->
+    <section class="partner-section">
+        <div class="partner-img-bg"></div>
+        <div class="partner-overlay"></div>
+
+        <!-- Soft glow anchors -->
+        <div style="position:absolute;top:-80px;left:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(0,172,186,0.08),transparent 65%);pointer-events:none;z-index:1"></div>
+        <div style="position:absolute;bottom:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(0,125,138,0.06),transparent 65%);pointer-events:none;z-index:1"></div>
+
+        <div class="partner-inner">
+
+            <!-- Window Genie block -->
+            <div class="partner-block">
+                <div class="partner-badge">Idaho's Only</div>
+                <div class="partner-logo-zone">
+                    <!-- IMAGE ZONE — Window Genie logo -->
+                    <div class="partner-logo-box" style="min-width:140px">
+                        <span>Window Genie</span>
+                    </div>
+                </div>
+                <h2 class="partner-heading">Idaho's Only<br><span>Window Genie Partner</span></h2>
+                <p class="partner-body">
+                    As an exclusive Window Genie partner in Idaho, we uphold the highest standards
+                    of installation, service, and customer satisfaction — backed by a nationally
+                    recognized brand you can trust.
+                </p>
+                <a href="#" class="partner-cta">
+                    Learn More
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+
+            <!-- Vertical divider -->
+            <div class="partner-divider"></div>
+
+            <!-- 3M Prestige block -->
+            <div class="partner-block">
+                <div class="partner-badge">Idaho's Only</div>
+                <div class="partner-logo-zone">
+                    <!-- IMAGE ZONE — 3M logo -->
+                    <div class="partner-logo-box" style="min-width:100px">
+                        <span style="font-size:1.6rem;letter-spacing:0.02em">3M</span>
+                    </div>
+                </div>
+                <h2 class="partner-heading">Idaho's Only<br><span>3M Prestige Dealer</span></h2>
+                <p class="partner-body">
+                    3M Prestige window films reject up to 97% of infrared heat while preserving
+                    crystal-clear views. As Idaho's only authorized 3M Prestige Dealer, we're the
+                    only shop certified to install these elite products.
+                </p>
+                <a href="#" class="partner-cta">
+                    View Products
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════
+         PORTFOLIO
+    ═══════════════════════════════════════════════ -->
+    <section id="portfolio" class="portfolio-section">
+
+        <div class="portfolio-header">
+            <p class="section-eyebrow" style="text-align:center">Our Work</p>
+            <h2 class="section-heading" style="text-align:center;max-width:100%">Our <span>Portfolio</span></h2>
+            <p class="section-body" style="text-align:center;margin:0 auto">
+                Browse our gallery of completed residential, commercial, and automotive
+                tinting projects across the Treasure Valley.
+            </p>
+
+            <div class="portfolio-filters">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Residential</button>
+                <button class="filter-btn">Commercial</button>
+                <button class="filter-btn">Automotive</button>
+                <button class="filter-btn">Decorative</button>
+            </div>
+        </div>
+
+        <!-- Portfolio grid — big feature + smaller tiles -->
+        <div class="portfolio-grid">
+
+            <div class="port-item port-item-1">
+                <div class="port-img-zone">
+                    <div class="port-zone-label"><span>Featured · Residential</span></div>
+                </div>
+                <div class="port-overlay">
+                    <div>
+                        <div class="port-caption">Modern Home — Eagle, ID</div>
+                        <div class="port-caption-sub">3M Prestige 70 · Residential</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="port-item port-item-2">
+                <div class="port-img-zone" style="background:linear-gradient(155deg,#B4CDE8,#C0D8F4,#ACCCE8)">
+                    <div class="port-zone-label"><span>Commercial</span></div>
+                </div>
+                <div class="port-overlay">
+                    <div>
+                        <div class="port-caption">Office Complex</div>
+                        <div class="port-caption-sub">3M Safety Film · Commercial</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="port-item port-item-3">
+                <div class="port-img-zone" style="background:linear-gradient(155deg,#A8C4E4,#B8D0F0,#A0BCE0)">
+                    <div class="port-zone-label"><span>Automotive</span></div>
+                </div>
+                <div class="port-overlay">
+                    <div>
+                        <div class="port-caption">Truck Tint</div>
+                        <div class="port-caption-sub">Ceramic · Automotive</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="port-item port-item-4">
+                <div class="port-img-zone" style="background:linear-gradient(155deg,#B0CCE8,#BCd4F0,#A8C8E4)">
+                    <div class="port-zone-label"><span>Decorative</span></div>
+                </div>
+                <div class="port-overlay">
+                    <div>
+                        <div class="port-caption">Privacy Film</div>
+                        <div class="port-caption-sub">Frosted · Decorative</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="port-item port-item-5">
+                <div class="port-img-zone" style="background:linear-gradient(155deg,#AEC8E8,#BAD2F0,#A6C0E4)">
+                    <div class="port-zone-label"><span>Residential</span></div>
+                </div>
+                <div class="port-overlay">
+                    <div>
+                        <div class="port-caption">Living Room</div>
+                        <div class="port-caption-sub">3M Prestige · Residential</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="port-item port-item-6">
+                <div class="port-img-zone" style="background:linear-gradient(155deg,#B2CEEC,#BED8F4,#AACAE8)">
+                    <div class="port-zone-label"><span>Commercial</span></div>
+                </div>
+                <div class="port-overlay">
+                    <div>
+                        <div class="port-caption">Storefront — Meridian</div>
+                        <div class="port-caption-sub">Solar Control · Commercial</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="port-item port-item-7">
+                <div class="port-img-zone" style="background:linear-gradient(155deg,#ACCCE8,#B8D4F2,#A4C4E4)">
+                    <div class="port-zone-label"><span>Residential</span></div>
+                </div>
+                <div class="port-overlay">
+                    <div>
+                        <div class="port-caption">Patio Doors</div>
+                        <div class="port-caption-sub">Heat Reject · Residential</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="port-item port-item-8">
+                <div class="port-img-zone" style="background:linear-gradient(155deg,#B0CCEC,#BCCCF0,#A8C4E8)">
+                    <div class="port-zone-label"><span>Automotive</span></div>
+                </div>
+                <div class="port-overlay">
+                    <div>
+                        <div class="port-caption">SUV Package</div>
+                        <div class="port-caption-sub">Nano-Ceramic · Auto</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════
+         FULL-WIDTH IMAGE ZONE
+         (between Portfolio and Why MWT)
+    ═══════════════════════════════════════════════ -->
+    <div class="fullwidth-img-zone" style="height:400px">
+        <div class="fwiz-label">
+            <div style="width:52px;height:52px;border-radius:50%;border:1px solid rgba(0,172,186,0.25);display:flex;align-items:center;justify-content:center;color:rgba(0,172,186,0.38)">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+            <span>Full-Width Lifestyle Photo</span>
+            <span style="opacity:0.5">Happy Customer / Before & After · 1920 × 800px+</span>
+        </div>
+        <div style="position:absolute;top:0;left:0;right:0;height:80px;background:linear-gradient(to bottom,var(--bg),transparent);z-index:3"></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(to top,rgba(0,172,186,0.06),transparent);z-index:3"></div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════════
+         WHY CHOOSE MWT — Stats / Trust
+         (cyan band — unchanged from dark version)
+    ═══════════════════════════════════════════════ -->
+    <section class="why-section">
+        <div class="why-inner">
+            <div class="why-top">
+                <p class="why-eyebrow">Why Choose Us</p>
+                <h2 class="why-heading">Why Is Meridian Window Tint?</h2>
+            </div>
+            <div class="why-grid">
+
+                <div class="why-stat">
+                    <div class="why-stat-num">01</div>
+                    <div class="why-stat-label">Quality</div>
+                    <p class="why-stat-desc">We use only premium 3M films — the gold standard in heat rejection, clarity, and durability. No shortcuts, no substitutes.</p>
+                </div>
+
+                <div class="why-stat">
+                    <div class="why-stat-num">02</div>
+                    <div class="why-stat-label">Price</div>
+                    <p class="why-stat-desc">Competitive, upfront pricing with no hidden fees. We believe you shouldn't have to overpay for a professional result.</p>
+                </div>
+
+                <div class="why-stat">
+                    <div class="why-stat-num">03</div>
+                    <div class="why-stat-label">Time</div>
+                    <p class="why-stat-desc">Most jobs are completed in a single appointment. We respect your schedule and get it done right the first time.</p>
+                </div>
+
+                <div class="why-stat">
+                    <div class="why-stat-num">04</div>
+                    <div class="why-stat-label">Service</div>
+                    <p class="why-stat-desc">Trustworthy, knowledgeable, friendly, and responsive. We treat every customer the way we'd want to be treated.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════
+         CONTACT / QUOTE SECTION — Light
+    ═══════════════════════════════════════════════ -->
+    <section id="contact" class="contact-section">
+        <div class="contact-img-bg"></div>
+        <div class="contact-overlay"></div>
+
+        <div class="contact-inner">
+
+            <!-- Copy -->
+            <div class="contact-copy">
+                <p class="section-eyebrow">Get In Touch</p>
+                <h2 class="section-heading">Ready to<br><span>Transform Your View?</span></h2>
+                <p class="section-body">
+                    Get a free, no-obligation estimate on your residential, commercial, or
+                    automotive tinting project. We'll have someone out to you fast.
+                </p>
+
+                <div style="margin-top:2.5rem;display:flex;flex-direction:column;gap:1rem">
+                    <div style="display:flex;align-items:center;gap:0.875rem">
+                        <div style="width:40px;height:40px;border-radius:8px;background:rgba(0,172,186,0.08);border:1px solid rgba(0,172,186,0.2);display:flex;align-items:center;justify-content:center;color:var(--cyan);flex-shrink:0">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6 6l.94-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </div>
+                        <div>
+                            <p style="font-family:var(--font-mono);font-size:0.5rem;color:rgba(0,172,186,0.7);text-transform:uppercase;letter-spacing:0.2em;margin-bottom:0.2rem">Phone</p>
+                            <p style="font-size:0.95rem;color:var(--navy)">(208) 887-8468</p>
+                        </div>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:0.875rem">
+                        <div style="width:40px;height:40px;border-radius:8px;background:rgba(0,172,186,0.08);border:1px solid rgba(0,172,186,0.2);display:flex;align-items:center;justify-content:center;color:var(--cyan);flex-shrink:0">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
+                        <div>
+                            <p style="font-family:var(--font-mono);font-size:0.5rem;color:rgba(0,172,186,0.7);text-transform:uppercase;letter-spacing:0.2em;margin-bottom:0.2rem">Email</p>
+                            <p style="font-size:0.95rem;color:var(--navy)">info@meridianwindowtint.com</p>
+                        </div>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:0.875rem">
+                        <div style="width:40px;height:40px;border-radius:8px;background:rgba(0,172,186,0.08);border:1px solid rgba(0,172,186,0.2);display:flex;align-items:center;justify-content:center;color:var(--cyan);flex-shrink:0">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <div>
+                            <p style="font-family:var(--font-mono);font-size:0.5rem;color:rgba(0,172,186,0.7);text-transform:uppercase;letter-spacing:0.2em;margin-bottom:0.2rem">Location</p>
+                            <p style="font-size:0.95rem;color:var(--navy)">1204 N Eagle Rd, Meridian, ID 83642</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <form class="contact-form" onsubmit="return false">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">First Name</label>
+                        <input class="form-input" type="text" placeholder="Jane">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Last Name</label>
+                        <input class="form-input" type="text" placeholder="Smith">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Phone Number</label>
+                    <input class="form-input" type="tel" placeholder="(208) 000-0000">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email Address</label>
+                    <input class="form-input" type="email" placeholder="jane@example.com">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Service Needed</label>
+                    <select class="form-select">
+                        <option>Residential Window Tinting</option>
+                        <option>Commercial Window Tinting</option>
+                        <option>Automotive Tinting</option>
+                        <option>Decorative &amp; Privacy Film</option>
+                        <option>Safety &amp; Security Film</option>
+                        <option>Not sure — help me decide</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Message</label>
+                    <textarea class="form-textarea" rows="3" placeholder="Tell us about your project..."></textarea>
+                </div>
+                <button type="submit" class="form-submit">
+                    Send Message
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </form>
+
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════
+         FOOTER — Stays dark (intentional)
+    ═══════════════════════════════════════════════ -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+
+            <div class="footer-grid">
+
+                <!-- Brand / About -->
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="footer-logo-mark"><span>MWT</span></div>
+                        <div class="footer-logo-text">
+                            Meridian Window Tint
+                            <small>Idaho's Premier Dealer</small>
+                        </div>
+                    </div>
+                    <p class="footer-tagline">
+                        Idaho's only 3M Prestige Dealer and Window Genie Partner.
+                        Professional window tinting for residential, commercial, and
+                        automotive clients across the Treasure Valley since 2008.
+                    </p>
+                    <div class="footer-socials">
+                        <a href="#" class="social-btn" aria-label="Facebook">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Instagram">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Google Reviews">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Recent Blog Posts -->
+                <div>
+                    <h4 class="footer-col-heading">Recent Posts</h4>
+                    <div class="blog-posts">
+
+                        <div class="blog-post-item">
+                            <div class="blog-thumb"></div>
+                            <div class="blog-post-info">
+                                <p class="blog-post-title">How 3M Prestige Film Outperforms the Competition</p>
+                                <p class="blog-post-date">March 2026</p>
+                            </div>
+                        </div>
+
+                        <div class="blog-post-item">
+                            <div class="blog-thumb" style="background:linear-gradient(135deg,#152848,#1E3868)"></div>
+                            <div class="blog-post-info">
+                                <p class="blog-post-title">5 Reasons to Tint Your Home's Windows This Summer</p>
+                                <p class="blog-post-date">February 2026</p>
+                            </div>
+                        </div>
+
+                        <div class="blog-post-item">
+                            <div class="blog-thumb" style="background:linear-gradient(135deg,#0E2440,#183560)"></div>
+                            <div class="blog-post-info">
+                                <p class="blog-post-title">Commercial Window Film: ROI You Can Actually See</p>
+                                <p class="blog-post-date">January 2026</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="footer-col-heading">Call Us</h4>
+                    <div class="footer-contact">
+                        <div class="footer-contact-item">
+                            <div class="footer-contact-icon">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6 6l.94-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </div>
+                            <p class="footer-contact-text"><a href="tel:2088878468">(208) 887-8468</a></p>
+                        </div>
+                        <div class="footer-contact-item">
+                            <div class="footer-contact-icon">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            </div>
+                            <p class="footer-contact-text"><a href="mailto:info@meridianwindowtint.com">info@meridianwindowtint.com</a></p>
+                        </div>
+                        <div class="footer-contact-item">
+                            <div class="footer-contact-icon">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </div>
+                            <p class="footer-contact-text">1204 N Eagle Rd<br>Meridian, ID 83642</p>
+                        </div>
+                        <div class="footer-contact-item">
+                            <div class="footer-contact-icon">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            </div>
+                            <p class="footer-contact-text">Mon–Fri &nbsp;8am – 5pm<br>Sat &nbsp;9am – 2pm<br>Sun &nbsp;Closed</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom bar -->
+            <div class="footer-bottom">
+                <p class="footer-copy">© 2026 Meridian Window Tint · All Rights Reserved · Powered by WebMarkets</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+
+    <script>
+        /* Filter buttons */
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
