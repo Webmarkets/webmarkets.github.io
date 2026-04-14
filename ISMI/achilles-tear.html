@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achilles Tear & Tendon Injuries Boise | Idaho Sports Medicine Institute</title>
+    <meta name="description" content="ISMI is Boise's leading expert in Achilles tendon injuries, including tendonitis, tendinopathy, and tears. Learn about causes, symptoms, home care, and physician treatments. Schedule your evaluation today.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+
+    /* =============================================
+       TOKENS
+    ============================================= */
+    :root {
+        --blue:    #0033A0;
+        --orange:  #D64309;
+        --navy:    #001E60;
+        --sky:     #E6EEFF;
+        --slate:   #475569;
+        --gray:    #F8FAFC;
+        --border:  #E2E8F0;
+        --dark:    #1E293B;
+        --white:   #FFFFFF;
+
+        --font-display: 'Plus Jakarta Sans', sans-serif;
+        --font-body:    'Inter', sans-serif;
+
+        --ease: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --max-w: 1280px;
+    }
+
+    /* =============================================
+       BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+        background: var(--white);
+        color: var(--dark);
+        font-family: var(--font-body);
+        font-size: 16px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 {
+        font-family: var(--font-display);
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { display: block; max-width: 100%; border-radius: 12px; }
+
+    .container {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 3rem;
+    }
+
+    /* =============================================
+       NAV
+    ============================================= */
+    .nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 50;
+        background: rgba(0, 30, 96, 0.95);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 3rem;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .nav-logo {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 1.1rem;
+        color: #fff;
+        letter-spacing: -0.02em;
+    }
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+    }
+    .nav-links a {
+        font-size: 0.875rem;
+        font-weight: 700;
+        color: rgba(255,255,255,0.7);
+        transition: color 0.2s ease;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta {
+        background: var(--orange);
+        color: #fff !important;
+        padding: 0.6rem 1.4rem;
+        border-radius: 6px;
+        font-weight: 700 !important;
+        transition: var(--ease) !important;
+    }
+    .nav-cta:hover { background: #b83707 !important; }
+
+    /* =============================================
+       SECTION LABELS
+    ============================================= */
+    .section-label {
+        font-size: 0.7rem;
+        font-weight: 800;
+        color: var(--blue);
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+    .section-label::before {
+        content: '';
+        width: 1.5rem;
+        height: 2px;
+        background: var(--orange);
+        flex-shrink: 0;
+    }
+    .section-label-light {
+        font-size: 0.7rem;
+        font-weight: 800;
+        color: rgba(255,255,255,0.5);
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+    .section-label-light::before {
+        content: '';
+        width: 1.5rem;
+        height: 2px;
+        background: var(--orange);
+        flex-shrink: 0;
+    }
+
+    /* =============================================
+       BUTTONS
+    ============================================= */
+    .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--orange);
+        color: #fff;
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 0.9rem;
+        letter-spacing: 0.04em;
+        padding: 0.85rem 2rem;
+        border-radius: 6px;
+        transition: var(--ease);
+        border: none;
+        cursor: pointer;
+    }
+    .btn-primary:hover { background: #b83707; transform: translateY(-1px); }
+
+    .btn-outline-light {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: transparent;
+        color: #fff;
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 0.9rem;
+        letter-spacing: 0.04em;
+        padding: 0.85rem 2rem;
+        border-radius: 6px;
+        border: 2px solid rgba(255,255,255,0.35);
+        transition: var(--ease);
+        cursor: pointer;
+    }
+    .btn-outline-light:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    .hero {
+        background: var(--navy);
+        padding: 10rem 0 6rem;
+        position: relative;
+        overflow: hidden;
+    }
+    .hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse 60% 80% at 100% 50%, rgba(0,51,160,0.35) 0%, transparent 70%);
+        pointer-events: none;
+    }
+    .breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: rgba(255,255,255,0.45);
+        margin-bottom: 2rem;
+        letter-spacing: 0.02em;
+    }
+    .breadcrumb a { color: rgba(255,255,255,0.45); transition: color 0.2s; }
+    .breadcrumb a:hover { color: rgba(255,255,255,0.8); }
+    .breadcrumb svg { width: 12px; height: 12px; }
+    .hero-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 3rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: center;
+    }
+    .hero-left {}
+    .hero-h1 {
+        font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+        font-weight: 900;
+        color: #fff;
+        margin-bottom: 1.5rem;
+        line-height: 1.05;
+    }
+    .hero-intro {
+        font-size: 1.05rem;
+        color: rgba(255,255,255,0.72);
+        line-height: 1.8;
+        margin-bottom: 2.5rem;
+    }
+    .hero-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-bottom: 2.5rem;
+    }
+    .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.15);
+        color: rgba(255,255,255,0.85);
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        padding: 0.45rem 1rem;
+        border-radius: 100px;
+    }
+    .chip svg { width: 13px; height: 13px; }
+    .hero-actions {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        flex-wrap: wrap;
+    }
+    .hero-right {}
+    .hero-img-wrap {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.1);
+        aspect-ratio: 4/3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .hero-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 0;
+    }
+    .img-placeholder {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        color: rgba(255,255,255,0.25);
+        width: 100%;
+        height: 100%;
+        padding: 2rem;
+        text-align: center;
+    }
+    .img-placeholder svg { width: 48px; height: 48px; }
+    .img-placeholder span {
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+    }
+    .urgency-badge {
+        position: absolute;
+        bottom: 1.25rem;
+        left: 1.25rem;
+        background: var(--orange);
+        color: #fff;
+        font-family: var(--font-display);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 0.45rem 1rem;
+        border-radius: 100px;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+    .urgency-badge svg { width: 12px; height: 12px; }
+
+    /* =============================================
+       ANATOMY SECTION
+    ============================================= */
+    .anatomy {
+        background: var(--gray);
+        padding: 6rem 0;
+    }
+    .anatomy-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: center;
+    }
+    .anatomy-left {}
+    .anatomy-h2 {
+        font-size: clamp(1.8rem, 3vw, 2.4rem);
+        font-weight: 900;
+        color: var(--navy);
+        margin-bottom: 1.25rem;
+    }
+    .anatomy-body {
+        font-size: 1rem;
+        color: var(--slate);
+        line-height: 1.8;
+        margin-bottom: 2rem;
+    }
+    .anatomy-structures {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    .structure-item {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.1rem 1.25rem;
+        transition: var(--ease);
+    }
+    .structure-item:hover { box-shadow: 0 8px 24px rgba(0,30,96,0.08); border-color: var(--sky); }
+    .structure-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--orange);
+        flex-shrink: 0;
+        margin-top: 6px;
+    }
+    .structure-item h4 {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 0.25rem;
+        letter-spacing: -0.01em;
+    }
+    .structure-item p {
+        font-size: 0.88rem;
+        color: var(--slate);
+        line-height: 1.6;
+    }
+    .anatomy-right {}
+    .anatomy-img-wrap {
+        border-radius: 20px;
+        overflow: hidden;
+        background: var(--white);
+        border: 1px solid var(--border);
+        aspect-ratio: 3/4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    .anatomy-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 0;
+    }
+    .anatomy-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0,30,96,0.85));
+        padding: 2rem 1.5rem 1.25rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: rgba(255,255,255,0.85);
+        letter-spacing: 0.02em;
+    }
+
+    /* =============================================
+       CAUSES SECTION
+    ============================================= */
+    .causes {
+        background: var(--white);
+        padding: 6rem 0;
+    }
+    .causes-header {
+        max-width: 680px;
+        margin-bottom: 3.5rem;
+    }
+    .causes-h2 {
+        font-size: clamp(1.8rem, 3vw, 2.4rem);
+        font-weight: 900;
+        color: var(--navy);
+        margin-bottom: 1rem;
+    }
+    .causes-intro {
+        font-size: 1rem;
+        color: var(--slate);
+        line-height: 1.8;
+    }
+    .causes-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+        margin-bottom: 2.5rem;
+    }
+    .cause-card {
+        background: var(--gray);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 1.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        transition: var(--ease);
+    }
+    .cause-card:hover {
+        box-shadow: 0 12px 32px rgba(0,30,96,0.1);
+        transform: translateY(-3px);
+        border-color: transparent;
+        background: var(--white);
+    }
+    .cause-icon {
+        width: 48px;
+        height: 48px;
+        background: var(--sky);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .cause-icon svg { width: 22px; height: 22px; color: var(--blue); }
+    .cause-card h3 {
+        font-size: 1rem;
+        font-weight: 800;
+        color: var(--navy);
+        letter-spacing: -0.02em;
+    }
+    .cause-card p {
+        font-size: 0.88rem;
+        color: var(--slate);
+        line-height: 1.65;
+    }
+    .causes-note {
+        background: var(--sky);
+        border: 1px solid rgba(0,51,160,0.15);
+        border-left: 4px solid var(--blue);
+        border-radius: 12px;
+        padding: 1.25rem 1.5rem;
+        font-size: 0.93rem;
+        color: var(--dark);
+        line-height: 1.7;
+    }
+    .causes-note strong { color: var(--navy); font-weight: 700; }
+
+    /* =============================================
+       SYMPTOMS SECTION
+    ============================================= */
+    .symptoms {
+        background: var(--navy);
+        padding: 6rem 0;
+        position: relative;
+        overflow: hidden;
+    }
+    .symptoms::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse 50% 60% at 100% 0%, rgba(0,51,160,0.5) 0%, transparent 60%);
+        pointer-events: none;
+    }
+    .symptoms-inner {
+        position: relative;
+        z-index: 1;
+    }
+    .symptoms-header {
+        max-width: 680px;
+        margin-bottom: 3.5rem;
+    }
+    .symptoms-h2 {
+        font-size: clamp(1.8rem, 3vw, 2.4rem);
+        font-weight: 900;
+        color: #fff;
+        margin-bottom: 1rem;
+    }
+    .symptoms-intro {
+        font-size: 1rem;
+        color: rgba(255,255,255,0.7);
+        line-height: 1.8;
+    }
+    .symptoms-cols {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+    .symptom-panel {
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 20px;
+        padding: 2.25rem;
+    }
+    .symptom-panel-label {
+        font-family: var(--font-display);
+        font-size: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+    }
+    .symptom-panel-label .label-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+    .panel-gradual .symptom-panel-label { color: rgba(255,255,255,0.6); }
+    .panel-gradual .label-dot { background: #64B5F6; }
+    .panel-traumatic .symptom-panel-label { color: rgba(255,255,255,0.6); }
+    .panel-traumatic .label-dot { background: var(--orange); }
+    .symptom-panel h3 {
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: #fff;
+        margin-bottom: 1.5rem;
+    }
+    .symptom-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    .symptom-item {
+        display: flex;
+        align-items: center;
+        gap: 0.875rem;
+        padding: 0.75rem 1rem;
+        background: rgba(255,255,255,0.05);
+        border-radius: 8px;
+        font-size: 0.93rem;
+        color: rgba(255,255,255,0.88);
+        font-weight: 500;
+    }
+    .symptom-item svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .panel-gradual .symptom-item svg { color: #64B5F6; }
+    .panel-traumatic .symptom-item svg { color: var(--orange); }
+    .panel-traumatic { border-color: rgba(214,67,9,0.3); }
+    .urgency-note {
+        margin-top: 1.5rem;
+        background: rgba(214,67,9,0.15);
+        border: 1px solid rgba(214,67,9,0.3);
+        border-radius: 10px;
+        padding: 1rem 1.25rem;
+        font-size: 0.85rem;
+        color: rgba(255,255,255,0.85);
+        line-height: 1.65;
+        display: flex;
+        gap: 0.75rem;
+        align-items: flex-start;
+    }
+    .urgency-note svg { width: 16px; height: 16px; color: var(--orange); flex-shrink: 0; margin-top: 2px; }
+
+    /* =============================================
+       URGENT ACTION BAND
+    ============================================= */
+    .urgent-band {
+        background: var(--orange);
+        padding: 4.5rem 0;
+    }
+    .urgent-inner {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 4rem;
+        align-items: center;
+    }
+    .urgent-label {
+        font-size: 0.7rem;
+        font-weight: 800;
+        color: rgba(255,255,255,0.6);
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+    }
+    .urgent-label::before {
+        content: '';
+        width: 1.5rem;
+        height: 2px;
+        background: rgba(255,255,255,0.5);
+        flex-shrink: 0;
+    }
+    .urgent-h2 {
+        font-size: clamp(1.5rem, 2.5vw, 2rem);
+        font-weight: 900;
+        color: #fff;
+        margin-bottom: 0.75rem;
+    }
+    .urgent-body {
+        font-size: 1rem;
+        color: rgba(255,255,255,0.88);
+        line-height: 1.75;
+        max-width: 680px;
+    }
+    .btn-white {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: #fff;
+        color: var(--orange);
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 0.9rem;
+        letter-spacing: 0.04em;
+        padding: 0.85rem 2rem;
+        border-radius: 6px;
+        transition: var(--ease);
+        cursor: pointer;
+        border: none;
+        white-space: nowrap;
+    }
+    .btn-white:hover { background: rgba(255,255,255,0.9); transform: translateY(-1px); }
+
+    /* =============================================
+       HOME CARE SECTION
+    ============================================= */
+    .homecare {
+        background: var(--gray);
+        padding: 6rem 0;
+    }
+    .homecare-header {
+        max-width: 680px;
+        margin-bottom: 3.5rem;
+    }
+    .homecare-h2 {
+        font-size: clamp(1.8rem, 3vw, 2.4rem);
+        font-weight: 900;
+        color: var(--navy);
+        margin-bottom: 1rem;
+    }
+    .homecare-intro {
+        font-size: 1rem;
+        color: var(--slate);
+        line-height: 1.8;
+    }
+    .homecare-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.25rem;
+        margin-bottom: 2rem;
+    }
+    .homecare-card {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 1.75rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.875rem;
+        transition: var(--ease);
+    }
+    .homecare-card:hover {
+        box-shadow: 0 12px 32px rgba(0,30,96,0.08);
+        transform: translateY(-3px);
+    }
+    .homecare-num {
+        font-family: var(--font-display);
+        font-size: 2rem;
+        font-weight: 900;
+        color: var(--border);
+        line-height: 1;
+    }
+    .homecare-card h3 {
+        font-size: 1rem;
+        font-weight: 800;
+        color: var(--navy);
+        letter-spacing: -0.02em;
+    }
+    .homecare-card p {
+        font-size: 0.87rem;
+        color: var(--slate);
+        line-height: 1.65;
+    }
+    .homecare-warning {
+        background: rgba(214,67,9,0.06);
+        border: 1px solid rgba(214,67,9,0.2);
+        border-radius: 12px;
+        padding: 1.25rem 1.5rem;
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+        font-size: 0.92rem;
+        color: var(--dark);
+        line-height: 1.7;
+    }
+    .homecare-warning svg { width: 18px; height: 18px; color: var(--orange); flex-shrink: 0; margin-top: 2px; }
+
+    /* =============================================
+       PHYSICIAN TREATMENT SECTION
+    ============================================= */
+    .treatment {
+        background: var(--white);
+        padding: 6rem 0;
+    }
+    .treatment-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: start;
+    }
+    .treatment-left {}
+    .treatment-h2 {
+        font-size: clamp(1.8rem, 3vw, 2.4rem);
+        font-weight: 900;
+        color: var(--navy);
+        margin-bottom: 1rem;
+    }
+    .treatment-intro {
+        font-size: 1rem;
+        color: var(--slate);
+        line-height: 1.8;
+        margin-bottom: 2rem;
+    }
+    .diagnostics-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.875rem;
+        margin-bottom: 2rem;
+    }
+    .diagnostic-item {
+        display: flex;
+        gap: 1.1rem;
+        align-items: center;
+        padding: 1rem 1.25rem;
+        background: var(--gray);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+    }
+    .diagnostic-item svg { width: 20px; height: 20px; color: var(--blue); flex-shrink: 0; }
+    .diagnostic-item-text {}
+    .diagnostic-item-text strong {
+        display: block;
+        font-size: 0.93rem;
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 0.15rem;
+    }
+    .diagnostic-item-text span {
+        font-size: 0.84rem;
+        color: var(--slate);
+    }
+    .treatment-note {
+        font-size: 0.88rem;
+        color: var(--slate);
+        line-height: 1.7;
+        font-style: italic;
+    }
+    .treatment-right {}
+    .treatment-pathway {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+    .pathway-step {
+        position: relative;
+        padding-left: 3.5rem;
+        padding-bottom: 2rem;
+    }
+    .pathway-step:last-child { padding-bottom: 0; }
+    .pathway-step::before {
+        content: '';
+        position: absolute;
+        left: 1.1rem;
+        top: 2.5rem;
+        bottom: 0;
+        width: 2px;
+        background: var(--border);
+    }
+    .pathway-step:last-child::before { display: none; }
+    .pathway-num {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 2.25rem;
+        height: 2.25rem;
+        background: var(--navy);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-size: 0.78rem;
+        font-weight: 900;
+        color: #fff;
+        flex-shrink: 0;
+        z-index: 1;
+    }
+    .pathway-step.featured .pathway-num { background: var(--orange); }
+    .pathway-step h4 {
+        font-size: 1rem;
+        font-weight: 800;
+        color: var(--navy);
+        margin-bottom: 0.4rem;
+        letter-spacing: -0.02em;
+        padding-top: 0.25rem;
+    }
+    .pathway-step p {
+        font-size: 0.88rem;
+        color: var(--slate);
+        line-height: 1.65;
+    }
+    .pathway-step .step-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        font-size: 0.68rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.25rem 0.65rem;
+        border-radius: 100px;
+        margin-bottom: 0.5rem;
+    }
+    .tag-conservative { background: var(--sky); color: var(--blue); }
+    .tag-surgical { background: rgba(214,67,9,0.1); color: var(--orange); }
+
+    /* =============================================
+       IMAGE PLACEHOLDER (reusable)
+    ============================================= */
+    .img-block {
+        border-radius: 16px;
+        overflow: hidden;
+        background: var(--gray);
+        border: 1px solid var(--border);
+        aspect-ratio: 16/9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .img-block img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 0;
+    }
+    .img-block-placeholder {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        color: rgba(0,30,96,0.2);
+        width: 100%;
+        height: 100%;
+        padding: 2rem;
+        text-align: center;
+    }
+    .img-block-placeholder svg { width: 40px; height: 40px; }
+    .img-block-placeholder span {
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+    }
+
+    /* =============================================
+       CTA
+    ============================================= */
+    .cta-section {
+        background: var(--white);
+        padding: 6rem 0;
+    }
+    .cta-card {
+        max-width: 860px;
+        margin: 0 auto;
+        background: var(--navy);
+        border-radius: 24px;
+        padding: 4rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    .cta-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse 70% 60% at 50% 120%, rgba(0,51,160,0.7) 0%, transparent 70%);
+        pointer-events: none;
+    }
+    .cta-card-inner { position: relative; z-index: 1; }
+    .cta-label {
+        font-size: 0.7rem;
+        font-weight: 800;
+        color: rgba(255,255,255,0.5);
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+    .cta-label::before {
+        content: '';
+        width: 1.5rem;
+        height: 2px;
+        background: var(--orange);
+        flex-shrink: 0;
+    }
+    .cta-h2 {
+        font-size: clamp(1.8rem, 3vw, 2.6rem);
+        font-weight: 900;
+        color: #fff;
+        margin-bottom: 0.75rem;
+    }
+    .cta-sub {
+        font-size: 1rem;
+        color: rgba(255,255,255,0.65);
+        line-height: 1.7;
+        max-width: 540px;
+        margin: 0 auto 2rem;
+    }
+    .cta-actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+    .cta-phone {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: rgba(255,255,255,0.75);
+        font-size: 1rem;
+        font-weight: 600;
+    }
+    .cta-phone svg { width: 18px; height: 18px; }
+
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a class="nav-logo" href="#">Idaho Sports Medicine Institute</a>
+            <div class="nav-links">
+                <a href="#">Sports Medicine</a>
+                <a href="#">Orthopedic Surgery</a>
+                <a href="#">Physical Therapy</a>
+                <a href="#">Conditions</a>
+                <a href="#" class="nav-cta">Schedule Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- =============================================
+         HERO
+    ============================================= -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-left">
+                <div class="breadcrumb">
+                    <a href="#">Conditions</a>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                    Achilles Tear
+                </div>
+                <div class="section-label-light">Condition Guide</div>
+                <h1 class="hero-h1">Achilles Tendon Injuries</h1>
+                <p class="hero-intro">From mild tendonitis to complete rupture, Achilles tendon injuries can sideline anyone — whether you're a weekend hiker or a competitive athlete. ISMI's sports medicine and physical therapy teams provide expert evaluation and personalized care to get you back on your feet.</p>
+                <div class="hero-chips">
+                    <span class="chip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                        Sports Medicine
+                    </span>
+                    <span class="chip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                        Physical Therapy
+                    </span>
+                    <span class="chip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                        Ultrasound Imaging
+                    </span>
+                    <span class="chip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                        Orthopedic Surgery
+                    </span>
+                </div>
+                <div class="hero-actions">
+                    <a href="#" class="btn-primary">
+                        Schedule an Evaluation
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="#" class="btn-outline-light">Call Our Office</a>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="hero-img-wrap">
+                    <!-- Replace src with actual photo -->
+                    <div class="img-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                        <span>Photo — Achilles / Heel Anatomy</span>
+                    </div>
+                    <div class="urgency-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+                        Sudden pop + swelling? Seek care within days
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================================
+         ANATOMY
+    ============================================= -->
+    <section class="anatomy">
+        <div class="container">
+            <div class="anatomy-inner">
+                <div class="anatomy-left">
+                    <div class="section-label">Understanding the Injury</div>
+                    <h2 class="anatomy-h2">What Is the Achilles Tendon?</h2>
+                    <p class="anatomy-body">A tendon is a structure that attaches a muscle to bone. The Achilles tendon connects the calf muscles to the back of the heel bone (calcaneus) — making it essential for walking, running, jumping, and nearly every lower-body movement. Achilles pain can stem from several structures in the same area, and sometimes more than one issue is present at the same time.</p>
+                    <div class="anatomy-structures">
+                        <div class="structure-item">
+                            <div class="structure-dot"></div>
+                            <div>
+                                <h4>Achilles Tendon</h4>
+                                <p>The large tendon connecting your calf muscles to your heel bone. Overuse or trauma can cause tendonitis, tendinopathy, or a full tear.</p>
+                            </div>
+                        </div>
+                        <div class="structure-item">
+                            <div class="structure-dot"></div>
+                            <div>
+                                <h4>Haglund's Deformity</h4>
+                                <p>A bony bump on the back of the calcaneus that can rub against the Achilles tendon and cause chronic irritation and pain.</p>
+                            </div>
+                        </div>
+                        <div class="structure-item">
+                            <div class="structure-dot"></div>
+                            <div>
+                                <h4>Retrocalcaneal Bursa</h4>
+                                <p>A fluid-filled sac located near the tendon's attachment to the heel. When inflamed (bursitis), it can be particularly painful and tender to the touch.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="anatomy-right">
+                    <div class="anatomy-img-wrap">
+                        <!-- Replace src with actual anatomical diagram -->
+                        <div class="img-placeholder" style="color: rgba(0,30,96,0.2);">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                            <span>Diagram — Achilles Anatomy</span>
+                        </div>
+                        <div class="anatomy-caption">Achilles tendon, calcaneus, and bursa</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================================
+         CAUSES
+    ============================================= -->
+    <section class="causes">
+        <div class="container">
+            <div class="causes-header">
+                <div class="section-label">Risk Factors</div>
+                <h2 class="causes-h2">Common Causes of Achilles Tendon Injury</h2>
+                <p class="causes-intro">Achilles tendonitis is usually due to repetitive stress that leads to irritation and inflammation. If left untreated, this can progress to chronic changes in the tendon called tendinopathy. Several factors can make you more susceptible to these injuries.</p>
+            </div>
+            <div class="causes-grid">
+                <div class="cause-card">
+                    <div class="cause-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h3>Tight or Poor-Fitting Footwear</h3>
+                    <p>Shoes that are too tight or lack adequate support increase pressure on the tendon and surrounding structures with every step.</p>
+                </div>
+                <div class="cause-card">
+                    <div class="cause-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7l9 6 9-6M3 7v10l9 6 9-6V7"/></svg>
+                    </div>
+                    <h3>Flat Feet or High Arches</h3>
+                    <p>Abnormal foot mechanics place uneven loads on the Achilles tendon, increasing stress and the likelihood of irritation over time.</p>
+                </div>
+                <div class="cause-card">
+                    <div class="cause-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/></svg>
+                    </div>
+                    <h3>Tight Calf Muscles</h3>
+                    <p>Limited flexibility in the calf increases tension through the Achilles, especially during push-off movements like running or climbing stairs.</p>
+                </div>
+                <div class="cause-card">
+                    <div class="cause-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <h3>Sudden Increase in Activity</h3>
+                    <p>Ramping up walking, running, or hiking volume too quickly — especially without adequate conditioning — is one of the most common triggers.</p>
+                </div>
+                <div class="cause-card">
+                    <div class="cause-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                    </div>
+                    <h3>Repetitive Overuse</h3>
+                    <p>Sports and activities that involve repetitive loading — running, jumping, basketball, tennis — create cumulative stress that can exceed the tendon's tolerance.</p>
+                </div>
+                <div class="cause-card">
+                    <div class="cause-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5zm0 0"/><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/><path d="M12 14.5v2a2.5 2.5 0 005 0v-2"/><path d="M7 10.5v-5a2 2 0 014 0v7"/><path d="M5 10.5V8a2 2 0 014 0v2.5"/></svg>
+                    </div>
+                    <h3>Yoga &amp; Flexibility Activities</h3>
+                    <p>Certain yoga poses that place the foot in extreme dorsiflexion or apply sustained stretch to the calf have been associated with Achilles tendon irritation.</p>
+                </div>
+            </div>
+            <div class="causes-note">
+                <strong>From tendonitis to tears:</strong> When repetitive irritation goes untreated, it can lead to chronic tendinopathy — structural changes in the tendon itself. You can also develop actual tears in the Achilles, either from long-standing tendinopathy or a sudden traumatic injury.
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================================
+         SYMPTOMS
+    ============================================= -->
+    <section class="symptoms">
+        <div class="container">
+            <div class="symptoms-inner">
+                <div class="symptoms-header">
+                    <div class="section-label-light">Know the Signs</div>
+                    <h2 class="symptoms-h2">Symptoms of an Achilles Tendon Injury</h2>
+                    <p class="symptoms-intro">Achilles injuries range from gradual overuse conditions to acute traumatic ruptures. Understanding which type of symptoms you're experiencing helps determine the urgency of care.</p>
+                </div>
+                <div class="symptoms-cols">
+                    <div class="symptom-panel panel-gradual">
+                        <div class="symptom-panel-label">
+                            <span class="label-dot"></span>
+                            Gradual / Overuse
+                        </div>
+                        <h3>Tendonitis &amp; Tendinopathy</h3>
+                        <div class="symptom-list">
+                            <div class="symptom-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                                Tenderness when touching the tendon
+                            </div>
+                            <div class="symptom-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                                Stiffness with the first few steps of the day
+                            </div>
+                            <div class="symptom-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                                Pain that worsens with activity
+                            </div>
+                            <div class="symptom-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                                Swelling along the tendon
+                            </div>
+                        </div>
+                    </div>
+                    <div class="symptom-panel panel-traumatic">
+                        <div class="symptom-panel-label">
+                            <span class="label-dot"></span>
+                            Acute / Traumatic
+                        </div>
+                        <h3>Possible Achilles Rupture</h3>
+                        <div class="symptom-list">
+                            <div class="symptom-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
+                                Sudden, painful "pop" sensation
+                            </div>
+                            <div class="symptom-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
+                                Rapid swelling and bruising
+                            </div>
+                            <div class="symptom-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
+                                Difficulty bearing weight or walking
+                            </div>
+                            <div class="symptom-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
+                                Pain at the back of the lower leg
+                            </div>
+                        </div>
+                        <div class="urgency-note">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+                            Traumatic rupture symptoms require evaluation within several days. Surgical outcomes are significantly better with prompt treatment.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================================
+         URGENT ACTION BAND
+    ============================================= -->
+    <section class="urgent-band">
+        <div class="container">
+            <div class="urgent-inner">
+                <div>
+                    <div class="urgent-label">Don't Wait</div>
+                    <h2 class="urgent-h2">Suspect a Traumatic Achilles Rupture?</h2>
+                    <p class="urgent-body">If you develop pain, swelling, and bruising after a sensation of popping during physical activity, this could be a sign of a traumatic Achilles rupture. This type of injury often requires surgery, and outcomes are significantly better the sooner appropriate treatment is provided. Don't try to walk it off — seek an evaluation within several days.</p>
+                </div>
+                <a href="#" class="btn-white">
+                    Schedule Evaluation
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================================
+         HOME CARE
+    ============================================= -->
+    <section class="homecare">
+        <div class="container">
+            <div class="homecare-header">
+                <div class="section-label">Self-Care</div>
+                <h2 class="homecare-h2">Things You Can Try at Home</h2>
+                <p class="homecare-intro">For acute Achilles tendonitis, early self-care can help reduce pain and inflammation. The sooner these treatments are started, the better — but they are not a substitute for a physician evaluation if symptoms persist.</p>
+            </div>
+            <div class="homecare-grid">
+                <div class="homecare-card">
+                    <div class="homecare-num">01</div>
+                    <h3>Change Your Footwear</h3>
+                    <p>Switch to comfortable, well-fitted shoes with adequate heel support. Avoid tight footwear that compresses the tendon.</p>
+                </div>
+                <div class="homecare-card">
+                    <div class="homecare-num">02</div>
+                    <h3>Gentle Calf Stretching</h3>
+                    <p>Slow, controlled calf stretches can help reduce tension on the Achilles. Avoid aggressive or ballistic stretching during an acute flare.</p>
+                </div>
+                <div class="homecare-card">
+                    <div class="homecare-num">03</div>
+                    <h3>Ice &amp; Rest</h3>
+                    <p>Applying ice to the affected area and reducing high-impact activities can help calm acute inflammation and relieve pain.</p>
+                </div>
+                <div class="homecare-card">
+                    <div class="homecare-num">04</div>
+                    <h3>Short-Term NSAIDs</h3>
+                    <p>Anti-inflammatory medications (like ibuprofen) may provide short-term relief for acute tendonitis. Long-term NSAID use is not recommended for chronic tendinopathy.</p>
+                </div>
+            </div>
+            <div class="homecare-warning">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+                <span><strong>If your symptoms don't improve</strong>, or if you suspect a traumatic rupture, you should seek evaluation by a physician promptly. Long-term use of NSAIDs for chronic Achilles tendinopathy may actually delay or inhibit the healing process.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================================
+         PHYSICIAN TREATMENT
+    ============================================= -->
+    <section class="treatment">
+        <div class="container">
+            <div class="treatment-inner">
+                <div class="treatment-left">
+                    <div class="section-label">Clinical Care</div>
+                    <h2 class="treatment-h2">What a Physician Can Offer</h2>
+                    <p class="treatment-intro">It's important to make sure the correct problem is being treated. Achilles pain can involve the tendon, the bursa, or a bony deformity — and sometimes all three. A physician will begin by identifying the root cause through imaging before recommending treatment.</p>
+                    <div class="diagnostics-list">
+                        <div class="diagnostic-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg>
+                            <div class="diagnostic-item-text">
+                                <strong>X-Ray</strong>
+                                <span>Used to identify bone abnormalities like Haglund's deformity or calcification near the tendon attachment.</span>
+                            </div>
+                        </div>
+                        <div class="diagnostic-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+                            <div class="diagnostic-item-text">
+                                <strong>Diagnostic Ultrasound</strong>
+                                <span>Real-time imaging that allows the physician to visualize tendon structure, detect tears, and assess the bursa — performed in-office at ISMI.</span>
+                            </div>
+                        </div>
+                        <div class="diagnostic-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg>
+                            <div class="diagnostic-item-text">
+                                <strong>MRI</strong>
+                                <span>Ordered when ultrasound is inconclusive or when a partial or complete tear is suspected that can't be fully visualized otherwise.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="treatment-note">Most Achilles tendon issues can be treated without surgery. Surgical intervention is only recommended when conservative treatment fails or in the case of a traumatic rupture.</p>
+                </div>
+                <div class="treatment-right">
+                    <div class="section-label">Treatment Pathway</div>
+                    <div class="treatment-pathway">
+                        <div class="pathway-step">
+                            <div class="pathway-num">01</div>
+                            <span class="step-tag tag-conservative">Conservative</span>
+                            <h4>Topical Medications</h4>
+                            <p>Anti-inflammatory topical treatments applied directly to the area of pain to reduce inflammation without systemic side effects.</p>
+                        </div>
+                        <div class="pathway-step">
+                            <div class="pathway-num">02</div>
+                            <span class="step-tag tag-conservative">Conservative</span>
+                            <h4>Physical Therapy</h4>
+                            <p>Targeted exercise programs designed to strengthen the calf-Achilles complex, restore flexibility, and correct movement patterns that contributed to the injury.</p>
+                        </div>
+                        <div class="pathway-step">
+                            <div class="pathway-num">03</div>
+                            <span class="step-tag tag-conservative">Conservative</span>
+                            <h4>Injections</h4>
+                            <p>In select cases, ultrasound-guided injections may be recommended to reduce inflammation or support tendon healing. Options are discussed case by case.</p>
+                        </div>
+                        <div class="pathway-step featured">
+                            <div class="pathway-num">04</div>
+                            <span class="step-tag tag-surgical">If Conservative Care Fails</span>
+                            <h4>Surgical Intervention</h4>
+                            <p>When conservative measures don't provide relief, or in the case of a complete traumatic rupture, surgery may be recommended. Our orthopedic surgeons coordinate closely with the PT team for a seamless recovery plan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================================
+         CTA
+    ============================================= -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-card">
+                <div class="cta-card-inner">
+                    <div class="cta-label">Idaho Sports Medicine Institute</div>
+                    <h2 class="cta-h2">Need Help With an Achilles Injury?</h2>
+                    <p class="cta-sub">Whether you're dealing with chronic heel pain or recovering from an acute rupture, ISMI's sports medicine and physical therapy teams are here to guide your recovery from evaluation to return to activity.</p>
+                    <div class="cta-actions">
+                        <a href="#" class="btn-primary">
+                            Schedule Now
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                        <div class="cta-phone">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+                            (208) 000-0000
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

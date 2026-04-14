@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orthopedic Surgery Boise | Idaho Sports Medicine Institute</title>
+    <meta name="description" content="Idaho Sports Medicine Institute provides advanced orthopedic surgery in Boise for knee, shoulder, and hip conditions. Our board certified surgeons specialize in arthroscopic procedures and joint replacement with coordinated rehabilitation for safe recovery and long term results.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+
+    /* =============================================
+       TOKENS
+    ============================================= */
+    :root {
+        --blue:    #0033A0;
+        --orange:  #D64309;
+        --navy:    #001E60;
+        --sky:     #E6EEFF;
+        --slate:   #475569;
+        --gray:    #F8FAFC;
+        --border:  #E2E8F0;
+        --dark:    #1E293B;
+        --white:   #FFFFFF;
+
+        --font-display: 'Plus Jakarta Sans', sans-serif;
+        --font-body:    'Inter', sans-serif;
+
+        --ease: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --max-w: 1280px;
+    }
+
+    /* =============================================
+       BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+        background: var(--white);
+        color: var(--dark);
+        font-family: var(--font-body);
+        font-size: 16px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3 {
+        font-family: var(--font-display);
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { display: block; max-width: 100%; }
+
+    .container {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 3rem;
+    }
+
+    /* =============================================
+       NAV
+    ============================================= */
+    .nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 50;
+        background: rgba(0, 30, 96, 0.95);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 3rem;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .nav-logo img {
+        height: 40px;
+        width: auto;
+        object-fit: contain;
+        filter: brightness(0) invert(1);
+    }
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+    }
+    .nav-links a {
+        font-size: 0.875rem;
+        font-weight: 700;
+        color: rgba(255,255,255,0.7);
+        transition: color 0.2s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: #fff; }
+    .nav-cta {
+        background: var(--orange);
+        color: white;
+        padding: 0.625rem 1.5rem;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 0.8125rem;
+        letter-spacing: -0.01em;
+        transition: var(--ease);
+    }
+    .nav-cta:hover {
+        background: #B53907;
+        transform: translateY(-2px);
+        box-shadow: 0 12px 24px -4px rgba(214,67,9,0.4);
+    }
+
+    /* =============================================
+       BUTTONS
+    ============================================= */
+    .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.625rem;
+        background: var(--blue);
+        color: white;
+        padding: 1rem 2.25rem;
+        border-radius: 12px;
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 0.9375rem;
+        letter-spacing: -0.01em;
+        transition: var(--ease);
+        border: none;
+        cursor: pointer;
+    }
+    .btn-primary:hover {
+        background: #002677;
+        box-shadow: 0 16px 32px -6px rgba(0,51,160,0.4);
+        transform: translateY(-3px);
+    }
+    .btn-orange {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.625rem;
+        background: var(--orange);
+        color: white;
+        padding: 1rem 2.25rem;
+        border-radius: 12px;
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 0.9375rem;
+        letter-spacing: -0.01em;
+        transition: var(--ease);
+        border: none;
+        cursor: pointer;
+    }
+    .btn-orange:hover {
+        background: #B53907;
+        box-shadow: 0 16px 32px -6px rgba(214,67,9,0.4);
+        transform: translateY(-3px);
+    }
+    .btn-ghost-white {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.625rem;
+        border: 2px solid rgba(255,255,255,0.3);
+        color: white;
+        padding: 1rem 2.25rem;
+        border-radius: 12px;
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 0.9375rem;
+        letter-spacing: -0.01em;
+        transition: var(--ease);
+        background: transparent;
+        cursor: pointer;
+    }
+    .btn-ghost-white:hover {
+        background: rgba(255,255,255,0.1);
+        border-color: rgba(255,255,255,0.6);
+    }
+
+    /* =============================================
+       SECTION LABELS
+    ============================================= */
+    .section-label {
+        font-size: 0.7rem;
+        font-weight: 800;
+        color: var(--blue);
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+    .section-label::before {
+        content: '';
+        width: 1.5rem;
+        height: 2px;
+        background: var(--orange);
+        flex-shrink: 0;
+    }
+    .section-label-light {
+        font-size: 0.7rem;
+        font-weight: 800;
+        color: rgba(255,255,255,0.5);
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+    .section-label-light::before {
+        content: '';
+        width: 1.5rem;
+        height: 2px;
+        background: var(--orange);
+        flex-shrink: 0;
+    }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    .hero {
+        background-color: var(--navy);
+        position: relative;
+        overflow: hidden;
+        padding-top: 80px; /* nav height */
+    }
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 55%;
+        height: 100%;
+        background: linear-gradient(135deg, transparent 0%, rgba(0,51,160,0.15) 100%);
+        pointer-events: none;
+    }
+    /* Large watermark */
+    .hero::after {
+        content: 'ISMI';
+        position: absolute;
+        right: -2rem;
+        bottom: -3rem;
+        font-family: var(--font-display);
+        font-weight: 900;
+        font-size: 18rem;
+        line-height: 1;
+        color: rgba(255,255,255,0.03);
+        pointer-events: none;
+        letter-spacing: -0.05em;
+    }
+    .hero-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 5rem 3rem 6rem;
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: center;
+    }
+    .hero-breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+    }
+    .hero-breadcrumb a,
+    .hero-breadcrumb span {
+        font-size: 0.72rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: rgba(255,255,255,0.4);
+        transition: color 0.2s ease;
+    }
+    .hero-breadcrumb a:hover { color: rgba(255,255,255,0.8); }
+    .hero-breadcrumb .sep { color: var(--orange); }
+    .hero-breadcrumb .current { color: rgba(255,255,255,0.7); }
+    .hero-h1 {
+        font-size: clamp(2.75rem, 5vw, 4rem);
+        font-weight: 900;
+        color: white;
+        margin-bottom: 1.75rem;
+        letter-spacing: -0.03em;
+        line-height: 1.0;
+    }
+    .hero-h1 span { color: var(--orange); }
+    .hero-intro {
+        font-size: 1.0625rem;
+        color: rgba(255,255,255,0.65);
+        line-height: 1.75;
+        margin-bottom: 1.5rem;
+    }
+    .hero-philosophy {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-left: 3px solid var(--orange);
+        border-radius: 12px;
+        padding: 1.25rem 1.5rem;
+        margin-top: 2rem;
+    }
+    .hero-philosophy-icon {
+        width: 36px;
+        height: 36px;
+        background: rgba(214,67,9,0.15);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+    .hero-philosophy p {
+        font-size: 0.9rem;
+        color: rgba(255,255,255,0.75);
+        line-height: 1.65;
+    }
+    .hero-philosophy strong {
+        color: white;
+        font-weight: 700;
+    }
+
+    /* Hero right: trust chips */
+    .hero-right { display: flex; flex-direction: column; gap: 1.25rem; }
+    .trust-chip {
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 16px;
+        padding: 1.5rem;
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        transition: var(--ease);
+    }
+    .trust-chip:hover {
+        background: rgba(255,255,255,0.1);
+        border-color: rgba(255,255,255,0.2);
+    }
+    .trust-chip-icon {
+        width: 44px;
+        height: 44px;
+        background: rgba(0,51,160,0.5);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        color: var(--sky);
+    }
+    .trust-chip-text strong {
+        display: block;
+        font-weight: 800;
+        font-size: 0.9rem;
+        color: white;
+        margin-bottom: 0.2rem;
+        font-family: var(--font-display);
+    }
+    .trust-chip-text span {
+        font-size: 0.75rem;
+        color: rgba(255,255,255,0.5);
+        line-height: 1.5;
+    }
+
+    /* =============================================
+       ARTHROSCOPIC SECTION
+    ============================================= */
+    .section-arthro {
+        background: var(--gray);
+        padding: 6rem 0;
+    }
+    .section-arthro .container {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 3rem;
+    }
+    .arthro-header {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: end;
+        margin-bottom: 4rem;
+    }
+    .arthro-header h2 {
+        font-size: clamp(2.25rem, 4vw, 3.25rem);
+        font-weight: 900;
+        color: var(--navy);
+    }
+    .arthro-header-right p {
+        font-size: 1rem;
+        color: var(--slate);
+        line-height: 1.75;
+    }
+    .procedures-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+        margin-bottom: 2rem;
+    }
+    .proc-card {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 1.75rem;
+        position: relative;
+        overflow: hidden;
+        transition: var(--ease);
+    }
+    .proc-card::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: var(--blue);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .proc-card:hover::before { transform: scaleX(1); }
+    .proc-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 24px 48px -8px rgba(0,51,160,0.12);
+        border-color: var(--blue);
+    }
+    .proc-card-icon {
+        width: 44px;
+        height: 44px;
+        background: var(--sky);
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--blue);
+        margin-bottom: 1rem;
+    }
+    .proc-card-title {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 0.9375rem;
+        color: var(--navy);
+        margin-bottom: 0.375rem;
+        line-height: 1.25;
+    }
+    .proc-card-sub {
+        font-size: 0.75rem;
+        color: var(--slate);
+        line-height: 1.5;
+    }
+    .arthro-footer-note {
+        font-size: 0.9rem;
+        color: var(--slate);
+        line-height: 1.75;
+        padding: 1.5rem 2rem;
+        background: white;
+        border: 1px solid var(--border);
+        border-left: 3px solid var(--blue);
+        border-radius: 0 12px 12px 0;
+    }
+
+    /* =============================================
+       JOINT REPLACEMENT SECTION
+    ============================================= */
+    .section-joint {
+        background: var(--navy);
+        padding: 6rem 0;
+        position: relative;
+        overflow: hidden;
+    }
+    .section-joint::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -10%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(0,51,160,0.6) 0%, transparent 70%);
+        pointer-events: none;
+    }
+    .joint-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 3rem;
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem;
+        align-items: start;
+    }
+    .joint-left h2 {
+        font-size: clamp(2.25rem, 4vw, 3.25rem);
+        font-weight: 900;
+        color: white;
+        margin-bottom: 1.5rem;
+    }
+    .joint-left p {
+        font-size: 1rem;
+        color: rgba(255,255,255,0.65);
+        line-height: 1.75;
+        margin-bottom: 2rem;
+    }
+    .joint-closing {
+        font-size: 0.9rem;
+        color: rgba(255,255,255,0.5);
+        line-height: 1.75;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding-top: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    .joint-procedures {
+        display: flex;
+        flex-direction: column;
+        gap: 0.875rem;
+    }
+    .joint-proc-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 14px;
+        padding: 1.25rem 1.5rem;
+        transition: var(--ease);
+    }
+    .joint-proc-item:hover {
+        background: rgba(255,255,255,0.09);
+        border-color: rgba(255,255,255,0.18);
+        transform: translateX(4px);
+    }
+    .joint-proc-check {
+        width: 28px;
+        height: 28px;
+        background: rgba(214,67,9,0.2);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-top: 1px;
+    }
+    .joint-proc-text {
+        font-size: 0.9rem;
+        color: rgba(255,255,255,0.85);
+        line-height: 1.5;
+        font-weight: 500;
+    }
+    .joint-proc-text em {
+        display: block;
+        font-style: normal;
+        font-size: 0.72rem;
+        color: var(--orange);
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        margin-top: 0.2rem;
+    }
+
+    /* =============================================
+       IMAGING SECTION
+    ============================================= */
+    .section-imaging {
+        background: white;
+        padding: 6rem 0;
+    }
+    .imaging-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 3rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem;
+        align-items: center;
+    }
+    .imaging-content h2 {
+        font-size: clamp(2rem, 3.5vw, 2.75rem);
+        font-weight: 900;
+        color: var(--navy);
+        margin-bottom: 1.5rem;
+    }
+    .imaging-content p {
+        font-size: 1rem;
+        color: var(--slate);
+        line-height: 1.75;
+        margin-bottom: 1.25rem;
+    }
+    .imaging-content p:last-of-type { margin-bottom: 0; }
+    .imaging-visual {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .imaging-badge {
+        background: var(--sky);
+        border: 1px solid rgba(0,51,160,0.12);
+        border-radius: 20px;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+    }
+    .imaging-badge-icon {
+        width: 56px;
+        height: 56px;
+        background: var(--blue);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        color: white;
+    }
+    .imaging-badge-text strong {
+        display: block;
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 1rem;
+        color: var(--navy);
+        margin-bottom: 0.25rem;
+    }
+    .imaging-badge-text span {
+        font-size: 0.8125rem;
+        color: var(--slate);
+        line-height: 1.5;
+    }
+    .imaging-note {
+        background: var(--gray);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 1.5rem;
+        display: flex;
+        gap: 0.875rem;
+        align-items: flex-start;
+    }
+    .imaging-note-icon {
+        width: 32px;
+        height: 32px;
+        background: rgba(214,67,9,0.1);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        color: var(--orange);
+        margin-top: 2px;
+    }
+    .imaging-note p {
+        font-size: 0.85rem;
+        color: var(--slate);
+        line-height: 1.65;
+        margin: 0;
+    }
+
+    /* =============================================
+       PRE / POST-OP SECTION
+    ============================================= */
+    .section-periop {
+        background: var(--sky);
+        padding: 6rem 0;
+    }
+    .periop-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 3rem;
+    }
+    .periop-header {
+        max-width: 640px;
+        margin-bottom: 3.5rem;
+    }
+    .periop-header h2 {
+        font-size: clamp(2rem, 3.5vw, 2.75rem);
+        font-weight: 900;
+        color: var(--navy);
+        margin-bottom: 1.25rem;
+    }
+    .periop-header p {
+        font-size: 1rem;
+        color: var(--slate);
+        line-height: 1.75;
+    }
+    .periop-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+    .periop-card {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 2.5rem;
+        position: relative;
+        overflow: hidden;
+    }
+    .periop-card::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+    }
+    .periop-card--pre::after { background: var(--blue); }
+    .periop-card--post::after { background: var(--orange); }
+    .periop-card-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--sky);
+        border-radius: 100px;
+        padding: 0.35rem 1rem;
+        font-size: 0.68rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: var(--blue);
+        margin-bottom: 1.5rem;
+    }
+    .periop-card--post .periop-card-label {
+        background: rgba(214,67,9,0.1);
+        color: var(--orange);
+    }
+    .periop-card h3 {
+        font-size: 1.375rem;
+        font-weight: 800;
+        color: var(--navy);
+        margin-bottom: 1rem;
+        letter-spacing: -0.02em;
+    }
+    .periop-card p {
+        font-size: 0.9375rem;
+        color: var(--slate);
+        line-height: 1.75;
+    }
+
+    /* =============================================
+       CONSERVATIVE APPROACH CALLOUT
+    ============================================= */
+    .section-conservative {
+        background: var(--orange);
+        padding: 5rem 0;
+        position: relative;
+        overflow: hidden;
+    }
+    .section-conservative::before {
+        content: '';
+        position: absolute;
+        top: -30%;
+        right: -5%;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+        pointer-events: none;
+    }
+    .conservative-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 3rem;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 4rem;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+    }
+    .conservative-eyebrow {
+        font-size: 0.68rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.22em;
+        color: rgba(255,255,255,0.7);
+        display: flex;
+        align-items: center;
+        gap: 0.625rem;
+        margin-bottom: 1rem;
+    }
+    .conservative-eyebrow::before {
+        content: '';
+        width: 1.5rem;
+        height: 2px;
+        background: white;
+        flex-shrink: 0;
+    }
+    .conservative-heading {
+        font-family: var(--font-display);
+        font-size: clamp(1.75rem, 3vw, 2.5rem);
+        font-weight: 900;
+        color: white;
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+        white-space: nowrap;
+    }
+    .conservative-body {
+        font-size: 1rem;
+        color: rgba(255,255,255,0.85);
+        line-height: 1.8;
+        max-width: 640px;
+    }
+
+    /* =============================================
+       CTA SECTION
+    ============================================= */
+    .section-cta {
+        background: white;
+        padding: 5rem 0;
+    }
+    .cta-card {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        background: var(--navy);
+        border-radius: 40px;
+        overflow: hidden;
+        position: relative;
+        padding: 5rem 6rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 4rem;
+    }
+    .cta-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(0,30,96,0.95) 0%, rgba(0,51,160,0.7) 100%);
+        pointer-events: none;
+    }
+    .cta-content { position: relative; z-index: 1; max-width: 560px; }
+    .cta-pulse {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+    .cta-pulse-dot {
+        width: 8px;
+        height: 8px;
+        background: var(--orange);
+        border-radius: 50%;
+        animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.6; transform: scale(0.85); }
+    }
+    .cta-pulse span {
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: var(--orange);
+    }
+    .cta-content h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 900;
+        color: white;
+        margin-bottom: 1.25rem;
+    }
+    .cta-content h2 span { color: var(--orange); }
+    .cta-content p {
+        font-size: 1rem;
+        color: rgba(255,255,255,0.65);
+        line-height: 1.75;
+    }
+    .cta-actions {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        flex-shrink: 0;
+    }
+    .cta-actions .btn-orange { min-width: 220px; justify-content: center; }
+    .cta-actions .btn-phone {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.15);
+        color: white;
+        padding: 1rem 2.25rem;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 0.9375rem;
+        transition: var(--ease);
+        min-width: 220px;
+    }
+    .cta-actions .btn-phone:hover {
+        background: rgba(255,255,255,0.14);
+        border-color: rgba(255,255,255,0.35);
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    .footer {
+        background: var(--navy);
+        padding-top: 6rem;
+        padding-bottom: 3rem;
+    }
+    .footer-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 3rem;
+    }
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 4rem;
+        margin-bottom: 5rem;
+    }
+    .footer-brand-logo img {
+        height: 40px;
+        width: auto;
+        object-fit: contain;
+        filter: brightness(0) invert(1);
+        margin-bottom: 2rem;
+    }
+    .footer-brand-desc {
+        font-size: 0.875rem;
+        color: rgba(255,255,255,0.45);
+        max-width: 320px;
+        line-height: 1.7;
+        margin-bottom: 2rem;
+    }
+    .footer-socials {
+        display: flex;
+        gap: 0.75rem;
+    }
+    .footer-social-btn {
+        width: 40px;
+        height: 40px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255,255,255,0.6);
+        cursor: pointer;
+        transition: var(--ease);
+    }
+    .footer-social-btn:hover {
+        color: white;
+        background: rgba(255,255,255,0.12);
+    }
+    .footer-col h4 {
+        font-weight: 700;
+        color: white;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        font-size: 0.72rem;
+        margin-bottom: 2rem;
+    }
+    .footer-col ul { display: flex; flex-direction: column; gap: 1rem; }
+    .footer-col ul li a,
+    .footer-col ul li span {
+        font-size: 0.875rem;
+        color: rgba(255,255,255,0.45);
+        transition: color 0.2s ease;
+    }
+    .footer-col ul li a:hover { color: white; }
+    .footer-col ul li .orange { color: var(--orange); font-weight: 600; }
+    .footer-bottom {
+        border-top: 1px solid rgba(255,255,255,0.06);
+        padding-top: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+    .footer-copy {
+        font-size: 0.625rem;
+        font-weight: 700;
+        color: rgba(255,255,255,0.25);
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+    }
+    .footer-legal {
+        display: flex;
+        gap: 2rem;
+    }
+    .footer-legal a {
+        font-size: 0.625rem;
+        font-weight: 700;
+        color: rgba(255,255,255,0.25);
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        transition: color 0.2s ease;
+    }
+    .footer-legal a:hover { color: rgba(255,255,255,0.6); }
+
+    </style>
+</head>
+<body>
+
+    <!-- ════════════════════════════
+         NAV
+    ════════════════════════════ -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <img src="Assets/ISMI-logo.png" alt="ISMI Logo">
+            </a>
+            <div class="nav-links">
+                <a href="#">Conditions &amp; Treatments</a>
+                <a href="#" class="active">Our Surgeons</a>
+                <a href="#">Patient Resources</a>
+                <a href="#">Locations</a>
+            </div>
+            <a href="#" class="nav-cta">Book Now</a>
+        </div>
+    </nav>
+
+
+    <!-- ════════════════════════════
+         HERO
+    ════════════════════════════ -->
+    <section class="hero">
+        <div class="hero-inner">
+
+            <!-- Left: copy -->
+            <div>
+                <div class="hero-breadcrumb">
+                    <a href="#">Home</a>
+                    <span class="sep">›</span>
+                    <a href="#">Conditions &amp; Treatments</a>
+                    <span class="sep">›</span>
+                    <span class="current">Orthopedic Surgery</span>
+                </div>
+
+                <h1 class="hero-h1">
+                    Orthopedic Surgery<br>
+                    <span>in Boise</span>
+                </h1>
+
+                <p class="hero-intro">
+                    At Idaho Sports Medicine Institute, we provide advanced orthopedic surgery in Boise for patients dealing with joint injuries, ligament tears, cartilage damage, and degenerative conditions. Our board-certified orthopedic surgeons specialize in treating shoulder, knee, and hip conditions with both minimally invasive arthroscopic techniques and joint replacement procedures when necessary.
+                </p>
+
+                <div class="hero-philosophy">
+                    <div class="hero-philosophy-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D64309" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <p><strong>Surgery is never our first approach.</strong> We prioritize conservative treatment whenever possible. When operative care is required, our team delivers precise surgical intervention followed by coordinated rehabilitation to support long-term recovery and return to activity.</p>
+                </div>
+            </div>
+
+            <!-- Right: trust chips -->
+            <div class="hero-right">
+                <div class="trust-chip">
+                    <div class="trust-chip-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <div class="trust-chip-text">
+                        <strong>Board-Certified Surgeons</strong>
+                        <span>Orthopedic specialists with fellowship training in sports medicine and joint reconstruction</span>
+                    </div>
+                </div>
+                <div class="trust-chip">
+                    <div class="trust-chip-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                    </div>
+                    <div class="trust-chip-text">
+                        <strong>On-Site Digital X-Ray</strong>
+                        <span>Accurate, same-visit imaging to support timely diagnosis and treatment planning</span>
+                    </div>
+                </div>
+                <div class="trust-chip">
+                    <div class="trust-chip-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <div class="trust-chip-text">
+                        <strong>Coordinated Rehabilitation</strong>
+                        <span>Pre- and post-operative care coordinated with physical therapy for full recovery continuity</span>
+                    </div>
+                </div>
+                <div class="trust-chip">
+                    <div class="trust-chip-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <div class="trust-chip-text">
+                        <strong>Same-Day Appointments</strong>
+                        <span>Priority access for acute injuries and surgical consultations — we get you seen quickly</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ════════════════════════════
+         ARTHROSCOPIC SURGERY
+    ════════════════════════════ -->
+    <section class="section-arthro">
+        <div class="container">
+
+            <div class="arthro-header">
+                <div>
+                    <span class="section-label">Minimally Invasive</span>
+                    <h2>Minimally Invasive<br>Arthroscopic Surgery</h2>
+                </div>
+                <div class="arthro-header-right">
+                    <p>Arthroscopy allows our orthopedic surgeons to visualize, diagnose, and treat joint problems using small incisions and specialized instruments. This minimally invasive technique reduces tissue disruption and often shortens recovery time.</p>
+                </div>
+            </div>
+
+            <div class="procedures-grid">
+
+                <div class="proc-card">
+                    <div class="proc-card-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="5"/></svg>
+                    </div>
+                    <div class="proc-card-title">ACL Reconstruction</div>
+                    <div class="proc-card-sub">Using the patellar tendon, hamstring, quad tendon, or allograft</div>
+                </div>
+
+                <div class="proc-card">
+                    <div class="proc-card-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                    </div>
+                    <div class="proc-card-title">PCL &amp; Multi-Ligament Reconstruction</div>
+                    <div class="proc-card-sub">Complex multi-ligament knee reconstruction</div>
+                </div>
+
+                <div class="proc-card">
+                    <div class="proc-card-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12a4 4 0 0 1 8 0"/></svg>
+                    </div>
+                    <div class="proc-card-title">Labral Repair</div>
+                    <div class="proc-card-sub">Arthroscopic restoration of labral tissue in hip and shoulder</div>
+                </div>
+
+                <div class="proc-card">
+                    <div class="proc-card-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V8M12 8l-4 4M12 8l4 4"/><path d="M5 12H2M22 12h-3"/></svg>
+                    </div>
+                    <div class="proc-card-title">Rotator Cuff Repair</div>
+                    <div class="proc-card-sub">Arthroscopic repair of torn or damaged rotator cuff tendons</div>
+                </div>
+
+                <div class="proc-card">
+                    <div class="proc-card-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <div class="proc-card-title">Tendon Repair &amp; Cartilage Restoration</div>
+                    <div class="proc-card-sub">Tendon repair and cartilage restoration procedures</div>
+                </div>
+
+                <div class="proc-card">
+                    <div class="proc-card-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg>
+                    </div>
+                    <div class="proc-card-title">Osteotomy Procedures</div>
+                    <div class="proc-card-sub">Bone realignment to correct joint mechanics and reduce pain</div>
+                </div>
+
+            </div>
+
+            <div class="arthro-footer-note">
+                Arthroscopy is commonly used to treat sports injuries and joint instability while preserving surrounding structures whenever possible.
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ════════════════════════════
+         JOINT REPLACEMENT
+    ════════════════════════════ -->
+    <section class="section-joint">
+        <div class="joint-inner">
+
+            <div class="joint-left">
+                <span class="section-label-light">Surgical Solutions</span>
+                <h2>Joint Replacement Surgery</h2>
+                <p>For patients experiencing advanced arthritis or significant joint damage, joint replacement may be recommended to relieve pain and restore function.</p>
+                <p style="color:rgba(255,255,255,0.65);font-size:1rem;line-height:1.75;">Our orthopedic surgeons perform:</p>
+                <div class="joint-closing">
+                    Joint replacement is carefully considered after conservative options have been explored. Our goal is to help patients regain mobility and return to daily activities with improved comfort and stability.
+                </div>
+            </div>
+
+            <div class="joint-procedures">
+                <div class="joint-proc-item">
+                    <div class="joint-proc-check">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D64309" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <div class="joint-proc-text">
+                        Partial knee replacement
+                        <em>Including MAKOplasty computer-assisted knee surgery</em>
+                    </div>
+                </div>
+                <div class="joint-proc-item">
+                    <div class="joint-proc-check">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D64309" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <div class="joint-proc-text">Total knee replacement</div>
+                </div>
+                <div class="joint-proc-item">
+                    <div class="joint-proc-check">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D64309" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <div class="joint-proc-text">Shoulder replacement</div>
+                </div>
+                <div class="joint-proc-item">
+                    <div class="joint-proc-check">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D64309" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <div class="joint-proc-text">Reverse total shoulder replacement</div>
+                </div>
+                <div class="joint-proc-item">
+                    <div class="joint-proc-check">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D64309" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <div class="joint-proc-text">Total hip arthroplasty</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ════════════════════════════
+         IMAGING
+    ════════════════════════════ -->
+    <section class="section-imaging">
+        <div class="imaging-inner">
+
+            <div class="imaging-content">
+                <span class="section-label">Diagnosis First</span>
+                <h2>On-Site Imaging and Surgical Evaluation</h2>
+                <p>Accurate diagnosis is essential before any surgical decision is made. Idaho Sports Medicine Institute offers on-site digital X-ray technology to support timely evaluation and treatment planning.</p>
+            </div>
+
+            <div class="imaging-visual">
+                <div class="imaging-badge">
+                    <div class="imaging-badge-icon">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
+                    </div>
+                    <div class="imaging-badge-text">
+                        <strong>On-Site Digital X-Ray</strong>
+                        <span>Advanced digital imaging technology available during your visit for immediate review</span>
+                    </div>
+                </div>
+                <div class="imaging-badge" style="background: white; border-color: var(--border);">
+                    <div class="imaging-badge-icon" style="background: var(--sky); color: var(--blue);">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1" ry="1"/><path d="M9 12h6M9 16h4"/></svg>
+                    </div>
+                    <div class="imaging-badge-text">
+                        <strong>Surgical Evaluation</strong>
+                        <span>Comprehensive clinical examination paired with imaging for an accurate treatment decision</span>
+                    </div>
+                </div>
+                <div class="imaging-note">
+                    <div class="imaging-note-icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    </div>
+                    <p>If you have previous imaging studies, we encourage you to bring them to your appointment so our surgeons can review them alongside your clinical examination.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ════════════════════════════
+         PRE / POST-OP
+    ════════════════════════════ -->
+    <section class="section-periop">
+        <div class="periop-inner">
+
+            <div class="periop-header">
+                <span class="section-label">Recovery Support</span>
+                <h2>Pre and Post-Operative Care</h2>
+                <p>Successful outcomes extend beyond the operating room. Our team coordinates comprehensive preoperative and postoperative care to support safe recovery and long-term performance.</p>
+            </div>
+
+            <div class="periop-cards">
+                <div class="periop-card periop-card--pre">
+                    <div class="periop-card-label">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1" ry="1"/></svg>
+                        Preoperative Care
+                    </div>
+                    <h3>Prepare for Surgery</h3>
+                    <p>Preoperative care prepares patients physically and mentally for surgery. Our team ensures you understand every step of the process, your questions are answered, and your body is positioned for the best possible outcome.</p>
+                </div>
+                <div class="periop-card periop-card--post">
+                    <div class="periop-card-label">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                        Postoperative Care
+                    </div>
+                    <h3>Return to Activity</h3>
+                    <p>Postoperative rehabilitation focuses on restoring strength, range of motion, and joint stability. We work closely with physical therapy providers to ensure continuity of care throughout the recovery process.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ════════════════════════════
+         CONSERVATIVE APPROACH
+    ════════════════════════════ -->
+    <section class="section-conservative">
+        <div class="conservative-inner">
+            <div>
+                <div class="conservative-eyebrow">Our Philosophy</div>
+                <div class="conservative-heading">A Conservative Approach<br>to Surgical Care</div>
+            </div>
+            <p class="conservative-body">
+                While we specialize in orthopedic surgery in Boise, we believe surgery should only be recommended when appropriate. Many musculoskeletal injuries improve with structured rehabilitation and non-surgical treatment. Our surgeons carefully evaluate each case and prioritize the least invasive solution whenever possible.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- ════════════════════════════
+         CTA
+    ════════════════════════════ -->
+    <section class="section-cta">
+        <div style="max-width: var(--max-w); margin: 0 auto; padding: 0 3rem;">
+            <div class="cta-card">
+                <div class="cta-content">
+                    <div class="cta-pulse">
+                        <div class="cta-pulse-dot"></div>
+                        <span>Accepting New Patients</span>
+                    </div>
+                    <h2>Ready to Discuss Your<br><span>Orthopedic Condition?</span></h2>
+                    <p>If you are experiencing persistent joint pain, instability, or injury that has not improved with conservative care, schedule an evaluation with Idaho Sports Medicine Institute. Our orthopedic surgeons in Boise are here to help you return to activity safely and confidently.</p>
+                </div>
+                <div class="cta-actions">
+                    <a href="#" class="btn-orange">
+                        Schedule Now
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                    </a>
+                    <a href="tel:2085550000" class="btn-phone">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        (208) 555-ISMI
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ════════════════════════════
+         FOOTER
+    ════════════════════════════ -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-brand-logo">
+                        <img src="Assets/ISMI-logo.png" alt="ISMI Logo">
+                    </div>
+                    <p class="footer-brand-desc">
+                        Idaho's premier sports medicine and orthopedic institute. Official orthopedic partner of Boise State University Athletics.
+                    </p>
+                    <div class="footer-socials">
+                        <div class="footer-social-btn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </div>
+                        <div class="footer-social-btn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </div>
+                        <div class="footer-social-btn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Sport Programs</h4>
+                    <ul>
+                        <li><a href="#">Football</a></li>
+                        <li><a href="#">Basketball</a></li>
+                        <li><a href="#">Track &amp; Field</a></li>
+                        <li><a href="#">All Programs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><span>1188 University Dr.</span></li>
+                        <li><span>Boise, ID 83706</span></li>
+                        <li><span class="orange">(208) 555-ISMI</span></li>
+                        <li><span>info@ismi.com</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copy">© 2026 Idaho Sports Medicine Institute. All Rights Reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Patient Forms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

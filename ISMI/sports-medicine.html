@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Medicine Boise | Idaho Sports Medicine Institute</title>
+    <meta name="description" content="Idaho Sports Medicine Institute provides non-surgical sports medicine in Boise for athletes and active individuals. We specialize in injury evaluation, ultrasound-guided injections, performance testing, and rehabilitation to help you recover safely and return to activity.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+
+    /* =============================================
+       TOKENS
+    ============================================= */
+    :root {
+        --blue:    #0033A0;
+        --orange:  #D64309;
+        --navy:    #001E60;
+        --sky:     #E6EEFF;
+        --slate:   #475569;
+        --gray:    #F8FAFC;
+        --border:  #E2E8F0;
+        --dark:    #1E293B;
+        --white:   #FFFFFF;
+
+        --font-display: 'Plus Jakarta Sans', sans-serif;
+        --font-body:    'Inter', sans-serif;
+
+        --ease: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --max-w: 1280px;
+    }
+
+    /* =============================================
+       BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+        background: var(--white);
+        color: var(--dark);
+        font-family: var(--font-body);
+        font-size: 16px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3 {
+        font-family: var(--font-display);
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { display: block; max-width: 100%; }
+
+    .container {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 3rem;
+    }
+
+    /* =============================================
+       NAV
+    ============================================= */
+    .nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 50;
+        background: rgba(0, 30, 96, 0.95);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 3rem;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .nav-logo img {
+        height: 40px;
+        width: auto;
+        object-fit: contain;
+        filter: brightness(0) invert(1);
+    }
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+    }
+    .nav-links a {
+        font-size: 0.875rem;
+        font-weight: 700;
+        color: rgba(255,255,255,0.7);
+        transition: color 0.2s ease;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-links a.active { color: #fff; }
+    .nav-cta {
+        background: var(--orange);
+        color: white;
+        padding: 0.625rem 1.5rem;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 0.8125rem;
+        letter-spacing: -0.01em;
+        transition: var(--ease);
+    }
+    .nav-cta:hover {
+        background: #B53907;
+        transform: translateY(-2px);
+        box-shadow: 0 12px 24px -4px rgba(214,67,9,0.4);
+    }
+
+    /* =============================================
+       BUTTONS
+    ============================================= */
+    .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.625rem;
+        background: var(--blue);
+        color: white;
+        padding: 1rem 2.25rem;
+        border-radius: 12px;
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 0.9375rem;
+        letter-spacing: -0.01em;
+        transition: var(--ease);
+        border: none;
+        cursor: pointer;
+    }
+    .btn-primary:hover {
+        background: #002677;
+        box-shadow: 0 16px 32px -6px rgba(0,51,160,0.4);
+        transform: translateY(-3px);
+    }
+    .btn-orange {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.625rem;
+        background: var(--orange);
+        color: white;
+        padding: 1rem 2.25rem;
+        border-radius: 12px;
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 0.9375rem;
+        letter-spacing: -0.01em;
+        transition: var(--ease);
+        border: none;
+        cursor: pointer;
+    }
+    .btn-orange:hover {
+        background: #B53907;
+        box-shadow: 0 16px 32px -6px rgba(214,67,9,0.4);
+        transform: translateY(-3px);
+    }
+    .btn-phone {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.15);
+        color: white;
+        padding: 1rem 2.25rem;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 0.9375rem;
+        transition: var(--ease);
+    }
+    .btn-phone:hover {
+        background: rgba(255,255,255,0.14);
+        border-color: rgba(255,255,255,0.35);
+    }
+
+    /* =============================================
+       SECTION LABELS
+    ============================================= */
+    .section-label {
+        font-size: 0.7rem;
+        font-weight: 800;
+        color: var(--blue);
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+    .section-label::before {
+        content: '';
+        width: 1.5rem;
+        height: 2px;
+        background: var(--orange);
+        flex-shrink: 0;
+    }
+    .section-label-light {
+        font-size: 0.7rem;
+        font-weight: 800;
+        color: rgba(255,255,255,0.5);
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+    .section-label-light::before {
+        content: '';
+        width: 1.5rem;
+        height: 2px;
+        background: var(--orange);
+        flex-shrink: 0;
+    }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    .hero {
+        background-color: var(--navy);
+        position: relative;
+        overflow: hidden;
+        padding-top: 80px;
+    }
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 55%;
+        height: 100%;
+        background: linear-gradient(135deg, transparent 0%, rgba(0,51,160,0.15) 100%);
+        pointer-events: none;
+    }
+    .hero::after {
+        content: 'ISMI';
+        position: absolute;
+        right: -2rem;
+        bottom: -3rem;
+        font-family: var(--font-display);
+        font-weight: 900;
+        font-size: 18rem;
+        line-height: 1;
+        color: rgba(255,255,255,0.03);
+        pointer-events: none;
+        letter-spacing: -0.05em;
+    }
+    .hero-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 5rem 3rem 6rem;
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: center;
+    }
+    .hero-breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+    }
+    .hero-breadcrumb a,
+    .hero-breadcrumb span {
+        font-size: 0.72rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: rgba(255,255,255,0.4);
+        transition: color 0.2s ease;
+    }
+    .hero-breadcrumb a:hover { color: rgba(255,255,255,0.8); }
+    .hero-breadcrumb .sep { color: var(--orange); }
+    .hero-breadcrumb .current { color: rgba(255,255,255,0.7); }
+    .hero-h1 {
+        font-size: clamp(2.75rem, 5vw, 4rem);
+        font-weight: 900;
+        color: white;
+        margin-bottom: 1.75rem;
+        letter-spacing: -0.03em;
+        line-height: 1.0;
+    }
+    .hero-h1 span { color: var(--orange); }
+    .hero-intro {
+        font-size: 1.0625rem;
+        color: rgba(255,255,255,0.65);
+        line-height: 1.75;
+        margin-bottom: 1.25rem;
+    }
+    .hero-philosophy {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-left: 3px solid var(--orange);
+        border-radius: 12px;
+        padding: 1.25rem 1.5rem;
+        margin-top: 2rem;
+    }
+    .hero-philosophy-icon {
+        width: 36px;
+        height: 36px;
+        background: rgba(214,67,9,0.15);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+    .hero-philosophy p {
+        font-size: 0.9rem;
+        color: rgba(255,255,255,0.75);
+        line-height: 1.65;
+    }
+    .hero-right { display: flex; flex-direction: column; gap: 1.25rem; }
+    .trust-chip {
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 16px;
+        padding: 1.5rem;
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        transition: var(--ease);
+    }
+    .trust-chip:hover {
+        background: rgba(255,255,255,0.1);
+        border-color: rgba(255,255,255,0.2);
+    }
+    .trust-chip-icon {
+        width: 44px;
+        height: 44px;
+        background: rgba(0,51,160,0.5);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        color: var(--sky);
+    }
+    .trust-chip-text strong {
+        display: block;
+        font-weight: 800;
+        font-size: 0.9rem;
+        color: white;
+        margin-bottom: 0.2rem;
+        font-family: var(--font-display);
+    }
+    .trust-chip-text span {
+        font-size: 0.75rem;
+        color: rgba(255,255,255,0.5);
+        line-height: 1.5;
+    }
+
+    /* =============================================
+       NON-SURGICAL TREATMENT SECTION
+    ============================================= */
+    .section-nonsurgical {
+        background: var(--gray);
+        padding: 6rem 0;
+    }
+    .nonsurgical-header {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: end;
+        margin-bottom: 4rem;
+    }
+    .nonsurgical-header h2 {
+        font-size: clamp(2.25rem, 4vw, 3.25rem);
+        font-weight: 900;
+        color: var(--navy);
+    }
+    .nonsurgical-header-right p {
+        font-size: 1rem;
+        color: var(--slate);
+        line-height: 1.75;
+    }
+    .treatment-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+        margin-bottom: 2rem;
+    }
+    .treat-card {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 1.75rem;
+        position: relative;
+        overflow: hidden;
+        transition: var(--ease);
+    }
+    .treat-card::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: var(--blue);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .treat-card:hover::before { transform: scaleX(1); }
+    .treat-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 24px 48px -8px rgba(0,51,160,0.12);
+        border-color: var(--blue);
+    }
+    .treat-card-icon {
+        width: 44px;
+        height: 44px;
+        background: var(--sky);
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--blue);
+        margin-bottom: 1rem;
+    }
+    .treat-card-title {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 0.9375rem;
+        color: var(--navy);
+        margin-bottom: 0.375rem;
+        line-height: 1.25;
+    }
+    .treat-card-sub {
+        font-size: 0.75rem;
+        color: var(--slate);
+        line-height: 1.5;
+    }
+    .nonsurgical-footer-note {
+        font-size: 0.9rem;
+        color: var(--slate);
+        line-height: 1.75;
+        padding: 1.5rem 2rem;
+        background: white;
+        border: 1px solid var(--border);
+        border-left: 3px solid var(--blue);
+        border-radius: 0 12px 12px 0;
+    }
+
+    /* =============================================
+       DIAGNOSTIC / ULTRASOUND SECTION
+    ============================================= */
+    .section-diagnostic {
+        background: var(--navy);
+        padding: 6rem 0;
+        position: relative;
+        overflow: hidden;
+    }
+    .section-diagnostic::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -10%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(0,51,160,0.6) 0%, transparent 70%);
+        pointer-events: none;
+    }
+    .diagnostic-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 3rem;
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem;
+        align-items: start;
+    }
+    .diagnostic-left h2 {
+        font-size: clamp(2.25rem, 4vw, 3.25rem);
+        font-weight: 900;
+        color: white;
+        margin-bottom: 1.5rem;
+    }
+    .diagnostic-left p {
+        font-size: 1rem;
+        color: rgba(255,255,255,0.65);
+        line-height: 1.75;
+        margin-bottom: 1.25rem;
+    }
+    .diagnostic-left p:last-child { margin-bottom: 0; }
+    .diagnostic-conditions {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    .diag-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 12px;
+        padding: 1rem 1.25rem;
+        transition: var(--ease);
+    }
+    .diag-item:hover {
+        background: rgba(255,255,255,0.09);
+        border-color: rgba(255,255,255,0.18);
+        transform: translateX(4px);
+    }
+    .diag-item-dot {
+        width: 6px;
+        height: 6px;
+        background: var(--orange);
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+    .diag-item-text {
+        font-size: 0.875rem;
+        color: rgba(255,255,255,0.8);
+        font-weight: 500;
+    }
+
+    /* =============================================
+       SPORTS PHYSICALS & PREVENTION SECTION
+    ============================================= */
+    .section-physicals {
+        background: white;
+        padding: 6rem 0;
+    }
+    .physicals-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 3rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem;
+        align-items: start;
+    }
+    .physicals-content h2 {
+        font-size: clamp(2rem, 3.5vw, 2.75rem);
+        font-weight: 900;
+        color: var(--navy);
+        margin-bottom: 1.5rem;
+    }
+    .physicals-content p {
+        font-size: 1rem;
+        color: var(--slate);
+        line-height: 1.75;
+        margin-bottom: 1.25rem;
+    }
+    .physicals-content p:last-child {
+        font-size: 0.9rem;
+        color: var(--slate);
+        line-height: 1.75;
+        padding: 1.25rem 1.5rem;
+        background: var(--gray);
+        border: 1px solid var(--border);
+        border-left: 3px solid var(--blue);
+        border-radius: 0 12px 12px 0;
+        margin-bottom: 0;
+    }
+    .physicals-strategies {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .strategy-card {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.25rem;
+        background: var(--gray);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 1.5rem;
+        transition: var(--ease);
+    }
+    .strategy-card:hover {
+        border-color: rgba(0,51,160,0.25);
+        background: var(--sky);
+        transform: translateX(4px);
+    }
+    .strategy-icon {
+        width: 44px;
+        height: 44px;
+        background: var(--blue);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        flex-shrink: 0;
+    }
+    .strategy-text strong {
+        display: block;
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 0.9rem;
+        color: var(--navy);
+        margin-bottom: 0.2rem;
+    }
+    .strategy-text span {
+        font-size: 0.78rem;
+        color: var(--slate);
+        line-height: 1.5;
+    }
+
+    /* =============================================
+       PERFORMANCE TESTING SECTION
+    ============================================= */
+    .section-performance {
+        background: var(--sky);
+        padding: 6rem 0;
+    }
+    .performance-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 3rem;
+    }
+    .performance-header {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: end;
+        margin-bottom: 4rem;
+    }
+    .performance-header h2 {
+        font-size: clamp(2.25rem, 4vw, 3.25rem);
+        font-weight: 900;
+        color: var(--navy);
+    }
+    .performance-header-right p {
+        font-size: 1rem;
+        color: var(--slate);
+        line-height: 1.75;
+    }
+    .performance-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+    .perf-card {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 1.5rem;
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        transition: var(--ease);
+    }
+    .perf-card:hover {
+        border-color: rgba(0,51,160,0.25);
+        box-shadow: 0 12px 32px -6px rgba(0,51,160,0.1);
+        transform: translateY(-4px);
+    }
+    .perf-card-num {
+        font-family: var(--font-display);
+        font-weight: 900;
+        font-size: 1.25rem;
+        color: var(--border);
+        line-height: 1;
+        flex-shrink: 0;
+        min-width: 32px;
+        padding-top: 1px;
+    }
+    .perf-card-label {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 0.875rem;
+        color: var(--navy);
+        line-height: 1.3;
+    }
+    .performance-footer-note {
+        font-size: 0.9rem;
+        color: var(--slate);
+        line-height: 1.75;
+        padding: 1.5rem 2rem;
+        background: white;
+        border: 1px solid var(--border);
+        border-left: 3px solid var(--orange);
+        border-radius: 0 12px 12px 0;
+    }
+
+    /* =============================================
+       CARE FOR EVERY LEVEL — ORANGE BAND
+    ============================================= */
+    .section-every-level {
+        background: var(--orange);
+        padding: 5rem 0;
+        position: relative;
+        overflow: hidden;
+    }
+    .section-every-level::before {
+        content: '';
+        position: absolute;
+        top: -30%;
+        right: -5%;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+        pointer-events: none;
+    }
+    .every-level-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 3rem;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 4rem;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+    }
+    .every-level-eyebrow {
+        font-size: 0.68rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.22em;
+        color: rgba(255,255,255,0.7);
+        display: flex;
+        align-items: center;
+        gap: 0.625rem;
+        margin-bottom: 1rem;
+    }
+    .every-level-eyebrow::before {
+        content: '';
+        width: 1.5rem;
+        height: 2px;
+        background: white;
+        flex-shrink: 0;
+    }
+    .every-level-heading {
+        font-family: var(--font-display);
+        font-size: clamp(1.75rem, 3vw, 2.5rem);
+        font-weight: 900;
+        color: white;
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+        white-space: nowrap;
+    }
+    .every-level-body {
+        font-size: 1rem;
+        color: rgba(255,255,255,0.85);
+        line-height: 1.8;
+        max-width: 640px;
+    }
+
+    /* =============================================
+       CTA SECTION
+    ============================================= */
+    .section-cta {
+        background: white;
+        padding: 5rem 0;
+    }
+    .cta-card {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 3rem;
+    }
+    .cta-card-inner {
+        background: var(--navy);
+        border-radius: 40px;
+        overflow: hidden;
+        position: relative;
+        padding: 5rem 6rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 4rem;
+    }
+    .cta-card-inner::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(0,30,96,0.95) 0%, rgba(0,51,160,0.7) 100%);
+        pointer-events: none;
+    }
+    .cta-content { position: relative; z-index: 1; max-width: 560px; }
+    .cta-pulse {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+    .cta-pulse-dot {
+        width: 8px;
+        height: 8px;
+        background: var(--orange);
+        border-radius: 50%;
+        animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.6; transform: scale(0.85); }
+    }
+    .cta-pulse span {
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: var(--orange);
+    }
+    .cta-content h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 900;
+        color: white;
+        margin-bottom: 1.25rem;
+    }
+    .cta-content h2 span { color: var(--orange); }
+    .cta-content p {
+        font-size: 1rem;
+        color: rgba(255,255,255,0.65);
+        line-height: 1.75;
+    }
+    .cta-actions {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        flex-shrink: 0;
+        min-width: 220px;
+    }
+    .cta-actions .btn-orange,
+    .cta-actions .btn-phone { justify-content: center; }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    .footer {
+        background: var(--navy);
+        padding-top: 6rem;
+        padding-bottom: 3rem;
+    }
+    .footer-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 3rem;
+    }
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 4rem;
+        margin-bottom: 5rem;
+    }
+    .footer-brand-logo img {
+        height: 40px;
+        width: auto;
+        object-fit: contain;
+        filter: brightness(0) invert(1);
+        margin-bottom: 2rem;
+    }
+    .footer-brand-desc {
+        font-size: 0.875rem;
+        color: rgba(255,255,255,0.45);
+        max-width: 320px;
+        line-height: 1.7;
+        margin-bottom: 2rem;
+    }
+    .footer-socials { display: flex; gap: 0.75rem; }
+    .footer-social-btn {
+        width: 40px;
+        height: 40px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255,255,255,0.6);
+        cursor: pointer;
+        transition: var(--ease);
+    }
+    .footer-social-btn:hover { color: white; background: rgba(255,255,255,0.12); }
+    .footer-col h4 {
+        font-weight: 700;
+        color: white;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        font-size: 0.72rem;
+        margin-bottom: 2rem;
+    }
+    .footer-col ul { display: flex; flex-direction: column; gap: 1rem; }
+    .footer-col ul li a,
+    .footer-col ul li span {
+        font-size: 0.875rem;
+        color: rgba(255,255,255,0.45);
+        transition: color 0.2s ease;
+    }
+    .footer-col ul li a:hover { color: white; }
+    .footer-col ul li .orange { color: var(--orange); font-weight: 600; }
+    .footer-bottom {
+        border-top: 1px solid rgba(255,255,255,0.06);
+        padding-top: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+    .footer-copy {
+        font-size: 0.625rem;
+        font-weight: 700;
+        color: rgba(255,255,255,0.25);
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+    }
+    .footer-legal { display: flex; gap: 2rem; }
+    .footer-legal a {
+        font-size: 0.625rem;
+        font-weight: 700;
+        color: rgba(255,255,255,0.25);
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        transition: color 0.2s ease;
+    }
+    .footer-legal a:hover { color: rgba(255,255,255,0.6); }
+
+    </style>
+</head>
+<body>
+
+    <!-- ════════════════════════════
+         NAV
+    ════════════════════════════ -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <img src="Assets/ISMI-logo.png" alt="ISMI Logo">
+            </a>
+            <div class="nav-links">
+                <a href="#">Conditions &amp; Treatments</a>
+                <a href="#" class="active">Our Surgeons</a>
+                <a href="#">Patient Resources</a>
+                <a href="#">Locations</a>
+            </div>
+            <a href="#" class="nav-cta">Book Now</a>
+        </div>
+    </nav>
+
+
+    <!-- ════════════════════════════
+         HERO
+    ════════════════════════════ -->
+    <section class="hero">
+        <div class="hero-inner">
+
+            <div>
+                <div class="hero-breadcrumb">
+                    <a href="#">Home</a>
+                    <span class="sep">›</span>
+                    <a href="#">Conditions &amp; Treatments</a>
+                    <span class="sep">›</span>
+                    <span class="current">Sports Medicine</span>
+                </div>
+
+                <h1 class="hero-h1">
+                    Sports Medicine<br>
+                    <span>in Boise</span>
+                </h1>
+
+                <p class="hero-intro">
+                    Idaho Sports Medicine Institute provides comprehensive sports medicine in Boise for athletes and active individuals of all levels. Our sports medicine physicians specialize in diagnosing, treating, and preventing musculoskeletal injuries without surgery whenever possible.
+                </p>
+
+                <div class="hero-philosophy">
+                    <div class="hero-philosophy-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D64309" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <p>From acute sports injuries to chronic overuse conditions, our team delivers evidence-based care designed to restore function, reduce pain, and safely return you to activity.</p>
+                </div>
+            </div>
+
+            <div class="hero-right">
+                <div class="trust-chip">
+                    <div class="trust-chip-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <div class="trust-chip-text">
+                        <strong>Non-Surgical First</strong>
+                        <span>Physicians who specialize in keeping athletes out of the OR through conservative, evidence-based care</span>
+                    </div>
+                </div>
+                <div class="trust-chip">
+                    <div class="trust-chip-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                    </div>
+                    <div class="trust-chip-text">
+                        <strong>Ultrasound-Guided Injections</strong>
+                        <span>Diagnostic musculoskeletal ultrasound for real-time evaluation and precision-guided treatment</span>
+                    </div>
+                </div>
+                <div class="trust-chip">
+                    <div class="trust-chip-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <div class="trust-chip-text">
+                        <strong>Performance Testing</strong>
+                        <span>Biodex strength testing, VO2 max, gait analysis, and sport-specific readiness evaluation</span>
+                    </div>
+                </div>
+                <div class="trust-chip">
+                    <div class="trust-chip-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    </div>
+                    <div class="trust-chip-text">
+                        <strong>Sports Physicals</strong>
+                        <span>Comprehensive pre-participation evaluations for athletes 9th grade and older</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ════════════════════════════
+         NON-SURGICAL TREATMENT
+    ════════════════════════════ -->
+    <section class="section-nonsurgical">
+        <div class="container">
+
+            <div class="nonsurgical-header">
+                <div>
+                    <span class="section-label">Conservative Care</span>
+                    <h2>Non-Surgical Sports<br>Injury Treatment</h2>
+                </div>
+                <div class="nonsurgical-header-right">
+                    <p>Most sports injuries can be treated without surgery. Our sports medicine physicians evaluate ligament injuries, tendon conditions, joint pain, muscle strains, and overuse injuries using a detailed clinical examination and advanced imaging when needed.</p>
+                </div>
+            </div>
+
+            <div class="treatment-grid">
+
+                <div class="treat-card">
+                    <div class="treat-card-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </div>
+                    <div class="treat-card-title">Activity Modification &amp; Guided Rehabilitation</div>
+                    <div class="treat-card-sub">Structured protocols that protect healing tissue while maintaining strength and conditioning</div>
+                </div>
+
+                <div class="treat-card">
+                    <div class="treat-card-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+                    </div>
+                    <div class="treat-card-title">Bracing &amp; Orthotic Support</div>
+                    <div class="treat-card-sub">Custom and off-the-shelf bracing to stabilize joints and support return to activity</div>
+                </div>
+
+                <div class="treat-card">
+                    <div class="treat-card-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1" ry="1"/><path d="M9 12h6M9 16h4"/></svg>
+                    </div>
+                    <div class="treat-card-title">Exercise Prescription Programs</div>
+                    <div class="treat-card-sub">Sport-specific movement programs designed to rebuild capacity and reduce re-injury risk</div>
+                </div>
+
+                <div class="treat-card">
+                    <div class="treat-card-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    </div>
+                    <div class="treat-card-title">Ultrasound-Guided Injections</div>
+                    <div class="treat-card-sub">Precision-guided medication delivery directly into affected tissue for improved outcomes</div>
+                </div>
+
+                <div class="treat-card">
+                    <div class="treat-card-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V8M5 12H2M22 12h-3M6.3 6.3 4.2 4.2M19.8 4.2l-2.1 2.1"/><circle cx="12" cy="5" r="3"/></svg>
+                    </div>
+                    <div class="treat-card-title">Platelet-Rich Plasma Injections</div>
+                    <div class="treat-card-sub">PRP therapy using the body's own healing factors to accelerate tendon and ligament recovery</div>
+                </div>
+
+                <div class="treat-card">
+                    <div class="treat-card-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                    </div>
+                    <div class="treat-card-title">Viscosupplementation for Joint Pain</div>
+                    <div class="treat-card-sub">Hyaluronic acid injections to reduce joint friction and improve mobility in arthritic joints</div>
+                </div>
+
+            </div>
+
+            <div class="nonsurgical-footer-note">
+                Our conservative treatment philosophy focuses on healing the injury while maintaining strength, mobility, and performance.
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ════════════════════════════
+         DIAGNOSTIC & ULTRASOUND
+    ════════════════════════════ -->
+    <section class="section-diagnostic">
+        <div class="diagnostic-inner">
+
+            <div class="diagnostic-left">
+                <span class="section-label-light">Precision Diagnosis</span>
+                <h2>Advanced Diagnostic and Injection Therapies</h2>
+                <p>Accurate diagnosis is essential for effective sports medicine care. We utilize diagnostic musculoskeletal ultrasound to evaluate tendons, ligaments, muscles, and joints in real time.</p>
+                <p>Conditions commonly evaluated with ultrasound include:</p>
+                <p style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; margin-top: 1.5rem; font-size: 0.9rem; color: rgba(255,255,255,0.55); line-height: 1.75;">Ultrasound-guided injections allow for the precise placement of medication directly into the affected tissue. This improves accuracy and may enhance treatment outcomes.</p>
+            </div>
+
+            <div class="diagnostic-conditions">
+                <div class="diag-item">
+                    <div class="diag-item-dot"></div>
+                    <span class="diag-item-text">Rotator cuff and biceps tendon injuries</span>
+                </div>
+                <div class="diag-item">
+                    <div class="diag-item-dot"></div>
+                    <span class="diag-item-text">Elbow and wrist ligament injuries</span>
+                </div>
+                <div class="diag-item">
+                    <div class="diag-item-dot"></div>
+                    <span class="diag-item-text">Carpal tunnel syndrome</span>
+                </div>
+                <div class="diag-item">
+                    <div class="diag-item-dot"></div>
+                    <span class="diag-item-text">Achilles tendon injuries</span>
+                </div>
+                <div class="diag-item">
+                    <div class="diag-item-dot"></div>
+                    <span class="diag-item-text">Plantar fasciitis</span>
+                </div>
+                <div class="diag-item">
+                    <div class="diag-item-dot"></div>
+                    <span class="diag-item-text">Patellar and quadriceps tendon injuries</span>
+                </div>
+                <div class="diag-item">
+                    <div class="diag-item-dot"></div>
+                    <span class="diag-item-text">Trochanteric bursitis</span>
+                </div>
+                <div class="diag-item">
+                    <div class="diag-item-dot"></div>
+                    <span class="diag-item-text">Iliopsoas tendon dysfunction</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ════════════════════════════
+         SPORTS PHYSICALS & PREVENTION
+    ════════════════════════════ -->
+    <section class="section-physicals">
+        <div class="physicals-inner">
+
+            <div class="physicals-content">
+                <span class="section-label">Athlete Readiness</span>
+                <h2>Sports Physicals and Injury Prevention</h2>
+                <p>We provide comprehensive sports physicals for athletes in 9th grade and older. These evaluations assess overall health and readiness for participation in organized athletics.</p>
+                <p>Beyond injury treatment, our sports medicine team emphasizes injury prevention strategies through:</p>
+                <p>Our goal is to reduce the risk of re-injury while optimizing long-term athletic performance.</p>
+            </div>
+
+            <div class="physicals-strategies">
+                <div class="strategy-card">
+                    <div class="strategy-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                    </div>
+                    <div class="strategy-text">
+                        <strong>Biomechanical Assessment</strong>
+                        <span>Movement screening to identify compensations and mechanical risk factors before injury occurs</span>
+                    </div>
+                </div>
+                <div class="strategy-card">
+                    <div class="strategy-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                    </div>
+                    <div class="strategy-text">
+                        <strong>Strength &amp; Conditioning Guidance</strong>
+                        <span>Evidence-based training recommendations tailored to your sport's physical demands</span>
+                    </div>
+                </div>
+                <div class="strategy-card">
+                    <div class="strategy-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1" ry="1"/><path d="M9 12h6M9 16h4"/></svg>
+                    </div>
+                    <div class="strategy-text">
+                        <strong>Customized Exercise Prescription</strong>
+                        <span>Individualized programming designed to build durability and close functional gaps</span>
+                    </div>
+                </div>
+                <div class="strategy-card">
+                    <div class="strategy-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <div class="strategy-text">
+                        <strong>Return to Play Evaluation</strong>
+                        <span>Objective clearance criteria ensuring athletes are physically ready before returning to competition</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ════════════════════════════
+         PERFORMANCE TESTING
+    ════════════════════════════ -->
+    <section class="section-performance">
+        <div class="performance-inner">
+
+            <div class="performance-header">
+                <div>
+                    <span class="section-label">Performance Lab</span>
+                    <h2>Performance Testing and Return to Play</h2>
+                </div>
+                <div class="performance-header-right">
+                    <p>For competitive athletes and highly active individuals, we offer advanced performance testing to guide training and rehabilitation. These tools allow us to objectively measure strength, endurance, biomechanics, and readiness to return to sport.</p>
+                </div>
+            </div>
+
+            <div class="performance-grid">
+
+                <div class="perf-card">
+                    <div class="perf-card-num">01</div>
+                    <div class="perf-card-label">Biodex Isokinetic Strength Testing</div>
+                </div>
+                <div class="perf-card">
+                    <div class="perf-card-num">02</div>
+                    <div class="perf-card-label">Running Gait Analysis</div>
+                </div>
+                <div class="perf-card">
+                    <div class="perf-card-num">03</div>
+                    <div class="perf-card-label">VO2 Max Testing</div>
+                </div>
+                <div class="perf-card">
+                    <div class="perf-card-num">04</div>
+                    <div class="perf-card-label">Lactate Threshold Testing</div>
+                </div>
+                <div class="perf-card">
+                    <div class="perf-card-num">05</div>
+                    <div class="perf-card-label">Hybrid VO2 &amp; Lactate Testing</div>
+                </div>
+                <div class="perf-card">
+                    <div class="perf-card-num">06</div>
+                    <div class="perf-card-label">Body Composition Analysis</div>
+                </div>
+                <div class="perf-card">
+                    <div class="perf-card-num">07</div>
+                    <div class="perf-card-label">Sport-Specific Training Program Design</div>
+                </div>
+                <div class="perf-card">
+                    <div class="perf-card-num">08</div>
+                    <div class="perf-card-label">Alter G Anti-Gravity Treadmill Rehabilitation</div>
+                </div>
+                <div class="perf-card">
+                    <div class="perf-card-num">09</div>
+                    <div class="perf-card-label">ASTYM Soft Tissue Treatment</div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ════════════════════════════
+         CARE FOR EVERY LEVEL
+    ════════════════════════════ -->
+    <section class="section-every-level">
+        <div class="every-level-inner">
+            <div>
+                <div class="every-level-eyebrow">Who We Treat</div>
+                <div class="every-level-heading">Care for Every<br>Level of Athlete</div>
+            </div>
+            <p class="every-level-body">
+                While we treat professional and collegiate athletes, most of our patients are active individuals from Boise and the surrounding communities. Whether you are recovering from an injury, managing chronic joint pain, or seeking to improve performance, our sports medicine team provides personalized care tailored to your goals.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- ════════════════════════════
+         CTA
+    ════════════════════════════ -->
+    <section class="section-cta">
+        <div class="cta-card">
+            <div class="cta-card-inner">
+                <div class="cta-content">
+                    <div class="cta-pulse">
+                        <div class="cta-pulse-dot"></div>
+                        <span>Accepting New Patients</span>
+                    </div>
+                    <h2>Ready to Return<br><span>to Activity?</span></h2>
+                    <p>If you are experiencing a sports injury or persistent joint pain, schedule an evaluation with Idaho Sports Medicine Institute. Our sports medicine physicians in Boise are here to help you recover safely and move with confidence.</p>
+                </div>
+                <div class="cta-actions">
+                    <a href="#" class="btn-orange">
+                        Schedule Now
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                    </a>
+                    <a href="tel:2085550000" class="btn-phone">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        (208) 555-ISMI
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ════════════════════════════
+         FOOTER
+    ════════════════════════════ -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-brand-logo">
+                        <img src="Assets/ISMI-logo.png" alt="ISMI Logo">
+                    </div>
+                    <p class="footer-brand-desc">
+                        Idaho's premier sports medicine and orthopedic institute. Official orthopedic partner of Boise State University Athletics.
+                    </p>
+                    <div class="footer-socials">
+                        <div class="footer-social-btn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </div>
+                        <div class="footer-social-btn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </div>
+                        <div class="footer-social-btn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Sport Programs</h4>
+                    <ul>
+                        <li><a href="#">Football</a></li>
+                        <li><a href="#">Basketball</a></li>
+                        <li><a href="#">Track &amp; Field</a></li>
+                        <li><a href="#">All Programs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><span>1188 University Dr.</span></li>
+                        <li><span>Boise, ID 83706</span></li>
+                        <li><span class="orange">(208) 555-ISMI</span></li>
+                        <li><span>info@ismi.com</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copy">© 2026 Idaho Sports Medicine Institute. All Rights Reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Patient Forms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

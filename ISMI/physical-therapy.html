@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physical Therapy Boise | Idaho Sports Medicine Institute</title>
+    <meta name="description" content="Idaho Sports Medicine Institute provides physical therapy in Boise for injury recovery, post-surgical rehabilitation, and performance training. Our personalized therapy programs restore strength, mobility, and function to help you safely return to daily activities and sports.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+
+    /* =============================================
+       TOKENS
+    ============================================= */
+    :root {
+        --blue:    #0033A0;
+        --orange:  #D64309;
+        --navy:    #001E60;
+        --sky:     #E6EEFF;
+        --slate:   #475569;
+        --gray:    #F8FAFC;
+        --border:  #E2E8F0;
+        --dark:    #1E293B;
+        --white:   #FFFFFF;
+
+        --font-display: 'Plus Jakarta Sans', sans-serif;
+        --font-body:    'Inter', sans-serif;
+
+        --ease: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --max-w: 1280px;
+    }
+
+    /* =============================================
+       BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+        background: var(--white);
+        color: var(--dark);
+        font-family: var(--font-body);
+        font-size: 16px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3 {
+        font-family: var(--font-display);
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { display: block; max-width: 100%; }
+
+    .container {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 3rem;
+    }
+
+    /* =============================================
+       NAV
+    ============================================= */
+    .nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 50;
+        background: rgba(0, 30, 96, 0.95);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 3rem;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .nav-logo img {
+        height: 40px;
+        width: auto;
+        object-fit: contain;
+        filter: brightness(0) invert(1);
+    }
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+    }
+    .nav-links a {
+        font-size: 0.875rem;
+        font-weight: 700;
+        color: rgba(255,255,255,0.7);
+        transition: color 0.2s ease;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta {
+        background: var(--orange);
+        color: #fff !important;
+        padding: 0.6rem 1.4rem;
+        border-radius: 6px;
+        font-weight: 700 !important;
+        transition: var(--ease) !important;
+    }
+    .nav-cta:hover { background: #b83707 !important; }
+
+    /* =============================================
+       SECTION LABEL
+    ============================================= */
+    .section-label {
+        font-size: 0.7rem;
+        font-weight: 800;
+        color: var(--blue);
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+    .section-label::before {
+        content: '';
+        width: 1.5rem;
+        height: 2px;
+        background: var(--orange);
+        flex-shrink: 0;
+    }
+    .section-label-light {
+        font-size: 0.7rem;
+        font-weight: 800;
+        color: rgba(255,255,255,0.5);
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+    .section-label-light::before {
+        content: '';
+        width: 1.5rem;
+        height: 2px;
+        background: var(--orange);
+        flex-shrink: 0;
+    }
+
+    /* =============================================
+       BUTTONS
+    ============================================= */
+    .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--orange);
+        color: #fff;
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 0.9rem;
+        letter-spacing: 0.04em;
+        padding: 0.85rem 2rem;
+        border-radius: 6px;
+        transition: var(--ease);
+        border: none;
+        cursor: pointer;
+    }
+    .btn-primary:hover { background: #b83707; transform: translateY(-1px); }
+
+    .btn-outline-light {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: transparent;
+        color: #fff;
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 0.9rem;
+        letter-spacing: 0.04em;
+        padding: 0.85rem 2rem;
+        border-radius: 6px;
+        border: 2px solid rgba(255,255,255,0.35);
+        transition: var(--ease);
+        cursor: pointer;
+    }
+    .btn-outline-light:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+
+    .btn-outline-blue {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: transparent;
+        color: var(--blue);
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 0.9rem;
+        letter-spacing: 0.04em;
+        padding: 0.85rem 2rem;
+        border-radius: 6px;
+        border: 2px solid var(--blue);
+        transition: var(--ease);
+        cursor: pointer;
+    }
+    .btn-outline-blue:hover { background: var(--blue); color: #fff; }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    .hero {
+        background: var(--navy);
+        padding: 10rem 0 6rem;
+        position: relative;
+        overflow: hidden;
+    }
+    .hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse 60% 80% at 100% 50%, rgba(0,51,160,0.35) 0%, transparent 70%);
+        pointer-events: none;
+    }
+    .hero-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 3rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+    }
+    .hero-left {}
+    .hero-h1 {
+        font-size: clamp(2.6rem, 5vw, 4rem);
+        font-weight: 900;
+        color: #fff;
+        margin-bottom: 1.5rem;
+        line-height: 1.05;
+    }
+    .hero-intro {
+        font-size: 1.1rem;
+        color: rgba(255,255,255,0.75);
+        line-height: 1.75;
+        margin-bottom: 2rem;
+    }
+    .hero-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 2.5rem;
+    }
+    .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.15);
+        color: rgba(255,255,255,0.85);
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        padding: 0.45rem 1rem;
+        border-radius: 100px;
+    }
+    .chip svg { width: 14px; height: 14px; }
+
+    .hero-right {}
+    .hero-callout {
+        background: rgba(214, 67, 9, 0.12);
+        border: 1px solid rgba(214, 67, 9, 0.3);
+        border-left: 4px solid var(--orange);
+        border-radius: 12px;
+        padding: 2rem 2rem 2rem 1.75rem;
+    }
+    .hero-callout p {
+        font-size: 1.05rem;
+        color: rgba(255,255,255,0.88);
+        line-height: 1.75;
+        margin-bottom: 1.5rem;
+    }
+    .hero-callout p:last-child { margin-bottom: 0; }
+    .hero-callout-eyebrow {
+        font-family: var(--font-display);
+        font-size: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--orange);
+        margin-bottom: 0.75rem;
+    }
+
+    /* =============================================
+       CONDITIONS BAND
+    ============================================= */
+    .conditions-band {
+        background: var(--orange);
+        padding: 5rem 0;
+    }
+    .conditions-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 3rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+    }
+    .conditions-left {}
+    .conditions-label {
+        font-size: 0.7rem;
+        font-weight: 800;
+        color: rgba(255,255,255,0.6);
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+    .conditions-label::before {
+        content: '';
+        width: 1.5rem;
+        height: 2px;
+        background: rgba(255,255,255,0.5);
+        flex-shrink: 0;
+    }
+    .conditions-h2 {
+        font-size: clamp(1.8rem, 3vw, 2.6rem);
+        font-weight: 900;
+        color: #fff;
+        margin-bottom: 1.25rem;
+        line-height: 1.1;
+    }
+    .conditions-body {
+        font-size: 1rem;
+        color: rgba(255,255,255,0.85);
+        line-height: 1.75;
+        margin-bottom: 2rem;
+    }
+    .btn-white {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: #fff;
+        color: var(--orange);
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 0.9rem;
+        letter-spacing: 0.04em;
+        padding: 0.85rem 2rem;
+        border-radius: 6px;
+        transition: var(--ease);
+        cursor: pointer;
+        border: none;
+    }
+    .btn-white:hover { background: rgba(255,255,255,0.9); transform: translateY(-1px); }
+    .conditions-right {}
+    .conditions-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+    }
+    .condition-item {
+        background: rgba(255,255,255,0.15);
+        border: 1px solid rgba(255,255,255,0.25);
+        border-radius: 8px;
+        padding: 0.85rem 1.1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+    }
+    .condition-item svg {
+        width: 16px;
+        height: 16px;
+        color: rgba(255,255,255,0.7);
+        flex-shrink: 0;
+    }
+    .condition-item span {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: #fff;
+        line-height: 1.3;
+    }
+
+    /* =============================================
+       SERVICES SECTION
+    ============================================= */
+    .services {
+        background: var(--gray);
+        padding: 6rem 0;
+    }
+    .services-header {
+        text-align: center;
+        max-width: 720px;
+        margin: 0 auto 3.5rem;
+    }
+    .services-header .section-label {
+        justify-content: center;
+    }
+    .services-h2 {
+        font-size: clamp(1.8rem, 3vw, 2.8rem);
+        font-weight: 900;
+        color: var(--navy);
+        margin-bottom: 1rem;
+    }
+    .services-intro {
+        font-size: 1.05rem;
+        color: var(--slate);
+        line-height: 1.75;
+    }
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    .service-card {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        transition: var(--ease);
+    }
+    .service-card:hover {
+        box-shadow: 0 16px 40px rgba(0,30,96,0.1);
+        transform: translateY(-4px);
+        border-color: transparent;
+    }
+    .service-icon {
+        width: 52px;
+        height: 52px;
+        background: var(--sky);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+    .service-icon svg { width: 26px; height: 26px; color: var(--blue); }
+    .service-card h3 {
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: var(--navy);
+        line-height: 1.2;
+    }
+    .service-card p {
+        font-size: 0.93rem;
+        color: var(--slate);
+        line-height: 1.7;
+    }
+    .service-card .internal-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--blue);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        margin-top: auto;
+        padding-top: 0.5rem;
+        border-top: 1px solid var(--border);
+    }
+    .service-card .internal-link svg { width: 14px; height: 14px; }
+    .services-grid-bottom {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    /* =============================================
+       SPORT REINTEGRATION
+    ============================================= */
+    .reintegration {
+        background: var(--navy);
+        padding: 6rem 0;
+        position: relative;
+        overflow: hidden;
+    }
+    .reintegration::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse 50% 70% at 0% 100%, rgba(0,51,160,0.4) 0%, transparent 60%);
+        pointer-events: none;
+    }
+    .reintegration-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 3rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+    }
+    .reintegration-left {}
+    .reintegration-h2 {
+        font-size: clamp(1.8rem, 3vw, 2.8rem);
+        font-weight: 900;
+        color: #fff;
+        margin-bottom: 1.25rem;
+    }
+    .reintegration-intro {
+        font-size: 1.05rem;
+        color: rgba(255,255,255,0.75);
+        line-height: 1.75;
+        margin-bottom: 1.5rem;
+    }
+    .reintegration-close {
+        font-size: 1rem;
+        color: rgba(255,255,255,0.7);
+        line-height: 1.75;
+        margin-top: 2rem;
+        font-style: italic;
+    }
+    .reintegration-right {}
+    .reintegration-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .reintegration-item {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 12px;
+        padding: 1.25rem 1.5rem;
+        transition: var(--ease);
+    }
+    .reintegration-item:hover {
+        background: rgba(255,255,255,0.1);
+        border-color: rgba(255,255,255,0.2);
+    }
+    .reintegration-item-num {
+        width: 40px;
+        height: 40px;
+        background: var(--orange);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-size: 0.85rem;
+        font-weight: 900;
+        color: #fff;
+        flex-shrink: 0;
+    }
+    .reintegration-item-text {
+        font-size: 1rem;
+        font-weight: 600;
+        color: rgba(255,255,255,0.9);
+    }
+
+    /* =============================================
+       CTA
+    ============================================= */
+    .cta-section {
+        background: var(--white);
+        padding: 6rem 0;
+    }
+    .cta-card {
+        max-width: 860px;
+        margin: 0 auto;
+        background: var(--navy);
+        border-radius: 24px;
+        padding: 4rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    .cta-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse 70% 60% at 50% 120%, rgba(0,51,160,0.7) 0%, transparent 70%);
+        pointer-events: none;
+    }
+    .cta-card-inner { position: relative; z-index: 1; }
+    .cta-label {
+        font-size: 0.7rem;
+        font-weight: 800;
+        color: rgba(255,255,255,0.5);
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+    .cta-label::before {
+        content: '';
+        width: 1.5rem;
+        height: 2px;
+        background: var(--orange);
+        flex-shrink: 0;
+    }
+    .cta-h2 {
+        font-size: clamp(1.8rem, 3vw, 2.6rem);
+        font-weight: 900;
+        color: #fff;
+        margin-bottom: 1.25rem;
+    }
+    .cta-actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+    }
+    .cta-phone {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: rgba(255,255,255,0.75);
+        font-size: 1rem;
+        font-weight: 600;
+    }
+    .cta-phone svg { width: 18px; height: 18px; }
+
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a class="nav-logo" href="#">
+                <img src="assets/logo.png" alt="Idaho Sports Medicine Institute">
+            </a>
+            <div class="nav-links">
+                <a href="#">Sports Medicine</a>
+                <a href="#">Orthopedic Surgery</a>
+                <a href="#">Physical Therapy</a>
+                <a href="#">About</a>
+                <a href="#" class="nav-cta">Schedule Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- =============================================
+         HERO
+    ============================================= -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-left">
+                <div class="section-label-light">Idaho Sports Medicine Institute</div>
+                <h1 class="hero-h1">Physical Therapy in Boise</h1>
+                <p class="hero-intro">Physical therapy and rehabilitation services are focused on restoring and improving physical function, mobility, and strength. Whether you're recovering from surgery, managing a chronic condition, or treating an injury, the right physical therapy program can help you regain independence and return to your daily activities with confidence.</p>
+                <div class="hero-chips">
+                    <span class="chip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                        Personalized Care
+                    </span>
+                    <span class="chip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                        All Activity Levels
+                    </span>
+                    <span class="chip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                        Coordinated with Surgery &amp; Sports Medicine
+                    </span>
+                    <span class="chip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                        Senior PT Programs
+                    </span>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="hero-callout">
+                    <div class="hero-callout-eyebrow">Our Approach</div>
+                    <p>At Idaho Sports Medicine Institute in Boise, our physical therapy team provides personalized, compassionate care for patients of all activity levels.</p>
+                    <p>We work closely with our sports medicine physicians and orthopedic surgeons to ensure coordinated care throughout your recovery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================================
+         CONDITIONS BAND
+    ============================================= -->
+    <section class="conditions-band">
+        <div class="conditions-inner">
+            <div class="conditions-left">
+                <div class="conditions-label">What's Limiting You?</div>
+                <h2 class="conditions-h2">Conditions We Treat Through Physical Therapy</h2>
+                <p class="conditions-body">Injuries, surgeries, and chronic conditions can all affect mobility and performance. Some of the most common conditions we treat through physical therapy and rehabilitation include conditions affecting every joint and system of the body.</p>
+                <a href="#" class="btn-white">
+                    View All Services
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+            <div class="conditions-right">
+                <div class="conditions-grid">
+                    <div class="condition-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+                        <span>Post-Surgical Recovery</span>
+                    </div>
+                    <div class="condition-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+                        <span>Sports Injuries</span>
+                    </div>
+                    <div class="condition-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+                        <span>Chronic Pain</span>
+                    </div>
+                    <div class="condition-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+                        <span>Joint &amp; Muscle Conditions</span>
+                    </div>
+                    <div class="condition-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+                        <span>Balance &amp; Mobility Issues</span>
+                    </div>
+                    <div class="condition-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+                        <span>Performance Limitations</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================================
+         COMPREHENSIVE SERVICES
+    ============================================= -->
+    <section class="services">
+        <div class="container">
+            <div class="services-header">
+                <div class="section-label">Rehabilitation Services</div>
+                <h2 class="services-h2">Comprehensive Physical Therapy Services in Boise</h2>
+                <p class="services-intro">Below are some of the primary rehabilitation services we provide. In addition to physical therapy, we collaborate with our sports medicine and orthopedic specialists when further evaluation is needed.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Pre & Post-Operative Care -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2M9 12l2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <h3>Pre and Post-Operative Care</h3>
+                    <p>Planning, education, and guided exercise before and after surgery are essential for optimal recovery. Our personalized preoperative and postoperative rehabilitation programs help minimize complications, improve mobility, and accelerate safe return to activity.</p>
+                    <a href="#" class="internal-link">
+                        Orthopedic Surgery
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+                <!-- Manual Therapy -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 11.5V14m0-2.5V6a1.5 1.5 0 013 0m-3 5.5a1.5 1.5 0 013 0V6m0 5.5V6a1.5 1.5 0 013 0v5.5m0 0V7.5a1.5 1.5 0 013 0v4m0 0v2.5a6 6 0 01-12 0v-2.5"/>
+                        </svg>
+                    </div>
+                    <h3>Manual Therapy</h3>
+                    <p>Manual therapy involves skilled hands-on techniques that target joints, muscles, and soft tissue to reduce pain, restore mobility, and improve overall function. Our therapists use their knowledge of anatomy, biomechanics, and movement patterns to tailor treatment to each patient's specific condition.</p>
+                </div>
+
+                <!-- Therapeutic Exercise -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4.5 12.75l6 6 9-13.5"/>
+                        </svg>
+                    </div>
+                    <h3>Therapeutic Exercise</h3>
+                    <p>Therapeutic exercises are designed to address specific injuries or limitations and can be adapted for individuals of all ages and fitness levels. These exercises improve strength, flexibility, stability, and functional movement.</p>
+                    <p style="margin-top: 0.75rem; font-size: 0.93rem; color: var(--slate); line-height: 1.7;">Whether you are recovering from injury or managing a chronic condition, structured exercise is often a core part of the rehabilitation process. We also provide specialized programming for senior physical therapy.</p>
+                </div>
+            </div>
+
+            <div class="services-grid-bottom">
+                <!-- Testing & Performance Assessment -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3>Testing and Performance Assessment</h3>
+                    <p>In addition to rehabilitation services, we offer advanced testing to assess body composition, strength, oxygen utilization, joint function, and overall performance. These assessments provide valuable data to guide rehabilitation and long-term conditioning programs.</p>
+                    <a href="#" class="internal-link">
+                        Sports Medicine
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+                <!-- Sport Reintegration preview card -->
+                <div class="service-card" style="background: var(--sky); border-color: rgba(0,51,160,0.15);">
+                    <div class="service-icon" style="background: rgba(0,51,160,0.12);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 style="color: var(--navy);">Sport Reintegration and Return to Play</h3>
+                    <p style="color: var(--slate);">Returning to sport requires more than symptom relief. Our sport reintegration programs focus on rebuilding strength, endurance, and movement mechanics while minimizing re-injury risk.</p>
+                    <a href="#reintegration" class="internal-link">
+                        See Full Program
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================================
+         SPORT REINTEGRATION DETAIL
+    ============================================= -->
+    <section class="reintegration" id="reintegration">
+        <div class="reintegration-inner">
+            <div class="reintegration-left">
+                <div class="section-label-light">Return to Sport</div>
+                <h2 class="reintegration-h2">Sport Reintegration and Return to Play</h2>
+                <p class="reintegration-intro">Returning to sport requires more than symptom relief. Our sport reintegration programs focus on rebuilding strength, endurance, and movement mechanics while minimizing re-injury risk.</p>
+                <p class="reintegration-close">Our goal is to help you safely return to your sport stronger and more confident.</p>
+            </div>
+            <div class="reintegration-right">
+                <div class="reintegration-list">
+                    <div class="reintegration-item">
+                        <div class="reintegration-item-num">01</div>
+                        <span class="reintegration-item-text">Kinesio Taping</span>
+                    </div>
+                    <div class="reintegration-item">
+                        <div class="reintegration-item-num">02</div>
+                        <span class="reintegration-item-text">Medical Bike Fittings</span>
+                    </div>
+                    <div class="reintegration-item">
+                        <div class="reintegration-item-num">03</div>
+                        <span class="reintegration-item-text">Running Gait Analysis</span>
+                    </div>
+                    <div class="reintegration-item">
+                        <div class="reintegration-item-num">04</div>
+                        <span class="reintegration-item-text">Sports Performance Testing</span>
+                    </div>
+                    <div class="reintegration-item">
+                        <div class="reintegration-item-num">05</div>
+                        <span class="reintegration-item-text">Customized Training Programs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================================
+         CTA
+    ============================================= -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-card">
+                <div class="cta-card-inner">
+                    <div class="cta-label">Idaho Sports Medicine Institute</div>
+                    <h2 class="cta-h2">Let ISMI Help You Stay Active</h2>
+                    <div class="cta-actions">
+                        <a href="#" class="btn-primary">
+                            Schedule Now
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                        <div class="cta-phone">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+                            (208) 000-0000
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
