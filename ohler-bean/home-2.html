@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ohler Bean | Attorneys at Law</title>
+    <meta name="description" content="Ohler Bean is a premium law firm offering composed, precise counsel in litigation, estate planning, corporate, and real estate matters.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Inter (body) from Google Fonts. Outfit serves as a graceful stand-in for Ariana Pro (Adobe Fonts) where unavailable. -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Adobe Fonts (Ariana Pro). Replace the kit ID below with your firm's licensed kit to load the true brand face. -->
+    <!-- <link rel="stylesheet" href="https://use.typekit.net/XXXXXXX.css"> -->
+
+    <style>
+        :root {
+            /* Brand palette */
+            --deep-sea: #465155;
+            --forest: #647367;
+            --mist: #89999B;
+            --ivory: #FCFBF5;
+
+            /* Derived neutrals (kept on-brand) */
+            --ink: #2F383B;
+            --ink-soft: #5A6568;
+            --paper: #FFFFFF;
+            --paper-tint: #F6F4EC;
+            --line: rgba(137, 153, 155, 0.30);
+            --line-strong: rgba(137, 153, 155, 0.55);
+
+            /* Type */
+            --font-display: 'ariana-pro', 'Outfit', 'Inter', -apple-system, sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+            /* Radius + elevation */
+            --radius: 6px;
+            --radius-lg: 10px;
+            --shadow-sm: 0 1px 2px rgba(47, 56, 59, 0.05);
+            --shadow-md: 0 10px 30px -12px rgba(47, 56, 59, 0.18);
+            --shadow-lg: 0 24px 60px -20px rgba(47, 56, 59, 0.28);
+
+            --maxw: 1180px;
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            background-color: var(--ivory);
+            color: var(--ink);
+            font-family: var(--font-body);
+            font-weight: 400;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        ::selection { background: var(--deep-sea); color: var(--ivory); }
+        a { color: inherit; text-decoration: none; }
+        img { display: block; max-width: 100%; }
+
+        .wrap {
+            width: 100%;
+            max-width: var(--maxw);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ---------- Buttons ---------- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.01em;
+            padding: 0.85rem 1.9rem;
+            border-radius: var(--radius);
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .btn-primary {
+            background: var(--deep-sea);
+            color: var(--ivory);
+            box-shadow: var(--shadow-sm);
+        }
+        .btn-primary:hover {
+            background: var(--ink);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-1px);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--deep-sea);
+            border-color: var(--line-strong);
+        }
+        .btn-secondary:hover {
+            background: rgba(137, 153, 155, 0.12);
+            border-color: var(--deep-sea);
+        }
+        .btn-ghost-light {
+            background: transparent;
+            color: var(--ivory);
+            border-color: rgba(252, 251, 245, 0.45);
+        }
+        .btn-ghost-light:hover {
+            background: rgba(252, 251, 245, 0.12);
+            border-color: var(--ivory);
+        }
+        .btn-text {
+            background: transparent;
+            border: 0;
+            color: var(--forest);
+            padding: 0.5rem 0;
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            cursor: pointer;
+        }
+        .btn-text:hover { color: var(--deep-sea); }
+        .btn-text .arrow { transition: transform 0.25s ease; }
+        .btn-text:hover .arrow { transform: translateX(4px); }
+
+        .eyebrow {
+            font-size: 0.7rem;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--forest);
+            font-weight: 600;
+            margin: 0 0 1rem;
+        }
+
+        /* ---------- Header ---------- */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(252, 251, 245, 0.82);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--line);
+        }
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 78px;
+        }
+        .brand-mark { line-height: 1; }
+        .brand-monogram {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1.4rem;
+            letter-spacing: 0.04em;
+            color: var(--deep-sea);
+        }
+        .brand-firm {
+            font-size: 0.58rem;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: var(--mist);
+            margin-top: 0.3rem;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.25rem;
+        }
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--ink-soft);
+            letter-spacing: 0.01em;
+            transition: color 0.2s ease;
+        }
+        .nav-links a:hover { color: var(--deep-sea); }
+        .nav-cta .btn { padding: 0.65rem 1.4rem; font-size: 0.85rem; }
+        .nav-toggle { display: none; background: none; border: 0; cursor: pointer; color: var(--deep-sea); }
+
+        /* ---------- Hero ---------- */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(120% 120% at 85% -10%, rgba(100,115,103,0.10), transparent 55%),
+                radial-gradient(90% 90% at 0% 110%, rgba(70,81,85,0.08), transparent 50%);
+        }
+        /* Faint dot-grid texture wash behind the hero */
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(70, 81, 85, 0.08) 1px, transparent 1.4px);
+            background-size: 26px 26px;
+            -webkit-mask-image: radial-gradient(120% 100% at 80% 0%, #000, transparent 70%);
+            mask-image: radial-gradient(120% 100% at 80% 0%, #000, transparent 70%);
+            pointer-events: none;
+        }
+        .hero .wrap { position: relative; z-index: 1; }
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 4rem;
+            align-items: center;
+            padding: 6rem 0 6.5rem;
+        }
+        .hero-copy h1 {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 4rem;
+            line-height: 1.04;
+            letter-spacing: -0.015em;
+            color: var(--deep-sea);
+            margin: 0.5rem 0 1.5rem;
+        }
+        .hero-copy .lede {
+            font-size: 1.2rem;
+            color: var(--ink-soft);
+            max-width: 34rem;
+            line-height: 1.65;
+            margin: 0 0 2.25rem;
+        }
+        .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+        .hero-media { position: relative; }
+        .hero-seal {
+            position: absolute;
+            top: 50%;
+            left: -2.75rem;
+            transform: translateY(-50%);
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(160deg, var(--forest), #3f4a40);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(252,251,245,0.18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6px;
+        }
+        .hero-figure {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            aspect-ratio: 4 / 5;
+            background: linear-gradient(165deg, var(--deep-sea), #2b3133);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--line);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2.5rem;
+            color: var(--ivory);
+        }
+        .hero-figure::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(80% 60% at 70% 15%, rgba(137,153,155,0.30), transparent 60%),
+                linear-gradient(180deg, transparent 40%, rgba(20,24,26,0.55));
+            pointer-events: none;
+        }
+        .hero-figure .accent-line {
+            width: 48px; height: 2px; background: var(--mist);
+            margin-bottom: 1.1rem; position: relative;
+        }
+        .hero-figure .fig-quote {
+            position: relative;
+            font-family: var(--font-display);
+            font-weight: 300;
+            font-size: 1.45rem;
+            line-height: 1.45;
+            letter-spacing: -0.005em;
+            margin: 0 0 0.9rem;
+        }
+        .hero-figure .fig-attr {
+            position: relative;
+            font-size: 0.7rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(252,251,245,0.7);
+            font-weight: 600;
+        }
+
+        /* ---------- Stats strip ---------- */
+        .stats {
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            background: var(--paper-tint);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+        .stat {
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            border-right: 1px solid var(--line);
+        }
+        .stat:last-child { border-right: 0; }
+        .stat .num {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 2.6rem;
+            line-height: 1;
+            color: var(--deep-sea);
+            letter-spacing: -0.01em;
+        }
+        .stat .label {
+            font-size: 0.68rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--mist);
+            font-weight: 600;
+            margin-top: 0.75rem;
+        }
+
+        /* ---------- Section primitives ---------- */
+        section.block { padding: 6.5rem 0; }
+        .section-head { max-width: 42rem; margin-bottom: 3.5rem; }
+        .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+        .section-head h2 {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 2.5rem;
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+            color: var(--deep-sea);
+            margin: 0 0 1rem;
+        }
+        .section-head p {
+            font-size: 1.08rem;
+            color: var(--ink-soft);
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        /* ---------- Practice areas ---------- */
+        .grid { display: grid; gap: 1.5rem; }
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+        .practice-card {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+        }
+        .practice-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+            border-color: var(--line-strong);
+        }
+        .practice-icon {
+            width: 52px; height: 52px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: var(--radius);
+            background: rgba(70, 81, 85, 0.08);
+            border: 1px solid rgba(70, 81, 85, 0.14);
+            color: var(--deep-sea);
+            margin-bottom: 1.4rem;
+        }
+        .practice-card h3 {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 1.3rem;
+            color: var(--deep-sea);
+            margin: 0 0 0.6rem;
+        }
+        .practice-card p {
+            font-size: 0.92rem;
+            color: var(--ink-soft);
+            margin: 0 0 1.25rem;
+            line-height: 1.65;
+        }
+
+        /* ---------- About / split ---------- */
+        .about { background: var(--paper-tint); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+        .split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .about-figure-stack {
+            position: relative;
+            padding: 0 2.75rem 3rem 0;
+        }
+        .about-figure {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            aspect-ratio: 5 / 4;
+            background: linear-gradient(160deg, var(--forest), #3f4a40);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--line);
+            position: relative;
+        }
+        .about-figure::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(70% 60% at 25% 20%, rgba(252,251,245,0.16), transparent 60%);
+        }
+        /* Smaller image offset over the bottom-right corner */
+        .about-figure-accent {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 46%;
+            aspect-ratio: 1 / 1;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: linear-gradient(160deg, var(--deep-sea), #2b3133);
+            border: 4px solid var(--paper-tint);
+            box-shadow: var(--shadow-lg);
+        }
+        .about-figure-accent::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(80% 70% at 70% 25%, rgba(137,153,155,0.32), transparent 60%);
+        }
+        /* Floating years-of-counsel badge */
+        .about-badge {
+            position: absolute;
+            top: 1.75rem;
+            left: -1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            background: var(--ivory);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            padding: 0.95rem 1.25rem;
+        }
+        .about-badge-num {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 2.4rem;
+            line-height: 1;
+            color: var(--deep-sea);
+            letter-spacing: -0.01em;
+        }
+        .about-badge-label {
+            font-size: 0.62rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--mist);
+            font-weight: 600;
+            line-height: 1.5;
+        }
+        .about-copy h2 {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 2.5rem;
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+            color: var(--deep-sea);
+            margin: 0.5rem 0 1.25rem;
+        }
+        .about-copy p {
+            font-size: 1.02rem;
+            color: var(--ink-soft);
+            line-height: 1.75;
+            margin: 0 0 1.25rem;
+        }
+        .value-list { list-style: none; padding: 0; margin: 1.75rem 0 2rem; }
+        .value-list li {
+            display: flex;
+            gap: 0.85rem;
+            align-items: flex-start;
+            padding: 0.6rem 0;
+            font-size: 0.98rem;
+            color: var(--ink);
+        }
+        .value-list .tick {
+            flex-shrink: 0;
+            width: 22px; height: 22px;
+            border-radius: 50%;
+            background: rgba(100, 115, 103, 0.12);
+            border: 1px solid rgba(100, 115, 103, 0.3);
+            color: var(--forest);
+            display: flex; align-items: center; justify-content: center;
+            margin-top: 0.15rem;
+        }
+
+        /* ---------- Attorneys ---------- */
+        .attorney-card {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .attorney-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+        .attorney-photo {
+            aspect-ratio: 1 / 1;
+            display: flex; align-items: flex-end;
+            padding: 1.25rem;
+            color: var(--ivory);
+        }
+        .ap-1 { background: linear-gradient(160deg, var(--deep-sea), #2b3133); }
+        .ap-2 { background: linear-gradient(160deg, var(--forest), #3f4a40); }
+        .ap-3 { background: linear-gradient(160deg, var(--mist), var(--forest)); }
+        .attorney-body { padding: 1.5rem 1.6rem 1.75rem; }
+        .attorney-body h3 {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 1.2rem;
+            color: var(--deep-sea);
+            margin: 0 0 0.2rem;
+        }
+        .attorney-body .role {
+            font-size: 0.66rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--forest);
+            font-weight: 600;
+            margin: 0 0 0.85rem;
+        }
+        .attorney-body p {
+            font-size: 0.9rem;
+            color: var(--ink-soft);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* ---------- Quote band ---------- */
+        .quote-band {
+            position: relative;
+            overflow: hidden;
+            background: var(--deep-sea);
+            color: var(--ivory);
+        }
+        /* Gentle dot-grid texture */
+        .quote-band::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(252,251,245,0.10) 1px, transparent 1.4px);
+            background-size: 22px 22px;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        /* Oversized decorative quotation mark */
+        .quote-band::after {
+            content: "\201C";
+            position: absolute;
+            top: -2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 18rem;
+            line-height: 1;
+            color: rgba(137, 153, 155, 0.16);
+            pointer-events: none;
+        }
+        .quote-inner {
+            position: relative;
+            z-index: 1;
+            padding: 6rem 0;
+            text-align: center;
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+        .quote-inner .accent-line {
+            width: 48px; height: 2px; background: var(--mist);
+            margin: 0 auto 1.75rem;
+        }
+        .quote-inner blockquote {
+            font-family: var(--font-display);
+            font-weight: 300;
+            font-size: 1.9rem;
+            line-height: 1.5;
+            letter-spacing: -0.005em;
+            margin: 0 0 1.75rem;
+            color: var(--ivory);
+        }
+        .quote-inner cite {
+            font-style: normal;
+            font-size: 0.7rem;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: rgba(252,251,245,0.7);
+            font-weight: 600;
+        }
+
+        /* ---------- CTA ---------- */
+        .cta-card {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            padding: 4rem;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .cta-card h2 {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 2.3rem;
+            line-height: 1.12;
+            letter-spacing: -0.01em;
+            color: var(--deep-sea);
+            margin: 0 0 1rem;
+        }
+        .cta-card p { font-size: 1.05rem; color: var(--ink-soft); margin: 0; line-height: 1.7; }
+        .cta-actions { display: flex; flex-direction: column; gap: 0.85rem; }
+        .cta-actions .btn { width: 100%; }
+        .cta-actions .note {
+            font-size: 0.78rem;
+            color: var(--mist);
+            text-align: center;
+            letter-spacing: 0.04em;
+        }
+
+        /* ---------- Footer ---------- */
+        footer.site-footer {
+            background: var(--ink);
+            color: rgba(252,251,245,0.7);
+            padding: 4.5rem 0 2.25rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1fr 1fr;
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(252,251,245,0.12);
+        }
+        .footer-brand .brand-monogram { color: var(--ivory); }
+        .footer-brand .brand-firm { color: var(--mist); }
+        .footer-brand p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin: 1.25rem 0 0;
+            max-width: 22rem;
+            color: rgba(252,251,245,0.62);
+        }
+        .footer-col h4 {
+            font-family: var(--font-body);
+            font-size: 0.66rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--mist);
+            font-weight: 600;
+            margin: 0 0 1.25rem;
+        }
+        .footer-col a, .footer-col p {
+            display: block;
+            font-size: 0.9rem;
+            color: rgba(252,251,245,0.7);
+            margin: 0 0 0.7rem;
+            transition: color 0.2s ease;
+        }
+        .footer-col a:hover { color: var(--ivory); }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .footer-bottom p {
+            font-size: 0.7rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: rgba(252,251,245,0.5);
+            font-weight: 600;
+            margin: 0;
+        }
+        .footer-bottom .legal-links { display: flex; gap: 1.5rem; }
+        .footer-bottom .legal-links a { font-size: 0.7rem; letter-spacing: 0.08em; color: rgba(252,251,245,0.5); }
+        .footer-bottom .legal-links a:hover { color: var(--ivory); }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 980px) {
+            .hero-inner { grid-template-columns: 1fr; gap: 3rem; padding: 4.5rem 0 5rem; }
+            .hero-figure { aspect-ratio: 16 / 11; }
+            .split { grid-template-columns: 1fr; gap: 2.5rem; }
+            .cta-card { grid-template-columns: 1fr; padding: 2.75rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .stat:nth-child(2) { border-right: 0; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+        }
+        @media (max-width: 720px) {
+            .wrap { padding: 0 1.4rem; }
+            .nav-links { display: none; }
+            .nav-toggle { display: inline-flex; }
+            .hero-copy h1 { font-size: 2.7rem; }
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            .section-head h2, .about-copy h2 { font-size: 2rem; }
+            .quote-inner blockquote { font-size: 1.45rem; }
+            section.block { padding: 4.5rem 0; }
+            .quote-band::after { font-size: 11rem; top: -1.5rem; }
+            .hero-seal { width: 84px; height: 84px; left: -1.25rem; }
+            .about-figure-stack { padding: 0 2rem 2.5rem 0; }
+            .about-badge { top: 1rem; left: -0.5rem; padding: 0.75rem 1rem; }
+            .about-badge-num { font-size: 1.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="wrap nav">
+            <a href="#" class="brand-mark">
+                <div class="brand-monogram">Ohler&nbsp;Bean</div>
+                <div class="brand-firm">Attorneys at Law</div>
+            </a>
+            <nav class="nav-links">
+                <a href="#practice">Practice Areas</a>
+                <a href="#firm">The Firm</a>
+                <a href="#attorneys">Attorneys</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="nav-cta">
+                <a href="#contact" class="btn btn-primary">Schedule a Consultation</a>
+            </div>
+            <button class="nav-toggle" aria-label="Open menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="wrap hero-inner">
+            <div class="hero-copy">
+                <p class="eyebrow">Counsel, Refined &middot; Est. 1974</p>
+                <h1>Considered counsel for matters that matter most.</h1>
+                <p class="lede">
+                    Ohler Bean pairs seasoned judgment with a relentless attention to detail &mdash;
+                    representing clients with the discretion, rigor, and clarity their most
+                    important matters demand.
+                </p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-primary">Schedule a Consultation</a>
+                    <a href="#practice" class="btn btn-secondary">Explore Practice Areas</a>
+                </div>
+            </div>
+            <div class="hero-media">
+                <div class="hero-figure">
+                    <div class="accent-line"></div>
+                    <p class="fig-quote">&ldquo;The quiet confidence of experience &mdash; counsel you can rely on.&rdquo;</p>
+                    <p class="fig-attr">Ohler Bean &middot; A Tradition of Trust</p>
+                </div>
+                <div class="hero-seal" aria-hidden="true">
+                    <svg viewBox="0 0 120 120" width="100%" height="100%">
+                        <defs>
+                            <path id="sealArc" d="M60,60 m-42,0 a42,42 0 1,1 84,0 a42,42 0 1,1 -84,0" />
+                        </defs>
+                        <circle cx="60" cy="60" r="56" fill="none" stroke="rgba(252,251,245,0.5)" stroke-width="1"/>
+                        <circle cx="60" cy="60" r="49" fill="none" stroke="rgba(252,251,245,0.3)" stroke-width="0.75"/>
+                        <text font-size="8.5" letter-spacing="2.4" fill="rgba(252,251,245,0.85)" font-family="'Outfit', sans-serif" font-weight="600">
+                            <textPath href="#sealArc" startOffset="2%">ESTABLISHED &#183; 1974 &#183; OHLER BEAN &#183;</textPath>
+                        </text>
+                        <text x="60" y="56" text-anchor="middle" font-size="20" fill="#FCFBF5" font-family="'Outfit', sans-serif" font-weight="500" letter-spacing="1">OB</text>
+                        <text x="60" y="72" text-anchor="middle" font-size="6" letter-spacing="2" fill="rgba(252,251,245,0.7)" font-family="'Outfit', sans-serif" font-weight="600">LAW</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats">
+        <div class="wrap">
+            <div class="stats-grid">
+                <div class="stat">
+                    <div class="num">50+</div>
+                    <div class="label">Years of Practice</div>
+                </div>
+                <div class="stat">
+                    <div class="num">1,200</div>
+                    <div class="label">Matters Resolved</div>
+                </div>
+                <div class="stat">
+                    <div class="num">4</div>
+                    <div class="label">Core Practice Areas</div>
+                </div>
+                <div class="stat">
+                    <div class="num">98%</div>
+                    <div class="label">Client Retention</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRACTICE AREAS -->
+    <section id="practice" class="block">
+        <div class="wrap">
+            <div class="section-head">
+                <p class="eyebrow">What We Do</p>
+                <h2>Practice areas defined by discipline.</h2>
+                <p>Focused expertise across the matters that shape lives and enterprises &mdash; handled with the same composed precision in every engagement.</p>
+            </div>
+            <div class="grid grid-2">
+                <article class="practice-card">
+                    <div class="practice-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7h14M7 7l-3 7a4 4 0 0 0 6 0L7 7zm10 0l-3 7a4 4 0 0 0 6 0l-3-7z"/></svg>
+                    </div>
+                    <h3>Litigation</h3>
+                    <p>Disciplined advocacy in and out of the courtroom, built on thorough preparation and steady, strategic judgment.</p>
+                    <button class="btn-text">Learn more <span class="arrow">&rarr;</span></button>
+                </article>
+                <article class="practice-card">
+                    <div class="practice-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>
+                    </div>
+                    <h3>Estate Planning</h3>
+                    <p>Protecting legacy across generations with thoughtful, tailored plans that preserve intent and minimize uncertainty.</p>
+                    <button class="btn-text">Learn more <span class="arrow">&rarr;</span></button>
+                </article>
+                <article class="practice-card">
+                    <div class="practice-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l8-4 8 4v14M9 21v-6h6v6"/></svg>
+                    </div>
+                    <h3>Corporate Counsel</h3>
+                    <p>Strategic guidance for growing firms &mdash; from formation and governance to transactions and ongoing advisory.</p>
+                    <button class="btn-text">Learn more <span class="arrow">&rarr;</span></button>
+                </article>
+                <article class="practice-card">
+                    <div class="practice-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
+                    </div>
+                    <h3>Real Estate</h3>
+                    <p>Transactions handled with precision &mdash; residential and commercial dealings managed cleanly, start to finish.</p>
+                    <button class="btn-text">Learn more <span class="arrow">&rarr;</span></button>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- FIRM / ABOUT -->
+    <section id="firm" class="about block">
+        <div class="wrap split">
+            <div class="about-figure-stack">
+                <div class="about-figure"></div>
+                <div class="about-figure-accent"></div>
+                <div class="about-badge">
+                    <span class="about-badge-num">50</span>
+                    <span class="about-badge-label">Years of<br>Counsel</span>
+                </div>
+            </div>
+            <div class="about-copy">
+                <p class="eyebrow">The Firm</p>
+                <h2>A standard of counsel, composed and precise.</h2>
+                <p>
+                    For five decades, Ohler Bean has represented individuals, families, and
+                    enterprises through their most consequential decisions. Our work is defined
+                    less by volume than by care &mdash; the kind that earns enduring trust.
+                </p>
+                <ul class="value-list">
+                    <li>
+                        <span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                        Seasoned judgment honed across complex matters
+                    </li>
+                    <li>
+                        <span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                        Discretion and clarity at every stage of counsel
+                    </li>
+                    <li>
+                        <span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                        Relationships measured in decades, not transactions
+                    </li>
+                </ul>
+                <a href="#attorneys" class="btn btn-secondary">Meet Our Attorneys</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ATTORNEYS -->
+    <section id="attorneys" class="block">
+        <div class="wrap">
+            <div class="section-head center">
+                <p class="eyebrow">Our People</p>
+                <h2>The counsel behind the practice.</h2>
+                <p>Experienced advocates who bring rigor, restraint, and steadiness to every matter we accept.</p>
+            </div>
+            <div class="grid grid-3">
+                <article class="attorney-card">
+                    <div class="attorney-photo ap-1"></div>
+                    <div class="attorney-body">
+                        <h3>Margaret Ohler</h3>
+                        <p class="role">Founding Partner</p>
+                        <p>Leads the firm's litigation practice with four decades of courtroom experience and an unwavering eye for detail.</p>
+                    </div>
+                </article>
+                <article class="attorney-card">
+                    <div class="attorney-photo ap-2"></div>
+                    <div class="attorney-body">
+                        <h3>Daniel Bean</h3>
+                        <p class="role">Managing Partner</p>
+                        <p>Counsels enterprises and families through estate and corporate matters with composed, strategic guidance.</p>
+                    </div>
+                </article>
+                <article class="attorney-card">
+                    <div class="attorney-photo ap-3"></div>
+                    <div class="attorney-body">
+                        <h3>Eleanor Hart</h3>
+                        <p class="role">Senior Associate</p>
+                        <p>Advises on real estate and transactional work, known for clean execution and meticulous preparation.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUOTE BAND -->
+    <section class="quote-band">
+        <div class="wrap quote-inner">
+            <div class="accent-line"></div>
+            <blockquote>
+                &ldquo;They represented our family with a discretion and rigor we did not know
+                to expect. The clarity they brought to a difficult matter was extraordinary.&rdquo;
+            </blockquote>
+            <cite>&mdash; A Long-Standing Client</cite>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="block">
+        <div class="wrap">
+            <div class="cta-card">
+                <div>
+                    <p class="eyebrow">Begin the Conversation</p>
+                    <h2>Schedule a confidential consultation.</h2>
+                    <p>Tell us briefly about your matter, and we'll arrange a time to speak with the right member of our counsel.</p>
+                </div>
+                <div class="cta-actions">
+                    <a href="mailto:counsel@ohlerbean.com" class="btn btn-primary">Schedule a Consultation</a>
+                    <a href="tel:+10000000000" class="btn btn-secondary">Call (000) 000&ndash;0000</a>
+                    <p class="note">All inquiries are held in strict confidence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="brand-monogram">Ohler&nbsp;Bean</div>
+                    <div class="brand-firm">Attorneys at Law</div>
+                    <p>Composed, precise counsel for litigation, estate planning, corporate, and real estate matters &mdash; since 1974.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Practice</h4>
+                    <a href="#practice">Litigation</a>
+                    <a href="#practice">Estate Planning</a>
+                    <a href="#practice">Corporate Counsel</a>
+                    <a href="#practice">Real Estate</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Firm</h4>
+                    <a href="#firm">About</a>
+                    <a href="#attorneys">Attorneys</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#">Careers</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>100 Harbor Street<br>Suite 1400</p>
+                    <a href="tel:+10000000000">(000) 000&ndash;0000</a>
+                    <a href="mailto:counsel@ohlerbean.com">counsel@ohlerbean.com</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ohler Bean &middot; All Rights Reserved</p>
+                <div class="legal-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ohler Bean | Brand Style Guide</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Inter (body) from Google Fonts. Outfit serves as a graceful stand-in for Ariana Pro (Adobe Fonts) where unavailable. -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Adobe Fonts (Ariana Pro). Replace the kit ID below with your firm's licensed kit to load the true brand face. -->
+    <!-- <link rel="stylesheet" href="https://use.typekit.net/XXXXXXX.css"> -->
+
+    <style>
+        :root {
+            /* Brand palette */
+            --deep-sea: #465155;
+            --forest: #647367;
+            --mist: #89999B;
+            --ivory: #FCFBF5;
+
+            /* Derived neutrals (kept on-brand) */
+            --ink: #2F383B;          /* darkened Deep Sea for primary text */
+            --ink-soft: #5A6568;     /* muted body text */
+            --paper: #FFFFFF;        /* elevated card surface over ivory */
+            --paper-tint: #F6F4EC;   /* subtle alt surface */
+            --line: rgba(137, 153, 155, 0.30);   /* mist hairline */
+            --line-strong: rgba(137, 153, 155, 0.55);
+
+            /* Type */
+            --font-display: 'ariana-pro', 'Outfit', 'Inter', -apple-system, sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+            /* Radius + elevation */
+            --radius: 6px;
+            --radius-lg: 10px;
+            --shadow-sm: 0 1px 2px rgba(47, 56, 59, 0.05);
+            --shadow-md: 0 10px 30px -12px rgba(47, 56, 59, 0.18);
+            --shadow-lg: 0 24px 60px -20px rgba(47, 56, 59, 0.28);
+        }
+
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            background-color: var(--ivory);
+            color: var(--ink);
+            font-family: var(--font-body);
+            font-weight: 400;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        ::selection {
+            background: var(--deep-sea);
+            color: var(--ivory);
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        /* ---------- Layout shell ---------- */
+        .shell {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* ---------- Sidebar ---------- */
+        .sidebar {
+            width: 280px;
+            flex-shrink: 0;
+            border-right: 1px solid var(--line);
+            background: rgba(252, 251, 245, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            scrollbar-width: none;
+        }
+        .sidebar::-webkit-scrollbar { display: none; }
+
+        .sidebar-inner { padding: 2.5rem 2rem; }
+
+        .brand-mark {
+            margin-bottom: 3rem;
+        }
+        .brand-monogram {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1.6rem;
+            letter-spacing: 0.04em;
+            color: var(--deep-sea);
+            line-height: 1;
+        }
+        .brand-firm {
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: var(--mist);
+            margin-top: 0.55rem;
+        }
+        .brand-rule {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+        .brand-rule .hr { height: 1px; flex: 1; background: var(--line); }
+        .brand-rule span {
+            font-size: 0.6rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--mist);
+            font-weight: 600;
+        }
+
+        .nav-group { margin-bottom: 2rem; }
+        .nav-group-label {
+            font-size: 0.6rem;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--mist);
+            margin: 0 0 0.85rem;
+            font-weight: 600;
+        }
+        .nav-link {
+            display: block;
+            padding: 0.45rem 0;
+            font-size: 0.875rem;
+            color: var(--ink-soft);
+            transition: color 0.2s ease, padding-left 0.2s ease;
+        }
+        .nav-link:hover {
+            color: var(--deep-sea);
+            padding-left: 0.35rem;
+        }
+
+        /* ---------- Main ---------- */
+        .main {
+            flex: 1;
+            padding: 3rem;
+            max-width: 1000px;
+        }
+
+        .page-header { margin-bottom: 5rem; }
+        .eyebrow {
+            font-size: 0.7rem;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--forest);
+            font-weight: 600;
+            margin: 0 0 1rem;
+        }
+        h1.page-title {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 3.25rem;
+            line-height: 1.05;
+            letter-spacing: -0.01em;
+            color: var(--deep-sea);
+            margin: 0 0 1.25rem;
+        }
+        .page-lede {
+            font-size: 1.2rem;
+            color: var(--ink-soft);
+            max-width: 36rem;
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        section { margin-bottom: 6rem; scroll-margin-top: 2rem; }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2.25rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--line);
+        }
+        .section-number {
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            color: var(--forest);
+            background: rgba(100, 115, 103, 0.10);
+            border: 1px solid rgba(100, 115, 103, 0.22);
+            padding: 0.3rem 0.55rem;
+            border-radius: 4px;
+        }
+        .section-header h2 {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 1.85rem;
+            letter-spacing: -0.01em;
+            color: var(--deep-sea);
+            margin: 0;
+        }
+
+        /* ---------- Grids ---------- */
+        .grid { display: grid; gap: 1.5rem; }
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+        /* ---------- Cards ---------- */
+        .card {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 1.75rem;
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+        }
+        .card.lift:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+            border-color: var(--line-strong);
+        }
+        .card-flat {
+            background: var(--paper-tint);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 1.75rem;
+        }
+
+        .card-eyebrow {
+            font-size: 0.62rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin: 0 0 0.85rem;
+        }
+        .eyebrow-deep { color: var(--deep-sea); }
+        .eyebrow-forest { color: var(--forest); }
+        .eyebrow-mist { color: var(--mist); }
+
+        .card h4 {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 1.15rem;
+            color: var(--deep-sea);
+            margin: 0 0 0.65rem;
+        }
+        .card p {
+            font-size: 0.9rem;
+            color: var(--ink-soft);
+            margin: 0;
+            line-height: 1.65;
+        }
+
+        /* Mission */
+        .mission {
+            background: var(--deep-sea);
+            color: var(--ivory);
+            border-radius: var(--radius-lg);
+            padding: 2.75rem;
+            box-shadow: var(--shadow-md);
+        }
+        .mission .card-eyebrow { color: var(--mist); }
+        .mission p {
+            font-family: var(--font-display);
+            font-weight: 300;
+            font-size: 1.5rem;
+            line-height: 1.5;
+            color: var(--ivory);
+            margin: 0;
+            letter-spacing: -0.005em;
+        }
+
+        /* ---------- Colors ---------- */
+        .swatch { cursor: pointer; }
+        .swatch-chip {
+            height: 130px;
+            border-radius: var(--radius);
+            border: 1px solid var(--line);
+            margin-bottom: 0.85rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .swatch:hover .swatch-chip {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        .swatch-chip .role {
+            position: absolute;
+            top: 0.85rem;
+            left: 0.95rem;
+            font-size: 0.55rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            font-weight: 600;
+            opacity: 0.7;
+        }
+        .swatch-name {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--deep-sea);
+            margin: 0 0 0.25rem;
+        }
+        .swatch-hex {
+            font-size: 0.78rem;
+            letter-spacing: 0.04em;
+            color: var(--ink-soft);
+            margin: 0;
+        }
+        .swatch-cmyk {
+            font-size: 0.68rem;
+            color: var(--mist);
+            margin: 0.2rem 0 0;
+        }
+
+        /* ---------- Typography specimens ---------- */
+        .specimen {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 2.25rem;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 1.5rem;
+        }
+        .specimen-label {
+            font-size: 0.62rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--mist);
+            font-weight: 600;
+            margin: 0 0 1.25rem;
+        }
+        .type-display {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 3rem;
+            line-height: 1.05;
+            color: var(--deep-sea);
+            margin: 0 0 1rem;
+            letter-spacing: -0.015em;
+        }
+        .type-body {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--ink);
+            margin: 0;
+            max-width: 42rem;
+        }
+        .type-label-demo {
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.8rem;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--forest);
+            margin: 0;
+        }
+        .usage-note {
+            font-size: 0.82rem;
+            color: var(--mist);
+            margin: 1.1rem 0 0;
+        }
+        .weight-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.75rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--line);
+        }
+        .weight-row span {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: var(--deep-sea);
+        }
+        .w300 { font-weight: 300; }
+        .w400 { font-weight: 400; }
+        .w500 { font-weight: 500; }
+        .w600 { font-weight: 600; }
+
+        /* ---------- Radius / spacing showcase ---------- */
+        .feature {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .radius-demo {
+            width: 150px;
+            height: 150px;
+            flex-shrink: 0;
+            background: var(--forest);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+        }
+        .feature h4 {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 1.3rem;
+            color: var(--deep-sea);
+            margin: 0 0 0.4rem;
+        }
+        .feature .mono-value {
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            color: var(--forest);
+            margin: 0 0 1rem;
+            font-weight: 600;
+        }
+        .feature p { font-size: 0.92rem; color: var(--ink-soft); margin: 0; max-width: 34rem; }
+
+        .scale-row {
+            display: flex;
+            align-items: flex-end;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+        }
+        .scale-item { text-align: center; }
+        .scale-bar {
+            background: var(--mist);
+            border-radius: 3px;
+            width: 44px;
+            margin: 0 auto 0.6rem;
+            opacity: 0.85;
+        }
+        .scale-item span {
+            font-size: 0.7rem;
+            color: var(--ink-soft);
+            letter-spacing: 0.04em;
+        }
+
+        /* ---------- Buttons ---------- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.01em;
+            padding: 0.85rem 1.9rem;
+            border-radius: var(--radius);
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .btn-primary {
+            background: var(--deep-sea);
+            color: var(--ivory);
+            box-shadow: var(--shadow-sm);
+        }
+        .btn-primary:hover {
+            background: var(--ink);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-1px);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--deep-sea);
+            border-color: var(--line-strong);
+        }
+        .btn-secondary:hover {
+            background: rgba(137, 153, 155, 0.12);
+            border-color: var(--deep-sea);
+        }
+        .btn-text {
+            background: transparent;
+            color: var(--forest);
+            padding: 0.5rem 0.25rem;
+        }
+        .btn-text:hover { color: var(--deep-sea); }
+        .btn-text .arrow { transition: transform 0.25s ease; }
+        .btn-text:hover .arrow { transform: translateX(4px); }
+
+        .btn-stage {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            min-height: 150px;
+        }
+        .btn-stage .caption {
+            font-size: 0.68rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--mist);
+            font-weight: 600;
+        }
+
+        /* ---------- Forms ---------- */
+        .form-card { max-width: 460px; }
+        .field { margin-bottom: 1.5rem; }
+        .field:last-child { margin-bottom: 0; }
+        .field label {
+            display: block;
+            font-size: 0.68rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            font-weight: 600;
+            margin-bottom: 0.55rem;
+        }
+        .field input,
+        .field textarea,
+        .field select {
+            width: 100%;
+            background: var(--ivory);
+            border: 1px solid var(--line-strong);
+            border-radius: var(--radius);
+            padding: 0.8rem 1rem;
+            font-family: var(--font-body);
+            font-size: 0.92rem;
+            color: var(--ink);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .field textarea { resize: vertical; min-height: 96px; }
+        .field input::placeholder,
+        .field textarea::placeholder { color: var(--mist); }
+        .field input:focus,
+        .field textarea:focus,
+        .field select:focus {
+            outline: none;
+            border-color: var(--deep-sea);
+            box-shadow: 0 0 0 3px rgba(70, 81, 85, 0.10);
+        }
+
+        /* ---------- Navigation / practice cards ---------- */
+        .nav-card {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            padding: 1.25rem 1.4rem;
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .nav-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--line-strong);
+        }
+        .nav-icon {
+            width: 46px;
+            height: 46px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius);
+            background: rgba(70, 81, 85, 0.08);
+            border: 1px solid rgba(70, 81, 85, 0.14);
+            color: var(--deep-sea);
+        }
+        .nav-card .nav-title {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--deep-sea);
+            margin: 0 0 0.15rem;
+        }
+        .nav-card .nav-desc {
+            font-size: 0.78rem;
+            color: var(--mist);
+            margin: 0;
+        }
+
+        /* ---------- Marketing / ad mockups ---------- */
+        .mock {
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--line);
+        }
+        .mock-square {
+            aspect-ratio: 1 / 1;
+            background: var(--deep-sea);
+            color: var(--ivory);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+        .mock-wide {
+            aspect-ratio: 1200 / 628;
+            background: var(--forest);
+            color: var(--ivory);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .mock .mock-mono {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 0.04em;
+        }
+        .mock .accent-line {
+            width: 44px;
+            height: 2px;
+            background: var(--mist);
+            margin: auto 0 1rem;
+        }
+        .mock-wide .accent-line { margin: 0 0 1rem; }
+        .mock h3 {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 1.6rem;
+            line-height: 1.2;
+            margin: 0 0 0.65rem;
+        }
+        .mock p {
+            font-size: 0.85rem;
+            color: rgba(252, 251, 245, 0.78);
+            margin: 0;
+        }
+        .mock .mock-url {
+            font-size: 0.62rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(252, 251, 245, 0.6);
+            margin-top: 1rem;
+        }
+        .mock-pill {
+            display: inline-block;
+            align-self: flex-start;
+            background: var(--ivory);
+            color: var(--deep-sea);
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 0.8rem;
+            padding: 0.5rem 1.1rem;
+            border-radius: var(--radius);
+            margin-top: 1rem;
+        }
+
+        /* ---------- Imagery ---------- */
+        .imagery-feature {
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow-md);
+            margin-bottom: 1.5rem;
+        }
+        .imagery-feature img { width: 100%; display: block; }
+        .swatch-tag {
+            position: relative;
+        }
+        .img-tile {
+            aspect-ratio: 4 / 3;
+            border-radius: var(--radius);
+            margin-bottom: 0.85rem;
+            display: flex;
+            align-items: flex-end;
+            padding: 1rem;
+            color: var(--ivory);
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 0.95rem;
+            border: 1px solid var(--line);
+        }
+        .img-1 { background: linear-gradient(160deg, var(--deep-sea), #2b3133); }
+        .img-2 { background: linear-gradient(160deg, var(--forest), #3f4a40); }
+        .img-3 { background: linear-gradient(160deg, var(--mist), var(--forest)); }
+        .img-caption { font-size: 0.82rem; color: var(--ink-soft); margin: 0; }
+        .img-caption b { color: var(--deep-sea); font-weight: 600; }
+
+        /* ---------- Motion ---------- */
+        .motion-stage {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.25rem;
+            min-height: 170px;
+        }
+        .motion-box {
+            width: 64px;
+            height: 64px;
+            background: var(--forest);
+            border-radius: var(--radius);
+        }
+        .motion-lift { animation: lift 2.4s ease-in-out infinite; }
+        @keyframes lift {
+            0%, 100% { transform: translateY(0); box-shadow: var(--shadow-sm); }
+            50% { transform: translateY(-12px); box-shadow: var(--shadow-lg); }
+        }
+        .motion-fade { animation: breathe 3s ease-in-out infinite; }
+        @keyframes breathe {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.35; }
+        }
+        .motion-caption {
+            font-size: 0.68rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--mist);
+            font-weight: 600;
+        }
+
+        /* ---------- Elevation ---------- */
+        .elevation-stage {
+            min-height: 170px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .elevation-tile {
+            width: 120px;
+            height: 90px;
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.68rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            font-weight: 600;
+        }
+        .e-1 { box-shadow: var(--shadow-sm); }
+        .e-2 { box-shadow: var(--shadow-md); }
+        .e-3 { box-shadow: var(--shadow-lg); }
+
+        /* ---------- Footer ---------- */
+        footer {
+            margin-top: 6rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--line);
+            text-align: center;
+        }
+        footer p {
+            font-size: 0.7rem;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--mist);
+            font-weight: 600;
+            margin: 0;
+        }
+
+        /* ---------- Toast ---------- */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--deep-sea);
+            color: var(--ivory);
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--radius);
+            font-size: 0.85rem;
+            font-weight: 500;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            transform: translateY(12px);
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 100;
+        }
+        .toast.show { opacity: 1; transform: translateY(0); }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 1024px) {
+            .sidebar { display: none; }
+            .main { padding: 2rem 1.5rem; max-width: 100%; }
+        }
+        @media (max-width: 720px) {
+            .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+            h1.page-title { font-size: 2.4rem; }
+            .feature { flex-direction: column; align-items: flex-start; }
+            .type-display { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="shell">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-inner">
+                <div class="brand-mark">
+                    <div class="brand-monogram">Ohler&nbsp;Bean</div>
+                    <div class="brand-firm">Attorneys at Law</div>
+                    <div class="brand-rule">
+                        <span class="hr"></span>
+                        <span>Brand Guide</span>
+                        <span class="hr"></span>
+                    </div>
+                </div>
+
+                <nav>
+                    <div class="nav-group">
+                        <p class="nav-group-label">Foundations</p>
+                        <a href="#mission" class="nav-link">Mission</a>
+                        <a href="#voice" class="nav-link">Voice &amp; Tone</a>
+                        <a href="#colors" class="nav-link">Colors</a>
+                        <a href="#typography" class="nav-link">Typography</a>
+                        <a href="#radius" class="nav-link">Corner Radius</a>
+                        <a href="#spacing" class="nav-link">Spacing &amp; Layout</a>
+                    </div>
+                    <div class="nav-group">
+                        <p class="nav-group-label">Components</p>
+                        <a href="#buttons" class="nav-link">Buttons</a>
+                        <a href="#cards" class="nav-link">Cards &amp; Panels</a>
+                        <a href="#forms" class="nav-link">Form Elements</a>
+                        <a href="#navigation" class="nav-link">Practice Areas</a>
+                    </div>
+                    <div class="nav-group">
+                        <p class="nav-group-label">Creative Assets</p>
+                        <a href="#social" class="nav-link">Social &amp; Ads</a>
+                        <a href="#imagery" class="nav-link">Imagery Style</a>
+                    </div>
+                    <div class="nav-group">
+                        <p class="nav-group-label">Refinements</p>
+                        <a href="#motion" class="nav-link">Motion</a>
+                        <a href="#elevation" class="nav-link">Elevation</a>
+                    </div>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main content -->
+        <main class="main">
+            <header class="page-header">
+                <p class="eyebrow">Ohler Bean &middot; Brand System</p>
+                <h1 class="page-title">Brand Style Guide</h1>
+                <p class="page-lede">
+                    A reference for the visual language of Ohler Bean &mdash; the colors, typography, and
+                    components that convey our standard of counsel: composed, precise, and unmistakably premium.
+                </p>
+            </header>
+
+            <!-- MISSION -->
+            <section id="mission">
+                <div class="mission">
+                    <p class="card-eyebrow">Our Mission</p>
+                    <p>
+                        We represent our clients with the discretion, rigor, and clarity their matters
+                        demand &mdash; pairing seasoned judgment with a relentless attention to detail at
+                        every stage of counsel.
+                    </p>
+                </div>
+            </section>
+
+            <!-- VOICE -->
+            <section id="voice">
+                <div class="section-header">
+                    <span class="section-number">01</span>
+                    <h2>Brand Voice &amp; Tone</h2>
+                </div>
+                <div class="grid grid-3">
+                    <div class="card lift">
+                        <p class="card-eyebrow eyebrow-deep">Authoritative</p>
+                        <h4>Assured</h4>
+                        <p>We speak with the quiet confidence of experience. No overstatement &mdash; only counsel our clients can rely on.</p>
+                    </div>
+                    <div class="card lift">
+                        <p class="card-eyebrow eyebrow-forest">Discerning</p>
+                        <h4>Precise</h4>
+                        <p>Every word is considered. We favor clarity over jargon and substance over flourish.</p>
+                    </div>
+                    <div class="card lift">
+                        <p class="card-eyebrow eyebrow-mist">Composed</p>
+                        <h4>Measured</h4>
+                        <p>Our tone remains calm and dignified under pressure, reflecting steadiness clients trust.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- COLORS -->
+            <section id="colors">
+                <div class="section-header">
+                    <span class="section-number">02</span>
+                    <h2>Colors</h2>
+                </div>
+                <div class="grid grid-4">
+                    <div class="swatch" onclick="copyHex('#465155')">
+                        <div class="swatch-chip" style="background:#465155;color:#FCFBF5;">
+                            <span class="role">Primary</span>
+                        </div>
+                        <p class="swatch-name">Deep Sea</p>
+                        <p class="swatch-hex">#465155</p>
+                        <p class="swatch-cmyk">CMYK 73 56 54 33 &middot; RGB 70 81 85</p>
+                    </div>
+                    <div class="swatch" onclick="copyHex('#647367')">
+                        <div class="swatch-chip" style="background:#647367;color:#FCFBF5;">
+                            <span class="role">Primary</span>
+                        </div>
+                        <p class="swatch-name">Forest</p>
+                        <p class="swatch-hex">#647367</p>
+                        <p class="swatch-cmyk">CMYK 64 41 59 17 &middot; RGB 100 115 103</p>
+                    </div>
+                    <div class="swatch" onclick="copyHex('#89999B')">
+                        <div class="swatch-chip" style="background:#89999B;color:#FCFBF5;">
+                            <span class="role">Primary</span>
+                        </div>
+                        <p class="swatch-name">Mist</p>
+                        <p class="swatch-hex">#89999B</p>
+                        <p class="swatch-cmyk">CMYK 50 32 35 1 &middot; RGB 137 153 155</p>
+                    </div>
+                    <div class="swatch" onclick="copyHex('#FCFBF5')">
+                        <div class="swatch-chip" style="background:#FCFBF5;color:#89999B;border-color:var(--line-strong);">
+                            <span class="role">Secondary / BG</span>
+                        </div>
+                        <p class="swatch-name">Ivory</p>
+                        <p class="swatch-hex">#FCFBF5</p>
+                        <p class="swatch-cmyk">CMYK 1 0 3 0 &middot; RGB 253 251 245</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TYPOGRAPHY -->
+            <section id="typography">
+                <div class="section-header">
+                    <span class="section-number">03</span>
+                    <h2>Typography</h2>
+                </div>
+
+                <div class="specimen">
+                    <p class="specimen-label">Display &mdash; Ariana Pro</p>
+                    <h1 class="type-display">Counsel, Refined.</h1>
+                    <p class="usage-note">Usage: headlines, section titles, and callout copy. Use Regular or Medium weight.</p>
+                    <div class="weight-row">
+                        <span class="w300">Light</span>
+                        <span class="w400">Regular</span>
+                        <span class="w500">Medium</span>
+                        <span class="w600">Semibold</span>
+                    </div>
+                </div>
+
+                <div class="specimen">
+                    <p class="specimen-label">Body &mdash; Inter</p>
+                    <p class="type-body">
+                        Inter carries all body copy and long-form content. With generous line-height
+                        and a restrained weight, it keeps complex legal material approachable and easy
+                        to read across every screen.
+                    </p>
+                    <p class="usage-note">Usage: paragraphs, descriptions, UI text, and fine print.</p>
+                </div>
+
+                <div class="specimen">
+                    <p class="specimen-label">Eyebrow / Label &mdash; Inter, letterspaced</p>
+                    <p class="type-label-demo">Practice Areas &middot; 01</p>
+                    <p class="usage-note">Usage: overlines, labels, and small navigational markers. Uppercase, 600 weight, wide tracking.</p>
+                </div>
+            </section>
+
+            <!-- RADIUS -->
+            <section id="radius">
+                <div class="section-header">
+                    <span class="section-number">04</span>
+                    <h2>Corner Radius</h2>
+                </div>
+                <div class="feature">
+                    <div class="radius-demo"></div>
+                    <div>
+                        <h4>Restrained Radius</h4>
+                        <p class="mono-value">6px &middot; 0.375rem</p>
+                        <p>
+                            A tight, uniform 6px radius is applied across cards, buttons, inputs, and
+                            media. The subtle softening keeps the interface modern and approachable while
+                            preserving the crisp, structured feel a legal brand requires.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SPACING -->
+            <section id="spacing">
+                <div class="section-header">
+                    <span class="section-number">05</span>
+                    <h2>Spacing &amp; Layout</h2>
+                </div>
+                <div class="card">
+                    <p class="card-eyebrow eyebrow-forest">8-Point Scale</p>
+                    <h4>Disciplined Whitespace</h4>
+                    <p style="margin-bottom:2rem;">
+                        Generous, consistent spacing built on an 8px base gives the brand its
+                        unhurried, high-end composure. Use these steps for padding, gaps, and margins.
+                    </p>
+                    <div class="scale-row">
+                        <div class="scale-item"><div class="scale-bar" style="height:8px;"></div><span>8</span></div>
+                        <div class="scale-item"><div class="scale-bar" style="height:16px;"></div><span>16</span></div>
+                        <div class="scale-item"><div class="scale-bar" style="height:24px;"></div><span>24</span></div>
+                        <div class="scale-item"><div class="scale-bar" style="height:40px;"></div><span>40</span></div>
+                        <div class="scale-item"><div class="scale-bar" style="height:64px;"></div><span>64</span></div>
+                        <div class="scale-item"><div class="scale-bar" style="height:96px;"></div><span>96</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BUTTONS -->
+            <section id="buttons">
+                <div class="section-header">
+                    <span class="section-number">06</span>
+                    <h2>Buttons</h2>
+                </div>
+                <div class="grid grid-3">
+                    <div class="card btn-stage">
+                        <button class="btn btn-primary">Schedule a Consultation</button>
+                        <span class="caption">Primary</span>
+                    </div>
+                    <div class="card btn-stage">
+                        <button class="btn btn-secondary">Our Practice Areas</button>
+                        <span class="caption">Secondary</span>
+                    </div>
+                    <div class="card btn-stage">
+                        <button class="btn btn-text">Read more <span class="arrow">&rarr;</span></button>
+                        <span class="caption">Text Link</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CARDS -->
+            <section id="cards">
+                <div class="section-header">
+                    <span class="section-number">07</span>
+                    <h2>Cards &amp; Panels</h2>
+                </div>
+                <div class="grid grid-2">
+                    <div class="card lift">
+                        <p class="card-eyebrow eyebrow-forest">Standard Card</p>
+                        <h4>Elevated Panel</h4>
+                        <p>The default container for content. A clean white surface, hairline border, and soft shadow that lifts gently on hover.</p>
+                    </div>
+                    <div class="card-flat">
+                        <p class="card-eyebrow eyebrow-mist">Alternative Style</p>
+                        <h4>Quiet Panel</h4>
+                        <p>A subtle tinted surface for secondary content, sidebars, or grouped information where less emphasis is needed.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FORMS -->
+            <section id="forms">
+                <div class="section-header">
+                    <span class="section-number">08</span>
+                    <h2>Form Elements</h2>
+                </div>
+                <div class="card form-card">
+                    <div class="field">
+                        <label for="f-name">Full Name</label>
+                        <input id="f-name" type="text" placeholder="Jane Whitmore">
+                    </div>
+                    <div class="field">
+                        <label for="f-matter">Matter Type</label>
+                        <select id="f-matter">
+                            <option>Estate Planning</option>
+                            <option>Corporate Counsel</option>
+                            <option>Litigation</option>
+                            <option>Real Estate</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="f-msg">How can we help?</label>
+                        <textarea id="f-msg" placeholder="Briefly describe your matter..."></textarea>
+                    </div>
+                    <div class="field">
+                        <button class="btn btn-primary" style="width:100%;">Request a Consultation</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- NAVIGATION / PRACTICE AREAS -->
+            <section id="navigation">
+                <div class="section-header">
+                    <span class="section-number">09</span>
+                    <h2>Practice Areas</h2>
+                </div>
+                <div class="grid grid-2">
+                    <div class="nav-card">
+                        <div class="nav-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7h14M7 7l-3 7a4 4 0 0 0 6 0L7 7zm10 0l-3 7a4 4 0 0 0 6 0l-3-7z"/></svg>
+                        </div>
+                        <div>
+                            <p class="nav-title">Litigation</p>
+                            <p class="nav-desc">Disciplined advocacy in and out of court</p>
+                        </div>
+                    </div>
+                    <div class="nav-card">
+                        <div class="nav-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>
+                        </div>
+                        <div>
+                            <p class="nav-title">Estate Planning</p>
+                            <p class="nav-desc">Protecting legacy across generations</p>
+                        </div>
+                    </div>
+                    <div class="nav-card">
+                        <div class="nav-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l8-4 8 4v14M9 21v-6h6v6"/></svg>
+                        </div>
+                        <div>
+                            <p class="nav-title">Corporate Counsel</p>
+                            <p class="nav-desc">Strategic guidance for growing firms</p>
+                        </div>
+                    </div>
+                    <div class="nav-card">
+                        <div class="nav-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
+                        </div>
+                        <div>
+                            <p class="nav-title">Real Estate</p>
+                            <p class="nav-desc">Transactions handled with precision</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SOCIAL & ADS -->
+            <section id="social">
+                <div class="section-header">
+                    <span class="section-number">10</span>
+                    <h2>Social &amp; Ads</h2>
+                </div>
+                <div class="grid grid-2">
+                    <div class="card">
+                        <p class="card-eyebrow eyebrow-mist">Instagram / Facebook &middot; 1080&times;1080</p>
+                        <div class="mock">
+                            <div class="mock-square">
+                                <div class="mock-mono">Ohler Bean</div>
+                                <div class="accent-line"></div>
+                                <h3>Counsel built<br>on trust.</h3>
+                                <p>Discreet, considered representation for life's most important matters.</p>
+                                <p class="mock-url">ohlerbean.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <p class="card-eyebrow eyebrow-mist">LinkedIn / Display &middot; 1200&times;628</p>
+                        <div class="mock">
+                            <div class="mock-wide">
+                                <div class="mock-mono">Ohler Bean</div>
+                                <div class="accent-line"></div>
+                                <h3>Experience that speaks for itself.</h3>
+                                <span class="mock-pill">Schedule a Consultation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- IMAGERY -->
+            <section id="imagery">
+                <div class="section-header">
+                    <span class="section-number">11</span>
+                    <h2>Imagery Style</h2>
+                </div>
+
+                <div class="imagery-feature">
+                    <img src="Assets/Brand-Mood.png" alt="Ohler Bean mood board: deep blues and greens, leather, velvet, and brass details">
+                </div>
+
+                <div class="grid grid-3">
+                    <div class="swatch-tag">
+                        <div class="img-tile img-1">Rich &amp; Tonal</div>
+                        <p class="img-caption"><b>Depth:</b> Lean on deep, saturated tones and soft, directional light for a premium, understated mood.</p>
+                    </div>
+                    <div class="swatch-tag">
+                        <div class="img-tile img-2">Tactile Materials</div>
+                        <p class="img-caption"><b>Texture:</b> Feature natural materials &mdash; leather, velvet, brass, and wood &mdash; to signal craft and permanence.</p>
+                    </div>
+                    <div class="swatch-tag">
+                        <div class="img-tile img-3">Brand Wash</div>
+                        <p class="img-caption"><b>Tint:</b> Apply subtle Deep Sea or Forest overlays to photography for a consistent, cohesive palette.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MOTION -->
+            <section id="motion">
+                <div class="section-header">
+                    <span class="section-number">12</span>
+                    <h2>Motion</h2>
+                </div>
+                <div class="grid grid-2">
+                    <div class="card motion-stage">
+                        <div class="motion-box motion-lift"></div>
+                        <span class="motion-caption">Gentle Lift</span>
+                    </div>
+                    <div class="card motion-stage">
+                        <div class="motion-box motion-fade"></div>
+                        <span class="motion-caption">Slow Fade</span>
+                    </div>
+                </div>
+                <p class="usage-note" style="margin-top:1.25rem;">
+                    Motion is slow, subtle, and purposeful. Favor soft fades and small lifts (200&ndash;400ms, ease-in-out). Avoid bounces or fast, attention-seeking animation &mdash; restraint signals confidence.
+                </p>
+            </section>
+
+            <!-- ELEVATION -->
+            <section id="elevation">
+                <div class="section-header">
+                    <span class="section-number">13</span>
+                    <h2>Elevation</h2>
+                </div>
+                <div class="grid grid-3">
+                    <div class="card elevation-stage">
+                        <div class="elevation-tile e-1">Level 1</div>
+                    </div>
+                    <div class="card elevation-stage">
+                        <div class="elevation-tile e-2">Level 2</div>
+                    </div>
+                    <div class="card elevation-stage">
+                        <div class="elevation-tile e-3">Level 3</div>
+                    </div>
+                </div>
+                <p class="usage-note" style="margin-top:1.25rem;">
+                    Shadows are soft and low-contrast, tinted with Deep Sea rather than pure black. Use Level 1 for resting cards, Level 2 on hover, and Level 3 for overlays and modals.
+                </p>
+            </section>
+
+            <footer>
+                <p>Ohler Bean &middot; Internal Brand Documentation &middot; 2026</p>
+            </footer>
+        </main>
+    </div>
+
+    <div id="toast" class="toast">Copied to clipboard</div>
+
+    <script>
+        function copyHex(text) {
+            navigator.clipboard.writeText(text).then(function () {
+                var toast = document.getElementById('toast');
+                toast.textContent = text + ' copied';
+                toast.classList.add('show');
+                clearTimeout(window.__toastTimer);
+                window.__toastTimer = setTimeout(function () {
+                    toast.classList.remove('show');
+                }, 1800);
+            });
+        }
+    </script>
+</body>
+</html>
