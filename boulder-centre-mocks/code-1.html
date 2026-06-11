@@ -1,0 +1,410 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Boulder Centre for Orthopedics &amp; Spine</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#83bad6",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#95f4e1",
+                        "surface-variant": "#e1e3e4",
+                        "primary-fixed-dim": "#96ceeb",
+                        "on-background": "#191c1d",
+                        "on-secondary-fixed": "#00201b",
+                        "on-secondary-container": "#007164",
+                        "surface-dim": "#d8dadb",
+                        "surface-tint": "#2a657e",
+                        "outline": "#71787d",
+                        "tertiary-container": "#633d07",
+                        "on-tertiary-fixed-variant": "#653e08",
+                        "background": "#f8fafb",
+                        "emergency-red": "#B02E26",
+                        "primary": "#003345",
+                        "outline-variant": "#c0c7cd",
+                        "inverse-primary": "#96ceeb",
+                        "surface-container-high": "#e6e8e9",
+                        "primary-fixed": "#bfe8ff",
+                        "surface": "#f8fafb",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e1e3e4",
+                        "primary-container": "#004b63",
+                        "secondary-container": "#95f4e1",
+                        "surface-container-low": "#f2f4f5",
+                        "on-tertiary-container": "#dfa96b",
+                        "on-surface-variant": "#40484c",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#044d65",
+                        "secondary-fixed-dim": "#78d7c6",
+                        "on-primary-fixed": "#001f2b",
+                        "tertiary-fixed-dim": "#f5bc7c",
+                        "on-surface": "#191c1d",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#005046",
+                        "tertiary": "#462800",
+                        "on-error": "#ffffff",
+                        "deep-navy": "#002D3C",
+                        "surface-bright": "#f8fafb",
+                        "text-main": "#1A2024",
+                        "on-tertiary-fixed": "#2b1700",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#eff1f2",
+                        "on-tertiary": "#ffffff",
+                        "surface-container": "#eceeef",
+                        "tertiary-fixed": "#ffddba",
+                        "soft-sky": "#E6F4F2",
+                        "secondary": "#006b5e",
+                        "inverse-surface": "#2e3132"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "32px",
+                        "container-max-width": "1280px",
+                        "section-v-padding-desktop": "120px",
+                        "base": "8px",
+                        "section-v-padding-mobile": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-caps": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["36px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.8", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.08em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- TopNavBar -->
+<header class="w-full top-0 sticky z-50 bg-surface/90 backdrop-blur-md shadow-sm border-b border-outline-variant">
+<div class="flex justify-between items-center w-full px-gutter py-4 max-w-container-max-width mx-auto">
+<div class="flex items-center gap-2">
+<img alt="Boulder Centre for Orthopedics &amp; Spine" class="h-14 w-auto" src="logo.png">
+</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant text-label-caps font-label-caps hover:text-primary transition-colors" href="#">Providers</a>
+<a class="text-on-surface-variant text-label-caps font-label-caps hover:text-primary transition-colors" href="#">Specialties</a>
+<a class="text-on-surface-variant text-label-caps font-label-caps hover:text-primary transition-colors" href="#">Locations</a>
+<a class="text-on-surface-variant text-label-caps font-label-caps hover:text-primary transition-colors" href="#">Services</a>
+</nav>
+<div class="flex items-center gap-4">
+<button aria-label="Search" class="text-primary hover:opacity-80 transition-all duration-200">
+<span class="material-symbols-outlined">search</span>
+</button>
+<a class="hidden md:inline-flex bg-primary text-on-primary px-6 py-3 rounded-lg text-label-caps font-label-caps hover:opacity-90 transition-opacity" href="#">
+                    Schedule Appointment
+                </a>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative w-full pt-16 pb-section-v-padding-mobile md:pt-24 md:pb-section-v-padding-desktop overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="" class="w-full h-full object-cover object-center opacity-90" src="hero.png">
+<div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/80 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-container-max-width mx-auto px-gutter grid grid-cols-1 md:grid-cols-12 gap-8 items-center h-full">
+<div class="md:col-span-7 lg:col-span-6 space-y-6">
+<h1 class="text-display-lg-mobile md:text-display-lg font-display-lg-mobile md:font-display-lg text-primary">
+                        Expert Orthopedic Care for Your Life in Motion.
+                    </h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-lg">
+                        Dedicated to providing expert bone, joint, and muscle care since 1968. We're committed to developing customized treatment plans based on your individual needs.
+                    </p>
+<div class="pt-4">
+<a class="inline-flex items-center justify-center bg-primary text-on-primary px-8 py-4 rounded-lg text-label-caps font-label-caps hover:bg-primary-container transition-colors shadow-[0_4px_14px_rgba(0,51,69,0.15)]" href="#">
+                            Schedule Your Appointment
+                        </a>
+</div>
+</div>
+</div>
+</section>
+<!-- Quick Access: Ortho Same Day Care -->
+<section class="max-w-container-max-width mx-auto px-gutter -mt-16 relative z-20 mb-8">
+<div class="glass-panel rounded-xl shadow-[0_8px_30px_rgba(0,51,69,0.08)] border border-white/50 overflow-hidden relative">
+<div class="absolute right-0 top-0 bottom-0 w-1/3 z-0 hidden md:block opacity-30">
+<img alt="" class="w-full h-full object-cover object-right" src="https://lh3.googleusercontent.com/aida/AP1WRLtuJOX0ypZknkqss_a5Jygn0ufwJNESNxrTMRV4Y5RXzluC_sQUfbFuITZIKkBJDU9YlNi2PMrc5xt-irijpm-KUkkr2I46Dp4rjX81K2IahEIurl-f6rZEJOhr7GMng1aU-4mkwZmOcmV3RcmikzZFF3kHbFiDUArP0WMKYBMoZsrtunBUQGdnhn3DH-njtfIiY4t2bsVt8S1hLQyvaddXEpxrTpfa3m-M_MEurwok5K0nYO7Eq0BUqiIB">
+<div class="absolute inset-0 bg-gradient-to-r from-white to-transparent"></div>
+</div>
+<div class="relative z-10 p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+<div>
+<h2 class="text-headline-md font-headline-md text-primary mb-2 flex items-center gap-3">
+<span class="material-symbols-outlined text-emergency-red" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+                            Ortho Same Day Care
+                        </h2>
+<p class="text-body-md font-body-md text-on-surface-variant">Bone, joint, or muscle injury? Get specialized care fast in Boulder or Broomfield.</p>
+</div>
+<div class="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto">
+<div class="bg-surface-container px-6 py-3 rounded-lg flex items-center gap-2 border border-soft-sky w-full sm:w-auto">
+<span class="material-symbols-outlined text-primary">schedule</span>
+<span class="text-body-md font-body-md text-primary font-semibold">Mon - Fri, 8:00 AM - 4:00 PM</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Where Does It Hurt? -->
+<!-- Comprehensive Care (New Section) -->
+<section class="py-section-v-padding-mobile md:py-section-v-padding-desktop bg-surface overflow-hidden">
+<div class="max-w-container-max-width mx-auto px-gutter">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-center">
+<div class="space-y-6">
+<h2 class="text-headline-md font-headline-md text-primary">Comprehensive Orthopedic Care</h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant">
+                        We offer a full spectrum of orthopedic services, from advanced diagnostic imaging and cutting-edge surgical procedures to dedicated rehabilitation and physical therapy. Our integrated approach ensures you receive cohesive, specialized care at every step of your recovery journey.
+                    </p>
+<ul class="space-y-4 pt-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary mt-1">check_circle</span>
+<span class="text-body-md font-body-md text-on-surface-variant">State-of-the-art surgical and non-surgical treatments.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary mt-1">check_circle</span>
+<span class="text-body-md font-body-md text-on-surface-variant">On-site diagnostic imaging including MRI and digital X-ray.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary mt-1">check_circle</span>
+<span class="text-body-md font-body-md text-on-surface-variant">Comprehensive physical and occupational therapy programs.</span>
+</li>
+</ul>
+<div class="pt-6">
+<a class="inline-flex items-center gap-2 text-primary font-bold hover:text-secondary transition-colors" href="#">
+                            Explore All Treatments <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<img alt="Active family enjoying a sunny day in Boulder" class="w-full h-64 object-cover rounded-xl shadow-lg col-span-2" src="https://lh3.googleusercontent.com/aida/AP1WRLufAo_7to8A3kZyztKTIDwT7dk5DMAbvijkO6bhEV06j2WgTiVUSJzmy_vN-3aV3vRDOasUc6jY5r766juZgVoFqLND9pJR3r6_irVfeprsgl1fGWrhKFqzg0YPhBK45bIyT9cOLISyI5fYeYBZ2a8pCU2TImUtemeigRre8BF6yIum1GhqDboe4aePo7OrCNiRfyAgk8UdRcWJVvnzLB764LnQfIzlqpeujakUE9tX9Q678HVa4R3ujA48">
+<img alt="Physical Therapy" class="w-full h-48 object-cover rounded-xl shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOvCWkYHU_17m6eSNTvHtCOxkdpJMzTG0nKfME227s0A5Dvy3ygRaZ-o35kbAMqvcFmnjHE1GJtwWwykRk-iX9-TxHR5r2NLk16ulQTfQrZBhBxARQ3t5JlneiXRM-r-_YN_l1lLblzdRKMQmSY0OGV7fJzDbTbdQSeznwxXdLGsyBNspZcJkqOruYXnV1ye4PkG5pbZQI1I22OIRi3m4S0oV_gWMM1H3Bp53df7wXXQL9zW3KHFTm43LP_T_4BNRtrUeU_9tz0DUx">
+<img alt="Diagnostic Imaging" class="w-full h-48 object-cover rounded-xl shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcjV3Dn8uuo1_FGAk3xN4alD9AnyuimV78-_O3DqtUB-YXWb-LDPiLrnjS4lyFACJztlxKX3b9F3tbZSF_gTLP2JT42K6zh-i8hzZH6q5voeT2TRadFhtntjDlCGG64iL4QIrBMYSvWHEHkZJlkwYj3FPbkbK__npihVXeimJV7pS--GMsAG08Tj7azCmLzTv-Uv-OHj6adfCI1rFNR7NmiR3OEyj6uE6OSzUNVehXGhvUdbjc4P85VG6hIY4AcSZNs7CS4lP7WTAa">
+</div>
+</div>
+</div>
+</section>
+<!-- Specialized Services (Enhanced) -->
+<section class="py-section-v-padding-mobile md:py-section-v-padding-desktop bg-surface-container-low relative"><div class="absolute inset-0 z-0 opacity-10 z-10"><img alt="" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ7-gegT2yzB5dzuDg752iDvwNsuQTh_pJVSfd-dw2g2XSWjb3U0N8SwtUTbXtTiOrnanGR_A3lIvaK08pv0xhBK7YE3dlsipDRSR-2noCt2Nb1yWPHpvNxAoFrNCCkIgU5UZ_wp-GhT8oUn8y7sC-zi9ZhxZVaqSnqg9iv9HE2Zd_ISu5qpLj99WS944d6QJACJoUHraV5gG1HCMHbC0PCrGM7EsgmzK0RdoghYPno1Kd4DPhNlUcb9g8bX1XrKvFgfTZ-2_RlcJ0"></div>
+<div class="max-w-container-max-width mx-auto px-gutter z-10">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12">
+<div>
+<h2 class="text-headline-md font-headline-md text-primary mb-4">Specialized Services</h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-xl">Comprehensive care facilities conveniently located for your complete recovery.</p>
+</div>
+<a class="hidden md:inline-flex items-center gap-2 text-primary font-bold hover:text-secondary transition-colors" href="#">
+                        View All Services <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+<!-- Therapy Services Card -->
+<div class="relative rounded-2xl overflow-hidden group h-[400px] shadow-[0_8px_30px_rgba(0,51,69,0.12)]"><img alt="Spine and Back Care" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkWSkCJ2AMNGDvmpOnT7O_Vy3g_x3SMcxrV5A1OtyuMRIO1ZdKdfLGLjWmyjzhUyjKHV1WRvXZouQx0FdmOL5gMLKpDrROyXXb7gMMnXKOkkRWaAVLqeU5AHU7b1gg3BZoGZEnHLXW4s-kTjfoB3iaLpaIsa87odPhmoOSBojfJ-CjULoLObarowcw0BYKJy2uTqW2PBtejy3EdASY1VK1cPfiKGFRezK3RZpSwU_HSJjPmH_q131pJi4snjgJmoY2wOrYhXe1Bxj4"><div class="absolute inset-0 bg-gradient-to-t from-deep-navy/90 via-deep-navy/40 to-transparent"></div><div class="absolute inset-0 p-8 flex flex-col justify-end text-white"><h3 class="text-headline-sm font-headline-sm mb-3">Spine &amp; Back Care</h3><p class="text-body-md font-body-md text-white/80 mb-6">Comprehensive treatment for spinal conditions, from conservative management to advanced surgical solutions.</p><a class="inline-flex items-center gap-2 text-secondary-fixed font-semibold hover:text-white transition-colors" href="#">Learn More <span class="material-symbols-outlined text-sm">arrow_forward</span></a></div></div>
+<!-- MRI/CT Services Card -->
+<div class="relative rounded-2xl overflow-hidden group h-[400px] shadow-[0_8px_30px_rgba(0,51,69,0.12)]"><img alt="Knee and Hip Excellence" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnzffjGIz4mYSKwUjFSA_j85ndiSS2quAL5WxQXtEC18LaAs4ODdSAsX5-gAS7O4Z1XLUsvqjXTKIiXCsOBdpwbtYGwac4AqnxcsHj7oktrRtb0S_FBYM9PBxVUOJpRMetk19NfE4dAOvXtqR5gmpe8zsCceCsJJNPs01cAZfoXmnQW5BTnt_e0FC1V4biR7oKwU1IitsmFHCBN0GJV_1MWFzAHo3UjXJL53GBBh1wVTbW_KYT6dluBL4fxBdDZjfF7ZJdKVvRD2nx"><div class="absolute inset-0 bg-gradient-to-t from-deep-navy/90 via-deep-navy/40 to-transparent"></div><div class="absolute inset-0 p-8 flex flex-col justify-end text-white"><h3 class="text-headline-sm font-headline-sm mb-3">Knee &amp; Hip Excellence</h3><p class="text-body-md font-body-md text-white/80 mb-6">Specialized joint replacement and preservation techniques to restore your mobility and quality of life.</p><a class="inline-flex items-center gap-2 text-secondary-fixed font-semibold hover:text-white transition-colors" href="#">Learn More <span class="material-symbols-outlined text-sm">arrow_forward</span></a></div></div>
+<!-- DME Card -->
+<div class="relative rounded-2xl overflow-hidden group h-[400px] shadow-[0_8px_30px_rgba(0,51,69,0.12)]"><img alt="Elbow, Hand and Wrist" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc6rBrQFuTxLICyFJ1vEzIMzWRJPKwkV1ou95ZY5GcWIrW2rggcb1FojPjmaMXslXrwi4_uub4Ae3v5gT5cCnRIEznYOBuJbSkRMMuw0fRG6vULh2muoOZkwgo4Km0CB-U2XvwKjGbVO3esZhqQZdGVzTXZDEI0RhadGgCg7AR015UjBb1eH0Pgtk8JMloQu0Ic-FisoT-IgXZjVSdaLzN5rCXBNq4hsDuhBcyXv5dexz8HJGJa24DdP3NjCwcrte4MJiEDJFelNYZ"><div class="absolute inset-0 bg-gradient-to-t from-deep-navy/90 via-deep-navy/40 to-transparent"></div><div class="absolute inset-0 p-8 flex flex-col justify-end text-white"><h3 class="text-headline-sm font-headline-sm mb-3">Elbow, Hand &amp; Wrist</h3><p class="text-body-md font-body-md text-white/80 mb-6">Expert care for complex upper extremity conditions, focusing on precision and functional recovery.</p><a class="inline-flex items-center gap-2 text-secondary-fixed font-semibold hover:text-white transition-colors" href="#">Learn More <span class="material-symbols-outlined text-sm">arrow_forward</span></a></div></div>
+</div>
+</div>
+</section>
+<!-- Meet Our Providers (New Section) -->
+<section class="py-section-v-padding-mobile md:py-section-v-padding-desktop bg-surface">
+<div class="max-w-container-max-width mx-auto px-gutter text-center">
+<h2 class="text-headline-md font-headline-md text-primary mb-4">Meet Our Orthopedic Experts</h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl mx-auto mb-16">
+                    Our team of board-certified specialists is dedicated to providing personalized care and the most advanced treatments available.
+                </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Provider 1 -->
+<div class="group text-center">
+<div class="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden shadow-lg border-4 border-surface-container-low group-hover:border-primary transition-colors duration-300">
+<div class="w-full h-full bg-surface-variant flex items-center justify-center"><span class="material-symbols-outlined text-outline text-6xl" style="font-variation-settings: 'FILL' 1;">person</span></div>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-primary mb-1">Dr. Sarah Jenkins</h3>
+<p class="text-body-md font-body-md text-secondary font-semibold mb-3">Sports Medicine</p>
+<a class="text-label-caps font-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">View Profile</a>
+</div>
+<!-- Provider 2 -->
+<div class="group text-center">
+<div class="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden shadow-lg border-4 border-surface-container-low group-hover:border-primary transition-colors duration-300">
+<div class="w-full h-full bg-surface-variant flex items-center justify-center"><span class="material-symbols-outlined text-outline text-6xl" style="font-variation-settings: 'FILL' 1;">person</span></div>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-primary mb-1">Dr. Michael Chen</h3>
+<p class="text-body-md font-body-md text-secondary font-semibold mb-3">Joint Replacement</p>
+<a class="text-label-caps font-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">View Profile</a>
+</div>
+<!-- Provider 3 -->
+<div class="group text-center">
+<div class="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden shadow-lg border-4 border-surface-container-low group-hover:border-primary transition-colors duration-300">
+<div class="w-full h-full bg-surface-variant flex items-center justify-center"><span class="material-symbols-outlined text-outline text-6xl" style="font-variation-settings: 'FILL' 1;">person</span></div>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-primary mb-1">Dr. Emily Patel</h3>
+<p class="text-body-md font-body-md text-secondary font-semibold mb-3">Hand &amp; Upper Extremity</p>
+<a class="text-label-caps font-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">View Profile</a>
+</div>
+<!-- Provider 4 -->
+<div class="group text-center">
+<div class="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden shadow-lg border-4 border-surface-container-low group-hover:border-primary transition-colors duration-300">
+<div class="w-full h-full bg-surface-variant flex items-center justify-center"><span class="material-symbols-outlined text-outline text-6xl" style="font-variation-settings: 'FILL' 1;">person</span></div>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-primary mb-1">Dr. Robert Davis</h3>
+<p class="text-body-md font-body-md text-secondary font-semibold mb-3">Spine Surgery</p>
+<a class="text-label-caps font-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">View Profile</a>
+</div>
+</div>
+<div class="mt-12">
+<a class="inline-flex items-center justify-center bg-transparent border-2 border-primary text-primary px-8 py-3 rounded-lg text-label-caps font-label-caps hover:bg-primary hover:text-on-primary transition-colors" href="#">
+                    View All Providers
+                </a>
+</div>
+</div>
+</section>
+<!-- Patient Comebacks -->
+<section class="py-section-v-padding-mobile md:py-section-v-padding-desktop bg-surface-container-high relative overflow-hidden">
+<div class="absolute inset-0 z-0 opacity-10"><img alt="" class="w-full h-full object-cover opacity-20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ7-gegT2yzB5dzuDg752iDvwNsuQTh_pJVSfd-dw2g2XSWjb3U0N8SwtUTbXtTiOrnanGR_A3lIvaK08pv0xhBK7YE3dlsipDRSR-2noCt2Nb1yWPHpvNxAoFrNCCkIgU5UZ_wp-GhT8oUn8y7sC-zi9ZhxZVaqSnqg9iv9HE2Zd_ISu5qpLj99WS944d6QJACJoUHraV5gG1HCMHbC0PCrGM7EsgmzK0RdoghYPno1Kd4DPhNlUcb9g8bX1XrKvFgfTZ-2_RlcJ0"></div>
+<div class="max-w-container-max-width mx-auto px-gutter relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="relative">
+<div class="rounded-xl overflow-hidden shadow-[0_20px_50px_rgba(0,51,69,0.15)] relative">
+<img alt="" class="w-full h-auto object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLuNuewnsfqib5UY4kKl71CI8pELCdo7ypKhKpYf4Q2jPdgBbMuoAtf6tjBUIVjiyUZVDfmOozggFfudfEqB-h6D7VyDSa_WH611R7OKSqUQMJej86-TsZMJozYTNmNhxRd44n6nKgEszw3zo5Ff9dutiv6yGI-WwHveNIyrjUzoOF5IPxa9imMUsOCGewIcy-gCumHT2WfZ3vENBurvEI6uMMyZGV5xu-VufapNSXioDq0srH8jn6YuAms">
+</div>
+</div>
+<div>
+<h2 class="text-headline-md font-headline-md text-primary mb-6">Real Stories. Real Comebacks.</h2>
+<blockquote class="text-headline-sm font-headline-sm text-primary italic mb-8 border-l-4 border-secondary-fixed pl-6 py-2 bg-surface/50 rounded-r-lg">
+                        "My recovery is ahead of the curve."
+                    </blockquote>
+<p class="text-body-lg font-body-lg text-on-surface-variant mb-8">
+                        Our specialized surgical techniques and dedicated rehabilitation teams ensure you get back to the activities you love, faster and stronger.
+                    </p>
+<a class="inline-flex items-center justify-center bg-transparent border-2 border-primary text-primary px-8 py-3 rounded-lg text-label-caps font-label-caps hover:bg-primary hover:text-on-primary transition-colors" href="#">
+                        Read Comeback Stories
+                    </a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-surface-container-low text-on-surface font-body-md border-t border-outline-variant">
+<div class="max-w-container-max-width mx-auto px-gutter py-section-v-padding-mobile md:py-section-v-padding-desktop">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+<!-- Brand/Mission Column -->
+<div class="space-y-6">
+<div class="flex flex-col gap-2">
+<span class="text-headline-sm font-headline-sm font-bold text-primary">Boulder Centre</span>
+<span class="text-label-caps font-label-caps text-secondary tracking-widest">Life in Motion</span>
+</div>
+<p class="text-body-md text-on-surface-variant leading-relaxed">
+          Dedicated to providing expert bone, joint, and muscle care since 1968. We're committed to developing customized treatment plans based on your individual needs.
+        </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-xl">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-xl">photo_camera</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-xl">work</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-xl">play_circle</span>
+</a>
+</div>
+</div>
+<!-- Locations Column -->
+<div>
+<h4 class="text-label-caps font-label-caps text-primary mb-6 border-b border-outline-variant pb-2">Our Locations</h4>
+<div class="space-y-6">
+<div>
+<h5 class="font-semibold text-primary mb-1">Boulder Office</h5>
+<p class="text-sm text-on-surface-variant">4740 Pearl Parkway, Suite 200<br>Boulder, CO 80301</p>
+</div>
+<div>
+<h5 class="font-semibold text-primary mb-1">Broomfield Office</h5>
+<p class="text-sm text-on-surface-variant">1185 Highway 287<br>Broomfield, CO 80020</p>
+</div>
+</div>
+</div>
+<!-- Quick Links Column -->
+<div>
+<h4 class="text-label-caps font-label-caps text-primary mb-6 border-b border-outline-variant pb-2">Quick Links</h4>
+<ul class="space-y-4">
+<li class=""><a class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2" href="#"><span class="material-symbols-outlined text-sm">arrow_forward</span> Patient Portal</a></li>
+<li class=""><a class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2" href="#"><span class="material-symbols-outlined text-sm">arrow_forward</span> Careers</a></li>
+<li class=""><a class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2" href="#"><span class="material-symbols-outlined text-sm">arrow_forward</span> Privacy Policy</a></li>
+<li class=""><a class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2" href="#"><span class="material-symbols-outlined text-sm">arrow_forward</span> Notice of Non-Discrimination</a></li>
+</ul>
+</div>
+<!-- Contact Column -->
+<div>
+<h4 class="text-label-caps font-label-caps text-primary mb-6 border-b border-outline-variant pb-2">Contact Info</h4>
+<div class="space-y-4">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary">call</span>
+<div>
+<p class="text-xs text-outline uppercase tracking-wider">Main Line</p>
+<p class="text-primary font-semibold">303.449.2730</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary">biotech</span>
+<div>
+<p class="text-xs text-outline uppercase tracking-wider">MRI/CT Services</p>
+<p class="text-primary font-semibold">720.512.5085</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary">exercise</span>
+<div>
+<p class="text-xs text-outline uppercase tracking-wider">Therapy Services</p>
+<p class="text-primary font-semibold">303.442.2666</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Bar -->
+<div class="border-t border-outline-variant py-8">
+<div class="max-w-container-max-width mx-auto px-gutter flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-on-surface-variant">
+<p class="">© 2024 Boulder Centre for Orthopedics &amp; Spine. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="hover:text-primary transition-colors" href="#">Terms of Use</a>
+<a class="hover:text-primary transition-colors" href="#">Sitemap</a>
+</div>
+</div>
+</div>
+</footer>
+
+
+</body></html>
