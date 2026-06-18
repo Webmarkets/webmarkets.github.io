@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CLn SportWash | Combat Pro Athletes</title>
+    <meta
+      name="description"
+      content="Physician-developed, medically formulated protection against staph, ringworm, MRSA, and impetigo for combat sports athletes."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="cln-sportwash-shared.css" />
+    <style>
+      .hero-combat .hero-bg {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='800'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%231a2830'/%3E%3Cstop offset='100%25' stop-color='%232a4248'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1200' height='800'/%3E%3C/svg%3E");
+      }
+      .hero-combat .hero-overlay {
+        background: linear-gradient(
+          135deg,
+          rgba(15, 26, 34, 0.92) 0%,
+          rgba(28, 43, 54, 0.75) 50%,
+          rgba(42, 122, 120, 0.35) 100%
+        );
+      }
+      .agitate-section {
+        background: var(--cln-navy);
+        position: relative;
+        overflow: hidden;
+      }
+      .agitate-section::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 60%;
+        height: 200%;
+        background: radial-gradient(
+          ellipse,
+          rgba(42, 122, 120, 0.15) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .solution-highlight {
+        border-left: 4px solid var(--cln-teal);
+        padding-left: 2rem;
+        margin: 2rem 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Mockup navigation -->
+    <nav class="mockup-nav" aria-label="Mockup pages">
+      <span>MOCKUPS</span>
+      <a href="cln-sportwash-index.html">Index</a>
+      <a href="cln-sportwash-combat.html" class="active">Combat Athletes</a>
+      <a href="cln-sportwash-parents.html">HS Parents</a>
+      <a href="cln-sportwash-performance.html">Performance</a>
+    </nav>
+
+    <!-- Stiletto: Sales banner -->
+    <div class="announce-bar">
+      <strong>Free USA Shipping</strong> on orders over $45
+    </div>
+
+    <!-- Stiletto: Header (minimal) -->
+    <header class="lp-nav">
+      <div class="inner">
+        <a href="https://www.clnwash.com/" class="lp-logo">CL<span>n</span> Skin Care</a>
+        <a href="#shop" class="lp-nav-cta">Shop SportWash</a>
+      </div>
+    </header>
+
+    <!-- Stiletto: Video hero OR Image hero -->
+    <section class="hero hero-light hero-combat" aria-label="Hero">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="inner">
+          <div class="stiletto-tag">Stiletto: Image Hero — Accent, Heading, Text, Button blocks</div>
+          <p class="eyebrow">Physician-Developed Protection</p>
+          <h1>One Infection Can Cost You Weeks.<br />This Won't.</h1>
+          <p class="lead" style="margin: 1.5rem 0 2rem">
+            CLn SportWash is physician-developed, medically formulated protection against
+            the staph, ringworm, MRSA, and impetigo living on every mat, glove, and training
+            surface you touch.
+          </p>
+          <a href="#shop" class="btn btn-primary">Protect Your Training</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stiletto: Image with text split -->
+    <section class="section section-cream" aria-label="Problem">
+      <div class="stiletto-tag" style="margin-left: var(--pad-x)">Stiletto: Image with Text Split</div>
+      <div class="iwt-split">
+        <div class="iwt-image">
+          <div class="img-placeholder dark" style="position: absolute; inset: 0">
+            <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            Combat training mat / sparring photo
+          </div>
+        </div>
+        <div class="iwt-text">
+          <h2>The Mat Doesn't Care How Hard You Train</h2>
+          <div class="body-text">
+            <p>
+              You've seen it happen. A training partner misses two weeks with a staph infection. A wrestler
+              scratches from a tournament with ringworm. A fighter's camp gets derailed not by a bad
+              opponent or a rough sparring session, but by something picked up off a mat.
+            </p>
+            <p>
+              Contact sports training environments are high-exposure zones for skin infections. Shared mats,
+              borrowed gear, sweat-soaked surfaces, and close-contact training create continuous exposure
+              to bacteria and fungi that standard body wash never touches.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stiletto: Rich text (dark) -->
+    <section class="section section-dark agitate-section" aria-label="Agitation">
+      <div class="inner section-narrow">
+        <div class="stiletto-tag">Stiletto: Rich Text — Heading, Text blocks</div>
+        <h2>Every Session Is an Exposure</h2>
+        <div class="body-text">
+          <p>
+            Staph bacteria can survive on training surfaces for hours. MRSA is common enough in wrestling
+            programs that the NCAA tracks it. Ringworm spreads through gyms at rates that surprise most
+            athletes who haven't dealt with it personally.
+          </p>
+          <p>
+            The question isn't whether you're being exposed. You are. The question is whether you're doing
+            anything about it.
+          </p>
+        </div>
+        <div class="stat-row">
+          <div class="stat-box">
+            <div class="num">Hours</div>
+            <div class="label">Staph survives on training surfaces</div>
+          </div>
+          <div class="stat-box">
+            <div class="num">MRSA</div>
+            <div class="label">Tracked by NCAA wrestling programs</div>
+          </div>
+          <div class="stat-box">
+            <div class="num">Every Session</div>
+            <div class="label">You're being exposed</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stiletto: Image with text -->
+    <section class="section" aria-label="Solution">
+      <div class="inner">
+        <div class="stiletto-tag">Stiletto: Image with Text</div>
+        <div class="iwt-split reverse" style="border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--cln-border)">
+          <div class="iwt-image">
+            <div class="img-placeholder" style="position: absolute; inset: 0">
+              <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+              CLn SportWash product — shower/post-training
+            </div>
+          </div>
+          <div class="iwt-text" style="background: var(--cln-teal-light)">
+            <h2>Physician-Developed. Built Specifically for Combat Sports Athletes.</h2>
+            <div class="body-text">
+              <p>
+                CLn SportWash was formulated by physicians who understand exactly what athletes are
+                exposed to in training environments. It isn't a hygiene product. It's a preventive medical tool,
+                developed to eliminate the specific bacterial and fungal pathogens responsible for the infections
+                that pull combat athletes out of training.
+              </p>
+              <p>One bottle. One addition to your post-training routine. No lifestyle change required.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stiletto: Multi-column -->
+    <section class="section section-cream" aria-label="Benefits">
+      <div class="inner">
+        <div class="stiletto-tag">Stiletto: Multi-column — Columns with icons</div>
+        <div class="section-header">
+          <h2>What You Get</h2>
+        </div>
+        <div class="multi-col">
+          <div class="col-card">
+            <div class="col-icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <h3>Clinically Formulated</h3>
+            <p>
+              Targets the bacterial and fungal pathogens specific to combat sports environments, including
+              staph, MRSA, ringworm, and impetigo. Not just clean. Protected.
+            </p>
+          </div>
+          <div class="col-card">
+            <div class="col-icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+            </div>
+            <h3>Physician-Developed</h3>
+            <p>
+              Built by physicians, not a marketing team. The formula behind CLn SportWash comes from
+              clinical expertise in athletic skin health.
+            </p>
+          </div>
+          <div class="col-card">
+            <div class="col-icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h3>One Simple Habit</h3>
+            <p>
+              Post-training. Every session. That's it. No complicated routine changes. It takes the same
+              amount of time as any other body wash.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stiletto: Testimonials -->
+    <section class="section testimonial-section" aria-label="Social proof">
+      <div class="inner">
+        <div class="stiletto-tag">Stiletto: Testimonials</div>
+        <h2>Trusted by Combat Sports Athletes and the Physicians Who Treat Them</h2>
+        <div class="testimonial-card" style="margin-top: 2rem">
+          <p class="testimonial-quote">
+            [Testimonial placeholder: athlete or physician quote. Suggest pairing with American Top Team
+            footage or a sports medicine physician endorsement.]
+          </p>
+          <p class="testimonial-meta">— Placeholder for athlete or physician attribution</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stiletto: Featured product -->
+    <section class="section section-cream" id="shop" aria-label="Shop">
+      <div class="inner">
+        <div class="stiletto-tag">Stiletto: Featured Product — Buy buttons, variant selector, sticky add-to-cart</div>
+        <div class="featured-product">
+          <div class="product-image-wrap">
+            <span class="product-badge">12 fl. oz.</span>
+            <div class="img-placeholder" style="height: 100%">
+              <svg width="64" height="64" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+              CLn SportWash product image
+            </div>
+          </div>
+          <div class="product-info">
+            <h2>Don't Let a Preventable Infection Take You Off the Mat</h2>
+            <p class="lead" style="margin-bottom: 1.5rem">
+              You put in the work. You control your training, your diet, your recovery. Skin infection prevention
+              is no different. CLn SportWash is the one habit most combat athletes aren't doing yet.
+            </p>
+            <p class="product-price">$32.00 <span>Full Size — 12 fl. oz.</span></p>
+            <div class="qty-row">
+              <select class="qty-select" aria-label="Quantity">
+                <option>Qty: 1</option>
+                <option>Qty: 2</option>
+                <option>Qty: 3</option>
+              </select>
+              <a href="https://www.clnwash.com/products/cln-sportwash" class="btn btn-primary add-to-cart">Shop CLn SportWash</a>
+            </div>
+            <div class="trust-row">
+              <span>✓ Physician-developed</span>
+              <span>✓ Free shipping $45+</span>
+              <span>✓ Doctor recommended</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stiletto: Sticky add-to-cart bar -->
+    <div class="sticky-bar" aria-label="Sticky add to cart">
+      <div class="sticky-bar-product">
+        <div class="sticky-thumb"></div>
+        <div>
+          <div class="sticky-name">CLn SportWash</div>
+          <div class="sticky-price">$32.00</div>
+        </div>
+      </div>
+      <a href="https://www.clnwash.com/products/cln-sportwash" class="btn btn-primary">Shop CLn SportWash</a>
+    </div>
+
+    <!-- Implementation guide -->
+    <footer class="impl-guide">
+      <div class="inner">
+        <h3>Shopify Build Guide — Combat Pro Athletes Landing Page</h3>
+        <ol>
+          <li>Create a new page template in Stiletto: <code>page.sportwash-combat.json</code></li>
+          <li><code>Sales banner</code> — Free USA Shipping on orders over $45</li>
+          <li><code>Image hero</code> — Full-width combat training image, dark overlay. Blocks: Accent, Heading, Text, Button ("Protect Your Training")</li>
+          <li><code>Image with text split</code> — Problem section with mat/training photo</li>
+          <li><code>Rich text</code> — Dark background, Agitation copy. Optional: Scrolling content for stat callouts</li>
+          <li><code>Image with text</code> — Solution section with product/lifestyle image</li>
+          <li><code>Multi-column</code> — 3 columns with icons: Clinically Formulated, Physician-Developed, One Simple Habit</li>
+          <li><code>Testimonials</code> — Athlete or physician quote (American Top Team footage suggested)</li>
+          <li><code>Featured product</code> — CLn SportWash with Add to Cart. Enable sticky add-to-cart bar</li>
+        </ol>
+      </div>
+    </footer>
+  </body>
+</html>

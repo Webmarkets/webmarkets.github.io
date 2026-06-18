@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CLn SportWash | Performance Lifestyle</title>
+    <meta
+      name="description"
+      content="Physician-developed, clinically formulated post-workout protection for CrossFit athletes and serious gym-goers."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="cln-sportwash-shared.css" />
+    <style>
+      .hero-performance {
+        position: relative;
+        min-height: clamp(500px, 80vh, 720px);
+        display: flex;
+        align-items: center;
+        background: var(--cln-cream);
+        overflow: hidden;
+      }
+      .hero-performance-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+        width: 100%;
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: var(--section-pad) var(--pad-x);
+      }
+      .hero-stack-visual {
+        position: relative;
+      }
+      .stack-item {
+        background: var(--cln-white);
+        border-radius: var(--radius);
+        padding: 1rem 1.25rem;
+        border: 1px solid var(--cln-border);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 14px;
+        font-weight: 500;
+        box-shadow: var(--shadow);
+      }
+      .stack-item.done { opacity: 0.5; }
+      .stack-item.gap {
+        border: 2px dashed var(--cln-teal);
+        background: var(--cln-teal-light);
+        opacity: 1;
+        transform: scale(1.02);
+      }
+      .stack-item + .stack-item { margin-top: 10px; }
+      .stack-check {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: var(--cln-teal-light);
+        color: var(--cln-teal);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        flex-shrink: 0;
+      }
+      .stack-item.gap .stack-check {
+        background: var(--cln-teal);
+        color: white;
+      }
+      .fab-section { background: var(--cln-navy); color: white; }
+      .fab-section h2 { color: white; }
+      .fab-section .fab-item {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.1);
+      }
+      .fab-section .fab-item h3 { color: white; }
+      .fab-section .fab-item p { color: rgba(255, 255, 255, 0.72); }
+      .fab-section .fab-label { color: #7dd3cf; }
+      @media (max-width: 900px) {
+        .hero-performance-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="mockup-nav" aria-label="Mockup pages">
+      <span>MOCKUPS</span>
+      <a href="cln-sportwash-index.html">Index</a>
+      <a href="cln-sportwash-combat.html">Combat Athletes</a>
+      <a href="cln-sportwash-parents.html">HS Parents</a>
+      <a href="cln-sportwash-performance.html" class="active">Performance</a>
+    </nav>
+
+    <div class="announce-bar">
+      <strong>Free USA Shipping</strong> on orders over $45
+    </div>
+
+    <header class="lp-nav">
+      <div class="inner">
+        <a href="https://www.clnwash.com/" class="lp-logo">CL<span>n</span> Skin Care</a>
+        <a href="#shop" class="lp-nav-cta">Close the Gap</a>
+      </div>
+    </header>
+
+    <!-- Stiletto: Image hero split (custom layout) -->
+    <section class="hero-performance" aria-label="Hero">
+      <div class="hero-performance-grid">
+        <div>
+          <div class="stiletto-tag">Stiletto: Image Hero Split — Accent, Heading, Text, Button</div>
+          <p class="eyebrow">For Athletes Who Optimize Everything</p>
+          <h1>Your Recovery Routine Has a Gap</h1>
+          <p class="lead" style="margin: 1.25rem 0 2rem">
+            Shared barbells, benches, and gym surfaces harbor bacteria that regular body
+            wash doesn't address. CLn SportWash is physician-developed protection built for
+            athletes who take every part of their training seriously.
+          </p>
+          <a href="#shop" class="btn btn-primary">Close the Gap</a>
+        </div>
+        <div class="hero-stack-visual">
+          <div class="stack-item done">
+            <span class="stack-check">✓</span> Macros tracked
+          </div>
+          <div class="stack-item done">
+            <span class="stack-check">✓</span> 8 hours sleep
+          </div>
+          <div class="stack-item done">
+            <span class="stack-check">✓</span> Recovery protocols dialed
+          </div>
+          <div class="stack-item gap">
+            <span class="stack-check">?</span> Post-workout hygiene
+          </div>
+          <div class="img-placeholder" style="margin-top: 1.5rem; height: 200px; border-radius: var(--radius-lg)">
+            CrossFit / gym training photo
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stiletto: Rich text -->
+    <section class="section" aria-label="Problem">
+      <div class="inner section-narrow">
+        <div class="stiletto-tag">Stiletto: Rich Text — Heading, Text blocks</div>
+        <h2>Every Gym Is a Shared Environment. Most Athletes Treat It Like It Isn't.</h2>
+        <div class="body-text">
+          <p>
+            You track your macros. You sleep eight hours. You invest in recovery. But after every training
+            session, you're washing off the workout with the same body wash you've used since high
+            school.
+          </p>
+          <p>
+            Shared barbells. Rubber flooring. Shared showers. These surfaces accumulate bacteria and
+            fungi at levels that standard soap doesn't touch. Staph infections, ringworm, impetigo, and
+            MRSA aren't just combat sports problems. They show up in CrossFit boxes, weight rooms, and
+            high-traffic gyms regularly.
+          </p>
+          <p>Most athletes don't think about it. Until they're out for two weeks.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stiletto: Image with text -->
+    <section class="section section-cream" aria-label="Product introduction">
+      <div class="stiletto-tag" style="margin-left: var(--pad-x)">Stiletto: Image with Text</div>
+      <div class="iwt-split">
+        <div class="iwt-image">
+          <div class="img-placeholder" style="position: absolute; inset: 0">
+            <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+            CLn SportWash product — locker room
+          </div>
+        </div>
+        <div class="iwt-text">
+          <h2>Physician-Developed. Designed for Athletes Who Optimize Everything.</h2>
+          <div class="body-text">
+            <p>
+              CLn SportWash was developed by physicians as a preventive medical tool for athletes in high-
+              contact, high-exposure training environments. It isn't a wellness product. It's a clinically
+              formulated wash that targets the specific bacteria and fungi responsible for skin infections in
+              training environments.
+            </p>
+            <p>Same routine. Better protection.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stiletto: Multi-column OR Image with text split (FAB) -->
+    <section class="section fab-section" aria-label="Features">
+      <div class="inner">
+        <div class="stiletto-tag">Stiletto: Multi-column OR repeated Image with Text Split blocks</div>
+        <div class="section-header">
+          <h2>Feature / Advantage / Benefit</h2>
+        </div>
+        <div class="fab-grid">
+          <div class="fab-item">
+            <div class="fab-label">Feature</div>
+            <div>
+              <h3>Clinically Formulated Anti-Bacterial and Anti-Fungal Formula</h3>
+            </div>
+            <div>
+              <p><strong style="color: #7dd3cf">Advantage:</strong> Targets the specific pathogens (staph, MRSA, ringworm, impetigo) common in gym and training environments, not just surface-level cleanliness.</p>
+              <p style="margin-top: 0.75rem"><strong style="color: #7dd3cf">Benefit:</strong> You can train every day without a preventable skin infection wiping out a week or two of hard-earned progress.</p>
+            </div>
+          </div>
+          <div class="fab-item">
+            <div class="fab-label">Feature</div>
+            <div>
+              <h3>Physician-Developed</h3>
+            </div>
+            <div>
+              <p><strong style="color: #7dd3cf">Advantage:</strong> Created by medical professionals who work with athletes, not by a personal care brand optimizing for fragrance and shelf appeal.</p>
+              <p style="margin-top: 0.75rem"><strong style="color: #7dd3cf">Benefit:</strong> A formula you can trust with clinical backing, not marketing copy.</p>
+            </div>
+          </div>
+          <div class="fab-item">
+            <div class="fab-label">Feature</div>
+            <div>
+              <h3>One-Step Post-Workout Integration</h3>
+            </div>
+            <div>
+              <p><strong style="color: #7dd3cf">Advantage:</strong> No extra steps, no complicated routine, no timing protocols.</p>
+              <p style="margin-top: 0.75rem"><strong style="color: #7dd3cf">Benefit:</strong> The best protection is the kind you actually use consistently. This fits into what you're already doing.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stiletto: Testimonials -->
+    <section class="section testimonial-section" aria-label="Social proof">
+      <div class="inner">
+        <div class="stiletto-tag">Stiletto: Testimonials</div>
+        <h2>The Body Wash Serious Athletes Are Adding to Their Stack</h2>
+        <div class="testimonial-card" style="margin-top: 2rem">
+          <p class="testimonial-quote">
+            [Testimonial placeholder: CrossFit coach, performance athlete, or sports dermatologist. Chris
+            Gethin or a CrossFit-aligned influencer are strong fits for this segment per campaign outreach
+            list.]
+          </p>
+          <p class="testimonial-meta">— Placeholder for athlete or coach attribution</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stiletto: Featured product + CTA band -->
+    <section class="cta-band" aria-label="Final CTA">
+      <div class="stiletto-tag" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #a8e6cf; margin-bottom: 1.5rem">Stiletto: Rich Text — Heading, Text, Button</div>
+      <h2>Optimize Every Part of Your Training. Including What You Wash With.</h2>
+      <p>You've dialed in everything else. Post-workout hygiene that actually works is the last box to check.</p>
+      <a href="#shop" class="btn btn-outline">Shop CLn SportWash</a>
+    </section>
+
+    <section class="section section-cream" id="shop" aria-label="Shop">
+      <div class="inner">
+        <div class="stiletto-tag">Stiletto: Featured Product</div>
+        <div class="featured-product">
+          <div class="product-image-wrap">
+            <span class="product-badge">Add to your stack</span>
+            <div class="img-placeholder" style="height: 100%">
+              <svg width="64" height="64" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+              CLn SportWash product image
+            </div>
+          </div>
+          <div class="product-info">
+            <h2>CLn SportWash</h2>
+            <p class="lead" style="margin-bottom: 1.5rem">
+              Physician-developed, clinically formulated protection for high-exposure training environments.
+            </p>
+            <p class="product-price">$32.00 <span>Full Size — 12 fl. oz.</span></p>
+            <div class="qty-row">
+              <select class="qty-select" aria-label="Quantity">
+                <option>Qty: 1</option>
+                <option>Qty: 2</option>
+                <option>Qty: 3</option>
+              </select>
+              <a href="https://www.clnwash.com/products/cln-sportwash" class="btn btn-primary add-to-cart">Shop CLn SportWash</a>
+            </div>
+            <div class="trust-row">
+              <span>✓ Clinically formulated</span>
+              <span>✓ One-step integration</span>
+              <span>✓ Free shipping $45+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="sticky-bar">
+      <div class="sticky-bar-product">
+        <div class="sticky-thumb"></div>
+        <div>
+          <div class="sticky-name">CLn SportWash</div>
+          <div class="sticky-price">$32.00</div>
+        </div>
+      </div>
+      <a href="https://www.clnwash.com/products/cln-sportwash" class="btn btn-primary">Shop CLn SportWash</a>
+    </div>
+
+    <footer class="impl-guide">
+      <div class="inner">
+        <h3>Shopify Build Guide — Performance Lifestyle Landing Page</h3>
+        <ol>
+          <li>Create page template: <code>page.sportwash-performance.json</code></li>
+          <li><code>Sales banner</code> — Free USA Shipping</li>
+          <li><code>Image hero split</code> — Hero copy + training stack visual. Button: "Close the Gap"</li>
+          <li><code>Rich text</code> — Problem section</li>
+          <li><code>Image with text</code> — Product introduction with locker room imagery</li>
+          <li><code>Multi-column</code> or 3× <code>Image with text split</code> — FAB rows (Feature / Advantage / Benefit)</li>
+          <li><code>Testimonials</code> — Chris Gethin or CrossFit-aligned influencer suggested</li>
+          <li><code>Rich text</code> — Final CTA band with gradient background</li>
+          <li><code>Featured product</code> — CLn SportWash with sticky add-to-cart</li>
+        </ol>
+      </div>
+    </footer>
+  </body>
+</html>

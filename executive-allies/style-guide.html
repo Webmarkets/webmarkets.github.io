@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Allies | Brand Style Guide</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Manrope (display) + Inter (body) from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Brand palette — sourced from inspiration.html */
+            --navy:        #1f3a68;
+            --navy-dark:   #152c50;
+            --navy-darker: #0f2240;
+            --gold:        #c9a961;
+            --gold-soft:   #e0c684;
+            --gold-bg:     rgba(201, 169, 97, 0.10);
+
+            /* Surfaces */
+            --bg:          #f4f6fb;   /* page background */
+            --card:        #ffffff;
+            --card-tint:   #f8f9fc;
+
+            /* Text */
+            --text:        #1a1f2e;
+            --muted:       #6b7280;
+
+            /* Borders */
+            --border:      #e5e7eb;
+            --border-dark: rgba(31, 58, 104, 0.20);
+
+            /* Accent */
+            --green:       #10b981;
+
+            /* Type */
+            --font-display: 'Manrope', -apple-system, sans-serif;
+            --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+            /* Elevation */
+            --shadow-sm: 0 1px 3px rgba(15, 34, 64, 0.06), 0 1px 2px rgba(15, 34, 64, 0.04);
+            --shadow-md: 0 4px 12px rgba(15, 34, 64, 0.10);
+            --shadow-lg: 0 20px 50px rgba(15, 34, 64, 0.12), 0 8px 20px rgba(15, 34, 64, 0.06);
+
+            /* Radius */
+            --radius-sm: 6px;
+            --radius:    10px;
+            --radius-lg: 16px;
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-weight: 400;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        ::selection { background: var(--navy); color: #fff; }
+        a { color: inherit; text-decoration: none; }
+
+        /* ---------- Layout ---------- */
+        .shell { display: flex; min-height: 100vh; }
+
+        /* ---------- Sidebar ---------- */
+        .sidebar {
+            width: 272px;
+            flex-shrink: 0;
+            border-right: 1px solid var(--border);
+            background: var(--card);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            scrollbar-width: none;
+        }
+        .sidebar::-webkit-scrollbar { display: none; }
+        .sidebar-inner { padding: 2.25rem 1.75rem; }
+
+        .brand-mark { margin-bottom: 2.5rem; }
+        .brand-name {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--navy);
+        }
+        .brand-name span { color: var(--gold); }
+        .brand-sub {
+            font-size: 0.65rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-top: 0.35rem;
+            font-weight: 500;
+        }
+        .brand-rule {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            margin-top: 1.25rem;
+        }
+        .brand-rule .hr { height: 1px; flex: 1; background: var(--border); }
+        .brand-rule span {
+            font-size: 0.58rem;
+            letter-spacing: 0.26em;
+            text-transform: uppercase;
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .nav-group { margin-bottom: 1.75rem; }
+        .nav-group-label {
+            font-size: 0.58rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin: 0 0 0.75rem;
+            font-weight: 700;
+        }
+        .nav-link {
+            display: block;
+            padding: 0.4rem 0;
+            font-size: 0.84rem;
+            color: var(--muted);
+            transition: color 0.15s, padding-left 0.15s;
+        }
+        .nav-link:hover { color: var(--navy); padding-left: 0.3rem; }
+
+        /* ---------- Main ---------- */
+        .main { flex: 1; padding: 3rem; max-width: 980px; }
+
+        .page-header { margin-bottom: 4.5rem; }
+        .eyebrow {
+            font-size: 0.68rem;
+            letter-spacing: 0.26em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 700;
+            margin: 0 0 0.85rem;
+        }
+        h1.page-title {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 3rem;
+            line-height: 1.08;
+            letter-spacing: -0.02em;
+            color: var(--navy);
+            margin: 0 0 1rem;
+        }
+        .page-lede {
+            font-size: 1.1rem;
+            color: var(--muted);
+            max-width: 34rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        section { margin-bottom: 5.5rem; scroll-margin-top: 2rem; }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            margin-bottom: 2rem;
+            padding-bottom: 0.9rem;
+            border-bottom: 2px solid var(--border);
+        }
+        .section-number {
+            font-family: var(--font-body);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--gold);
+            background: var(--gold-bg);
+            border: 1px solid rgba(201, 169, 97, 0.30);
+            padding: 0.28rem 0.55rem;
+            border-radius: var(--radius-sm);
+        }
+        .section-header h2 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.65rem;
+            letter-spacing: -0.01em;
+            color: var(--navy);
+            margin: 0;
+        }
+
+        /* ---------- Grids ---------- */
+        .grid { display: grid; gap: 1.25rem; }
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+        /* ---------- Cards ---------- */
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.6rem;
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .card.lift:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+        }
+        .card-tint {
+            background: var(--card-tint);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.6rem;
+        }
+        .card-navy {
+            background: var(--navy);
+            border-radius: var(--radius-lg);
+            padding: 1.6rem;
+            box-shadow: var(--shadow-md);
+            color: #fff;
+        }
+        .card-gold-top {
+            border-top: 3px solid var(--gold);
+        }
+
+        .card-label {
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin: 0 0 0.75rem;
+        }
+        .label-gold { color: var(--gold); }
+        .label-navy { color: var(--navy); }
+        .label-muted { color: var(--muted); }
+
+        .card h4 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--navy);
+            margin: 0 0 0.55rem;
+        }
+        .card-navy h4 { color: var(--ivory); }
+        .card p {
+            font-size: 0.88rem;
+            color: var(--muted);
+            margin: 0;
+            line-height: 1.65;
+        }
+        .card-navy p { color: rgba(255,255,255,0.75); }
+
+        /* Mission / value prop block */
+        .mission {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+            color: #fff;
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-lg);
+            border-top: 3px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+        }
+        .mission::after {
+            content: "EA";
+            position: absolute;
+            right: -1.5rem;
+            bottom: -2.5rem;
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 9rem;
+            letter-spacing: -0.04em;
+            color: rgba(255,255,255,0.04);
+            pointer-events: none;
+        }
+        .mission .card-label { color: var(--gold); position: relative; }
+        .mission p {
+            font-family: var(--font-display);
+            font-weight: 300;
+            font-size: 1.35rem;
+            line-height: 1.55;
+            color: #fff;
+            margin: 0;
+            position: relative;
+            max-width: 36rem;
+        }
+
+        /* ---------- Color swatches ---------- */
+        .swatch { cursor: pointer; }
+        .swatch-chip {
+            height: 120px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            margin-bottom: 0.75rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .swatch:hover .swatch-chip { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+        .swatch-chip .role {
+            position: absolute;
+            top: 0.75rem;
+            left: 0.85rem;
+            font-size: 0.52rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 700;
+            opacity: 0.7;
+        }
+        .swatch-name {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--navy);
+            margin: 0 0 0.2rem;
+        }
+        .swatch-hex { font-size: 0.76rem; letter-spacing: 0.04em; color: var(--muted); margin: 0; }
+        .swatch-cmyk { font-size: 0.65rem; color: var(--muted); margin: 0.15rem 0 0; opacity: 0.8; }
+
+        /* ---------- Typography ---------- */
+        .specimen {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 1.25rem;
+        }
+        .specimen-label {
+            font-size: 0.6rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--muted);
+            font-weight: 700;
+            margin: 0 0 1.1rem;
+        }
+        .type-display {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 2.8rem;
+            line-height: 1.08;
+            color: var(--navy);
+            margin: 0 0 0.85rem;
+            letter-spacing: -0.02em;
+        }
+        .type-body {
+            font-size: 1rem;
+            line-height: 1.75;
+            color: var(--text);
+            margin: 0;
+            max-width: 40rem;
+        }
+        .type-label-demo {
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 0.72rem;
+            letter-spacing: 0.26em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin: 0;
+        }
+        .usage-note {
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin: 1rem 0 0;
+        }
+        .weight-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1.25rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--border);
+        }
+        .weight-row span {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            color: var(--navy);
+        }
+        .w300 { font-weight: 300; }
+        .w400 { font-weight: 400; }
+        .w500 { font-weight: 500; }
+        .w600 { font-weight: 600; }
+        .w700 { font-weight: 700; }
+        .w800 { font-weight: 800; }
+
+        /* ---------- Buttons ---------- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.02em;
+            padding: 0.8rem 1.75rem;
+            border-radius: var(--radius);
+            border: 1.5px solid transparent;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .btn-primary {
+            background: var(--navy);
+            color: #fff;
+            box-shadow: var(--shadow-sm);
+        }
+        .btn-primary:hover { background: var(--navy-darker); box-shadow: var(--shadow-md); transform: translateY(-1px); }
+        .btn-gold {
+            background: var(--gold);
+            color: var(--navy);
+        }
+        .btn-gold:hover { background: var(--gold-soft); box-shadow: var(--shadow-md); transform: translateY(-1px); }
+        .btn-outline {
+            background: transparent;
+            color: var(--navy);
+            border-color: var(--navy);
+        }
+        .btn-outline:hover { background: var(--navy); color: #fff; }
+        .btn-ghost {
+            background: transparent;
+            color: var(--gold);
+            border-color: var(--gold);
+        }
+        .btn-ghost:hover { background: var(--gold-bg); }
+
+        .btn-stage {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.9rem;
+            min-height: 140px;
+        }
+        .btn-stage .caption {
+            font-size: 0.62rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--muted);
+            font-weight: 700;
+        }
+
+        /* ---------- Forms ---------- */
+        .form-card { max-width: 440px; }
+        .field { margin-bottom: 1.35rem; }
+        .field:last-child { margin-bottom: 0; }
+        .field label {
+            display: block;
+            font-size: 0.65rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--navy);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .field input,
+        .field textarea,
+        .field select {
+            width: 100%;
+            background: var(--bg);
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius);
+            padding: 0.75rem 1rem;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: var(--text);
+            transition: border-color 0.15s, box-shadow 0.15s;
+        }
+        .field textarea { resize: vertical; min-height: 90px; }
+        .field input::placeholder, .field textarea::placeholder { color: var(--muted); }
+        .field input:focus, .field textarea:focus, .field select:focus {
+            outline: none;
+            border-color: var(--navy);
+            box-shadow: 0 0 0 3px rgba(31, 58, 104, 0.10);
+        }
+
+        /* ---------- Navigation / tier cards ---------- */
+        .tier-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-top: 3px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem 1.6rem;
+            box-shadow: var(--shadow-sm);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .tier-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+        .tier-card.featured { border-top-color: var(--gold); box-shadow: var(--shadow-lg); }
+        .tier-label {
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--muted);
+            font-weight: 700;
+            margin: 0 0 0.3rem;
+        }
+        .tier-name {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--navy);
+            margin: 0 0 0.4rem;
+        }
+        .tier-desc { font-size: 0.8rem; color: var(--muted); margin: 0; }
+
+        /* ---------- Radius ---------- */
+        .feature {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2.25rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .radius-demo {
+            width: 130px;
+            height: 130px;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, var(--navy), var(--navy-dark));
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+        .feature h4 { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; color: var(--navy); margin: 0 0 0.35rem; }
+        .feature .mono-value { font-size: 0.82rem; letter-spacing: 0.05em; color: var(--gold); margin: 0 0 0.85rem; font-weight: 700; }
+        .feature p { font-size: 0.9rem; color: var(--muted); margin: 0; max-width: 30rem; line-height: 1.65; }
+
+        /* ---------- Spacing ---------- */
+        .scale-row { display: flex; align-items: flex-end; gap: 1.1rem; flex-wrap: wrap; }
+        .scale-item { text-align: center; }
+        .scale-bar { background: var(--navy); border-radius: 3px; width: 42px; margin: 0 auto 0.55rem; opacity: 0.18; }
+        .scale-item span { font-size: 0.68rem; color: var(--muted); letter-spacing: 0.04em; }
+
+        /* ---------- Social mockups ---------- */
+        .mock { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border); }
+        .mock-square {
+            aspect-ratio: 1 / 1;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-darker) 100%);
+            color: #fff;
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            border-top: 3px solid var(--gold);
+        }
+        .mock-wide {
+            aspect-ratio: 1200 / 628;
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-darker) 100%);
+            color: #fff;
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-top: 3px solid var(--gold);
+        }
+        .mock .mock-brand {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 0.7rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+        .mock .accent-line { width: 36px; height: 2px; background: var(--gold); margin: auto 0 0.9rem; }
+        .mock-wide .accent-line { margin: 0 0 0.9rem; }
+        .mock h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.4rem; line-height: 1.25; margin: 0 0 0.55rem; }
+        .mock p { font-size: 0.8rem; color: rgba(255,255,255,0.75); margin: 0; }
+        .mock .mock-url { font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-top: 0.9rem; }
+        .mock-pill {
+            display: inline-block;
+            align-self: flex-start;
+            background: var(--gold);
+            color: var(--navy);
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.78rem;
+            padding: 0.45rem 1rem;
+            border-radius: var(--radius);
+            margin-top: 0.9rem;
+            letter-spacing: 0.02em;
+        }
+
+        /* ---------- Imagery placeholders ---------- */
+        .img-tile {
+            aspect-ratio: 4 / 3;
+            border-radius: var(--radius-lg);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: flex-end;
+            padding: 0.85rem;
+            color: rgba(255,255,255,0.85);
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.85rem;
+            border: 1px solid var(--border);
+            letter-spacing: 0.04em;
+        }
+        .img-1 { background: linear-gradient(155deg, var(--navy), var(--navy-darker)); }
+        .img-2 { background: linear-gradient(155deg, var(--navy-dark), #1a3060); }
+        .img-3 { background: linear-gradient(155deg, #2a4a80, var(--navy)); }
+        .img-caption { font-size: 0.8rem; color: var(--muted); margin: 0; }
+        .img-caption b { color: var(--navy); font-weight: 700; }
+
+        /* ---------- Motion ---------- */
+        .motion-stage {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.1rem;
+            min-height: 155px;
+        }
+        .motion-box { width: 56px; height: 56px; border-radius: var(--radius); }
+        .motion-box-navy { background: var(--navy); }
+        .motion-box-gold { background: var(--gold); }
+        .motion-lift { animation: lift 2.4s ease-in-out infinite; }
+        @keyframes lift {
+            0%, 100% { transform: translateY(0); box-shadow: var(--shadow-sm); }
+            50% { transform: translateY(-10px); box-shadow: var(--shadow-lg); }
+        }
+        .motion-pulse { animation: pulse 2.6s ease-in-out infinite; }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.9); }
+        }
+        .motion-caption {
+            font-size: 0.64rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--muted);
+            font-weight: 700;
+        }
+
+        /* ---------- Elevation ---------- */
+        .elevation-stage { min-height: 155px; display: flex; align-items: center; justify-content: center; }
+        .elevation-tile {
+            width: 110px; height: 82px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.64rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--muted);
+            font-weight: 700;
+        }
+        .e-1 { box-shadow: var(--shadow-sm); }
+        .e-2 { box-shadow: var(--shadow-md); }
+        .e-3 { box-shadow: var(--shadow-lg); }
+
+        /* ---------- Footer ---------- */
+        footer {
+            margin-top: 5rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border);
+            text-align: center;
+        }
+        footer p {
+            font-size: 0.66rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--muted);
+            font-weight: 700;
+            margin: 0;
+        }
+
+        /* ---------- Toast ---------- */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--navy);
+            color: #fff;
+            padding: 0.75rem 1.4rem;
+            border-radius: var(--radius);
+            font-size: 0.84rem;
+            font-weight: 600;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            transform: translateY(10px);
+            pointer-events: none;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            z-index: 100;
+        }
+        .toast.show { opacity: 1; transform: translateY(0); }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 1024px) {
+            .sidebar { display: none; }
+            .main { padding: 2rem 1.5rem; max-width: 100%; }
+        }
+        @media (max-width: 700px) {
+            .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+            h1.page-title { font-size: 2.2rem; }
+            .feature { flex-direction: column; align-items: flex-start; }
+            .type-display { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="shell">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-inner">
+            <div class="brand-mark">
+                <div class="brand-name">Executive <span>Allies</span></div>
+                <div class="brand-sub">CFO &amp; Controller Accelerator</div>
+                <div class="brand-rule">
+                    <span class="hr"></span>
+                    <span>Brand Guide</span>
+                    <span class="hr"></span>
+                </div>
+            </div>
+
+            <nav>
+                <div class="nav-group">
+                    <p class="nav-group-label">Foundations</p>
+                    <a href="#mission" class="nav-link">Mission &amp; Voice</a>
+                    <a href="#colors" class="nav-link">Colors</a>
+                    <a href="#typography" class="nav-link">Typography</a>
+                    <a href="#radius" class="nav-link">Corner Radius</a>
+                    <a href="#spacing" class="nav-link">Spacing &amp; Layout</a>
+                </div>
+                <div class="nav-group">
+                    <p class="nav-group-label">Components</p>
+                    <a href="#buttons" class="nav-link">Buttons</a>
+                    <a href="#cards" class="nav-link">Cards &amp; Panels</a>
+                    <a href="#forms" class="nav-link">Form Elements</a>
+                    <a href="#tiers" class="nav-link">Tier Components</a>
+                </div>
+                <div class="nav-group">
+                    <p class="nav-group-label">Creative Assets</p>
+                    <a href="#social" class="nav-link">Social &amp; Ads</a>
+                    <a href="#imagery" class="nav-link">Imagery Style</a>
+                </div>
+                <div class="nav-group">
+                    <p class="nav-group-label">Refinements</p>
+                    <a href="#motion" class="nav-link">Motion</a>
+                    <a href="#elevation" class="nav-link">Elevation</a>
+                </div>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+        <header class="page-header">
+            <p class="eyebrow">Executive Allies &middot; Brand System</p>
+            <h1 class="page-title">Brand Style Guide</h1>
+            <p class="page-lede">
+                A reference for the visual language of Executive Allies &mdash; the colors,
+                typography, and components that communicate authority, momentum, and
+                executive-grade credibility.
+            </p>
+        </header>
+
+        <!-- MISSION -->
+        <section id="mission">
+            <div class="mission">
+                <p class="card-label">Mission</p>
+                <p>
+                    We accelerate finance leaders into CFO-ready performance &mdash; pairing
+                    senior mentor expertise with structured curriculum to deliver four
+                    documented outcomes in twelve months.
+                </p>
+            </div>
+
+            <div class="grid grid-3" style="margin-top: 1.25rem;">
+                <div class="card lift">
+                    <p class="card-label label-navy">Voice Pillar</p>
+                    <h4>Authoritative</h4>
+                    <p>We speak from a position of deep, earned expertise. Direct, credible, and never vague.</p>
+                </div>
+                <div class="card lift">
+                    <p class="card-label label-gold">Voice Pillar</p>
+                    <h4>Outcome-Focused</h4>
+                    <p>Every message is anchored in a measurable result. We promise what we can prove.</p>
+                </div>
+                <div class="card lift">
+                    <p class="card-label label-muted">Voice Pillar</p>
+                    <h4>Respectful</h4>
+                    <p>Our clients are accomplished professionals. We inform and challenge, never condescend.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- COLORS -->
+        <section id="colors">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2>Colors</h2>
+            </div>
+
+            <div class="grid grid-4">
+                <div class="swatch" onclick="copyHex('#1f3a68')">
+                    <div class="swatch-chip" style="background:#1f3a68; color:#fff;">
+                        <span class="role">Primary</span>
+                    </div>
+                    <p class="swatch-name">Navy</p>
+                    <p class="swatch-hex">#1F3A68</p>
+                    <p class="swatch-cmyk">CMYK 81 60 12 3 &middot; RGB 31 58 104</p>
+                </div>
+                <div class="swatch" onclick="copyHex('#c9a961')">
+                    <div class="swatch-chip" style="background:#c9a961; color:#152c50;">
+                        <span class="role">Accent</span>
+                    </div>
+                    <p class="swatch-name">Gold</p>
+                    <p class="swatch-hex">#C9A961</p>
+                    <p class="swatch-cmyk">CMYK 6 27 67 7 &middot; RGB 201 169 97</p>
+                </div>
+                <div class="swatch" onclick="copyHex('#0f2240')">
+                    <div class="swatch-chip" style="background:#0f2240; color:#fff;">
+                        <span class="role">Dark Surface</span>
+                    </div>
+                    <p class="swatch-name">Navy Deeper</p>
+                    <p class="swatch-hex">#0F2240</p>
+                    <p class="swatch-cmyk">CMYK 92 71 17 6 &middot; RGB 15 34 64</p>
+                </div>
+                <div class="swatch" onclick="copyHex('#f4f6fb')">
+                    <div class="swatch-chip" style="background:#f4f6fb; color:#6b7280; border: 1px solid #e5e7eb;">
+                        <span class="role">Background</span>
+                    </div>
+                    <p class="swatch-name">Cloud</p>
+                    <p class="swatch-hex">#F4F6FB</p>
+                    <p class="swatch-cmyk">CMYK 3 2 0 0 &middot; RGB 244 246 251</p>
+                </div>
+            </div>
+
+            <div class="grid grid-3" style="margin-top: 1.25rem;">
+                <div class="swatch" onclick="copyHex('#e0c684')">
+                    <div class="swatch-chip" style="background:#e0c684; color:#152c50; height:80px;">
+                        <span class="role">Gold Soft</span>
+                    </div>
+                    <p class="swatch-name">Gold Soft</p>
+                    <p class="swatch-hex">#E0C684</p>
+                </div>
+                <div class="swatch" onclick="copyHex('#152c50')">
+                    <div class="swatch-chip" style="background:#152c50; color:#fff; height:80px;">
+                        <span class="role">Navy Dark</span>
+                    </div>
+                    <p class="swatch-name">Navy Dark</p>
+                    <p class="swatch-hex">#152C50</p>
+                </div>
+                <div class="swatch" onclick="copyHex('#10b981')">
+                    <div class="swatch-chip" style="background:#10b981; color:#fff; height:80px;">
+                        <span class="role">Confirmation</span>
+                    </div>
+                    <p class="swatch-name">Emerald</p>
+                    <p class="swatch-hex">#10B981</p>
+                    <p class="swatch-cmyk">Used for checkmarks, success states only</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TYPOGRAPHY -->
+        <section id="typography">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2>Typography</h2>
+            </div>
+
+            <div class="specimen">
+                <p class="specimen-label">Display &mdash; Manrope</p>
+                <p class="type-display">Accelerate. Deliver. Lead.</p>
+                <p class="usage-note">Usage: headlines, tier names, page titles, and callout copy. Use Bold (700) or ExtraBold (800).</p>
+                <div class="weight-row">
+                    <span class="w300">Light</span>
+                    <span class="w400">Regular</span>
+                    <span class="w500">Medium</span>
+                    <span class="w600">Semibold</span>
+                    <span class="w700">Bold</span>
+                    <span class="w800">ExtraBold</span>
+                </div>
+            </div>
+
+            <div class="specimen">
+                <p class="specimen-label">Body &mdash; Inter</p>
+                <p class="type-body">
+                    Inter carries all long-form and UI copy. At a comfortable line-height and
+                    Regular weight, it keeps structured program information clear, scannable,
+                    and approachable for busy executives and finance leaders.
+                </p>
+                <p class="usage-note">Usage: body paragraphs, feature lists, descriptions, fine print, and UI text.</p>
+            </div>
+
+            <div class="specimen">
+                <p class="specimen-label">Eyebrow / Label &mdash; Inter, letterspaced</p>
+                <p class="type-label-demo">CFO &amp; Controller Career Accelerator &middot; Tier 2</p>
+                <p class="usage-note">Usage: section labels, badge text, and overlines. All-caps, 700 weight, 0.22–0.26em tracking.</p>
+            </div>
+        </section>
+
+        <!-- RADIUS -->
+        <section id="radius">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2>Corner Radius</h2>
+            </div>
+            <div class="grid grid-3" style="margin-bottom: 1.25rem;">
+                <div class="feature" style="flex-direction: column; align-items: flex-start; gap: 1rem;">
+                    <div style="width:80px; height:80px; background: linear-gradient(135deg, var(--navy), var(--navy-dark)); border-radius: 6px; box-shadow: var(--shadow-md);"></div>
+                    <div>
+                        <h4>Small</h4>
+                        <p class="mono-value">6px &middot; --radius-sm</p>
+                        <p>Badges, tags, inputs, and small UI chrome.</p>
+                    </div>
+                </div>
+                <div class="feature" style="flex-direction: column; align-items: flex-start; gap: 1rem;">
+                    <div style="width:80px; height:80px; background: var(--gold); border-radius: 10px; box-shadow: var(--shadow-md);"></div>
+                    <div>
+                        <h4>Medium</h4>
+                        <p class="mono-value">10px &middot; --radius</p>
+                        <p>Buttons, inner panels, and table containers.</p>
+                    </div>
+                </div>
+                <div class="feature" style="flex-direction: column; align-items: flex-start; gap: 1rem;">
+                    <div style="width:80px; height:80px; background: linear-gradient(135deg, var(--navy), var(--navy-dark)); border-radius: 16px; box-shadow: var(--shadow-md);"></div>
+                    <div>
+                        <h4>Large</h4>
+                        <p class="mono-value">16px &middot; --radius-lg</p>
+                        <p>Primary cards, pricing panels, and CTA blocks.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SPACING -->
+        <section id="spacing">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2>Spacing &amp; Layout</h2>
+            </div>
+            <div class="card">
+                <p class="card-label label-gold">8-Point Scale</p>
+                <h4>Structured Whitespace</h4>
+                <p style="margin-bottom: 1.75rem;">All padding, gap, and margin values follow an 8px base scale, keeping rhythm consistent and layouts predictable.</p>
+                <div class="scale-row">
+                    <div class="scale-item"><div class="scale-bar" style="height:8px;"></div><span>8</span></div>
+                    <div class="scale-item"><div class="scale-bar" style="height:16px;"></div><span>16</span></div>
+                    <div class="scale-item"><div class="scale-bar" style="height:24px;"></div><span>24</span></div>
+                    <div class="scale-item"><div class="scale-bar" style="height:32px;"></div><span>32</span></div>
+                    <div class="scale-item"><div class="scale-bar" style="height:48px;"></div><span>48</span></div>
+                    <div class="scale-item"><div class="scale-bar" style="height:64px;"></div><span>64</span></div>
+                    <div class="scale-item"><div class="scale-bar" style="height:96px;"></div><span>96</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BUTTONS -->
+        <section id="buttons">
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2>Buttons</h2>
+            </div>
+            <div class="grid grid-4">
+                <div class="card btn-stage">
+                    <button class="btn btn-primary">Get Started &rarr;</button>
+                    <span class="caption">Primary</span>
+                </div>
+                <div class="card btn-stage">
+                    <button class="btn btn-gold">Schedule a Call &rarr;</button>
+                    <span class="caption">Gold / CTA</span>
+                </div>
+                <div class="card btn-stage">
+                    <button class="btn btn-outline">Learn More</button>
+                    <span class="caption">Outline</span>
+                </div>
+                <div class="card btn-stage" style="background: var(--navy);">
+                    <button class="btn btn-ghost">Member Sign In &rarr;</button>
+                    <span class="caption" style="color: rgba(255,255,255,0.5);">Ghost (on Dark)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CARDS -->
+        <section id="cards">
+            <div class="section-header">
+                <span class="section-number">06</span>
+                <h2>Cards &amp; Panels</h2>
+            </div>
+            <div class="grid grid-3">
+                <div class="card lift">
+                    <p class="card-label label-gold">Standard Card</p>
+                    <h4>Elevated Surface</h4>
+                    <p>White on the cool-blue background. Lifts on hover. Default container for informational content.</p>
+                </div>
+                <div class="card-tint">
+                    <p class="card-label label-muted">Quiet Panel</p>
+                    <h4 style="font-family: var(--font-display); font-weight:700; color: var(--navy); margin: 0 0 0.55rem;">Subdued Surface</h4>
+                    <p style="font-size:0.88rem; color: var(--muted);">Tinted for secondary content, sidebars, and grouped supporting information.</p>
+                </div>
+                <div class="card-navy">
+                    <p class="card-label label-gold">Dark Surface</p>
+                    <h4 style="color: #fff;">Navy Panel</h4>
+                    <p>Used for featured CTAs, highlighted tiers, or high-contrast emphasis blocks.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORMS -->
+        <section id="forms">
+            <div class="section-header">
+                <span class="section-number">07</span>
+                <h2>Form Elements</h2>
+            </div>
+            <div class="card form-card">
+                <div class="field">
+                    <label for="f-name">Full Name</label>
+                    <input id="f-name" type="text" placeholder="Jane Harrison">
+                </div>
+                <div class="field">
+                    <label for="f-company">Company Revenue Range</label>
+                    <select id="f-company">
+                        <option>$30M – $50M</option>
+                        <option>$40M – $80M</option>
+                        <option>$60M – $100M</option>
+                        <option>$100M+</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="f-msg">Your finance leader's current challenge</label>
+                    <textarea id="f-msg" placeholder="Tell us about your situation..."></textarea>
+                </div>
+                <div class="field">
+                    <button class="btn btn-primary" style="width:100%;">Request a Discovery Call &rarr;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- TIER COMPONENTS -->
+        <section id="tiers">
+            <div class="section-header">
+                <span class="section-number">08</span>
+                <h2>Tier Components</h2>
+            </div>
+            <div class="grid grid-3">
+                <div class="tier-card">
+                    <p class="tier-label">Tier 1</p>
+                    <p class="tier-name">Foundations</p>
+                    <p class="tier-desc">For strong-performing controllers at $30M–$50M companies.</p>
+                </div>
+                <div class="tier-card featured">
+                    <p class="tier-label">Tier 2 &middot; Most Popular</p>
+                    <p class="tier-name">Accelerator</p>
+                    <p class="tier-desc">For finance leaders preparing for audit, sponsor, or transaction milestones.</p>
+                </div>
+                <div class="tier-card">
+                    <p class="tier-label">Tier 3</p>
+                    <p class="tier-name">Executive Track</p>
+                    <p class="tier-desc">For $60M–$100M companies in a financing event or aggressive growth phase.</p>
+                </div>
+            </div>
+            <p class="usage-note" style="margin-top: 1rem;">
+                The gold top-border treatment on the featured tier is the primary visual differentiator. All three share identical structure; the center card receives <code style="font-size:0.8rem; background: var(--gold-bg); padding: 0.15rem 0.35rem; border-radius: 4px; color: var(--navy);">border-top: 3px solid var(--gold)</code> and elevated shadow.
+            </p>
+        </section>
+
+        <!-- SOCIAL & ADS -->
+        <section id="social">
+            <div class="section-header">
+                <span class="section-number">09</span>
+                <h2>Social &amp; Ads</h2>
+            </div>
+            <div class="grid grid-2">
+                <div class="card">
+                    <p class="card-label label-muted">Instagram / Facebook &middot; 1080&times;1080</p>
+                    <div class="mock">
+                        <div class="mock-square">
+                            <div class="mock-brand">Executive Allies</div>
+                            <div class="accent-line"></div>
+                            <h3>Four outcomes.<br>Twelve months.</h3>
+                            <p>The CFO &amp; Controller Career Accelerator.</p>
+                            <p class="mock-url">theexecutiveallies.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <p class="card-label label-muted">LinkedIn / Display &middot; 1200&times;628</p>
+                    <div class="mock">
+                        <div class="mock-wide">
+                            <div class="mock-brand">Executive Allies</div>
+                            <div class="accent-line"></div>
+                            <h3>Accelerate your finance leader to CFO-ready.</h3>
+                            <span class="mock-pill">Schedule a Discovery Call &rarr;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- IMAGERY -->
+        <section id="imagery">
+            <div class="section-header">
+                <span class="section-number">10</span>
+                <h2>Imagery Style</h2>
+            </div>
+            <div class="grid grid-3">
+                <div>
+                    <div class="img-tile img-1">Professional Settings</div>
+                    <p class="img-caption"><b>Context:</b> Conference rooms, boardrooms, and financial workspaces — clean and authoritative.</p>
+                </div>
+                <div>
+                    <div class="img-tile img-2">People &amp; Mentorship</div>
+                    <p class="img-caption"><b>Tone:</b> Candid, forward-looking. Show engagement and dialogue, not staged poses.</p>
+                </div>
+                <div>
+                    <div class="img-tile img-3">Navy Overlay</div>
+                    <p class="img-caption"><b>Treatment:</b> Apply a Navy color wash (50–70% opacity) to photography for brand consistency.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MOTION -->
+        <section id="motion">
+            <div class="section-header">
+                <span class="section-number">11</span>
+                <h2>Motion</h2>
+            </div>
+            <div class="grid grid-2">
+                <div class="card motion-stage">
+                    <div class="motion-box motion-box-navy motion-lift"></div>
+                    <span class="motion-caption">Card Lift (hover)</span>
+                </div>
+                <div class="card motion-stage">
+                    <div class="motion-box motion-box-gold motion-pulse"></div>
+                    <span class="motion-caption">Pulse / Emphasis</span>
+                </div>
+            </div>
+            <p class="usage-note" style="margin-top: 1rem;">
+                Motion is fast and purposeful &mdash; 150–200ms ease transitions for interactive states (hover, focus). Avoid slow animations; the Executive Allies audience values efficiency and speed. Use subtle lifts (translateY -3–4px) and opacity fades only.
+            </p>
+        </section>
+
+        <!-- ELEVATION -->
+        <section id="elevation">
+            <div class="section-header">
+                <span class="section-number">12</span>
+                <h2>Elevation</h2>
+            </div>
+            <div class="grid grid-3">
+                <div class="card elevation-stage">
+                    <div class="elevation-tile e-1">Level 1</div>
+                </div>
+                <div class="card elevation-stage">
+                    <div class="elevation-tile e-2">Level 2</div>
+                </div>
+                <div class="card elevation-stage">
+                    <div class="elevation-tile e-3">Level 3</div>
+                </div>
+            </div>
+            <p class="usage-note" style="margin-top: 1rem;">
+                Shadows are tinted with <code style="font-size:0.8rem; background: var(--gold-bg); padding: 0.15rem 0.35rem; border-radius: 4px; color: var(--navy);">rgba(15, 34, 64, …)</code> — the Navy Deeper color — rather than pure black. Level 1 for resting cards; Level 2 on hover and active states; Level 3 for the featured tier card and modals.
+            </p>
+        </section>
+
+        <footer>
+            <p>Executive Allies &middot; Internal Brand Documentation &middot; 2026</p>
+        </footer>
+    </main>
+</div>
+
+<div id="toast" class="toast">Copied to clipboard</div>
+
+<script>
+    function copyHex(text) {
+        navigator.clipboard.writeText(text).then(function () {
+            var toast = document.getElementById('toast');
+            toast.textContent = text + ' copied';
+            toast.classList.add('show');
+            clearTimeout(window.__toastTimer);
+            window.__toastTimer = setTimeout(function () {
+                toast.classList.remove('show');
+            }, 1800);
+        });
+    }
+</script>
+</body>
+</html>

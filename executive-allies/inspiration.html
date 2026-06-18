@@ -1,0 +1,1560 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>
+      Pricing · Executive Allies CFO & Controller Career Accelerator
+    </title>
+
+    <style>
+      :root {
+        --navy: #1f3a68;
+
+        --navy-dark: #152c50;
+
+        --navy-darker: #0f2240;
+
+        --gold: #c9a961;
+
+        --gold-soft: #e0c684;
+
+        --gold-bg: rgba(201, 169, 97, 0.08);
+
+        --bg: #f4f6fb;
+
+        --card: #ffffff;
+
+        --text: #1a1f2e;
+
+        --muted: #6b7280;
+
+        --border: #e5e7eb;
+
+        --green: #10b981;
+
+        --gray-soft: #f3f4f6;
+
+        --shadow:
+          0 1px 3px rgba(15, 34, 64, 0.06), 0 1px 2px rgba(15, 34, 64, 0.04);
+
+        --shadow-md: 0 4px 12px rgba(15, 34, 64, 0.08);
+
+        --shadow-lg:
+          0 20px 50px rgba(15, 34, 64, 0.12), 0 8px 20px rgba(15, 34, 64, 0.06);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+
+        color: var(--text);
+
+        background: var(--bg);
+
+        line-height: 1.6;
+
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: var(--navy);
+        text-decoration: none;
+      }
+
+      button {
+        font-family: inherit;
+        cursor: pointer;
+      }
+
+      /* HEADER */
+
+      header.site {
+        background: var(--navy);
+
+        color: white;
+
+        padding: 16px 32px;
+
+        border-bottom: 3px solid var(--gold);
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .brand-name {
+        color: var(--gold);
+
+        font-weight: 700;
+
+        letter-spacing: 3px;
+
+        font-size: 14px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 28px;
+
+        font-size: 14px;
+      }
+
+      .nav-links a {
+        color: rgba(255, 255, 255, 0.75);
+
+        transition: color 0.15s;
+      }
+
+      .nav-links a:hover {
+        color: white;
+      }
+
+      .nav-links a.active {
+        color: var(--gold);
+        font-weight: 600;
+      }
+
+      /* HERO */
+
+      .hero {
+        text-align: center;
+
+        padding: 72px 24px 48px;
+
+        background: linear-gradient(180deg, white 0%, var(--bg) 100%);
+      }
+
+      .hero__eyebrow {
+        font-size: 12px;
+        font-weight: 700;
+
+        color: var(--gold);
+        letter-spacing: 3px;
+
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+
+      .hero__title {
+        font-size: 44px;
+        font-weight: 800;
+
+        color: var(--navy);
+        margin: 0 0 16px;
+
+        line-height: 1.15;
+
+        max-width: 760px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero__title em {
+        font-style: italic;
+        color: var(--gold);
+        font-weight: 800;
+      }
+
+      .hero__sub {
+        font-size: 18px;
+        color: var(--muted);
+
+        max-width: 640px;
+        margin: 0 auto;
+      }
+
+      /* PRICING CARDS */
+
+      .pricing {
+        max-width: 1180px;
+        margin: 0 auto;
+
+        padding: 0 24px 64px;
+      }
+
+      .cards {
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 20px;
+
+        align-items: stretch;
+      }
+
+      .card {
+        background: white;
+
+        border-radius: 16px;
+
+        padding: 36px 28px 28px;
+
+        box-shadow: var(--shadow);
+
+        display: flex;
+        flex-direction: column;
+
+        position: relative;
+
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+
+        border-top: 4px solid var(--border);
+      }
+
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+      }
+
+      .card--popular {
+        border-top-color: var(--gold);
+
+        box-shadow: var(--shadow-lg);
+
+        transform: translateY(-12px);
+      }
+
+      .card--popular:hover {
+        transform: translateY(-16px);
+      }
+
+      .card__badge {
+        position: absolute;
+        top: -14px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        background: var(--gold);
+        color: var(--navy);
+
+        padding: 6px 16px;
+        border-radius: 14px;
+
+        font-size: 11px;
+        font-weight: 700;
+
+        letter-spacing: 1.5px;
+      }
+
+      .card__tier {
+        font-size: 11px;
+        font-weight: 700;
+
+        color: var(--muted);
+        letter-spacing: 2px;
+
+        text-transform: uppercase;
+        margin-bottom: 4px;
+      }
+
+      .card__name {
+        font-size: 24px;
+        font-weight: 800;
+
+        color: var(--navy);
+        margin: 0 0 4px;
+      }
+
+      .card__sub {
+        font-size: 13px;
+        color: var(--muted);
+
+        min-height: 38px;
+
+        margin: 0 0 20px;
+      }
+
+      .card__price {
+        margin-bottom: 6px;
+
+        display: flex;
+        align-items: baseline;
+        gap: 4px;
+      }
+
+      .card__price-curr {
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--navy);
+      }
+
+      .card__price-num {
+        font-size: 48px;
+        font-weight: 800;
+        color: var(--navy);
+
+        line-height: 1;
+      }
+
+      .card__price-per {
+        font-size: 14px;
+        color: var(--muted);
+        margin-left: 4px;
+      }
+
+      .card__year {
+        font-size: 13px;
+        color: var(--muted);
+
+        margin-bottom: 18px;
+      }
+
+      .card__year strong {
+        color: var(--text);
+        font-weight: 600;
+      }
+
+      .card__cta {
+        width: 100%;
+        padding: 13px 16px;
+
+        border: none;
+        border-radius: 8px;
+
+        font-size: 14px;
+        font-weight: 700;
+
+        transition: all 0.15s;
+
+        margin-bottom: 24px;
+
+        letter-spacing: 0.3px;
+      }
+
+      .card__cta--default {
+        background: white;
+        color: var(--navy);
+
+        border: 1.5px solid var(--navy);
+      }
+
+      .card__cta--default:hover {
+        background: var(--navy);
+        color: white;
+      }
+
+      .card__cta--popular {
+        background: var(--navy);
+        color: white;
+      }
+
+      .card__cta--popular:hover {
+        background: var(--navy-darker);
+      }
+
+      .card__feat-label {
+        font-size: 11px;
+        font-weight: 700;
+
+        color: var(--navy);
+        letter-spacing: 1.5px;
+
+        text-transform: uppercase;
+        margin-bottom: 10px;
+
+        padding-bottom: 8px;
+
+        border-bottom: 1px solid var(--border);
+      }
+
+      .card__features {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        flex-grow: 1;
+      }
+
+      .card__features li {
+        padding: 6px 0 6px 22px;
+
+        font-size: 13.5px;
+        color: var(--text);
+
+        position: relative;
+        line-height: 1.5;
+      }
+
+      .card__features li::before {
+        content: "✓";
+
+        position: absolute;
+        left: 0;
+        top: 6px;
+
+        color: var(--gold);
+        font-weight: 800;
+      }
+
+      .card__features li.note {
+        color: var(--muted);
+        font-style: italic;
+      }
+
+      .card__features li.note::before {
+        content: "";
+      }
+
+      /* COMPARISON TABLE */
+
+      .compare {
+        max-width: 1180px;
+        margin: 0 auto 64px;
+
+        padding: 0 24px;
+      }
+
+      .compare__header {
+        text-align: center;
+        margin-bottom: 32px;
+      }
+
+      .compare__title {
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--navy);
+
+        margin: 0 0 8px;
+      }
+
+      .compare__sub {
+        color: var(--muted);
+        margin: 0;
+      }
+
+      table.compare-table {
+        width: 100%;
+
+        border-collapse: collapse;
+
+        background: white;
+
+        border-radius: 12px;
+
+        overflow: hidden;
+
+        box-shadow: var(--shadow);
+      }
+
+      .compare-table th,
+      .compare-table td {
+        padding: 14px 18px;
+
+        text-align: left;
+
+        border-bottom: 1px solid var(--border);
+
+        font-size: 14px;
+      }
+
+      .compare-table thead {
+        background: var(--navy);
+      }
+
+      .compare-table thead th {
+        color: white;
+
+        font-weight: 700;
+
+        font-size: 13px;
+
+        letter-spacing: 0.5px;
+      }
+
+      .compare-table thead th:first-child {
+        border-top-left-radius: 12px;
+      }
+
+      .compare-table thead th:last-child {
+        border-top-right-radius: 12px;
+      }
+
+      .compare-table thead th.col-popular {
+        background: var(--gold);
+
+        color: var(--navy);
+      }
+
+      .compare-table tbody td:first-child {
+        font-weight: 600;
+        color: var(--navy);
+
+        background: var(--gold-bg);
+
+        border-right: 1px solid var(--border);
+      }
+
+      .compare-table tbody tr:last-child td {
+        border-bottom: none;
+      }
+
+      .compare-table .col-popular {
+        background: rgba(201, 169, 97, 0.04);
+      }
+
+      .compare-table .col-popular.cell {
+        font-weight: 600;
+      }
+
+      .compare-table .check {
+        color: var(--gold);
+        font-weight: 800;
+      }
+
+      .compare-table .dash {
+        color: var(--border);
+      }
+
+      .compare-section {
+        background: var(--gray-soft) !important;
+
+        font-size: 11px !important;
+
+        font-weight: 700 !important;
+
+        color: var(--muted) !important;
+
+        letter-spacing: 1.5px;
+
+        text-transform: uppercase;
+
+        padding-top: 14px !important;
+
+        padding-bottom: 8px !important;
+      }
+
+      /* FAQ */
+
+      .faq {
+        max-width: 760px;
+        margin: 0 auto 64px;
+
+        padding: 0 24px;
+      }
+
+      .faq__title {
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--navy);
+
+        text-align: center;
+        margin: 0 0 32px;
+      }
+
+      .faq__item {
+        background: white;
+
+        border-radius: 10px;
+
+        margin-bottom: 12px;
+
+        box-shadow: var(--shadow);
+
+        overflow: hidden;
+      }
+
+      .faq__q {
+        padding: 18px 22px;
+
+        cursor: pointer;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        font-weight: 600;
+
+        color: var(--navy);
+
+        font-size: 15px;
+
+        transition: background 0.15s;
+      }
+
+      .faq__q:hover {
+        background: #fcfdff;
+      }
+
+      .faq__chevron {
+        color: var(--muted);
+        font-size: 18px;
+
+        transition: transform 0.2s;
+      }
+
+      .faq__item.open .faq__chevron {
+        transform: rotate(180deg);
+      }
+
+      .faq__a {
+        display: none;
+
+        padding: 0 22px 20px;
+
+        color: var(--text);
+
+        font-size: 14px;
+
+        line-height: 1.7;
+
+        border-top: 1px solid var(--border);
+
+        background: #fafbfd;
+      }
+
+      .faq__a p {
+        margin: 14px 0 0;
+      }
+
+      .faq__item.open .faq__a {
+        display: block;
+      }
+
+      /* GUARANTEE / CTA */
+
+      .closer {
+        background: linear-gradient(
+          135deg,
+          var(--navy) 0%,
+          var(--navy-dark) 100%
+        );
+
+        color: white;
+
+        text-align: center;
+
+        padding: 56px 24px;
+      }
+
+      .closer h2 {
+        font-size: 28px;
+        font-weight: 700;
+
+        margin: 0 0 12px;
+
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .closer p {
+        color: rgba(255, 255, 255, 0.8);
+
+        max-width: 560px;
+        margin: 0 auto 24px;
+      }
+
+      .closer__cta {
+        background: var(--gold);
+        color: var(--navy);
+
+        border: none;
+        padding: 14px 32px;
+
+        border-radius: 8px;
+
+        font-weight: 700;
+        font-size: 15px;
+
+        letter-spacing: 0.5px;
+
+        transition: background 0.15s;
+      }
+
+      .closer__cta:hover {
+        background: var(--gold-soft);
+      }
+
+      /* FOOTER */
+
+      footer.site {
+        padding: 32px 24px;
+
+        text-align: center;
+
+        color: var(--muted);
+        font-size: 13px;
+
+        background: white;
+
+        border-top: 1px solid var(--border);
+      }
+
+      /* MODAL */
+
+      .modal {
+        display: none;
+
+        position: fixed;
+        inset: 0;
+
+        background: rgba(15, 34, 64, 0.55);
+
+        z-index: 100;
+
+        align-items: center;
+        justify-content: center;
+
+        padding: 24px;
+      }
+
+      .modal.open {
+        display: flex;
+      }
+
+      .modal__card {
+        background: white;
+
+        border-radius: 16px;
+
+        max-width: 480px;
+        width: 100%;
+
+        padding: 32px;
+
+        text-align: center;
+
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+      }
+
+      .modal__brand {
+        font-size: 11px;
+        font-weight: 700;
+
+        color: var(--gold);
+        letter-spacing: 3px;
+
+        margin-bottom: 16px;
+      }
+
+      .modal__title {
+        font-size: 22px;
+        font-weight: 700;
+
+        color: var(--navy);
+        margin: 0 0 8px;
+      }
+
+      .modal__sub {
+        color: var(--muted);
+        margin: 0 0 20px;
+      }
+
+      .modal__line {
+        display: flex;
+        justify-content: space-between;
+
+        padding: 10px 0;
+        border-top: 1px solid var(--border);
+
+        font-size: 14px;
+      }
+
+      .modal__line:first-child {
+        border-top: none;
+      }
+
+      .modal__line strong {
+        color: var(--navy);
+      }
+
+      .modal__note {
+        margin-top: 20px;
+        padding: 14px;
+
+        background: var(--gold-bg);
+        border-radius: 8px;
+
+        font-size: 12px;
+        color: var(--text);
+
+        text-align: left;
+        line-height: 1.6;
+      }
+
+      .modal__note strong {
+        color: var(--navy);
+        display: block;
+        margin-bottom: 4px;
+        letter-spacing: 0.5px;
+        font-size: 11px;
+      }
+
+      .modal__close {
+        margin-top: 20px;
+
+        width: 100%;
+        padding: 12px;
+
+        background: var(--navy);
+        color: white;
+
+        border: none;
+        border-radius: 8px;
+
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      /* RESPONSIVE */
+
+      @media (max-width: 900px) {
+        .cards {
+          grid-template-columns: 1fr;
+        }
+
+        .card--popular {
+          transform: none;
+        }
+
+        .card--popular:hover {
+          transform: translateY(-4px);
+        }
+
+        .hero__title {
+          font-size: 32px;
+        }
+
+        .compare-table {
+          font-size: 12px;
+          display: block;
+          overflow-x: auto;
+        }
+
+        .compare-table th,
+        .compare-table td {
+          padding: 10px;
+        }
+
+        .nav-links {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="site">
+      <div class="brand-name">EXECUTIVE ALLIES</div>
+
+      <nav class="nav-links">
+        <a href="https://www.theexecutiveallies.com">Home</a>
+
+        <a href="https://www.theexecutiveallies.com">About</a>
+
+        <a href="https://www.theexecutiveallies.com">Services</a>
+
+        <a href="#" class="active">Accelerator</a>
+
+        <a href="https://www.theexecutiveallies.com">Contact</a>
+
+        <a
+          href="accelerator-portal.html"
+          style="
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 6px 14px;
+            border-radius: 6px;
+          "
+          >Member Sign In →</a
+        >
+      </nav>
+    </header>
+
+    <!-- HERO -->
+
+    <section class="hero">
+      <div class="hero__eyebrow">CFO & CONTROLLER CAREER ACCELERATOR</div>
+
+      <h1 class="hero__title">
+        Three tiers.<br />One <em>transformation.</em>
+      </h1>
+
+      <p class="hero__sub">
+        Choose the level of support that fits your finance leader, your company
+        size, and your timeline. Every tier graduates the same four documented
+        outcomes by Month 12.
+      </p>
+    </section>
+
+    <!-- PRICING CARDS -->
+
+    <section class="pricing">
+      <div class="cards">
+        <!-- FOUNDATIONS -->
+
+        <div class="card">
+          <div class="card__tier">Tier 1</div>
+
+          <h3 class="card__name">Foundations</h3>
+
+          <p class="card__sub">
+            For strong-performing controllers and finance managers at $30M–$50M
+            companies.
+          </p>
+
+          <div class="card__price">
+            <span class="card__price-curr">$</span>
+
+            <span class="card__price-num">3,500</span>
+
+            <span class="card__price-per">/month</span>
+          </div>
+
+          <div class="card__year">
+            <strong>$42,000</strong> for the 12-month engagement
+          </div>
+
+          <button
+            class="card__cta card__cta--default"
+            onclick="startCheckout('Foundations', 3500, 42000)"
+          >
+            Start Foundations →
+          </button>
+
+          <div class="card__feat-label">What's Included</div>
+
+          <ul class="card__features">
+            <li>26 biweekly 1:1 coaching sessions</li>
+
+            <li>Standardized 12-month curriculum</li>
+
+            <li>Resource library access</li>
+
+            <li>Quarterly progress reviews with CEO</li>
+
+            <li>Career polish coaching</li>
+
+            <li>Graduation Portfolio at Month 12</li>
+
+            <li class="note">No onsite engagement included</li>
+          </ul>
+        </div>
+
+        <!-- ACCELERATOR -->
+
+        <div class="card card--popular">
+          <div class="card__badge">MOST POPULAR</div>
+
+          <div class="card__tier">Tier 2</div>
+
+          <h3 class="card__name">Accelerator</h3>
+
+          <p class="card__sub">
+            For finance leaders at $40M–$80M companies preparing for audit,
+            sponsor, or transaction milestones.
+          </p>
+
+          <div class="card__price">
+            <span class="card__price-curr">$</span>
+
+            <span class="card__price-num">5,000</span>
+
+            <span class="card__price-per">/month</span>
+          </div>
+
+          <div class="card__year">
+            <strong>$60,000</strong> for the 12-month engagement
+          </div>
+
+          <button
+            class="card__cta card__cta--popular"
+            onclick="startCheckout('Accelerator', 5000, 60000)"
+          >
+            Start Accelerator →
+          </button>
+
+          <div class="card__feat-label">Everything in Foundations, plus:</div>
+
+          <ul class="card__features">
+            <li>48 weekly 1:1 coaching sessions</li>
+
+            <li>Customized curriculum</li>
+
+            <li>Dedicated MEC Sprint (Months 2–3)</li>
+
+            <li>GAAP Compliance Review (Months 6–7)</li>
+
+            <li>Customized templates and tooling</li>
+
+            <li>Quarterly Business Reviews with leadership</li>
+
+            <li>Written QBR summaries delivered in 48 hours</li>
+          </ul>
+        </div>
+
+        <!-- EXECUTIVE TRACK -->
+
+        <div class="card">
+          <div class="card__tier">Tier 3</div>
+
+          <h3 class="card__name">Executive Track</h3>
+
+          <p class="card__sub">
+            For companies at $60M–$100M preparing for a financing event, sale,
+            or aggressive growth.
+          </p>
+
+          <div class="card__price">
+            <span class="card__price-curr">$</span>
+
+            <span class="card__price-num">8,500</span>
+
+            <span class="card__price-per">/month</span>
+          </div>
+
+          <div class="card__year">
+            <strong>$102,000</strong> for the 12-month engagement
+          </div>
+
+          <button
+            class="card__cta card__cta--default"
+            onclick="startCheckout('Executive Track', 8500, 102000)"
+          >
+            Start Executive Track →
+          </button>
+
+          <div class="card__feat-label">Everything in Accelerator, plus:</div>
+
+          <ul class="card__features">
+            <li>Quarterly onsite engagement (1–2 days)</li>
+
+            <li>Monthly group training for direct reports</li>
+
+            <li>Board &amp; investor presentation coaching</li>
+
+            <li>Transaction-readiness workshops</li>
+
+            <li>Monthly CFO-to-CEO check-ins</li>
+
+            <li>Direct board-meeting prep coordination</li>
+
+            <li>Board-ready CFO transition memo (when applicable)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPARISON TABLE -->
+
+    <section class="compare">
+      <div class="compare__header">
+        <h2 class="compare__title">Detailed Comparison</h2>
+
+        <p class="compare__sub">
+          All three tiers graduate the same four Month-12 outcomes. Where they
+          differ is cadence, customization, and depth of support.
+        </p>
+      </div>
+
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+
+            <th>Foundations</th>
+
+            <th class="col-popular">Accelerator</th>
+
+            <th>Executive Track</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td colspan="4" class="compare-section">Investment</td>
+          </tr>
+
+          <tr>
+            <td>Monthly price</td>
+
+            <td>$3,500</td>
+
+            <td class="col-popular cell">$5,000</td>
+
+            <td>$8,500</td>
+          </tr>
+
+          <tr>
+            <td>Annual cost</td>
+
+            <td>$42,000</td>
+
+            <td class="col-popular cell">$60,000</td>
+
+            <td>$102,000</td>
+          </tr>
+
+          <tr>
+            <td>Target revenue size</td>
+
+            <td>$30M–$50M</td>
+
+            <td class="col-popular cell">$40M–$80M</td>
+
+            <td>$60M–$100M</td>
+          </tr>
+
+          <tr>
+            <td colspan="4" class="compare-section">Coaching</td>
+          </tr>
+
+          <tr>
+            <td>1:1 session cadence</td>
+
+            <td>Biweekly</td>
+
+            <td class="col-popular cell">Weekly</td>
+
+            <td>Weekly + team sessions</td>
+          </tr>
+
+          <tr>
+            <td>Total sessions over 12 months</td>
+
+            <td>~26</td>
+
+            <td class="col-popular cell">~48</td>
+
+            <td>~60</td>
+          </tr>
+
+          <tr>
+            <td>Mentor hours per month</td>
+
+            <td>6–8</td>
+
+            <td class="col-popular cell">12–16</td>
+
+            <td>20–28</td>
+          </tr>
+
+          <tr>
+            <td colspan="4" class="compare-section">
+              Curriculum &amp; Templates
+            </td>
+          </tr>
+
+          <tr>
+            <td>12-month curriculum</td>
+
+            <td>Standardized</td>
+
+            <td class="col-popular cell">Customized to your priorities</td>
+
+            <td>Fully customized to your milestones</td>
+          </tr>
+
+          <tr>
+            <td>Templates library</td>
+
+            <td><span class="check">✓</span> Standard 15+</td>
+
+            <td class="col-popular cell">
+              <span class="check">✓</span> + tier-specific extensions
+            </td>
+
+            <td><span class="check">✓</span> + full custom builds</td>
+          </tr>
+
+          <tr>
+            <td>Dedicated MEC Sprint</td>
+
+            <td><span class="dash">—</span></td>
+
+            <td class="col-popular cell">
+              <span class="check">✓</span> Months 2–3
+            </td>
+
+            <td><span class="check">✓</span> Sequenced to your event</td>
+          </tr>
+
+          <tr>
+            <td>GAAP Compliance Review</td>
+
+            <td><span class="dash">—</span></td>
+
+            <td class="col-popular cell">
+              <span class="check">✓</span> Months 6–7
+            </td>
+
+            <td><span class="check">✓</span> Sequenced to your event</td>
+          </tr>
+
+          <tr>
+            <td colspan="4" class="compare-section">
+              Team &amp; Executive Engagement
+            </td>
+          </tr>
+
+          <tr>
+            <td>Quarterly stakeholder reviews</td>
+
+            <td>Progress reviews (60 min, virtual)</td>
+
+            <td class="col-popular cell">QBR with leadership (90 min)</td>
+
+            <td>Half-day QBR (typically onsite)</td>
+          </tr>
+
+          <tr>
+            <td>Onsite engagement</td>
+
+            <td><span class="dash">—</span></td>
+
+            <td class="col-popular cell">Optional add-on</td>
+
+            <td><span class="check">✓</span> 1–2 days per quarter</td>
+          </tr>
+
+          <tr>
+            <td>Finance team training</td>
+
+            <td><span class="dash">—</span></td>
+
+            <td class="col-popular cell"><span class="dash">—</span></td>
+
+            <td><span class="check">✓</span> Monthly group sessions</td>
+          </tr>
+
+          <tr>
+            <td>Board / investor coaching</td>
+
+            <td><span class="dash">—</span></td>
+
+            <td class="col-popular cell">Budget presentation only</td>
+
+            <td><span class="check">✓</span> Each board meeting</td>
+          </tr>
+
+          <tr>
+            <td>CFO-to-CEO check-ins</td>
+
+            <td><span class="dash">—</span></td>
+
+            <td class="col-popular cell"><span class="dash">—</span></td>
+
+            <td><span class="check">✓</span> Monthly</td>
+          </tr>
+
+          <tr>
+            <td colspan="4" class="compare-section">Outcomes</td>
+          </tr>
+
+          <tr>
+            <td>Complete annual budget</td>
+
+            <td><span class="check">✓</span></td>
+
+            <td class="col-popular cell"><span class="check">✓</span></td>
+
+            <td><span class="check">✓</span></td>
+          </tr>
+
+          <tr>
+            <td>Validated GAAP compliance</td>
+
+            <td><span class="check">✓</span></td>
+
+            <td class="col-popular cell"><span class="check">✓</span></td>
+
+            <td><span class="check">✓</span></td>
+          </tr>
+
+          <tr>
+            <td>Faster month-end close</td>
+
+            <td><span class="check">✓</span></td>
+
+            <td class="col-popular cell"><span class="check">✓</span></td>
+
+            <td><span class="check">✓</span></td>
+          </tr>
+
+          <tr>
+            <td>Driver-based rolling forecast</td>
+
+            <td><span class="check">✓</span></td>
+
+            <td class="col-popular cell"><span class="check">✓</span></td>
+
+            <td><span class="check">✓</span></td>
+          </tr>
+
+          <tr>
+            <td>Graduation Portfolio</td>
+
+            <td><span class="check">✓</span></td>
+
+            <td class="col-popular cell"><span class="check">✓</span></td>
+
+            <td><span class="check">✓</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- FAQ -->
+
+    <section class="faq">
+      <h2 class="faq__title">Common questions</h2>
+
+      <div class="faq__item">
+        <div class="faq__q" onclick="toggleFaq(this)">
+          <span>How do I know which tier is right for my finance leader?</span>
+
+          <span class="faq__chevron">▾</span>
+        </div>
+
+        <div class="faq__a">
+          <p>
+            The simplest way is a 30-minute discovery call. We listen for three
+            things: (1) the company's revenue and stage, (2) whether there is a
+            defined milestone inside the next 12 months (audit, sponsor cycle,
+            financing, transaction), and (3) how mature the finance team beneath
+            the leader is. From that conversation we recommend a tier.
+          </p>
+
+          <p>
+            As a general guide: $30M–$50M companies with no transaction event
+            fit Foundations. $40M–$80M companies preparing for a defined
+            milestone fit Accelerator. $60M–$100M companies actively in a
+            financing, sale, or aggressive-growth phase fit Executive Track.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <div class="faq__q" onclick="toggleFaq(this)">
+          <span>Is this billed monthly or annually?</span>
+
+          <span class="faq__chevron">▾</span>
+        </div>
+
+        <div class="faq__a">
+          <p>
+            Both options are available. The default is monthly billing for the
+            12-month engagement. Annual prepayment is offered at a 5% discount
+            and includes locked-in pricing for the full year. Payment is
+            processed securely through Stripe.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <div class="faq__q" onclick="toggleFaq(this)">
+          <span>What is the cancellation policy?</span>
+
+          <span class="faq__chevron">▾</span>
+        </div>
+
+        <div class="faq__a">
+          <p>
+            The Accelerator is designed as a 12-month structured program — the
+            outcomes depend on the full arc. That said, life happens. We offer a
+            30-day notice cancellation policy after Month 2. The first two
+            months are non-refundable to protect the intensive intake and
+            diagnostic investment we make in every participant.
+          </p>
+
+          <p>
+            If a participant cancels mid-program, they retain access to the
+            portal and templates library for 30 days post-cancellation.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <div class="faq__q" onclick="toggleFaq(this)">
+          <span>Can I upgrade or downgrade tiers during the engagement?</span>
+
+          <span class="faq__chevron">▾</span>
+        </div>
+
+        <div class="faq__a">
+          <p>
+            Yes. Tier changes are common — often a participant upgrades from
+            Foundations to Accelerator after Month 3 once a new transaction
+            milestone appears, or downgrades from Executive Track to Accelerator
+            after a deal closes. Upgrades take effect immediately. Downgrades
+            take effect at the start of the next quarter. Pricing is pro-rated.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <div class="faq__q" onclick="toggleFaq(this)">
+          <span>Who are the senior CFO mentors?</span>
+
+          <span class="faq__chevron">▾</span>
+        </div>
+
+        <div class="faq__a">
+          <p>
+            Our mentors have served as CFOs, controllers, and senior finance
+            executives at companies with revenues up to $500M+, operating across
+            private-equity-backed, publicly traded, venture-backed,
+            family-owned, and founder-led environments. Collectively, they have
+            led or supported transactions from venture and seed financings
+            through acquisition integrations to multi-billion-dollar
+            divestitures. Several bring Big 4 audit pedigree.
+          </p>
+
+          <p>
+            Industry coverage spans SaaS, software, telecommunications,
+            manufacturing, construction, healthcare, professional services, and
+            retail. Mentor assignment is based on best industry and stage fit
+            for your business.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <div class="faq__q" onclick="toggleFaq(this)">
+          <span
+            >What does the participant get access to immediately after signing
+            up?</span
+          >
+
+          <span class="faq__chevron">▾</span>
+        </div>
+
+        <div class="faq__a">
+          <p>
+            Within minutes of payment: full access to the member portal, the
+            templates library, and the curriculum library. Within five business
+            days: a kickoff 1:1 with the assigned mentor and a signed 12-Month
+            Development Plan. The curriculum itself unlocks month by month, so
+            the participant is never overwhelmed but always has a clear next
+            step.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <div class="faq__q" onclick="toggleFaq(this)">
+          <span>Is enterprise or multi-participant pricing available?</span>
+
+          <span class="faq__chevron">▾</span>
+        </div>
+
+        <div class="faq__a">
+          <p>
+            Yes. Companies enrolling two or more finance team members in
+            Foundations or Accelerator receive volume pricing. Multi-entity
+            organizations and companies above $100M revenue with custom
+            requirements are quoted individually. Reach out for a tailored
+            proposal.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSER -->
+
+    <section class="closer">
+      <h2>Not sure which tier is right?</h2>
+
+      <p>
+        The shortest path is a 30-minute conversation. We will walk through your
+        finance leader's situation and recommend the tier that fits — or tell
+        you honestly if the program is not the right fit.
+      </p>
+
+      <a href="https://www.theexecutiveallies.com"
+        ><button class="closer__cta">Schedule a Consultation →</button></a
+      >
+    </section>
+
+    <footer class="site">
+      Executive Allies &nbsp;·&nbsp; theexecutiveallies.com &nbsp;·&nbsp; All
+      engagements scoped and quoted individually.
+    </footer>
+
+    <!-- MODAL (mocks Stripe Checkout handoff) -->
+
+    <div
+      id="modal"
+      class="modal"
+      onclick="if (event.target === this) closeModal();"
+    >
+      <div class="modal__card">
+        <div class="modal__brand">EXECUTIVE ALLIES</div>
+
+        <h3 class="modal__title">Confirm your subscription</h3>
+
+        <p class="modal__sub">
+          Review the details, then continue to secure checkout.
+        </p>
+
+        <div class="modal__line">
+          <span>Program tier</span><strong id="m-tier">—</strong>
+        </div>
+
+        <div class="modal__line">
+          <span>Monthly billing</span><strong id="m-month">—</strong>
+        </div>
+
+        <div class="modal__line">
+          <span>12-month commitment</span><strong id="m-year">—</strong>
+        </div>
+
+        <div class="modal__line">
+          <span>First charge</span><strong id="m-first">—</strong>
+        </div>
+
+        <div class="modal__note">
+          <strong>DEMO MODE</strong>
+
+          In production, this button routes to Stripe Checkout where you enter
+          your payment method. Once payment clears, your account is created
+          automatically and your portal login arrives by email within minutes.
+        </div>
+
+        <button class="modal__close" onclick="closeModal()">Close demo</button>
+      </div>
+    </div>
+
+    <script>
+      function fmt(n) {
+        return "$" + n.toLocaleString();
+      }
+
+      function startCheckout(tier, monthly, annual) {
+        document.getElementById("m-tier").textContent = tier;
+
+        document.getElementById("m-month").textContent =
+          fmt(monthly) + " / month";
+
+        document.getElementById("m-year").textContent = fmt(annual) + " total";
+
+        document.getElementById("m-first").textContent = fmt(monthly);
+
+        document.getElementById("modal").classList.add("open");
+      }
+
+      function closeModal() {
+        document.getElementById("modal").classList.remove("open");
+      }
+
+      function toggleFaq(el) {
+        el.parentElement.classList.toggle("open");
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CLn SportWash | High School Athlete Parents</title>
+    <meta
+      name="description"
+      content="Physician-developed protection against staph, ringworm, and MRSA for high school contact sport athletes. Simple post-practice use."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="cln-sportwash-shared.css" />
+    <style>
+      .hero-parents {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: clamp(480px, 75vh, 640px);
+      }
+      .hero-parents-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: var(--section-pad) clamp(2rem, 5vw, 4rem);
+        background: var(--cln-warm);
+      }
+      .hero-parents-image {
+        position: relative;
+        min-height: 320px;
+      }
+      .concern-cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+      .concern-card {
+        padding: 1.5rem;
+        background: var(--cln-white);
+        border-radius: var(--radius);
+        border: 1px solid var(--cln-border);
+      }
+      .concern-card h4 {
+        font-family: var(--font-display);
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+        color: var(--cln-accent);
+      }
+      .concern-card p {
+        font-size: 14px;
+        color: var(--cln-slate);
+      }
+      .desire-box {
+        background: linear-gradient(135deg, var(--cln-teal-light) 0%, var(--cln-white) 100%);
+        border-radius: var(--radius-lg);
+        padding: clamp(2rem, 4vw, 3rem);
+        border: 1px solid rgba(42, 122, 120, 0.2);
+      }
+      @media (max-width: 900px) {
+        .hero-parents { grid-template-columns: 1fr; }
+        .concern-cards { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="mockup-nav" aria-label="Mockup pages">
+      <span>MOCKUPS</span>
+      <a href="cln-sportwash-index.html">Index</a>
+      <a href="cln-sportwash-combat.html">Combat Athletes</a>
+      <a href="cln-sportwash-parents.html" class="active">HS Parents</a>
+      <a href="cln-sportwash-performance.html">Performance</a>
+    </nav>
+
+    <div class="announce-bar">
+      <strong>Free USA Shipping</strong> on orders over $45
+    </div>
+
+    <header class="lp-nav">
+      <div class="inner">
+        <a href="https://www.clnwash.com/" class="lp-logo">CL<span>n</span> Skin Care</a>
+        <a href="#shop" class="lp-nav-cta">Protect Your Athlete</a>
+      </div>
+    </header>
+
+    <!-- Stiletto: Image hero split -->
+    <section class="hero-parents" aria-label="Hero">
+      <div class="hero-parents-text">
+        <div class="stiletto-tag">Stiletto: Image Hero Split — Accent, Heading, Text, Button</div>
+        <p class="eyebrow">For Parents of Contact Sport Athletes</p>
+        <h1>What's Living on Your Athlete's Practice Mat?</h1>
+        <p class="lead" style="margin: 1.25rem 0 2rem">
+          Staph, ringworm, and MRSA are common in high school contact sports
+          environments. CLn SportWash is physician-developed protection that fits in any
+          gym bag, takes 60 seconds, and actually works.
+        </p>
+        <a href="#shop" class="btn btn-primary">Protect Your Athlete</a>
+      </div>
+      <div class="hero-parents-image">
+        <div class="img-placeholder" style="position: absolute; inset: 0">
+          <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          HS athlete / parent with gym bag
+        </div>
+      </div>
+    </section>
+
+    <!-- Stiletto: Rich text -->
+    <section class="section" aria-label="Attention">
+      <div class="inner section-narrow">
+        <div class="stiletto-tag">Stiletto: Rich Text — Heading, Text blocks</div>
+        <h2>High School Contact Sports Carry a Skin Infection Risk Most Parents Don't Know About</h2>
+        <div class="body-text">
+          <p>
+            Every wrestling mat, every shared piece of football equipment, every locker room bench your
+            athlete uses is a potential source of skin infection. Staph bacteria. Ringworm. Impetigo. MRSA.
+            These aren't rare. Athletic trainers and team physicians deal with them regularly. They sideline
+            athletes for days or weeks at a time. And most standard soap and body wash offer no
+            meaningful protection against them.
+          </p>
+        </div>
+        <div class="concern-cards">
+          <div class="concern-card">
+            <h4>Staph & MRSA</h4>
+            <p>Common in shared equipment and locker room environments</p>
+          </div>
+          <div class="concern-card">
+            <h4>Ringworm & Impetigo</h4>
+            <p>Spread through mats, benches, and close-contact sports</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stiletto: Image with text split -->
+    <section class="section section-cream" aria-label="Interest">
+      <div class="stiletto-tag" style="margin-left: var(--pad-x)">Stiletto: Image with Text Split</div>
+      <div class="iwt-split reverse">
+        <div class="iwt-image">
+          <div class="img-placeholder" style="position: absolute; inset: 0">
+            <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            Physician / sports medicine context
+          </div>
+        </div>
+        <div class="iwt-text">
+          <h2>This Isn't a Hygiene Problem. It's a Medical One.</h2>
+          <div class="body-text">
+            <p>
+              Physicians who work with contact sport athletes know that shared training environments create
+              a fundamentally different kind of exposure than everyday life. The bacteria and fungi that cause
+              skin infections in sports settings thrive in warm, humid, high-contact conditions.
+            </p>
+            <p>
+              Regular body wash is designed to remove visible dirt. It isn't formulated to address the
+              pathogens responsible for the infections that pull athletes off the field.
+            </p>
+            <p>
+              There is a difference. And most families don't realize it until an infection has already happened.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stiletto: Rich text + Text list with icons -->
+    <section class="section" aria-label="Desire">
+      <div class="inner">
+        <div class="stiletto-tag">Stiletto: Rich Text + Text List with Icons blocks</div>
+        <div class="desire-box">
+          <h2>One Addition to the Post-Practice Routine That Changes the Equation</h2>
+          <div class="body-text">
+            <p>
+              CLn SportWash was developed by physicians specifically for athletes in contact sports
+              environments. It targets the bacterial and fungal pathogens most likely to cause infection, using
+              a clinically formulated wash your athlete uses after every practice.
+            </p>
+            <p>The routine doesn't change. The protection does.</p>
+          </div>
+          <ul class="icon-list">
+            <li>Physician-developed formula designed for contact sports environments</li>
+            <li>Protection against staph, MRSA, ringworm, and impetigo</li>
+            <li>Simple post-practice use, same as any body wash</li>
+            <li>Recommended by sports medicine physicians and dermatologists</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stiletto: Testimonials -->
+    <section class="section section-warm testimonial-section" aria-label="Social proof">
+      <div class="inner">
+        <div class="stiletto-tag">Stiletto: Testimonials</div>
+        <h2>Recommended by the Physicians Who Know Contact Sports</h2>
+        <div class="testimonial-card" style="margin-top: 2rem">
+          <p class="testimonial-quote">
+            [Testimonial placeholder: sports medicine physician or sports dermatologist quote. Suggests Dr.
+            Jen Gordon, Dr. Obed, or Aslan Nelson as strong fits for this segment.]
+          </p>
+          <p class="testimonial-meta">— Placeholder for physician attribution</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stiletto: Featured product + Image with text -->
+    <section class="section" id="shop" aria-label="Shop">
+      <div class="inner">
+        <div class="stiletto-tag">Stiletto: Featured Product</div>
+        <div class="featured-product">
+          <div class="product-image-wrap">
+            <span class="product-badge">Fits in any gym bag</span>
+            <div class="img-placeholder" style="height: 100%">
+              <svg width="64" height="64" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+              CLn SportWash — gym bag lifestyle
+            </div>
+          </div>
+          <div class="product-info">
+            <h2>Keep Your Athlete on the Field</h2>
+            <p class="lead" style="margin-bottom: 1.5rem">
+              You can't control what's on the mat. You can control what's in their gym bag.
+            </p>
+            <p class="product-price">$32.00 <span>Full Size — 12 fl. oz.</span></p>
+            <div class="qty-row">
+              <select class="qty-select" aria-label="Quantity">
+                <option>Qty: 1</option>
+                <option>Qty: 2</option>
+                <option>Qty: 3</option>
+              </select>
+              <a href="https://www.clnwash.com/products/cln-sportwash" class="btn btn-primary add-to-cart">Shop CLn SportWash</a>
+            </div>
+            <div class="trust-row">
+              <span>✓ Physician-developed</span>
+              <span>✓ 60-second post-practice use</span>
+              <span>✓ Free shipping $45+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="sticky-bar">
+      <div class="sticky-bar-product">
+        <div class="sticky-thumb"></div>
+        <div>
+          <div class="sticky-name">CLn SportWash</div>
+          <div class="sticky-price">$32.00</div>
+        </div>
+      </div>
+      <a href="https://www.clnwash.com/products/cln-sportwash" class="btn btn-primary">Shop CLn SportWash</a>
+    </div>
+
+    <footer class="impl-guide">
+      <div class="inner">
+        <h3>Shopify Build Guide — HS Athlete Parents Landing Page</h3>
+        <ol>
+          <li>Create page template: <code>page.sportwash-parents.json</code></li>
+          <li><code>Sales banner</code> — Free USA Shipping</li>
+          <li><code>Image hero split</code> — Warm lifestyle image + hero copy. Button: "Protect Your Athlete"</li>
+          <li><code>Rich text</code> — Attention section. Optional: Grid (Mosaic) for infection type callouts</li>
+          <li><code>Image with text split</code> — Interest section with physician/medical imagery</li>
+          <li><code>Rich text</code> + <code>Text list with icons</code> (via Custom Liquid or Rich text list) — Desire section with 4 bullet points</li>
+          <li><code>Testimonials</code> — Dr. Jen Gordon, Dr. Obed, or Aslan Nelson suggested</li>
+          <li><code>Featured product</code> — CLn SportWash with sticky add-to-cart</li>
+        </ol>
+      </div>
+    </footer>
+  </body>
+</html>

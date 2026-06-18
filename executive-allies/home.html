@@ -1,0 +1,1668 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Executive Allies | Fractional CFO &amp; Controller Services · Boise, ID
+    </title>
+    <meta
+      name="description"
+      content="Executive Allies is a Boise-based strategic accounting firm offering fractional CFO and Controller services through a customizable subscription model. Serving the Treasure Valley and beyond."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --navy: #1f3a68;
+        --navy-dark: #152c50;
+        --navy-darker: #0f2240;
+        --gold: #c9a961;
+        --gold-soft: #e0c684;
+        --gold-bg: rgba(201, 169, 97, 0.1);
+        --gold-border: rgba(201, 169, 97, 0.35);
+
+        --bg: #f4f6fb;
+        --card: #ffffff;
+        --card-tint: #f8f9fc;
+
+        --text: #1a1f2e;
+        --muted: #6b7280;
+        --border: #e5e7eb;
+        --border-dark: rgba(255, 255, 255, 0.12);
+        --green: #10b981;
+
+        --font-display: "Manrope", -apple-system, sans-serif;
+        --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+
+        --shadow-sm:
+          0 1px 3px rgba(15, 34, 64, 0.06), 0 1px 2px rgba(15, 34, 64, 0.04);
+        --shadow-md: 0 4px 12px rgba(15, 34, 64, 0.1);
+        --shadow-lg:
+          0 20px 50px rgba(15, 34, 64, 0.12), 0 8px 20px rgba(15, 34, 64, 0.06);
+
+        --radius-sm: 6px;
+        --radius: 10px;
+        --radius-lg: 16px;
+
+        --maxw: 1180px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--font-body);
+        font-weight: 400;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+
+      ::selection {
+        background: var(--navy);
+        color: #fff;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .wrap {
+        width: 100%;
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .eyebrow {
+        font-size: 0.68rem;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin: 0 0 0.9rem;
+      }
+      .eyebrow-gold {
+        color: var(--gold);
+      }
+      .eyebrow-muted {
+        color: var(--muted);
+      }
+
+      /* ---------- Buttons ---------- */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.45rem;
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 0.9rem;
+        letter-spacing: 0.02em;
+        padding: 0.8rem 1.75rem;
+        border-radius: var(--radius);
+        border: 1.5px solid transparent;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        white-space: nowrap;
+      }
+      .btn-primary {
+        background: var(--navy);
+        color: #fff;
+        box-shadow: var(--shadow-sm);
+      }
+      .btn-primary:hover {
+        background: var(--navy-darker);
+        box-shadow: var(--shadow-md);
+        transform: translateY(-1px);
+      }
+      .btn-gold {
+        background: var(--gold);
+        color: var(--navy);
+      }
+      .btn-gold:hover {
+        background: var(--gold-soft);
+        box-shadow: var(--shadow-md);
+        transform: translateY(-1px);
+      }
+      .btn-outline-light {
+        background: transparent;
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.45);
+      }
+      .btn-outline-light:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: #fff;
+      }
+      .btn-outline {
+        background: transparent;
+        color: var(--navy);
+        border-color: var(--border);
+      }
+      .btn-outline:hover {
+        border-color: var(--navy);
+        background: var(--card);
+      }
+
+      /* ---------- Top utility bar ---------- */
+      .topbar {
+        background: var(--navy-darker);
+        border-bottom: 1px solid var(--border-dark);
+      }
+      .topbar-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 36px;
+        font-size: 0.7rem;
+        letter-spacing: 0.1em;
+        color: rgba(255, 255, 255, 0.65);
+      }
+      .topbar a {
+        transition: color 0.15s;
+      }
+      .topbar a:hover {
+        color: var(--gold);
+      }
+      .topbar-right {
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+      }
+
+      /* ---------- Header ---------- */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: var(--navy);
+        border-bottom: 3px solid var(--gold);
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 72px;
+      }
+      .brand-mark {
+        line-height: 1;
+      }
+      .brand-name {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 1.05rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+      .brand-sub {
+        font-size: 0.56rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.55);
+        margin-top: 0.28rem;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2.25rem;
+      }
+      .nav-links a {
+        font-size: 0.84rem;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.75);
+        letter-spacing: 0.02em;
+        transition: color 0.15s;
+      }
+      .nav-links a:hover {
+        color: #fff;
+      }
+      .nav-cta .btn {
+        padding: 0.6rem 1.35rem;
+        font-size: 0.82rem;
+      }
+      .nav-toggle {
+        display: none;
+        background: none;
+        border: 0;
+        cursor: pointer;
+        color: var(--gold);
+      }
+
+      /* ---------- Hero ---------- */
+      .hero {
+        position: relative;
+        background: linear-gradient(
+          160deg,
+          var(--navy) 0%,
+          var(--navy-dark) 55%,
+          var(--navy-darker) 100%
+        );
+        color: #fff;
+        overflow: hidden;
+      }
+      /* Subtle diagonal rule pattern */
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(
+            135deg,
+            rgba(201, 169, 97, 0.04) 25%,
+            transparent 25%
+          ),
+          linear-gradient(
+            225deg,
+            rgba(201, 169, 97, 0.04) 25%,
+            transparent 25%
+          ),
+          linear-gradient(45deg, rgba(201, 169, 97, 0.04) 25%, transparent 25%),
+          linear-gradient(315deg, rgba(201, 169, 97, 0.04) 25%, transparent 25%);
+        background-size: 40px 40px;
+        pointer-events: none;
+        opacity: 0.6;
+      }
+      /* Ghost monogram */
+      .hero::after {
+        content: "EA";
+        position: absolute;
+        right: -2.5rem;
+        bottom: -6rem;
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 28rem;
+        line-height: 1;
+        letter-spacing: -0.04em;
+        color: rgba(255, 255, 255, 0.03);
+        pointer-events: none;
+      }
+      .hero-inner {
+        position: relative;
+        z-index: 1;
+        padding: 7rem 0 0;
+        text-align: center;
+        max-width: 54rem;
+        margin: 0 auto;
+      }
+      .hero-inner .eyebrow-gold {
+        color: var(--gold);
+      }
+      .hero-inner h1 {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 4rem;
+        line-height: 1.08;
+        letter-spacing: -0.02em;
+        margin: 0.75rem 0 1.5rem;
+      }
+      .hero-inner h1 em {
+        font-style: italic;
+        font-weight: 700;
+        color: var(--gold);
+      }
+      .hero-inner .lede {
+        font-size: 1.15rem;
+        color: rgba(255, 255, 255, 0.78);
+        line-height: 1.72;
+        max-width: 36rem;
+        margin: 0 auto 2.5rem;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 5rem;
+      }
+
+      /* Three pillar cards straddling the hero bottom */
+      .hero-ledge {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+        transform: translateY(-10%);
+      }
+      .pillar {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-top: 3px solid var(--gold);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-lg);
+        padding: 1.75rem 1.85rem;
+        text-align: left;
+      }
+      .pillar-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: var(--radius);
+        background: var(--gold-bg);
+        border: 1px solid var(--gold-border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gold);
+        margin-bottom: 1rem;
+      }
+      .pillar h3 {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: var(--navy);
+        margin: 0 0 0.4rem;
+      }
+      .pillar p {
+        font-size: 0.86rem;
+        color: var(--muted);
+        margin: 0;
+        line-height: 1.65;
+      }
+
+      /* ---------- Sections ---------- */
+      section.block {
+        padding: 7rem 0;
+      }
+      .ledge-offset {
+        padding-top: 10rem;
+      }
+
+      .section-head {
+        max-width: 44rem;
+        margin-bottom: 3rem;
+      }
+      .section-head h2 {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 2.4rem;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        color: var(--navy);
+        margin: 0 0 0.9rem;
+      }
+      .section-head p {
+        font-size: 1.05rem;
+        color: var(--muted);
+        margin: 0;
+        line-height: 1.72;
+      }
+      .section-head.center {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+
+      /* ---------- Stats strip ---------- */
+      .stats {
+        background: var(--card);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .stat {
+        padding: 2.25rem 1.5rem;
+        text-align: center;
+        border-right: 1px solid var(--border);
+      }
+      .stat:last-child {
+        border-right: 0;
+      }
+      .stat .num {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 2.5rem;
+        line-height: 1;
+        color: var(--navy);
+        letter-spacing: -0.02em;
+      }
+      .stat .num span {
+        color: var(--gold);
+      }
+      .stat .label {
+        font-size: 0.66rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-weight: 700;
+        margin-top: 0.6rem;
+      }
+
+      /* ---------- Services ledger ---------- */
+      .ledger {
+        border-top: 1px solid var(--border);
+      }
+      .ledger-row {
+        display: grid;
+        grid-template-columns: 90px 1.1fr 1.6fr auto;
+        gap: 2.5rem;
+        align-items: center;
+        padding: 2.25rem 0.5rem;
+        border-bottom: 1px solid var(--border);
+        cursor: pointer;
+        transition:
+          background 0.15s,
+          padding-left 0.15s;
+      }
+      .ledger-row:hover {
+        background: var(--card);
+        padding-left: 1rem;
+      }
+      .ledger-num {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 2.2rem;
+        color: rgba(201, 169, 97, 0.35);
+        letter-spacing: 0.02em;
+        line-height: 1;
+      }
+      .ledger-title {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1.45rem;
+        color: var(--navy);
+        letter-spacing: -0.01em;
+        margin: 0;
+      }
+      .ledger-desc {
+        font-size: 0.92rem;
+        color: var(--muted);
+        margin: 0;
+        line-height: 1.65;
+        max-width: 30rem;
+      }
+      .ledger-arrow {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 1.5px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--navy);
+        transition:
+          background 0.15s,
+          color 0.15s,
+          border-color 0.15s,
+          transform 0.15s;
+      }
+      .ledger-row:hover .ledger-arrow {
+        background: var(--gold);
+        border-color: var(--gold);
+        color: var(--navy);
+        transform: rotate(-45deg);
+      }
+
+      /* ---------- About / split ---------- */
+      .about {
+        background: var(--navy);
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+      }
+      .about::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(
+          rgba(201, 169, 97, 0.07) 1px,
+          transparent 1.5px
+        );
+        background-size: 22px 22px;
+        opacity: 0.55;
+        pointer-events: none;
+      }
+      .about-inner {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        padding: 7rem 0;
+        align-items: center;
+      }
+      .about-left .eyebrow-gold {
+        color: var(--gold);
+      }
+      .about-left h2 {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 2.6rem;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        margin: 0.75rem 0 1.25rem;
+      }
+      .about-left h2 em {
+        font-style: italic;
+        font-weight: 700;
+        color: var(--gold);
+      }
+      .about-left p {
+        font-size: 1.02rem;
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.78;
+        margin: 0 0 1.25rem;
+      }
+      .about-left p:last-of-type {
+        margin-bottom: 2rem;
+      }
+
+      /* Right: stacked stat/fact cards */
+      .about-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .about-card {
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-left: 3px solid var(--gold);
+        border-radius: var(--radius-lg);
+        padding: 1.5rem 1.75rem;
+        backdrop-filter: blur(4px);
+      }
+      .about-card h4 {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1rem;
+        color: var(--gold);
+        margin: 0 0 0.35rem;
+        letter-spacing: 0.01em;
+      }
+      .about-card p {
+        font-size: 0.88rem;
+        color: rgba(255, 255, 255, 0.78);
+        margin: 0;
+        line-height: 1.65;
+      }
+
+      /* ---------- How we work (process) ---------- */
+      .process {
+        background: var(--card);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+      .process-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border-left: 1px solid var(--border);
+      }
+      .step {
+        padding: 3rem 2.25rem 3rem 2rem;
+        border-right: 1px solid var(--border);
+      }
+      .step-num {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 3.2rem;
+        line-height: 1;
+        color: var(--gold-bg);
+        color: rgba(201, 169, 97, 0.25);
+        margin: 0 0 1rem;
+      }
+      .step h3 {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: var(--navy);
+        margin: 0 0 0.55rem;
+      }
+      .step p {
+        font-size: 0.9rem;
+        color: var(--muted);
+        margin: 0;
+        line-height: 1.7;
+      }
+
+      /* ---------- Testimonial band ---------- */
+      .testimonial {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(
+          135deg,
+          var(--navy-dark) 0%,
+          var(--navy-darker) 100%
+        );
+        color: #fff;
+      }
+      .testimonial::before {
+        content: "\201C";
+        position: absolute;
+        top: -3rem;
+        right: 5%;
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 20rem;
+        line-height: 1;
+        color: rgba(201, 169, 97, 0.1);
+        pointer-events: none;
+      }
+      .testimonial-inner {
+        position: relative;
+        z-index: 1;
+        padding: 6.5rem 0;
+        max-width: 46rem;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .testimonial-inner .gold-rule {
+        width: 44px;
+        height: 3px;
+        background: var(--gold);
+        border-radius: 2px;
+        margin: 0 auto 2rem;
+      }
+      .testimonial-inner blockquote {
+        font-family: var(--font-display);
+        font-weight: 300;
+        font-size: 1.75rem;
+        line-height: 1.55;
+        letter-spacing: -0.01em;
+        margin: 0 0 2rem;
+        color: #fff;
+      }
+      .testimonial-inner .attribution {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+      }
+      .attr-avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--navy), var(--gold-soft));
+        border: 2px solid var(--gold);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 0.85rem;
+        color: var(--navy);
+      }
+      .attr-text .name {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 0.9rem;
+        color: var(--gold);
+      }
+      .attr-text .title {
+        font-size: 0.76rem;
+        color: rgba(255, 255, 255, 0.6);
+        letter-spacing: 0.04em;
+      }
+
+      /* ---------- Subscription CTA ---------- */
+      .sub-section {
+        background: var(--bg);
+      }
+      .sub-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1.25rem;
+        margin-top: 3rem;
+      }
+      .sub-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-top: 3px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 2rem;
+        box-shadow: var(--shadow-sm);
+        transition:
+          box-shadow 0.2s,
+          transform 0.2s;
+      }
+      .sub-card:hover {
+        box-shadow: var(--shadow-md);
+        transform: translateY(-3px);
+      }
+      .sub-card.featured {
+        border-top-color: var(--gold);
+        box-shadow: var(--shadow-lg);
+      }
+      .sub-badge {
+        display: inline-block;
+        background: var(--gold);
+        color: var(--navy);
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 0.28rem 0.7rem;
+        border-radius: var(--radius-sm);
+        margin-bottom: 0.85rem;
+      }
+      .sub-tier {
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin: 0 0 0.3rem;
+      }
+      .sub-name {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 1.4rem;
+        color: var(--navy);
+        margin: 0 0 0.55rem;
+      }
+      .sub-desc {
+        font-size: 0.86rem;
+        color: var(--muted);
+        margin: 0 0 1.5rem;
+        line-height: 1.65;
+      }
+      .sub-features {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 1.75rem;
+      }
+      .sub-features li {
+        font-size: 0.86rem;
+        color: var(--text);
+        padding: 0.45rem 0 0.45rem 1.4rem;
+        position: relative;
+        border-bottom: 1px solid var(--border);
+        line-height: 1.5;
+      }
+      .sub-features li:last-child {
+        border-bottom: 0;
+      }
+      .sub-features li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        top: 0.45rem;
+        color: var(--gold);
+        font-weight: 700;
+        font-size: 0.8rem;
+      }
+
+      /* ---------- Closing CTA ---------- */
+      .closing {
+        background: linear-gradient(
+          145deg,
+          var(--navy) 0%,
+          var(--navy-darker) 100%
+        );
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+      }
+      .closing::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(
+          rgba(201, 169, 97, 0.06) 1px,
+          transparent 1.5px
+        );
+        background-size: 24px 24px;
+        pointer-events: none;
+      }
+      .closing-inner {
+        position: relative;
+        z-index: 1;
+        padding: 7rem 0;
+        display: grid;
+        grid-template-columns: 1.35fr 0.65fr;
+        gap: 4rem;
+        align-items: center;
+      }
+      .closing .eyebrow-gold {
+        color: var(--gold);
+      }
+      .closing h2 {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 2.75rem;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        margin: 0.75rem 0 1.1rem;
+      }
+      .closing h2 em {
+        font-style: italic;
+        font-weight: 700;
+        color: var(--gold);
+      }
+      .closing p {
+        font-size: 1.02rem;
+        color: rgba(255, 255, 255, 0.78);
+        margin: 0;
+        line-height: 1.72;
+      }
+      .closing-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+      }
+      .closing-actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .closing-actions .note {
+        font-size: 0.74rem;
+        color: rgba(255, 255, 255, 0.5);
+        text-align: center;
+        letter-spacing: 0.04em;
+      }
+
+      /* ---------- Footer ---------- */
+      footer.site-footer {
+        background: var(--navy-darker);
+        color: rgba(255, 255, 255, 0.7);
+        border-top: 3px solid var(--gold);
+        padding: 4.5rem 0 2.25rem;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap: 3rem;
+        padding-bottom: 3rem;
+        border-bottom: 1px solid var(--border-dark);
+      }
+      .footer-brand .brand-name {
+        color: var(--gold);
+        font-size: 0.9rem;
+      }
+      .footer-brand .brand-sub {
+        margin-top: 0.3rem;
+      }
+      .footer-brand p {
+        font-size: 0.88rem;
+        line-height: 1.72;
+        color: rgba(255, 255, 255, 0.6);
+        margin: 1.1rem 0 0;
+        max-width: 20rem;
+      }
+      .footer-col h4 {
+        font-size: 0.62rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 700;
+        margin: 0 0 1.1rem;
+      }
+      .footer-col a,
+      .footer-col p {
+        display: block;
+        font-size: 0.88rem;
+        color: rgba(255, 255, 255, 0.65);
+        margin: 0 0 0.65rem;
+        transition: color 0.15s;
+      }
+      .footer-col a:hover {
+        color: var(--gold);
+      }
+      .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 1.75rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .footer-bottom p {
+        font-size: 0.66rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.4);
+        font-weight: 600;
+        margin: 0;
+      }
+      .footer-legal {
+        display: flex;
+        gap: 1.5rem;
+      }
+      .footer-legal a {
+        font-size: 0.66rem;
+        letter-spacing: 0.08em;
+        color: rgba(255, 255, 255, 0.4);
+      }
+      .footer-legal a:hover {
+        color: var(--gold);
+      }
+
+      /* ---------- Responsive ---------- */
+      @media (max-width: 980px) {
+        .hero-inner h1 {
+          font-size: 2.9rem;
+        }
+        .hero-ledge {
+          grid-template-columns: 1fr;
+          transform: none;
+          padding-bottom: 4rem;
+        }
+        .ledge-offset {
+          padding-top: 7rem;
+        }
+        .about-inner {
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+          padding: 5rem 0;
+        }
+        .closing-inner {
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+        }
+        .sub-grid {
+          grid-template-columns: 1fr;
+          max-width: 400px;
+        }
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .stat:nth-child(2) {
+          border-right: 0;
+        }
+        .process-grid {
+          grid-template-columns: 1fr;
+          border-left: 0;
+          border-top: 1px solid var(--border);
+        }
+        .step {
+          border-right: 0;
+          border-bottom: 1px solid var(--border);
+        }
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 2.5rem;
+        }
+      }
+      @media (max-width: 720px) {
+        .wrap {
+          padding: 0 1.25rem;
+        }
+        .topbar-inner .location {
+          display: none;
+        }
+        .nav-links {
+          display: none;
+        }
+        .nav-toggle {
+          display: inline-flex;
+        }
+        .hero-inner {
+          padding-top: 5rem;
+        }
+        .hero-inner h1 {
+          font-size: 2.3rem;
+        }
+        .hero::after {
+          font-size: 14rem;
+          bottom: -3rem;
+        }
+        section.block {
+          padding: 4.5rem 0;
+        }
+        .section-head h2 {
+          font-size: 1.9rem;
+        }
+        .ledger-row {
+          grid-template-columns: 1fr;
+          gap: 0.6rem;
+          padding: 1.6rem 0.25rem;
+        }
+        .ledger-row:hover {
+          padding-left: 0.25rem;
+        }
+        .ledger-arrow {
+          display: none;
+        }
+        .ledger-num {
+          font-size: 1.5rem;
+        }
+        .testimonial-inner blockquote {
+          font-size: 1.3rem;
+        }
+        .closing h2 {
+          font-size: 2rem;
+        }
+        .testimonial::before {
+          font-size: 11rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- UTILITY BAR -->
+    <div class="topbar">
+      <div class="wrap topbar-inner">
+        <span class="location"
+          >Boise, Idaho &nbsp;&middot;&nbsp; Serving the Treasure Valley &amp;
+          Beyond</span
+        >
+        <div class="topbar-right">
+          <a href="tel:+12085100875">208-510-0875</a>
+          <a href="mailto:info@theexecutiveallies.com"
+            >info@theexecutiveallies.com</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="site-header">
+      <div class="wrap nav">
+        <a href="#" class="brand-mark">
+          <div class="brand-name">Executive Allies</div>
+          <div class="brand-sub">Fractional CFO &amp; Controller Services</div>
+        </a>
+        <nav class="nav-links">
+          <a href="#services">Services</a>
+          <a href="#about">About Us</a>
+          <a href="#subscription">Subscriptions</a>
+          <a href="#contact">Contact</a>
+          <a
+            href="accelerator-portal.html"
+            style="
+              color: var(--gold);
+              border: 1px solid var(--gold-border);
+              padding: 0.4rem 1rem;
+              border-radius: var(--radius-sm);
+            "
+            >Member Sign In &rarr;</a
+          >
+        </nav>
+        <div class="nav-cta">
+          <a href="#contact" class="btn btn-gold">Schedule a Call &rarr;</a>
+        </div>
+        <button class="nav-toggle" aria-label="Open menu">
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          >
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-inner">
+          <p class="eyebrow eyebrow-gold">
+            Boise, Idaho &middot; Fractional CFO &amp; Controller Services
+          </p>
+          <h1>Your financial <em>allies</em> in business.</h1>
+          <p class="lede">
+            Expert CFO and Controller-level guidance without the full-time
+            overhead &mdash; delivered through a flexible subscription model
+            built around your business, your stage, and your goals.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-gold"
+              >Schedule a Discovery Call &rarr;</a
+            >
+            <a href="#services" class="btn btn-outline-light"
+              >Explore Our Services</a
+            >
+          </div>
+        </div>
+
+        <!-- Three pillars straddling the hero edge -->
+        <div class="hero-ledge">
+          <div class="pillar">
+            <div class="pillar-icon">
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 20V10M18 20V4M6 20v-6" />
+              </svg>
+            </div>
+            <h3>Implement &amp; Maintain</h3>
+            <p>
+              Sound accounting practices implemented and maintained through
+              strategic leadership, so decisions are always backed by current
+              financials.
+            </p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </div>
+            <h3>Safeguard</h3>
+            <p>
+              Accurate reporting and asset protection through KPI tracking and
+              cash flow forecasting &mdash; expert coverage at a fraction of the
+              cost.
+            </p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 8v4l3 3" />
+              </svg>
+            </div>
+            <h3>Uncanny Access</h3>
+            <p>
+              A dedicated point of contact, regularly scheduled meetings, and
+              seamless service &mdash; you always know where you stand.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS STRIP -->
+    <section class="stats">
+      <div class="wrap">
+        <div class="stats-grid">
+          <div class="stat">
+            <div class="num">100<span>%</span></div>
+            <div class="label">Subscription-Based</div>
+          </div>
+          <div class="stat">
+            <div class="num">Boise<span>-</span>Based</div>
+            <div class="label">Treasure Valley &amp; Beyond</div>
+          </div>
+          <div class="stat">
+            <div class="num">CFO<span>+</span></div>
+            <div class="label">Controller-Level Expertise</div>
+          </div>
+          <div class="stat">
+            <div class="num">0</div>
+            <div class="label">Full-Time Hire Required</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES LEDGER -->
+    <section id="services" class="block ledge-offset">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow eyebrow-muted">What We Offer</p>
+          <h2>Six services. One accountable team.</h2>
+          <p>
+            Every engagement is built around your business. We see the entire
+            accounting function through &mdash; from beginning to end &mdash; so
+            you can focus on running your business.
+          </p>
+        </div>
+
+        <div class="ledger">
+          <div class="ledger-row">
+            <span class="ledger-num">01</span>
+            <h3 class="ledger-title">Accounts Payable</h3>
+            <p class="ledger-desc">
+              Timely, accurate management of your outgoing payments &mdash;
+              keeping vendor relationships healthy and cash flow predictable.
+            </p>
+            <span class="ledger-arrow">
+              <svg
+                width="17"
+                height="17"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </span>
+          </div>
+          <div class="ledger-row">
+            <span class="ledger-num">02</span>
+            <h3 class="ledger-title">Accounts Receivable</h3>
+            <p class="ledger-desc">
+              Proactive invoicing, collections follow-up, and reporting that
+              ensures revenue lands on time and is reflected accurately.
+            </p>
+            <span class="ledger-arrow">
+              <svg
+                width="17"
+                height="17"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </span>
+          </div>
+          <div class="ledger-row">
+            <span class="ledger-num">03</span>
+            <h3 class="ledger-title">Bookkeeping</h3>
+            <p class="ledger-desc">
+              Clean, current books maintained by experienced accountants &mdash;
+              the foundation every business decision depends on.
+            </p>
+            <span class="ledger-arrow">
+              <svg
+                width="17"
+                height="17"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </span>
+          </div>
+          <div class="ledger-row">
+            <span class="ledger-num">04</span>
+            <h3 class="ledger-title">Cash Flow Forecasting</h3>
+            <p class="ledger-desc">
+              Forward-looking visibility into your cash position so you can plan
+              confidently and avoid surprises at month-end.
+            </p>
+            <span class="ledger-arrow">
+              <svg
+                width="17"
+                height="17"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </span>
+          </div>
+          <div class="ledger-row">
+            <span class="ledger-num">05</span>
+            <h3 class="ledger-title">Month-End Close</h3>
+            <p class="ledger-desc">
+              Carefully planned, consistently executed close processes &mdash;
+              financial statements you can trust every time the calendar turns.
+            </p>
+            <span class="ledger-arrow">
+              <svg
+                width="17"
+                height="17"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </span>
+          </div>
+          <div class="ledger-row">
+            <span class="ledger-num">06</span>
+            <h3 class="ledger-title">Financial Forecasting</h3>
+            <p class="ledger-desc">
+              Driver-based forecasts that translate where your business is going
+              into numbers leadership and investors can act on.
+            </p>
+            <span class="ledger-arrow">
+              <svg
+                width="17"
+                height="17"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about">
+      <div class="wrap about-inner">
+        <div class="about-left">
+          <p class="eyebrow eyebrow-gold">Who We Are</p>
+          <h2>We fill the gap <em>expertly.</em></h2>
+          <p>
+            Small- to mid-sized businesses around Boise and the Treasure Valley
+            often need the expertise of a Controller or CFO &mdash; but are not
+            quite large enough to justify a full-time hire. That's exactly the
+            gap we exist to fill.
+          </p>
+          <p>
+            Through a customizable subscription model, you and your business
+            have access to our accounting team in the ways that work best for
+            you. We see the entire accounting function through from beginning to
+            end, so you can get back to running your business &mdash; and
+            reclaim the work-life balance you've been missing.
+          </p>
+          <a href="#contact" class="btn btn-gold">Talk to Our Team &rarr;</a>
+        </div>
+
+        <div class="about-cards">
+          <div class="about-card">
+            <h4>Years of Expertise</h4>
+            <p>
+              Our team brings extensive CFO and Controller-level experience
+              across industries &mdash; accountants who've been where you need
+              to go.
+            </p>
+          </div>
+          <div class="about-card">
+            <h4>Customizable &amp; Flexible</h4>
+            <p>
+              No two businesses are alike. Your subscription is built around
+              your needs, your pace, and your level of support.
+            </p>
+          </div>
+          <div class="about-card">
+            <h4>Boise-Based. Business-Focused.</h4>
+            <p>
+              We're local to Eagle, ID &mdash; serving the Treasure Valley and
+              nearby regions with accountants who understand your market.
+            </p>
+          </div>
+          <div class="about-card">
+            <h4>A Team, Not a Vendor</h4>
+            <p>
+              Regularly scheduled meetings, a dedicated point of contact, and
+              full transparency. We act as your internal finance team.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW WE WORK -->
+    <section class="process block">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="eyebrow eyebrow-muted">Working Together</p>
+          <h2>How it works.</h2>
+          <p>
+            Getting started is straightforward. We make the first step easy so
+            you can see the value quickly.
+          </p>
+        </div>
+      </div>
+      <div class="wrap" style="margin-top: 3rem">
+        <div class="process-grid">
+          <div class="step">
+            <p class="step-num">01</p>
+            <h3>Discovery Call</h3>
+            <p>
+              A 30-minute conversation to understand your business, your current
+              accounting challenges, and what a successful engagement looks like
+              for you.
+            </p>
+          </div>
+          <div class="step">
+            <p class="step-num">02</p>
+            <h3>Custom Subscription</h3>
+            <p>
+              We scope a subscription around your exact needs &mdash; the
+              services, cadence, and level of support that fit your stage and
+              budget.
+            </p>
+          </div>
+          <div class="step">
+            <p class="step-num">03</p>
+            <h3>Your Team Gets to Work</h3>
+            <p>
+              From day one, your dedicated team is managing your accounting
+              function end-to-end &mdash; keeping you informed and always up to
+              date.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIAL -->
+    <section class="testimonial">
+      <div class="wrap testimonial-inner">
+        <div class="gold-rule"></div>
+        <blockquote>
+          &ldquo;Executive Allies has shown us the best customer service we have
+          ever received. The team is incredibly attentive and helpful, and the
+          owners are involved as well as approachable. I would wholeheartedly
+          recommend them to anyone looking for accounting services.&rdquo;
+        </blockquote>
+        <div class="attribution">
+          <div class="attr-avatar">JW</div>
+          <div class="attr-text">
+            <p class="name">Jocelyn Weiss</p>
+            <p class="title">Executive Allies Client</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUBSCRIPTION TIERS -->
+    <section id="subscription" class="sub-section block">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="eyebrow eyebrow-muted">Subscription-Based Services</p>
+          <h2>Built around your business.</h2>
+          <p>
+            Every engagement is scoped individually. These are the three levels
+            of ongoing support we offer &mdash; each customizable to your exact
+            situation.
+          </p>
+        </div>
+        <div class="sub-grid">
+          <div class="sub-card">
+            <p class="sub-tier">Essentials</p>
+            <p class="sub-name">Core Accounting</p>
+            <p class="sub-desc">
+              For growing businesses that need reliable bookkeeping and
+              month-end close without the complexity.
+            </p>
+            <ul class="sub-features">
+              <li>Accounts payable &amp; receivable</li>
+              <li>Monthly bookkeeping</li>
+              <li>Month-end close</li>
+              <li>Dedicated point of contact</li>
+              <li>Scheduled monthly meetings</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline" style="width: 100%"
+              >Get Started &rarr;</a
+            >
+          </div>
+          <div class="sub-card featured">
+            <span class="sub-badge">Most Popular</span>
+            <p class="sub-tier">Growth</p>
+            <p class="sub-name">Controller-Level</p>
+            <p class="sub-desc">
+              For businesses ready for CFO-grade oversight: forecasting, KPI
+              tracking, and strategic financial guidance.
+            </p>
+            <ul class="sub-features">
+              <li>Everything in Core, plus:</li>
+              <li>Cash flow forecasting</li>
+              <li>KPI tracking &amp; dashboard</li>
+              <li>Financial forecasting</li>
+              <li>Quarterly strategic reviews</li>
+              <li>Budget &amp; variance analysis</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary" style="width: 100%"
+              >Get Started &rarr;</a
+            >
+          </div>
+          <div class="sub-card">
+            <p class="sub-tier">Executive</p>
+            <p class="sub-name">Fractional CFO</p>
+            <p class="sub-desc">
+              Full fractional CFO engagement for companies preparing for
+              financing, growth, or ownership transition.
+            </p>
+            <ul class="sub-features">
+              <li>Everything in Controller, plus:</li>
+              <li>Fractional CFO advisory</li>
+              <li>Board &amp; investor reporting</li>
+              <li>Transaction readiness</li>
+              <li>Leadership team integration</li>
+              <li>Custom scope &amp; cadence</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline" style="width: 100%"
+              >Get Started &rarr;</a
+            >
+          </div>
+        </div>
+        <p
+          style="
+            text-align: center;
+            font-size: 0.82rem;
+            color: var(--muted);
+            margin-top: 1.75rem;
+          "
+        >
+          All engagements are scoped and quoted individually.
+          <a href="#contact" style="color: var(--navy); font-weight: 600"
+            >Contact us</a
+          >
+          for a custom proposal.
+        </p>
+      </div>
+    </section>
+
+    <!-- CLOSING CTA -->
+    <section id="contact" class="closing">
+      <div class="wrap closing-inner">
+        <div>
+          <p class="eyebrow eyebrow-gold">Get Started</p>
+          <h2>
+            Ready to stop making decisions <em>without</em> the right numbers?
+          </h2>
+          <p>
+            The shortest path is a 30-minute conversation. We'll listen, assess
+            your situation, and recommend the right level of support &mdash; or
+            tell you honestly if we're not the right fit.
+          </p>
+        </div>
+        <div class="closing-actions">
+          <a href="https://www.theexecutiveallies.com" class="btn btn-gold"
+            >Schedule a Discovery Call &rarr;</a
+          >
+          <a href="tel:+12085100875" class="btn btn-outline-light"
+            >Call 208-510-0875</a
+          >
+          <p class="note">No pressure. No obligation. Just a conversation.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="brand-name">Executive Allies</div>
+            <div class="brand-sub">
+              Fractional CFO &amp; Controller Services
+            </div>
+            <p>
+              A top strategic accounting firm in Boise, Idaho &mdash; serving
+              the Treasure Valley and nearby regions through customizable,
+              subscription-based financial services.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Services</h4>
+            <a href="#services">Accounts Payable</a>
+            <a href="#services">Accounts Receivable</a>
+            <a href="#services">Bookkeeping</a>
+            <a href="#services">Cash Flow Forecasting</a>
+            <a href="#services">Month-End Close</a>
+            <a href="#services">Financial Forecasting</a>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <a href="#about">Who We Are</a>
+            <a href="#subscription">Subscriptions</a>
+            <a href="https://www.theexecutiveallies.com">Our Values</a>
+            <a href="https://www.theexecutiveallies.com">Careers</a>
+            <a href="https://www.theexecutiveallies.com">Articles</a>
+            <a href="accelerator-portal.html">Member Portal</a>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <p>539 S Fitness Pl, Suite 100<br />Eagle, ID 83616</p>
+            <a href="tel:+12085100875">208-510-0875</a>
+            <a href="mailto:info@theexecutiveallies.com"
+              >info@theexecutiveallies.com</a
+            >
+            <a href="https://www.theexecutiveallies.com"
+              >theexecutiveallies.com</a
+            >
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Executive Allies &middot; All Rights Reserved</p>
+          <div class="footer-legal">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,965 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Frequently Asked Questions | Dr. Austen Slade — Urologist, Boise ID
+    </title>
+    <meta
+      name="description"
+      content="Have questions about urology care with Dr. Austen Slade? Find answers about BPH treatment, vasectomy, HoLEP surgery, kidney stones, and general urology services in Boise, Idaho."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --teal: #b0d698;
+        --teal-light: #edf6e7;
+        --teal-mid: #8cc87a;
+        --navy: #1a2e3b;
+        --slate: #3d5165;
+        --mist: #f4f7f6;
+        --cream: #fafaf8;
+        --border: #d8e4e2;
+        --text-primary: #1a2e3b;
+        --text-secondary: #5a6e7a;
+        --text-muted: #8a9ba5;
+        --white: #ffffff;
+        --serif: "Noto Sans", system-ui, sans-serif;
+        --sans: "Montserrat", system-ui, sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--sans);
+        background: var(--cream);
+        color: var(--text-primary);
+        font-size: 15px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* ── HEADER ── */
+      .page-header {
+        background: var(--white);
+        border-bottom: 1px solid var(--border);
+        padding: 60px 24px 48px;
+        text-align: center;
+      }
+
+      .header-eyebrow {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--teal);
+        background: var(--teal-light);
+        padding: 5px 14px;
+        border-radius: 100px;
+        margin-bottom: 20px;
+      }
+
+      .page-header h1 {
+        font-family: var(--serif);
+        font-size: clamp(36px, 5vw, 54px);
+        font-weight: 400;
+        color: var(--navy);
+        line-height: 1.15;
+        margin-bottom: 16px;
+        letter-spacing: -0.01em;
+      }
+
+      .page-header h1 em {
+        font-style: italic;
+        color: var(--teal);
+      }
+
+      .page-header p {
+        max-width: 520px;
+        margin: 0 auto;
+        color: var(--text-secondary);
+        font-size: 16px;
+        line-height: 1.65;
+      }
+
+      /* ── SEARCH BAR ── */
+      .search-wrap {
+        background: var(--white);
+        padding: 0 24px 40px;
+        display: flex;
+        justify-content: center;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .search-inner {
+        width: 100%;
+        max-width: 560px;
+        position: relative;
+      }
+
+      .search-icon {
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-muted);
+        pointer-events: none;
+      }
+
+      #search-input {
+        width: 100%;
+        font-family: var(--sans);
+        font-size: 15px;
+        padding: 14px 16px 14px 44px;
+        border: 1.5px solid var(--border);
+        border-radius: 10px;
+        background: var(--mist);
+        color: var(--text-primary);
+        outline: none;
+        transition:
+          border-color 0.2s,
+          background 0.2s,
+          box-shadow 0.2s;
+      }
+
+      #search-input:focus {
+        border-color: var(--teal);
+        background: var(--white);
+        box-shadow: 0 0 0 3px rgba(176, 214, 152, 0.2);
+      }
+
+      #search-input::placeholder {
+        color: var(--text-muted);
+      }
+
+      /* ── LAYOUT ── */
+      .faq-layout {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 48px 24px 80px;
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 40px;
+        align-items: start;
+      }
+
+      @media (max-width: 768px) {
+        .faq-layout {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+        .sidebar {
+          display: none;
+        }
+      }
+
+      /* ── SIDEBAR NAV ── */
+      .sidebar {
+        position: sticky;
+        top: 24px;
+      }
+
+      .sidebar-label {
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-bottom: 12px;
+        padding-left: 2px;
+      }
+
+      .cat-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .cat-btn {
+        font-family: var(--sans);
+        font-size: 13.5px;
+        font-weight: 400;
+        color: var(--text-secondary);
+        background: none;
+        border: none;
+        padding: 9px 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        text-align: left;
+        transition:
+          background 0.15s,
+          color 0.15s;
+        line-height: 1.35;
+      }
+
+      .cat-btn:hover {
+        background: var(--teal-light);
+        color: var(--teal);
+      }
+
+      .cat-btn.active {
+        background: var(--teal-light);
+        color: var(--teal);
+        font-weight: 500;
+      }
+
+      .cat-count {
+        float: right;
+        font-size: 11px;
+        background: rgba(176, 214, 152, 0.25);
+        color: var(--teal-mid);
+        padding: 1px 7px;
+        border-radius: 100px;
+        margin-top: 1px;
+      }
+
+      /* ── MOBILE CATEGORY PILLS ── */
+      .mobile-cats {
+        display: none;
+        padding: 0 24px 24px;
+        overflow-x: auto;
+        gap: 8px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+
+      .mobile-cats::-webkit-scrollbar {
+        display: none;
+      }
+      @media (max-width: 768px) {
+        .mobile-cats {
+          display: flex;
+        }
+      }
+
+      .mobile-cat-btn {
+        font-family: var(--sans);
+        font-size: 13px;
+        font-weight: 400;
+        color: var(--text-secondary);
+        background: var(--white);
+        border: 1.5px solid var(--border);
+        padding: 7px 16px;
+        border-radius: 100px;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: all 0.15s;
+        flex-shrink: 0;
+      }
+
+      .mobile-cat-btn.active {
+        background: var(--teal);
+        border-color: var(--teal);
+        color: var(--white);
+        font-weight: 500;
+      }
+
+      /* ── FAQ CONTENT ── */
+      .faq-content {
+        min-width: 0;
+      }
+
+      .faq-section {
+        margin-bottom: 48px;
+        animation: fadeIn 0.25s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(6px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      .section-heading {
+        font-family: var(--serif);
+        font-size: 22px;
+        font-weight: 400;
+        color: var(--navy);
+        margin-bottom: 16px;
+        padding-bottom: 12px;
+        border-bottom: 1.5px solid var(--border);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .section-tag {
+        font-family: var(--sans);
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--teal);
+        background: var(--teal-light);
+        padding: 3px 9px;
+        border-radius: 100px;
+      }
+
+      /* ── ACCORDION ── */
+      .accordion-item {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        margin-bottom: 6px;
+        overflow: hidden;
+        transition: border-color 0.2s;
+      }
+
+      .accordion-item:hover {
+        border-color: var(--teal-mid);
+      }
+      .accordion-item.open {
+        border-color: var(--teal);
+      }
+
+      .accordion-trigger {
+        width: 100%;
+        font-family: var(--sans);
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--text-primary);
+        background: none;
+        border: none;
+        padding: 18px 20px;
+        text-align: left;
+        cursor: pointer;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+        line-height: 1.4;
+        transition: color 0.15s;
+      }
+
+      .accordion-item.open .accordion-trigger {
+        color: var(--teal);
+      }
+
+      .accordion-icon {
+        flex-shrink: 0;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: var(--mist);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 1px;
+        transition:
+          background 0.2s,
+          transform 0.25s;
+      }
+
+      .accordion-item.open .accordion-icon {
+        background: var(--teal-light);
+        transform: rotate(45deg);
+      }
+
+      .accordion-icon svg {
+        stroke: var(--text-secondary);
+        transition: stroke 0.2s;
+      }
+      .accordion-item.open .accordion-icon svg {
+        stroke: var(--teal);
+      }
+
+      .accordion-body {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+
+      .accordion-inner {
+        padding: 0 20px 20px;
+        color: var(--text-secondary);
+        font-size: 14.5px;
+        line-height: 1.7;
+        border-top: 1px solid var(--border);
+        padding-top: 16px;
+      }
+
+      .accordion-inner ul {
+        list-style: none;
+        margin: 12px 0;
+        padding: 0;
+      }
+
+      .accordion-inner ul li {
+        padding: 6px 0 6px 18px;
+        position: relative;
+        font-size: 14px;
+      }
+
+      .accordion-inner ul li::before {
+        content: "";
+        position: absolute;
+        left: 4px;
+        top: 14px;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--teal);
+      }
+
+      .accordion-inner strong {
+        color: var(--navy);
+        font-weight: 500;
+      }
+
+      /* ── COMPLIANCE NOTE ── */
+      .compliance-note {
+        background: var(--teal-light);
+        border: 1px solid rgba(176, 214, 152, 0.45);
+        border-radius: 10px;
+        padding: 16px 20px;
+        font-size: 13px;
+        color: var(--slate);
+        margin-bottom: 32px;
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        line-height: 1.55;
+      }
+
+      .compliance-note svg {
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+
+      /* ── NO RESULTS ── */
+      .no-results {
+        text-align: center;
+        padding: 60px 20px;
+        color: var(--text-muted);
+        display: none;
+      }
+
+      .no-results.visible {
+        display: block;
+      }
+
+      /* ── CTA STRIP ── */
+      .cta-strip {
+        background: var(--navy);
+        padding: 48px 24px;
+        text-align: center;
+      }
+
+      .cta-strip h2 {
+        font-family: var(--serif);
+        font-size: 28px;
+        font-weight: 400;
+        color: var(--white);
+        margin-bottom: 10px;
+      }
+
+      .cta-strip p {
+        color: rgba(255, 255, 255, 0.65);
+        font-size: 15px;
+        margin-bottom: 24px;
+      }
+
+      .cta-btn {
+        display: inline-block;
+        font-family: var(--sans);
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--navy);
+        background: var(--white);
+        padding: 13px 28px;
+        border-radius: 8px;
+        text-decoration: none;
+        letter-spacing: 0.01em;
+        transition:
+          background 0.15s,
+          transform 0.1s;
+        margin: 0 6px 8px;
+      }
+
+      .cta-btn:hover {
+        background: var(--teal-light);
+      }
+      .cta-btn:active {
+        transform: scale(0.98);
+      }
+      .cta-btn.secondary {
+        background: transparent;
+        color: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+      .cta-btn.secondary:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--white);
+      }
+
+      .highlight {
+        background: rgba(176, 214, 152, 0.35);
+        border-radius: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- SCHEMA MARKUP -->
+    <script type="application/ld+json" id="faq-schema"></script>
+
+    <!-- HEADER -->
+    <header class="page-header">
+      <div class="header-eyebrow">Help Center</div>
+      <h1>Frequently Asked<br /><em>Questions</em></h1>
+      <p>
+        Have questions about our urology services and treatments? Below you'll
+        find answers to some of the most common questions patients ask about BPH
+        therapy, vasectomy, HoLEP surgery, kidney stones, and more.
+      </p>
+    </header>
+
+    <!-- SEARCH -->
+    <div class="search-wrap">
+      <div class="search-inner">
+        <svg
+          class="search-icon"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="11" cy="11" r="8" />
+          <path d="m21 21-4.35-4.35" />
+        </svg>
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search questions..."
+          autocomplete="off"
+          aria-label="Search FAQ"
+        />
+      </div>
+    </div>
+
+    <!-- MOBILE CATEGORY PILLS -->
+    <div
+      class="mobile-cats"
+      id="mobile-cats"
+      role="navigation"
+      aria-label="FAQ categories"
+    ></div>
+
+    <!-- MAIN LAYOUT -->
+    <div class="faq-layout">
+      <!-- SIDEBAR -->
+      <aside class="sidebar" aria-label="FAQ categories">
+        <div class="sidebar-label">Browse by topic</div>
+        <nav class="cat-nav" id="cat-nav"></nav>
+      </aside>
+
+      <!-- FAQ CONTENT -->
+      <main class="faq-content" id="faq-content">
+        <div class="compliance-note">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 16v-4M12 8h.01" />
+          </svg>
+          <span
+            >The information on this page is for general educational purposes
+            only and does not constitute medical advice. Individual results may
+            vary. Please schedule a consultation with Dr. Slade for personalized
+            medical guidance.</span
+          >
+        </div>
+        <div id="sections-container"></div>
+        <div class="no-results" id="no-results">
+          <svg
+            width="40"
+            height="40"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            style="margin-bottom: 12px; opacity: 0.3"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
+          </svg>
+          <p
+            style="
+              font-size: 16px;
+              font-weight: 500;
+              color: #3d5165;
+              margin-bottom: 6px;
+            "
+          >
+            No results found
+          </p>
+          <p>
+            Try a different search term, or
+            <a href="#" onclick="event.preventDefault(); clearSearch()" style="color: #8cc87a"
+              >browse all categories</a
+            >.
+          </p>
+        </div>
+      </main>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-strip">
+      <h2>Still have questions?</h2>
+      <p>
+        Our team is here to help. Request a consultation online or call the
+        office directly.
+      </p>
+      <a href="https://draustenslade.com/contact-dr-slade" class="cta-btn"
+        >Request a Consultation</a
+      >
+      <a href="tel:2083214790" class="cta-btn secondary">(208) 321-4790</a>
+    </div>
+
+    <script>
+      const FAQ_DATA = [
+        {
+          id: "bph",
+          heading: "BPH & Prostate",
+          tag: "Prostate",
+          items: [
+            {
+              q: "What is BPH, and how do I know if I have it?",
+              a: '<a href="https://draustenslade.com/bph">BPH (benign prostatic hyperplasia)</a> is a non-cancerous enlargement of the prostate gland that affects many men as they age. Common signs include a weak or slow urinary stream, difficulty starting urination, frequent urges to urinate (especially at night), and feeling like your bladder hasn\'t fully emptied. A consultation with Dr. Slade and a simple UroCuff assessment can confirm a diagnosis.',
+            },
+            {
+              q: "What BPH treatment options does Dr. Slade offer?",
+              a: 'Dr. Slade offers several minimally invasive and surgical options tailored to your prostate size and symptoms, including <a href="https://draustenslade.com/rezum-water-vapor-therapy">ReZūm Water Vapor Therapy</a>, HoLEP, MiLEP laser surgery, <a href="https://draustenslade.com/optilume-bph-treatment">Optilume BPH</a>, Aquablation Therapy, iTind, and TURP. During your consultation, Dr. Slade will recommend the best fit for you.',
+            },
+            {
+              q: "What is ReZūm and how does it work?",
+              a: "ReZūm uses convective water vapor energy to deliver targeted thermal energy directly to the prostate tissue causing urinary obstruction. It's a short, in-office procedure with no general anesthesia required. Most patients see significant symptom improvement within a few weeks and can return to normal activity quickly.",
+            },
+            {
+              q: "What is Aquablation, and is it available in Boise?",
+              a: "<a href=\"https://draustenslade.com/aquablation-therapy\">Aquablation</a> is a robotic-assisted, minimally invasive procedure that uses a heat-free waterjet guided by real-time ultrasound to remove excess prostate tissue. Because it avoids heat-based energy, it carries a lower risk of sexual side effects compared to traditional surgeries like TURP. It's a strong option for men with larger prostates or those who haven't found relief with medication. Yes, Dr. Slade offers Aquablation right here in Boise.",
+            },
+            {
+              q: "Does BPH increase my risk of prostate cancer?",
+              a: 'BPH itself is not cancerous and does not cause prostate cancer. However, some symptoms can overlap with those of prostate cancer. If you have an <a href="https://draustenslade.com/elevated-psa">elevated PSA</a> or other concerning findings, Dr. Slade will evaluate you thoroughly and discuss next steps.',
+            },
+          ],
+        },
+        {
+          id: "vasectomy",
+          heading: "Vasectomy",
+          tag: "Vasectomy",
+          items: [
+            {
+              q: "What does a vasectomy procedure involve?",
+              a: 'A <a href="https://draustenslade.com/vasectomy">vasectomy</a> is a minor outpatient procedure that provides permanent contraception by cutting or blocking the vas deferens, the tubes that carry sperm. It typically takes 15–30 minutes under local anesthesia, and most patients return to light activity within 2–3 days.',
+            },
+            {
+              q: "How effective is a vasectomy?",
+              a: "Vasectomy is one of the most effective forms of contraception available, with a success rate greater than 99.9%. A follow-up semen analysis is performed after the procedure to confirm there are no sperm present before relying on it for contraception.",
+            },
+            {
+              q: 'What is a "Vacation Vasectomy"?',
+              a: "<a href=\"https://draustenslade.com/about/vacation-to-boise/vacation-vasectomy\">Dr. Slade's Vacation Vasectomy program</a> is designed for out-of-town patients who want to combine their procedure with a trip to Boise. You'll have a pre-procedure consultation, the vasectomy itself, and time to recover while enjoying the area. Contact the office to learn more about coordinating your visit.",
+            },
+            {
+              q: "How long is the recovery after a vasectomy?",
+              a: "Most men experience mild soreness for 2–3 days and can return to desk work within a day or two. We recommend avoiding heavy lifting or strenuous exercise for about a week. Supportive underwear and ice during the first 24 hours help with comfort.",
+            },
+          ],
+        },
+        {
+          id: "holep",
+          heading: "HoLEP Surgery",
+          tag: "HoLEP",
+          items: [
+            {
+              q: "What is the HoLEP procedure?",
+              a: '<a href="https://draustenslade.com/holep-with-moses-laser">HoLEP (Holmium Laser Enucleation of the Prostate)</a> is a minimally invasive laser surgery for BPH. A high-powered laser removes the obstructing prostate tissue through the urethra — no incisions required. Dr. Slade is nationally recognized for his expertise in HoLEP.',
+            },
+            {
+              q: "Who is a candidate for HoLEP?",
+              a: "HoLEP is effective for men of all prostate sizes, including very large prostates that may not be well suited for other procedures. It offers a durable, long-term solution with low retreatment rates. Dr. Slade will evaluate your anatomy and symptoms to confirm candidacy.",
+            },
+            {
+              q: "What is the difference between HoLEP and MiLEP?",
+              a: 'Both are laser enucleation procedures that remove obstructive prostate tissue. <a href="https://draustenslade.com/treatments/milep-laser-prostate-surgery">MiLEP</a> refers to the use of smaller instruments in cases where the urethra is found to be narrowed, or the patient prefers this approach. Dr. Slade will discuss which is the better fit for your case.',
+            },
+            {
+              q: "Do out-of-town patients travel to Boise for HoLEP?",
+              a: 'Yes. <a href="https://draustenslade.com/about/vacation-to-boise/vacation-holep">Dr. Slade\'s Vacation HoLEP program</a> welcomes patients from outside the Boise area. The team helps coordinate your consultation, surgical scheduling, and follow-up to make your visit as smooth as possible.',
+            },
+          ],
+        },
+        {
+          id: "kidney-stones",
+          heading: "Kidney Stones",
+          tag: "Kidney Stones",
+          items: [
+            {
+              q: "What are the symptoms of kidney stones?",
+              a: 'Common symptoms include severe pain in the back or side below the ribs, pain radiating to the lower abdomen, painful urination, <a href="https://draustenslade.com/blood-in-the-urine">blood in the urine</a>, nausea, and vomiting. Small stones may pass on their own, but larger stones often require treatment. Contact our office promptly if you\'re experiencing these symptoms.',
+            },
+            {
+              q: "How does Dr. Slade treat kidney stones?",
+              a: "Treatment depends on the stone's size and location. Options range from watchful waiting for small stones to minimally invasive procedures such as ureteroscopy with laser lithotripsy or shock wave lithotripsy (ESWL) for small to medium stones, and Percutaneous Nephrolithotomy (PCNL) for larger stones. Mini-PCNL is also available for small stones or cases where patients prefer to avoid stents or instrumentation to the ureter. Dr. Slade will recommend the right approach after imaging and evaluation.",
+            },
+            {
+              q: "Does Dr. Slade offer Percutaneous Nephrolithotomy (PCNL)?",
+              a: "Yes, additionally he is one of few urologists able to access the kidney at the time of surgery instead of requiring a separate procedure with interventional radiology. This combined approach allows for better clearance of stone, less risk of bleeding, requires less time and is less expensive. Dr. Slade is the only urologist in Idaho offering mini-PCNL, which allows for less invasive treatment and the potential to treat kidney stones without placing a stent.",
+            },
+            {
+              q: "Can kidney stones come back after treatment?",
+              a: "Yes, recurrence is common. Dr. Slade can help identify contributing factors like diet, hydration, and genetics, and develop a prevention plan that may include dietary changes, increased fluid intake, and medication.",
+            },
+          ],
+        },
+        {
+          id: "general",
+          heading: "General Urology",
+          tag: "General",
+          items: [
+            {
+              q: "What conditions does Dr. Slade treat?",
+              a: 'Dr. Slade specializes in male urological conditions, including BPH, <a href="https://draustenslade.com/kidney-stones">kidney stones</a>, vasectomy, urinary <a href="https://draustenslade.com/conditions/incontinence">incontinence</a>, <a href="https://draustenslade.com/overactive-bladder-in-men">overactive bladder</a>, <a href="https://draustenslade.com/nocturia">nocturia (frequent nighttime urination)</a>, elevated PSA, blood in the urine (hematuria), <a href="https://draustenslade.com/urinary-tract-infections-in-men">urinary tract infections</a>, urethral strictures, and difficulty urinating.',
+            },
+            {
+              q: "What is a UroCuff assessment?",
+              a: '<a href="https://draustenslade.com/urocuff">The UroCuff</a> is a non-invasive bladder health assessment that measures urinary flow and bladder pressure — without catheterization. It helps Dr. Slade accurately diagnose the cause of your urinary symptoms and guide treatment decisions. The test is quick, comfortable, and done in the office.',
+            },
+            {
+              q: "How do I schedule an appointment?",
+              a: 'You can <a href="https://draustenslade.com/contact-dr-slade">request a consultation online</a> or call the office directly at (208) 321-4790. The office is located at 8854 W Emerald St, Suite 140, Boise, ID 83704.',
+            },
+            {
+              q: "Does Dr. Slade see patients from outside Boise?",
+              a: "Absolutely. Dr. Slade welcomes patients from across Idaho and beyond, and offers dedicated Vacation Vasectomy and Vacation HoLEP programs for patients who travel to Boise for their procedure.",
+            },
+          ],
+        },
+      ];
+
+      // ── RENDER CATEGORIES ──
+      function buildCatCounts() {
+        const cats = [
+          {
+            id: "all",
+            label: "All Questions",
+            count: FAQ_DATA.reduce((s, sec) => s + sec.items.length, 0),
+          },
+        ];
+        FAQ_DATA.forEach((sec) =>
+          cats.push({
+            id: sec.id,
+            label: sec.heading.length > 28 ? sec.tag : sec.heading,
+            count: sec.items.length,
+          }),
+        );
+        return cats;
+      }
+
+      let activeCategory = "all";
+      let searchQuery = "";
+
+      function renderNav() {
+        const cats = buildCatCounts();
+        const nav = document.getElementById("cat-nav");
+        const mobile = document.getElementById("mobile-cats");
+        nav.innerHTML = "";
+        mobile.innerHTML = "";
+
+        cats.forEach((cat) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className =
+            "cat-btn" + (cat.id === activeCategory ? " active" : "");
+          btn.innerHTML = `${cat.label} <span class="cat-count">${cat.count}</span>`;
+          btn.onclick = (e) => {
+            e.preventDefault();
+            activeCategory = cat.id;
+            searchQuery = "";
+            document.getElementById("search-input").value = "";
+            renderAll();
+          };
+          nav.appendChild(btn);
+
+          const mbtn = document.createElement("button");
+          mbtn.type = "button";
+          mbtn.className =
+            "mobile-cat-btn" + (cat.id === activeCategory ? " active" : "");
+          mbtn.textContent = cat.id === "all" ? "All" : cat.label;
+          mbtn.onclick = (e) => {
+            e.preventDefault();
+            activeCategory = cat.id;
+            searchQuery = "";
+            document.getElementById("search-input").value = "";
+            renderAll();
+          };
+          mobile.appendChild(mbtn);
+        });
+      }
+
+      // ── RENDER FAQ SECTIONS ──
+      function highlight(text, query) {
+        if (!query) return text;
+        const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+        return text.replace(
+          new RegExp(`(${escaped})`, "gi"),
+          '<mark class="highlight">$1</mark>',
+        );
+      }
+
+      function renderSections() {
+        const container = document.getElementById("sections-container");
+        const noResults = document.getElementById("no-results");
+        container.innerHTML = "";
+        let totalVisible = 0;
+
+        FAQ_DATA.forEach((section) => {
+          if (activeCategory !== "all" && activeCategory !== section.id) return;
+
+          const filtered = section.items.filter((item) => {
+            if (!searchQuery) return true;
+            const q = searchQuery.toLowerCase();
+            return (
+              item.q.toLowerCase().includes(q) ||
+              item.a.toLowerCase().includes(q)
+            );
+          });
+
+          if (filtered.length === 0) return;
+          totalVisible += filtered.length;
+
+          const sec = document.createElement("div");
+          sec.className = "faq-section";
+          sec.innerHTML = `<h2 class="section-heading">${section.heading} <span class="section-tag">${section.tag}</span></h2>`;
+
+          filtered.forEach((item, idx) => {
+            const div = document.createElement("div");
+            div.className = "accordion-item";
+            const qText = highlight(item.q, searchQuery);
+            const aText = highlight(item.a, searchQuery);
+            div.innerHTML = `
+        <button type="button" class="accordion-trigger" aria-expanded="false">
+          <span>${qText}</span>
+          <span class="accordion-icon">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+          </span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-inner">${aText}</div>
+        </div>`;
+
+            const trigger = div.querySelector(".accordion-trigger");
+            const body = div.querySelector(".accordion-body");
+
+            trigger.addEventListener("click", (e) => {
+              e.preventDefault();
+              const isOpen = div.classList.contains("open");
+              div.classList.toggle("open", !isOpen);
+              trigger.setAttribute("aria-expanded", !isOpen);
+              body.style.maxHeight = isOpen ? "0" : body.scrollHeight + "px";
+            });
+
+            if (searchQuery) {
+              div.classList.add("open");
+              trigger.setAttribute("aria-expanded", "true");
+              setTimeout(() => {
+                body.style.maxHeight = body.scrollHeight + "px";
+              }, 10);
+            }
+
+            sec.appendChild(div);
+          });
+
+          container.appendChild(sec);
+        });
+
+        noResults.classList.toggle("visible", totalVisible === 0);
+      }
+
+      function renderAll() {
+        renderNav();
+        renderSections();
+        buildSchema();
+      }
+
+      // ── SEARCH ──
+      document.getElementById("search-input").addEventListener("input", (e) => {
+        searchQuery = e.target.value.trim();
+        activeCategory = "all";
+        renderAll();
+      });
+
+      function clearSearch() {
+        searchQuery = "";
+        document.getElementById("search-input").value = "";
+        renderAll();
+      }
+
+      // ── SCHEMA MARKUP ──
+      function buildSchema() {
+        const allItems = FAQ_DATA.flatMap((s) => s.items);
+        const schema = {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: allItems.map((item) => ({
+            "@type": "Question",
+            name: item.q,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: item.a
+                .replace(/<[^>]*>/g, " ")
+                .replace(/\s+/g, " ")
+                .trim(),
+            },
+          })),
+        };
+        document.getElementById("faq-schema").textContent = JSON.stringify(
+          schema,
+          null,
+          2,
+        );
+      }
+
+      // ── INIT ──
+      renderAll();
+    </script>
+  </body>
+</html>

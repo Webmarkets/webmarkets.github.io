@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CLn SportWash Landing Page Mockups | WebMarkets</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="cln-sportwash-shared.css" />
+    <style>
+      .index-hero {
+        padding: clamp(4rem, 10vw, 7rem) var(--pad-x);
+        text-align: center;
+        background: linear-gradient(180deg, var(--cln-cream) 0%, var(--cln-white) 100%);
+      }
+      .index-hero h1 {
+        max-width: 720px;
+        margin: 0 auto 1rem;
+      }
+      .index-hero p {
+        max-width: 560px;
+        margin: 0 auto 2.5rem;
+        color: var(--cln-slate);
+        font-size: 1.05rem;
+      }
+      .page-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 var(--pad-x) 4rem;
+      }
+      .page-card {
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        border: 1px solid var(--cln-border);
+        background: var(--cln-white);
+        box-shadow: var(--shadow);
+        transition: transform 0.25s, box-shadow 0.25s;
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+      }
+      .page-card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-lg);
+      }
+      .page-card-preview {
+        height: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: white;
+        text-align: center;
+        padding: 1rem;
+      }
+      .preview-combat {
+        background: linear-gradient(135deg, #1a2830, #2a4248);
+      }
+      .preview-parents {
+        background: linear-gradient(135deg, #faf6f1, #e8ddd0);
+        color: var(--cln-navy);
+      }
+      .preview-performance {
+        background: linear-gradient(135deg, var(--cln-teal-dark), var(--cln-teal));
+      }
+      .page-card-body {
+        padding: 1.5rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .page-card-body h2 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+      }
+      .page-card-body p {
+        font-size: 14px;
+        color: var(--cln-slate);
+        flex: 1;
+        margin-bottom: 1rem;
+      }
+      .page-card-meta {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--cln-teal);
+      }
+      .sections-list {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 var(--pad-x) 4rem;
+      }
+      .sections-list h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      .sections-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+      }
+      .section-chip {
+        background: var(--cln-teal-light);
+        border: 1px dashed rgba(42, 122, 120, 0.3);
+        border-radius: 8px;
+        padding: 12px;
+        font-size: 13px;
+        font-weight: 500;
+        text-align: center;
+        color: var(--cln-teal-dark);
+      }
+      @media (max-width: 900px) {
+        .page-cards { grid-template-columns: 1fr; }
+        .sections-grid { grid-template-columns: repeat(2, 1fr); }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="index-hero">
+      <p class="eyebrow">CLn SportWash Campaign · Phase 1 Build</p>
+      <h1>Landing Page Mockups</h1>
+      <p>
+        Three audience-specific landing pages for the Stiletto Shopify theme on
+        <a href="https://www.clnwash.com/" style="color: var(--cln-teal); font-weight: 600">clnwash.com</a>.
+        Copy matches the PDF brief. Each page is annotated with Stiletto section names for easy replication.
+      </p>
+    </section>
+
+    <div class="page-cards">
+      <a href="cln-sportwash-combat.html" class="page-card">
+        <div class="page-card-preview preview-combat">
+          One Infection Can Cost You Weeks.
+        </div>
+        <div class="page-card-body">
+          <p class="page-card-meta">Segment 1 · PAS Framework</p>
+          <h2>Combat Pro Athletes</h2>
+          <p>Dark, high-intensity hero. Problem → Agitate → Solution flow. Loss aversion and training identity triggers.</p>
+          <span class="btn btn-primary" style="align-self: flex-start; padding: 10px 20px; font-size: 13px">View Mockup →</span>
+        </div>
+      </a>
+
+      <a href="cln-sportwash-parents.html" class="page-card">
+        <div class="page-card-preview preview-parents">
+          What's Living on Your Athlete's Practice Mat?
+        </div>
+        <div class="page-card-body">
+          <p class="page-card-meta">Segment 2 · AIDA Framework</p>
+          <h2>High School Athlete Parents</h2>
+          <p>Warm, protective tone. Authority-driven physician messaging. Actionable gym bag solution for parents.</p>
+          <span class="btn btn-primary" style="align-self: flex-start; padding: 10px 20px; font-size: 13px">View Mockup →</span>
+        </div>
+      </a>
+
+      <a href="cln-sportwash-performance.html" class="page-card">
+        <div class="page-card-preview preview-performance">
+          Your Recovery Routine Has a Gap
+        </div>
+        <div class="page-card-body">
+          <p class="page-card-meta">Segment 3 · FAB Framework</p>
+          <h2>Performance Lifestyle</h2>
+          <p>Optimization-minded design. Training stack visual. Feature / Advantage / Benefit breakdown for gym athletes.</p>
+          <span class="btn btn-primary" style="align-self: flex-start; padding: 10px 20px; font-size: 13px">View Mockup →</span>
+        </div>
+      </a>
+    </div>
+
+    <section class="sections-list">
+      <h2>Stiletto Sections Used Across Mockups</h2>
+      <div class="sections-grid">
+        <div class="section-chip">Sales Banner</div>
+        <div class="section-chip">Image Hero</div>
+        <div class="section-chip">Image Hero Split</div>
+        <div class="section-chip">Image with Text</div>
+        <div class="section-chip">Image with Text Split</div>
+        <div class="section-chip">Rich Text</div>
+        <div class="section-chip">Multi-column</div>
+        <div class="section-chip">Testimonials</div>
+        <div class="section-chip">Featured Product</div>
+        <div class="section-chip">Text List with Icons</div>
+        <div class="section-chip">Sticky Add-to-Cart</div>
+        <div class="section-chip">Scrolling Content</div>
+      </div>
+    </section>
+
+    <footer class="impl-guide">
+      <div class="inner">
+        <h3>Implementation Notes</h3>
+        <ol>
+          <li>Create 3 custom page templates in Stiletto (Online Store → Themes → Customize → Pages)</li>
+          <li>Hide default page title/header sections for a full-bleed landing page experience</li>
+          <li>Replace image placeholders with campaign photography (mats, gym bags, CrossFit, product shots)</li>
+          <li>Connect Featured Product sections to CLn SportWash product in Shopify admin</li>
+          <li>Enable sticky add-to-cart bar on all three pages</li>
+          <li>Populate Testimonials sections when athlete/physician quotes are confirmed</li>
+          <li>UTM-track each landing page URL for ad campaign attribution</li>
+        </ol>
+      </div>
+    </footer>
+  </body>
+</html>
