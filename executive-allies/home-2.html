@@ -12,19 +12,25 @@
 
     <style>
         :root {
-            --navy:        #1f3a68;
-            --navy-dark:   #152c50;
-            --navy-darker: #0f2240;
-            --gold:        #c9a961;
-            --gold-soft:   #e0c684;
-            --gold-bg:     rgba(201, 169, 97, 0.10);
-            --gold-border: rgba(201, 169, 97, 0.35);
+            --navy:        #1B365D;
+            --navy-dark:   #122540;
+            --navy-darker: #0A1524;
+            --teal:        #2CB8C8;
+            --gold:        #C49A26;
+            --gold-soft:   #F5EDD3;
+            --gold-bg:     rgba(196, 154, 38, 0.10);
+            --gold-border: rgba(196, 154, 38, 0.35);
 
-            --bg:          #f4f6fb;
+            --cream:       #FBF7EF;
+            --ice-blue:    #EAF1F8;
+            --charcoal:    #1F1F1F;
+            --terracotta:  #B85042;
+
+            --bg:          var(--cream);
             --card:        #ffffff;
-            --card-tint:   #f8f9fc;
+            --card-tint:   var(--ice-blue);
 
-            --text:        #1a1f2e;
+            --text:        var(--charcoal);
             --muted:       #6b7280;
             --border:      #e5e7eb;
             --border-dark: rgba(255,255,255,0.12);
@@ -33,9 +39,9 @@
             --font-display: 'Manrope', -apple-system, sans-serif;
             --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
-            --shadow-sm: 0 1px 3px rgba(15, 34, 64, 0.06), 0 1px 2px rgba(15, 34, 64, 0.04);
-            --shadow-md: 0 4px 12px rgba(15, 34, 64, 0.10);
-            --shadow-lg: 0 20px 50px rgba(15, 34, 64, 0.12), 0 8px 20px rgba(15, 34, 64, 0.06);
+            --shadow-sm: 0 1px 3px rgba(27, 54, 93, 0.06), 0 1px 2px rgba(27, 54, 93, 0.04);
+            --shadow-md: 0 4px 12px rgba(27, 54, 93, 0.10);
+            --shadow-lg: 0 20px 50px rgba(27, 54, 93, 0.12), 0 8px 20px rgba(27, 54, 93, 0.06);
 
             --radius-sm: 6px;
             --radius:    10px;
@@ -48,7 +54,7 @@
 
         body {
             margin: 0;
-            background: var(--bg);
+            background: var(--cream);
             color: var(--text);
             font-family: var(--font-body);
             font-weight: 400;
@@ -471,7 +477,7 @@
         .step p { font-size: 0.88rem; color: var(--muted); margin: 0; line-height: 1.68; }
 
         /* ---------- Testimonial (card on light bg) ---------- */
-        .testimonial-section { background: var(--bg); }
+        .testimonial-section { background: var(--cream); }
         .testimonial-card {
             background: var(--card);
             border: 1px solid var(--border);
@@ -603,7 +609,7 @@
         .tier-features li::before { content: "✓"; position: absolute; left: 0; top: 0.5rem; color: var(--gold); font-weight: 700; font-size: 0.78rem; }
 
         /* ---------- Closing CTA (centered, light card on dark) ---------- */
-        .closing { background: var(--bg); }
+        .closing { background: var(--cream); }
         .closing-card {
             background: var(--navy);
             border-radius: var(--radius-lg);
@@ -743,10 +749,10 @@
         <div class="wrap hero-inner">
             <div class="hero-copy">
                 <p class="eyebrow eyebrow-navy">Boise, Idaho &middot; Serving the Treasure Valley</p>
-                <h1>Expert finance leadership &mdash; without the <em>full-time</em> hire.</h1>
+                <h1>Expert finance leadership - without the <em>full-time</em> hire.</h1>
                 <p class="lede">
                     We fill the CFO and Controller gap for small- to mid-sized businesses through a flexible,
-                    subscription-based model &mdash; so you can focus on running your business with
+                    subscription-based model - so you can focus on running your business with
                     confidence.
                 </p>
                 <div class="hero-actions">
@@ -769,7 +775,7 @@
                     </li>
                     <li>
                         <span class="credential-check">✓</span>
-                        Dedicated point of contact &mdash; you always know where you stand financially
+                        Dedicated point of contact - you always know where you stand financially
                     </li>
                     <li>
                         <span class="credential-check">✓</span>
@@ -820,7 +826,7 @@
             <div class="services-head">
                 <p class="eyebrow eyebrow-gold">What We Offer</p>
                 <h2>Six services. One accountable team.</h2>
-                <p>We manage the entire accounting function end-to-end &mdash; so you can make decisions with accurate, up-to-date financial information at any point of the year.</p>
+                <p>We manage the entire accounting function end-to-end - so you can make decisions with accurate, up-to-date financial information at any point of the year.</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
@@ -842,7 +848,7 @@
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
                     </div>
                     <h3>Bookkeeping</h3>
-                    <p>Clean, current books maintained by experienced accountants &mdash; the foundation every business decision depends on.</p>
+                    <p>Clean, current books maintained by experienced accountants - the foundation every business decision depends on.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
@@ -877,14 +883,13 @@
                 <h2>We exist to fill the <em>gap.</em></h2>
                 <p class="drop-para">
                     Small- to mid-sized businesses around Boise and the Treasure Valley often need
-                    the expertise of a Controller or CFO &mdash; but are not quite large enough to
+                    the expertise of a Controller or CFO - but are not quite large enough to
                     justify a full-time hire. That is exactly the gap Executive Allies was built to fill.
                 </p>
                 <p>
                     Through a customizable subscription model, you and your business have access to our
                     experienced accounting team in the ways that work best for you. We see the entire
-                    accounting function through from beginning to end, so you can focus on what matters
-                    &mdash; running your business &mdash; and reclaim the work-life balance you've been missing.
+                    accounting function through from beginning to end, so you can focus on what matters - running your business - and reclaim the work-life balance you've been missing.
                 </p>
                 <div class="about-body cta-row">
                     <a href="#contact" class="btn btn-primary">Talk to Our Team &rarr;</a>
@@ -934,7 +939,7 @@
                 <div class="step">
                     <div class="step-bubble">2</div>
                     <h3>Custom Subscription</h3>
-                    <p>We scope a subscription around your exact needs &mdash; the right services, cadence, and level of support.</p>
+                    <p>We scope a subscription around your exact needs - the right services, cadence, and level of support.</p>
                 </div>
                 <div class="step">
                     <div class="step-bubble">3</div>
@@ -977,7 +982,7 @@
             <div class="sub-head">
                 <p class="eyebrow eyebrow-gold">Subscription-Based Services</p>
                 <h2>Built around your business.</h2>
-                <p>Every engagement is scoped individually. These are the three levels of ongoing support we offer &mdash; each fully customizable to your situation and stage.</p>
+                <p>Every engagement is scoped individually. These are the three levels of ongoing support we offer - each fully customizable to your situation and stage.</p>
             </div>
             <div class="tiers-grid">
                 <div class="tier-card">
@@ -1035,7 +1040,7 @@
             <div class="closing-card">
                 <p class="eyebrow eyebrow-gold">Get Started Today</p>
                 <h2>Ready to run your business with the right <em>numbers</em> behind you?</h2>
-                <p>The shortest path is a 30-minute conversation. We'll listen, understand your situation, and recommend the right level of support &mdash; or tell you honestly if we're not the right fit.</p>
+                <p>The shortest path is a 30-minute conversation. We'll listen, understand your situation, and recommend the right level of support - or tell you honestly if we're not the right fit.</p>
                 <div class="closing-actions">
                     <a href="https://www.theexecutiveallies.com" class="btn btn-gold">Schedule a Discovery Call &rarr;</a>
                     <a href="tel:+12085100875" class="btn btn-outline-light">Call 208-510-0875</a>
@@ -1052,7 +1057,7 @@
                 <div class="footer-brand">
                     <div class="brand-name">Executive <span>Allies</span></div>
                     <div class="brand-sub">Fractional CFO &amp; Controller Services</div>
-                    <p>A top strategic accounting firm in Boise, Idaho &mdash; serving the Treasure Valley and nearby regions through customizable, subscription-based financial services.</p>
+                    <p>A top strategic accounting firm in Boise, Idaho - serving the Treasure Valley and nearby regions through customizable, subscription-based financial services.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Services</h4>

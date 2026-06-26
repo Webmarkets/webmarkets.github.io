@@ -12,43 +12,41 @@
 
     <style>
         :root {
-            /* Brand palette — sourced from inspiration.html */
-            --navy:        #1f3a68;
-            --navy-dark:   #152c50;
-            --navy-darker: #0f2240;
-            --gold:        #c9a961;
-            --gold-soft:   #e0c684;
-            --gold-bg:     rgba(201, 169, 97, 0.10);
+            --navy:        #1B365D;
+            --navy-dark:   #122540;
+            --navy-darker: #0A1524;
+            --teal:        #2CB8C8;
+            --gold:        #C49A26;
+            --gold-soft:   #F5EDD3;
+            --gold-bg:     rgba(196, 154, 38, 0.10);
+            --gold-border: rgba(196, 154, 38, 0.35);
 
-            /* Surfaces */
-            --bg:          #f4f6fb;   /* page background */
+            --cream:       #FBF7EF;
+            --ice-blue:    #EAF1F8;
+            --charcoal:    #1F1F1F;
+            --terracotta:  #B85042;
+
+            --bg:          var(--cream);
             --card:        #ffffff;
-            --card-tint:   #f8f9fc;
+            --card-tint:   var(--ice-blue);
 
-            /* Text */
-            --text:        #1a1f2e;
+            --text:        var(--charcoal);
             --muted:       #6b7280;
-
-            /* Borders */
             --border:      #e5e7eb;
-            --border-dark: rgba(31, 58, 104, 0.20);
-
-            /* Accent */
+            --border-dark: rgba(255,255,255,0.12);
             --green:       #10b981;
 
-            /* Type */
             --font-display: 'Manrope', -apple-system, sans-serif;
             --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
-            /* Elevation */
-            --shadow-sm: 0 1px 3px rgba(15, 34, 64, 0.06), 0 1px 2px rgba(15, 34, 64, 0.04);
-            --shadow-md: 0 4px 12px rgba(15, 34, 64, 0.10);
-            --shadow-lg: 0 20px 50px rgba(15, 34, 64, 0.12), 0 8px 20px rgba(15, 34, 64, 0.06);
+            --shadow-sm: 0 1px 3px rgba(27, 54, 93, 0.06), 0 1px 2px rgba(27, 54, 93, 0.04);
+            --shadow-md: 0 4px 12px rgba(27, 54, 93, 0.10);
+            --shadow-lg: 0 20px 50px rgba(27, 54, 93, 0.12), 0 8px 20px rgba(27, 54, 93, 0.06);
 
-            /* Radius */
             --radius-sm: 6px;
             --radius:    10px;
             --radius-lg: 16px;
+            --maxw: 1180px;
         }
 
         * { box-sizing: border-box; }
@@ -56,7 +54,7 @@
 
         body {
             margin: 0;
-            background: var(--bg);
+            background: var(--cream);
             color: var(--text);
             font-family: var(--font-body);
             font-weight: 400;
@@ -467,7 +465,7 @@
         .field textarea,
         .field select {
             width: 100%;
-            background: var(--bg);
+            background: var(--cream);
             border: 1.5px solid var(--border);
             border-radius: var(--radius);
             padding: 0.75rem 1rem;
@@ -762,7 +760,7 @@
             <p class="eyebrow">Executive Allies &middot; Brand System</p>
             <h1 class="page-title">Brand Style Guide</h1>
             <p class="page-lede">
-                A reference for the visual language of Executive Allies &mdash; the colors,
+                A reference for the visual language of Executive Allies - the colors,
                 typography, and components that communicate authority, momentum, and
                 executive-grade credibility.
             </p>
@@ -773,7 +771,7 @@
             <div class="mission">
                 <p class="card-label">Mission</p>
                 <p>
-                    We accelerate finance leaders into CFO-ready performance &mdash; pairing
+                    We accelerate finance leaders into CFO-ready performance - pairing
                     senior mentor expertise with structured curriculum to deliver four
                     documented outcomes in twelve months.
                 </p>
@@ -782,18 +780,18 @@
             <div class="grid grid-3" style="margin-top: 1.25rem;">
                 <div class="card lift">
                     <p class="card-label label-navy">Voice Pillar</p>
-                    <h4>Authoritative</h4>
-                    <p>We speak from a position of deep, earned expertise. Direct, credible, and never vague.</p>
+                    <h4>Clear &amp; Direct</h4>
+                    <p>NOT jargon-heavy. NOT wishy-washy. We speak with clarity and purpose.</p>
                 </div>
                 <div class="card lift">
                     <p class="card-label label-gold">Voice Pillar</p>
-                    <h4>Outcome-Focused</h4>
-                    <p>Every message is anchored in a measurable result. We promise what we can prove.</p>
+                    <h4>Warm &amp; Human</h4>
+                    <p>NOT corporate cold. NOT AI-ish or sterile. We are approachable and engaging.</p>
                 </div>
                 <div class="card lift">
                     <p class="card-label label-muted">Voice Pillar</p>
-                    <h4>Respectful</h4>
-                    <p>Our clients are accomplished professionals. We inform and challenge, never condescend.</p>
+                    <h4>Confident &amp; Specific</h4>
+                    <p>NOT arrogant. NOT vague. We speak from a position of earned expertise.</p>
                 </div>
             </div>
         </section>
@@ -806,62 +804,72 @@
             </div>
 
             <div class="grid grid-4">
-                <div class="swatch" onclick="copyHex('#1f3a68')">
-                    <div class="swatch-chip" style="background:#1f3a68; color:#fff;">
+                <div class="swatch" onclick="copyHex('#1B365D')">
+                    <div class="swatch-chip" style="background:#1B365D; color:#fff;">
                         <span class="role">Primary</span>
                     </div>
                     <p class="swatch-name">Navy</p>
-                    <p class="swatch-hex">#1F3A68</p>
-                    <p class="swatch-cmyk">CMYK 81 60 12 3 &middot; RGB 31 58 104</p>
+                    <p class="swatch-hex">#1B365D</p>
+                    <p class="swatch-cmyk">Headers, primary UI, trust</p>
                 </div>
-                <div class="swatch" onclick="copyHex('#c9a961')">
-                    <div class="swatch-chip" style="background:#c9a961; color:#152c50;">
+                <div class="swatch" onclick="copyHex('#2CB8C8')">
+                    <div class="swatch-chip" style="background:#2CB8C8; color:#fff;">
                         <span class="role">Accent</span>
                     </div>
-                    <p class="swatch-name">Gold</p>
-                    <p class="swatch-hex">#C9A961</p>
-                    <p class="swatch-cmyk">CMYK 6 27 67 7 &middot; RGB 201 169 97</p>
+                    <p class="swatch-name">Teal</p>
+                    <p class="swatch-hex">#2CB8C8</p>
+                    <p class="swatch-cmyk">Energy, movement, emphasis</p>
                 </div>
-                <div class="swatch" onclick="copyHex('#0f2240')">
-                    <div class="swatch-chip" style="background:#0f2240; color:#fff;">
-                        <span class="role">Dark Surface</span>
+                <div class="swatch" onclick="copyHex('#C49A26')">
+                    <div class="swatch-chip" style="background:#C49A26; color:#fff;">
+                        <span class="role">Action</span>
                     </div>
-                    <p class="swatch-name">Navy Deeper</p>
-                    <p class="swatch-hex">#0F2240</p>
-                    <p class="swatch-cmyk">CMYK 92 71 17 6 &middot; RGB 15 34 64</p>
+                    <p class="swatch-name">Gold</p>
+                    <p class="swatch-hex">#C49A26</p>
+                    <p class="swatch-cmyk">CTAs, chips, key moments</p>
                 </div>
-                <div class="swatch" onclick="copyHex('#f4f6fb')">
-                    <div class="swatch-chip" style="background:#f4f6fb; color:#6b7280; border: 1px solid #e5e7eb;">
+                <div class="swatch" onclick="copyHex('#FBF7EF')">
+                    <div class="swatch-chip" style="background:#FBF7EF; color:#1F1F1F; border: 1px solid #e5e7eb;">
                         <span class="role">Background</span>
                     </div>
-                    <p class="swatch-name">Cloud</p>
-                    <p class="swatch-hex">#F4F6FB</p>
-                    <p class="swatch-cmyk">CMYK 3 2 0 0 &middot; RGB 244 246 251</p>
+                    <p class="swatch-name">Cream</p>
+                    <p class="swatch-hex">#FBF7EF</p>
+                    <p class="swatch-cmyk">Page backgrounds, warmth</p>
                 </div>
             </div>
 
-            <div class="grid grid-3" style="margin-top: 1.25rem;">
-                <div class="swatch" onclick="copyHex('#e0c684')">
-                    <div class="swatch-chip" style="background:#e0c684; color:#152c50; height:80px;">
-                        <span class="role">Gold Soft</span>
+            <div class="grid grid-4" style="margin-top: 1.25rem;">
+                <div class="swatch" onclick="copyHex('#EAF1F8')">
+                    <div class="swatch-chip" style="background:#EAF1F8; color:#1F1F1F; height:80px; border: 1px solid #e5e7eb;">
+                        <span class="role">Secondary Bg</span>
                     </div>
-                    <p class="swatch-name">Gold Soft</p>
-                    <p class="swatch-hex">#E0C684</p>
+                    <p class="swatch-name">Ice Blue</p>
+                    <p class="swatch-hex">#EAF1F8</p>
+                    <p class="swatch-cmyk">Soft cards</p>
                 </div>
-                <div class="swatch" onclick="copyHex('#152c50')">
-                    <div class="swatch-chip" style="background:#152c50; color:#fff; height:80px;">
-                        <span class="role">Navy Dark</span>
+                <div class="swatch" onclick="copyHex('#1F1F1F')">
+                    <div class="swatch-chip" style="background:#1F1F1F; color:#fff; height:80px;">
+                        <span class="role">Text</span>
                     </div>
-                    <p class="swatch-name">Navy Dark</p>
-                    <p class="swatch-hex">#152C50</p>
+                    <p class="swatch-name">Charcoal</p>
+                    <p class="swatch-hex">#1F1F1F</p>
+                    <p class="swatch-cmyk">Body text</p>
                 </div>
-                <div class="swatch" onclick="copyHex('#10b981')">
-                    <div class="swatch-chip" style="background:#10b981; color:#fff; height:80px;">
-                        <span class="role">Confirmation</span>
+                <div class="swatch" onclick="copyHex('#B85042')">
+                    <div class="swatch-chip" style="background:#B85042; color:#fff; height:80px;">
+                        <span class="role">CX Accent</span>
                     </div>
-                    <p class="swatch-name">Emerald</p>
-                    <p class="swatch-hex">#10B981</p>
-                    <p class="swatch-cmyk">Used for checkmarks, success states only</p>
+                    <p class="swatch-name">Terracotta</p>
+                    <p class="swatch-hex">#B85042</p>
+                    <p class="swatch-cmyk">Construction line only</p>
+                </div>
+                <div class="swatch" onclick="copyHex('#F5EDD3')">
+                    <div class="swatch-chip" style="background:#F5EDD3; color:#1F1F1F; height:80px;">
+                        <span class="role">Highlight Bg</span>
+                    </div>
+                    <p class="swatch-name">Light Gold</p>
+                    <p class="swatch-hex">#F5EDD3</p>
+                    <p class="swatch-cmyk">Subtle backgrounds</p>
                 </div>
             </div>
         </section>
@@ -874,7 +882,7 @@
             </div>
 
             <div class="specimen">
-                <p class="specimen-label">Display &mdash; Manrope</p>
+                <p class="specimen-label">Display - Manrope</p>
                 <p class="type-display">Accelerate. Deliver. Lead.</p>
                 <p class="usage-note">Usage: headlines, tier names, page titles, and callout copy. Use Bold (700) or ExtraBold (800).</p>
                 <div class="weight-row">
@@ -888,7 +896,7 @@
             </div>
 
             <div class="specimen">
-                <p class="specimen-label">Body &mdash; Inter</p>
+                <p class="specimen-label">Body - Inter</p>
                 <p class="type-body">
                     Inter carries all long-form and UI copy. At a comfortable line-height and
                     Regular weight, it keeps structured program information clear, scannable,
@@ -898,7 +906,7 @@
             </div>
 
             <div class="specimen">
-                <p class="specimen-label">Eyebrow / Label &mdash; Inter, letterspaced</p>
+                <p class="specimen-label">Eyebrow / Label - Inter, letterspaced</p>
                 <p class="type-label-demo">CFO &amp; Controller Career Accelerator &middot; Tier 2</p>
                 <p class="usage-note">Usage: section labels, badge text, and overlines. All-caps, 700 weight, 0.22–0.26em tracking.</p>
             </div>
@@ -1111,7 +1119,7 @@
             <div class="grid grid-3">
                 <div>
                     <div class="img-tile img-1">Professional Settings</div>
-                    <p class="img-caption"><b>Context:</b> Conference rooms, boardrooms, and financial workspaces — clean and authoritative.</p>
+                    <p class="img-caption"><b>Context:</b> Conference rooms, boardrooms, and financial workspaces - clean and authoritative.</p>
                 </div>
                 <div>
                     <div class="img-tile img-2">People &amp; Mentorship</div>
@@ -1141,7 +1149,7 @@
                 </div>
             </div>
             <p class="usage-note" style="margin-top: 1rem;">
-                Motion is fast and purposeful &mdash; 150–200ms ease transitions for interactive states (hover, focus). Avoid slow animations; the Executive Allies audience values efficiency and speed. Use subtle lifts (translateY -3–4px) and opacity fades only.
+                Motion is fast and purposeful - 150–200ms ease transitions for interactive states (hover, focus). Avoid slow animations; the Executive Allies audience values efficiency and speed. Use subtle lifts (translateY -3–4px) and opacity fades only.
             </p>
         </section>
 
@@ -1163,7 +1171,7 @@
                 </div>
             </div>
             <p class="usage-note" style="margin-top: 1rem;">
-                Shadows are tinted with <code style="font-size:0.8rem; background: var(--gold-bg); padding: 0.15rem 0.35rem; border-radius: 4px; color: var(--navy);">rgba(15, 34, 64, …)</code> — the Navy Deeper color — rather than pure black. Level 1 for resting cards; Level 2 on hover and active states; Level 3 for the featured tier card and modals.
+                Shadows are tinted with <code style="font-size:0.8rem; background: var(--gold-bg); padding: 0.15rem 0.35rem; border-radius: 4px; color: var(--navy);">rgba(15, 34, 64, …)</code> - the Navy Deeper color - rather than pure black. Level 1 for resting cards; Level 2 on hover and active states; Level 3 for the featured tier card and modals.
             </p>
         </section>
 
