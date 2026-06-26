@@ -310,6 +310,8 @@
         }
         .nav-links a:hover { color: var(--black); }
         .nav-links a:hover::after { transform: scaleX(1); }
+        .nav-links a.nav-active { color: var(--black); }
+        .nav-links a.nav-active::after { transform: scaleX(1); }
 
         .nav-cta { margin-left: 1.25rem; padding: 0.65rem 1.5rem; font-size: 0.78rem; }
 
@@ -327,19 +329,40 @@
         .hero {
             position: relative;
             min-height: 100vh;
+            min-height: 100dvh;
             display: flex;
             align-items: flex-end;
-            padding-bottom: 9vh;
+            padding-bottom: 7rem;
             overflow: hidden;
         }
 
-        /* Hero photo background */
-        .hero-bg {
+        /* Slideshow stack */
+        .hero-slides {
             position: absolute;
             inset: 0;
             z-index: 0;
         }
-        .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center center; }
+        .hero-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1.4s ease;
+        }
+        .hero-slide.active { opacity: 1; }
+        .hero-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transform: scale(1.04);
+            transition: transform 7s ease;
+        }
+        .hero-slide.active img { transform: scale(1); }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-slide { transition: none; }
+            .hero-slide img, .hero-slide.active img { transform: none; transition: none; }
+        }
 
         /* Cinematic gradient, light at top, dark at bottom */
         .hero-overlay {
@@ -347,10 +370,52 @@
             inset: 0;
             background: linear-gradient(
                 to bottom,
-                rgba(8, 10, 8, 0.28) 0%,
-                rgba(8, 10, 8, 0.15) 35%,
-                rgba(8, 10, 8, 0.62) 100%
+                rgba(8, 10, 8, 0.22) 0%,
+                rgba(8, 10, 8, 0.08) 30%,
+                rgba(8, 10, 8, 0.72) 100%
             );
+        }
+
+        /* Slide progress indicators */
+        .hero-indicators {
+            position: absolute;
+            bottom: 2.75rem;
+            left: 3.5rem;
+            z-index: 3;
+            display: flex;
+            gap: 0.45rem;
+            align-items: center;
+        }
+        .hero-indicator {
+            width: 36px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.22);
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+            transition: background 0.3s ease;
+        }
+        .hero-indicator::after {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 0%;
+            background: var(--green);
+        }
+        .hero-indicator.active {
+            background: rgba(255, 255, 255, 0.18);
+        }
+        .hero-indicator.active::after {
+            width: 100%;
+            transition: width var(--slide-duration, 5.5s) linear;
+        }
+        .hero-indicator.done::after {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.55);
+            transition: none;
         }
 
         /* =============================================
@@ -381,29 +446,22 @@
         .hero-eyebrow {
             font-family: var(--font-secondary);
             font-weight: 300;
-            font-size: 0.68rem;
-            letter-spacing: 0.36em;
+            font-size: 0.62rem;
+            letter-spacing: 0.38em;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.6);
-            margin-bottom: 1.1rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 1.25rem;
             display: block;
         }
         .hero-title {
             font-family: var(--font-display);
             font-weight: 700;
-            font-size: clamp(3rem, 6vw, 5.75rem);
+            font-size: clamp(2.8rem, 6vw, 5.75rem);
             line-height: 1.0;
             letter-spacing: -0.025em;
             color: var(--white);
-            margin-bottom: 1.5rem;
-            max-width: 760px;
-        }
-        .hero-desc {
-            font-size: 1.05rem;
-            color: rgba(255, 255, 255, 0.8);
-            max-width: 500px;
-            line-height: 1.75;
-            margin-bottom: 2.75rem;
+            margin-bottom: 2.5rem;
+            max-width: 680px;
         }
         .hero-actions {
             display: flex;
@@ -414,9 +472,9 @@
         /* Scroll indicator */
         .hero-scroll {
             position: absolute;
-            bottom: 2.5rem;
+            bottom: 2.75rem;
             right: 3.5rem;
-            z-index: 2;
+            z-index: 3;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -425,15 +483,15 @@
         .hero-scroll span {
             font-family: var(--font-secondary);
             font-weight: 300;
-            font-size: 0.58rem;
-            letter-spacing: 0.22em;
+            font-size: 0.56rem;
+            letter-spacing: 0.24em;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.45);
+            color: rgba(255, 255, 255, 0.38);
         }
         .hero-scroll-bar {
             width: 1px;
             height: 44px;
-            background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.5));
+            background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.45));
             animation: scrollDrop 2s ease-in-out infinite;
         }
         @keyframes scrollDrop {
@@ -517,7 +575,7 @@
         }
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 1.25rem;
         }
 
@@ -533,7 +591,7 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
         }
         .service-card-img {
-            aspect-ratio: 3/4;
+            aspect-ratio: 4/3;
             overflow: hidden;
             position: relative;
         }
@@ -1000,7 +1058,6 @@
         @media (max-width: 1100px) {
             .intro-grid { grid-template-columns: 1fr; gap: 3.5rem; }
             .intro-stats { max-width: 480px; }
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
             .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
         }
 
@@ -1008,7 +1065,10 @@
             .container { padding: 0 2rem; }
             .nav-links { display: none; }
             .nav-mobile-toggle { display: block; }
-            .hero-title { font-size: 2.75rem; }
+            .hero { padding-bottom: 6rem; }
+            .hero-content { padding: 0 2rem; }
+            .hero-indicators { left: 2rem; bottom: 2.25rem; }
+            .hero-scroll { right: 2rem; bottom: 2.25rem; }
             .feature-layout { padding: 4rem 2rem; }
             .feature-panel { width: 100%; max-width: 520px; }
             .process-grid { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
@@ -1022,7 +1082,15 @@
         @media (max-width: 640px) {
             .container { padding: 0 1.5rem; }
             .services-grid { grid-template-columns: 1fr; }
+            .service-card-img { aspect-ratio: 3/2; }
+            .hero-arch { display: none; }
+            .cta-arch { display: none; }
+            .hero { padding-bottom: 5.5rem; }
+            .hero-content { padding: 0 1.5rem; }
+            .hero-indicators { left: 1.5rem; bottom: 2rem; }
+            .hero-scroll { display: none; }
             .hero-actions { flex-direction: column; align-items: flex-start; }
+            .hero-actions .btn { width: 100%; justify-content: center; }
             .services-header, .gallery-header { flex-direction: column; align-items: flex-start; }
             .process-grid { grid-template-columns: 1fr; }
             .cta-locations { flex-direction: column; gap: 2rem; align-items: center; text-align: center; }
@@ -1046,12 +1114,14 @@
             </a>
             <div class="nav-links">
                 <a href="#about">About</a>
-                <a href="#services">Services</a>
-                <a href="#portfolio">Portfolio</a>
+                <a href="./residential.html">Residential</a>
+                <a href="./commercial.html">Commercial</a>
+                <a href="./gallery.html">Gallery</a>
+                <a href="./blog.html">Blog</a>
                 <a href="#process">Process</a>
-                <a href="#contact">Locations</a>
+                <a href="#contact">Contact</a>
             </div>
-            <a href="#contact" class="btn btn-primary nav-cta">Trade Partner Login</a>
+            <a href="#contact" class="btn btn-primary nav-cta">Get in Touch</a>
             <button class="nav-mobile-toggle" aria-label="Open menu">
                 <svg width="22" height="14" viewBox="0 0 22 14" fill="none">
                     <path d="M0 1h22M0 7h22M0 13h22" stroke="currentColor" stroke-width="1.8"/>
@@ -1066,52 +1136,113 @@
     ============================================== -->
     <section class="hero" id="home">
 
-        <!-- Full-screen photo -->
-        <div class="hero-bg">
-            <img class="img-cover" src="./Assets/Photos/DSC_3459.jpg" alt="Custom cabinetry by Greyloch, light kitchen with brass pendants">
-            <div class="hero-overlay"></div>
+        <!-- Slideshow backgrounds -->
+        <div class="hero-slides">
+            <div class="hero-slide active">
+                <img src="./Assets/Photos/DSC_3469.jpg" alt="Glass cabinet doors with interior lighting by Greyloch" loading="eager" fetchpriority="high">
+            </div>
+            <div class="hero-slide">
+                <img src="./Assets/Photos/DSC_3395.jpg" alt="Dark modern kitchen with brick backsplash by Greyloch" loading="lazy">
+            </div>
+            <div class="hero-slide">
+                <img src="./Assets/Photos/e46c77f5.jpeg" alt="Custom built-in entertainment wall by Greyloch" loading="lazy">
+            </div>
+            <div class="hero-slide">
+                <img src="./Assets/Photos/dc2ad1a4.jpeg" alt="Custom luxury residential cabinetry by Greyloch" loading="lazy">
+            </div>
+            <div class="hero-slide">
+                <img src="./Assets/Photos/DSC_3386.jpg" alt="Dark kitchen with beverage center by Greyloch" loading="lazy">
+            </div>
         </div>
 
-        <!-- The barrel vault arch, visible above the fold, referencing the building -->
+        <!-- Cinematic overlay -->
+        <div class="hero-overlay"></div>
+
+        <!-- The barrel vault arch, referencing the building -->
         <div class="hero-arch">
             <svg viewBox="0 0 1440 600" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Arch fill, the dome interior glow -->
                 <path d="M -100 600 Q 720 -90 1540 600 Z" fill="rgba(0, 150, 57, 0.045)"/>
-                <!-- Primary arch curve, the roofline -->
                 <path d="M -100 600 Q 720 -90 1540 600" stroke="rgba(255, 255, 255, 0.25)" stroke-width="1.5"/>
-                <!-- Green echo of the arch -->
                 <path d="M -100 600 Q 720 -90 1540 600" stroke="rgba(0, 150, 57, 0.45)" stroke-width="1"/>
-                <!-- Inner ring, depth of the vault -->
                 <path d="M 40 600 Q 720 10 1400 600" stroke="rgba(255, 255, 255, 0.07)" stroke-width="9"/>
-                <!-- Structural ribs, the steel frame -->
                 <line x1="235"  y1="598" x2="320"  y2="210" stroke="rgba(255,255,255,0.065)" stroke-width="1"/>
                 <line x1="475"  y1="598" x2="540"  y2="45"  stroke="rgba(255,255,255,0.065)" stroke-width="1"/>
                 <line x1="720"  y1="598" x2="720"  y2="-90" stroke="rgba(255,255,255,0.065)" stroke-width="1"/>
                 <line x1="965"  y1="598" x2="900"  y2="45"  stroke="rgba(255,255,255,0.065)" stroke-width="1"/>
                 <line x1="1205" y1="598" x2="1120" y2="210" stroke="rgba(255,255,255,0.065)" stroke-width="1"/>
-                <!-- Horizontal ring lines, bands of the vault -->
                 <path d="M 15  570 Q 720  40 1425 570" stroke="rgba(255,255,255,0.032)" stroke-width="1"/>
                 <path d="M 70  530 Q 720  80 1370 530" stroke="rgba(255,255,255,0.024)" stroke-width="1"/>
                 <path d="M 140 480 Q 720 130 1300 480" stroke="rgba(255,255,255,0.016)" stroke-width="1"/>
             </svg>
         </div>
 
-        <!-- Hero content, sits below the arch, above the fold -->
+        <!-- Hero content — minimal -->
         <div class="hero-content">
-            <span class="hero-eyebrow">Star, Idaho · Est. 1991 · Builder &amp; Trade Partner Program</span>
-            <h1 class="hero-title">The Standard<br>for Idaho<br>Builders.</h1>
-            <p class="hero-desc">Greyloch's 97,000 sq ft automated facility produces 300+ custom cabinets per shift, delivering production scale and custom quality for builders, developers, and commercial contractors across the Treasure Valley.</p>
+            <span class="hero-eyebrow">Star, Idaho &nbsp;·&nbsp; Est. 1991</span>
+            <h1 class="hero-title">The Gold Standard<br>of Cabinets for<br>Idaho Builders.</h1>
             <div class="hero-actions">
                 <a href="#contact" class="btn btn-primary">Become a Trade Partner</a>
                 <a href="#portfolio" class="btn btn-ghost-white">View Our Work</a>
             </div>
         </div>
 
-        <div class="hero-scroll">
+        <!-- Slide progress indicators -->
+        <div class="hero-indicators" role="tablist" aria-label="Hero slideshow">
+            <button class="hero-indicator active" role="tab" aria-selected="true"  aria-label="Slide 1"></button>
+            <button class="hero-indicator"        role="tab" aria-selected="false" aria-label="Slide 2"></button>
+            <button class="hero-indicator"        role="tab" aria-selected="false" aria-label="Slide 3"></button>
+            <button class="hero-indicator"        role="tab" aria-selected="false" aria-label="Slide 4"></button>
+            <button class="hero-indicator"        role="tab" aria-selected="false" aria-label="Slide 5"></button>
+        </div>
+
+        <div class="hero-scroll" aria-hidden="true">
             <div class="hero-scroll-bar"></div>
             <span>Scroll</span>
         </div>
 
+    </section>
+
+
+    <!-- =============================================
+         SERVICES, 2 photo cards
+    ============================================== -->
+    <section class="services" id="services">
+        <div class="container">
+
+            <div class="services-header">
+                <div>
+                    <span class="eyebrow">Who We Build For</span>
+                    <h2 class="section-title" style="margin-bottom: 0;">Residential or Commercial.<br>We Build Both.</h2>
+                </div>
+                <a href="#contact" class="btn btn-outline-green anim">Get in Touch &rarr;</a>
+            </div>
+
+            <div class="services-grid">
+
+                <div class="service-card anim d1">
+                    <div class="service-card-img">
+                        <img class="img-cover" src="./Assets/Photos/DSC_3459.jpg" alt="Custom residential cabinetry by Greyloch">
+                        <div class="service-label">
+                            <h3>Residential</h3>
+                            <p>Custom kitchens, bathrooms, closets, and built-ins for production builders and luxury homeowners across the Treasure Valley.</p>
+                            <span class="service-link">Partner With Us &rarr;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card anim d2">
+                    <div class="service-card-img">
+                        <img class="img-cover" src="./Assets/Photos/DSC_3351.jpg" alt="Commercial and multi-family cabinetry by Greyloch">
+                        <div class="service-label">
+                            <h3>Commercial</h3>
+                            <p>Cabinet packages for multi-family developers, commercial contractors, and hospitality projects — delivered at volume, on schedule.</p>
+                            <span class="service-link">Partner With Us &rarr;</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </section>
 
 
@@ -1126,7 +1257,7 @@
                     <span class="eyebrow">Star, Idaho · Family-Owned Since 1991</span>
                     <h2 class="section-title">Built for those<br>who build Idaho.</h2>
                     <p class="section-desc">Greyloch started as a garage woodworking shop in 1991. Today, we operate one of the most automated cabinet factories in North America, a 97,000 sq ft facility in Star, Idaho equipped with German Homag machinery and a fully digital production pipeline. We serve production builders, multi-family developers, and commercial contractors who need custom quality at volume.</p>
-                    <a href="#" class="btn btn-secondary" style="margin-top: 2.25rem;">About Our Facility &rarr;</a>
+                    <a href="#process" class="btn btn-secondary" style="margin-top: 2.25rem;">See How We Work &rarr;</a>
                 </div>
 
                 <div class="intro-stats anim d2">
@@ -1162,71 +1293,6 @@
 
 
     <!-- =============================================
-         SERVICES, 4 photo cards
-    ============================================== -->
-    <section class="services" id="services">
-        <div class="container">
-
-            <div class="services-header">
-                <div>
-                    <span class="eyebrow">Trade Programs</span>
-                    <h2 class="section-title" style="margin-bottom: 0;">Who We Build For</h2>
-                </div>
-                <a href="#contact" class="btn btn-outline-green anim">Open a Trade Account &rarr;</a>
-            </div>
-
-            <div class="services-grid">
-
-                <div class="service-card anim d1">
-                    <div class="service-card-img">
-                        <img class="img-cover" src="./Assets/Photos/IMG_3412.JPG" alt="Production kitchen cabinet programs">
-                        <div class="service-label">
-                            <h3>Production Builders</h3>
-                            <p>Volume kitchen programs for spec and semi-custom home builders.</p>
-                            <span class="service-link">Partner With Us &rarr;</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="service-card anim d2">
-                    <div class="service-card-img">
-                        <img class="img-cover" src="./Assets/Photos/DSC_3351.jpg" alt="Multi-family apartment cabinetry">
-                        <div class="service-label">
-                            <h3>Multi-Family &amp; Developers</h3>
-                            <p>Apartment, condo, and mixed-use cabinet packages at scale.</p>
-                            <span class="service-link">Partner With Us &rarr;</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="service-card anim d3">
-                    <div class="service-card-img">
-                        <img class="img-cover" src="./Assets/Photos/DSC_3330.jpg" alt="Commercial contractor cabinetry">
-                        <div class="service-label">
-                            <h3>Commercial Contractors</h3>
-                            <p>Office, hospitality, and specialty commercial millwork.</p>
-                            <span class="service-link">Partner With Us &rarr;</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="service-card anim d4">
-                    <div class="service-card-img">
-                        <img class="img-cover" src="./Assets/Photos/dc2ad1a4.jpeg" alt="Custom luxury residential cabinetry">
-                        <div class="service-label">
-                            <h3>Custom Residential</h3>
-                            <p>European frameless kitchens and built-ins for luxury homes.</p>
-                            <span class="service-link">Partner With Us &rarr;</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-    <!-- =============================================
          FEATURE, "More Than Cabinetry"
          Full-bleed photo + floating dark glass panel
     ============================================== -->
@@ -1239,17 +1305,17 @@
         <div class="feature-layout">
                 <div class="feature-panel dark-glass anim">
                 <div class="glass-inner">
-                    <span class="eyebrow">The Greyloch Facility</span>
+                    <span class="eyebrow">The Greyloch Facility · Star, Idaho</span>
                     <h2 class="section-title section-title-light" style="font-size: 2.2rem;">One of the Most<br>Automated Plants<br>in North America</h2>
-                    <p class="feature-body">In 2023, Greyloch opened a 97,000 sq ft state-of-the-art manufacturing facility in Star, Idaho, seven years in the making. Equipped with German Homag robotics, it runs a fully digital production pipeline from order entry to boxed delivery.</p>
+                    <p class="feature-body">Seven years in the making, our Star facility runs a fully digital pipeline from order entry to boxed delivery — with a 7-to-9 person crew producing output that would take most shops ten times the headcount.</p>
                     <ul class="feature-list">
-                        <li><span class="feature-dot"></span>German Homag automated machinery</li>
-                        <li><span class="feature-dot"></span>Robotic cutting, edge-banding &amp; drilling</li>
-                        <li><span class="feature-dot"></span>300+ cabinets produced per 8-hour shift</li>
-                        <li><span class="feature-dot"></span>Digital order-to-production workflow</li>
-                        <li><span class="feature-dot"></span>7–9 workers running the entire floor</li>
+                        <li><span class="feature-dot"></span>German Homag robotic machinery</li>
+                        <li><span class="feature-dot"></span>Automated cutting, edge-banding &amp; drilling</li>
+                        <li><span class="feature-dot"></span>300+ cabinets per 8-hour shift</li>
+                        <li><span class="feature-dot"></span>Zero-variance, spec-perfect quality every run</li>
+                        <li><span class="feature-dot"></span>Digital order-to-delivery workflow</li>
                     </ul>
-                    <a href="#contact" class="btn btn-primary">Tour Our Facility</a>
+                    <a href="#contact" class="btn btn-primary">Schedule a Tour</a>
                 </div>
             </div>
         </div>
@@ -1317,9 +1383,9 @@
         <div class="container">
 
             <div class="process-header anim">
-                <span class="eyebrow">How Trade Ordering Works</span>
+                <span class="eyebrow">Working With Greyloch</span>
                 <h2 class="section-title">Engineered for<br>builders. Built<br>for volume.</h2>
-                <p class="section-desc">From trade account setup to job-site delivery, our digital production workflow is designed to keep your project moving, on schedule, every time.</p>
+                <p class="section-desc">From your first trade account to job-site delivery, our digital production workflow keeps your project moving — on schedule, every time.</p>
             </div>
 
             <div class="process-grid">
@@ -1345,9 +1411,14 @@
                 <div class="process-step anim d4">
                     <div class="process-num">04</div>
                     <h3 class="process-step-title">Phased Job-Site Delivery</h3>
-                    <p class="process-step-desc">Cabinets are boxed and delivered in phase with your construction schedule, no warehouse dumps, no rework. Every delivery is staged for your super's sign-off.</p>
+                    <p class="process-step-desc">Cabinets are boxed and delivered in phase with your construction schedule — no warehouse dumps, no rework. Every delivery staged for your super's sign-off.</p>
                 </div>
 
+            </div>
+
+            <div style="margin-top: 4rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;" class="anim">
+                <a href="#contact" class="btn btn-primary">Become a Trade Partner</a>
+                <a href="#contact" style="font-family: var(--font-secondary); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); text-decoration: none;">Or call us at (208) 555-1234 &rarr;</a>
             </div>
 
         </div>
@@ -1398,13 +1469,13 @@
         <div class="cta-inner">
             <div class="container">
                 <div class="anim">
-                    <span class="eyebrow eyebrow-muted">Become a Trade Partner</span>
-                    <h2 class="cta-title">Partner with Greyloch.<br>Build at scale.</h2>
-                    <p class="cta-desc">Builders, developers, and contractors across the Treasure Valley rely on Greyloch's 97,000 sq ft automated facility for consistent quality at volume. Open your trade account today and get priority access to our production line.</p>
+                    <span class="eyebrow eyebrow-muted">Ready to Get Started?</span>
+                    <h2 class="cta-title">Let's build something<br>together.</h2>
+                    <p class="cta-desc">Reach out to our trade team and we'll walk you through account setup, volume pricing, and how we can fit into your next project — residential or commercial.</p>
                 </div>
                 <div class="cta-actions anim d1">
-                    <a href="tel:+12085551234" class="btn btn-white">Call Our Trade Team</a>
-                    <a href="#" class="btn btn-primary">Open a Trade Account</a>
+                    <a href="tel:+12085551234" class="btn btn-white">Call Our Team</a>
+                    <a href="#" class="btn btn-primary">Become a Trade Partner</a>
                 </div>
                 <div class="cta-locations anim d2">
                     <div class="cta-location">
@@ -1472,7 +1543,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p class="footer-copy">&copy; 2025 Greyloch LLC  ·  All rights reserved</p>
+                <p class="footer-copy">&copy; 2026 Greyloch LLC  ·  All rights reserved</p>
                 <div class="footer-green-mark"></div>
                 <p class="footer-copy">Meridian, Idaho &bull; Star, Idaho</p>
             </div>
@@ -1499,6 +1570,90 @@
         window.addEventListener('scroll', function () {
             nav.classList.toggle('scrolled', window.scrollY > 60);
         }, { passive: true });
+
+        /* ── Hero Slideshow ── */
+        (function () {
+            var DURATION = 5500; // ms per slide
+            var slides     = Array.from(document.querySelectorAll('.hero-slide'));
+            var indicators = Array.from(document.querySelectorAll('.hero-indicator'));
+            if (!slides.length) return;
+
+            var current = 0;
+            var timer   = null;
+            var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            function activate(idx) {
+                var prev = current;
+                current  = ((idx % slides.length) + slides.length) % slides.length;
+
+                slides[prev].classList.remove('active');
+                indicators[prev].classList.remove('active');
+                indicators[prev].classList.add('done');
+
+                slides[current].classList.add('active');
+                indicators.forEach(function (btn, i) {
+                    btn.setAttribute('aria-selected', i === current ? 'true' : 'false');
+                });
+
+                /* Restart progress bar by forcing reflow */
+                var btn = indicators[current];
+                btn.classList.remove('active', 'done');
+                void btn.offsetWidth;
+                btn.classList.add('active');
+            }
+
+            function next() { activate(current + 1); }
+            function prev() { activate(current - 1); }
+
+            function startTimer() {
+                clearInterval(timer);
+                if (!reduced) timer = setInterval(next, DURATION);
+            }
+
+            /* Click on indicators */
+            indicators.forEach(function (btn, i) {
+                btn.addEventListener('click', function () {
+                    if (i === current) return;
+                    activate(i);
+                    startTimer();
+                });
+            });
+
+            /* Touch / swipe support */
+            var heroEl  = document.querySelector('.hero');
+            var touchX  = 0;
+            var dragging = false;
+            if (heroEl) {
+                heroEl.addEventListener('touchstart', function (e) {
+                    touchX   = e.changedTouches[0].clientX;
+                    dragging = true;
+                }, { passive: true });
+                heroEl.addEventListener('touchend', function (e) {
+                    if (!dragging) return;
+                    dragging = false;
+                    var dx = e.changedTouches[0].clientX - touchX;
+                    if (Math.abs(dx) > 44) {
+                        dx < 0 ? next() : prev();
+                        startTimer();
+                    }
+                }, { passive: true });
+                heroEl.addEventListener('touchcancel', function () { dragging = false; }, { passive: true });
+
+                /* Pause on hover (desktop) */
+                heroEl.addEventListener('mouseenter', function () { clearInterval(timer); });
+                heroEl.addEventListener('mouseleave', startTimer);
+            }
+
+            /* Keyboard navigation when hero is focused */
+            document.addEventListener('keydown', function (e) {
+                if (e.target.closest && e.target.closest('.hero-indicators')) {
+                    if (e.key === 'ArrowRight') { next(); startTimer(); }
+                    if (e.key === 'ArrowLeft')  { prev(); startTimer(); }
+                }
+            });
+
+            startTimer();
+        })();
     </script>
 
 </body>
