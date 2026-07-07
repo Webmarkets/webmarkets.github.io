@@ -6,7 +6,7 @@
     <title>Greyloch, Custom Cabinetry | Meridian &amp; Star, Idaho</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;700&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
     <style>
 
         /* =============================================
@@ -32,8 +32,8 @@
             --divider:        rgba(43, 37, 30, 0.12);
             --divider-dark:   rgba(245, 241, 234, 0.12);
 
-            --serif:          'Cormorant Garamond', 'Times New Roman', serif;
-            --sans:           'Inter', 'Helvetica Neue', sans-serif;
+            --serif:          'Oswald', sans-serif;
+            --sans:           'Open Sans', 'Helvetica Neue', sans-serif;
 
             --nav-h:          84px;
             --ease-soft:      cubic-bezier(0.22, 1, 0.36, 1);
@@ -77,13 +77,15 @@
         }
         .serif-title {
             font-family: var(--serif);
-            font-weight: 300;
-            line-height: 1.08;
-            letter-spacing: 0.005em;
+            font-weight: 200;
+            line-height: 1.1;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
         }
         .serif-title em {
-            font-style: italic;
-            font-weight: 300;
+            font-style: normal;
+            font-weight: 400;
+            color: var(--oak-deep);
         }
 
         /* =============================================
@@ -320,14 +322,19 @@
         }
         .hero-title {
             font-family: var(--serif);
-            font-weight: 300;
-            font-size: clamp(3.2rem, 7.2vw, 6.4rem);
-            line-height: 1.02;
-            letter-spacing: 0.005em;
-            max-width: 12em;
+            font-weight: 200;
+            font-size: clamp(2.9rem, 6.8vw, 6rem);
+            line-height: 1.06;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            max-width: 14em;
             margin-bottom: 2.25rem;
         }
-        .hero-title em { font-style: italic; }
+        .hero-title em {
+            font-style: normal;
+            font-weight: 500;
+            color: var(--oak);
+        }
         .hero-desc {
             font-size: 1rem;
             font-weight: 300;
@@ -404,10 +411,11 @@
         }
         .palette-note {
             font-family: var(--serif);
-            font-weight: 300;
-            font-style: italic;
-            font-size: 1.35rem;
-            line-height: 1.5;
+            font-weight: 200;
+            font-size: 1.2rem;
+            line-height: 1.55;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
             color: var(--text-soft);
         }
         .palette-swatches {
@@ -450,13 +458,15 @@
         }
         .statement-quote {
             font-family: var(--serif);
-            font-weight: 300;
-            font-size: clamp(2rem, 4vw, 3.4rem);
-            line-height: 1.28;
+            font-weight: 200;
+            font-size: clamp(1.8rem, 3.4vw, 3rem);
+            line-height: 1.22;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
             color: var(--text);
             margin-bottom: 3.5rem;
         }
-        .statement-quote em { font-style: italic; color: var(--oak-deep); }
+        .statement-quote em { font-style: normal; font-weight: 500; color: var(--oak-deep); }
         .statement-body {
             max-width: 620px;
             margin: 0 auto 4.5rem;
@@ -480,8 +490,9 @@
         .stat-num {
             font-family: var(--serif);
             font-weight: 300;
-            font-size: 2.9rem;
+            font-size: 2.6rem;
             line-height: 1;
+            letter-spacing: 0.06em;
             color: var(--text);
             margin-bottom: 0.75rem;
         }
@@ -500,30 +511,37 @@
            room shot into a tight macro crop of the grain.
         ============================================== */
         .gallery {
-            background: var(--ivory-deep);
-            padding: 8rem 0 9rem;
+            background: var(--charcoal);
+            padding: 0;
         }
         .gallery-header {
             display: flex;
             align-items: flex-end;
             justify-content: space-between;
             gap: 3rem;
-            margin-bottom: 4.5rem;
+            padding: 5.5rem 4.5rem 3.5rem;
             flex-wrap: wrap;
         }
-        .gallery-title { font-size: clamp(2.2rem, 3.6vw, 3.2rem); }
+        .gallery-title {
+            font-size: clamp(2.2rem, 3.6vw, 3.2rem);
+            color: var(--ivory);
+        }
+        .gallery-title em { color: var(--oak); }
+        .gallery .eyebrow { color: rgba(245,241,234,0.42); }
         .gallery-hint {
-            font-family: var(--serif);
-            font-style: italic;
-            font-size: 1rem;
-            color: var(--text-faint);
+            font-family: var(--sans);
+            font-weight: 300;
+            font-size: 0.72rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(245,241,234,0.38);
         }
 
         .masonry {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            grid-auto-rows: 130px;
-            gap: 1.5rem;
+            grid-auto-rows: 180px;
+            gap: 3px;
         }
         .tile {
             position: relative;
@@ -576,9 +594,11 @@
         }
         .tile-name {
             font-family: var(--serif);
-            font-weight: 300;
-            font-size: 1.7rem;
+            font-weight: 200;
+            font-size: 1.55rem;
             line-height: 1.1;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
         }
         .tile-view {
             position: absolute;
@@ -608,10 +628,12 @@
         .craft-header { max-width: 720px; margin-bottom: 6rem; }
         .craft .eyebrow { color: rgba(245,241,234,0.4); }
         .craft-title {
-            font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+            font-size: clamp(2rem, 3.5vw, 3.1rem);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
             color: var(--ivory);
         }
-        .craft-title em { color: var(--oak); }
+        .craft-title em { font-style: normal; font-weight: 500; color: var(--oak); }
         .craft-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -626,19 +648,22 @@
         .craft-item:last-child { border-right: none; }
         .craft-item + .craft-item { padding-left: 3rem; }
         .craft-num {
-            font-family: var(--serif);
+            font-family: var(--sans);
             font-weight: 300;
-            font-style: italic;
-            font-size: 1.1rem;
+            font-size: 0.62rem;
+            letter-spacing: 0.36em;
+            text-transform: uppercase;
             color: var(--oak);
             display: block;
             margin-bottom: 1.75rem;
         }
         .craft-item h3 {
             font-family: var(--serif);
-            font-weight: 400;
-            font-size: 1.55rem;
-            line-height: 1.25;
+            font-weight: 300;
+            font-size: 1.4rem;
+            line-height: 1.22;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
             margin-bottom: 1.25rem;
         }
         .craft-item p {
@@ -692,12 +717,14 @@
         }
         .audience-title {
             font-family: var(--serif);
-            font-weight: 300;
-            font-size: 2.5rem;
+            font-weight: 200;
+            font-size: 2.3rem;
             line-height: 1.12;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
             margin-bottom: 1.25rem;
         }
-        .audience-title em { font-style: italic; }
+        .audience-title em { font-style: normal; font-weight: 500; }
         .audience-desc {
             font-size: 0.92rem;
             line-height: 1.8;
@@ -715,17 +742,21 @@
         }
         .voice-mark {
             font-family: var(--serif);
-            font-size: 5rem;
+            font-weight: 200;
+            font-size: 4rem;
             line-height: 0.5;
+            letter-spacing: 0.1em;
             color: var(--oak);
             display: block;
             margin-bottom: 2.5rem;
         }
         .voice-quote {
             font-family: var(--serif);
-            font-weight: 300;
-            font-size: clamp(1.6rem, 3vw, 2.5rem);
-            line-height: 1.42;
+            font-weight: 200;
+            font-size: clamp(1.45rem, 2.6vw, 2.2rem);
+            line-height: 1.5;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
             max-width: 900px;
             margin: 0 auto 3rem;
             color: var(--text);
@@ -769,9 +800,11 @@
             bottom: 3rem;
             z-index: 2;
             color: var(--ivory);
-            font-family: var(--serif);
-            font-style: italic;
-            font-size: 1.1rem;
+            font-family: var(--sans);
+            font-weight: 300;
+            font-size: 0.72rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
             text-shadow: 0 1px 24px rgba(20,17,13,0.6);
         }
         .contact-form-wrap {
@@ -781,7 +814,9 @@
             justify-content: center;
         }
         .contact-title {
-            font-size: clamp(2rem, 3vw, 2.9rem);
+            font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
             margin-bottom: 1.5rem;
         }
         .contact-sub {
@@ -866,12 +901,12 @@
         }
         .footer-logo img { width: 150px; margin-bottom: 1.75rem; }
         .footer-tagline {
-            font-family: var(--serif);
-            font-style: italic;
-            font-size: 1rem;
+            font-family: var(--sans);
+            font-weight: 300;
+            font-size: 0.82rem;
             color: rgba(245,241,234,0.45);
             max-width: 240px;
-            line-height: 1.7;
+            line-height: 1.85;
         }
         .footer-cols { display: flex; gap: 5.5rem; flex-wrap: wrap; }
         .footer-col-title {
@@ -930,7 +965,7 @@
         }
         @media (max-width: 1024px) {
             .nav-links { display: none; }
-            .masonry { grid-template-columns: repeat(2, 1fr); }
+            .masonry { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
             .craft-grid { grid-template-columns: 1fr; }
             .craft-item {
                 border-right: none;
@@ -954,8 +989,9 @@
             .statement-stats { flex-wrap: wrap; }
             .stat { flex: 1 1 50%; border-left: none; border-top: 1px solid var(--divider); }
             .stat:first-child, .stat:nth-child(2) { border-top: none; }
-            .masonry { grid-template-columns: 1fr; grid-auto-rows: 110px; }
+            .masonry { grid-template-columns: 1fr; grid-auto-rows: 150px; }
             .tile-tall { grid-row: span 3; }
+            .gallery-header { padding: 4rem 1.5rem 2.5rem; }
             .form-row { grid-template-columns: 1fr; gap: 0; }
             .contact-form-wrap { padding: 4rem 1.5rem; }
             .contact-locations { flex-direction: column; gap: 2rem; }
@@ -1101,16 +1137,15 @@
          room into a tight macro crop of the material.
     ============================================== -->
     <section class="gallery" id="gallery">
-        <div class="container">
-            <div class="gallery-header">
-                <div class="reveal">
-                    <span class="eyebrow">Versatile Craft</span>
-                    <h2 class="gallery-title serif-title">One workshop.<br><em>Every room of the home.</em></h2>
-                </div>
-                <p class="gallery-hint reveal delay-2">Hover any space to see the material up close.</p>
+        <div class="gallery-header">
+            <div class="reveal">
+                <span class="eyebrow">Versatile Craft</span>
+                <h2 class="gallery-title serif-title">One workshop.<br><em>Every room of the home.</em></h2>
             </div>
+            <p class="gallery-hint reveal delay-2">Hover any space to see the material up close.</p>
+        </div>
 
-            <div class="masonry">
+        <div class="masonry">
 
                 <a href="#contact" class="tile tile-tall reveal">
                     <img class="img-room" loading="lazy" decoding="async" src="./Assets/Photos/2846 W. Cassia St-64.jpg" alt="Fluted walnut kitchen island" style="object-position: 60% 50%;">
@@ -1178,7 +1213,6 @@
                     <span class="tile-view">View the Grain &rarr;</span>
                 </a>
 
-            </div>
         </div>
     </section>
 
