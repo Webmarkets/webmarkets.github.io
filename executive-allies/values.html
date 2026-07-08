@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Values | Executive Allies · Fractional CFO &amp; Controller Services · Eagle, ID</title>
+    <meta name="description" content="The six values that shape every client relationship, every conversation, and every decision at Executive Allies.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --navy:        #1B365D;
+            --navy-dark:   #122540;
+            --navy-darker: #0A1524;
+            --teal:        #2CB8C8;
+            --gold:        #C49A26;
+            --gold-soft:   #F5EDD3;
+            --gold-bg:     rgba(196, 154, 38, 0.10);
+            --gold-border: rgba(196, 154, 38, 0.35);
+
+            --cream:       #FBF7EF;
+            --ice-blue:    #EAF1F8;
+            --charcoal:    #1F1F1F;
+            --terracotta:  #B85042;
+
+            --bg:          var(--cream);
+            --card:        #ffffff;
+            --card-tint:   var(--ice-blue);
+
+            --text:        var(--charcoal);
+            --muted:       #6b7280;
+            --border:      #e5e7eb;
+            --border-dark: rgba(255,255,255,0.12);
+            --green:       #10b981;
+
+            --font-display: 'Manrope', -apple-system, sans-serif;
+            --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+            --shadow-sm: 0 1px 3px rgba(27, 54, 93, 0.06), 0 1px 2px rgba(27, 54, 93, 0.04);
+            --shadow-md: 0 4px 12px rgba(27, 54, 93, 0.10);
+            --shadow-lg: 0 20px 50px rgba(27, 54, 93, 0.12), 0 8px 20px rgba(27, 54, 93, 0.06);
+
+            --radius-sm: 6px;
+            --radius:    10px;
+            --radius-lg: 16px;
+            --maxw: 1180px;
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            background: var(--cream);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-weight: 400;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        ::selection { background: var(--navy); color: #fff; }
+        a { color: inherit; text-decoration: none; }
+
+        .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 2rem; }
+
+        .eyebrow {
+            font-size: 0.68rem;
+            letter-spacing: 0.26em;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin: 0 0 0.9rem;
+        }
+        .eyebrow-gold { color: var(--gold); }
+        .eyebrow-navy { color: var(--navy); }
+        .eyebrow-muted { color: var(--muted); }
+
+        /* ---------- Buttons ---------- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.45rem;
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.02em;
+            padding: 0.8rem 1.75rem;
+            border-radius: var(--radius);
+            border: 1.5px solid transparent;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            white-space: nowrap;
+        }
+        .btn-primary { background: var(--navy); color: #fff; box-shadow: var(--shadow-sm); }
+        .btn-primary:hover { background: var(--navy-darker); box-shadow: var(--shadow-md); transform: translateY(-1px); }
+
+        /* ---------- Header (light) ---------- */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+        }
+        .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+        .brand-mark { line-height: 1; }
+        .brand-name {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.05rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--navy);
+        }
+        .brand-name span { color: var(--gold); }
+        .brand-sub { font-size: 0.56rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-top: 0.28rem; }
+        .nav-links { display: flex; align-items: center; gap: 2.25rem; }
+        .nav-links a { font-size: 0.84rem; font-weight: 500; color: var(--muted); letter-spacing: 0.01em; transition: color 0.15s; }
+        .nav-links a:hover { color: var(--navy); }
+        .nav-links a.active { color: var(--navy); font-weight: 700; }
+        .nav-links .member-link {
+            color: var(--navy);
+            border: 1.5px solid var(--gold-border);
+            padding: 0.38rem 0.95rem;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 0.82rem;
+        }
+        .nav-links .member-link:hover { background: var(--gold-bg); border-color: var(--gold); }
+        .nav-cta .btn { padding: 0.6rem 1.35rem; font-size: 0.82rem; }
+        .nav-toggle { display: none; background: none; border: 0; cursor: pointer; color: var(--navy); }
+
+        /* ---------- Hero ---------- */
+        .values-hero {
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            padding: 5rem 0;
+        }
+        .values-hero-inner { max-width: 44rem; }
+        .values-hero h1 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 3.5rem;
+            line-height: 1.07;
+            letter-spacing: -0.025em;
+            color: var(--navy);
+            margin: 0.75rem 0 1.3rem;
+        }
+        .values-hero h1 em { font-style: italic; font-weight: 700; color: var(--gold); }
+        .values-hero .lede { font-size: 1.1rem; color: var(--muted); line-height: 1.75; margin: 0; }
+
+        /* ---------- Values grid ---------- */
+        section.block { padding: 7rem 0; }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        .value-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-top: 3px solid var(--gold);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .value-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+        .value-card .ghost-num {
+            position: absolute;
+            top: -1.5rem;
+            right: -0.5rem;
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 7.5rem;
+            line-height: 1;
+            letter-spacing: -0.04em;
+            color: rgba(196, 154, 38, 0.08);
+            pointer-events: none;
+            user-select: none;
+        }
+        .value-card .eyebrow { position: relative; margin-bottom: 0.75rem; }
+        .value-card h3 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.55rem;
+            letter-spacing: -0.01em;
+            color: var(--navy);
+            margin: 0 0 0.75rem;
+            position: relative;
+        }
+        .value-card p {
+            font-size: 0.94rem;
+            color: var(--muted);
+            line-height: 1.75;
+            margin: 0;
+            position: relative;
+        }
+
+        /* "Fun Socks" gets a striped-sock accent along the top border */
+        .value-card.fun-socks {
+            border-top-color: transparent;
+            background-image: repeating-linear-gradient(
+                90deg,
+                var(--gold) 0 22px,
+                var(--gold-soft) 22px 44px,
+                var(--navy) 44px 66px,
+                var(--gold-soft) 66px 88px
+            );
+            background-size: 100% 3px;
+            background-position: top left;
+            background-repeat: no-repeat;
+        }
+
+        /* ---------- Footer ---------- */
+        footer.site-footer {
+            background: var(--navy-darker);
+            color: rgba(255,255,255,0.7);
+            border-top: 3px solid var(--gold);
+            padding: 4.5rem 0 2.25rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255,255,255,0.10);
+        }
+        .footer-brand .brand-name { font-size: 0.9rem; color: var(--gold); }
+        .footer-brand .brand-name span { color: #fff; }
+        .footer-brand .brand-sub { margin-top: 0.3rem; }
+        .footer-brand > p { font-size: 0.88rem; line-height: 1.72; color: rgba(255,255,255,0.6); margin: 1.1rem 0 0; max-width: 20rem; }
+        .footer-col h4 { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin: 0 0 1.1rem; }
+        .footer-col a, .footer-col p { display: block; font-size: 0.88rem; color: rgba(255,255,255,0.65); margin: 0 0 0.65rem; transition: color 0.15s; }
+        .footer-col a:hover { color: var(--gold); }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 1.75rem; flex-wrap: wrap; gap: 1rem; }
+        .footer-bottom p { font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); font-weight: 600; margin: 0; }
+        .footer-legal { display: flex; gap: 1.5rem; }
+        .footer-legal a { font-size: 0.66rem; letter-spacing: 0.08em; color: rgba(255,255,255,0.4); }
+        .footer-legal a:hover { color: var(--gold); }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 980px) {
+            .values-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+        }
+        @media (max-width: 720px) {
+            .wrap { padding: 0 1.25rem; }
+            .nav-links { display: none; }
+            .nav-toggle { display: inline-flex; }
+            .values-hero { padding: 3.5rem 0; }
+            .values-hero h1 { font-size: 2.4rem; }
+            section.block { padding: 4.5rem 0; }
+            .value-card { padding: 1.9rem; }
+            .value-card h3 { font-size: 1.35rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER (light) -->
+    <header class="site-header">
+        <div class="wrap nav">
+            <a href="home-2.html" class="brand-mark">
+                <div class="brand-name">Executive <span>Allies</span></div>
+                <div class="brand-sub">Fractional CFO &amp; Controller Services</div>
+            </a>
+            <nav class="nav-links">
+                <a href="home-2.html#services">Services</a>
+                <a href="about.html">About Us</a>
+                <a href="home-2.html#subscription">Subscriptions</a>
+                <a href="contact.html">Contact</a>
+                <a href="accelerator-portal.html" class="member-link">Member Sign In &rarr;</a>
+            </nav>
+            <div class="nav-cta">
+                <a href="contact.html" class="btn btn-primary">Schedule a Call &rarr;</a>
+            </div>
+            <button class="nav-toggle" aria-label="Open menu">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="values-hero">
+        <div class="wrap">
+            <div class="values-hero-inner">
+                <p class="eyebrow eyebrow-navy">Get to Know Us &middot; Our Values</p>
+                <h1>Our <em>Values.</em></h1>
+                <p class="lede">
+                    At Executive Allies, the way we work matters just as much as the work itself.
+                    These six values shape every client relationship, every conversation, and every
+                    decision we make as a team.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- VALUES GRID -->
+    <section class="block">
+        <div class="wrap">
+            <div class="values-grid">
+                <div class="value-card">
+                    <span class="ghost-num">01</span>
+                    <p class="eyebrow eyebrow-gold">Value 01</p>
+                    <h3>Ownership</h3>
+                    <p>We treat our clients' businesses the way we'd treat our own. That means paying attention to the full picture, past, present, and future, and having the courage to speak up when we see something worth addressing, even when it's the harder path. We take responsibility for our actions and our recommendations, and we follow through.</p>
+                </div>
+                <div class="value-card">
+                    <span class="ghost-num">02</span>
+                    <p class="eyebrow eyebrow-gold">Value 02</p>
+                    <h3>Responsiveness</h3>
+                    <p>As essential members of our clients' teams, we're committed to quick, friendly communication. You can count on a response within 24 hours. When a team member is out, our team-based coverage model ensures there's always someone available for you. Continuous service isn't something we aspire to. It's something we deliver.</p>
+                </div>
+                <div class="value-card fun-socks">
+                    <span class="ghost-num">03</span>
+                    <p class="eyebrow eyebrow-gold">Value 03</p>
+                    <h3>Fun Socks</h3>
+                    <p>We're a professional firm, but we don't take ourselves too seriously. We have fun while we work, and we think a little humor goes a long way, even when you're deep in a spreadsheet. Because who says accounting can't have a little personality?</p>
+                </div>
+                <div class="value-card">
+                    <span class="ghost-num">04</span>
+                    <p class="eyebrow eyebrow-gold">Value 04</p>
+                    <h3>Inspire Trust</h3>
+                    <p>Trust is the foundation of everything we do. It shapes every relationship, every communication, and every project we take on. We believe that trust, once earned, changes the quality of every interaction and every outcome. We work to build it intentionally and protect it every day.</p>
+                </div>
+                <div class="value-card">
+                    <span class="ghost-num">05</span>
+                    <p class="eyebrow eyebrow-gold">Value 05</p>
+                    <h3>Providing the Best Value</h3>
+                    <p>We never want to be merely an accounting solution. Our goal is to be a true business ally. That means sharing what we know, speaking into your business when we have something worth adding, and bringing the ideas, tools, and experience we've gathered across years of working with businesses like yours. We want our services to be genuinely valuable, not just adequate.</p>
+                </div>
+                <div class="value-card">
+                    <span class="ghost-num">06</span>
+                    <p class="eyebrow eyebrow-gold">Value 06</p>
+                    <h3>Engaging with Empathy</h3>
+                    <p>We approach every conversation with curiosity and care. Each person we work with has their own challenges, goals, and life outside of work, and we keep that in mind. When we engage with empathy, we listen for understanding, build stronger relationships, and show up as a more reliable ally for the people and organizations we serve.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="brand-name">Executive <span>Allies</span></div>
+                    <div class="brand-sub">Fractional CFO &amp; Controller Services</div>
+                    <p>A top strategic accounting firm in Boise, Idaho - serving the Treasure Valley and nearby regions through customizable, subscription-based financial services.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <a href="home-2.html#services">Accounts Payable</a>
+                    <a href="home-2.html#services">Accounts Receivable</a>
+                    <a href="home-2.html#services">Bookkeeping</a>
+                    <a href="home-2.html#services">Cash Flow Forecasting</a>
+                    <a href="home-2.html#services">Month-End Close</a>
+                    <a href="home-2.html#services">Financial Forecasting</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="about.html">Who We Are</a>
+                    <a href="home-2.html#subscription">Subscriptions</a>
+                    <a href="values.html">Our Values</a>
+                    <a href="https://www.theexecutiveallies.com">Careers</a>
+                    <a href="https://www.theexecutiveallies.com">Articles</a>
+                    <a href="accelerator-portal.html">Member Portal</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>539 S Fitness Pl, Suite 100<br>Eagle, ID 83616</p>
+                    <a href="tel:+12085100875">208-510-0875</a>
+                    <a href="mailto:info@theexecutiveallies.com">info@theexecutiveallies.com</a>
+                    <a href="https://www.theexecutiveallies.com">theexecutiveallies.com</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Executive Allies &middot; All Rights Reserved</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

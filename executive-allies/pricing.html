@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing &amp; Subscription Plans | Executive Allies · Fractional CFO &amp; Controller Services · Eagle, ID</title>
+    <meta name="description" content="Executive Allies delivers fractional CFO and Controller services through a customizable, month-to-month subscription model. Three tiers of service plus a la carte options.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --navy:        #1B365D;
+            --navy-dark:   #122540;
+            --navy-darker: #0A1524;
+            --teal:        #2CB8C8;
+            --gold:        #C49A26;
+            --gold-soft:   #F5EDD3;
+            --gold-bg:     rgba(196, 154, 38, 0.10);
+            --gold-border: rgba(196, 154, 38, 0.35);
+
+            --cream:       #FBF7EF;
+            --ice-blue:    #EAF1F8;
+            --charcoal:    #1F1F1F;
+            --terracotta:  #B85042;
+
+            --bg:          var(--cream);
+            --card:        #ffffff;
+            --card-tint:   var(--ice-blue);
+
+            --text:        var(--charcoal);
+            --muted:       #6b7280;
+            --border:      #e5e7eb;
+            --border-dark: rgba(255,255,255,0.12);
+            --green:       #10b981;
+
+            --font-display: 'Manrope', -apple-system, sans-serif;
+            --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+            --shadow-sm: 0 1px 3px rgba(27, 54, 93, 0.06), 0 1px 2px rgba(27, 54, 93, 0.04);
+            --shadow-md: 0 4px 12px rgba(27, 54, 93, 0.10);
+            --shadow-lg: 0 20px 50px rgba(27, 54, 93, 0.12), 0 8px 20px rgba(27, 54, 93, 0.06);
+
+            --radius-sm: 6px;
+            --radius:    10px;
+            --radius-lg: 16px;
+            --maxw: 1180px;
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            background: var(--cream);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-weight: 400;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        ::selection { background: var(--navy); color: #fff; }
+        a { color: inherit; text-decoration: none; }
+
+        .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 2rem; }
+
+        .eyebrow {
+            font-size: 0.68rem;
+            letter-spacing: 0.26em;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin: 0 0 0.9rem;
+        }
+        .eyebrow-gold { color: var(--gold); }
+        .eyebrow-navy { color: var(--navy); }
+        .eyebrow-muted { color: var(--muted); }
+
+        /* ---------- Buttons ---------- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.45rem;
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.02em;
+            padding: 0.8rem 1.75rem;
+            border-radius: var(--radius);
+            border: 1.5px solid transparent;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            white-space: nowrap;
+        }
+        .btn-primary { background: var(--navy); color: #fff; box-shadow: var(--shadow-sm); }
+        .btn-primary:hover { background: var(--navy-darker); box-shadow: var(--shadow-md); transform: translateY(-1px); }
+        .btn-gold { background: var(--gold); color: var(--navy); }
+        .btn-gold:hover { background: var(--gold-soft); box-shadow: var(--shadow-md); transform: translateY(-1px); }
+        .btn-outline { background: transparent; color: var(--navy); border-color: var(--border); }
+        .btn-outline:hover { border-color: var(--navy); background: var(--card); box-shadow: var(--shadow-sm); }
+        .btn-outline-light { background: transparent; color: #fff; border-color: rgba(255,255,255,0.45); }
+        .btn-outline-light:hover { background: rgba(255,255,255,0.10); border-color: #fff; }
+
+        /* ---------- Header (light) ---------- */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+        }
+        .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+        .brand-mark { line-height: 1; }
+        .brand-name {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.05rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--navy);
+        }
+        .brand-name span { color: var(--gold); }
+        .brand-sub { font-size: 0.56rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-top: 0.28rem; }
+        .nav-links { display: flex; align-items: center; gap: 2.25rem; }
+        .nav-links a { font-size: 0.84rem; font-weight: 500; color: var(--muted); letter-spacing: 0.01em; transition: color 0.15s; }
+        .nav-links a:hover { color: var(--navy); }
+        .nav-links a.active { color: var(--navy); font-weight: 700; }
+        .nav-links .member-link {
+            color: var(--navy);
+            border: 1.5px solid var(--gold-border);
+            padding: 0.38rem 0.95rem;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 0.82rem;
+        }
+        .nav-links .member-link:hover { background: var(--gold-bg); border-color: var(--gold); }
+        .nav-cta .btn { padding: 0.6rem 1.35rem; font-size: 0.82rem; }
+        .nav-toggle { display: none; background: none; border: 0; cursor: pointer; color: var(--navy); }
+
+        /* ---------- Hero ---------- */
+        .pricing-hero {
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            padding: 5rem 0;
+        }
+        .pricing-hero-inner { max-width: 46rem; }
+        .pricing-hero h1 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 3.5rem;
+            line-height: 1.07;
+            letter-spacing: -0.025em;
+            color: var(--navy);
+            margin: 0.75rem 0 1.3rem;
+        }
+        .pricing-hero h1 em { font-style: italic; font-weight: 700; color: var(--gold); }
+        .pricing-hero .lede { font-size: 1.1rem; color: var(--muted); line-height: 1.75; margin: 0 0 1.1rem; }
+        .pricing-hero .lede:last-child { margin-bottom: 0; }
+
+        /* ---------- Subscription tiers (dark navy) ---------- */
+        .tiers-section {
+            background: linear-gradient(160deg, var(--navy) 0%, var(--navy-darker) 100%);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        .tiers-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(201,169,97,0.06) 1px, transparent 1.5px);
+            background-size: 22px 22px;
+            pointer-events: none;
+        }
+        .tiers-inner { position: relative; z-index: 1; padding: 6.5rem 0; }
+        .tiers-head { max-width: 42rem; margin-bottom: 3.25rem; }
+        .tiers-head h2 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 2.4rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: #fff;
+            margin: 0.75rem 0 0;
+        }
+
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            align-items: start;
+        }
+        .tier-card {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.10);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+        }
+        .tier-card.featured {
+            background: var(--card);
+            border-color: var(--gold);
+            border-top: 3px solid var(--gold);
+            box-shadow: var(--shadow-lg);
+        }
+        .tier-label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin: 0 0 0.4rem; }
+        .tier-name { font-family: var(--font-display); font-weight: 800; font-size: 1.35rem; color: #fff; margin: 0 0 1rem; }
+        .tier-card.featured .tier-name { color: var(--navy); }
+        .tier-best {
+            background: var(--gold-bg);
+            border: 1px solid var(--gold-border);
+            border-radius: var(--radius);
+            padding: 0.85rem 1rem;
+            font-size: 0.82rem;
+            line-height: 1.6;
+            color: #fff;
+            margin: 0 0 1.25rem;
+        }
+        .tier-best strong { color: var(--gold); font-weight: 700; }
+        .tier-card.featured .tier-best { color: var(--text); }
+        .tier-card.featured .tier-best strong { color: var(--gold); }
+        .tier-desc { font-size: 0.88rem; color: #fff; margin: 0 0 1.5rem; line-height: 1.72; }
+        .tier-card.featured .tier-desc { color: var(--text); }
+        .tier-includes-label {
+            font-size: 0.62rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #fff;
+            margin: 0 0 0.5rem;
+        }
+        .tier-card.featured .tier-includes-label { color: var(--text); }
+        .tier-features { list-style: none; padding: 0; margin: 0 0 1.75rem; }
+        .tier-features li {
+            font-size: 0.84rem;
+            color: #fff;
+            padding: 0.5rem 0 0.5rem 1.4rem;
+            position: relative;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            line-height: 1.5;
+        }
+        .tier-card.featured .tier-features li { color: var(--text); border-bottom-color: var(--border); }
+        .tier-features li:last-child { border-bottom: 0; }
+        .tier-features li::before { content: "✓"; position: absolute; left: 0; top: 0.5rem; color: var(--gold); font-weight: 700; font-size: 0.78rem; }
+
+        /* ---------- A La Carte ---------- */
+        section.block { padding: 7rem 0; }
+        .section-head { max-width: 44rem; margin-bottom: 3rem; }
+        .section-head h2 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 2.4rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--navy);
+            margin: 0 0 0.9rem;
+        }
+        .section-head p { font-size: 1.02rem; color: var(--muted); margin: 0; line-height: 1.72; }
+
+        .alacarte-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+        .alacarte-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.6rem 1.75rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .alacarte-check {
+            flex-shrink: 0;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--gold-bg);
+            border: 1px solid var(--gold-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 0.78rem;
+            font-weight: 800;
+            margin-top: 0.05rem;
+        }
+        .alacarte-card p {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 0.94rem;
+            line-height: 1.55;
+            color: var(--navy);
+            margin: 0;
+        }
+
+        /* ---------- How Pricing Works ---------- */
+        .how-pricing { background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .how-split {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 5rem;
+            align-items: center;
+        }
+        .how-body h2 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 2.5rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--navy);
+            margin: 0.75rem 0 1.35rem;
+        }
+        .how-body h2 em { font-style: italic; font-weight: 700; color: var(--gold); }
+        .drop-para {
+            font-size: 1.02rem;
+            color: var(--text);
+            line-height: 1.8;
+            margin: 0;
+        }
+        .drop-para::first-letter {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 3.5em;
+            line-height: 0.82;
+            float: left;
+            padding: 0.06em 0.12em 0 0;
+            color: var(--navy);
+        }
+        .how-body .cta-row { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
+        .how-panel {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+            color: #fff;
+            border-radius: var(--radius-lg);
+            border-top: 3px solid var(--gold);
+            padding: 2.75rem;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+        .how-panel::after {
+            content: "EA";
+            position: absolute;
+            right: -1.5rem;
+            bottom: -2.5rem;
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 9rem;
+            letter-spacing: -0.04em;
+            color: rgba(255,255,255,0.04);
+            pointer-events: none;
+        }
+        .how-panel p {
+            font-family: var(--font-display);
+            font-weight: 300;
+            font-size: 1.3rem;
+            line-height: 1.6;
+            color: #fff;
+            margin: 0;
+            position: relative;
+        }
+
+        /* ---------- FAQ ---------- */
+        .faq-section { background: var(--cream); }
+        .faq-list { max-width: 52rem; }
+        .faq-item {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .faq-item:last-child { margin-bottom: 0; }
+        .faq-item[open] { border-color: var(--gold-border); box-shadow: var(--shadow-md); }
+        .faq-item summary {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            cursor: pointer;
+            padding: 1.4rem 1.75rem;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--navy);
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-chevron {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--gold-bg);
+            border: 1px solid var(--gold-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            transition: transform 0.2s ease;
+        }
+        .faq-item[open] .faq-chevron { transform: rotate(180deg); }
+        .faq-item .faq-answer {
+            padding: 0 1.75rem 1.5rem;
+            font-size: 0.96rem;
+            color: var(--muted);
+            line-height: 1.78;
+            margin: 0;
+        }
+
+        /* ---------- Closing CTA ---------- */
+        .closing { background: var(--cream); padding-top: 0; }
+        .closing-card {
+            background: var(--navy);
+            border-radius: var(--radius-lg);
+            padding: 5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        .closing-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(201,169,97,0.07) 1px, transparent 1.5px);
+            background-size: 22px 22px;
+            pointer-events: none;
+        }
+        .closing-card .eyebrow-gold { color: var(--gold); position: relative; }
+        .closing-card h2 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 2.6rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: #fff;
+            margin: 0.75rem auto 1.1rem;
+            max-width: 38rem;
+            position: relative;
+        }
+        .closing-card h2 em { font-style: italic; color: var(--gold); }
+        .closing-card p {
+            font-size: 1.02rem;
+            color: rgba(255,255,255,0.75);
+            max-width: 34rem;
+            margin: 0 auto 2.5rem;
+            line-height: 1.72;
+            position: relative;
+        }
+        .closing-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        /* ---------- Footer ---------- */
+        footer.site-footer {
+            background: var(--navy-darker);
+            color: rgba(255,255,255,0.7);
+            border-top: 3px solid var(--gold);
+            padding: 4.5rem 0 2.25rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255,255,255,0.10);
+        }
+        .footer-brand .brand-name { font-size: 0.9rem; color: var(--gold); }
+        .footer-brand .brand-name span { color: #fff; }
+        .footer-brand .brand-sub { margin-top: 0.3rem; }
+        .footer-brand > p { font-size: 0.88rem; line-height: 1.72; color: rgba(255,255,255,0.6); margin: 1.1rem 0 0; max-width: 20rem; }
+        .footer-col h4 { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin: 0 0 1.1rem; }
+        .footer-col a, .footer-col p { display: block; font-size: 0.88rem; color: rgba(255,255,255,0.65); margin: 0 0 0.65rem; transition: color 0.15s; }
+        .footer-col a:hover { color: var(--gold); }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 1.75rem; flex-wrap: wrap; gap: 1rem; }
+        .footer-bottom p { font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); font-weight: 600; margin: 0; }
+        .footer-legal { display: flex; gap: 1.5rem; }
+        .footer-legal a { font-size: 0.66rem; letter-spacing: 0.08em; color: rgba(255,255,255,0.4); }
+        .footer-legal a:hover { color: var(--gold); }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 980px) {
+            .tiers-grid { grid-template-columns: 1fr; max-width: 420px; }
+            .alacarte-grid { grid-template-columns: repeat(2, 1fr); }
+            .how-split { grid-template-columns: 1fr; gap: 2.5rem; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+            .closing-card { padding: 3rem 2rem; }
+            .closing-card h2 { font-size: 2rem; }
+        }
+        @media (max-width: 720px) {
+            .wrap { padding: 0 1.25rem; }
+            .nav-links { display: none; }
+            .nav-toggle { display: inline-flex; }
+            .pricing-hero { padding: 3.5rem 0; }
+            .pricing-hero h1 { font-size: 2.4rem; }
+            section.block { padding: 4.5rem 0; }
+            .tiers-inner { padding: 4.5rem 0; }
+            .tiers-head h2, .section-head h2, .how-body h2 { font-size: 1.9rem; }
+            .alacarte-grid { grid-template-columns: 1fr; }
+            .how-panel { padding: 2rem; }
+            .how-panel p { font-size: 1.1rem; }
+            .faq-item summary { padding: 1.15rem 1.25rem; font-size: 0.98rem; }
+            .faq-item .faq-answer { padding: 0 1.25rem 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER (light) -->
+    <header class="site-header">
+        <div class="wrap nav">
+            <a href="home-2.html" class="brand-mark">
+                <div class="brand-name">Executive <span>Allies</span></div>
+                <div class="brand-sub">Fractional CFO &amp; Controller Services</div>
+            </a>
+            <nav class="nav-links">
+                <a href="home-2.html#services">Services</a>
+                <a href="about.html">About Us</a>
+                <a href="pricing.html" class="active">Subscriptions</a>
+                <a href="contact.html">Contact</a>
+                <a href="accelerator-portal.html" class="member-link">Member Sign In &rarr;</a>
+            </nav>
+            <div class="nav-cta">
+                <a href="contact.html" class="btn btn-primary">Schedule a Call &rarr;</a>
+            </div>
+            <button class="nav-toggle" aria-label="Open menu">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="pricing-hero">
+        <div class="wrap">
+            <div class="pricing-hero-inner">
+                <p class="eyebrow eyebrow-navy">Month-to-Month &middot; No Long-Term Contracts</p>
+                <h1>Pricing and <em>Subscription Plans.</em></h1>
+                <p class="lede">
+                    At Executive Allies, our services are delivered through a customizable,
+                    month-to-month subscription model. No long-term contracts, no hourly billing,
+                    and no surprise invoices. You know exactly what you're getting and what you're
+                    paying for every single month.
+                </p>
+                <p class="lede">
+                    We offer three tiers of service built around the size and stage of your
+                    business, plus a la carte options for specific project needs.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SUBSCRIPTION TIERS (dark navy) -->
+    <section id="tiers" class="tiers-section">
+        <div class="wrap tiers-inner">
+            <div class="tiers-head">
+                <p class="eyebrow eyebrow-gold">Three Levels of Support</p>
+                <h2>Our Subscription Tiers</h2>
+            </div>
+            <div class="tiers-grid">
+                <div class="tier-card">
+                    <p class="tier-label">Level 01</p>
+                    <p class="tier-name">Financial Guidance</p>
+                    <p class="tier-best"><strong>Best for:</strong> Businesses with $1 to $3 million in revenue that are ready to hand off their day-to-day accounting.</p>
+                    <p class="tier-desc">At this level, we take the entire accounting function off your plate so you can focus on running your business. This is the right fit for founders and owners who are currently managing their own books or overseeing data entry themselves and are ready for a more reliable, professional system.</p>
+                    <p class="tier-includes-label">What's included</p>
+                    <ul class="tier-features">
+                        <li>Accounts payable: bill pay and vendor management</li>
+                        <li>Accounts receivable: customer invoicing and collections</li>
+                        <li>Payroll processing</li>
+                        <li>Cash management</li>
+                        <li>Month-end close</li>
+                        <li>Financial statement preparation</li>
+                        <li>Ongoing education so you understand and can use your numbers</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline-light" style="width:100%;">Contact Us to Get Started &rarr;</a>
+                </div>
+                <div class="tier-card featured">
+                    <p class="tier-label">Level 02</p>
+                    <p class="tier-name">Controller Services</p>
+                    <p class="tier-best"><strong>Best for:</strong> Businesses with $2 to $20 million in revenue and approximately 10 to 40 employees that need accounting leadership overseeing their monthly financial close.</p>
+                    <p class="tier-desc">At this level, we provide experienced controller-level oversight of your entire accounting function, along with forward-looking cash flow management to keep you planning ahead.</p>
+                    <p class="tier-includes-label">What's included</p>
+                    <ul class="tier-features">
+                        <li>Everything in Financial Guidance</li>
+                        <li>Month-end close oversight and review</li>
+                        <li>Balance sheet reconciliation</li>
+                        <li>Cash flow management and 8 to 12 week rolling forecast</li>
+                        <li>Monthly financial statement review and analysis</li>
+                        <li>Internal control review and recommendations</li>
+                        <li>Budget and projection development</li>
+                        <li>Monthly strategy meeting covering prior month financials, cash flow forecast, and planning for the month ahead</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary" style="width:100%;">Contact Us to Get Started &rarr;</a>
+                </div>
+                <div class="tier-card">
+                    <p class="tier-label">Level 03</p>
+                    <p class="tier-name">Fractional CFO</p>
+                    <p class="tier-best"><strong>Best for:</strong> Businesses generating more than $15 million in revenue, companies in a rapid growth phase, or businesses preparing for a significant financial event such as a capital raise, acquisition, or ownership transition.</p>
+                    <p class="tier-desc">At this level, we become part of your leadership team, providing the strategic financial guidance and executive-level insight that drives your business forward.</p>
+                    <p class="tier-includes-label">What's included</p>
+                    <ul class="tier-features">
+                        <li>Everything in Controller Services</li>
+                        <li>Strategic financial planning and modeling</li>
+                        <li>KPI development and weekly data analysis</li>
+                        <li>Attendance at key investor, director, and leadership meetings</li>
+                        <li>Investor and lender communication support</li>
+                        <li>Mergers and acquisitions assistance</li>
+                        <li>Growth planning and financial forecasting</li>
+                        <li>Support through significant financial events and transitions</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline-light" style="width:100%;">Contact Us to Get Started &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- A LA CARTE SERVICES -->
+    <section id="a-la-carte" class="block">
+        <div class="wrap">
+            <div class="section-head">
+                <p class="eyebrow eyebrow-muted">Beyond the Subscription</p>
+                <h2>A La Carte Services</h2>
+                <p>In addition to our subscription tiers, we offer a la carte services for specific project needs:</p>
+            </div>
+            <div class="alacarte-grid">
+                <div class="alacarte-card">
+                    <span class="alacarte-check">✓</span>
+                    <p>Project management</p>
+                </div>
+                <div class="alacarte-card">
+                    <span class="alacarte-check">✓</span>
+                    <p>Accounting software conversion oversight</p>
+                </div>
+                <div class="alacarte-card">
+                    <span class="alacarte-check">✓</span>
+                    <p>Transition of accounting team to cloud-based programs</p>
+                </div>
+                <div class="alacarte-card">
+                    <span class="alacarte-check">✓</span>
+                    <p>Mergers and acquisitions assistance</p>
+                </div>
+                <div class="alacarte-card">
+                    <span class="alacarte-check">✓</span>
+                    <p>Technical accounting memos, including ASC 606 and ASC 842</p>
+                </div>
+                <div class="alacarte-card">
+                    <span class="alacarte-check">✓</span>
+                    <p>Other accounting services per client request</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW PRICING WORKS -->
+    <section id="how-pricing-works" class="how-pricing block">
+        <div class="wrap how-split">
+            <div class="how-body">
+                <p class="eyebrow eyebrow-muted">Custom to Your Business</p>
+                <h2>How Pricing <em>Works.</em></h2>
+                <p class="drop-para">Our subscription pricing is customized based on the size and complexity of your business and the level of service you need. We don't publish fixed rates because every engagement is different, and we want to make sure you're only paying for what you actually need.</p>
+                <div class="cta-row">
+                    <a href="contact.html" class="btn btn-gold">Contact Us to Get Started</a>
+                </div>
+            </div>
+            <div class="how-panel">
+                <p>The best way to get a sense of cost is to have a conversation with our team. We'll learn about your business, identify the right service tier, and give you a clear, straightforward proposal with no hidden fees.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq-section block">
+        <div class="wrap">
+            <div class="section-head">
+                <p class="eyebrow eyebrow-muted">Frequently Asked</p>
+                <h2>Common Questions About Our Subscriptions</h2>
+            </div>
+            <div class="faq-list">
+                <details class="faq-item" open>
+                    <summary>
+                        Is there a long-term contract?
+                        <span class="faq-chevron">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </span>
+                    </summary>
+                    <p class="faq-answer">No. All of our engagements are month-to-month. We earn your business every month, and you have the flexibility to adjust your subscription as your needs change.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>
+                        Can I upgrade or downgrade my plan?
+                        <span class="faq-chevron">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </span>
+                    </summary>
+                    <p class="faq-answer">Yes. Your subscription is built to grow with your business. If you need more support, we scale up. If your situation changes, we adjust accordingly.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>
+                        What if I only need help with one specific thing?
+                        <span class="faq-chevron">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </span>
+                    </summary>
+                    <p class="faq-answer">We offer a la carte services for clients who have a specific project need rather than ongoing support. Reach out and we'll let you know if it's a good fit.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>
+                        Do you work with businesses outside of Boise?
+                        <span class="faq-chevron">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </span>
+                    </summary>
+                    <p class="faq-answer">Yes. While we're based in Eagle, Idaho and primarily serve businesses across the Treasure Valley, we work with clients throughout the United States.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLOSING CTA -->
+    <section class="closing block">
+        <div class="wrap">
+            <div class="closing-card">
+                <p class="eyebrow eyebrow-gold">Get Started Today</p>
+                <h2>Ready to Find the Right Plan for Your <em>Business?</em></h2>
+                <p>Executive Allies serves businesses across Boise, Eagle, Meridian, Nampa, and the greater Treasure Valley. Let's talk about what level of support makes the most sense for where you are right now.</p>
+                <div class="closing-actions">
+                    <a href="contact.html" class="btn btn-gold">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="brand-name">Executive <span>Allies</span></div>
+                    <div class="brand-sub">Fractional CFO &amp; Controller Services</div>
+                    <p>A top strategic accounting firm in Boise, Idaho - serving the Treasure Valley and nearby regions through customizable, subscription-based financial services.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <a href="home-2.html#services">Accounts Payable</a>
+                    <a href="home-2.html#services">Accounts Receivable</a>
+                    <a href="home-2.html#services">Bookkeeping</a>
+                    <a href="home-2.html#services">Cash Flow Forecasting</a>
+                    <a href="home-2.html#services">Month-End Close</a>
+                    <a href="home-2.html#services">Financial Forecasting</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="about.html">Who We Are</a>
+                    <a href="how-it-works.html">How It Works</a>
+                    <a href="pricing.html">Subscriptions</a>
+                    <a href="values.html">Our Values</a>
+                    <a href="careers.html">Careers</a>
+                    <a href="accelerator-portal.html">Member Portal</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>539 S Fitness Pl, Suite 100<br>Eagle, ID 83616</p>
+                    <a href="tel:+12085100875">208-510-0875</a>
+                    <a href="mailto:info@theexecutiveallies.com">info@theexecutiveallies.com</a>
+                    <a href="https://www.theexecutiveallies.com">theexecutiveallies.com</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Executive Allies &middot; All Rights Reserved</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

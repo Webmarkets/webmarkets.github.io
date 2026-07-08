@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nate Schrandt | Executive Allies · Fractional CFO &amp; Controller Services · Eagle, ID</title>
+    <meta name="description" content="Nate Schrandt, Co-Founder, CFO | Executive Allies.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --navy:        #1B365D;
+            --navy-dark:   #122540;
+            --navy-darker: #0A1524;
+            --teal:        #2CB8C8;
+            --gold:        #C49A26;
+            --gold-soft:   #F5EDD3;
+            --gold-bg:     rgba(196, 154, 38, 0.10);
+            --gold-border: rgba(196, 154, 38, 0.35);
+
+            --cream:       #FBF7EF;
+            --ice-blue:    #EAF1F8;
+            --charcoal:    #1F1F1F;
+            --terracotta:  #B85042;
+
+            --bg:          var(--cream);
+            --card:        #ffffff;
+            --card-tint:   var(--ice-blue);
+
+            --text:        var(--charcoal);
+            --muted:       #6b7280;
+            --border:      #e5e7eb;
+            --border-dark: rgba(255,255,255,0.12);
+            --green:       #10b981;
+
+            --font-display: 'Manrope', -apple-system, sans-serif;
+            --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+            --shadow-sm: 0 1px 3px rgba(27, 54, 93, 0.06), 0 1px 2px rgba(27, 54, 93, 0.04);
+            --shadow-md: 0 4px 12px rgba(27, 54, 93, 0.10);
+            --shadow-lg: 0 20px 50px rgba(27, 54, 93, 0.12), 0 8px 20px rgba(27, 54, 93, 0.06);
+
+            --radius-sm: 6px;
+            --radius:    10px;
+            --radius-lg: 16px;
+            --maxw: 1180px;
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            background: var(--cream);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-weight: 400;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        ::selection { background: var(--navy); color: #fff; }
+        a { color: inherit; text-decoration: none; }
+
+        .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 2rem; }
+
+        .eyebrow {
+            font-size: 0.68rem;
+            letter-spacing: 0.26em;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin: 0 0 0.9rem;
+        }
+        .eyebrow-gold { color: var(--gold); }
+        .eyebrow-navy { color: var(--navy); }
+        .eyebrow-muted { color: var(--muted); }
+
+        /* ---------- Buttons ---------- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.45rem;
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.02em;
+            padding: 0.8rem 1.75rem;
+            border-radius: var(--radius);
+            border: 1.5px solid transparent;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            white-space: nowrap;
+        }
+        .btn-primary { background: var(--navy); color: #fff; box-shadow: var(--shadow-sm); }
+        .btn-primary:hover { background: var(--navy-darker); box-shadow: var(--shadow-md); transform: translateY(-1px); }
+        .btn-gold { background: var(--gold); color: var(--navy); }
+        .btn-gold:hover { background: var(--gold-soft); box-shadow: var(--shadow-md); transform: translateY(-1px); }
+
+        /* ---------- Header (light) ---------- */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+        }
+        .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+        .brand-mark { line-height: 1; }
+        .brand-name {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.05rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--navy);
+        }
+        .brand-name span { color: var(--gold); }
+        .brand-sub { font-size: 0.56rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-top: 0.28rem; }
+        .nav-links { display: flex; align-items: center; gap: 2.25rem; }
+        .nav-links a { font-size: 0.84rem; font-weight: 500; color: var(--muted); letter-spacing: 0.01em; transition: color 0.15s; }
+        .nav-links a:hover { color: var(--navy); }
+        .nav-links a.active { color: var(--navy); font-weight: 700; }
+        .nav-links .member-link {
+            color: var(--navy);
+            border: 1.5px solid var(--gold-border);
+            padding: 0.38rem 0.95rem;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 0.82rem;
+        }
+        .nav-links .member-link:hover { background: var(--gold-bg); border-color: var(--gold); }
+        .nav-cta .btn { padding: 0.6rem 1.35rem; font-size: 0.82rem; }
+        .nav-toggle { display: none; background: none; border: 0; cursor: pointer; color: var(--navy); }
+
+        /* ---------- Profile hero (light, asymmetric split) ---------- */
+        .profile-hero {
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            padding: 5.5rem 0;
+        }
+        .profile-hero-inner {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .profile-copy .eyebrow a:hover { color: var(--gold); }
+        .profile-copy h1 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 3.75rem;
+            line-height: 1.07;
+            letter-spacing: -0.025em;
+            color: var(--navy);
+            margin: 0.75rem 0 1.1rem;
+        }
+        .profile-copy h1 em { font-style: italic; font-weight: 700; color: var(--gold); }
+        .profile-role {
+            font-family: var(--font-body);
+            font-size: 0.78rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--muted);
+            margin: 0 0 2.25rem;
+        }
+        .profile-role::after {
+            content: "";
+            display: block;
+            width: 44px;
+            height: 2px;
+            background: var(--gold);
+            margin-top: 1.1rem;
+            border-radius: 1px;
+        }
+        .profile-contact {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .contact-label {
+            font-size: 0.68rem;
+            letter-spacing: 0.26em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 0;
+        }
+
+        /* Right: portrait with offset gold frame */
+        .profile-photo-wrap {
+            position: relative;
+            max-width: 400px;
+            margin-left: auto;
+        }
+        .profile-photo-wrap::before {
+            content: "";
+            position: absolute;
+            top: -16px;
+            right: -16px;
+            bottom: 16px;
+            left: 16px;
+            border: 2px solid var(--gold);
+            border-radius: var(--radius-lg);
+            pointer-events: none;
+        }
+        .profile-photo {
+            display: block;
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        /* ---------- Bio ---------- */
+        section.block { padding: 7rem 0; }
+
+        .bio-body { max-width: 44rem; }
+        .drop-para {
+            font-size: 1.02rem;
+            color: var(--text);
+            line-height: 1.8;
+            margin: 0 0 1.1rem;
+        }
+        .drop-para::first-letter {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 3.5em;
+            line-height: 0.82;
+            float: left;
+            padding: 0.06em 0.12em 0 0;
+            color: var(--navy);
+        }
+        .bio-body p { font-size: 0.98rem; color: var(--muted); line-height: 1.78; margin: 0 0 1.1rem; }
+        .bio-body p.drop-para { color: var(--text); font-size: 1.02rem; }
+        .bio-body p:last-child { margin-bottom: 0; }
+
+        /* ---------- Footer ---------- */
+        footer.site-footer {
+            background: var(--navy-darker);
+            color: rgba(255,255,255,0.7);
+            border-top: 3px solid var(--gold);
+            padding: 4.5rem 0 2.25rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255,255,255,0.10);
+        }
+        .footer-brand .brand-name { font-size: 0.9rem; color: var(--gold); }
+        .footer-brand .brand-name span { color: #fff; }
+        .footer-brand .brand-sub { margin-top: 0.3rem; }
+        .footer-brand > p { font-size: 0.88rem; line-height: 1.72; color: rgba(255,255,255,0.6); margin: 1.1rem 0 0; max-width: 20rem; }
+        .footer-col h4 { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin: 0 0 1.1rem; }
+        .footer-col a, .footer-col p { display: block; font-size: 0.88rem; color: rgba(255,255,255,0.65); margin: 0 0 0.65rem; transition: color 0.15s; }
+        .footer-col a:hover { color: var(--gold); }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 1.75rem; flex-wrap: wrap; gap: 1rem; }
+        .footer-bottom p { font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); font-weight: 600; margin: 0; }
+        .footer-legal { display: flex; gap: 1.5rem; }
+        .footer-legal a { font-size: 0.66rem; letter-spacing: 0.08em; color: rgba(255,255,255,0.4); }
+        .footer-legal a:hover { color: var(--gold); }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 980px) {
+            .profile-hero { padding: 4rem 0; }
+            .profile-hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+            .profile-photo-wrap { order: -1; max-width: 340px; margin-left: 0; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+        }
+        @media (max-width: 720px) {
+            .wrap { padding: 0 1.25rem; }
+            .nav-links { display: none; }
+            .nav-toggle { display: inline-flex; }
+            .profile-hero { padding: 3.5rem 0; }
+            .profile-copy h1 { font-size: 2.4rem; }
+            section.block { padding: 4.5rem 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER (light) -->
+    <header class="site-header">
+        <div class="wrap nav">
+            <a href="home-2.html" class="brand-mark">
+                <div class="brand-name">Executive <span>Allies</span></div>
+                <div class="brand-sub">Fractional CFO &amp; Controller Services</div>
+            </a>
+            <nav class="nav-links">
+                <a href="home-2.html#services">Services</a>
+                <a href="about.html">About Us</a>
+                <a href="home-2.html#subscription">Subscriptions</a>
+                <a href="contact.html">Contact</a>
+                <a href="accelerator-portal.html" class="member-link">Member Sign In &rarr;</a>
+            </nav>
+            <div class="nav-cta">
+                <a href="contact.html" class="btn btn-primary">Schedule a Call &rarr;</a>
+            </div>
+            <button class="nav-toggle" aria-label="Open menu">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- PROFILE HERO -->
+    <section class="profile-hero">
+        <div class="wrap profile-hero-inner">
+            <div class="profile-copy">
+                <p class="eyebrow eyebrow-navy"><a href="team.html">Meet the Team</a> &middot; Executive Allies</p>
+                <h1>Nate <em>Schrandt.</em></h1>
+                <p class="profile-role">Co-Founder, CFO | Executive Allies</p>
+                <div class="profile-contact">
+                    <p class="contact-label">Contact:</p>
+                    <a href="mailto:nschrandt@theexecutiveallies.com" class="btn btn-gold">nschrandt@theexecutiveallies.com</a>
+                </div>
+            </div>
+
+            <div class="profile-photo-wrap">
+                <img class="profile-photo" src="https://ixos3707rv.wpdns.site/wp-content/uploads/2026/07/nate_schrandt.jpg" alt="Nate Schrandt">
+            </div>
+        </div>
+    </section>
+
+    <!-- BIO -->
+    <section class="block">
+        <div class="wrap">
+            <div class="bio-body">
+                <p class="drop-para">
+                    Nate learned early that the most important thing you can do when helping a business
+                    is listen first. Growing up with a father who was a successful business owner taught
+                    him to think outside the box, and those two instincts have guided his entire career.
+                </p>
+                <p>
+                    Nate began at KPMG, where he spent seven years on audit engagements across forest
+                    products, manufacturing, internet retail, technology, and healthcare. After leaving
+                    public accounting, he served as Controller for several family-owned companies and a
+                    large publicly traded healthcare organization. That combination of big-firm rigor and
+                    hands-on industry experience is what he brings to every client at Executive Allies.
+                </p>
+                <p>
+                    Outside of work, Nate is a husband and dad to two kids and a mischievous labradoodle
+                    named Bear. When he's not at his desk, you'll find him skiing, golfing, mountain
+                    biking, hiking, or working through the never-ending list of backyard projects.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="brand-name">Executive <span>Allies</span></div>
+                    <div class="brand-sub">Fractional CFO &amp; Controller Services</div>
+                    <p>A top strategic accounting firm in Boise, Idaho - serving the Treasure Valley and nearby regions through customizable, subscription-based financial services.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <a href="home-2.html#services">Accounts Payable</a>
+                    <a href="home-2.html#services">Accounts Receivable</a>
+                    <a href="home-2.html#services">Bookkeeping</a>
+                    <a href="home-2.html#services">Cash Flow Forecasting</a>
+                    <a href="home-2.html#services">Month-End Close</a>
+                    <a href="home-2.html#services">Financial Forecasting</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="about.html">Who We Are</a>
+                    <a href="team.html">Meet the Team</a>
+                    <a href="home-2.html#subscription">Subscriptions</a>
+                    <a href="values.html">Our Values</a>
+                    <a href="https://www.theexecutiveallies.com">Careers</a>
+                    <a href="https://www.theexecutiveallies.com">Articles</a>
+                    <a href="accelerator-portal.html">Member Portal</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>539 S Fitness Pl, Suite 100<br>Eagle, ID 83616</p>
+                    <a href="tel:+12085100875">208-510-0875</a>
+                    <a href="mailto:info@theexecutiveallies.com">info@theexecutiveallies.com</a>
+                    <a href="https://www.theexecutiveallies.com">theexecutiveallies.com</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Executive Allies &middot; All Rights Reserved</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
