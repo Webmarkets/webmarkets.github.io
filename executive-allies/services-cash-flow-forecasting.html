@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cash Flow Forecasting for Small Businesses in Boise | Executive Allies</title>
+    <meta name="description" content="Executive Allies builds cash flow forecasts for small and mid-sized businesses across the Treasure Valley so you can see what's coming and plan ahead.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --navy:        #1B365D;
+            --navy-dark:   #122540;
+            --navy-darker: #0A1524;
+            --teal:        #2CB8C8;
+            --gold:        #C49A26;
+            --gold-soft:   #F5EDD3;
+            --gold-bg:     rgba(196, 154, 38, 0.10);
+            --gold-border: rgba(196, 154, 38, 0.35);
+
+            --cream:       #FBF7EF;
+            --ice-blue:    #EAF1F8;
+            --charcoal:    #1F1F1F;
+            --terracotta:  #B85042;
+
+            --bg:          var(--cream);
+            --card:        #ffffff;
+            --card-tint:   var(--ice-blue);
+
+            --text:        var(--charcoal);
+            --muted:       #6b7280;
+            --border:      #e5e7eb;
+            --border-dark: rgba(255,255,255,0.12);
+            --green:       #10b981;
+
+            --font-display: 'Manrope', -apple-system, sans-serif;
+            --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+            --shadow-sm: 0 1px 3px rgba(27, 54, 93, 0.06), 0 1px 2px rgba(27, 54, 93, 0.04);
+            --shadow-md: 0 4px 12px rgba(27, 54, 93, 0.10);
+            --shadow-lg: 0 20px 50px rgba(27, 54, 93, 0.12), 0 8px 20px rgba(27, 54, 93, 0.06);
+
+            --radius-sm: 6px;
+            --radius:    10px;
+            --radius-lg: 16px;
+            --maxw: 1180px;
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            background: var(--cream);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-weight: 400;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        ::selection { background: var(--navy); color: #fff; }
+        a { color: inherit; text-decoration: none; }
+
+        .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 2rem; }
+
+        .eyebrow {
+            font-size: 0.68rem;
+            letter-spacing: 0.26em;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin: 0 0 0.9rem;
+        }
+        .eyebrow-gold { color: var(--gold); }
+        .eyebrow-navy { color: var(--navy); }
+        .eyebrow-muted { color: var(--muted); }
+
+        /* ---------- Buttons ---------- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.45rem;
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.02em;
+            padding: 0.8rem 1.75rem;
+            border-radius: var(--radius);
+            border: 1.5px solid transparent;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            white-space: nowrap;
+        }
+        .btn-primary { background: var(--navy); color: #fff; box-shadow: var(--shadow-sm); }
+        .btn-primary:hover { background: var(--navy-darker); box-shadow: var(--shadow-md); transform: translateY(-1px); }
+        .btn-gold { background: var(--gold); color: var(--navy); }
+        .btn-gold:hover { background: var(--gold-soft); box-shadow: var(--shadow-md); transform: translateY(-1px); }
+        .btn-outline { background: transparent; color: var(--navy); border-color: var(--border); }
+        .btn-outline:hover { border-color: var(--navy); background: var(--card); box-shadow: var(--shadow-sm); }
+        .btn-outline-light { background: transparent; color: #fff; border-color: rgba(255,255,255,0.45); }
+        .btn-outline-light:hover { background: rgba(255,255,255,0.10); border-color: #fff; }
+
+        /* ---------- Header (light) ---------- */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+        }
+        .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+        .brand-mark { line-height: 1; }
+        .brand-name {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.05rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--navy);
+        }
+        .brand-name span { color: var(--gold); }
+        .brand-sub { font-size: 0.56rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-top: 0.28rem; }
+        .nav-links { display: flex; align-items: center; gap: 2.25rem; }
+        .nav-links a { font-size: 0.84rem; font-weight: 500; color: var(--muted); letter-spacing: 0.01em; transition: color 0.15s; }
+        .nav-links a:hover { color: var(--navy); }
+        .nav-links a.active { color: var(--navy); font-weight: 700; }
+        .nav-links .member-link {
+            color: var(--navy);
+            border: 1.5px solid var(--gold-border);
+            padding: 0.38rem 0.95rem;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 0.82rem;
+        }
+        .nav-links .member-link:hover { background: var(--gold-bg); border-color: var(--gold); }
+        .nav-cta .btn { padding: 0.6rem 1.35rem; font-size: 0.82rem; }
+        .nav-toggle { display: none; background: none; border: 0; cursor: pointer; color: var(--navy); }
+
+        /* ---------- HERO (light, asymmetric) ---------- */
+        .hero {
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            padding: 5rem 0 0;
+            overflow: hidden;
+        }
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+            padding-bottom: 5rem;
+        }
+        .hero-copy h1 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 3.1rem;
+            line-height: 1.08;
+            letter-spacing: -0.025em;
+            color: var(--navy);
+            margin: 0.75rem 0 1.4rem;
+        }
+        .hero-copy .lede { font-size: 1.08rem; color: var(--muted); line-height: 1.75; max-width: 32rem; margin: 0 0 2.25rem; }
+        .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+        /* Right panel: Navy credential card */
+        .hero-panel {
+            background: linear-gradient(145deg, var(--navy) 0%, var(--navy-darker) 100%);
+            border-radius: var(--radius-lg);
+            padding: 2.75rem;
+            box-shadow: var(--shadow-lg);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-panel::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(201,169,97,0.08) 1px, transparent 1.5px);
+            background-size: 20px 20px;
+            pointer-events: none;
+        }
+        .hero-panel::after {
+            content: "EA";
+            position: absolute;
+            right: -1rem;
+            bottom: -3rem;
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 9rem;
+            line-height: 1;
+            letter-spacing: -0.04em;
+            color: rgba(255,255,255,0.04);
+            pointer-events: none;
+        }
+        .hero-panel .panel-label {
+            font-size: 0.6rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--gold);
+            margin: 0 0 1.5rem;
+            position: relative;
+        }
+        .hero-panel .panel-label::after {
+            content: "";
+            display: block;
+            width: 36px;
+            height: 2px;
+            background: var(--gold);
+            margin-top: 0.6rem;
+            border-radius: 1px;
+        }
+        .credential-list { list-style: none; padding: 0; margin: 0; position: relative; }
+        .credential-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.85rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            font-size: 0.92rem;
+            color: rgba(255,255,255,0.88);
+            line-height: 1.5;
+        }
+        .credential-list li:last-child { border-bottom: 0; }
+        .credential-check {
+            flex-shrink: 0;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--gold-bg);
+            border: 1px solid var(--gold-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 0.72rem;
+            font-weight: 800;
+            margin-top: 0.05rem;
+        }
+
+        /* ---------- What Is (light, asymmetric, drop-cap + stat) ---------- */
+        section.block { padding: 7rem 0; }
+
+        .about-split {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 5rem;
+            align-items: center;
+        }
+        .about-body h2 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 2.4rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--navy);
+            margin: 0.75rem 0 1.35rem;
+        }
+        .drop-para {
+            font-size: 1.02rem;
+            color: var(--text);
+            line-height: 1.8;
+            margin: 0 0 1.1rem;
+        }
+        .drop-para::first-letter {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 3.5em;
+            line-height: 0.82;
+            float: left;
+            padding: 0.06em 0.12em 0 0;
+            color: var(--navy);
+        }
+        .about-body p { font-size: 0.98rem; color: var(--muted); line-height: 1.78; margin: 0 0 1.1rem; }
+
+        /* Right: stat callout */
+        .stat-panel {
+            background: linear-gradient(145deg, var(--navy) 0%, var(--navy-darker) 100%);
+            border-top: 3px solid var(--gold);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            box-shadow: var(--shadow-lg);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        .stat-panel::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(201,169,97,0.08) 1px, transparent 1.5px);
+            background-size: 20px 20px;
+            pointer-events: none;
+        }
+        .stat-panel .stat-num {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 5rem;
+            line-height: 1;
+            letter-spacing: -0.03em;
+            color: var(--gold);
+            margin: 0 0 1rem;
+            position: relative;
+        }
+        .stat-panel p {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.82);
+            line-height: 1.75;
+            margin: 0;
+            position: relative;
+        }
+
+        /* ---------- What We Provide (dark navy background) ---------- */
+        .services {
+            background: linear-gradient(160deg, var(--navy) 0%, var(--navy-darker) 100%);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        .services::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1.5px);
+            background-size: 24px 24px;
+            pointer-events: none;
+        }
+        .services-inner { position: relative; z-index: 1; padding: 7rem 0; }
+        .services-head { max-width: 40rem; margin-bottom: 3.5rem; }
+        .services-head h2 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 2.4rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: #fff;
+            margin: 0.75rem 0 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+        .service-card {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.10);
+            border-top: 3px solid transparent;
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            transition: background 0.2s, border-top-color 0.2s, transform 0.2s;
+        }
+        .service-card:hover {
+            background: rgba(255,255,255,0.10);
+            border-top-color: var(--gold);
+            transform: translateY(-3px);
+        }
+        .service-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: var(--radius);
+            background: var(--gold-bg);
+            border: 1px solid var(--gold-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            margin-bottom: 1.1rem;
+        }
+        .service-card h3 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #fff;
+            margin: 0 0 0.5rem;
+        }
+        .service-card p { font-size: 0.88rem; color: rgba(255,255,255,0.68); margin: 0; line-height: 1.65; }
+
+        /* ---------- Who This Is For ---------- */
+        .who-section { background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .section-head { max-width: 44rem; }
+        .section-head h2 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 2.4rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--navy);
+            margin: 0.75rem 0 0.9rem;
+        }
+        .section-head p { font-size: 1.05rem; color: var(--muted); margin: 0; line-height: 1.78; }
+        .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+
+        /* ---------- Closing CTA (centered card) ---------- */
+        .closing { background: var(--cream); }
+        .closing-card {
+            background: var(--navy);
+            border-radius: var(--radius-lg);
+            padding: 5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        .closing-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(201,169,97,0.07) 1px, transparent 1.5px);
+            background-size: 22px 22px;
+            pointer-events: none;
+        }
+        .closing-card .eyebrow-gold { color: var(--gold); position: relative; }
+        .closing-card h2 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 2.6rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: #fff;
+            margin: 0.75rem auto 1.1rem;
+            max-width: 38rem;
+            position: relative;
+        }
+        .closing-card p {
+            font-size: 1.02rem;
+            color: rgba(255,255,255,0.75);
+            max-width: 34rem;
+            margin: 0 auto 2.5rem;
+            line-height: 1.72;
+            position: relative;
+        }
+        .closing-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+        .closing-note {
+            font-size: 0.74rem;
+            color: rgba(255,255,255,0.45);
+            letter-spacing: 0.04em;
+            margin-top: 1.25rem;
+            position: relative;
+        }
+
+        /* ---------- Footer ---------- */
+        footer.site-footer {
+            background: var(--navy-darker);
+            color: rgba(255,255,255,0.7);
+            border-top: 3px solid var(--gold);
+            padding: 4.5rem 0 2.25rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255,255,255,0.10);
+        }
+        .footer-brand .brand-name { font-size: 0.9rem; color: var(--gold); }
+        .footer-brand .brand-name span { color: #fff; }
+        .footer-brand .brand-sub { margin-top: 0.3rem; }
+        .footer-brand > p { font-size: 0.88rem; line-height: 1.72; color: rgba(255,255,255,0.6); margin: 1.1rem 0 0; max-width: 20rem; }
+        .footer-col h4 { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin: 0 0 1.1rem; }
+        .footer-col a, .footer-col p { display: block; font-size: 0.88rem; color: rgba(255,255,255,0.65); margin: 0 0 0.65rem; transition: color 0.15s; }
+        .footer-col a:hover { color: var(--gold); }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 1.75rem; flex-wrap: wrap; gap: 1rem; }
+        .footer-bottom p { font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); font-weight: 600; margin: 0; }
+        .footer-legal { display: flex; gap: 1.5rem; }
+        .footer-legal a { font-size: 0.66rem; letter-spacing: 0.08em; color: rgba(255,255,255,0.4); }
+        .footer-legal a:hover { color: var(--gold); }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 980px) {
+            .hero-inner { grid-template-columns: 1fr; gap: 3rem; padding-bottom: 4rem; }
+            .hero-panel { display: none; }
+            .about-split { grid-template-columns: 1fr; gap: 2.5rem; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+            .closing-card { padding: 3rem 2rem; }
+            .closing-card h2 { font-size: 2rem; }
+        }
+        @media (max-width: 720px) {
+            .wrap { padding: 0 1.25rem; }
+            .nav-links { display: none; }
+            .nav-toggle { display: inline-flex; }
+            .hero-copy h1 { font-size: 2.2rem; }
+            section.block { padding: 4.5rem 0; }
+            .services-inner { padding: 4.5rem 0; }
+            .services-grid { grid-template-columns: 1fr; }
+            .section-head h2, .services-head h2, .about-body h2 { font-size: 1.9rem; }
+            .stat-panel { padding: 2rem; }
+            .stat-panel .stat-num { font-size: 3.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER (light) -->
+    <header class="site-header">
+        <div class="wrap nav">
+            <a href="home-2.html" class="brand-mark">
+                <div class="brand-name">Executive <span>Allies</span></div>
+                <div class="brand-sub">Fractional CFO &amp; Controller Services</div>
+            </a>
+            <nav class="nav-links">
+                <a href="home-2.html#services" class="active">Services</a>
+                <a href="about.html">About Us</a>
+                <a href="pricing.html">Subscriptions</a>
+                <a href="contact.html">Contact</a>
+                <a href="accelerator-portal.html" class="member-link">Member Sign In &rarr;</a>
+            </nav>
+            <div class="nav-cta">
+                <a href="contact.html" class="btn btn-primary">Contact Us &rarr;</a>
+            </div>
+            <button class="nav-toggle" aria-label="Open menu">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="wrap hero-inner">
+            <div class="hero-copy">
+                <p class="eyebrow eyebrow-navy">Services &middot; Cash Flow Forecasting</p>
+                <h1>Cash Flow Forecasting for Small Businesses in Boise</h1>
+                <p class="lede">
+                    Executive Allies builds cash flow forecasts for small and mid-sized businesses
+                    across the Treasure Valley so you can see what's coming, plan ahead, and make
+                    decisions with confidence instead of guesswork.
+                </p>
+                <div class="hero-actions">
+                    <a href="contact.html" class="btn btn-gold">Contact Us &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Right credential panel -->
+            <div class="hero-panel">
+                <p class="panel-label">What We Provide</p>
+                <ul class="credential-list">
+                    <li><span class="credential-check">✓</span> 8 to 12 Week Rolling Cash Flow Forecast</li>
+                    <li><span class="credential-check">✓</span> Monthly Cash Flow Review</li>
+                    <li><span class="credential-check">✓</span> Cash Management Guidance</li>
+                    <li><span class="credential-check">✓</span> Variance Analysis</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT IS -->
+    <section class="block">
+        <div class="wrap about-split">
+            <div class="about-body">
+                <p class="eyebrow eyebrow-muted">Visibility Ahead</p>
+                <h2>What Is Cash Flow Forecasting?</h2>
+                <p class="drop-para">
+                    A cash flow forecast projects your expected cash inflows and outflows over a defined
+                    period, typically 8 to 12 weeks. It shows you not just whether your business is
+                    profitable, but whether you'll have the cash on hand to meet your obligations when
+                    they come due. A business can be profitable on paper and still run into serious
+                    trouble if cash flow isn't actively managed.
+                </p>
+            </div>
+            <div class="stat-panel">
+                <p class="stat-num">82%</p>
+                <p>
+                    According to research from U.S. Bank, 82% of small businesses that fail do so
+                    because of cash flow problems. A regularly updated forecast gives you the visibility
+                    to spot problems early and act before they become crises.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT WE PROVIDE (dark navy) -->
+    <section class="services">
+        <div class="wrap services-inner">
+            <div class="services-head">
+                <p class="eyebrow eyebrow-gold">Forward-Looking, Always Current</p>
+                <h2>What We Provide</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <h3>8 to 12 Week Rolling Cash Flow Forecast</h3>
+                    <p>A forward-looking view of your cash position, updated regularly so you always know where you stand.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    </div>
+                    <h3>Monthly Cash Flow Review</h3>
+                    <p>At each monthly meeting, we review your forecast alongside your financial statements so you can see how actuals compare to projections and plan for the month ahead.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <h3>Cash Management Guidance</h3>
+                    <p>We help you make informed decisions about the timing of payments, collections, and investments based on your actual cash position and what's coming down the road.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10M18 20V4M6 20v-6"/></svg>
+                    </div>
+                    <h3>Variance Analysis</h3>
+                    <p>When your cash position differs from the forecast, we help you understand why and what to adjust going forward.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHO THIS IS FOR -->
+    <section class="who-section block">
+        <div class="wrap">
+            <div class="section-head center">
+                <p class="eyebrow eyebrow-muted">The Right Fit</p>
+                <h2>Who This Is For</h2>
+                <p>
+                    Cash flow forecasting is particularly valuable for businesses in a growth phase,
+                    seasonal businesses with uneven revenue, and any company where the owner has ever
+                    been caught off guard by a cash shortfall. If you've scrambled to cover payroll or a
+                    vendor payment, this service is for you.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLOSING CTA -->
+    <section class="closing block">
+        <div class="wrap">
+            <div class="closing-card">
+                <p class="eyebrow eyebrow-gold">Get Started</p>
+                <h2>Get Clear on Your Cash Position</h2>
+                <p>
+                    Executive Allies builds and manages cash flow forecasts for businesses across Boise,
+                    Eagle, Meridian, Nampa, and the Treasure Valley. Let's make sure you always know
+                    what's coming.
+                </p>
+                <div class="closing-actions">
+                    <a href="contact.html" class="btn btn-gold">Contact Us &rarr;</a>
+                </div>
+                <p class="closing-note">539 S Fitness Pl, Suite 100, Eagle, ID 83616</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="brand-name">Executive <span>Allies</span></div>
+                    <div class="brand-sub">Fractional CFO &amp; Controller Services</div>
+                    <p>A top strategic accounting firm in Boise, Idaho - serving the Treasure Valley and nearby regions through customizable, subscription-based financial services.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <a href="services-bookkeeping-accounting.html">Bookkeeping &amp; Accounting</a>
+                    <a href="services-accounts-payable-receivable.html">Accounts Payable &amp; Receivable</a>
+                    <a href="services-cash-flow-forecasting.html">Cash Flow Forecasting</a>
+                    <a href="services-controller.html">Controller Services</a>
+                    <a href="services-fractional-cfo.html">Fractional CFO</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="about.html">Who We Are</a>
+                    <a href="pricing.html">Subscriptions</a>
+                    <a href="values.html">Our Values</a>
+                    <a href="careers.html">Careers</a>
+                    <a href="accelerator-portal.html">Member Portal</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>539 S Fitness Pl, Suite 100<br>Eagle, ID 83616</p>
+                    <a href="tel:+12085100875">208-510-0875</a>
+                    <a href="mailto:info@theexecutiveallies.com">info@theexecutiveallies.com</a>
+                    <a href="https://www.theexecutiveallies.com">theexecutiveallies.com</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Executive Allies &middot; All Rights Reserved</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
