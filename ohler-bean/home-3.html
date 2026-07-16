@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ohler Bean | Attorneys at Law</title>
-    <meta name="description" content="Ohler Bean is a premium law firm offering composed, precise counsel in litigation, estate planning, corporate, and real estate matters.">
+    <title>Ohler Bean &amp; Tinkey | Attorneys</title>
+    <meta name="description" content="Ohler Bean &amp; Tinkey is a premium law firm offering composed, precise counsel in litigation, estate planning, corporate, and real estate matters.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -164,20 +164,18 @@
             justify-content: space-between;
             height: 84px;
         }
-        .brand-mark { line-height: 1; }
-        .brand-monogram {
-            font-family: var(--font-display);
-            font-weight: 600;
-            font-size: 1.45rem;
-            letter-spacing: 0.04em;
-            color: var(--ivory);
+        .brand-mark {
+            display: inline-flex;
+            align-items: center;
+            line-height: 1;
         }
-        .brand-firm {
-            font-size: 0.58rem;
-            letter-spacing: 0.32em;
-            text-transform: uppercase;
-            color: var(--mist);
-            margin-top: 0.3rem;
+        .brand-logo {
+            height: 44px;
+            width: auto;
+            display: block;
+        }
+        .footer-brand .brand-logo {
+            height: 52px;
         }
         .nav-links {
             display: flex;
@@ -216,7 +214,7 @@
         }
         /* Oversized ghost monogram anchored right */
         .hero::after {
-            content: "OB";
+            content: "OBT";
             position: absolute;
             right: -3rem;
             bottom: -7rem;
@@ -623,8 +621,6 @@
             padding-bottom: 3rem;
             border-bottom: 1px solid rgba(252,251,245,0.12);
         }
-        .footer-brand .brand-monogram { color: var(--ivory); }
-        .footer-brand .brand-firm { color: var(--mist); }
         .footer-brand p {
             font-size: 0.9rem;
             line-height: 1.7;
@@ -719,8 +715,7 @@
     <header class="site-header">
         <div class="wrap nav">
             <a href="#" class="brand-mark">
-                <div class="brand-monogram">Ohler&nbsp;Bean</div>
-                <div class="brand-firm">Attorneys at Law</div>
+                <img class="brand-logo" src="Assets/OBT-Logo.png" alt="Ohler Bean &amp; Tinkey Attorneys">
             </a>
             <nav class="nav-links">
                 <a href="#practice">Practice</a>
@@ -741,11 +736,11 @@
     <section class="hero">
         <div class="wrap">
             <div class="hero-inner">
-                <p class="eyebrow">Ohler Bean &middot; Established 1974</p>
+                <p class="eyebrow">Ohler Bean &amp; Tinkey &middot; Established 1974</p>
                 <h1>Counsel of <em>consequence</em>, delivered with composure.</h1>
                 <p class="lede">
                     For five decades, individuals, families, and enterprises have entrusted their
-                    most important matters to Ohler Bean &mdash; counsel defined by discretion,
+                    most important matters to Ohler Bean &amp; Tinkey &mdash; counsel defined by discretion,
                     rigor, and an unhurried attention to detail.
                 </p>
                 <div class="hero-actions">
@@ -827,7 +822,7 @@
             </div>
             <div class="heritage-copy">
                 <p class="drop">
-                    Ohler Bean was founded in 1974 on a simple conviction: that the best counsel
+                    Ohler Bean &amp; Tinkey was founded in 1974 on a simple conviction: that the best counsel
                     is measured not in volume, but in care. What began as a two-attorney practice
                     has grown deliberately &mdash; matter by matter, relationship by relationship &mdash;
                     into a firm whose name is spoken with quiet confidence.
@@ -937,8 +932,7 @@
         <div class="wrap">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <div class="brand-monogram">Ohler&nbsp;Bean</div>
-                    <div class="brand-firm">Attorneys at Law</div>
+                    <img class="brand-logo" src="Assets/OBT-Logo.png" alt="Ohler Bean &amp; Tinkey Attorneys">
                     <p>Composed, precise counsel for litigation, estate planning, corporate, and real estate matters &mdash; since 1974.</p>
                 </div>
                 <div class="footer-col">
@@ -963,7 +957,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Ohler Bean &middot; All Rights Reserved</p>
+                <p>&copy; 2026 Ohler Bean &amp; Tinkey &middot; All Rights Reserved</p>
                 <div class="legal-links">
                     <a href="#">Privacy</a>
                     <a href="#">Terms</a>
