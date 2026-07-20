@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agency Atlas — The AI Marketing Platform That Brings All Your Tools Together</title>
+<meta name="description" content="Agency Atlas is AI marketing software that allows you to strategize, create, publish, and analyze your digital marketing from one platform, all customized to your business.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   AGENCY ATLAS — HOMEPAGE REDESIGN MOCKUP
+   Structure mirrors Divi 4 sections/rows/columns so every block
+   can be rebuilt with standard Divi modules + custom CSS.
+   ============================================================ */
+
+:root {
+    /* Color system */
+    --ink: #0A0D1C;            /* page dark base */
+    --ink-2: #10142A;          /* raised dark surface */
+    --ink-3: #181D3A;          /* card dark surface */
+    --line-dark: rgba(255,255,255,0.08);
+    --paper: #FAFAFC;          /* light section base */
+    --paper-2: #FFFFFF;        /* light card */
+    --line-light: #E7E7F0;
+    --text-dark: #14172B;      /* text on light */
+    --text-mute-light: #5B5F73;
+    --text-on-dark: #F4F5FB;
+    --text-mute-dark: #A5A9C4;
+
+    --violet: #6E56F8;         /* primary brand */
+    --violet-deep: #4F3AD8;
+    --violet-soft: #EEEBFE;
+    --mint: #3DDC97;           /* signal / success accent */
+    --mint-deep: #0FA968;
+    --gold: #F5B840;
+
+    --font-display: 'Sora', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --radius-lg: 24px;
+    --radius-md: 16px;
+    --radius-sm: 10px;
+    --shadow-card: 0 2px 6px rgba(20,23,43,0.05), 0 18px 44px -18px rgba(20,23,43,0.14);
+    --shadow-pop: 0 24px 64px -16px rgba(79,58,216,0.35);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    background: var(--paper);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+img, svg { display: block; }
+a { text-decoration: none; color: inherit; }
+
+.container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+.container-wide { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+/* ------- Typography ------- */
+h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.12; letter-spacing: -0.02em; }
+.eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--violet);
+}
+.eyebrow::before {
+    content: ""; width: 22px; height: 2px; background: var(--violet); border-radius: 2px;
+}
+.on-dark .eyebrow { color: var(--mint); }
+.on-dark .eyebrow::before { background: var(--mint); }
+
+.section-title { font-size: clamp(30px, 4.2vw, 46px); font-weight: 700; margin: 18px 0 16px; }
+.section-lead { font-size: 18px; color: var(--text-mute-light); max-width: 640px; }
+.on-dark .section-lead { color: var(--text-mute-dark); }
+.center { text-align: center; }
+.center .section-lead { margin-left: auto; margin-right: auto; }
+
+/* ------- Buttons ------- */
+.btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--font-display); font-weight: 600; font-size: 16px;
+    padding: 15px 30px; border-radius: 999px; cursor: pointer;
+    border: none; transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.btn svg { transition: transform .18s ease; }
+.btn:hover svg { transform: translateX(3px); }
+.btn-primary {
+    background: linear-gradient(120deg, var(--violet) 0%, var(--violet-deep) 100%);
+    color: #fff; box-shadow: var(--shadow-pop);
+}
+.btn-primary:hover { transform: translateY(-2px); }
+.btn-ghost-dark {
+    background: rgba(255,255,255,0.06); color: var(--text-on-dark);
+    border: 1px solid var(--line-dark);
+}
+.btn-ghost-dark:hover { background: rgba(255,255,255,0.12); }
+.btn-ghost-light {
+    background: #fff; color: var(--text-dark); border: 1px solid var(--line-light);
+    box-shadow: var(--shadow-card);
+}
+.btn-ghost-light:hover { transform: translateY(-2px); }
+.btn-mint {
+    background: var(--mint); color: #07341F;
+    box-shadow: 0 20px 48px -14px rgba(61,220,151,0.5);
+}
+.btn-mint:hover { transform: translateY(-2px); background: #4DE8A5; }
+.btn-note { font-size: 13.5px; color: var(--text-mute-dark); display: flex; align-items: center; gap: 7px; }
+.btn-note svg { flex: none; }
+
+/* ============ HEADER ============ */
+.site-header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    transition: background .25s ease, box-shadow .25s ease;
+}
+.site-header.scrolled {
+    background: rgba(10,13,28,0.85);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 1px 0 var(--line-dark);
+}
+.header-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 76px;
+}
+.logo { display: flex; align-items: center; gap: 11px; color: var(--text-on-dark); }
+.logo-mark {
+    width: 36px; height: 36px; border-radius: 11px;
+    background: linear-gradient(135deg, var(--violet) 0%, var(--violet-deep) 70%);
+    display: grid; place-items: center;
+    box-shadow: 0 6px 18px -4px rgba(110,86,248,0.6);
+}
+.logo-text { font-family: var(--font-display); font-weight: 700; font-size: 19px; letter-spacing: -0.01em; }
+.logo-text span { color: var(--mint); }
+.nav-links { display: flex; gap: 34px; list-style: none; }
+.nav-links a {
+    font-size: 14.5px; font-weight: 500; color: var(--text-mute-dark);
+    transition: color .15s ease;
+}
+.nav-links a:hover { color: #fff; }
+.header-cta {
+    font-family: var(--font-display); font-weight: 600; font-size: 14.5px;
+    color: #fff; background: var(--violet);
+    padding: 10px 22px; border-radius: 999px;
+    transition: background .15s ease, transform .15s ease;
+}
+.header-cta:hover { background: var(--violet-deep); transform: translateY(-1px); }
+
+/* ============ HERO ============ */
+.hero {
+    position: relative;
+    background: var(--ink);
+    color: var(--text-on-dark);
+    padding: 168px 0 0;
+    overflow: hidden;
+}
+.hero::before {
+    /* aurora glow */
+    content: "";
+    position: absolute; top: -240px; left: 50%; transform: translateX(-50%);
+    width: 1100px; height: 680px;
+    background:
+        radial-gradient(ellipse 40% 45% at 38% 40%, rgba(110,86,248,0.38), transparent 65%),
+        radial-gradient(ellipse 34% 40% at 66% 34%, rgba(61,220,151,0.16), transparent 65%);
+    filter: blur(10px);
+    pointer-events: none;
+}
+.hero::after {
+    /* dot grid texture */
+    content: "";
+    position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.055) 1px, transparent 1px);
+    background-size: 30px 30px;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent 72%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent 72%);
+    pointer-events: none;
+}
+.hero-content { position: relative; z-index: 2; text-align: center; max-width: 880px; margin: 0 auto; }
+.hero-badge {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-size: 13px; font-weight: 500; color: var(--text-mute-dark);
+    border: 1px solid var(--line-dark); border-radius: 999px;
+    padding: 7px 16px 7px 9px;
+    background: rgba(255,255,255,0.04);
+    margin-bottom: 28px;
+}
+.hero-badge .pill {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
+    background: rgba(61,220,151,0.14); color: var(--mint);
+    border-radius: 999px; padding: 3px 10px;
+}
+.hero h1 {
+    font-size: clamp(40px, 6vw, 68px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+.hero h1 .grad {
+    background: linear-gradient(100deg, #A793FF 0%, var(--mint) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero-sub {
+    font-size: 19px; color: var(--text-mute-dark);
+    max-width: 660px; margin: 26px auto 38px;
+}
+.hero-actions { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; align-items: center; }
+.hero-trust {
+    margin-top: 22px; font-size: 13.5px; color: var(--text-mute-dark);
+    display: flex; justify-content: center; align-items: center; gap: 8px;
+}
+.hero-trust svg { flex: none; }
+
+/* --- Hero product window: mock agent chat --- */
+.hero-window-wrap { position: relative; z-index: 2; margin-top: 72px; }
+.hero-window {
+    max-width: 940px; margin: 0 auto;
+    background: rgba(16,20,42,0.75);
+    border: 1px solid var(--line-dark);
+    border-bottom: none;
+    border-radius: 22px 22px 0 0;
+    backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    box-shadow: 0 -8px 80px -12px rgba(110,86,248,0.35);
+    overflow: hidden;
+}
+.window-bar {
+    display: flex; align-items: center; gap: 8px;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--line-dark);
+}
+.window-bar .dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.14); }
+.window-bar .dot:nth-child(1) { background: #FF6159; }
+.window-bar .dot:nth-child(2) { background: #FFBD2E; }
+.window-bar .dot:nth-child(3) { background: #2ACA44; }
+.window-bar .window-title {
+    margin-left: 12px; font-family: var(--font-mono); font-size: 12px; color: var(--text-mute-dark);
+}
+.window-body { padding: 30px 34px 38px; text-align: left; }
+.chat-row { display: flex; gap: 14px; margin-bottom: 22px; }
+.chat-avatar {
+    flex: none; width: 34px; height: 34px; border-radius: 10px;
+    display: grid; place-items: center; font-family: var(--font-display);
+    font-size: 13px; font-weight: 700;
+}
+.chat-avatar.user { background: rgba(255,255,255,0.09); color: var(--text-mute-dark); }
+.chat-avatar.atlas { background: linear-gradient(135deg, var(--violet), var(--violet-deep)); color: #fff; }
+.chat-bubble {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--line-dark);
+    border-radius: 4px 14px 14px 14px;
+    padding: 13px 17px; font-size: 14.5px; color: var(--text-on-dark);
+    max-width: 560px;
+}
+.chat-bubble.atlas-bubble { background: rgba(110,86,248,0.10); border-color: rgba(110,86,248,0.32); }
+.chat-meta { font-family: var(--font-mono); font-size: 11px; color: var(--text-mute-dark); margin-bottom: 6px; }
+.chat-tasks { list-style: none; margin-top: 12px; display: grid; gap: 8px; }
+.chat-tasks li {
+    display: flex; align-items: center; gap: 9px;
+    font-size: 13.5px; color: var(--text-mute-dark);
+}
+.chat-tasks .check {
+    flex: none; width: 17px; height: 17px; border-radius: 50%;
+    background: rgba(61,220,151,0.16); color: var(--mint);
+    display: grid; place-items: center; font-size: 10px;
+}
+.chat-tasks .spin {
+    flex: none; width: 17px; height: 17px; border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.14); border-top-color: var(--mint);
+    animation: rotate 0.9s linear infinite;
+}
+@keyframes rotate { to { transform: rotate(360deg); } }
+.chat-chips { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 6px; }
+.chat-chip {
+    font-size: 12.5px; font-weight: 500; color: var(--text-mute-dark);
+    border: 1px solid var(--line-dark); border-radius: 999px;
+    padding: 6px 14px; background: rgba(255,255,255,0.03);
+    transition: color .15s, border-color .15s;
+    cursor: default;
+}
+.chat-chip:hover { color: #fff; border-color: rgba(110,86,248,0.6); }
+
+/* --- Live activity ticker (Money Printer style) --- */
+.ticker-band {
+    position: relative; z-index: 3;
+    background: var(--ink-2);
+    border-top: 1px solid var(--line-dark);
+    border-bottom: 1px solid var(--line-dark);
+    padding: 15px 0;
+    overflow: hidden;
+}
+.ticker-band::before, .ticker-band::after {
+    content: ""; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none;
+}
+.ticker-band::before { left: 0; background: linear-gradient(to right, var(--ink-2), transparent); }
+.ticker-band::after { right: 0; background: linear-gradient(to left, var(--ink-2), transparent); }
+.ticker-track { display: flex; gap: 14px; width: max-content; animation: ticker 42s linear infinite; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+.tick {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-family: var(--font-mono); font-size: 12px; color: var(--text-mute-dark);
+    border: 1px solid var(--line-dark); border-radius: 999px;
+    background: rgba(255,255,255,0.03);
+    padding: 7px 16px; white-space: nowrap;
+}
+.tick b { color: var(--text-on-dark); font-weight: 500; }
+.tick .live-dot {
+    width: 6px; height: 6px; border-radius: 50%; background: var(--mint);
+    box-shadow: 0 0 0 3px rgba(61,220,151,0.18);
+    animation: pulse 2s ease infinite;
+}
+@keyframes pulse { 50% { opacity: .4; } }
+.tick .t-mint { color: var(--mint); }
+.tick .t-gold { color: var(--gold); }
+
+/* ============ SECTION SHELL ============ */
+.section { padding: 108px 0; }
+.section-dark { background: var(--ink); color: var(--text-on-dark); }
+.section-head { max-width: 760px; margin-bottom: 60px; }
+.section-head.center { margin-left: auto; margin-right: auto; }
+
+/* ============ WHAT ATLAS DOES — 4 numbered workflow cards ============ */
+.flow-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+    position: relative;
+}
+.flow-card {
+    background: var(--paper-2);
+    border: 1px solid var(--line-light);
+    border-radius: var(--radius-lg);
+    padding: 30px 26px 32px;
+    box-shadow: var(--shadow-card);
+    position: relative;
+    transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.flow-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(110,86,248,0.4);
+    box-shadow: 0 30px 60px -20px rgba(79,58,216,0.22);
+}
+.flow-num {
+    font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+    letter-spacing: .1em; color: var(--violet);
+    display: inline-block; margin-bottom: 22px;
+    background: var(--violet-soft); border-radius: 999px; padding: 5px 12px;
+}
+.flow-icon {
+    width: 52px; height: 52px; border-radius: 15px;
+    display: grid; place-items: center; margin-bottom: 20px;
+    background: linear-gradient(135deg, var(--violet-soft), #fff);
+    border: 1px solid var(--line-light);
+    color: var(--violet);
+}
+.flow-card h3 { font-size: 21px; font-weight: 700; margin-bottom: 10px; }
+.flow-card p { font-size: 14.5px; color: var(--text-mute-light); }
+.flow-arrow {
+    position: absolute; top: 46px; right: -16px; z-index: 2;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--ink); color: var(--mint);
+    display: grid; place-items: center;
+    box-shadow: 0 6px 16px -4px rgba(10,13,28,0.4);
+}
+
+/* ============ MID CTA BAND ============ */
+.cta-band {
+    background:
+        radial-gradient(ellipse 60% 130% at 18% 0%, rgba(61,220,151,0.16), transparent 60%),
+        radial-gradient(ellipse 55% 130% at 85% 100%, rgba(110,86,248,0.4), transparent 60%),
+        var(--ink);
+    border-radius: 28px;
+    padding: 64px 56px;
+    display: flex; align-items: center; justify-content: space-between; gap: 40px;
+    color: var(--text-on-dark);
+    position: relative; overflow: hidden;
+}
+.cta-band::after {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 26px 26px;
+    mask-image: linear-gradient(115deg, transparent 40%, rgba(0,0,0,0.8));
+    -webkit-mask-image: linear-gradient(115deg, transparent 40%, rgba(0,0,0,0.8));
+    pointer-events: none;
+}
+.cta-band h2 { font-size: clamp(26px, 3.4vw, 38px); font-weight: 700; max-width: 560px; position: relative; z-index: 1; }
+.cta-band .btn { position: relative; z-index: 1; flex: none; }
+
+/* ============ CHANNELS GRID (6 cards) ============ */
+.section-tint { background: linear-gradient(to bottom, #F2F1FA, var(--paper)); }
+.channel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.channel-card {
+    background: var(--paper-2);
+    border: 1px solid var(--line-light);
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    box-shadow: var(--shadow-card);
+    position: relative; overflow: hidden;
+    transition: transform .22s ease, box-shadow .22s ease;
+}
+.channel-card::before {
+    content: "";
+    position: absolute; top: 0; left: 28px; right: 28px; height: 3px;
+    border-radius: 0 0 6px 6px;
+    background: linear-gradient(90deg, var(--violet), var(--mint));
+    opacity: 0; transition: opacity .22s ease;
+}
+.channel-card:hover { transform: translateY(-5px); box-shadow: 0 26px 56px -18px rgba(20,23,43,0.18); }
+.channel-card:hover::before { opacity: 1; }
+.channel-icon {
+    width: 48px; height: 48px; border-radius: 13px;
+    display: grid; place-items: center; margin-bottom: 20px;
+    background: var(--ink); color: var(--mint);
+}
+.channel-card h3 { font-size: 19px; font-weight: 700; margin-bottom: 9px; }
+.channel-card p { font-size: 14.5px; color: var(--text-mute-light); }
+
+/* ============ WEBMARKETS STORY (dark) ============ */
+.story-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 72px; align-items: center; }
+.story-copy p { font-size: 17px; color: var(--text-mute-dark); margin: 18px 0 30px; max-width: 520px; }
+.stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.stat-card {
+    background: var(--ink-3);
+    border: 1px solid var(--line-dark);
+    border-radius: var(--radius-md);
+    padding: 28px 26px;
+    transition: transform .2s ease, border-color .2s ease;
+}
+.stat-card:hover { transform: translateY(-4px); border-color: rgba(61,220,151,0.35); }
+.stat-num {
+    font-family: var(--font-display); font-size: 42px; font-weight: 800; letter-spacing: -0.03em;
+    background: linear-gradient(100deg, #fff 20%, #A793FF); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.stat-card:nth-child(2) .stat-num,
+.stat-card:nth-child(3) .stat-num { background: linear-gradient(100deg, #fff 20%, var(--mint)); -webkit-background-clip: text; background-clip: text; }
+.stat-label { font-size: 13.5px; color: var(--text-mute-dark); margin-top: 6px; }
+.story-quote {
+    margin-top: 26px; padding: 20px 24px;
+    border-left: 3px solid var(--mint);
+    background: rgba(61,220,151,0.05);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-size: 15px; color: var(--text-mute-dark); font-style: italic;
+}
+.story-quote b { color: var(--text-on-dark); font-style: normal; }
+
+/* ============ HOW IT WORKS — 3 step timeline ============ */
+.steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; counter-reset: step; }
+.step-card {
+    position: relative;
+    background: var(--paper-2);
+    border: 1px solid var(--line-light);
+    border-radius: var(--radius-lg);
+    padding: 70px 28px 34px;
+    box-shadow: var(--shadow-card);
+    transition: transform .22s ease;
+}
+.step-card:hover { transform: translateY(-5px); }
+.step-card::before {
+    counter-increment: step;
+    content: counter(step, decimal-leading-zero);
+    position: absolute; top: 24px; left: 28px;
+    font-family: var(--font-display); font-weight: 800; font-size: 30px;
+    background: linear-gradient(120deg, var(--violet), var(--mint-deep));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.step-line {
+    position: absolute; top: 40px; left: 92px; right: 28px; height: 1px;
+    background: repeating-linear-gradient(90deg, var(--line-light) 0 6px, transparent 6px 12px);
+}
+.step-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+.step-card p { font-size: 14.5px; color: var(--text-mute-light); }
+.step-tag {
+    display: inline-block; margin-top: 18px;
+    font-family: var(--font-mono); font-size: 11.5px; color: var(--mint-deep);
+    background: rgba(61,220,151,0.12); border-radius: 999px; padding: 5px 12px;
+}
+
+/* ============ FINAL CTA / ONBOARDING ============ */
+.final-cta {
+    background:
+        radial-gradient(ellipse 70% 90% at 50% -10%, rgba(110,86,248,0.45), transparent 62%),
+        var(--ink);
+    color: var(--text-on-dark);
+    position: relative; overflow: hidden;
+}
+.final-cta::after {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+    mask-image: linear-gradient(to top, rgba(0,0,0,0.9), transparent 70%);
+    -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0.9), transparent 70%);
+    pointer-events: none;
+}
+.final-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 72px; align-items: center; position: relative; z-index: 1; }
+.final-copy h2 { font-size: clamp(30px, 4vw, 44px); font-weight: 700; margin: 18px 0 16px; }
+.final-copy p { font-size: 17px; color: var(--text-mute-dark); max-width: 480px; margin-bottom: 32px; }
+.check-list { list-style: none; display: grid; gap: 14px; margin-bottom: 38px; }
+.check-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 15.5px; color: var(--text-on-dark); }
+.check-list .check {
+    flex: none; width: 22px; height: 22px; border-radius: 50%; margin-top: 1px;
+    background: rgba(61,220,151,0.15); color: var(--mint);
+    display: grid; place-items: center; font-size: 11px;
+}
+.onboard-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--line-dark);
+    border-radius: var(--radius-lg);
+    padding: 38px 34px;
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 40px 90px -30px rgba(0,0,0,0.6);
+}
+.onboard-card h3 { font-size: 21px; font-weight: 700; margin-bottom: 6px; }
+.onboard-card > p { font-size: 14px; color: var(--text-mute-dark); margin-bottom: 24px; }
+.form-field { margin-bottom: 16px; }
+.form-field label {
+    display: block; font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--text-mute-dark); margin-bottom: 7px;
+}
+.form-field input {
+    width: 100%; font-family: var(--font-body); font-size: 15px;
+    color: var(--text-on-dark); background: rgba(255,255,255,0.05);
+    border: 1px solid var(--line-dark); border-radius: var(--radius-sm);
+    padding: 13px 16px; outline: none;
+    transition: border-color .15s ease, box-shadow .15s ease;
+}
+.form-field input::placeholder { color: rgba(165,169,196,0.55); }
+.form-field input:focus { border-color: var(--violet); box-shadow: 0 0 0 3px rgba(110,86,248,0.22); }
+.onboard-card .btn { width: 100%; justify-content: center; margin-top: 8px; }
+.onboard-fine { text-align: center; font-size: 12.5px; color: var(--text-mute-dark); margin-top: 16px; }
+
+/* ============ FAQ ============ */
+.faq-wrap { max-width: 780px; margin: 0 auto; }
+.faq-item {
+    background: var(--paper-2);
+    border: 1px solid var(--line-light);
+    border-radius: var(--radius-md);
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+.faq-item.open { border-color: rgba(110,86,248,0.45); box-shadow: var(--shadow-card); }
+.faq-q {
+    width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 18px;
+    background: none; border: none; cursor: pointer; text-align: left;
+    font-family: var(--font-display); font-size: 16.5px; font-weight: 600; color: var(--text-dark);
+    padding: 22px 26px;
+}
+.faq-toggle {
+    flex: none; width: 28px; height: 28px; border-radius: 50%;
+    border: 1px solid var(--line-light);
+    display: grid; place-items: center; color: var(--violet);
+    transition: transform .25s ease, background .25s ease, color .25s ease;
+}
+.faq-item.open .faq-toggle { transform: rotate(45deg); background: var(--violet); color: #fff; border-color: var(--violet); }
+.faq-a {
+    max-height: 0; overflow: hidden;
+    transition: max-height .35s ease;
+}
+.faq-a-inner { padding: 0 26px 24px; font-size: 15px; color: var(--text-mute-light); max-width: 660px; }
+
+/* ============ FOOTER ============ */
+.site-footer {
+    background: var(--ink); color: var(--text-mute-dark);
+    border-top: 1px solid var(--line-dark);
+    padding: 64px 0 36px;
+}
+.footer-grid { display: flex; justify-content: space-between; align-items: flex-start; gap: 48px; flex-wrap: wrap; }
+.footer-brand p { font-size: 14px; max-width: 300px; margin-top: 16px; }
+.footer-cols { display: flex; gap: 72px; flex-wrap: wrap; }
+.footer-col h4 {
+    font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--text-on-dark);
+    margin-bottom: 16px;
+}
+.footer-col ul { list-style: none; display: grid; gap: 10px; }
+.footer-col a { font-size: 14px; transition: color .15s ease; }
+.footer-col a:hover { color: #fff; }
+.footer-bottom {
+    margin-top: 52px; padding-top: 26px;
+    border-top: 1px solid var(--line-dark);
+    display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;
+    font-size: 13px;
+}
+
+/* ============ SCROLL REVEAL ============ */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-d1 { transition-delay: .08s; }
+.reveal-d2 { transition-delay: .16s; }
+.reveal-d3 { transition-delay: .24s; }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1020px) {
+    .flow-grid { grid-template-columns: repeat(2, 1fr); }
+    .flow-arrow { display: none; }
+    .channel-grid { grid-template-columns: repeat(2, 1fr); }
+    .story-grid, .final-grid { grid-template-columns: 1fr; gap: 48px; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .step-line { display: none; }
+    .cta-band { flex-direction: column; text-align: center; padding: 52px 32px; }
+}
+@media (max-width: 680px) {
+    .nav-links { display: none; }
+    .section { padding: 76px 0; }
+    .hero { padding-top: 132px; }
+    .flow-grid, .channel-grid { grid-template-columns: 1fr; }
+    .stat-grid { grid-template-columns: 1fr 1fr; }
+    .window-body { padding: 22px 18px 26px; }
+    .hero-actions .btn { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header" id="siteHeader">
+    <div class="container-wide header-inner">
+        <a href="#" class="logo">
+            <span class="logo-mark">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 19 21 12 17 5 21 12 2"/></svg>
+            </span>
+            <span class="logo-text">Agency<span>Atlas</span></span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#what">Platform</a></li>
+            <li><a href="#channels">Channels</a></li>
+            <li><a href="#how">How It Works</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <a href="#trial" class="header-cta">Start Free Trial</a>
+    </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+    <div class="container hero-content">
+        <div class="hero-badge">
+            <span class="pill">New</span>
+            Built with 15 years of agency experience
+        </div>
+        <h1>The AI Marketing Platform That Brings <span class="grad">All Your Tools Together</span></h1>
+        <p class="hero-sub">Strategize, create, publish, and analyze your digital marketing from one platform — all customized to your business.</p>
+        <div class="hero-actions">
+            <a href="#trial" class="btn btn-primary">
+                Start Your Free Trial
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="#how" class="btn btn-ghost-dark">See How It Works</a>
+        </div>
+        <div class="hero-trust">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3DDC97" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            No contract required — unlock the power of Agency Atlas
+        </div>
+    </div>
+
+    <!-- Mock agent window (Divi 4: image module of app screenshot, or code module) -->
+    <div class="container hero-window-wrap">
+        <div class="hero-window">
+            <div class="window-bar">
+                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                <span class="window-title">atlas — agent mode</span>
+            </div>
+            <div class="window-body">
+                <div class="chat-row">
+                    <div class="chat-avatar user">You</div>
+                    <div>
+                        <div class="chat-meta">you · just now</div>
+                        <div class="chat-bubble">Build out next week's content calendar and get everything scheduled across our channels.</div>
+                    </div>
+                </div>
+                <div class="chat-row">
+                    <div class="chat-avatar atlas">A</div>
+                    <div>
+                        <div class="chat-meta">atlas · agent mode</div>
+                        <div class="chat-bubble atlas-bubble">
+                            On it. Pulling from your Strategy &amp; Positioning document to keep everything on-brand.
+                            <ul class="chat-tasks">
+                                <li><span class="check">✓</span> 12 social posts drafted in your voice</li>
+                                <li><span class="check">✓</span> 2 SEO blog outlines built on target keywords</li>
+                                <li><span class="check">✓</span> Google &amp; Meta ad copy refreshed</li>
+                                <li><span class="spin"></span> Scheduling to connected channels…</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-chips">
+                    <span class="chat-chip">Plan a campaign</span>
+                    <span class="chat-chip">Write this week's posts</span>
+                    <span class="chat-chip">Analyze last month</span>
+                    <span class="chat-chip">Refresh my ad copy</span>
+                    <span class="chat-chip">Find content gaps</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= LIVE ACTIVITY TICKER ================= -->
+<div class="ticker-band" aria-hidden="true">
+    <div class="ticker-track">
+        <!-- set 1 -->
+        <span class="tick"><span class="live-dot"></span><b>Social calendar</b> filled · 14 posts scheduled</span>
+        <span class="tick"><b>SEO article</b> drafted · <span class="t-mint">on-strategy</span> · 41s</span>
+        <span class="tick"><b>Google Ads copy</b> refreshed · 8 headlines</span>
+        <span class="tick"><b>Monthly report</b> summarized · <span class="t-mint">3 recommendations</span></span>
+        <span class="tick"><b>Meta campaign</b> drafted · audience-matched</span>
+        <span class="tick"><b>Strategy doc</b> updated · positioning sharpened</span>
+        <span class="tick"><b>Email sequence</b> written · 5 touches · <span class="t-gold">awaiting approval</span></span>
+        <span class="tick"><span class="live-dot"></span><b>Agent mode</b> active · 6 tasks queued</span>
+        <!-- set 2 (duplicate for seamless loop) -->
+        <span class="tick"><span class="live-dot"></span><b>Social calendar</b> filled · 14 posts scheduled</span>
+        <span class="tick"><b>SEO article</b> drafted · <span class="t-mint">on-strategy</span> · 41s</span>
+        <span class="tick"><b>Google Ads copy</b> refreshed · 8 headlines</span>
+        <span class="tick"><b>Monthly report</b> summarized · <span class="t-mint">3 recommendations</span></span>
+        <span class="tick"><b>Meta campaign</b> drafted · audience-matched</span>
+        <span class="tick"><b>Strategy doc</b> updated · positioning sharpened</span>
+        <span class="tick"><b>Email sequence</b> written · 5 touches · <span class="t-gold">awaiting approval</span></span>
+        <span class="tick"><span class="live-dot"></span><b>Agent mode</b> active · 6 tasks queued</span>
+    </div>
+</div>
+
+<!-- ================= WHAT DOES AGENCY ATLAS DO ================= -->
+<section class="section" id="what">
+    <div class="container">
+        <div class="section-head center reveal">
+            <span class="eyebrow">The Platform</span>
+            <h2 class="section-title">What Does Agency Atlas Do?</h2>
+            <p class="section-lead">Strategize, create, publish, and analyze your marketing campaigns from one platform — powered by generative AI customized to your business, and enhanced with confidential prompts from our 15 years of agency experience.</p>
+        </div>
+        <div class="flow-grid">
+            <div class="flow-card reveal">
+                <span class="flow-num">01</span>
+                <div class="flow-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                </div>
+                <h3>Strategize</h3>
+                <p>Use our proprietary Atlas prompts and agent mode to build the marketing strategy for your business. Every output flows from that strategy, so you're producing top-tier customized content — not AI slop.</p>
+                <span class="flow-arrow"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            </div>
+            <div class="flow-card reveal reveal-d1">
+                <span class="flow-num">02</span>
+                <div class="flow-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 15l.9 2.6L22.5 18.5l-2.6.9L19 22l-.9-2.6-2.6-.9 2.6-.9z"/></svg>
+                </div>
+                <h3>Generate</h3>
+                <p>Create on-brand content for every channel in the time it used to take to write one post. Use the manual interface for full control, or activate Agent Mode and let Atlas handle the execution.</p>
+                <span class="flow-arrow"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            </div>
+            <div class="flow-card reveal reveal-d2">
+                <span class="flow-num">03</span>
+                <div class="flow-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </div>
+                <h3>Publish</h3>
+                <p>Schedule and publish directly to your connected channels without leaving Atlas. No copy-pasting, no switching tabs, no dropped posts. Agent Mode makes sure everything is ready to go for the week.</p>
+                <span class="flow-arrow"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            </div>
+            <div class="flow-card reveal reveal-d3">
+                <span class="flow-num">04</span>
+                <div class="flow-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <h3>Analyze</h3>
+                <p>Add an expert analyst to your team. Ask Atlas what's working and it'll tell you, in plain language. Pull performance data from your connected channels and get recommendations you can actually act on.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= MID CTA BAND ================= -->
+<section class="container reveal" style="margin-bottom: 108px;">
+    <div class="cta-band">
+        <h2>Start your free trial today and unlock an onboarding call with our team</h2>
+        <a href="#trial" class="btn btn-mint">
+            Start Your Free Trial
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- ================= CHANNELS ================= -->
+<section class="section section-tint" id="channels" style="padding-top: 0;">
+    <div class="container">
+        <div class="section-head center reveal" style="padding-top: 108px;">
+            <span class="eyebrow">Full Coverage</span>
+            <h2 class="section-title">What Parts of Marketing Does Atlas Handle?</h2>
+            <p class="section-lead">If it's part of your marketing, Atlas has a role in it. Most tools do one thing. Atlas covers the full map — from paid ads to organic content, all grounded in the same strategy.</p>
+        </div>
+        <div class="channel-grid">
+            <div class="channel-card reveal">
+                <div class="channel-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                </div>
+                <h3>Social Media</h3>
+                <p>Plan, write, schedule, and publish content across your social channels. Atlas keeps your voice consistent and your calendar full without the daily grind.</p>
+            </div>
+            <div class="channel-card reveal reveal-d1">
+                <div class="channel-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <h3>SEO &amp; AI SEO</h3>
+                <p>Create content built around the right keywords for your business. Atlas understands your positioning and produces copy that's written for LLMs and search engines alike.</p>
+            </div>
+            <div class="channel-card reveal reveal-d2">
+                <div class="channel-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>Google Advertising</h3>
+                <p>Write and refine ad copy that matches your strategy and speaks to your ideal customer. Atlas applies proven frameworks to every headline and description — not guesswork.</p>
+            </div>
+            <div class="channel-card reveal">
+                <div class="channel-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <h3>Meta Advertising</h3>
+                <p>Build campaign copy for Facebook and Instagram that's on-brand and audience-specific. Atlas knows your customer profile and writes to it, across every ad format.</p>
+            </div>
+            <div class="channel-card reveal reveal-d1">
+                <div class="channel-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+                </div>
+                <h3>Analytics</h3>
+                <p>Connect your platforms and let Atlas read the numbers for you. Get clear summaries and next-step recommendations instead of a dashboard full of data to interpret yourself.</p>
+            </div>
+            <div class="channel-card reveal reveal-d2">
+                <div class="channel-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+                </div>
+                <h3>Marketing Strategy</h3>
+                <p>Atlas doesn't just execute — it thinks. Use it to build campaign plans, sharpen your positioning, identify gaps, and get strategic recommendations grounded in 15 years of agency methodology.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= WEBMARKETS STORY ================= -->
+<section class="section section-dark on-dark">
+    <div class="container">
+        <div class="story-grid">
+            <div class="story-copy reveal">
+                <span class="eyebrow">The Pedigree</span>
+                <h2 class="section-title">Built With 15 Years of Agency Experience</h2>
+                <p>WebMarkets has been running digital marketing campaigns for 15 years. We've worked with 60+ clients across multiple industries — and we built Agency Atlas because we needed it ourselves.</p>
+                <div class="story-quote">
+                    The prompts, frameworks, and strategic logic baked into Atlas are the same ones we use for clients. We packaged that into easy-to-use software. <b>Now it's yours.</b>
+                </div>
+                <div style="margin-top: 34px;">
+                    <a href="https://www.webmarkets.com" class="btn btn-ghost-dark">
+                        Explore WebMarkets
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="stat-grid reveal reveal-d1">
+                <div class="stat-card">
+                    <div class="stat-num">15</div>
+                    <div class="stat-label">Years running real digital marketing campaigns</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">60+</div>
+                    <div class="stat-label">Clients served across multiple industries</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">60–80%</div>
+                    <div class="stat-label">Typical cut in content production time reported by users</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">1</div>
+                    <div class="stat-label">Platform replacing four subscriptions and a contractor</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section class="section" id="how">
+    <div class="container">
+        <div class="section-head center reveal">
+            <span class="eyebrow">Getting Started</span>
+            <h2 class="section-title">How Agency Atlas Works</h2>
+            <p class="section-lead">Most users are up and running within an hour — no code, no technical setup, no agency onboarding process.</p>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card reveal">
+                <span class="step-line"></span>
+                <h3>Connect Your Tools</h3>
+                <p>Connect your social accounts, email platform, CMS, and ad channels via OAuth in a few clicks. Atlas integrates with the tools already in your stack — it doesn't replace them.</p>
+                <span class="step-tag">~ minutes</span>
+            </div>
+            <div class="step-card reveal reveal-d1">
+                <span class="step-line"></span>
+                <h3>Customize Agency Atlas</h3>
+                <p>Complete your Strategy &amp; Positioning document: a one-time automated interview that tells Atlas exactly who you are, who you serve, and how you want to sound. This is what makes every output customized.</p>
+                <span class="step-tag">~ 30–45 min, once</span>
+            </div>
+            <div class="step-card reveal reveal-d2">
+                <h3>Produce Campaigns</h3>
+                <p>Use the manual interface to build and publish content yourself, with Atlas handling the strategy and writing. Or switch into Agent Mode and give Atlas a task in plain language. It executes, you approve.</p>
+                <span class="step-tag">same day</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= FINAL CTA / ONBOARDING ================= -->
+<section class="section final-cta" id="trial">
+    <div class="container">
+        <div class="final-grid">
+            <div class="final-copy reveal">
+                <span class="eyebrow">Free Trial</span>
+                <h2>Set Up Your Free Trial &amp; Get an Onboarding Call With Our Team</h2>
+                <p>We'll walk you through Agency Atlas, answer any questions, and get your free trial started.</p>
+                <ul class="check-list">
+                    <li><span class="check">✓</span> No contract, no commitment — month-to-month, cancel anytime</li>
+                    <li><span class="check">✓</span> Runs in your browser — nothing to download or install</li>
+                    <li><span class="check">✓</span> Create your first real piece of content the same day</li>
+                    <li><span class="check">✓</span> Onboarding call with the WebMarkets team included</li>
+                </ul>
+            </div>
+            <div class="onboard-card reveal reveal-d1">
+                <h3>Start Your Free Trial</h3>
+                <p>Tell us where to send your trial access and we'll reach out to schedule your onboarding call.</p>
+                <div class="form-field">
+                    <label for="f-name">Name</label>
+                    <input type="text" id="f-name" placeholder="Jane Smith">
+                </div>
+                <div class="form-field">
+                    <label for="f-email">Work Email</label>
+                    <input type="email" id="f-email" placeholder="jane@company.com">
+                </div>
+                <div class="form-field">
+                    <label for="f-company">Company</label>
+                    <input type="text" id="f-company" placeholder="Acme Co.">
+                </div>
+                <a href="#" class="btn btn-primary">
+                    Unlock Agency Atlas
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+                <div class="onboard-fine">We'd rather earn your business every month than lock you in.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section" id="faq">
+    <div class="container">
+        <div class="section-head center reveal">
+            <span class="eyebrow">Questions</span>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-wrap reveal">
+            <div class="faq-item open">
+                <button class="faq-q">What does Agency Atlas actually do?
+                    <span class="faq-toggle"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+                </button>
+                <div class="faq-a"><div class="faq-a-inner">Atlas is AI marketing software that plans, creates, publishes, and analyzes your marketing — all from one place. You build a Marketing Foundation once that tells Atlas about your business, and from that point on every piece of content, every recommendation, and every campaign it produces is built around your specific strategy.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q">How is this different from ChatGPT?
+                    <span class="faq-toggle"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+                </button>
+                <div class="faq-a"><div class="faq-a-inner">ChatGPT is a general-purpose AI — it knows nothing about your business, your customers, or your brand. Every prompt starts from zero. Atlas is built specifically for marketing, and it's anchored to your Marketing Foundation, so every output reflects your actual positioning, voice, and goals. On top of that, every prompt in Atlas was built by WebMarkets from 15 years of running real campaigns — that methodology is baked in, not something you have to figure out yourself.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q">What does Atlas replace that I'm already paying for?
+                    <span class="faq-toggle"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+                </button>
+                <div class="faq-a"><div class="faq-a-inner">For most businesses, Atlas replaces or reduces the need for a standalone content tool (like Jasper), a scheduling tool (like Buffer or Hootsuite), a reporting tool, and in many cases a freelancer or agency retainer for content production. Instead of four subscriptions and a contractor, it's one platform.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q">How long does it take to get started?
+                    <span class="faq-toggle"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+                </button>
+                <div class="faq-a"><div class="faq-a-inner">Most users are up and running within an hour. Connecting your tools takes minutes. Building your Marketing Foundation — the strategy document that powers everything — takes about 30–45 minutes. After that, you can create your first real piece of content the same day.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q">Is it easy to set up and use?
+                    <span class="faq-toggle"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+                </button>
+                <div class="faq-a"><div class="faq-a-inner">Yes. There's no code, no technical setup, and no agency onboarding process. If you can fill out a form and type a sentence, you can use Atlas. The manual interface walks you through every step, and Agent Mode just requires telling Atlas what you need in plain language.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q">How do I access it?
+                    <span class="faq-toggle"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+                </button>
+                <div class="faq-a"><div class="faq-a-inner">Atlas runs in your browser — nothing to download or install. Log in from any device and your Marketing Foundation, content, and connected channels are all there.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q">Is there a contract or commitment?
+                    <span class="faq-toggle"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+                </button>
+                <div class="faq-a"><div class="faq-a-inner">No contract, no commitment. Month-to-month plans can be cancelled anytime. We'd rather earn your business every month than lock you in.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q">How much time does it actually save?
+                    <span class="faq-toggle"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+                </button>
+                <div class="faq-a"><div class="faq-a-inner">That depends on your current setup, but most users report cutting content production time by 60–80%. Tasks that used to take an afternoon — a month of social posts, an email sequence, a campaign brief — typically take under 30 minutes in Atlas.</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <span class="logo-mark">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 19 21 12 17 5 21 12 2"/></svg>
+                    </span>
+                    <span class="logo-text">Agency<span>Atlas</span></span>
+                </a>
+                <p>AI marketing software that strategizes, creates, publishes, and analyzes — customized to your business.</p>
+            </div>
+            <div class="footer-cols">
+                <div class="footer-col">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a href="#what">What Atlas Does</a></li>
+                        <li><a href="#channels">Channels</a></li>
+                        <li><a href="#how">How It Works</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="https://www.webmarkets.com">WebMarkets</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Get Started</h4>
+                    <ul>
+                        <li><a href="#trial">Free Trial</a></li>
+                        <li><a href="#trial">Onboarding Call</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Agency Atlas by WebMarkets. All rights reserved.</span>
+            <span>Built with 15 years of agency experience.</span>
+        </div>
+    </div>
+</footer>
+
+<script>
+// Sticky header state
+const header = document.getElementById('siteHeader');
+const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 24);
+window.addEventListener('scroll', onScroll);
+onScroll();
+
+// FAQ accordion (Divi 4 equivalent: Toggle/Accordion module)
+document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    if (item.classList.contains('open')) a.style.maxHeight = a.scrollHeight + 'px';
+    q.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(o => {
+            o.classList.remove('open');
+            o.querySelector('.faq-a').style.maxHeight = null;
+        });
+        if (!isOpen) {
+            item.classList.add('open');
+            a.style.maxHeight = a.scrollHeight + 'px';
+        }
+    });
+});
+
+// Scroll reveal (Divi 4 equivalent: built-in module animations)
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+        if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            observer.unobserve(e.target);
+        }
+    });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
