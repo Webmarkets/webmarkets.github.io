@@ -227,11 +227,19 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.06; letter-spa
     border-top: var(--border); border-bottom: var(--border);
     padding: 16px 0; overflow: hidden;
 }
-.marquee-track {
-    display: flex; gap: 0; width: max-content;
-    animation: marquee 30s linear infinite;
+.marquee-track { display: flex; width: max-content; }
+.marquee-group {
+    flex: none;
+    display: flex; align-items: center;
+    /* Each group animates by -100% of its own width, so the loop
+       point is always exact — no drift or gap over time.
+       The phrase set repeats 3x inside each group (~3,670px) so a
+       single group is wider than any viewport; duration is scaled
+       up to keep the same visual speed. */
+    animation: marquee 90s linear infinite;
+    will-change: transform;
 }
-@keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes marquee { to { transform: translateX(-100%); } }
 .marquee span {
     font-family: var(--font-display); font-size: 20px; font-weight: 600;
     white-space: nowrap; padding: 0 18px;
@@ -653,10 +661,22 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.06; letter-spa
 <!-- ================= MARQUEE ================= -->
 <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
-        <span>Strategize <i>✦</i></span><span><em>Generate</em> <i>✦</i></span><span>Publish <i>✦</i></span><span><em>Analyze</em> <i>✦</i></span>
-        <span>One Platform <i>✦</i></span><span><em>Customized To Your Business</em> <i>✦</i></span>
-        <span>Strategize <i>✦</i></span><span><em>Generate</em> <i>✦</i></span><span>Publish <i>✦</i></span><span><em>Analyze</em> <i>✦</i></span>
-        <span>One Platform <i>✦</i></span><span><em>Customized To Your Business</em> <i>✦</i></span>
+        <div class="marquee-group">
+            <span>Strategize <i>✦</i></span><span><em>Generate</em> <i>✦</i></span><span>Publish <i>✦</i></span><span><em>Analyze</em> <i>✦</i></span>
+            <span>One Platform <i>✦</i></span><span><em>Customized To Your Business</em> <i>✦</i></span>
+            <span>Strategize <i>✦</i></span><span><em>Generate</em> <i>✦</i></span><span>Publish <i>✦</i></span><span><em>Analyze</em> <i>✦</i></span>
+            <span>One Platform <i>✦</i></span><span><em>Customized To Your Business</em> <i>✦</i></span>
+            <span>Strategize <i>✦</i></span><span><em>Generate</em> <i>✦</i></span><span>Publish <i>✦</i></span><span><em>Analyze</em> <i>✦</i></span>
+            <span>One Platform <i>✦</i></span><span><em>Customized To Your Business</em> <i>✦</i></span>
+        </div>
+        <div class="marquee-group">
+            <span>Strategize <i>✦</i></span><span><em>Generate</em> <i>✦</i></span><span>Publish <i>✦</i></span><span><em>Analyze</em> <i>✦</i></span>
+            <span>One Platform <i>✦</i></span><span><em>Customized To Your Business</em> <i>✦</i></span>
+            <span>Strategize <i>✦</i></span><span><em>Generate</em> <i>✦</i></span><span>Publish <i>✦</i></span><span><em>Analyze</em> <i>✦</i></span>
+            <span>One Platform <i>✦</i></span><span><em>Customized To Your Business</em> <i>✦</i></span>
+            <span>Strategize <i>✦</i></span><span><em>Generate</em> <i>✦</i></span><span>Publish <i>✦</i></span><span><em>Analyze</em> <i>✦</i></span>
+            <span>One Platform <i>✦</i></span><span><em>Customized To Your Business</em> <i>✦</i></span>
+        </div>
     </div>
 </div>
 

@@ -1,0 +1,1187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Designer Spotlight — Studio James | Francini</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&family=Marcellus&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* =====================================================================
+   FRANCINI · DESIGNER SPOTLIGHT — Studio James
+   ---------------------------------------------------------------------
+   HOW TO ADD YOUR PHOTOS:
+   Each image is a plain <img> inside a .ph placeholder box. Just set the
+   src to your file, e.g.  src="my-photo.jpg"
+   Until you add a src, the labeled placeholder box shows instead.
+   ===================================================================== */
+
+      :root {
+        --paper: #f5f2ec;
+        /* page background      */
+        --ink: #1b1916;
+        /* near-black text      */
+        --band: #ece7de;
+        /* soft section band    */
+        --gold: #9a7b53;
+        /* brand gold           */
+        --gold-lt: #c9a876;
+        /* light gold (on dark) */
+        --muted: #4d473f;
+        /* body copy            */
+        --muted-2: #7a6f62;
+        /* captions / labels    */
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 72px;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Jost", sans-serif;
+        font-weight: 300;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      ::selection {
+        background: var(--ink);
+        color: var(--paper);
+      }
+
+      a {
+        color: var(--gold);
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: var(--ink);
+      }
+
+      .serif {
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 300;
+      }
+
+      .eyebrow {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.36em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+
+      /* ---------- image placeholder ---------- */
+      .ph {
+        position: relative;
+        background: #e4ddd1;
+        overflow: hidden;
+      }
+
+      .ph::after {
+        content: attr(data-label);
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        text-align: center;
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #a89a86;
+      }
+
+      .ph img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: none;
+      }
+
+      .ph img[src] {
+        display: block;
+      }
+
+      /* shows once you add a src, hiding the label */
+
+      /* ---------- top nav ---------- */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 28px;
+        height: 60px;
+        background: rgba(245, 242, 236, 0.82);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(27, 25, 22, 0.1);
+      }
+
+      .nav .left {
+        display: flex;
+        align-items: baseline;
+        gap: 16px;
+      }
+
+      .brand {
+        font-family: "Marcellus", serif;
+        font-size: 18px;
+        letter-spacing: 0.44em;
+      }
+
+      .nav .tag {
+        font-size: 10px;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+
+      .nav .right {
+        font-size: 10px;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+
+      /* ---------- hero ---------- */
+      .hero {
+        position: relative;
+        height: 92vh;
+        min-height: 600px;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .hero .ph {
+        position: absolute;
+        inset: 0;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient(
+          180deg,
+          rgba(20, 18, 15, 0.34) 0%,
+          rgba(20, 18, 15, 0.2) 34%,
+          rgba(20, 18, 15, 0.32) 64%,
+          rgba(20, 18, 15, 0.72) 100%
+        );
+      }
+
+      .hero-badge {
+        position: absolute;
+        top: 78px;
+        left: 28px;
+        z-index: 30;
+        font-size: 10px;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.82);
+      }
+
+      .hero-content {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 20;
+        padding: 0 28px 8vh;
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+
+      .hero-content .eyebrow {
+        color: rgba(255, 255, 255, 0.86);
+        margin-bottom: 22px;
+        display: block;
+      }
+
+      .hero h1 {
+        margin: 0;
+        font-size: clamp(44px, 7vw, 104px);
+        line-height: 0.98;
+        letter-spacing: -0.01em;
+        color: #fbf9f4;
+        max-width: 15ch;
+        text-shadow: 0 2px 30px rgba(0, 0, 0, 0.25);
+      }
+
+      .hero .lede {
+        margin: 26px 0 0;
+        font-size: 16px;
+        line-height: 1.7;
+        color: rgba(251, 249, 244, 0.9);
+        max-width: 48ch;
+      }
+
+      .scroll-cue {
+        position: absolute;
+        left: 50%;
+        bottom: 26px;
+        transform: translateX(-50%);
+        z-index: 30;
+        width: 1px;
+        height: 42px;
+        background: linear-gradient(
+          rgba(255, 255, 255, 0),
+          rgba(255, 255, 255, 0.8)
+        );
+        animation: float 2.6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(-50%, 0);
+        }
+
+        50% {
+          transform: translate(-50%, 8px);
+        }
+      }
+
+      /* ---------- intro ---------- */
+      .intro {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 120px 28px 96px;
+      }
+
+      .intro .eyebrow {
+        margin-bottom: 34px;
+        display: block;
+      }
+
+      .intro-lead {
+        margin: 0 0 56px;
+        font-size: clamp(26px, 3.4vw, 42px);
+        line-height: 1.32;
+        max-width: 26ch;
+      }
+
+      .intro-cols {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 56px;
+      }
+
+      .intro-cols p,
+      .intro-cols ul {
+        margin: 0;
+        font-size: 16.5px;
+        line-height: 1.85;
+        color: var(--muted);
+      }
+
+      p {
+        margin: 0;
+        font-size: 16.5px;
+        line-height: 1.85;
+        color: var(--muted);
+      }
+
+      /* ---------- designer ---------- */
+      .designer {
+        background: var(--band);
+        border-top: 1px solid rgba(27, 25, 22, 0.08);
+        border-bottom: 1px solid rgba(27, 25, 22, 0.08);
+      }
+
+      .designer-inner {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 96px 28px;
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 72px;
+        align-items: center;
+      }
+
+      .designer .portrait {
+        aspect-ratio: 4/5;
+      }
+
+      .designer .eyebrow {
+        margin-bottom: 22px;
+        display: block;
+      }
+
+      .designer h2 {
+        margin: 0;
+        font-size: clamp(34px, 4.4vw, 58px);
+        line-height: 1.04;
+      }
+
+      .designer .studio {
+        font-size: 12px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--muted-2);
+        margin: 14px 0 30px;
+      }
+
+      .designer p {
+        margin: 0 0 18px;
+        font-size: 16.5px;
+        line-height: 1.85;
+        color: var(--muted);
+        max-width: 54ch;
+      }
+
+      .designer p:last-child {
+        margin-bottom: 0;
+      }
+
+      /* ---------- explore / main image + hotspots ---------- */
+      .explore {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 108px 28px;
+      }
+
+      .explore .head {
+        text-align: center;
+        margin-bottom: 46px;
+      }
+
+      .explore .head .eyebrow {
+        margin-bottom: 16px;
+        display: block;
+      }
+
+      .explore .head h2 {
+        margin: 0;
+        font-size: clamp(28px, 3.6vw, 46px);
+        line-height: 1.1;
+      }
+
+      .stage {
+        position: relative;
+        aspect-ratio: 16/9;
+        border-radius: 3px;
+        overflow: hidden;
+        box-shadow: 0 40px 90px -50px rgba(27, 25, 22, 0.5);
+      }
+
+      .caption {
+        margin: 20px 2px 0;
+        font-size: 12px;
+        letter-spacing: 0.04em;
+        color: var(--muted-2);
+      }
+
+      .hotspot {
+        position: absolute;
+        z-index: 10;
+      }
+
+      .hotspot .dot {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        background: rgba(154, 123, 83, 0.92);
+        cursor: pointer;
+        padding: 0;
+        animation: pulse 2.6s ease-out infinite;
+        transition: transform 0.3s;
+      }
+
+      .hotspot:hover .dot,
+      .hotspot.open .dot {
+        transform: scale(1.4);
+      }
+
+      .hotspot .tip {
+        position: absolute;
+        left: 50%;
+        bottom: 30px;
+        width: 248px;
+        transform: translate(-50%, 8px);
+        background: rgba(20, 18, 15, 0.94);
+        color: var(--paper);
+        padding: 16px 18px;
+        border-radius: 5px;
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          opacity 0.35s,
+          transform 0.35s;
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+      }
+
+      .hotspot:hover,
+      .hotspot.open {
+        z-index: 40;
+      }
+
+      .hotspot:hover .tip,
+      .hotspot.open .tip {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+
+      .hotspot .tip .t-label {
+        font-size: 10px;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        color: var(--gold-lt);
+        margin-bottom: 7px;
+      }
+
+      .hotspot .tip .t-body {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 18px;
+        line-height: 1.4;
+        font-weight: 300;
+      }
+
+      /* On phones the short, overflow-hidden .stage box was clipping the tips
+         away entirely. Let the frame show its overflow (so a tip anchored to
+         its marker stays visible) and shrink the tip to fit. overflow-x:clip
+         on the wrapper keeps an edge tip from causing sideways page scroll,
+         while still allowing the tip to extend above/below the frame. */
+      @media (max-width: 640px) {
+        .explore {
+          overflow-x: clip;
+        }
+        .stage {
+          overflow: visible;
+        }
+        .hotspot .tip {
+          width: min(200px, 62vw);
+          padding: 11px 13px;
+        }
+        .hotspot .tip .t-label {
+          font-size: 9px;
+          margin-bottom: 5px;
+        }
+        .hotspot .tip .t-body {
+          font-size: 15px;
+          line-height: 1.35;
+        }
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
+        }
+
+        70% {
+          box-shadow: 0 0 0 13px rgba(255, 255, 255, 0);
+        }
+
+        100% {
+          box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+        }
+      }
+
+      /* ---------- pull quote ---------- */
+      .quote {
+        background: var(--ink);
+        color: var(--paper);
+      }
+
+      .quote-inner {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 120px 28px;
+        text-align: center;
+      }
+
+      .quote .mark {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 64px;
+        line-height: 0;
+        color: var(--gold);
+        height: 30px;
+      }
+
+      .quote blockquote {
+        margin: 0;
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 300;
+        font-style: italic;
+        font-size: clamp(26px, 3.8vw, 46px);
+        line-height: 1.32;
+      }
+
+      .quote .attr {
+        margin-top: 36px;
+        font-size: 11px;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+
+      /* ---------- detail gallery ---------- */
+      .gallery {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 108px 28px;
+      }
+
+      .gallery .eyebrow {
+        margin-bottom: 40px;
+        display: block;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+
+      .gallery-grid .ph {
+        aspect-ratio: 3/4;
+        margin-bottom: 16px;
+      }
+
+      .gallery .num {
+        font-size: 10px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 5px;
+      }
+
+      .gallery .title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 22px;
+        font-weight: 300;
+      }
+
+      .gallery .offset {
+        margin-top: 48px;
+      }
+
+      /* ---------- specs ---------- */
+      .specs {
+        border-top: 1px solid rgba(27, 25, 22, 0.12);
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 64px 28px 0;
+      }
+
+      .specs-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 32px;
+      }
+
+      .specs .k {
+        font-size: 10px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 10px;
+      }
+
+      .specs .v {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 24px;
+        font-weight: 300;
+      }
+
+      /* ---------- cta ---------- */
+      .cta {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 96px 28px 120px;
+      }
+
+      .cta-inner {
+        background: var(--ink);
+        border-radius: 4px;
+        padding: 84px 48px;
+        text-align: center;
+        color: var(--paper);
+      }
+
+      .cta .eyebrow {
+        margin-bottom: 20px;
+        display: block;
+      }
+
+      .cta h2 {
+        margin: 0 0 36px;
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 300;
+        font-size: clamp(30px, 4.4vw, 56px);
+        line-height: 1.08;
+      }
+
+      .cta .btns {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: 15px 32px;
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        border-radius: 2px;
+        transition:
+          transform 0.3s,
+          background 0.3s,
+          border-color 0.3s;
+      }
+
+      .btn-solid {
+        background: var(--paper);
+        color: var(--ink);
+      }
+
+      .btn-solid:hover {
+        background: #fff;
+        color: var(--ink);
+        transform: translateY(-2px);
+      }
+
+      .btn-ghost {
+        border: 1px solid rgba(245, 242, 236, 0.4);
+        color: var(--paper);
+      }
+
+      .btn-ghost:hover {
+        border-color: var(--paper);
+        color: var(--paper);
+        background: rgba(245, 242, 236, 0.08);
+      }
+
+      /* ---------- scroll-reveal ---------- */
+      [data-reveal] {
+        opacity: 0;
+        transform: translateY(36px);
+        transition:
+          opacity 1.1s cubic-bezier(0.16, 0.7, 0.2, 1),
+          transform 1.1s cubic-bezier(0.16, 0.7, 0.2, 1);
+      }
+
+      [data-reveal="left"] {
+        transform: translateX(-32px);
+      }
+
+      [data-reveal="right"] {
+        transform: translateX(32px);
+      }
+
+      [data-reveal="scale"] {
+        transform: scale(1.045);
+      }
+
+      [data-reveal].in {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* ---------- responsive ---------- */
+      @media (max-width: 860px) {
+        .nav .right {
+          display: none;
+        }
+
+        .intro-cols {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+
+        .designer-inner {
+          grid-template-columns: 1fr;
+          gap: 36px;
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr;
+          gap: 36px;
+        }
+
+        .gallery .offset {
+          margin-top: 0;
+        }
+
+        .specs-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 28px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ============================ HERO ============================ -->
+    <section class="hero">
+      <!-- Add your hero photo below: set src on the img, e.g. src="YOUR-IMAGE-PATH" -->
+
+      <div class="ph">
+        <img
+          src="/portals/0/custompages/designer-spotlight/3-ivy-design/Banner.png"
+          alt="Hero — Francini Marble Bathroom"
+        />
+      </div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <span class="eyebrow" data-reveal>Designer Spotlight — №02</span>
+        <h1 class="serif" data-reveal>Elevating Everyday Luxury</h1>
+        <p class="lede" data-reveal>
+          3 Ivy Design's Primary Bath Transformation with Francini Stone
+        </p>
+      </div>
+      <div class="scroll-cue"></div>
+    </section>
+
+    <!-- ============================ INTRO ============================ -->
+    <section class="intro">
+      <span class="eyebrow" data-reveal
+        >The Project · Bathroom Transformation</span
+      >
+      <p class="serif intro-lead" data-reveal>
+        A well-designed bathroom should be both a retreat and a functional space
+      </p>
+      <div class="intro-cols">
+        <p data-reveal>
+          A well-designed bathroom should be both a retreat and a functional
+          space, seamlessly blending beauty and practicality. That’s exactly
+          what 3 Ivy Design achieved in their latest primary bath project,
+          transforming a simple space into a sophisticated sanctuary. By
+          selecting Francini’s Calacatta Gold Premium large-format porcelain
+          from the Houston Slab Gallery, the design team crafted a modern yet
+          timeless aesthetic that elevates everyday luxury.
+        </p>
+        <p data-reveal>
+          From a stunning statement shower to seamless countertops and a
+          porcelain-clad ceiling, every detail in this project reflects the
+          designers’ meticulous attention to elegance and cohesion. Here’s how 3
+          Ivy Design brought this vision to life with Francini’s natural stone.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================ DESIGNER ============================ -->
+    <section class="designer">
+      <div class="designer-inner">
+        <div class="ph portrait" data-reveal="left">
+          <img
+            src="/portals/0/custompages/designer-spotlight/3-ivy-design/Main-Bath.png"
+            alt="Shower Detail with Marble"
+          />
+        </div>
+        <div data-reveal="right">
+          <span class="eyebrow">3 Ivy Design</span>
+          <h2 class="serif">
+            How 3 Ivy Design Blended Modern and Timeless Elegance in This
+            Primary Bath
+          </h2>
+          <div class="studio"></div>
+          <p>
+            For this project, 3 Ivy Design was inspired by their clients’ desire
+            for a bathroom that felt contemporary yet enduring—a space that
+            would look just as beautiful years from now as it does today. Their
+            solution? A statement shower with sleek, large-format porcelain that
+            extends seamlessly from the walls to the ceiling and countertops.
+          </p>
+          <p>
+            The use of mitered edges throughout the design enhances the fluidity
+            of the space, eliminating sharp transitions and creating a refined,
+            cohesive look. The result is a bathroom that feels expansive,
+            polished, and effortlessly sophisticated—a perfect example of 3 Ivy
+            Design’s commitment to crafting spaces that are both approachable
+            and elevated.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ Luxury ============================ -->
+    <section class="intro">
+      <span class="eyebrow" data-reveal></span>
+      <p class="serif intro-lead" data-reveal>
+        The Beauty and Benefits of Francini’s Calacatta Gold Large-Format
+        Porcelain
+      </p>
+      <div class="intro-cols">
+        <div>
+          <p data-reveal>
+            To achieve the perfect balance of durability and luxury, Francini’s
+            Calacatta Gold Premium large-format porcelain was the material of
+            choice for this primary bath. Unlike natural marble, porcelain is
+            highly durable, non-porous, and resistant to stains and moisture,
+            making it an ideal option for bathroom applications.
+            <br /><br />
+            The benefits of using Francini’s premium porcelain in this project
+            include:<br />
+          </p>
+          <ul data-reveal>
+            <li>
+              Luxurious appearance with the timeless beauty of Calacatta marble
+            </li>
+            <li>Durability that withstands moisture, heat, and daily use</li>
+            <li>Low maintenance and easy-to-clean surfaces</li>
+            <li>
+              Seamless integration with minimal grout lines for a sleek, modern
+              finish
+            </li>
+          </ul>
+        </div>
+
+        <p data-reveal>
+          By specifically choosing large-format slabs, 3 Ivy Design was able to
+          minimize grout lines, creating a smooth, uninterrupted flow that
+          enhances the room’s modern aesthetic.<br /><br />
+          Whether used for shower walls, countertops, or backsplashes,
+          Francini’s Calacatta Gold porcelain brings effortless sophistication
+          to any space. This exquisite stone mimics the look of classic
+          Calacatta marble, with delicate veining and a luminous white base that
+          exudes elegance.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================ DETAIL GALLERY ============================ -->
+    <section class="gallery">
+      <span class="eyebrow" data-reveal>In Detail</span>
+      <p class="serif intro-lead" data-reveal>
+        Creating a Cohesive Space: Shower Walls, Ceiling, and Countertops in
+        Porcelain
+      </p>
+      <p data-reveal style="margin-bottom: 2rem">
+        One of the most striking elements of this bathroom transformation is the
+        use of a single material throughout multiple applications—a design
+        choice that adds depth and continuity. 3 Ivy Design seamlessly extended
+        Francini’s Calacatta Gold porcelain across:
+      </p>
+      <div class="gallery-grid">
+        <div data-reveal>
+          <div class="ph">
+            <img
+              src="/portals/0/custompages/designer-spotlight/3-ivy-design/Shower.png"
+              alt="Shower Marble"
+            />
+          </div>
+          <div class="num">Detail 01</div>
+          <div class="title">The Shower Walls & Ceiling</div>
+          <p>
+            The large-format slabs create a spa-like feel, wrapping the shower
+            in a luxurious, marble-like surface. Extending the porcelain onto
+            the ceiling makes the space feel expansive and immersive.
+          </p>
+        </div>
+        <div class="offset" data-reveal>
+          <div class="ph">
+            <img
+              src="/portals/0/custompages/designer-spotlight/3-ivy-design/Niche.png"
+              alt="Custom Niche"
+            />
+          </div>
+          <div class="num">Detail 02</div>
+          <div class="title">The Custom Niche</div>
+          <p>
+            A custom-built niche within the shower offers functionality while
+            blending effortlessly into the overall design, thanks to the
+            continued use of Calacatta Gold porcelain.
+          </p>
+        </div>
+        <div data-reveal>
+          <div class="ph">
+            <img
+              src="/portals/0/custompages/designer-spotlight/3-ivy-design/Backsplash.png"
+              alt="Backsplash Detail"
+            />
+          </div>
+          <div class="num">Detail 03</div>
+          <div class="title">The Countertops & Backsplash</div>
+          <p>
+            The porcelain countertops and backsplash tie the entire space
+            together, ensuring a consistent flow from one surface to the next.
+            The mitered edges further enhance this seamless look, reinforcing
+            the bathroom’s polished aesthetic.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== MAIN IMAGE + HOTSPOTS ==================== -->
+    <!-- <section class="explore">
+      <div class="head">
+        <span class="eyebrow" data-reveal>Explore the Details</span>
+        <h2 class="serif" data-reveal>Hover the markers to read each detail</h2>
+      </div>
+
+      <div class="stage" data-reveal="scale"> -->
+    <!-- Add your wide interior photo here -->
+    <!-- <div class="ph" style="position: absolute; inset: 0">
+          <img
+            src="/portals/0/custompages/designer-spotlight/studio-james/Hotspot.jpg"
+            alt="Finished interior"
+          />
+        </div> -->
+
+    <!-- Move a marker by changing its left / top percentages -->
+    <!-- <div class="hotspot" style="left: 64%; top: 32%">
+          <button class="dot" aria-label="Venetian plaster"></button>
+          <div class="tip">
+            <div class="t-label">Venetian Plaster</div>
+            <div class="t-body">
+              Softens the architecture and shifts with the mountain light — soft
+              by morning, deep by evening.
+            </div>
+          </div>
+        </div>
+
+        <div class="hotspot" style="left: 16%; top: 73%">
+          <button class="dot" aria-label="Handcrafted tile"></button>
+          <div class="tip">
+            <div class="t-label">Handcrafted Tile</div>
+            <div class="t-body">
+              A Portuguese-modern influence — a custom groutless design that
+              reads seamless and uninterrupted.
+            </div>
+          </div>
+        </div>
+
+        <div class="hotspot" style="left: 54%; top: 64%">
+          <button class="dot" aria-label="Stair riser detail"></button>
+          <div class="tip">
+            <div class="t-label">Stair Riser Detail</div>
+            <div class="t-body">
+              Handcrafted tile layered along the risers — a moment meant to be
+              discovered, not announced.
+            </div>
+          </div>
+        </div>
+
+        <div class="hotspot" style="left: 80%; top: 40%">
+          <button class="dot" aria-label="The art collection"></button>
+          <div class="tip">
+            <div class="t-label">The Art Collection</div>
+            <div class="t-body">
+              The homeowners’ own pieces bring the personality and familiarity
+              furnishings alone could not.
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="caption" data-reveal>
+        Venetian plaster and handcrafted Portuguese tile — Colorado ski-in,
+        ski-out residence. Photography by Ric Stovall.
+      </p>
+    </section> -->
+
+    <!-- ============================ PULL QUOTE ============================ -->
+    <section class="quote">
+      <div class="quote-inner">
+        <div class="mark" data-reveal>“</div>
+        <blockquote data-reveal>
+          These thoughtful details showcase 3 Ivy Design’s expertise in
+          balancing form and function, using Francini’s stone to create an
+          atmosphere of everyday luxury.
+        </blockquote>
+        <div class="attr" data-reveal></div>
+      </div>
+    </section>
+
+    <!-- ============================ DESIGNER ============================ -->
+    <section class="designer">
+      <div class="designer-inner">
+        <div data-reveal="right">
+          <span class="eyebrow">3 Ivy Design</span>
+          <h2 class="serif">About 3 Ivy Design</h2>
+          <div class="studio"></div>
+          <p>
+            Based in The Woodlands, Texas, 3 Ivy Design is dedicated to creating
+            personalized spaces that reflect the unique lifestyles of their
+            clients. They offer a comprehensive range of services, from
+            single-room makeovers to whole-home renovations, ensuring each
+            project is both functional and beautiful. Their mission is to
+            provide approachable design services for the everyday person, making
+            the design process beautiful, comfortable, and uniquely tailored to
+            each individual.
+          </p>
+          <p>
+            <strong>Kristen</strong>: With a background in elementary education,
+            Kristen discovered her passion for design early on. She enjoys
+            mixing various design styles and solving complex design challenges,
+            always aiming for simplicity, comfort, and purpose.
+          </p>
+          <p>
+            <strong>Sam</strong>: A Texas A&M graduate, Sam has always had a
+            love for interior design. Her design style leans towards modern
+            rustic minimalism, incorporating clean lines and organic elements
+            like wood and stone to create warm, inviting spaces.
+          </p>
+          <p>
+            With meticulous attention to detail and a commitment to excellence,
+            3 Ivy Design guides clients through a rewarding design journey,
+            turning dream homes into tangible realities.
+          </p>
+        </div>
+        <div data-reveal="left" class="ph portrait">
+          <img
+            src="/portals/0/custompages/designer-spotlight/3-ivy-design/Team.png"
+            alt="Team Photo"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ Final Paragraph ============================ -->
+    <!-- <section class="intro">
+      <span class="eyebrow" data-reveal>Finishing Touches</span>
+      <p class="serif intro-lead" data-reveal>
+        The Layer That Pulled Everything Together
+      </p>
+      <div class="intro-cols">
+        <p data-reveal>
+          As the home began to take shape, it was the homeowners’ personal art
+          collection that ultimately changed the feeling of the space. While the
+          architecture and materials created the foundation, these pieces
+          brought a sense of personality and familiarity into the interiors that
+          could not be replicated through furnishings alone. Throughout the
+          home, the artwork creates moments that draw you in as you move from
+          room to room. Some pieces immediately capture your attention, while
+          others slowly reveal themselves over time, adding another layer of
+          connection within the space.
+        </p>
+        <p data-reveal>
+          What makes the residence feel memorable is not one singular design
+          moment, but the way each layer works together to shape the overall
+          experience of the home. The result is a space that feels welcoming
+          from the moment you walk through the door and stays with you long
+          after you leave.
+        </p>
+      </div>
+    </section> -->
+
+    <!-- ============================ SPECS ============================ -->
+    <!-- <section class="specs">
+      <div class="specs-grid" data-reveal>
+        <div>
+          <div class="k">Location</div>
+          <div class="v">Colorado</div>
+        </div>
+        <div>
+          <div class="k">Project</div>
+          <div class="v">Full interior remodel</div>
+        </div>
+        <div>
+          <div class="k">Size</div>
+          <div class="v">~2,500 sq ft</div>
+        </div>
+        <div>
+          <div class="k">Designer</div>
+          <div class="v">Victoria Jones</div>
+        </div>
+        <div>
+          <div class="k">Contractor</div>
+          <div class="v">Tom Bjornson</div>
+        </div>
+        <div>
+          <div class="k">Photographer</div>
+          <div class="v">Ric Stovall</div>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- ============================ CTA ============================ -->
+    <section class="cta">
+      <div class="cta-inner" data-reveal="scale">
+        <h2>
+          Experience the Beauty of Francini’s Natural Stone in Your Own Home
+        </h2>
+        <p>
+          This primary bath renovation is a testament to the power of
+          high-quality materials and expert design. With the help of Francini
+          Marble & Granite’s Calacatta Gold Premium porcelain, 3 Ivy Design
+          turned a simple bathroom into a refined, tranquil retreat—proving that
+          great design starts with intentional choices and exceptional
+          materials.
+        </p>
+        <p>
+          Are you ready to bring this level of luxury into your home? Visit
+          Francini Marble & Granite’s Houston Slab Gallery to explore their
+          premium selection of natural stone, porcelain, and quartzite.
+        </p>
+        <br />
+        <div class="btns">
+          <a href="https://3ivydesign.com/" class="btn btn-solid"
+            >3 Ivy Design</a
+          >
+          <a href="https://www.instagram.com/3ivydesign/" class="btn btn-ghost"
+            >3 Ivy Design Instagram</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <script>
+      /* ---------- scroll reveal ---------- */
+      (function () {
+        var els = document.querySelectorAll("[data-reveal]");
+        // stagger siblings inside the same grid/row for a nicer cascade
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                e.target.classList.add("in");
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -7% 0px" },
+        );
+        els.forEach(function (el) {
+          io.observe(el);
+        });
+      })();
+
+      /* ---------- hotspots: hover is CSS; this adds click/tap toggle ---------- */
+      (function () {
+        document.querySelectorAll(".hotspot").forEach(function (h) {
+          h.querySelector(".dot").addEventListener("click", function (ev) {
+            ev.preventDefault();
+            var wasOpen = h.classList.contains("open");
+            document.querySelectorAll(".hotspot.open").forEach(function (o) {
+              o.classList.remove("open");
+            });
+            if (!wasOpen) h.classList.add("open");
+          });
+        });
+        document.addEventListener("click", function (ev) {
+          if (!ev.target.closest(".hotspot"))
+            document.querySelectorAll(".hotspot.open").forEach(function (o) {
+              o.classList.remove("open");
+            });
+        });
+      })();
+    </script>
+  </body>
+</html>

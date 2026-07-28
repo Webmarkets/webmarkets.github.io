@@ -1,0 +1,1947 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Greyloch Custom Cabinet Manufacturer | Greyloch</title>
+  <meta name="description"
+    content="Learn about Greyloch, a cabinet manufacturer based in Star, Idaho serving the Treasure Valley. Our team combines advanced manufacturing technology with skilled craftsmanship to produce modern custom cabinetry for residential homes, commercial interiors, and large development projects." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;700&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap"
+    rel="stylesheet" />
+  <style>
+    /* =============================================
+           V3 DESIGN TOKENS , "Wood as the Hero"
+           Shared with home-v3. Greyloch green reserved
+           as a rare, deliberate accent.
+        ============================================== */
+    :root {
+      --ivory: #f5f4f1;
+      --ivory-deep: #eceae6;
+      --oak: #009639;
+      --oak-deep: #009639;
+      --umber: #444343;
+      --charcoal: #1a1a18;
+      --charcoal-soft: #2a2a28;
+      --green: #009639;
+
+      --text: #1a1a18;
+      --text-soft: #605f5c;
+      --text-faint: #868686;
+
+      --divider: rgba(26, 26, 24, 0.12);
+      --divider-dark: rgba(245, 244, 241, 0.12);
+
+      --serif: "Oswald", sans-serif;
+      --sans: "Open Sans", "Helvetica Neue", sans-serif;
+
+      --nav-h: 84px;
+      --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* =============================================
+           RESET & BASE
+        ============================================== */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--ivory);
+      color: var(--text);
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 1.75;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    button {
+      cursor: pointer;
+      font-family: inherit;
+      border: none;
+      background: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    ::selection {
+      background: var(--oak);
+      color: var(--ivory);
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 4.5rem;
+    }
+
+    /* =============================================
+           TYPE SYSTEM
+        ============================================== */
+    .eyebrow {
+      display: block;
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 0.74rem;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin-bottom: 1.75rem;
+    }
+
+    .serif-title {
+      font-family: var(--serif);
+      font-weight: 200;
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      overflow-wrap: break-word;
+    }
+
+    .serif-title em {
+      font-style: normal;
+      font-weight: 400;
+      color: var(--oak-deep);
+    }
+
+    /* =============================================
+           BUTTONS
+        ============================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 0.72rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      padding: 1.15rem 2.75rem;
+      border-radius: 0;
+      transition: all 0.45s var(--ease-soft);
+      white-space: nowrap;
+    }
+
+    .btn-solid {
+      background: var(--charcoal);
+      color: var(--ivory);
+      border: 1px solid var(--charcoal);
+    }
+
+    .btn-solid:hover {
+      background: var(--umber);
+      border-color: var(--umber);
+    }
+
+    .btn-hairline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid rgba(26, 26, 24, 0.35);
+    }
+
+    .btn-hairline:hover {
+      border-color: var(--text);
+      background: rgba(26, 26, 24, 0.04);
+    }
+
+    .btn-hairline-light {
+      background: transparent;
+      color: var(--ivory);
+      border: 1px solid rgba(245, 244, 241, 0.45);
+    }
+
+    .btn-hairline-light:hover {
+      background: rgba(245, 244, 241, 0.1);
+      border-color: rgba(245, 244, 241, 0.85);
+    }
+
+    .btn-green {
+      background: var(--green);
+      color: #fff;
+      border: 1px solid var(--green);
+    }
+
+    .btn-green:hover {
+      background: #007c30;
+      border-color: #007c30;
+    }
+
+    .btn-solid-light {
+      background: var(--ivory);
+      color: var(--charcoal);
+      border: 1px solid var(--ivory);
+    }
+
+    .btn-solid-light:hover {
+      background: transparent;
+      color: var(--ivory);
+    }
+
+    /* Underlined text link */
+    .text-link {
+      display: inline-block;
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 0.72rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--text);
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(26, 26, 24, 0.3);
+      transition: all 0.35s ease;
+    }
+
+    .text-link:hover {
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    /* =============================================
+           SCROLL REVEAL
+        ============================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(44px);
+      transition:
+        opacity 1.1s var(--ease-soft),
+        transform 1.1s var(--ease-soft);
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: none;
+    }
+
+    .delay-1 {
+      transition-delay: 0.12s;
+    }
+
+    .delay-2 {
+      transition-delay: 0.26s;
+    }
+
+    .delay-3 {
+      transition-delay: 0.42s;
+    }
+
+    .delay-4 {
+      transition-delay: 0.6s;
+    }
+
+    /* =============================================
+           NAVIGATION , transparent over hero, ivory on scroll
+        ============================================== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 300;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      transition:
+        background 0.5s ease,
+        box-shadow 0.5s ease,
+        height 0.5s ease;
+    }
+
+    .nav-inner {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 4.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .nav-logo img {
+      width: 158px;
+      height: auto;
+      display: block;
+      transition: opacity 0.4s ease;
+    }
+
+    .nav-logo .logo-dark {
+      display: none;
+    }
+
+    .nav-links {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 2.75rem;
+    }
+
+    .nav-links a {
+      font-family: var(--sans);
+      font-weight: 400;
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(245, 244, 241, 0.85);
+      position: relative;
+      padding: 0.4rem 0;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: 0;
+      height: 1px;
+      background: currentColor;
+      transition: right 0.4s var(--ease-soft);
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    .nav-links a:hover::after {
+      right: 0;
+    }
+
+    .nav-ctas {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .nav-ctas .btn {
+      padding: 0.8rem 1.6rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.24em;
+    }
+
+    .nav-trade {
+      background: transparent;
+      color: rgba(245, 244, 241, 0.9);
+      border: 1px solid rgba(245, 244, 241, 0.4);
+    }
+
+    .nav-trade:hover {
+      border-color: rgba(245, 244, 241, 0.9);
+      background: rgba(245, 244, 241, 0.08);
+    }
+
+    .nav-start {
+      background: var(--ivory);
+      color: var(--charcoal);
+      border: 1px solid var(--ivory);
+    }
+
+    .nav-start:hover {
+      background: transparent;
+      color: var(--ivory);
+    }
+
+    /* Scrolled state , ivory bar, dark type */
+    .nav.scrolled {
+      background: rgba(245, 244, 241, 0.96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 var(--divider);
+      height: 68px;
+    }
+
+    .nav.scrolled .nav-logo .logo-light {
+      display: none;
+    }
+
+    .nav.scrolled .nav-logo .logo-dark {
+      display: block;
+    }
+
+    .nav.scrolled .nav-links a {
+      color: var(--text-soft);
+    }
+
+    .nav.scrolled .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav.scrolled .nav-trade {
+      color: var(--text);
+      border-color: rgba(26, 26, 24, 0.3);
+    }
+
+    .nav.scrolled .nav-trade:hover {
+      border-color: var(--text);
+      background: rgba(26, 26, 24, 0.04);
+    }
+
+    .nav.scrolled .nav-start {
+      background: var(--charcoal);
+      color: var(--ivory);
+      border-color: var(--charcoal);
+    }
+
+    .nav.scrolled .nav-start:hover {
+      background: var(--umber);
+      border-color: var(--umber);
+    }
+
+    .nav-mobile-btn {
+      display: none;
+      color: var(--ivory);
+    }
+
+    .nav.scrolled .nav-mobile-btn {
+      color: var(--text);
+    }
+
+    /* =============================================
+           NAV DROPDOWN
+        ============================================== */
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-caret {
+      display: inline-block;
+      margin-left: 0.5em;
+      font-size: 0.85em;
+      transition: transform 0.3s var(--ease-soft);
+    }
+
+    .nav-item:hover .nav-caret {
+      transform: rotate(180deg);
+    }
+
+    .nav .nav-links .nav-dropdown {
+      position: absolute;
+      top: calc(100% + 1.1rem);
+      left: 50%;
+      transform: translate(-50%, 10px);
+      min-width: 210px;
+      padding: 0.6rem 0;
+      background: var(--ivory);
+      border: 1px solid var(--divider);
+      box-shadow: 0 20px 44px rgba(26, 26, 24, 0.16);
+      opacity: 0;
+      visibility: hidden;
+      transition:
+        opacity 0.35s var(--ease-soft),
+        transform 0.35s var(--ease-soft),
+        visibility 0.35s;
+    }
+
+    .nav .nav-links .nav-dropdown::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -1.2rem;
+      height: 1.2rem;
+    }
+
+    .nav-item:hover .nav-dropdown,
+    .nav-item:focus-within .nav-dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, 0);
+    }
+
+    .nav .nav-links .nav-dropdown a {
+      display: block;
+      padding: 0.75rem 1.6rem;
+      color: var(--text-soft);
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+    }
+
+    .nav .nav-links .nav-dropdown a::after {
+      display: none;
+    }
+
+    .nav .nav-links .nav-dropdown a:hover {
+      color: var(--text);
+      background: rgba(26, 26, 24, 0.05);
+    }
+
+    /* =============================================
+           PAGE HERO , shorter than home, same language.
+           Slow pan, thin serif overlay, dual CTAs.
+        ============================================== */
+    .hero {
+      position: relative;
+      height: 78vh;
+      min-height: 600px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      background: var(--charcoal);
+    }
+
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 55% 55%;
+      transform-origin: 55% 60%;
+      animation: heroPan 34s ease-in-out infinite alternate;
+    }
+
+    @keyframes heroPan {
+      0% {
+        transform: scale(1.12) translate(0.5%, 0.5%);
+      }
+
+      100% {
+        transform: scale(1.24) translate(-1.8%, -1.4%);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-media img {
+        animation: none;
+      }
+    }
+
+    .hero-scrim {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg,
+          rgba(26, 26, 24, 0.45) 0%,
+          rgba(26, 26, 24, 0.1) 32%,
+          rgba(26, 26, 24, 0.8) 100%),
+        linear-gradient(90deg,
+          rgba(26, 26, 24, 0.88) 0%,
+          rgba(26, 26, 24, 0.68) 30%,
+          rgba(26, 26, 24, 0.32) 55%,
+          rgba(26, 26, 24, 0) 80%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 4.5rem 6rem;
+      color: var(--ivory);
+    }
+
+    .hero-eyebrow {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 0.74rem;
+      letter-spacing: 0.46em;
+      text-transform: uppercase;
+      color: rgba(245, 244, 241, 0.72);
+      margin-bottom: 2.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .hero-eyebrow::before {
+      content: "";
+      width: 44px;
+      height: 1px;
+      background: var(--green);
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-weight: 200;
+      font-size: clamp(2.6rem, 6.4vw, 5.4rem);
+      line-height: 1.06;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      max-width: 14em;
+      margin-bottom: 2.25rem;
+      overflow-wrap: break-word;
+    }
+
+    .hero-title em {
+      font-style: normal;
+      font-weight: 500;
+      color: var(--oak);
+    }
+
+    .hero-desc {
+      font-size: 1.16rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: rgba(245, 244, 241, 0.82);
+      max-width: 520px;
+      margin-bottom: 3rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.1rem;
+      flex-wrap: wrap;
+    }
+
+    /* =============================================
+           STORY , editorial statement, text left,
+           full-height image bleeding right.
+        ============================================== */
+    .statement {
+      position: relative;
+      background: var(--ivory);
+      padding: 9rem 0 8rem;
+    }
+
+    .statement-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .statement-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: stretch;
+    }
+
+    .statement-media {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 44vw;
+    }
+
+    .statement-media img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .statement-quote {
+      font-family: var(--serif);
+      font-weight: 200;
+      font-size: clamp(1.8rem, 3.4vw, 3rem);
+      line-height: 1.22;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 3.5rem;
+    }
+
+    .statement-quote em {
+      font-style: normal;
+      font-weight: 500;
+      color: var(--oak-deep);
+    }
+
+    .statement-body {
+      margin: 0 0 2rem;
+      font-size: 1.09rem;
+      line-height: 1.9;
+      color: var(--text-soft);
+    }
+
+    .statement-body:last-of-type {
+      margin-bottom: 3rem;
+    }
+
+    /* =============================================
+           INNOVATION BAND , dark, image left (craft style)
+        ============================================== */
+    .craft {
+      position: relative;
+      background: var(--charcoal);
+      color: var(--ivory);
+      padding: 9rem 0;
+    }
+
+    .craft-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .craft-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: stretch;
+    }
+
+    .craft-text {
+      grid-column: 2;
+    }
+
+    .craft-media {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 50vw;
+    }
+
+    .craft-media img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Mirrored variant , image right, text left */
+    .craft-flip .craft-text {
+      grid-column: 1;
+    }
+
+    .craft-flip .craft-media {
+      left: auto;
+      right: 0;
+    }
+
+    .craft-header {
+      max-width: 820px;
+      margin-bottom: 2.75rem;
+    }
+
+    .craft .eyebrow {
+      color: var(--green);
+    }
+
+    .craft-title {
+      font-size: clamp(2rem, 3.5vw, 3.1rem);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ivory);
+    }
+
+    .craft-title em {
+      font-style: normal;
+      font-weight: 500;
+      color: var(--oak);
+    }
+
+    .craft-body {
+      max-width: 780px;
+    }
+
+    .craft-intro {
+      font-size: 1.09rem;
+      line-height: 1.85;
+      color: rgba(245, 244, 241, 0.7);
+      margin-bottom: 2.5rem;
+    }
+
+    .craft-intro strong {
+      color: var(--ivory);
+      font-weight: 600;
+    }
+
+    .craft-lead {
+      font-size: 1.12rem;
+      line-height: 1.7;
+      color: var(--ivory);
+      margin-bottom: 1rem;
+    }
+
+    .craft-list {
+      max-width: 560px;
+      margin-bottom: 3rem;
+    }
+
+    .craft-list li {
+      position: relative;
+      padding: 1.05rem 0 1.05rem 1.9rem;
+      font-size: 1.09rem;
+      line-height: 1.55;
+      color: rgba(245, 244, 241, 0.85);
+      border-bottom: 1px solid var(--divider-dark);
+    }
+
+    .craft-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 1.55rem;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    .craft-closing {
+      max-width: 780px;
+      font-size: 1.09rem;
+      line-height: 1.85;
+      color: rgba(245, 244, 241, 0.7);
+      margin-bottom: 3rem;
+    }
+
+    /* =============================================
+           CAPABILITY GRID , numbered, inside dark band
+        ============================================== */
+    .cap-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--divider-dark);
+      border-left: 1px solid var(--divider-dark);
+      margin-bottom: 2.5rem;
+    }
+
+    .cap {
+      padding: 1.9rem 1.75rem 1.75rem;
+      border-right: 1px solid var(--divider-dark);
+      border-bottom: 1px solid var(--divider-dark);
+    }
+
+    .cap-num {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      color: var(--green);
+      display: block;
+      margin-bottom: 0.9rem;
+    }
+
+    .cap-name {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 1.05rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ivory);
+      margin-bottom: 0.6rem;
+    }
+
+    .cap-desc {
+      font-size: 0.96rem;
+      line-height: 1.7;
+      color: rgba(245, 244, 241, 0.62);
+    }
+
+    .cap-note {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 300;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: rgba(245, 244, 241, 0.66);
+      max-width: 640px;
+      border-left: 2px solid var(--green);
+      padding-left: 1.5rem;
+    }
+
+    /* =============================================
+           IMAGE STRIP , two full-bleed tiles
+        ============================================== */
+    .strip {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 3px;
+      background: var(--charcoal);
+    }
+
+    .strip-tile {
+      position: relative;
+      overflow: hidden;
+      height: 520px;
+    }
+
+    .strip-tile img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.6s var(--ease-soft);
+    }
+
+    .strip-tile:hover img {
+      transform: scale(1.05);
+    }
+
+    .strip-scrim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg,
+          rgba(26, 26, 24, 0) 55%,
+          rgba(26, 26, 24, 0.6) 100%);
+      z-index: 1;
+    }
+
+    .strip-caption {
+      position: absolute;
+      left: 2rem;
+      bottom: 1.9rem;
+      z-index: 2;
+      color: var(--ivory);
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 0.72rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+    }
+
+    /* =============================================
+           MISSION , one voice, editorial scale
+        ============================================== */
+    .voice {
+      background: var(--ivory);
+      padding: 9.5rem 0;
+      text-align: center;
+    }
+
+    .voice .eyebrow {
+      text-align: center;
+    }
+
+    .voice-mark {
+      font-family: var(--serif);
+      font-weight: 200;
+      font-size: 4rem;
+      line-height: 0.5;
+      letter-spacing: 0.1em;
+      color: var(--oak);
+      display: block;
+      margin-bottom: 2.5rem;
+    }
+
+    .voice-quote {
+      font-family: var(--serif);
+      font-weight: 200;
+      font-size: clamp(1.45rem, 2.6vw, 2.2rem);
+      line-height: 1.5;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      max-width: 980px;
+      margin: 0 auto;
+      color: var(--text);
+    }
+
+    .voice-quote em {
+      font-style: normal;
+      font-weight: 400;
+      color: var(--oak-deep);
+    }
+
+    /* =============================================
+           VALUES , ivory, hairline 2x2 grid
+        ============================================== */
+    .values {
+      background: var(--ivory-deep);
+      padding: 8.5rem 0;
+      border-top: 1px solid var(--divider);
+    }
+
+    .values-header {
+      max-width: 720px;
+      margin-bottom: 4.5rem;
+    }
+
+    .values-title {
+      font-size: clamp(2.2rem, 3.6vw, 3.2rem);
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--divider);
+      border-left: 1px solid var(--divider);
+    }
+
+    .value {
+      padding: 3rem 2.75rem 3.25rem;
+      border-right: 1px solid var(--divider);
+      border-bottom: 1px solid var(--divider);
+      background: var(--ivory-deep);
+      transition: background 0.5s ease;
+    }
+
+    .value:hover {
+      background: var(--ivory);
+    }
+
+    .value-num {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: 0.95rem;
+      letter-spacing: 0.24em;
+      color: var(--green);
+      display: block;
+      margin-bottom: 1.4rem;
+    }
+
+    .value-name {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: 1.5rem;
+      line-height: 1.2;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 1.1rem;
+    }
+
+    .value-desc {
+      font-size: 1.02rem;
+      line-height: 1.85;
+      color: var(--text-soft);
+    }
+
+    /* =============================================
+           DESIGN , modern cabinetry, image left on ivory
+        ============================================== */
+    .design {
+      position: relative;
+      background: var(--ivory);
+      padding: 9rem 0;
+    }
+
+    .design-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .design-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: stretch;
+    }
+
+    .design-text {
+      grid-column: 2;
+    }
+
+    .design-media {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 44vw;
+    }
+
+    .design-media img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .design-title {
+      font-size: clamp(2rem, 3.5vw, 3.1rem);
+      margin-bottom: 2.5rem;
+    }
+
+    .design-body {
+      font-size: 1.09rem;
+      line-height: 1.9;
+      color: var(--text-soft);
+      margin-bottom: 2rem;
+    }
+
+    .design-lead {
+      font-size: 1.12rem;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .design-list {
+      max-width: 560px;
+      margin-bottom: 2.5rem;
+    }
+
+    .design-list li {
+      position: relative;
+      padding: 1rem 0 1rem 1.9rem;
+      font-size: 1.05rem;
+      line-height: 1.55;
+      color: var(--text-soft);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .design-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 1.5rem;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    /* =============================================
+           QUALITY , quiet charcoal band, centered
+        ============================================== */
+    .quality {
+      background: var(--charcoal);
+      color: var(--ivory);
+      padding: 9rem 0;
+      text-align: center;
+    }
+
+    .quality .eyebrow {
+      color: var(--green);
+    }
+
+    .quality-title {
+      font-size: clamp(2rem, 3.5vw, 3.1rem);
+      color: var(--ivory);
+      max-width: 820px;
+      margin: 0 auto 3rem;
+    }
+
+    .quality-title em {
+      color: var(--oak);
+    }
+
+    .quality-body {
+      font-size: 1.09rem;
+      line-height: 1.9;
+      color: rgba(245, 244, 241, 0.7);
+      max-width: 760px;
+      margin: 0 auto 1.9rem;
+      text-align: left;
+    }
+
+    .quality-body:last-of-type {
+      margin-bottom: 0;
+    }
+
+    /* =============================================
+           CTA , contact-style close
+        ============================================== */
+    .cta {
+      background: var(--ivory-deep);
+      border-top: 1px solid var(--divider);
+    }
+
+    .cta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 560px;
+    }
+
+    .cta-photo {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-photo img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cta-content {
+      padding: 6.5rem 6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .cta-title {
+      font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-sub {
+      font-size: 1.12rem;
+      color: var(--text-soft);
+      line-height: 1.85;
+      max-width: 460px;
+      margin-bottom: 3rem;
+    }
+
+    /* =============================================
+           FOOTER , warm charcoal
+        ============================================== */
+    .footer {
+      background: var(--charcoal);
+      color: var(--ivory);
+      padding: 5.5rem 0 2.75rem;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 4rem;
+      flex-wrap: wrap;
+      padding-bottom: 4rem;
+      margin-bottom: 3rem;
+      border-bottom: 1px solid var(--divider-dark);
+    }
+
+    .footer-logo img {
+      width: 150px;
+      margin-bottom: 1.75rem;
+    }
+
+    .footer-tagline {
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 0.96rem;
+      color: rgba(245, 244, 241, 0.45);
+      max-width: 240px;
+      line-height: 1.85;
+    }
+
+    .footer-cols {
+      display: flex;
+      gap: 5.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-col-title {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 0.68rem;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      color: rgba(245, 244, 241, 0.35);
+      margin-bottom: 1.6rem;
+    }
+
+    .footer-col a,
+    .footer-col p {
+      display: block;
+      font-size: 0.98rem;
+      font-weight: 300;
+      color: rgba(245, 244, 241, 0.6);
+      line-height: 2.3;
+      transition: color 0.3s ease;
+    }
+
+    .footer-col a:hover {
+      color: var(--ivory);
+    }
+
+    .footer-col p a {
+      display: inline;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-copy {
+      font-family: var(--sans);
+      font-weight: 400;
+      font-size: 0.74rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: rgba(245, 244, 241, 0.28);
+    }
+
+    /* =============================================
+           RESPONSIVE
+        ============================================== */
+    @media (max-width: 1200px) {
+
+      .container,
+      .nav-inner {
+        padding-left: 3rem;
+        padding-right: 3rem;
+      }
+
+      .hero-content {
+        padding-left: 3rem;
+        padding-right: 3rem;
+      }
+
+      .cta-content {
+        padding: 5rem 3.5rem;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .nav-links {
+        display: none;
+      }
+
+      .statement-grid,
+      .craft-grid,
+      .design-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .statement-media,
+      .craft-media,
+      .design-media {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        min-height: 380px;
+      }
+
+      .craft-text,
+      .design-text {
+        grid-column: auto;
+      }
+
+      .craft-media,
+      .design-media {
+        order: 2;
+      }
+
+      .strip {
+        grid-template-columns: 1fr;
+      }
+
+      .strip-tile {
+        height: 400px;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-photo {
+        min-height: 400px;
+      }
+
+      .nav-mobile-btn {
+        display: block;
+      }
+
+      .nav-trade {
+        display: none;
+      }
+    }
+
+    @media (max-width: 700px) {
+
+      .container,
+      .nav-inner,
+      .hero-content {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+
+      .hero-content {
+        padding-bottom: 4.5rem;
+      }
+
+      .hero-title,
+      .serif-title {
+        letter-spacing: 0.04em;
+      }
+
+      .cap-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .value {
+        padding: 2.25rem 1.5rem 2.5rem;
+      }
+
+      .cta-content {
+        padding: 4rem 1.5rem;
+      }
+
+      .strip-tile {
+        height: 320px;
+      }
+
+      .footer-cols {
+        gap: 2.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- =============================================
+         NAVIGATION , shared with home-v3
+    ============================================== -->
+  <nav class="nav" id="site-nav">
+    <div class="nav-inner">
+      <a href="./home-v3.html" class="nav-logo">
+        <img class="logo-light" src="./Assets/Logos/Greyloch_Horizontal_Green-White.png" alt="Greyloch" />
+        <img class="logo-dark" src="./Assets/Logos/Greyloch_Horizontal_Green-Black.png" alt="Greyloch" />
+      </a>
+
+      <div class="nav-links">
+        <a href="./about-v3.html">About</a>
+        <div class="nav-item">
+          <a href="./home-v3.html#gallery">Projects<span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+          <div class="nav-dropdown">
+            <a href="./home-v3.html#gallery">Residential</a>
+            <a href="./home-v3.html#gallery">Commercial</a>
+            <a href="./home-v3.html#gallery">Projects</a>
+          </div>
+        </div>
+        <a href="./home-v3.html#audience">Gallery</a>
+        <a href="./home-v3.html#contact">Blog</a>
+      </div>
+
+      <div class="nav-ctas">
+        <a href="./home-v3.html#contact" class="btn nav-start">Start a Project</a>
+      </div>
+
+      <button class="nav-mobile-btn" aria-label="Open menu">
+        <svg width="22" height="14" viewBox="0 0 22 14" fill="none">
+          <path d="M0 1h22M0 7h22M0 13h22" stroke="currentColor" stroke-width="1.5" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- =============================================
+         HERO , About Greyloch
+    ============================================== -->
+  <header class="hero">
+    <div class="hero-media">
+      <img src="./Assets/Photos/1000005468.jpg"
+        alt="Two-tone white oak and charcoal kitchen with custom Greyloch cabinetry" />
+    </div>
+    <div class="hero-scrim" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <span class="hero-eyebrow">Custom Cabinet Manufacturer in the Treasure Valley</span>
+      <h1 class="hero-title">About <em>Greyloch</em></h1>
+      <p class="hero-desc">
+        From a small custom shop in 1991 to North America's
+        first-of-its-kind, highly automated cabinet manufacturer.
+      </p>
+      <div class="hero-actions">
+        <a href="./home-v3.html#contact" class="btn btn-solid-light">Contact Us</a>
+        <a href="./home-v3.html#gallery" class="btn btn-hairline-light">View Our Work</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =============================================
+         STORY , the Fickes journey, editorial statement
+    ============================================== -->
+  <section class="statement" id="story">
+    <div class="container">
+      <div class="statement-inner">
+        <div class="statement-grid">
+          <div class="statement-text">
+            <span class="eyebrow reveal">Where Quality Meets Modern Design</span>
+            <h2 class="statement-quote serif-title reveal delay-1">
+              Built on Innovation &amp; <em>Craftsmanship</em>
+            </h2>
+            <p class="statement-body reveal delay-2">
+              Shaun Fickes' journey from learning woodworking in junior and
+              senior high school to founding Greyloch LLC is a testament to
+              the evolution of passion into profession. Initially a hobby,
+              Shaun's woodworking skills gradually transitioned into a
+              full-fledged career alongside his wife, Dianne. Their
+              entrepreneurial journey began in 1991 with Custom Oak
+              Furnishings, operating out of Shaun's father's garage. As demand
+              grew, Shaun seized an opportunity to expand into kitchen cabinet
+              making and changed the business name to Greyloch Custom
+              Cabinetry. With steadfast determination, Shaun, aided by his
+              father, a small team, and loyal customers, tirelessly grew the
+              business. Long hours and nurturing relationships with builders
+              and suppliers became the norm as Shaun refused to settle for
+              mediocrity.
+            </p>
+            <p class="statement-body reveal delay-2">
+              However, it was a transformative trip to Europe in 2015 that
+              ignited Shaun's vision for revolutionizing cabinet manufacturing
+              in America. Inspired by European practices, Shaun embarked on a
+              mission to introduce cutting-edge automation to Greyloch.
+              Collaborating with industry partners, this vision materialized
+              into a state-of-the-art, fully automated factory. By 2021, the
+              company rebranded as Greyloch LLC, marking a new era of
+              innovation and growth. In the fall of 2023, production commenced
+              in a sprawling 97,000 sq. ft. facility in Star, Idaho, the
+              culmination of years of dedication and hard work.
+            </p>
+            <p class="statement-body reveal delay-2">
+              Throughout this remarkable journey, Shaun and Dianne express
+              immense gratitude to their support network - family, friends,
+              customers, vendors, and above all, their dedicated employees.
+              Their unwavering support and commitment have been instrumental
+              in shaping Greyloch into the thriving enterprise it is today.
+            </p>
+            <a href="./home-v3.html#gallery" class="text-link reveal delay-3">View our projects</a>
+          </div>
+          <div class="statement-media reveal delay-2">
+            <img loading="lazy" decoding="async" src="./Assets/Photos/DSC_3469.jpg"
+              alt="Glass-front display cabinetry with warm interior lighting by Greyloch" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+         INNOVATION , dark band, image left
+    ============================================== -->
+  <section class="craft" id="innovation">
+    <div class="container">
+      <div class="craft-inner">
+        <div class="craft-grid">
+          <div class="craft-text">
+            <div class="craft-header">
+              <span class="eyebrow reveal">Where Quality Meets Modern Design</span>
+              <h2 class="craft-title serif-title reveal delay-1">
+                Built on Innovation &amp; Craftsmanship
+              </h2>
+            </div>
+            <div class="craft-body">
+              <p class="craft-intro reveal">
+                Greyloch was founded with a commitment to creating custom
+                cabinets that balance quality craftsmanship with modern
+                design. What began as a small cabinet operation in Meridian in
+                the early 1990s has grown into one of the region's most
+                advanced cabinet manufacturing facilities. Over the years, the
+                company has continued to invest in technology and
+                manufacturing processes to produce cabinetry with greater
+                accuracy and efficiency.
+              </p>
+              <p class="craft-lead reveal">
+                This focus on innovation helps Greyloch support a wide range
+                of clients, including:
+              </p>
+              <ul class="craft-list reveal delay-1">
+                <li>Homeowners planning kitchen renovations or new builds</li>
+                <li>Contractors and builders managing residential construction</li>
+                <li>Designers developing modern interior spaces</li>
+                <li>Developers overseeing multi-unit housing and commercial projects</li>
+              </ul>
+              <p class="craft-closing reveal">
+                Every cabinet produced by Greyloch is designed to meet the
+                specific needs of the project while maintaining the clean,
+                modern look that has become the brand's signature.
+              </p>
+              <a href="./home-v3.html#gallery" class="btn btn-green reveal">View our projects</a>
+            </div>
+          </div>
+          <div class="craft-media reveal delay-2">
+            <img loading="lazy" decoding="async" src="./Assets/Photos/1000006866.jpg"
+              alt="Custom cabinet manufacturer idaho" style="object-position: 50% 35%" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+         IMAGE STRIP , two full-bleed project tiles
+    ============================================== -->
+  <section class="strip" aria-label="Greyloch project photography">
+    <div class="strip-tile reveal">
+      <img loading="lazy" decoding="async" src="./Assets/Photos/20250123_154530.jpg"
+        alt="Custom cabinet manufacturer idaho" style="object-position: 50% 55%" />
+      <div class="strip-scrim" aria-hidden="true"></div>
+      <span class="strip-caption">Custom Cabinet Manufacturer</span>
+    </div>
+    <div class="strip-tile reveal delay-1">
+      <img loading="lazy" decoding="async" src="./Assets/Photos/20241009_111518.jpg"
+        alt="Custom closet cabinets boise" style="object-position: 50% 45%" />
+      <div class="strip-scrim" aria-hidden="true"></div>
+      <span class="strip-caption">Custom Closet Cabinets</span>
+    </div>
+  </section>
+
+  <!-- =============================================
+         MISSION , one voice, editorial scale
+    ============================================== -->
+  <section class="voice" id="mission">
+    <div class="container">
+      <span class="eyebrow reveal">Our Mission</span>
+      <span class="voice-mark reveal" aria-hidden="true">&ldquo;</span>
+      <blockquote class="voice-quote reveal delay-1">
+        We exist to elevate the cabinet industry through purposeful
+        <em>innovation</em> - creating superior cabinetry, delivering a
+        seamless process, and building a workplace fueled by growth and
+        positive energy.
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- =============================================
+         FACILITY , dark band, image right, numbered
+         capability grid
+    ============================================== -->
+  <section class="craft craft-flip" id="facility">
+    <div class="container">
+      <div class="craft-inner">
+        <div class="craft-grid">
+          <div class="craft-text">
+            <div class="craft-header">
+              <span class="eyebrow reveal">Precision Manufacturing at Scale</span>
+              <h2 class="craft-title serif-title reveal delay-1">
+                A State-of-the-Art Manufacturing Facility
+              </h2>
+            </div>
+            <div class="craft-body">
+              <p class="craft-intro reveal">
+                Greyloch operates a
+                <strong>97,000-square-foot cabinet manufacturing facility in
+                  Star, Idaho</strong>, designed to support efficient production without
+                sacrificing quality.
+              </p>
+              <p class="craft-intro reveal">
+                The facility is equipped with advanced automation technology
+                developed by HOMAG in Germany, allowing the team to transform
+                raw materials into finished cabinetry through a streamlined
+                production process.
+              </p>
+              <p class="craft-intro reveal">
+                This system includes automated cutting, edgebanding, drilling,
+                and assembly processes that maintain consistent cabinet
+                construction while maximizing material efficiency.
+              </p>
+              <p class="craft-lead reveal">Key capabilities of the facility include:</p>
+              <div class="cap-grid reveal delay-1">
+                <div class="cap">
+                  <span class="cap-num">01</span>
+                  <h3 class="cap-name">Material Optimization</h3>
+                  <p class="cap-desc">Optimized material usage to reduce waste.</p>
+                </div>
+                <div class="cap">
+                  <span class="cap-num">02</span>
+                  <h3 class="cap-name">Automated Cutting</h3>
+                  <p class="cap-desc">Automated material cutting and panel processing.</p>
+                </div>
+                <div class="cap">
+                  <span class="cap-num">03</span>
+                  <h3 class="cap-name">Precision Edgebanding</h3>
+                  <p class="cap-desc">Precision edgebanding and drilling technology.</p>
+                </div>
+                <div class="cap">
+                  <span class="cap-num">04</span>
+                  <h3 class="cap-name">Integrated Production</h3>
+                  <p class="cap-desc">
+                    Integrated systems that manage thousands of cabinet parts
+                    during production.
+                  </p>
+                </div>
+              </div>
+              <p class="cap-note reveal delay-2">
+                This technology allows Greyloch to maintain dependable
+                timelines while producing cabinetry that meets strict quality
+                standards.
+              </p>
+            </div>
+          </div>
+          <div class="craft-media reveal delay-2">
+            <img loading="lazy" decoding="async" src="./Assets/Photos/20250123_154714.jpg"
+              alt="Floating walnut double vanity with brass hardware by Greyloch" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+         VALUES , hairline 2x2 grid
+    ============================================== -->
+  <section class="values" id="values">
+    <div class="container">
+      <div class="values-header">
+        <span class="eyebrow reveal">What Matters to us</span>
+        <h2 class="values-title serif-title reveal delay-1">
+          Our <em>Values</em>
+        </h2>
+      </div>
+      <div class="values-grid">
+        <div class="value reveal">
+          <span class="value-num">01</span>
+          <h3 class="value-name">Do the Right Thing</h3>
+          <p class="value-desc">
+            Doing the right thing means operating with integrity in every
+            situation — whether someone is watching or not. It means being
+            honest with co-workers and customers, owning our mistakes,
+            communicating clearly, and following through on commitments. We
+            hold ourselves to a high standard because trust is built in the
+            small moments. Our reputation is shaped by daily decisions, and we
+            choose to do whatʼs right, not whatʼs easy.
+          </p>
+        </div>
+        <div class="value reveal delay-1">
+          <span class="value-num">02</span>
+          <h3 class="value-name">Own the Handoff</h3>
+          <p class="value-desc">
+            Set the next person in the process up for success. Every project
+            moves through many hands, and every handoff matters. Owning the
+            handoff means finishing your part completely, communicating
+            clearly, and delivering work that the next person can build on —
+            not fix. We think beyond our individual task and take
+            responsibility for how our work impacts the entire process. When
+            we own the handoff, we reduce errors, improve efficiency, and
+            create a seamless experience from start to finish.
+          </p>
+        </div>
+        <div class="value reveal delay-2">
+          <span class="value-num">03</span>
+          <h3 class="value-name">Better Today, Even Better Tomorrow</h3>
+          <p class="value-desc">
+            Status quo is not an option. We believe growth is a daily
+            commitment. Whether it&rsquo;s refining a process, learning a new
+            skill, improving efficiency, or strengthening teamwork, we are
+            always looking for ways to get better. We don&rsquo;t settle for
+            &ldquo;how it&rsquo;s always been done.&rdquo; Continuous
+            improvement drives innovation, sharpens performance, and keeps us
+            moving forward. Progress isn&rsquo;t occasional — it&rsquo;s part
+            of who we are.
+          </p>
+        </div>
+        <div class="value reveal delay-3">
+          <span class="value-num">04</span>
+          <h3 class="value-name">Together We Win</h3>
+          <p class="value-desc">
+            We achieve more when we work as one team. Every success is shared,
+            every challenge is tackled together, and every improvement lifts
+            the whole group. We celebrate wins, learn from mistakes, and keep
+            pushing forward — always as a team. Winning is better when
+            it&rsquo;s together, and at Greyloch, there&rsquo;s always so much
+            of it.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+         DESIGN , modern cabinetry, image left on ivory
+    ============================================== -->
+  <section class="design" id="design">
+    <div class="container">
+      <div class="design-inner">
+        <div class="design-grid">
+          <div class="design-text">
+            <span class="eyebrow reveal">Clean Lines, Contemporary Finishes</span>
+            <h2 class="design-title serif-title reveal delay-1">
+              Modern Cabinetry Designed for <em>Today&rsquo;s Spaces</em>
+            </h2>
+            <p class="design-body reveal">
+              Greyloch specializes in European frameless cabinetry, known for
+              its clean lines, modern design, and efficient storage layout.
+            </p>
+            <p class="design-body reveal">
+              Their cabinet systems are available in a variety of finishes
+              that complement contemporary interiors, including wood-grain
+              textures, matte finishes, and high-gloss panels.
+            </p>
+            <p class="design-lead reveal">These cabinet designs are commonly used in:</p>
+            <ul class="design-list reveal delay-1">
+              <li>Residential kitchens and bathrooms</li>
+              <li>Office environments</li>
+              <li>Apartment and multi-family housing</li>
+              <li>Retail and commercial spaces</li>
+              <li>Custom storage and furniture applications</li>
+            </ul>
+            <p class="design-body reveal">
+              Each cabinet is built using premium materials and inspected
+              throughout the production process to ensure long-term durability
+              and consistent performance.
+            </p>
+            <a href="./home-v3.html#gallery" class="btn btn-solid reveal delay-2">Tour Our Facility</a>
+          </div>
+          <div class="design-media reveal delay-2">
+            <img loading="lazy" decoding="async" src="./Assets/Photos/7d65264f.jpeg"
+              alt="Charcoal built-in bar cabinetry with marble and brass shelving by Greyloch" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+         QUALITY , quiet charcoal band
+    ============================================== -->
+  <section class="quality" id="quality">
+    <div class="container">
+      <span class="eyebrow reveal">Quality You Can Count On</span>
+      <h2 class="quality-title serif-title reveal delay-1">
+        Committed to Quality and <em>Reliable Production</em>
+      </h2>
+      <p class="quality-body reveal delay-2">
+        Greyloch&rsquo;s manufacturing process is designed to deliver
+        cabinetry efficiently while maintaining a strong focus on quality.
+        With advanced automation and a dedicated team overseeing production,
+        the facility can produce hundreds of cabinets per shift while
+        maintaining consistent craftsmanship.
+      </p>
+      <p class="quality-body reveal delay-2">
+        This balance of technology and expertise allows Greyloch to support
+        both small custom projects and large-scale construction developments
+        across the Treasure Valley.
+      </p>
+      <p class="quality-body reveal delay-2">
+        By focusing on modern design, efficient manufacturing, and dependable
+        customer service, Greyloch continues to build cabinetry solutions that
+        support the evolving needs of homeowners and industry professionals.
+      </p>
+    </div>
+  </section>
+
+  <!-- =============================================
+         CTA , contact-style close
+    ============================================== -->
+  <section class="cta" id="contact">
+    <div class="cta-grid">
+      <div class="cta-photo">
+        <img loading="lazy" decoding="async" src="./Assets/Photos/e46c77f5.jpeg"
+          alt="Great room with charcoal media cabinetry and marble bar by Greyloch" />
+      </div>
+      <div class="cta-content">
+        <span class="eyebrow reveal">Ready to Get Started?</span>
+        <h2 class="cta-title serif-title reveal delay-1">
+          Learn More About <em>Greyloch</em>
+        </h2>
+        <p class="cta-sub reveal delay-2">
+          Contact Greyloch today to learn more about the company, explore
+          cabinetry options, or schedule a tour of the Star, Idaho,
+          manufacturing facility.
+        </p>
+        <a href="./home-v3.html#contact" class="btn btn-green reveal delay-3">Start a Project With Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+         FOOTER
+    ============================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo">
+            <img src="./Assets/Logos/Greyloch_Horizontal_Green-White.png" alt="Greyloch" />
+          </div>
+          <p class="footer-tagline">
+            Production scale. Custom quality. Family-owned since 1991.
+          </p>
+        </div>
+
+        <div class="footer-cols">
+          <div class="footer-col">
+            <p class="footer-col-title">Projects</p>
+            <a href="./home-v3.html#gallery">Residential</a>
+            <a href="./home-v3.html#gallery">Commercial</a>
+            <a href="./home-v3.html#gallery">Closets</a>
+          </div>
+          <div class="footer-col">
+            <p class="footer-col-title">Company</p>
+            <a href="./about-v3.html">About Greyloch</a>
+            <a href="./home-v3.html#craft">How it Works</a>
+            <a href="./home-v3.html#gallery">Gallery</a>
+            <a href="./home-v3.html#contact">Get Started</a>
+            <a href="#">Allmoxy Login</a>
+            <a href="#">Careers</a>
+          </div>
+          <div class="footer-col">
+            <p class="footer-col-title">Get In Touch</p>
+            <p><a href="tel:+12083221165">(208) 322-1165</a></p>
+            <a href="mailto:hello@greyloch.com">hello@greyloch.com</a>
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">
+          &copy; 2026 Greyloch LLC &middot; All rights reserved
+        </p>
+        <p class="footer-copy">Serving Treasure Valley / Southwest Idaho</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* Scroll reveal */
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08 },
+    );
+
+    document.querySelectorAll(".reveal").forEach(function (el) {
+      observer.observe(el);
+    });
+
+    /* Fallback: catch any element the observer misses */
+    function revealInView() {
+      document.querySelectorAll(".reveal:not(.in)").forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight * 0.96 && r.bottom > 0) {
+          el.classList.add("in");
+        }
+      });
+    }
+    window.addEventListener("scroll", revealInView, { passive: true });
+    window.addEventListener("load", revealInView);
+
+    /* Nav scroll state , swaps logo and inverts type */
+    var nav = document.getElementById("site-nav");
+    window.addEventListener(
+      "scroll",
+      function () {
+        nav.classList.toggle("scrolled", window.scrollY > 80);
+      },
+      { passive: true },
+    );
+  </script>
+</body>
+
+</html>

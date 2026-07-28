@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agency Atlas — Pricing (Cartographer's Edition)</title>
+<!--
+    Standalone preview wrapper. Everything between the
+    "DIVI CODE MODULE — COPY FROM HERE" and "COPY TO HERE" comments
+    is the snippet to paste into a Divi 4 Code Module.
+-->
+<style>
+    /* Preview-page background only — matches V3 paper. Not needed in Divi. */
+    body { margin: 0; background: #F6F0E1; padding: 80px 0; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     DIVI CODE MODULE — COPY FROM HERE
+     Agency Atlas pricing table · Cartographer's Edition (V3 styles)
+     · All CSS is scoped under .aa-fares so it can't clash with Divi.
+     · No JavaScript required.
+     · The fonts link can be removed if these fonts are already
+       loaded elsewhere on the page.
+     ============================================================ -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,600&family=Archivo:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+.aa-fares, .aa-fares * { margin: 0; padding: 0; box-sizing: border-box; }
+.aa-fares {
+    --aa-paper: #F6F0E1;
+    --aa-paper-deep: #EFE6D0;
+    --aa-ink: #1E2B33;
+    --aa-ink-soft: #46545C;
+    --aa-vermilion: #E4572E;
+    --aa-teal: #0F7C66;
+    --aa-gold: #D9A441;
+    --aa-cream: #FDFBF4;
+    --aa-border: 2px solid var(--aa-ink);
+    --aa-shadow: 5px 5px 0 var(--aa-ink);
+    --aa-shadow-sm: 3px 3px 0 var(--aa-ink);
+
+    font-family: 'Archivo', sans-serif;
+    color: var(--aa-ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ---------- Section head ---------- */
+.aa-fares .aa-head { text-align: center; max-width: 760px; margin: 0 auto 62px; }
+.aa-fares .aa-eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--aa-vermilion);
+}
+.aa-fares .aa-eyebrow::before, .aa-fares .aa-eyebrow::after { content: "✦"; font-size: 10px; color: var(--aa-ink); }
+.aa-fares .aa-title {
+    font-family: 'Fraunces', serif; font-weight: 900;
+    font-size: clamp(34px, 4.8vw, 56px); line-height: 1.06;
+    letter-spacing: -0.01em; margin: 18px 0 16px;
+}
+.aa-fares .aa-title em { font-style: italic; font-weight: 600; color: var(--aa-vermilion); }
+.aa-fares .aa-lead { font-size: 17px; color: var(--aa-ink-soft); }
+
+/* ---------- Fare grid ---------- */
+.aa-fares .aa-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px; align-items: stretch;
+}
+.aa-fares .aa-card {
+    position: relative;
+    display: flex; flex-direction: column;
+    background: var(--aa-cream);
+    border: var(--aa-border);
+    box-shadow: var(--aa-shadow);
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+.aa-fares .aa-card:hover { transform: translate(-3px, -3px); box-shadow: 8px 8px 0 var(--aa-ink); }
+
+/* Card header strip */
+.aa-fares .aa-card-head {
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: var(--aa-border);
+    background: var(--aa-paper-deep);
+    padding: 13px 22px;
+}
+.aa-fares .aa-fare-code {
+    font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700;
+    letter-spacing: .12em; text-transform: uppercase;
+}
+.aa-fares .aa-pin {
+    width: 24px; height: 24px; border-radius: 50% 50% 50% 0;
+    background: var(--aa-teal); border: 2px solid var(--aa-ink);
+    transform: rotate(-45deg);
+    display: grid; place-items: center;
+}
+.aa-fares .aa-pin i { width: 6px; height: 6px; border-radius: 50%; background: var(--aa-cream); display: block; }
+.aa-fares .aa-card:nth-child(1) .aa-pin { background: var(--aa-teal); }
+.aa-fares .aa-card:nth-child(2) .aa-pin { background: var(--aa-vermilion); }
+.aa-fares .aa-card:nth-child(3) .aa-pin { background: var(--aa-gold); }
+
+/* Card body */
+.aa-fares .aa-card-body { padding: 30px 28px 34px; display: flex; flex-direction: column; flex: 1; }
+.aa-fares .aa-plan-name { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 900; letter-spacing: -0.01em; }
+.aa-fares .aa-plan-name em { font-style: italic; font-weight: 600; color: var(--aa-vermilion); }
+.aa-fares .aa-plan-for { font-size: 14px; color: var(--aa-ink-soft); margin: 6px 0 24px; min-height: 42px; }
+
+/* Price block */
+.aa-fares .aa-price {
+    display: flex; align-items: baseline; gap: 8px;
+    border-top: 2px dashed rgba(30,43,51,0.3);
+    border-bottom: 2px dashed rgba(30,43,51,0.3);
+    padding: 18px 0;
+    margin-bottom: 26px;
+}
+.aa-fares .aa-price .aa-amount {
+    font-family: 'Fraunces', serif; font-size: 54px; font-weight: 900;
+    line-height: 1; letter-spacing: -0.02em;
+}
+.aa-fares .aa-price .aa-cadence {
+    font-family: 'Space Mono', monospace; font-size: 12.5px; font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase; color: var(--aa-ink-soft);
+}
+
+/* Manifest (features) */
+.aa-fares .aa-manifest { list-style: none; display: grid; gap: 12px; margin-bottom: 32px; }
+.aa-fares .aa-manifest li { display: flex; gap: 11px; align-items: flex-start; font-size: 14.5px; }
+.aa-fares .aa-manifest .aa-check {
+    flex: none; width: 20px; height: 20px; margin-top: 2px;
+    border: 2px solid var(--aa-ink); border-radius: 50%;
+    background: var(--aa-teal); color: var(--aa-cream);
+    display: grid; place-items: center;
+    font-size: 10px; font-weight: 700; line-height: 1;
+}
+.aa-fares .aa-manifest .aa-plus-note {
+    font-family: 'Fraunces', serif; font-style: italic; font-weight: 600;
+    font-size: 15.5px; color: var(--aa-vermilion);
+}
+
+/* CTA button */
+.aa-fares .aa-btn {
+    margin-top: auto;
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 15.5px;
+    text-decoration: none;
+    padding: 16px 28px;
+    border: var(--aa-border); border-radius: 0;
+    background: var(--aa-cream); color: var(--aa-ink);
+    box-shadow: var(--aa-shadow-sm);
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease, color .15s ease;
+    cursor: pointer;
+}
+.aa-fares .aa-btn:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--aa-ink);
+    background: var(--aa-vermilion); color: var(--aa-cream);
+}
+.aa-fares .aa-btn .aa-btn-arrow { transition: transform .15s ease; }
+.aa-fares .aa-btn:hover .aa-btn-arrow { transform: translateX(3px); }
+
+/* ---------- Featured card (Atlas Growth) ---------- */
+.aa-fares .aa-card--featured {
+    background: var(--aa-ink); color: var(--aa-paper);
+    box-shadow: 5px 5px 0 var(--aa-vermilion);
+}
+.aa-fares .aa-card--featured:hover { box-shadow: 8px 8px 0 var(--aa-vermilion); }
+.aa-fares .aa-card--featured .aa-card-head {
+    background: rgba(246,240,225,0.08);
+    border-bottom-color: rgba(246,240,225,0.9);
+    color: var(--aa-gold);
+}
+.aa-fares .aa-card--featured .aa-plan-name em { color: var(--aa-gold); }
+.aa-fares .aa-card--featured .aa-plan-for { color: rgba(246,240,225,0.7); }
+.aa-fares .aa-card--featured .aa-price {
+    border-top-color: rgba(246,240,225,0.35);
+    border-bottom-color: rgba(246,240,225,0.35);
+}
+.aa-fares .aa-card--featured .aa-price .aa-cadence { color: rgba(246,240,225,0.6); }
+.aa-fares .aa-card--featured .aa-manifest .aa-check { border-color: var(--aa-cream); }
+.aa-fares .aa-card--featured .aa-manifest .aa-plus-note { color: var(--aa-gold); }
+.aa-fares .aa-card--featured .aa-btn {
+    background: var(--aa-vermilion); color: var(--aa-cream);
+    border-color: var(--aa-cream);
+    box-shadow: 3px 3px 0 rgba(246,240,225,0.5);
+}
+.aa-fares .aa-card--featured .aa-btn:hover {
+    box-shadow: 1px 1px 0 rgba(246,240,225,0.5);
+    background: var(--aa-gold); color: var(--aa-ink);
+}
+
+/* "Most travelled" stamp on featured card */
+.aa-fares .aa-stamp {
+    position: absolute; top: -26px; right: -18px; z-index: 2;
+    width: 92px; height: 92px; border-radius: 50%;
+    border: 2px dashed var(--aa-vermilion);
+    background: var(--aa-paper);
+    color: var(--aa-vermilion);
+    display: grid; place-items: center;
+    font-family: 'Space Mono', monospace; font-size: 9.5px; font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase; text-align: center;
+    line-height: 1.5;
+    transform: rotate(12deg);
+}
+
+/* ---------- Footnote ---------- */
+.aa-fares .aa-footnote {
+    margin-top: 46px; text-align: center;
+    font-family: 'Space Mono', monospace; font-size: 12.5px;
+    letter-spacing: .06em; color: var(--aa-ink-soft);
+    display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;
+}
+.aa-fares .aa-footnote svg { flex: none; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1020px) {
+    .aa-fares .aa-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; gap: 34px; }
+    .aa-fares .aa-plan-for { min-height: 0; }
+    .aa-fares .aa-stamp { right: 10px; }
+}
+</style>
+
+<div class="aa-fares">
+    <div class="aa-head">
+        <span class="aa-eyebrow">The Fare Chart</span>
+        <h2 class="aa-title">Plans For <em>Every Business</em></h2>
+        <p class="aa-lead">No contract, no commitment — month-to-month plans you can cancel anytime.</p>
+    </div>
+
+    <div class="aa-grid">
+
+        <!-- FARE 01 · ATLAS SOCIAL -->
+        <div class="aa-card">
+            <div class="aa-card-head">
+                <span class="aa-fare-code">Fare–01</span>
+                <span class="aa-pin"><i></i></span>
+            </div>
+            <div class="aa-card-body">
+                <h3 class="aa-plan-name">Atlas <em>Social</em></h3>
+                <p class="aa-plan-for">For companies doing their own social media</p>
+                <div class="aa-price">
+                    <span class="aa-amount">$79</span>
+                    <span class="aa-cadence">/ month</span>
+                </div>
+                <ul class="aa-manifest">
+                    <li><span class="aa-check">✓</span> Integrated Social Channels</li>
+                    <li><span class="aa-check">✓</span> Social Posting and Scheduling</li>
+                    <li><span class="aa-check">✓</span> Social Media Analytics</li>
+                    <li><span class="aa-check">✓</span> Social Media Strategy</li>
+                    <li><span class="aa-check">✓</span> Generative Social Media Content</li>
+                    <li><span class="aa-check">✓</span> Captions and Strategy</li>
+                    <li><span class="aa-check">✓</span> Manual Interface + Agent Mode</li>
+                </ul>
+                <a href="#" class="aa-btn">
+                    Start Your Free Trial
+                    <svg class="aa-btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- FARE 02 · ATLAS GROWTH (FEATURED) -->
+        <div class="aa-card aa-card--featured">
+            <span class="aa-stamp">Most<br>Charted<br>Route</span>
+            <div class="aa-card-head">
+                <span class="aa-fare-code">Fare–02</span>
+                <span class="aa-pin"><i></i></span>
+            </div>
+            <div class="aa-card-body">
+                <h3 class="aa-plan-name">Atlas <em>Growth</em></h3>
+                <p class="aa-plan-for">For marketing managers and growing teams</p>
+                <div class="aa-price">
+                    <span class="aa-amount">$199</span>
+                    <span class="aa-cadence">/ month</span>
+                </div>
+                <ul class="aa-manifest">
+                    <li><span class="aa-plus-note">Everything in Atlas Social, plus:</span></li>
+                    <li><span class="aa-check">✓</span> SEO Content Strategy &amp; Error Reports</li>
+                    <li><span class="aa-check">✓</span> Generative Blog and SEO Content</li>
+                    <li><span class="aa-check">✓</span> Google Advertising Copy and Strategy</li>
+                    <li><span class="aa-check">✓</span> Meta Advertising Copy and Strategy</li>
+                    <li><span class="aa-check">✓</span> Full Multi-Channel Analytics</li>
+                    <li><span class="aa-check">✓</span> Multi-Channel Campaign Planning</li>
+                </ul>
+                <a href="#" class="aa-btn">
+                    Start Your Free Trial
+                    <svg class="aa-btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- FARE 03 · ATLAS PRO -->
+        <div class="aa-card">
+            <div class="aa-card-head">
+                <span class="aa-fare-code">Fare–03</span>
+                <span class="aa-pin"><i></i></span>
+            </div>
+            <div class="aa-card-body">
+                <h3 class="aa-plan-name">Atlas <em>Pro</em></h3>
+                <p class="aa-plan-for">For agencies running a full marketing operation</p>
+                <div class="aa-price">
+                    <span class="aa-amount">$499</span>
+                    <span class="aa-cadence">/ month</span>
+                </div>
+                <ul class="aa-manifest">
+                    <li><span class="aa-plus-note">Everything in Atlas Growth, plus:</span></li>
+                    <li><span class="aa-check">✓</span> Full Channel Coverage</li>
+                    <li><span class="aa-check">✓</span> Unlimited Content Volume</li>
+                    <li><span class="aa-check">✓</span> Advanced Analytics and Reporting</li>
+                    <li><span class="aa-check">✓</span> Multi-User Access (Up to 5 Users)</li>
+                    <li><span class="aa-check">✓</span> Marketing Strategy Documents</li>
+                    <li><span class="aa-check">✓</span> Priority Support</li>
+                </ul>
+                <a href="#" class="aa-btn">
+                    Start Your Free Trial
+                    <svg class="aa-btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="aa-footnote">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0F7C66" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        EVERY PLAN INCLUDES A FREE TRIAL &amp; AN ONBOARDING CALL WITH OUR TEAM
+    </div>
+</div>
+<!-- ============================================================
+     DIVI CODE MODULE — COPY TO HERE
+     ============================================================ -->
+
+</body>
+</html>
