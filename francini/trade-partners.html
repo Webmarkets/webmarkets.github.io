@@ -1,0 +1,1391 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Trade Partnerships | Francini</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&family=Marcellus&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* =====================================================================
+   FRANCINI · TRADE PARTNERSHIPS
+   ---------------------------------------------------------------------
+   HOW TO ADD YOUR PHOTOS:
+   Each image is a plain <img> inside a .ph placeholder box. Just set the
+   src to your file, e.g.  src="my-photo.jpg"
+   Until you add a src, the labeled placeholder box shows instead.
+   ===================================================================== */
+
+      :root {
+        --paper: #f5f2ec;
+        /* page background      */
+        --ink: #1b1916;
+        /* near-black text      */
+        --band: #ece7de;
+        /* soft section band    */
+        --gold: #9a7b53;
+        /* brand gold           */
+        --gold-lt: #c9a876;
+        /* light gold (on dark) */
+        --muted: #4d473f;
+        /* body copy            */
+        --muted-2: #7a6f62;
+        /* captions / labels    */
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 72px;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Jost", sans-serif;
+        font-weight: 300;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      ::selection {
+        background: var(--ink);
+        color: var(--paper);
+      }
+
+      a {
+        color: var(--gold);
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: var(--ink);
+      }
+
+      .serif {
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 300;
+      }
+
+      .eyebrow {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.36em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+
+      p {
+        margin: 0;
+        font-size: 16.5px;
+        line-height: 1.85;
+        color: var(--muted);
+      }
+
+      /* ---------- image placeholder ---------- */
+      .ph {
+        position: relative;
+        background: #e4ddd1;
+        overflow: hidden;
+      }
+
+      .ph::after {
+        content: attr(data-label);
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        text-align: center;
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #a89a86;
+      }
+
+      .ph img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: none;
+      }
+
+      .ph img[src] {
+        display: block;
+      }
+
+      /* shows once you add a src, hiding the label */
+
+      /* ---------- hero ---------- */
+      .hero {
+        position: relative;
+        height: 82vh;
+        min-height: 540px;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .hero .ph {
+        position: absolute;
+        inset: 0;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient(
+          180deg,
+          rgba(20, 18, 15, 0.34) 0%,
+          rgba(20, 18, 15, 0.2) 34%,
+          rgba(20, 18, 15, 0.32) 64%,
+          rgba(20, 18, 15, 0.72) 100%
+        );
+      }
+
+      .hero-content {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 20;
+        padding: 0 28px 8vh;
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+
+      .hero-content .eyebrow {
+        color: rgba(255, 255, 255, 0.86);
+        margin-bottom: 22px;
+        display: block;
+      }
+
+      .hero h1 {
+        margin: 0;
+        font-size: clamp(44px, 7vw, 104px);
+        line-height: 0.98;
+        letter-spacing: -0.01em;
+        color: #fbf9f4;
+        max-width: 15ch;
+        text-shadow: 0 2px 30px rgba(0, 0, 0, 0.25);
+      }
+
+      .scroll-cue {
+        position: absolute;
+        left: 50%;
+        bottom: 26px;
+        transform: translateX(-50%);
+        z-index: 30;
+        width: 1px;
+        height: 42px;
+        background: linear-gradient(
+          rgba(255, 255, 255, 0),
+          rgba(255, 255, 255, 0.8)
+        );
+        animation: float 2.6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(-50%, 0);
+        }
+
+        50% {
+          transform: translate(-50%, 8px);
+        }
+      }
+
+      /* ---------- intro / resources ---------- */
+      .intro {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 120px 28px 96px;
+      }
+
+      .intro .eyebrow {
+        margin-bottom: 34px;
+        display: block;
+      }
+
+      .intro-lead {
+        margin: 0 0 56px;
+        font-size: clamp(26px, 3.4vw, 42px);
+        line-height: 1.32;
+        max-width: 26ch;
+      }
+
+      .resource-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+
+      .resource-card {
+        display: block;
+        border: 1px solid rgba(27, 25, 22, 0.14);
+        border-radius: 3px;
+        padding: 40px 32px 36px;
+        color: var(--ink);
+        transition:
+          background 0.35s,
+          border-color 0.35s,
+          transform 0.35s;
+      }
+
+      .resource-card:hover {
+        background: var(--band);
+        border-color: rgba(27, 25, 22, 0.3);
+        transform: translateY(-4px);
+        color: var(--ink);
+      }
+
+      .resource-card .num {
+        font-size: 10px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 18px;
+      }
+
+      .resource-card .title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 27px;
+        font-weight: 300;
+        line-height: 1.2;
+      }
+
+      .resource-card .arrow {
+        margin-top: 26px;
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+
+      .intro .btns {
+        margin-top: 44px;
+      }
+
+      /* ---------- passport / band sections ---------- */
+      .bandsec {
+        background: var(--band);
+        border-top: 1px solid rgba(27, 25, 22, 0.08);
+        border-bottom: 1px solid rgba(27, 25, 22, 0.08);
+      }
+
+      .bandsec-inner {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 96px 28px;
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 72px;
+        align-items: center;
+      }
+
+      .bandsec .portrait {
+        aspect-ratio: 4/5;
+      }
+
+      .bandsec .eyebrow {
+        margin-bottom: 22px;
+        display: block;
+      }
+
+      .bandsec h2 {
+        margin: 0;
+        font-size: clamp(34px, 4.4vw, 58px);
+        line-height: 1.04;
+      }
+
+      .bandsec p {
+        margin: 30px 0 0;
+        max-width: 54ch;
+      }
+
+      .bandsec .btns {
+        margin-top: 38px;
+      }
+
+      /* ---------- specialty projects ---------- */
+      .projects {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 108px 28px;
+      }
+
+      .projects .head {
+        text-align: center;
+        margin-bottom: 46px;
+      }
+
+      .projects .head .eyebrow {
+        margin-bottom: 16px;
+        display: block;
+      }
+
+      .projects .head h2 {
+        margin: 0;
+        font-size: clamp(28px, 3.6vw, 46px);
+        line-height: 1.1;
+      }
+
+      .filters {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px 6px;
+        margin-bottom: 52px;
+      }
+
+      .filter {
+        font-family: "Jost", sans-serif;
+        font-weight: 400;
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--muted-2);
+        background: none;
+        border: 1px solid rgba(27, 25, 22, 0.16);
+        border-radius: 999px;
+        padding: 9px 18px;
+        cursor: pointer;
+        transition:
+          background 0.3s,
+          color 0.3s,
+          border-color 0.3s;
+      }
+
+      .filter:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+
+      .filter.active {
+        background: var(--ink);
+        border-color: var(--ink);
+        color: var(--paper);
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+      }
+
+      .project {
+        display: none;
+      }
+
+      .project.show {
+        display: block;
+      }
+
+      .project .ph {
+        aspect-ratio: 3/4;
+        margin-bottom: 14px;
+        border-radius: 3px;
+      }
+
+      .project .cat {
+        font-size: 10px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 5px;
+      }
+
+      .project .title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 21px;
+        font-weight: 300;
+        line-height: 1.25;
+      }
+
+      .load-wrap {
+        text-align: center;
+        margin-top: 56px;
+      }
+
+      /* ---------- pull quote ---------- */
+      .quote {
+        background: var(--ink);
+        color: var(--paper);
+      }
+
+      .quote-inner {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 120px 28px;
+        text-align: center;
+      }
+
+      .quote blockquote {
+        margin: 0;
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 300;
+        font-style: italic;
+        font-size: clamp(26px, 3.8vw, 46px);
+        line-height: 1.32;
+      }
+
+      .quote .attr {
+        margin-top: 36px;
+        font-size: 11px;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+
+      /* ---------- form ---------- */
+      .inquire {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 108px 28px;
+      }
+
+      .inquire .eyebrow {
+        margin-bottom: 22px;
+        display: block;
+      }
+
+      .inquire h2 {
+        margin: 0 0 56px;
+        font-size: clamp(28px, 3.8vw, 48px);
+        line-height: 1.12;
+        max-width: 24ch;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px 40px;
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .field.full {
+        grid-column: 1 / -1;
+      }
+
+      .field label {
+        font-size: 10px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--muted-2);
+        margin-bottom: 10px;
+      }
+
+      .field input,
+      .field select {
+        font-family: "Jost", sans-serif;
+        font-weight: 300;
+        font-size: 16px;
+        color: var(--ink);
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid rgba(27, 25, 22, 0.28);
+        border-radius: 0;
+        padding: 8px 2px 12px;
+        outline: none;
+        transition: border-color 0.3s;
+      }
+
+      .field select {
+        appearance: none;
+        -webkit-appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%239a7b53' stroke-width='1.4'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 4px center;
+        cursor: pointer;
+      }
+
+      .field input::placeholder {
+        color: rgba(122, 111, 98, 0.55);
+      }
+
+      .field input:focus,
+      .field select:focus {
+        border-bottom-color: var(--gold);
+      }
+
+      .field input[type="file"] {
+        border-bottom: none;
+        padding-left: 0;
+        font-size: 13px;
+        color: var(--muted-2);
+        cursor: pointer;
+      }
+
+      .field input[type="file"]::file-selector-button {
+        font-family: "Jost", sans-serif;
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--ink);
+        background: none;
+        border: 1px solid rgba(27, 25, 22, 0.3);
+        border-radius: 2px;
+        padding: 11px 20px;
+        margin-right: 16px;
+        cursor: pointer;
+        transition:
+          background 0.3s,
+          color 0.3s;
+      }
+
+      .field input[type="file"]::file-selector-button:hover {
+        background: var(--ink);
+        color: var(--paper);
+      }
+
+      .form-submit {
+        grid-column: 1 / -1;
+        margin-top: 8px;
+      }
+
+      /* ---------- buttons ---------- */
+      .btn {
+        display: inline-block;
+        padding: 15px 32px;
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        border-radius: 2px;
+        cursor: pointer;
+        transition:
+          transform 0.3s,
+          background 0.3s,
+          border-color 0.3s,
+          color 0.3s;
+      }
+
+      .btn-ink {
+        font-family: "Jost", sans-serif;
+        background: var(--ink);
+        color: var(--paper);
+        border: 1px solid var(--ink);
+      }
+
+      .btn-ink:hover {
+        background: var(--gold);
+        border-color: var(--gold);
+        color: var(--paper);
+        transform: translateY(-2px);
+      }
+
+      .btn-line {
+        font-family: "Jost", sans-serif;
+        background: none;
+        border: 1px solid rgba(27, 25, 22, 0.3);
+        color: var(--ink);
+      }
+
+      .btn-line:hover {
+        border-color: var(--ink);
+        background: var(--ink);
+        color: var(--paper);
+        transform: translateY(-2px);
+      }
+
+      .btn-solid {
+        background: var(--paper);
+        color: var(--ink);
+      }
+
+      .btn-solid:hover {
+        background: #fff;
+        color: var(--ink);
+        transform: translateY(-2px);
+      }
+
+      .btn-ghost {
+        border: 1px solid rgba(245, 242, 236, 0.4);
+        color: var(--paper);
+      }
+
+      .btn-ghost:hover {
+        border-color: var(--paper);
+        color: var(--paper);
+        background: rgba(245, 242, 236, 0.08);
+      }
+
+      /* ---------- journal / blogs ---------- */
+      .journal {
+        background: var(--band);
+        border-top: 1px solid rgba(27, 25, 22, 0.08);
+      }
+
+      .journal-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 108px 28px 120px;
+      }
+
+      .journal .eyebrow {
+        margin-bottom: 16px;
+        display: block;
+      }
+
+      .journal h2 {
+        margin: 0 0 56px;
+        font-size: clamp(28px, 3.6vw, 46px);
+        line-height: 1.1;
+      }
+
+      .journal-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 64px;
+      }
+
+      .post {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 28px;
+        padding: 26px 2px;
+        border-bottom: 1px solid rgba(27, 25, 22, 0.14);
+        color: var(--ink);
+        transition: padding 0.3s;
+      }
+
+      .post:hover {
+        color: var(--gold);
+        padding-left: 10px;
+      }
+
+      .post .t {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 22px;
+        font-weight: 300;
+        line-height: 1.3;
+      }
+
+      .post .d {
+        flex: none;
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--muted-2);
+      }
+
+      /* ---------- scroll-reveal ---------- */
+      [data-reveal] {
+        opacity: 0;
+        transform: translateY(36px);
+        transition:
+          opacity 1.1s cubic-bezier(0.16, 0.7, 0.2, 1),
+          transform 1.1s cubic-bezier(0.16, 0.7, 0.2, 1);
+      }
+
+      [data-reveal="left"] {
+        transform: translateX(-32px);
+      }
+
+      [data-reveal="right"] {
+        transform: translateX(32px);
+      }
+
+      [data-reveal="scale"] {
+        transform: scale(1.045);
+      }
+
+      [data-reveal].in {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* ---------- responsive ---------- */
+      @media (max-width: 1020px) {
+        .projects-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (max-width: 860px) {
+        .resource-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .bandsec-inner {
+          grid-template-columns: 1fr;
+          gap: 36px;
+        }
+
+        .projects-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .form-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+
+        .journal-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ============================ HERO ============================ -->
+    <section class="hero">
+      <!-- Add your hero photo below: set src on the img, e.g. src="YOUR-IMAGE-PATH" -->
+
+      <div class="ph">
+        <img
+          alt="Francini Bathroom"
+          src="https://francinimarble.com/portals/0/images/trade_partners_header.png"
+        />
+      </div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <span class="eyebrow" data-reveal
+          >Where Elegance Meets Exclusivity</span
+        >
+        <h1 class="serif" data-reveal>Our Fabulous Partners</h1>
+      </div>
+      <div class="scroll-cue"></div>
+    </section>
+
+    <!-- ============================ PARTNER RESOURCES ============================ -->
+    <section class="intro">
+      <span class="eyebrow" data-reveal>Resources &amp; Partners</span>
+      <p class="serif intro-lead" data-reveal>Partner Resources</p>
+      <div class="resource-grid">
+        <a href="#inquire" class="resource-card" data-reveal>
+          <div class="num">01</div>
+          <div class="title serif">For Designers &amp; Architects</div>
+          <div class="arrow">Explore —</div>
+        </a>
+        <a href="#inquire" class="resource-card" data-reveal>
+          <div class="num">02</div>
+          <div class="title serif">For Fabricators &amp; Installers</div>
+          <div class="arrow">Explore —</div>
+        </a>
+        <a href="#inquire" class="resource-card" data-reveal>
+          <div class="num">03</div>
+          <div class="title serif">Special Orders &amp; Sourcing</div>
+          <div class="arrow">Explore —</div>
+        </a>
+      </div>
+      <div class="btns" data-reveal>
+        <a href="#inquire" class="btn btn-ink">Request a Sample</a>
+      </div>
+    </section>
+
+    <!-- ============================ SAMPLES ============================ -->
+    <section class="bandsec">
+      <div class="bandsec-inner">
+        <div data-reveal="left">
+          <span class="eyebrow">Request a Sample</span>
+          <h2 class="serif">Need to Get Hands-On?</h2>
+          <p>
+            The first step to any great project is experiencing the quality
+            firsthand. Order samples of our curated stone collection directly to
+            your studio, workshop, or client.
+          </p>
+          <div class="btns">
+            <a href="#inquire" class="btn btn-line">Request a Sample</a>
+          </div>
+        </div>
+        <div class="ph portrait" data-reveal="right" data-label="Sample photo">
+          <img
+            alt="Stone samples"
+            src="https://francinimarble.com/Portals/0/Images/Home-Img-03.webp"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ SPECIALTY PROJECTS ============================ -->
+    <section class="projects">
+      <div class="head">
+        <span class="eyebrow" data-reveal>Specialty</span>
+        <h2 class="serif" data-reveal>Francini Specialty Projects</h2>
+      </div>
+
+      <div class="filters" data-reveal>
+        <button class="filter active" data-cat="all">All</button>
+        <button class="filter" data-cat="cabinet">Cabinet</button>
+        <button class="filter" data-cat="cooktop">Cooktop</button>
+        <button class="filter" data-cat="fireplace">Fireplace</button>
+        <button class="filter" data-cat="flooring">Flooring</button>
+        <button class="filter" data-cat="furniture">Furniture</button>
+        <button class="filter" data-cat="outside">Outside</button>
+        <button class="filter" data-cat="shower">Shower</button>
+        <button class="filter" data-cat="signs">Signs</button>
+        <button class="filter" data-cat="sinks">Sinks</button>
+        <button class="filter" data-cat="stairs">Stairs</button>
+        <button class="filter" data-cat="wall">Wall</button>
+        <button class="filter" data-cat="wine-cellar">Wine Cellar</button>
+      </div>
+
+      <div class="projects-grid" data-reveal>
+        <div class="project" data-cat="cabinet">
+          <div class="ph" data-label="Statuario Cabinet">
+            <img alt="Statuario Cabinet" />
+          </div>
+          <div class="cat">Cabinet</div>
+          <div class="title serif">Statuario Cabinet</div>
+        </div>
+        <div class="project" data-cat="wall">
+          <div class="ph" data-label="Statuario White Lucidato Wall">
+            <img alt="Statuario White Lucidato Wall" />
+          </div>
+          <div class="cat">Wall</div>
+          <div class="title serif">Statuario White Lucidato Wall</div>
+        </div>
+        <div class="project" data-cat="outside">
+          <div class="ph" data-label="Taj Mahal Lucidato Outside">
+            <img alt="Taj Mahal Lucidato Outside" />
+          </div>
+          <div class="cat">Outside</div>
+          <div class="title serif">Taj Mahal Lucidato Outside</div>
+        </div>
+        <div class="project" data-cat="cooktop">
+          <div class="ph" data-label="Breccia Bianca Cooktop">
+            <img alt="Breccia Bianca Cooktop" />
+          </div>
+          <div class="cat">Cooktop</div>
+          <div class="title serif">Breccia Bianca Cooktop</div>
+        </div>
+        <div class="project" data-cat="cabinet">
+          <div class="ph" data-label="Statuario Cabinet">
+            <img alt="Statuario Cabinet" />
+          </div>
+          <div class="cat">Cabinet</div>
+          <div class="title serif">Statuario Cabinet</div>
+        </div>
+        <div class="project" data-cat="flooring">
+          <div class="ph" data-label="White Pearl Flooring">
+            <img alt="White Pearl Flooring" />
+          </div>
+          <div class="cat">Flooring</div>
+          <div class="title serif">White Pearl Flooring</div>
+        </div>
+        <div class="project" data-cat="cabinet">
+          <div class="ph" data-label="Marble Grey Cabinet">
+            <img alt="Marble Grey Cabinet" />
+          </div>
+          <div class="cat">Cabinet</div>
+          <div class="title serif">Marble Grey Cabinet</div>
+        </div>
+        <div class="project" data-cat="cooktop">
+          <div class="ph" data-label="Breccia Bianca Cooktop">
+            <img alt="Breccia Bianca Cooktop" />
+          </div>
+          <div class="cat">Cooktop</div>
+          <div class="title serif">Breccia Bianca Cooktop</div>
+        </div>
+        <div class="project" data-cat="fireplace">
+          <div class="ph" data-label="Zumaia Fireplace">
+            <img alt="Zumaia Fireplace" />
+          </div>
+          <div class="cat">Fireplace</div>
+          <div class="title serif">Zumaia Fireplace</div>
+        </div>
+        <div class="project" data-cat="fireplace">
+          <div class="ph" data-label="Michaelangelo Fireplace">
+            <img alt="Michaelangelo Fireplace" />
+          </div>
+          <div class="cat">Fireplace</div>
+          <div class="title serif">Michaelangelo Fireplace</div>
+        </div>
+        <div class="project" data-cat="cabinet">
+          <div class="ph" data-label="Breccia Bianca Cabinet">
+            <img alt="Breccia Bianca Cabinet" />
+          </div>
+          <div class="cat">Cabinet</div>
+          <div class="title serif">Breccia Bianca Cabinet</div>
+        </div>
+        <div class="project" data-cat="fireplace">
+          <div class="ph" data-label="Tiffany Fireplace">
+            <img alt="Tiffany Fireplace" />
+          </div>
+          <div class="cat">Fireplace</div>
+          <div class="title serif">Tiffany Fireplace</div>
+        </div>
+        <div class="project" data-cat="flooring">
+          <div class="ph" data-label="Metal Barnished Flooring">
+            <img alt="Metal Barnished Flooring" />
+          </div>
+          <div class="cat">Flooring</div>
+          <div class="title serif">Metal Barnished Flooring</div>
+        </div>
+        <div class="project" data-cat="fireplace">
+          <div class="ph" data-label="Platinum Grigio Fireplace">
+            <img alt="Platinum Grigio Fireplace" />
+          </div>
+          <div class="cat">Fireplace</div>
+          <div class="title serif">Platinum Grigio Fireplace</div>
+        </div>
+        <div class="project" data-cat="flooring">
+          <div class="ph" data-label="Maori Flooring">
+            <img alt="Maori Flooring" />
+          </div>
+          <div class="cat">Flooring</div>
+          <div class="title serif">Maori Flooring</div>
+        </div>
+        <div class="project" data-cat="shower">
+          <div class="ph" data-label="Cement Ivory Struttura Shower">
+            <img alt="Cement Ivory Struttura Shower" />
+          </div>
+          <div class="cat">Shower</div>
+          <div class="title serif">Cement Ivory Struttura Shower</div>
+        </div>
+        <div class="project" data-cat="flooring">
+          <div class="ph" data-label="White Pearl Flooring">
+            <img alt="White Pearl Flooring" />
+          </div>
+          <div class="cat">Flooring</div>
+          <div class="title serif">White Pearl Flooring</div>
+        </div>
+        <div class="project" data-cat="fireplace">
+          <div class="ph" data-label="Paramount Fireplace">
+            <img alt="Paramount Fireplace" />
+          </div>
+          <div class="cat">Fireplace</div>
+          <div class="title serif">Paramount Fireplace</div>
+        </div>
+        <div class="project" data-cat="flooring">
+          <div class="ph" data-label="Metal Russet Flooring">
+            <img alt="Metal Russet Flooring" />
+          </div>
+          <div class="cat">Flooring</div>
+          <div class="title serif">Metal Russet Flooring</div>
+        </div>
+        <div class="project" data-cat="furniture">
+          <div class="ph" data-label="Cement Light Grey Furniture">
+            <img alt="Cement Light Grey Furniture" />
+          </div>
+          <div class="cat">Furniture</div>
+          <div class="title serif">Cement Light Grey Furniture</div>
+        </div>
+        <div class="project" data-cat="furniture">
+          <div class="ph" data-label="Metal Barnished Struttura Furniture">
+            <img alt="Metal Barnished Struttura Furniture" />
+          </div>
+          <div class="cat">Furniture</div>
+          <div class="title serif">Metal Barnished Struttura Furniture</div>
+        </div>
+        <div class="project" data-cat="furniture">
+          <div class="ph" data-label="Francini Custom Furniture">
+            <img alt="Francini Custom Furniture" />
+          </div>
+          <div class="cat">Furniture</div>
+          <div class="title serif">Francini Custom Furniture</div>
+        </div>
+        <div class="project" data-cat="furniture">
+          <div class="ph" data-label="Patagonia Furniture">
+            <img alt="Patagonia Furniture" />
+          </div>
+          <div class="cat">Furniture</div>
+          <div class="title serif">Patagonia Furniture</div>
+        </div>
+        <div class="project" data-cat="outside">
+          <div class="ph" data-label="Calacatta Classico Lucidato Outside">
+            <img alt="Calacatta Classico Lucidato Outside" />
+          </div>
+          <div class="cat">Outside</div>
+          <div class="title serif">Calacatta Classico Lucidato Outside</div>
+        </div>
+        <div class="project" data-cat="shower">
+          <div class="ph" data-label="Agata Blue Shower">
+            <img alt="Agata Blue Shower" />
+          </div>
+          <div class="cat">Shower</div>
+          <div class="title serif">Agata Blue Shower</div>
+        </div>
+        <div class="project" data-cat="outside">
+          <div class="ph" data-label="White Pearl Outside">
+            <img alt="White Pearl Outside" />
+          </div>
+          <div class="cat">Outside</div>
+          <div class="title serif">White Pearl Outside</div>
+        </div>
+        <div class="project" data-cat="signs">
+          <div class="ph" data-label="Francini Sign">
+            <img alt="Francini Sign" />
+          </div>
+          <div class="cat">Signs</div>
+          <div class="title serif">Francini Sign</div>
+        </div>
+        <div class="project" data-cat="shower">
+          <div class="ph" data-label="Tiffany Shower">
+            <img alt="Tiffany Shower" />
+          </div>
+          <div class="cat">Shower</div>
+          <div class="title serif">Tiffany Shower</div>
+        </div>
+        <div class="project" data-cat="signs">
+          <div class="ph" data-label="Cadenza Sign">
+            <img alt="Cadenza Sign" />
+          </div>
+          <div class="cat">Signs</div>
+          <div class="title serif">Cadenza Sign</div>
+        </div>
+        <div class="project" data-cat="signs">
+          <div class="ph" data-label="Cadenza Sign">
+            <img alt="Cadenza Sign" />
+          </div>
+          <div class="cat">Signs</div>
+          <div class="title serif">Cadenza Sign</div>
+        </div>
+        <div class="project" data-cat="sinks">
+          <div class="ph" data-label="Industrial Grey Forte Porcelain Sink">
+            <img alt="Industrial Grey Forte Porcelain Sink" />
+          </div>
+          <div class="cat">Sinks</div>
+          <div class="title serif">Industrial Grey Forte Porcelain Sink</div>
+        </div>
+        <div class="project" data-cat="sinks">
+          <div class="ph" data-label="Maori Sink"><img alt="Maori Sink" /></div>
+          <div class="cat">Sinks</div>
+          <div class="title serif">Maori Sink</div>
+        </div>
+        <div class="project" data-cat="sinks">
+          <div class="ph" data-label="Calacatta Gold &amp; Marquinia Sink">
+            <img alt="Calacatta Gold &amp; Marquinia Sink" />
+          </div>
+          <div class="cat">Sinks</div>
+          <div class="title serif">Calacatta Gold &amp; Marquinia Sink</div>
+        </div>
+        <div class="project" data-cat="sinks">
+          <div class="ph" data-label="Scarlet Quartzite Sink">
+            <img alt="Scarlet Quartzite Sink" />
+          </div>
+          <div class="cat">Sinks</div>
+          <div class="title serif">Scarlet Quartzite Sink</div>
+        </div>
+        <div class="project" data-cat="sinks">
+          <div class="ph" data-label="Scarlet Quartzite Sink">
+            <img alt="Scarlet Quartzite Sink" />
+          </div>
+          <div class="cat">Sinks</div>
+          <div class="title serif">Scarlet Quartzite Sink</div>
+        </div>
+        <div class="project" data-cat="sinks">
+          <div class="ph" data-label="Pure White Matte Forte Porcelain Sink">
+            <img alt="Pure White Matte Forte Porcelain Sink" />
+          </div>
+          <div class="cat">Sinks</div>
+          <div class="title serif">Pure White Matte Forte Porcelain Sink</div>
+        </div>
+        <div class="project" data-cat="sinks">
+          <div class="ph" data-label="Scarlet Quartzite Sink">
+            <img alt="Scarlet Quartzite Sink" />
+          </div>
+          <div class="cat">Sinks</div>
+          <div class="title serif">Scarlet Quartzite Sink</div>
+        </div>
+        <div class="project" data-cat="stairs">
+          <div class="ph" data-label="White Pearl Stairs">
+            <img alt="White Pearl Stairs" />
+          </div>
+          <div class="cat">Stairs</div>
+          <div class="title serif">White Pearl Stairs</div>
+        </div>
+        <div class="project" data-cat="wall">
+          <div class="ph" data-label="Paramount Wall">
+            <img alt="Paramount Wall" />
+          </div>
+          <div class="cat">Wall</div>
+          <div class="title serif">Paramount Wall</div>
+        </div>
+        <div class="project" data-cat="wall">
+          <div class="ph" data-label="Calacatta Supremo Wall">
+            <img alt="Calacatta Supremo Wall" />
+          </div>
+          <div class="cat">Wall</div>
+          <div class="title serif">Calacatta Supremo Wall</div>
+        </div>
+        <div class="project" data-cat="wall">
+          <div
+            class="ph"
+            data-label="Calacatta Classico Lucidato &amp; Premium Grigio Lucidato Wall"
+          >
+            <img
+              alt="Calacatta Classico Lucidato &amp; Premium Grigio Lucidato Wall"
+            />
+          </div>
+          <div class="cat">Wall</div>
+          <div class="title serif">
+            Calacatta Classico Lucidato &amp; Premium Grigio Lucidato Wall
+          </div>
+        </div>
+        <div class="project" data-cat="sinks">
+          <div class="ph" data-label="Scarlet Quartzite Sink">
+            <img alt="Scarlet Quartzite Sink" />
+          </div>
+          <div class="cat">Sinks</div>
+          <div class="title serif">Scarlet Quartzite Sink</div>
+        </div>
+        <div class="project" data-cat="wine-cellar">
+          <div class="ph" data-label="Patagonia Wine Cellar">
+            <img alt="Patagonia Wine Cellar" />
+          </div>
+          <div class="cat">Wine Cellar</div>
+          <div class="title serif">Patagonia Wine Cellar</div>
+        </div>
+      </div>
+
+      <div class="load-wrap">
+        <button class="btn btn-line" id="loadMore">Load More</button>
+      </div>
+    </section>
+
+    <!-- ============================ PULL QUOTE ============================ -->
+    <section class="quote">
+      <div class="quote-inner">
+        <blockquote data-reveal>Where Elegance Meets Exclusivity</blockquote>
+        <div class="attr" data-reveal>Francini, Inc.</div>
+      </div>
+    </section>
+
+    <!-- ============================ INQUIRE FORM ============================ -->
+    <section class="inquire" id="inquire">
+      <span class="eyebrow" data-reveal>Partners</span>
+      <h2 class="serif" data-reveal>
+        Request a Sample or Inquire About Becoming a Partner
+      </h2>
+      <form class="form-grid" data-reveal>
+        <div class="field">
+          <label for="f-name">Name</label>
+          <input type="text" id="f-name" name="name" />
+        </div>
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input type="email" id="f-email" name="email" />
+        </div>
+        <div class="field">
+          <label for="f-phone">Phone</label>
+          <input type="tel" id="f-phone" name="phone" />
+        </div>
+        <div class="field">
+          <label for="f-timeline">Timeline/Deadline</label>
+          <input type="text" id="f-timeline" name="timeline" />
+        </div>
+        <div class="field">
+          <label for="f-material">Material</label>
+          <input type="text" id="f-material" name="material" />
+        </div>
+        <div class="field">
+          <label for="f-quantity">Quantity</label>
+          <input type="text" id="f-quantity" name="quantity" />
+        </div>
+        <div class="field">
+          <label for="f-finish">Material Finish</label>
+          <input type="text" id="f-finish" name="finish" />
+        </div>
+        <div class="field">
+          <label for="f-thickness">Thickness</label>
+          <select id="f-thickness" name="thickness">
+            <option value="">Please select</option>
+            <option>3CM</option>
+            <option>2CM</option>
+            <option>6MM</option>
+            <option>12MM</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-thickness-other">Other Thickness</label>
+          <input type="text" id="f-thickness-other" name="thickness-other" />
+        </div>
+        <div class="field">
+          <label for="f-rep"
+            >Are You Working with a Sales Representative?</label
+          >
+          <select id="f-rep" name="rep">
+            <option value="">Please select</option>
+            <option>I am working with a Sales Representative</option>
+            <option>I am not working with a Sales Representative.</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-rep-email"
+            >Enter Your Sales Representatives Email</label
+          >
+          <input type="email" id="f-rep-email" name="rep-email" />
+        </div>
+        <div class="field">
+          <label for="f-images">Reference Images</label>
+          <input type="file" id="f-images" name="images" multiple />
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn btn-ink">Submit Now</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ============================ GUIDES & BLOGS ============================ -->
+    <section class="journal">
+      <div class="journal-inner">
+        <span class="eyebrow" data-reveal>Guides &amp; Blogs</span>
+        <h2 class="serif" data-reveal>Guides &amp; Blogs</h2>
+        <div class="journal-grid" data-reveal>
+          <a href="#" class="post">
+            <span class="t serif"
+              >Bellagio, Cristallo, and Black Diamond: Choosing the Right
+              Quartzite Slab</span
+            >
+            <span class="d">27 Jul, 2026</span>
+          </a>
+          <a href="#" class="post">
+            <span class="t serif"
+              >Quartzite vs Granite for Kitchen Islands: Which Holds Up Better
+              Over Time?</span
+            >
+            <span class="d">27 Jul, 2026</span>
+          </a>
+          <a href="#" class="post">
+            <span class="t serif"
+              >Taj Mahal Quartzite: What Sets This Stone Apart from Other
+              Varieties</span
+            >
+            <span class="d">27 Jul, 2026</span>
+          </a>
+          <a href="#" class="post">
+            <span class="t serif"
+              >Is Quartzite Heat-Resistant? What Homeowners Should Know Before
+              Choosing It</span
+            >
+            <span class="d">27 Jul, 2026</span>
+          </a>
+          <a href="#" class="post">
+            <span class="t serif"
+              >Exploring Unique Italian Marble Varieties: Rhino White,
+              Arabescato, and More</span
+            >
+            <span class="d">24 Apr, 2026</span>
+          </a>
+          <a href="#" class="post">
+            <span class="t serif"
+              >Carrara vs. Calacatta Marble Slabs: Key Differences
+              Explained</span
+            >
+            <span class="d">24 Apr, 2026</span>
+          </a>
+          <a href="#" class="post">
+            <span class="t serif"
+              >What Makes Luxury Italian Marble Different From Other
+              Marbles?</span
+            >
+            <span class="d">24 Apr, 2026</span>
+          </a>
+          <a href="#" class="post">
+            <span class="t serif"
+              >Italian Marble Slabs: How to Spot Authentic Quality</span
+            >
+            <span class="d">24 Apr, 2026</span>
+          </a>
+          <a href="#" class="post">
+            <span class="t serif"
+              >Why Soapstone Countertops Are a Timeless Choice for
+              Kitchens</span
+            >
+            <span class="d">12 Jan, 2026</span>
+          </a>
+          <a href="#" class="post">
+            <span class="t serif"
+              >Exploring the Francini Soapstone Collection: Exclusive Stone from
+              Brazil</span
+            >
+            <span class="d">12 Jan, 2026</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      /* ---------- scroll reveal ---------- */
+      (function () {
+        var els = document.querySelectorAll("[data-reveal]");
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                e.target.classList.add("in");
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -7% 0px" },
+        );
+        els.forEach(function (el) {
+          io.observe(el);
+        });
+      })();
+
+      /* ---------- specialty projects: filter + load more ---------- */
+      (function () {
+        var PAGE = 12;
+        var visible = PAGE;
+        var current = "all";
+        var items = Array.prototype.slice.call(
+          document.querySelectorAll(".project"),
+        );
+        var loadBtn = document.getElementById("loadMore");
+
+        function render() {
+          var matches = items.filter(function (it) {
+            return current === "all" || it.getAttribute("data-cat") === current;
+          });
+          items.forEach(function (it) {
+            it.classList.remove("show");
+          });
+          matches.slice(0, visible).forEach(function (it) {
+            it.classList.add("show");
+          });
+          loadBtn.style.display =
+            matches.length > visible ? "inline-block" : "none";
+        }
+
+        document.querySelectorAll(".filter").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            document.querySelectorAll(".filter").forEach(function (b) {
+              b.classList.remove("active");
+            });
+            btn.classList.add("active");
+            current = btn.getAttribute("data-cat");
+            visible = PAGE;
+            render();
+          });
+        });
+
+        loadBtn.addEventListener("click", function () {
+          visible += PAGE;
+          render();
+        });
+
+        render();
+      })();
+    </script>
+  </body>
+</html>
