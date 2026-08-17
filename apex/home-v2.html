@@ -1,0 +1,2040 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Apex Advanced Spine &amp; Pain — Live Your Life With Less Pain</title>
+    <meta
+      name="description"
+      content="Apex Advanced Spine & Pain in Meridian, Idaho. Board-certified interventional pain management — precision diagnosis, advanced therapies, and personalized spine care."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* =====================================================================
+   APEX ADVANCED SPINE & PAIN — HOMEPAGE · VERSION 2
+   "THE SPINE EDITION"
+   ---------------------------------------------------------------------
+   Concept: the page IS a spine. A gold vertebrae line tracks your
+   scroll down the right edge. Sections flow into each other with
+   curves, tilted bands, and overlapping panels — no boxy stacking.
+   Brand system unchanged: navy leads, gold punctuates, huge Sora type.
+   ===================================================================== */
+
+      :root {
+        --navy: #132e58;
+        --navy-deep: #0b1c39;
+        --blue: #2e6db4;
+        --sky: #6fa3d8;
+        --gold: #f2b32c;
+        --gold-deep: #d89b00;
+        --paper: #ffffff;
+        --mist: #f4f7fb;
+        --line: #e2e8f1;
+        --ink: #0e1a2e;
+        --muted: #5d6b80;
+
+        --grad-blue: linear-gradient(180deg, var(--blue) 0%, var(--navy) 100%);
+        --grad-gold: linear-gradient(90deg, #f7ce55 0%, var(--gold-deep) 100%);
+
+        --font-display: "Sora", sans-serif;
+        --font-body: "Inter", sans-serif;
+
+        --radius: 14px;
+        --radius-pill: 999px;
+        --curve: 64px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 100px;
+      }
+
+      body {
+        font-family: var(--font-body);
+        background: var(--paper);
+        color: var(--ink);
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      ::selection {
+        background: var(--gold);
+        color: var(--navy-deep);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 32px;
+        position: relative;
+      }
+
+      h1, h2, h3 {
+        font-family: var(--font-display);
+        line-height: 1.04;
+        letter-spacing: -0.03em;
+        color: var(--navy-deep);
+      }
+
+      .kicker {
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--blue);
+        margin-bottom: 24px;
+      }
+
+      .kicker::before {
+        content: "";
+        display: inline-block;
+        width: 28px;
+        height: 3px;
+        background: var(--gold);
+        margin-right: 14px;
+        vertical-align: middle;
+        border-radius: 2px;
+      }
+
+      .section-title {
+        font-size: clamp(40px, 5.4vw, 76px);
+        font-weight: 800;
+      }
+
+      .lead {
+        font-size: 18px;
+        color: var(--muted);
+        max-width: 60ch;
+        margin-top: 26px;
+      }
+
+      /* ---------- image placeholder ---------- */
+      .ph {
+        position: relative;
+        background: var(--mist);
+        border: 1px solid var(--line);
+        overflow: hidden;
+      }
+
+      .ph::after {
+        content: attr(data-label);
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        text-align: center;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #9aa7b8;
+      }
+
+      .ph img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: none;
+      }
+
+      .ph img[src] {
+        display: block;
+      }
+
+      /* ---------- buttons ---------- */
+      .btn {
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        padding: 20px 44px;
+        border-radius: var(--radius-pill);
+        border: 2px solid transparent;
+        cursor: pointer;
+        transition:
+          background 0.25s,
+          color 0.25s,
+          border-color 0.25s,
+          transform 0.25s;
+      }
+
+      .btn-navy { background: var(--navy); color: #fff; }
+      .btn-navy:hover { background: var(--navy-deep); transform: translateY(-2px); }
+      .btn-gold { background: var(--gold); color: var(--navy-deep); }
+      .btn-gold:hover { background: var(--gold-deep); transform: translateY(-2px); }
+      .btn-line { border-color: var(--navy); color: var(--navy); background: transparent; }
+      .btn-line:hover { background: var(--navy); color: #fff; transform: translateY(-2px); }
+      .btn-ghost-light { border-color: rgba(255, 255, 255, 0.45); color: #fff; background: transparent; }
+      .btn-ghost-light:hover { border-color: #fff; background: rgba(255, 255, 255, 0.08); }
+      .btn-text { padding: 0 0 6px; border-radius: 0; background: none; color: var(--navy); border-bottom: 2px solid var(--gold); }
+      .btn-text:hover { color: var(--blue); }
+
+      /* ---------- spine scroll indicator (desktop) ---------- */
+      .spine-track {
+        position: fixed;
+        right: 30px;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 52vh;
+        width: 8px;
+        z-index: 90;
+        pointer-events: none;
+      }
+
+      .spine-track .rail,
+      .spine-track .fill {
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(circle, currentColor 2.6px, transparent 3px);
+        background-size: 8px 20px;
+        background-repeat: repeat-y;
+        background-position: center top;
+      }
+
+      .spine-track .rail {
+        color: rgba(19, 46, 88, 0.16);
+      }
+
+      .spine-track .fill {
+        color: var(--gold-deep);
+        clip-path: inset(0 0 100% 0);
+      }
+
+      /* ---------- nav ---------- */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.3s;
+      }
+
+      .nav.scrolled {
+        border-bottom-color: var(--line);
+      }
+
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 84px;
+        gap: 24px;
+      }
+
+      .nav .logo img {
+        height: 46px;
+        width: auto;
+      }
+
+      .nav ul {
+        display: flex;
+        gap: 34px;
+        list-style: none;
+      }
+
+      .nav ul a {
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--muted);
+        transition: color 0.2s;
+      }
+
+      .nav ul a:hover {
+        color: var(--navy);
+      }
+
+      .nav-cta {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+      }
+
+      .nav-phone {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--navy);
+        white-space: nowrap;
+      }
+
+      .nav-cta .btn {
+        padding: 14px 28px;
+      }
+
+      /* ---------- hero: typographic, full-bleed ---------- */
+      .hero {
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        padding: 150px 0 120px;
+        overflow: hidden;
+      }
+
+      .hero .ghost {
+        position: absolute;
+        top: 44%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: clamp(200px, 34vw, 560px);
+        letter-spacing: -0.04em;
+        color: transparent;
+        -webkit-text-stroke: 1.5px rgba(19, 46, 88, 0.07);
+        white-space: nowrap;
+        user-select: none;
+        pointer-events: none;
+      }
+
+      /* floating vertebrae — echoes the logo mark */
+      .vertebrae {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+
+      .vertebrae span {
+        position: absolute;
+        display: block;
+        border-radius: 5px;
+        background: var(--grad-gold);
+        opacity: 0.85;
+        animation: vfloat 7s ease-in-out infinite;
+      }
+
+      @keyframes vfloat {
+        0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+        50% { transform: translateY(-14px) rotate(var(--r, 0deg)); }
+      }
+
+      .hero h1 {
+        font-size: clamp(58px, 9.4vw, 148px);
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        position: relative;
+      }
+
+      .hero h1 .outline {
+        display: block;
+        color: transparent;
+        -webkit-text-stroke: 2.5px var(--navy);
+      }
+
+      .hero h1 .solid {
+        display: block;
+        color: var(--navy-deep);
+      }
+
+      .hero h1 .solid em {
+        font-style: normal;
+        color: transparent;
+        background: var(--grad-gold);
+        -webkit-background-clip: text;
+        background-clip: text;
+      }
+
+      .hero-row {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 48px;
+        margin-top: 54px;
+        flex-wrap: wrap;
+      }
+
+      .hero .lead {
+        margin-top: 0;
+        max-width: 44ch;
+        font-size: 19px;
+      }
+
+      .hero-actions {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .hero-loc {
+        position: absolute;
+        bottom: 42px;
+        left: 32px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .hero-loc b {
+        color: var(--blue);
+      }
+
+      .scroll-cue {
+        position: absolute;
+        bottom: 36px;
+        right: 80px;
+        width: 1px;
+        height: 54px;
+        background: linear-gradient(rgba(19, 46, 88, 0), var(--gold-deep));
+        animation: cue 2.4s ease-in-out infinite;
+      }
+
+      @keyframes cue {
+        0%, 100% { transform: translateY(0); opacity: 1; }
+        50% { transform: translateY(10px); opacity: 0.5; }
+      }
+
+      /* ---------- marquee band (tilted) ---------- */
+      .marquee-band {
+        background: var(--navy-deep);
+        color: #fff;
+        padding: 22px 0;
+        transform: rotate(-1.6deg) scale(1.02);
+        margin: 20px -20px 0;
+        overflow: hidden;
+        position: relative;
+        z-index: 5;
+      }
+
+      .marquee-track {
+        display: flex;
+        width: max-content;
+      }
+
+      .marquee-group {
+        flex: none;
+        display: flex;
+        align-items: center;
+        animation: marquee 46s linear infinite;
+        will-change: transform;
+      }
+
+      @keyframes marquee {
+        to { transform: translateX(-100%); }
+      }
+
+      .marquee-group span {
+        font-family: var(--font-display);
+        font-size: 17px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        white-space: nowrap;
+        padding: 0 26px;
+        display: inline-flex;
+        align-items: center;
+        gap: 52px;
+      }
+
+      .marquee-group span i {
+        font-style: normal;
+        width: 10px;
+        height: 14px;
+        border-radius: 3px;
+        background: var(--grad-gold);
+        display: inline-block;
+      }
+
+      .marquee-group .dim {
+        color: rgba(255, 255, 255, 0.45);
+        font-weight: 600;
+      }
+
+      /* ---------- flow sections ---------- */
+      .flow {
+        position: relative;
+        padding: 150px 0 130px;
+      }
+
+      /* ---------- care / standard: sticky split ---------- */
+      .care-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: start;
+      }
+
+      .care-grid .sticky {
+        position: sticky;
+        top: 140px;
+      }
+
+      .word-flow {
+        display: grid;
+        gap: 18px;
+      }
+
+      .word-item {
+        position: relative;
+        padding: 40px 44px;
+        border-radius: var(--radius);
+        background: var(--mist);
+        transition: transform 0.35s, background 0.35s;
+      }
+
+      .word-item:nth-child(2) {
+        margin-left: 56px;
+      }
+
+      .word-item:nth-child(3) {
+        margin-left: 112px;
+      }
+
+      .word-item:hover {
+        background: var(--navy);
+        transform: translateX(-10px);
+      }
+
+      .word-item .w {
+        font-family: var(--font-display);
+        font-size: clamp(26px, 2.6vw, 36px);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        color: var(--navy-deep);
+        transition: color 0.35s;
+      }
+
+      .word-item .w::after {
+        content: "";
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--gold);
+        margin-left: 16px;
+        vertical-align: middle;
+      }
+
+      .word-item p {
+        margin-top: 8px;
+        font-size: 15px;
+        color: var(--muted);
+        transition: color 0.35s;
+      }
+
+      .word-item:hover .w {
+        color: #fff;
+      }
+
+      .word-item:hover p {
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      /* ---------- conditions: expanding mega-rows ---------- */
+      .conds {
+        background: var(--mist);
+        border-radius: var(--curve) var(--curve) 0 0;
+        position: relative;
+        padding: 150px 0 170px;
+      }
+
+      .conds .ghost-word {
+        position: absolute;
+        top: 60px;
+        right: -40px;
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: clamp(120px, 18vw, 300px);
+        letter-spacing: -0.04em;
+        color: transparent;
+        -webkit-text-stroke: 1.5px rgba(19, 46, 88, 0.08);
+        pointer-events: none;
+        user-select: none;
+        line-height: 1;
+      }
+
+      .cond-rows {
+        margin-top: 72px;
+        border-top: 2px solid rgba(19, 46, 88, 0.14);
+      }
+
+      .cond {
+        display: block;
+        border-bottom: 2px solid rgba(19, 46, 88, 0.14);
+        padding: 10px 0;
+        position: relative;
+        cursor: pointer;
+      }
+
+      .cond-top {
+        display: flex;
+        align-items: baseline;
+        gap: 34px;
+        padding: 26px 8px;
+      }
+
+      .cond .idx {
+        font-family: var(--font-display);
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--gold-deep);
+        flex: none;
+        width: 44px;
+      }
+
+      .cond h3 {
+        font-size: clamp(32px, 4.6vw, 64px);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        color: var(--navy-deep);
+        transition: transform 0.45s cubic-bezier(0.16, 0.7, 0.2, 1), color 0.3s;
+      }
+
+      .cond .go {
+        margin-left: auto;
+        flex: none;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        border: 2px solid var(--navy);
+        display: grid;
+        place-items: center;
+        opacity: 0;
+        transform: scale(0.7);
+        transition: opacity 0.35s, transform 0.35s, background 0.35s;
+        align-self: center;
+      }
+
+      .cond .go svg {
+        stroke: var(--navy);
+        transition: stroke 0.3s;
+      }
+
+      .cond-body {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.55s cubic-bezier(0.16, 0.7, 0.2, 1), opacity 0.4s;
+      }
+
+      .cond-body p {
+        padding: 0 8px 34px 86px;
+        font-size: 16.5px;
+        color: var(--muted);
+        max-width: 62ch;
+      }
+
+      .cond:hover h3,
+      .cond:focus-within h3 {
+        transform: translateX(26px);
+        color: var(--blue);
+      }
+
+      .cond:hover .go,
+      .cond:focus-within .go {
+        opacity: 1;
+        transform: scale(1) rotate(-45deg);
+        background: var(--navy);
+      }
+
+      .cond:hover .go svg,
+      .cond:focus-within .go svg {
+        stroke: #fff;
+      }
+
+      .cond:hover .cond-body,
+      .cond:focus-within .cond-body {
+        max-height: 200px;
+        opacity: 1;
+      }
+
+      /* ---------- treatments: overlapping tilted panels ---------- */
+      .treats {
+        position: relative;
+        padding: 170px 0 150px;
+        background: var(--paper);
+        border-radius: var(--curve) var(--curve) 0 0;
+        margin-top: calc(-1 * var(--curve));
+      }
+
+      .treat-stack {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        align-items: stretch;
+        max-width: 1060px;
+        margin: 0 auto;
+      }
+
+      .treat {
+        border-radius: calc(var(--radius) + 10px);
+        padding: 68px 56px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+      }
+
+      .treat.dark {
+        background: var(--grad-blue);
+        color: #fff;
+        transform: rotate(-1.4deg) translateY(18px);
+        z-index: 2;
+        box-shadow: 0 50px 90px -50px rgba(11, 28, 57, 0.6);
+      }
+
+      .treat.light {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        transform: rotate(1.2deg) translateY(-14px) translateX(-24px);
+        z-index: 1;
+        box-shadow: 0 40px 80px -50px rgba(19, 46, 88, 0.25);
+      }
+
+      .treat .t-kicker {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 20px;
+      }
+
+      .treat.light .t-kicker {
+        color: var(--blue);
+      }
+
+      .treat h3 {
+        color: #fff;
+        font-size: clamp(26px, 2.8vw, 40px);
+        font-weight: 800;
+        max-width: 14ch;
+      }
+
+      .treat.light h3 {
+        color: var(--navy-deep);
+      }
+
+      .treat ul {
+        list-style: none;
+        margin: 30px 0 40px;
+        display: grid;
+        gap: 14px;
+      }
+
+      .treat li {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        font-size: 16px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.92);
+      }
+
+      .treat.light li {
+        color: var(--ink);
+      }
+
+      .treat .check {
+        flex: none;
+        width: 24px;
+        height: 24px;
+        margin-top: 2px;
+        border-radius: 50%;
+        background: var(--gold);
+        color: var(--navy-deep);
+        display: grid;
+        place-items: center;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .treat .btn {
+        margin-top: auto;
+      }
+
+      /* ---------- why apex: dark curve + sticky ---------- */
+      .why {
+        background: var(--navy-deep);
+        color: #fff;
+        border-radius: var(--curve) var(--curve) 0 0;
+        padding: 160px 0 170px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .why::before {
+        content: "";
+        position: absolute;
+        top: -120px;
+        right: -140px;
+        width: 480px;
+        height: 480px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(46, 109, 180, 0.35), transparent 65%);
+        pointer-events: none;
+      }
+
+      .why-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 80px;
+        align-items: start;
+      }
+
+      .why .sticky {
+        position: sticky;
+        top: 150px;
+      }
+
+      .why .kicker {
+        color: var(--sky);
+      }
+
+      .why .section-title {
+        color: #fff;
+      }
+
+      .why .lead {
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      .why-items {
+        display: grid;
+      }
+
+      .why-item {
+        position: relative;
+        padding: 44px 0 44px 96px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+      }
+
+      .why-item:first-child {
+        padding-top: 10px;
+      }
+
+      .why-item .n {
+        position: absolute;
+        left: 0;
+        top: 34px;
+        font-family: var(--font-display);
+        font-size: 52px;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        color: transparent;
+        -webkit-text-stroke: 1.5px var(--gold);
+        line-height: 1;
+      }
+
+      .why-item:first-child .n {
+        top: 0;
+      }
+
+      .why-item h3 {
+        color: #fff;
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+
+      .why-item p {
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.58);
+        max-width: 46ch;
+      }
+
+      /* ---------- symptoms: horizontal scroll strip ---------- */
+      .sym {
+        background: var(--mist);
+        padding: 150px 0 140px;
+        border-radius: var(--curve) var(--curve) 0 0;
+        margin-top: calc(-1 * var(--curve));
+        position: relative;
+        overflow: hidden;
+      }
+
+      .sym-head {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 40px;
+        flex-wrap: wrap;
+        margin-bottom: 64px;
+      }
+
+      .sym-hint {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--muted);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .sym-hint::after {
+        content: "⟶";
+        color: var(--gold-deep);
+        font-size: 18px;
+        animation: nudge 2s ease-in-out infinite;
+      }
+
+      @keyframes nudge {
+        0%, 100% { transform: translateX(0); }
+        50% { transform: translateX(8px); }
+      }
+
+      .sym-track {
+        display: flex;
+        gap: 22px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding: 4px 32px 32px;
+        margin: 0 -32px;
+        scrollbar-width: none;
+      }
+
+      .sym-track::-webkit-scrollbar {
+        display: none;
+      }
+
+      .sym-card {
+        flex: none;
+        width: min(340px, 78vw);
+        scroll-snap-align: start;
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: calc(var(--radius) + 6px);
+        padding: 44px 38px;
+        transition: transform 0.35s, box-shadow 0.35s;
+      }
+
+      .sym-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 34px 60px -34px rgba(19, 46, 88, 0.3);
+      }
+
+      .sym-card .n {
+        font-family: var(--font-display);
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--gold-deep);
+        margin-bottom: 42px;
+      }
+
+      .sym-card h3 {
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      .sym-card p {
+        font-size: 15px;
+        color: var(--muted);
+      }
+
+      .sym-cta {
+        margin-top: 30px;
+      }
+
+      /* ---------- doctor: arch portrait ---------- */
+      .doc {
+        padding: 170px 0 150px;
+        background: var(--paper);
+        border-radius: var(--curve) var(--curve) 0 0;
+        margin-top: calc(-1 * var(--curve));
+      }
+
+      .doc-grid {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 90px;
+        align-items: center;
+      }
+
+      .doc-visual {
+        position: relative;
+      }
+
+      .doc-visual .ph {
+        aspect-ratio: 4/5;
+        border-radius: 500px 500px var(--radius) var(--radius);
+      }
+
+      .doc-visual::before {
+        content: "";
+        position: absolute;
+        inset: -22px -22px auto -22px;
+        aspect-ratio: 4/5;
+        border-radius: 500px 500px var(--radius) var(--radius);
+        border: 2px dashed rgba(216, 155, 0, 0.5);
+        pointer-events: none;
+      }
+
+      .doc-badge {
+        position: absolute;
+        right: -26px;
+        bottom: 48px;
+        background: var(--navy);
+        color: #fff;
+        border-radius: var(--radius);
+        padding: 22px 26px;
+        box-shadow: 0 30px 60px -30px rgba(11, 28, 57, 0.6);
+        max-width: 240px;
+      }
+
+      .doc-badge .b-n {
+        font-family: var(--font-display);
+        font-size: 28px;
+        font-weight: 800;
+        color: var(--gold);
+        line-height: 1;
+      }
+
+      .doc-badge .b-l {
+        margin-top: 6px;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.5;
+      }
+
+      .doc-name {
+        font-size: clamp(36px, 4.4vw, 64px);
+        font-weight: 800;
+        margin-top: 6px;
+      }
+
+      .doc-creds {
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gold-deep);
+        margin: 18px 0 26px;
+      }
+
+      .doc p.bio {
+        font-size: 17px;
+        color: var(--muted);
+        max-width: 52ch;
+      }
+
+      .doc .btn {
+        margin-top: 40px;
+      }
+
+      /* ---------- testimonials: giant quote ---------- */
+      .quotes {
+        background: var(--grad-blue);
+        color: #fff;
+        padding: 160px 0;
+        border-radius: var(--curve);
+        margin: 0 20px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .quotes::before {
+        content: "“";
+        position: absolute;
+        top: -60px;
+        left: 30px;
+        font-family: var(--font-display);
+        font-size: 480px;
+        font-weight: 800;
+        color: rgba(255, 255, 255, 0.05);
+        line-height: 1;
+        pointer-events: none;
+      }
+
+      .quotes .kicker {
+        color: var(--gold);
+      }
+
+      .quote-stage {
+        min-height: 250px;
+      }
+
+      .quote-item {
+        display: none;
+      }
+
+      .quote-item.active {
+        display: block;
+        animation: qfade 0.6s ease;
+      }
+
+      @keyframes qfade {
+        from { opacity: 0; transform: translateY(14px); }
+        to { opacity: 1; transform: none; }
+      }
+
+      .quote-item blockquote {
+        font-family: var(--font-display);
+        font-size: clamp(24px, 3.2vw, 44px);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1.3;
+        max-width: 24ch;
+      }
+
+      .quote-item .attr {
+        margin-top: 32px;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+
+      .quote-dots {
+        display: flex;
+        gap: 10px;
+        margin-top: 52px;
+      }
+
+      .quote-dots button {
+        width: 34px;
+        height: 6px;
+        border-radius: 3px;
+        border: none;
+        background: rgba(255, 255, 255, 0.25);
+        cursor: pointer;
+        padding: 0;
+        transition: background 0.25s;
+      }
+
+      .quote-dots button.active {
+        background: var(--gold);
+      }
+
+      /* ---------- insurance marquee ---------- */
+      .ins-band {
+        padding: 64px 0;
+        overflow: hidden;
+      }
+
+      .ins-band .label {
+        text-align: center;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 30px;
+      }
+
+      .ins-track {
+        display: flex;
+        width: max-content;
+      }
+
+      .ins-group {
+        flex: none;
+        display: flex;
+        align-items: center;
+        animation: marquee 30s linear infinite;
+      }
+
+      .ins-group span {
+        font-family: var(--font-display);
+        font-size: clamp(22px, 3vw, 34px);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        color: transparent;
+        -webkit-text-stroke: 1.4px rgba(19, 46, 88, 0.4);
+        white-space: nowrap;
+        padding: 0 34px;
+        transition: color 0.3s;
+      }
+
+      .ins-group span:hover {
+        color: var(--navy);
+        -webkit-text-stroke-color: var(--navy);
+      }
+
+      .ins-pending {
+        text-align: center;
+        margin-top: 26px;
+        font-size: 13px;
+        font-style: italic;
+        color: var(--muted);
+      }
+
+      /* ---------- final cta: circular button ---------- */
+      .final {
+        padding: 150px 0 170px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .final .ghost-word {
+        position: absolute;
+        bottom: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: clamp(140px, 22vw, 380px);
+        letter-spacing: -0.04em;
+        color: transparent;
+        -webkit-text-stroke: 1.5px rgba(19, 46, 88, 0.06);
+        white-space: nowrap;
+        pointer-events: none;
+        user-select: none;
+        line-height: 1;
+      }
+
+      .final h2 {
+        font-size: clamp(44px, 6.4vw, 96px);
+        font-weight: 800;
+        max-width: 14ch;
+        margin: 0 auto;
+      }
+
+      .final h2 em {
+        font-style: normal;
+        color: transparent;
+        background: var(--grad-gold);
+        -webkit-background-clip: text;
+        background-clip: text;
+      }
+
+      .final .lead {
+        margin: 28px auto 0;
+        text-align: center;
+      }
+
+      .orbit-cta {
+        position: relative;
+        width: 210px;
+        height: 210px;
+        margin: 64px auto 0;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        transition: transform 0.4s;
+      }
+
+      .orbit-cta:hover {
+        transform: scale(1.06);
+      }
+
+      .orbit-cta svg.ring {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        animation: spin 22s linear infinite;
+      }
+
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+
+      .orbit-cta svg.ring text {
+        font-family: var(--font-body);
+        font-size: 11.5px;
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        fill: var(--navy);
+      }
+
+      .orbit-core {
+        width: 118px;
+        height: 118px;
+        border-radius: 50%;
+        background: var(--navy);
+        display: grid;
+        place-items: center;
+        transition: background 0.3s;
+      }
+
+      .orbit-cta:hover .orbit-core {
+        background: var(--gold);
+      }
+
+      .orbit-core svg {
+        stroke: #fff;
+        transition: stroke 0.3s, transform 0.3s;
+      }
+
+      .orbit-cta:hover .orbit-core svg {
+        stroke: var(--navy-deep);
+        transform: translateX(4px);
+      }
+
+      .final-phone {
+        margin-top: 44px;
+        font-size: 14px;
+        color: var(--muted);
+      }
+
+      .final-phone a {
+        font-weight: 700;
+        color: var(--navy);
+        border-bottom: 2px solid var(--gold);
+        padding-bottom: 3px;
+      }
+
+      /* ---------- footer ---------- */
+      .footer {
+        background: var(--navy-deep);
+        color: rgba(255, 255, 255, 0.65);
+        padding: 100px 0 44px;
+        border-radius: var(--curve) var(--curve) 0 0;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr 1fr 1fr;
+        gap: 48px;
+        padding-bottom: 64px;
+      }
+
+      .footer .logo img {
+        height: 52px;
+        width: auto;
+      }
+
+      .footer-brand p {
+        font-size: 14px;
+        margin-top: 22px;
+        max-width: 30ch;
+        line-height: 1.7;
+      }
+
+      .footer-brand p b {
+        color: var(--gold);
+      }
+
+      .footer h4 {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--sky);
+        margin-bottom: 20px;
+      }
+
+      .footer ul {
+        list-style: none;
+        display: grid;
+        gap: 10px;
+      }
+
+      .footer ul a {
+        font-size: 14px;
+        transition: color 0.2s;
+      }
+
+      .footer ul a:hover {
+        color: #fff;
+      }
+
+      .footer .contact-line {
+        font-size: 14px;
+        line-height: 1.8;
+      }
+
+      .footer .contact-line a {
+        color: #fff;
+        font-weight: 600;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        padding-top: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.4);
+      }
+
+      .footer-bottom a:hover {
+        color: #fff;
+      }
+
+      /* ---------- scroll reveal ---------- */
+      [data-reveal] {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.9s cubic-bezier(0.16, 0.7, 0.2, 1),
+          transform 0.9s cubic-bezier(0.16, 0.7, 0.2, 1);
+      }
+
+      [data-reveal].in {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* ---------- responsive ---------- */
+      @media (max-width: 1020px) {
+        .nav ul,
+        .spine-track {
+          display: none;
+        }
+
+        .care-grid,
+        .why-grid,
+        .doc-grid {
+          grid-template-columns: 1fr;
+          gap: 56px;
+        }
+
+        .care-grid .sticky,
+        .why .sticky {
+          position: static;
+        }
+
+        .word-item:nth-child(2),
+        .word-item:nth-child(3) {
+          margin-left: 0;
+        }
+
+        .treat-stack {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+
+        .treat.dark,
+        .treat.light {
+          transform: none;
+        }
+
+        .doc-visual {
+          max-width: 420px;
+        }
+
+        .doc-badge {
+          right: 0;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .quotes {
+          margin: 0;
+          border-radius: var(--curve) var(--curve) 0 0;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .nav-phone {
+          display: none;
+        }
+
+        .hero {
+          padding-top: 130px;
+        }
+
+        .hero-actions .btn {
+          width: 100%;
+          text-align: center;
+        }
+
+        .scroll-cue {
+          display: none;
+        }
+
+        .flow,
+        .conds,
+        .treats,
+        .why,
+        .sym,
+        .doc,
+        .final {
+          padding-top: 96px;
+          padding-bottom: 96px;
+        }
+
+        .cond-body p {
+          padding-left: 8px;
+        }
+
+        .cond .go {
+          display: none;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- spine scroll indicator -->
+    <div class="spine-track" aria-hidden="true">
+      <div class="rail"></div>
+      <div class="fill" id="spineFill"></div>
+    </div>
+
+    <!-- ============================ NAV ============================ -->
+    <header class="nav" id="siteNav">
+      <div class="wrap nav-inner">
+        <a href="#" class="logo">
+          <img src="Apex%201.PNG" alt="Apex Advanced Spine &amp; Pain" />
+        </a>
+        <ul>
+          <li><a href="#conditions">Conditions</a></li>
+          <li><a href="#treatments">Treatments</a></li>
+          <li><a href="#doctor">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#">Bill Pay</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="tel:208-800-9040" class="nav-phone">(208) 800-9040</a>
+          <a href="#schedule" class="btn btn-gold">Schedule</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================ HERO ============================ -->
+    <section class="hero">
+      <div class="ghost" aria-hidden="true">APEX</div>
+
+      <!-- floating vertebrae, echoing the logo mark -->
+      <div class="vertebrae" aria-hidden="true">
+        <span style="left: 6%; top: 24%; width: 13px; height: 22px; --r: -8deg; animation-delay: 0s"></span>
+        <span style="left: 13%; top: 30%; width: 16px; height: 28px; --r: -4deg; animation-delay: 0.6s"></span>
+        <span style="left: 21%; top: 34%; width: 19px; height: 34px; --r: 0deg; animation-delay: 1.2s"></span>
+        <span style="right: 20%; top: 22%; width: 19px; height: 34px; --r: 4deg; animation-delay: 0.3s"></span>
+        <span style="right: 12%; top: 27%; width: 16px; height: 28px; --r: 8deg; animation-delay: 0.9s"></span>
+        <span style="right: 5%; top: 33%; width: 13px; height: 22px; --r: 12deg; animation-delay: 1.5s"></span>
+      </div>
+
+      <div class="wrap">
+        <h1 data-reveal>
+          <span class="outline">Live your life</span>
+          <span class="solid">with <em>less pain.</em></span>
+        </h1>
+        <div class="hero-row">
+          <p class="lead" data-reveal>
+            Live a happier and healthier life with less pain and discomfort.
+            All it takes is one consultation to see if we can help you get
+            back to the life you want.
+          </p>
+          <div class="hero-actions" data-reveal>
+            <a href="#schedule" class="btn btn-navy">Schedule an Appointment</a>
+            <a href="#conditions" class="btn btn-text">So, What Hurts?</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-loc"><b>Meridian, Idaho</b> · Independent, physician-led practice</div>
+      <div class="scroll-cue" aria-hidden="true"></div>
+    </section>
+
+    <!-- ============================ MARQUEE ============================ -->
+    <div class="marquee-band" aria-hidden="true">
+      <div class="marquee-track">
+        <div class="marquee-group">
+          <span>Restore <i></i></span><span>Relieve <i></i></span><span>Renew <i></i></span>
+          <span class="dim">Apex /ˈāˌpeks/ — the point of greatest excellence <i></i></span>
+          <span>Restore <i></i></span><span>Relieve <i></i></span><span>Renew <i></i></span>
+          <span class="dim">Apex /ˈāˌpeks/ — the point of greatest excellence <i></i></span>
+          <span>Restore <i></i></span><span>Relieve <i></i></span><span>Renew <i></i></span>
+          <span class="dim">Apex /ˈāˌpeks/ — the point of greatest excellence <i></i></span>
+        </div>
+        <div class="marquee-group">
+          <span>Restore <i></i></span><span>Relieve <i></i></span><span>Renew <i></i></span>
+          <span class="dim">Apex /ˈāˌpeks/ — the point of greatest excellence <i></i></span>
+          <span>Restore <i></i></span><span>Relieve <i></i></span><span>Renew <i></i></span>
+          <span class="dim">Apex /ˈāˌpeks/ — the point of greatest excellence <i></i></span>
+          <span>Restore <i></i></span><span>Relieve <i></i></span><span>Renew <i></i></span>
+          <span class="dim">Apex /ˈāˌpeks/ — the point of greatest excellence <i></i></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================ CARE ABOVE THE STANDARD ============================ -->
+    <section class="flow">
+      <div class="wrap care-grid">
+        <div class="sticky">
+          <span class="kicker" data-reveal>Welcome to Apex</span>
+          <h2 class="section-title" data-reveal>Care above<br />the standard.</h2>
+          <p class="lead" data-reveal>
+            We help people restore better movement, relieve pain, and renew
+            themselves to get back to living the life they want. Let us help
+            you.
+          </p>
+        </div>
+        <div class="word-flow">
+          <div class="word-item" data-reveal>
+            <div class="w">Restore</div>
+            <p>Better movement, so everyday tasks stop feeling like obstacles.</p>
+          </div>
+          <div class="word-item" data-reveal>
+            <div class="w">Relieve</div>
+            <p>Pain at its source — found with precision, treated with intent.</p>
+          </div>
+          <div class="word-item" data-reveal>
+            <div class="w">Renew</div>
+            <p>Yourself, and get back to living the life you want.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ CONDITIONS ============================ -->
+    <section class="conds" id="conditions">
+      <div class="ghost-word" aria-hidden="true">HURT?</div>
+      <div class="wrap">
+        <span class="kicker" data-reveal>Conditions We Treat</span>
+        <h2 class="section-title" data-reveal>So, what's hurting?</h2>
+
+        <div class="cond-rows" data-reveal>
+          <a href="#" class="cond">
+            <div class="cond-top">
+              <span class="idx">01</span>
+              <h3>Head &amp; Neck</h3>
+              <span class="go"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            </div>
+            <div class="cond-body">
+              <p>We have the experience for finding the source of head &amp; neck pain. Get the relief you need through treatments at Apex.</p>
+            </div>
+          </a>
+          <a href="#" class="cond">
+            <div class="cond-top">
+              <span class="idx">02</span>
+              <h3>Spine &amp; Back</h3>
+              <span class="go"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            </div>
+            <div class="cond-body">
+              <p>Back pain is common in many adults. Treatment for back &amp; spine pain will depend on the condition it came from. Everyone is different.</p>
+            </div>
+          </a>
+          <a href="#" class="cond">
+            <div class="cond-top">
+              <span class="idx">03</span>
+              <h3>Leg, Knee &amp; Joints</h3>
+              <span class="go"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            </div>
+            <div class="cond-body">
+              <p>Get the relief you need — we find the source of joint pain and treat it with the least invasive option that works.</p>
+            </div>
+          </a>
+          <a href="#" class="cond">
+            <div class="cond-top">
+              <span class="idx">04</span>
+              <h3>Nerve &amp; Body</h3>
+              <span class="go"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            </div>
+            <div class="cond-body">
+              <p>From neuropathy to widespread discomfort — precision diagnosis to focus on the ultimate pain-generator.</p>
+            </div>
+          </a>
+          <a href="#" class="cond">
+            <div class="cond-top">
+              <span class="idx">05</span>
+              <h3>Pelvis &amp; Hips</h3>
+              <span class="go"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            </div>
+            <div class="cond-body">
+              <p>Targeted, evidence-based treatment for pelvic and hip pain that limits your movement and independence.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ TREATMENTS ============================ -->
+    <section class="treats" id="treatments">
+      <div class="wrap">
+        <div style="text-align: center; margin-bottom: 90px">
+          <span class="kicker" data-reveal>How We Help</span>
+          <h2 class="section-title" data-reveal>Two paths. One goal:<br />relief.</h2>
+        </div>
+        <div class="treat-stack">
+          <div class="treat dark" data-reveal>
+            <span class="t-kicker">Treatment 01</span>
+            <h3>Interventional Pain Management</h3>
+            <ul>
+              <li><span class="check">✓</span> Precision diagnosis</li>
+              <li><span class="check">✓</span> Advanced therapies</li>
+              <li><span class="check">✓</span> Personalized spine care</li>
+            </ul>
+            <a href="#" class="btn btn-gold">Learn More</a>
+          </div>
+          <div class="treat light" data-reveal>
+            <span class="t-kicker">Treatment 02</span>
+            <h3>Orthobiologic Therapy</h3>
+            <ul>
+              <li><span class="check">✓</span> Support tissue healing</li>
+              <li><span class="check">✓</span> Improve joint function</li>
+              <li><span class="check">✓</span> Decrease chronic pain</li>
+            </ul>
+            <a href="#" class="btn btn-navy">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ WHY APEX ============================ -->
+    <section class="why">
+      <div class="wrap why-grid">
+        <div class="sticky">
+          <span class="kicker" data-reveal>Why Apex?</span>
+          <h2 class="section-title" data-reveal>Built differently, on purpose.</h2>
+          <p class="lead" data-reveal>
+            An independent, physician-led practice — state-of-the-art
+            interventional care from a national expert.
+          </p>
+        </div>
+        <div class="why-items">
+          <div class="why-item" data-reveal>
+            <span class="n">01</span>
+            <h3>Timely &amp; Direct Access</h3>
+            <p>No runaround. Get seen, get answers, and get a plan — usually within the same week.</p>
+          </div>
+          <div class="why-item" data-reveal>
+            <span class="n">02</span>
+            <h3>Focus on the Ultimate Pain-Generator</h3>
+            <p>We treat the source of your pain, not just the symptoms it causes.</p>
+          </div>
+          <div class="why-item" data-reveal>
+            <span class="n">03</span>
+            <h3>State-of-the-Art Interventional Care</h3>
+            <p>Advanced spine therapies — including the first ViaDisc and ReActiv8 treatments offered in the Boise area.</p>
+          </div>
+          <div class="why-item" data-reveal>
+            <span class="n">04</span>
+            <h3>Patient-First, Relationship-Driven</h3>
+            <p>You're more than an appointment on the schedule — every plan starts with a conversation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ SYMPTOMS ============================ -->
+    <section class="sym">
+      <div class="wrap">
+        <div class="sym-head">
+          <div>
+            <span class="kicker" data-reveal>Chronic Pain</span>
+            <h2 class="section-title" data-reveal>Know the signs.</h2>
+          </div>
+          <span class="sym-hint" data-reveal>Scroll</span>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="sym-track" data-reveal>
+          <div class="sym-card">
+            <div class="n">01</div>
+            <h3>Ongoing pain</h3>
+            <p>Lasts longer than three months — often a constant, dull (or not so dull) ache.</p>
+          </div>
+          <div class="sym-card">
+            <div class="n">02</div>
+            <h3>Limited movement</h3>
+            <p>Pain can make it harder to move around and do everyday tasks.</p>
+          </div>
+          <div class="sym-card">
+            <div class="n">03</div>
+            <h3>Fatigue</h3>
+            <p>Trouble sleeping, changes in mood, or a lower appetite often follow.</p>
+          </div>
+          <div class="sym-card">
+            <div class="n">04</div>
+            <h3>Depression &amp; anxiety</h3>
+            <p>Constant pain can affect mental health and create feelings of stress or helplessness.</p>
+          </div>
+          <div class="sym-card">
+            <div class="n">05</div>
+            <h3>Social withdrawal</h3>
+            <p>Pain makes it harder to stay active socially, leading to isolation or loneliness.</p>
+          </div>
+          <div class="sym-card">
+            <div class="n">06</div>
+            <h3>Lower quality of life</h3>
+            <p>Chronic pain interferes with work, relationships, and daily activities.</p>
+          </div>
+        </div>
+        <div class="sym-cta" data-reveal>
+          <a href="#schedule" class="btn btn-navy">Find Relief Today</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ PHYSICIAN ============================ -->
+    <section class="doc" id="doctor">
+      <div class="wrap doc-grid">
+        <div class="doc-visual" data-reveal>
+          <div class="ph" data-label="Portrait — Dr. JD Williams">
+            <img alt="Dr. JD Williams, MD" />
+          </div>
+          <div class="doc-badge">
+            <div class="b-n">1st</div>
+            <div class="b-l">in the Boise area to offer ViaDisc &amp; ReActiv8</div>
+          </div>
+        </div>
+        <div>
+          <span class="kicker" data-reveal>Our Expert Physician</span>
+          <h2 class="doc-name" data-reveal>Dr. JD Williams, MD</h2>
+          <div class="doc-creds" data-reveal>MD, MBA · Board-Certified · Interventional Pain Medicine</div>
+          <p class="bio" data-reveal>
+            Dr. Williams is known for bringing advanced spine therapies to
+            Idaho, including being the first physician in the Boise area to
+            offer treatments such as ViaDisc and ReActiv8.
+          </p>
+          <a href="#" class="btn btn-line" data-reveal>Get to Know Our Team</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ TESTIMONIALS ============================ -->
+    <section class="quotes">
+      <div class="wrap">
+        <span class="kicker" data-reveal>Patient Stories</span>
+        <div class="quote-stage" data-reveal>
+          <div class="quote-item active">
+            <blockquote>"I came in with severe lower back pain and left with a clear treatment plan and renewed hope."</blockquote>
+            <div class="attr">— Mark H.</div>
+          </div>
+          <div class="quote-item">
+            <blockquote>"Excellent care and amazing staff. Dr. Williams truly listens."</blockquote>
+            <div class="attr">— Jennifer K.</div>
+          </div>
+          <div class="quote-item">
+            <blockquote>"After years of neck pain, I finally found relief. They explained everything clearly and made me feel comfortable throughout the process."</blockquote>
+            <div class="attr">— Daniel R.</div>
+          </div>
+          <div class="quote-item">
+            <blockquote>"I can enjoy walks, family activities, and everyday tasks again without constant discomfort."</blockquote>
+            <div class="attr">— Amy S.</div>
+          </div>
+          <div class="quote-item">
+            <blockquote>"They made me feel like more than just another appointment on the schedule."</blockquote>
+            <div class="attr">— Brian C.</div>
+          </div>
+        </div>
+        <div class="quote-dots" data-reveal>
+          <button class="active" aria-label="Testimonial 1"></button>
+          <button aria-label="Testimonial 2"></button>
+          <button aria-label="Testimonial 3"></button>
+          <button aria-label="Testimonial 4"></button>
+          <button aria-label="Testimonial 5"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ INSURANCE ============================ -->
+    <section class="ins-band">
+      <div class="label" data-reveal>Insurances Accepted</div>
+      <div class="ins-track" aria-label="Medicare, Aetna, Blue Cross, TriWest, Regence, VA CCN">
+        <div class="ins-group">
+          <span>Medicare</span><span>Aetna</span><span>Blue Cross</span>
+          <span>TriWest</span><span>Regence</span><span>VA CCN</span>
+          <span>Medicare</span><span>Aetna</span><span>Blue Cross</span>
+          <span>TriWest</span><span>Regence</span><span>VA CCN</span>
+        </div>
+        <div class="ins-group" aria-hidden="true">
+          <span>Medicare</span><span>Aetna</span><span>Blue Cross</span>
+          <span>TriWest</span><span>Regence</span><span>VA CCN</span>
+          <span>Medicare</span><span>Aetna</span><span>Blue Cross</span>
+          <span>TriWest</span><span>Regence</span><span>VA CCN</span>
+        </div>
+      </div>
+      <div class="ins-pending">More insurances pending</div>
+    </section>
+
+    <!-- ============================ FINAL CTA ============================ -->
+    <section class="final" id="schedule">
+      <div class="ghost-word" aria-hidden="true">RELIEF</div>
+      <div class="wrap">
+        <h2 data-reveal>Ready to live with <em>less pain?</em></h2>
+        <p class="lead" data-reveal>
+          Chronic pain can limit your independence and affect your mental
+          well-being. Let us help you find relief and restore your daily
+          comfort — schedule an appointment today.
+        </p>
+        <a href="#" class="orbit-cta" data-reveal aria-label="Schedule an appointment">
+          <svg class="ring" viewBox="0 0 210 210">
+            <defs>
+              <path id="circlePath" d="M 105,105 m -84,0 a 84,84 0 1,1 168,0 a 84,84 0 1,1 -168,0" />
+            </defs>
+            <text>
+              <textPath href="#circlePath">Schedule an appointment · Schedule an appointment ·</textPath>
+            </text>
+          </svg>
+          <span class="orbit-core">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </a>
+        <p class="final-phone" data-reveal>
+          Or call today — <a href="tel:208-800-9040">(208) 800-9040</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================ FOOTER ============================ -->
+    <footer class="footer" id="contact">
+      <div class="wrap">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="#" class="logo">
+              <img src="Apex%201.PNG" alt="Apex Advanced Spine &amp; Pain" />
+            </a>
+            <p><b>Apex</b> /ˈāˌpeks/ (noun): The point of greatest achievement, excellence, or development.</p>
+          </div>
+          <div>
+            <h4>Conditions</h4>
+            <ul>
+              <li><a href="#conditions">Head &amp; Neck</a></li>
+              <li><a href="#conditions">Spine &amp; Back</a></li>
+              <li><a href="#conditions">Leg, Knee &amp; Joints</a></li>
+              <li><a href="#conditions">Nerve &amp; Body</a></li>
+              <li><a href="#conditions">Pelvis &amp; Hips</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Contact</h4>
+            <div class="contact-line">
+              1256 S Rackham Way, Suite 100<br />
+              Meridian, Idaho 83642<br />
+              Phone: <a href="tel:208-800-9040">(208) 800-9040</a><br />
+              Fax: (208) 252-6479<br />
+              <a href="mailto:office@idpain.com">office@idpain.com</a>
+            </div>
+          </div>
+          <div>
+            <h4>Hours</h4>
+            <div class="contact-line">Mon – Fri<br />9am – 5pm</div>
+            <h4 style="margin-top: 28px">Appointments</h4>
+            <ul>
+              <li><a href="#schedule">Schedule Online</a></li>
+              <li><a href="#">Bill Pay</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>Apex Advanced Spine &amp; Pain © 2026</span>
+          <a href="#">Privacy Policy</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      /* ---------- nav border on scroll ---------- */
+      (function () {
+        var nav = document.getElementById("siteNav");
+        var onScroll = function () {
+          nav.classList.toggle("scrolled", window.scrollY > 30);
+        };
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+      })();
+
+      /* ---------- spine scroll progress ---------- */
+      (function () {
+        var fill = document.getElementById("spineFill");
+        var update = function () {
+          var doc = document.documentElement;
+          var max = doc.scrollHeight - window.innerHeight;
+          var pct = max > 0 ? window.scrollY / max : 0;
+          fill.style.clipPath =
+            "inset(0 0 " + Math.max(0, 100 - pct * 100) + "% 0)";
+        };
+        window.addEventListener("scroll", update, { passive: true });
+        window.addEventListener("resize", update);
+        update();
+      })();
+
+      /* ---------- scroll reveal ---------- */
+      (function () {
+        var els = document.querySelectorAll("[data-reveal]");
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                e.target.classList.add("in");
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.1, rootMargin: "0px 0px -6% 0px" },
+        );
+        els.forEach(function (el) {
+          io.observe(el);
+        });
+      })();
+
+      /* ---------- testimonial rotator ---------- */
+      (function () {
+        var items = document.querySelectorAll(".quote-item");
+        var dots = document.querySelectorAll(".quote-dots button");
+        var idx = 0;
+        var timer;
+
+        function show(i) {
+          idx = i;
+          items.forEach(function (it, k) {
+            it.classList.toggle("active", k === i);
+          });
+          dots.forEach(function (d, k) {
+            d.classList.toggle("active", k === i);
+          });
+        }
+
+        function start() {
+          timer = setInterval(function () {
+            show((idx + 1) % items.length);
+          }, 6000);
+        }
+
+        dots.forEach(function (d, k) {
+          d.addEventListener("click", function () {
+            clearInterval(timer);
+            show(k);
+            start();
+          });
+        });
+
+        start();
+      })();
+    </script>
+  </body>
+</html>
