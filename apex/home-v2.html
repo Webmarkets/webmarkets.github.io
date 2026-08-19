@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Apex Advanced Spine &amp; Pain — Live Your Life With Less Pain</title>
+    <title>
+      Apex Advanced Spine &amp; Pain — Live Your Life With Less Pain
+    </title>
     <meta
       name="description"
       content="Apex Advanced Spine & Pain in Meridian, Idaho. Board-certified interventional pain management — precision diagnosis, advanced therapies, and personalized spine care."
@@ -93,7 +95,9 @@
         position: relative;
       }
 
-      h1, h2, h3 {
+      h1,
+      h2,
+      h3 {
         font-family: var(--font-display);
         line-height: 1.04;
         letter-spacing: -0.03em;
@@ -170,6 +174,45 @@
         display: block;
       }
 
+      /* ---------- sine-wave section dividers ---------- */
+      .wave {
+        line-height: 0;
+        position: relative;
+        z-index: 2;
+      }
+
+      .wave svg {
+        display: block;
+        width: 100%;
+        height: 72px;
+      }
+
+      .wave.flip svg {
+        transform: scaleX(-1);
+      }
+
+      /* ---------- inline photo spots ---------- */
+      .care-photo {
+        aspect-ratio: 4/3;
+        border-radius: var(--radius);
+        margin-top: 44px;
+        max-width: 440px;
+      }
+
+      .sym-card.photo {
+        position: relative;
+        padding: 0;
+        border: none;
+        overflow: hidden;
+        min-height: 300px;
+      }
+
+      .sym-card.photo .ph {
+        position: absolute;
+        inset: 0;
+        border: none;
+      }
+
       /* ---------- buttons ---------- */
       .btn {
         display: inline-block;
@@ -188,16 +231,51 @@
           transform 0.25s;
       }
 
-      .btn-navy { background: var(--navy); color: #fff; }
-      .btn-navy:hover { background: var(--navy-deep); transform: translateY(-2px); }
-      .btn-gold { background: var(--gold); color: var(--navy-deep); }
-      .btn-gold:hover { background: var(--gold-deep); transform: translateY(-2px); }
-      .btn-line { border-color: var(--navy); color: var(--navy); background: transparent; }
-      .btn-line:hover { background: var(--navy); color: #fff; transform: translateY(-2px); }
-      .btn-ghost-light { border-color: rgba(255, 255, 255, 0.45); color: #fff; background: transparent; }
-      .btn-ghost-light:hover { border-color: #fff; background: rgba(255, 255, 255, 0.08); }
-      .btn-text { padding: 0 0 6px; border-radius: 0; background: none; color: var(--navy); border-bottom: 2px solid var(--gold); }
-      .btn-text:hover { color: var(--blue); }
+      .btn-navy {
+        background: var(--navy);
+        color: #fff;
+      }
+      .btn-navy:hover {
+        background: var(--navy-deep);
+        transform: translateY(-2px);
+      }
+      .btn-gold {
+        background: var(--gold);
+        color: var(--navy-deep);
+      }
+      .btn-gold:hover {
+        background: var(--gold-deep);
+        transform: translateY(-2px);
+      }
+      .btn-line {
+        border-color: var(--navy);
+        color: var(--navy);
+        background: transparent;
+      }
+      .btn-line:hover {
+        background: var(--navy);
+        color: #fff;
+        transform: translateY(-2px);
+      }
+      .btn-ghost-light {
+        border-color: rgba(255, 255, 255, 0.45);
+        color: #fff;
+        background: transparent;
+      }
+      .btn-ghost-light:hover {
+        border-color: #fff;
+        background: rgba(255, 255, 255, 0.08);
+      }
+      .btn-text {
+        padding: 0 0 6px;
+        border-radius: 0;
+        background: none;
+        color: var(--navy);
+        border-bottom: 2px solid var(--gold);
+      }
+      .btn-text:hover {
+        color: var(--blue);
+      }
 
       /* ---------- spine scroll indicator (desktop) ---------- */
       .spine-track {
@@ -215,7 +293,11 @@
       .spine-track .fill {
         position: absolute;
         inset: 0;
-        background-image: radial-gradient(circle, currentColor 2.6px, transparent 3px);
+        background-image: radial-gradient(
+          circle,
+          currentColor 2.6px,
+          transparent 3px
+        );
         background-size: 8px 20px;
         background-repeat: repeat-y;
         background-position: center top;
@@ -341,8 +423,13 @@
       }
 
       @keyframes vfloat {
-        0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
-        50% { transform: translateY(-14px) rotate(var(--r, 0deg)); }
+        0%,
+        100% {
+          transform: translateY(0) rotate(var(--r, 0deg));
+        }
+        50% {
+          transform: translateY(-14px) rotate(var(--r, 0deg));
+        }
       }
 
       .hero h1 {
@@ -419,8 +506,15 @@
       }
 
       @keyframes cue {
-        0%, 100% { transform: translateY(0); opacity: 1; }
-        50% { transform: translateY(10px); opacity: 0.5; }
+        0%,
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+        50% {
+          transform: translateY(10px);
+          opacity: 0.5;
+        }
       }
 
       /* ---------- marquee band (tilted) ---------- */
@@ -428,7 +522,7 @@
         background: var(--navy-deep);
         color: #fff;
         padding: 22px 0;
-        transform: rotate(-1.6deg) scale(1.02);
+        /* transform: rotate(-1.6deg) scale(1.02); */
         margin: 20px -20px 0;
         overflow: hidden;
         position: relative;
@@ -449,7 +543,9 @@
       }
 
       @keyframes marquee {
-        to { transform: translateX(-100%); }
+        to {
+          transform: translateX(-100%);
+        }
       }
 
       .marquee-group span {
@@ -507,7 +603,9 @@
         padding: 40px 44px;
         border-radius: var(--radius);
         background: var(--mist);
-        transition: transform 0.35s, background 0.35s;
+        transition:
+          transform 0.35s,
+          background 0.35s;
       }
 
       .word-item:nth-child(2) {
@@ -561,9 +659,8 @@
       /* ---------- conditions: expanding mega-rows ---------- */
       .conds {
         background: var(--mist);
-        border-radius: var(--curve) var(--curve) 0 0;
         position: relative;
-        padding: 150px 0 170px;
+        padding: 130px 0 170px;
       }
 
       .conds .ghost-word {
@@ -615,7 +712,9 @@
         font-weight: 800;
         letter-spacing: -0.03em;
         color: var(--navy-deep);
-        transition: transform 0.45s cubic-bezier(0.16, 0.7, 0.2, 1), color 0.3s;
+        transition:
+          transform 0.45s cubic-bezier(0.16, 0.7, 0.2, 1),
+          color 0.3s;
       }
 
       .cond .go {
@@ -629,7 +728,10 @@
         place-items: center;
         opacity: 0;
         transform: scale(0.7);
-        transition: opacity 0.35s, transform 0.35s, background 0.35s;
+        transition:
+          opacity 0.35s,
+          transform 0.35s,
+          background 0.35s;
         align-self: center;
       }
 
@@ -642,7 +744,9 @@
         max-height: 0;
         overflow: hidden;
         opacity: 0;
-        transition: max-height 0.55s cubic-bezier(0.16, 0.7, 0.2, 1), opacity 0.4s;
+        transition:
+          max-height 0.55s cubic-bezier(0.16, 0.7, 0.2, 1),
+          opacity 0.4s;
       }
 
       .cond-body p {
@@ -679,10 +783,8 @@
       /* ---------- treatments: overlapping tilted panels ---------- */
       .treats {
         position: relative;
-        padding: 170px 0 150px;
+        padding: 140px 0 150px;
         background: var(--paper);
-        border-radius: var(--curve) var(--curve) 0 0;
-        margin-top: calc(-1 * var(--curve));
       }
 
       .treat-stack {
@@ -785,8 +887,7 @@
       .why {
         background: var(--navy-deep);
         color: #fff;
-        border-radius: var(--curve) var(--curve) 0 0;
-        padding: 160px 0 170px;
+        padding: 140px 0 170px;
         position: relative;
         overflow: hidden;
       }
@@ -799,7 +900,11 @@
         width: 480px;
         height: 480px;
         border-radius: 50%;
-        background: radial-gradient(circle, rgba(46, 109, 180, 0.35), transparent 65%);
+        background: radial-gradient(
+          circle,
+          rgba(46, 109, 180, 0.35),
+          transparent 65%
+        );
         pointer-events: none;
       }
 
@@ -874,9 +979,7 @@
       /* ---------- symptoms: horizontal scroll strip ---------- */
       .sym {
         background: var(--mist);
-        padding: 150px 0 140px;
-        border-radius: var(--curve) var(--curve) 0 0;
-        margin-top: calc(-1 * var(--curve));
+        padding: 130px 0 140px;
         position: relative;
         overflow: hidden;
       }
@@ -909,8 +1012,13 @@
       }
 
       @keyframes nudge {
-        0%, 100% { transform: translateX(0); }
-        50% { transform: translateX(8px); }
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        50% {
+          transform: translateX(8px);
+        }
       }
 
       .sym-track {
@@ -935,7 +1043,9 @@
         border: 1px solid var(--line);
         border-radius: calc(var(--radius) + 6px);
         padding: 44px 38px;
-        transition: transform 0.35s, box-shadow 0.35s;
+        transition:
+          transform 0.35s,
+          box-shadow 0.35s;
       }
 
       .sym-card:hover {
@@ -968,10 +1078,8 @@
 
       /* ---------- doctor: arch portrait ---------- */
       .doc {
-        padding: 170px 0 150px;
+        padding: 140px 0 150px;
         background: var(--paper);
-        border-radius: var(--curve) var(--curve) 0 0;
-        margin-top: calc(-1 * var(--curve));
       }
 
       .doc-grid {
@@ -1097,8 +1205,14 @@
       }
 
       @keyframes qfade {
-        from { opacity: 0; transform: translateY(14px); }
-        to { opacity: 1; transform: none; }
+        from {
+          opacity: 0;
+          transform: translateY(14px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
       }
 
       .quote-item blockquote {
@@ -1262,7 +1376,9 @@
       }
 
       @keyframes spin {
-        to { transform: rotate(360deg); }
+        to {
+          transform: rotate(360deg);
+        }
       }
 
       .orbit-cta svg.ring text {
@@ -1290,7 +1406,9 @@
 
       .orbit-core svg {
         stroke: #fff;
-        transition: stroke 0.3s, transform 0.3s;
+        transition:
+          stroke 0.3s,
+          transform 0.3s;
       }
 
       .orbit-cta:hover .orbit-core svg {
@@ -1316,7 +1434,6 @@
         background: var(--navy-deep);
         color: rgba(255, 255, 255, 0.65);
         padding: 100px 0 44px;
-        border-radius: var(--curve) var(--curve) 0 0;
       }
 
       .footer-grid {
@@ -1466,6 +1583,14 @@
           display: none;
         }
 
+        .wave svg {
+          height: 44px;
+        }
+
+        .care-photo {
+          max-width: 100%;
+        }
+
         .hero {
           padding-top: 130px;
         }
@@ -1538,24 +1663,78 @@
 
       <!-- floating vertebrae, echoing the logo mark -->
       <div class="vertebrae" aria-hidden="true">
-        <span style="left: 6%; top: 24%; width: 13px; height: 22px; --r: -8deg; animation-delay: 0s"></span>
-        <span style="left: 13%; top: 30%; width: 16px; height: 28px; --r: -4deg; animation-delay: 0.6s"></span>
-        <span style="left: 21%; top: 34%; width: 19px; height: 34px; --r: 0deg; animation-delay: 1.2s"></span>
-        <span style="right: 20%; top: 22%; width: 19px; height: 34px; --r: 4deg; animation-delay: 0.3s"></span>
-        <span style="right: 12%; top: 27%; width: 16px; height: 28px; --r: 8deg; animation-delay: 0.9s"></span>
-        <span style="right: 5%; top: 33%; width: 13px; height: 22px; --r: 12deg; animation-delay: 1.5s"></span>
+        <span
+          style="
+            left: 6%;
+            top: 24%;
+            width: 13px;
+            height: 22px;
+            --r: -8deg;
+            animation-delay: 0s;
+          "
+        ></span>
+        <span
+          style="
+            left: 13%;
+            top: 30%;
+            width: 16px;
+            height: 28px;
+            --r: -4deg;
+            animation-delay: 0.6s;
+          "
+        ></span>
+        <span
+          style="
+            left: 21%;
+            top: 34%;
+            width: 19px;
+            height: 34px;
+            --r: 0deg;
+            animation-delay: 1.2s;
+          "
+        ></span>
+        <span
+          style="
+            right: 20%;
+            top: 22%;
+            width: 19px;
+            height: 34px;
+            --r: 4deg;
+            animation-delay: 0.3s;
+          "
+        ></span>
+        <span
+          style="
+            right: 12%;
+            top: 27%;
+            width: 16px;
+            height: 28px;
+            --r: 8deg;
+            animation-delay: 0.9s;
+          "
+        ></span>
+        <span
+          style="
+            right: 5%;
+            top: 33%;
+            width: 13px;
+            height: 22px;
+            --r: 12deg;
+            animation-delay: 1.5s;
+          "
+        ></span>
       </div>
 
       <div class="wrap">
         <h1 data-reveal>
-          <span class="outline">Live your life</span>
+          <span class="solid">Live your life</span>
           <span class="solid">with <em>less pain.</em></span>
         </h1>
         <div class="hero-row">
           <p class="lead" data-reveal>
-            Live a happier and healthier life with less pain and discomfort.
-            All it takes is one consultation to see if we can help you get
-            back to the life you want.
+            Live a happier and healthier life with less pain and discomfort. All
+            it takes is one consultation to see if we can help you get back to
+            the life you want.
           </p>
           <div class="hero-actions" data-reveal>
             <a href="#schedule" class="btn btn-navy">Schedule an Appointment</a>
@@ -1564,7 +1743,9 @@
         </div>
       </div>
 
-      <div class="hero-loc"><b>Meridian, Idaho</b> · Independent, physician-led practice</div>
+      <div class="hero-loc">
+        <b>Meridian, Idaho</b> · Independent, physician-led practice
+      </div>
       <div class="scroll-cue" aria-hidden="true"></div>
     </section>
 
@@ -1572,20 +1753,38 @@
     <div class="marquee-band" aria-hidden="true">
       <div class="marquee-track">
         <div class="marquee-group">
-          <span>Restore <i></i></span><span>Relieve <i></i></span><span>Renew <i></i></span>
-          <span class="dim">Apex /ˈāˌpeks/ — the point of greatest excellence <i></i></span>
-          <span>Restore <i></i></span><span>Relieve <i></i></span><span>Renew <i></i></span>
-          <span class="dim">Apex /ˈāˌpeks/ — the point of greatest excellence <i></i></span>
-          <span>Restore <i></i></span><span>Relieve <i></i></span><span>Renew <i></i></span>
-          <span class="dim">Apex /ˈāˌpeks/ — the point of greatest excellence <i></i></span>
+          <span>Restore <i></i></span><span>Relieve <i></i></span
+          ><span>Renew <i></i></span>
+          <span class="dim"
+            >Apex /ˈāˌpeks/ — the point of greatest excellence <i></i
+          ></span>
+          <span>Restore <i></i></span><span>Relieve <i></i></span
+          ><span>Renew <i></i></span>
+          <span class="dim"
+            >Apex /ˈāˌpeks/ — the point of greatest excellence <i></i
+          ></span>
+          <span>Restore <i></i></span><span>Relieve <i></i></span
+          ><span>Renew <i></i></span>
+          <span class="dim"
+            >Apex /ˈāˌpeks/ — the point of greatest excellence <i></i
+          ></span>
         </div>
         <div class="marquee-group">
-          <span>Restore <i></i></span><span>Relieve <i></i></span><span>Renew <i></i></span>
-          <span class="dim">Apex /ˈāˌpeks/ — the point of greatest excellence <i></i></span>
-          <span>Restore <i></i></span><span>Relieve <i></i></span><span>Renew <i></i></span>
-          <span class="dim">Apex /ˈāˌpeks/ — the point of greatest excellence <i></i></span>
-          <span>Restore <i></i></span><span>Relieve <i></i></span><span>Renew <i></i></span>
-          <span class="dim">Apex /ˈāˌpeks/ — the point of greatest excellence <i></i></span>
+          <span>Restore <i></i></span><span>Relieve <i></i></span
+          ><span>Renew <i></i></span>
+          <span class="dim"
+            >Apex /ˈāˌpeks/ — the point of greatest excellence <i></i
+          ></span>
+          <span>Restore <i></i></span><span>Relieve <i></i></span
+          ><span>Renew <i></i></span>
+          <span class="dim"
+            >Apex /ˈāˌpeks/ — the point of greatest excellence <i></i
+          ></span>
+          <span>Restore <i></i></span><span>Relieve <i></i></span
+          ><span>Renew <i></i></span>
+          <span class="dim"
+            >Apex /ˈāˌpeks/ — the point of greatest excellence <i></i
+          ></span>
         </div>
       </div>
     </div>
@@ -1595,21 +1794,34 @@
       <div class="wrap care-grid">
         <div class="sticky">
           <span class="kicker" data-reveal>Welcome to Apex</span>
-          <h2 class="section-title" data-reveal>Care above<br />the standard.</h2>
+          <h2 class="section-title" data-reveal>
+            Care above<br />the standard.
+          </h2>
           <p class="lead" data-reveal>
             We help people restore better movement, relieve pain, and renew
             themselves to get back to living the life they want. Let us help
             you.
           </p>
+          <div
+            class="ph care-photo"
+            data-reveal
+            data-label="Photo — the Apex care team"
+          >
+            <img alt="The Apex Advanced Spine &amp; Pain care team" />
+          </div>
         </div>
         <div class="word-flow">
           <div class="word-item" data-reveal>
             <div class="w">Restore</div>
-            <p>Better movement, so everyday tasks stop feeling like obstacles.</p>
+            <p>
+              Better movement, so everyday tasks stop feeling like obstacles.
+            </p>
           </div>
           <div class="word-item" data-reveal>
             <div class="w">Relieve</div>
-            <p>Pain at its source — found with precision, treated with intent.</p>
+            <p>
+              Pain at its source — found with precision, treated with intent.
+            </p>
           </div>
           <div class="word-item" data-reveal>
             <div class="w">Renew</div>
@@ -1618,6 +1830,15 @@
         </div>
       </div>
     </section>
+
+    <div class="wave" style="background: var(--mist)" aria-hidden="true">
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+        <path
+          style="fill: var(--paper)"
+          d="M0,50 C120,85 240,85 360,50 S600,15 720,50 S960,85 1080,50 S1320,15 1440,50 L1440,0 L0,0 Z"
+        ></path>
+      </svg>
+    </div>
 
     <!-- ============================ CONDITIONS ============================ -->
     <section class="conds" id="conditions">
@@ -1631,62 +1852,149 @@
             <div class="cond-top">
               <span class="idx">01</span>
               <h3>Head &amp; Neck</h3>
-              <span class="go"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+              <span class="go"
+                ><svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" /></svg
+              ></span>
             </div>
             <div class="cond-body">
-              <p>We have the experience for finding the source of head &amp; neck pain. Get the relief you need through treatments at Apex.</p>
+              <p>
+                We have the experience for finding the source of head &amp; neck
+                pain. Get the relief you need through treatments at Apex.
+              </p>
             </div>
           </a>
           <a href="#" class="cond">
             <div class="cond-top">
               <span class="idx">02</span>
               <h3>Spine &amp; Back</h3>
-              <span class="go"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+              <span class="go"
+                ><svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" /></svg
+              ></span>
             </div>
             <div class="cond-body">
-              <p>Back pain is common in many adults. Treatment for back &amp; spine pain will depend on the condition it came from. Everyone is different.</p>
+              <p>
+                Back pain is common in many adults. Treatment for back &amp;
+                spine pain will depend on the condition it came from. Everyone
+                is different.
+              </p>
             </div>
           </a>
           <a href="#" class="cond">
             <div class="cond-top">
               <span class="idx">03</span>
               <h3>Leg, Knee &amp; Joints</h3>
-              <span class="go"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+              <span class="go"
+                ><svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" /></svg
+              ></span>
             </div>
             <div class="cond-body">
-              <p>Get the relief you need — we find the source of joint pain and treat it with the least invasive option that works.</p>
+              <p>
+                Get the relief you need — we find the source of joint pain and
+                treat it with the least invasive option that works.
+              </p>
             </div>
           </a>
           <a href="#" class="cond">
             <div class="cond-top">
               <span class="idx">04</span>
               <h3>Nerve &amp; Body</h3>
-              <span class="go"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+              <span class="go"
+                ><svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" /></svg
+              ></span>
             </div>
             <div class="cond-body">
-              <p>From neuropathy to widespread discomfort — precision diagnosis to focus on the ultimate pain-generator.</p>
+              <p>
+                From neuropathy to widespread discomfort — precision diagnosis
+                to focus on the ultimate pain-generator.
+              </p>
             </div>
           </a>
           <a href="#" class="cond">
             <div class="cond-top">
               <span class="idx">05</span>
               <h3>Pelvis &amp; Hips</h3>
-              <span class="go"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+              <span class="go"
+                ><svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" /></svg
+              ></span>
             </div>
             <div class="cond-body">
-              <p>Targeted, evidence-based treatment for pelvic and hip pain that limits your movement and independence.</p>
+              <p>
+                Targeted, evidence-based treatment for pelvic and hip pain that
+                limits your movement and independence.
+              </p>
             </div>
           </a>
         </div>
       </div>
     </section>
 
+    <div class="wave flip" style="background: var(--paper)" aria-hidden="true">
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+        <path
+          style="fill: var(--mist)"
+          d="M0,50 C120,85 240,85 360,50 S600,15 720,50 S960,85 1080,50 S1320,15 1440,50 L1440,0 L0,0 Z"
+        ></path>
+      </svg>
+    </div>
+
     <!-- ============================ TREATMENTS ============================ -->
     <section class="treats" id="treatments">
       <div class="wrap">
         <div style="text-align: center; margin-bottom: 90px">
           <span class="kicker" data-reveal>How We Help</span>
-          <h2 class="section-title" data-reveal>Two paths. One goal:<br />relief.</h2>
+          <h2 class="section-title" data-reveal>
+            Two paths. One goal:<br />relief.
+          </h2>
         </div>
         <div class="treat-stack">
           <div class="treat dark" data-reveal>
@@ -1713,12 +2021,23 @@
       </div>
     </section>
 
+    <div class="wave" style="background: var(--navy-deep)" aria-hidden="true">
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+        <path
+          style="fill: var(--paper)"
+          d="M0,50 C120,85 240,85 360,50 S600,15 720,50 S960,85 1080,50 S1320,15 1440,50 L1440,0 L0,0 Z"
+        ></path>
+      </svg>
+    </div>
+
     <!-- ============================ WHY APEX ============================ -->
     <section class="why">
       <div class="wrap why-grid">
         <div class="sticky">
           <span class="kicker" data-reveal>Why Apex?</span>
-          <h2 class="section-title" data-reveal>Built differently, on purpose.</h2>
+          <h2 class="section-title" data-reveal>
+            Built differently, on purpose.
+          </h2>
           <p class="lead" data-reveal>
             An independent, physician-led practice — state-of-the-art
             interventional care from a national expert.
@@ -1728,26 +2047,46 @@
           <div class="why-item" data-reveal>
             <span class="n">01</span>
             <h3>Timely &amp; Direct Access</h3>
-            <p>No runaround. Get seen, get answers, and get a plan — usually within the same week.</p>
+            <p>
+              No runaround. Get seen, get answers, and get a plan — usually
+              within the same week.
+            </p>
           </div>
           <div class="why-item" data-reveal>
             <span class="n">02</span>
             <h3>Focus on the Ultimate Pain-Generator</h3>
-            <p>We treat the source of your pain, not just the symptoms it causes.</p>
+            <p>
+              We treat the source of your pain, not just the symptoms it causes.
+            </p>
           </div>
           <div class="why-item" data-reveal>
             <span class="n">03</span>
             <h3>State-of-the-Art Interventional Care</h3>
-            <p>Advanced spine therapies — including the first ViaDisc and ReActiv8 treatments offered in the Boise area.</p>
+            <p>
+              Advanced spine therapies — including the first ViaDisc and
+              ReActiv8 treatments offered in the Boise area.
+            </p>
           </div>
           <div class="why-item" data-reveal>
             <span class="n">04</span>
             <h3>Patient-First, Relationship-Driven</h3>
-            <p>You're more than an appointment on the schedule — every plan starts with a conversation.</p>
+            <p>
+              You're more than an appointment on the schedule — every plan
+              starts with a conversation.
+            </p>
           </div>
         </div>
       </div>
     </section>
+
+    <div class="wave flip" style="background: var(--mist)" aria-hidden="true">
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+        <path
+          style="fill: var(--navy-deep)"
+          d="M0,50 C120,85 240,85 360,50 S600,15 720,50 S960,85 1080,50 S1320,15 1440,50 L1440,0 L0,0 Z"
+        ></path>
+      </svg>
+    </div>
 
     <!-- ============================ SYMPTOMS ============================ -->
     <section class="sym">
@@ -1762,10 +2101,18 @@
       </div>
       <div class="wrap">
         <div class="sym-track" data-reveal>
+          <div class="sym-card photo">
+            <div class="ph" data-label="Photo — living pain-free">
+              <img alt="Living pain-free" />
+            </div>
+          </div>
           <div class="sym-card">
             <div class="n">01</div>
             <h3>Ongoing pain</h3>
-            <p>Lasts longer than three months — often a constant, dull (or not so dull) ache.</p>
+            <p>
+              Lasts longer than three months — often a constant, dull (or not so
+              dull) ache.
+            </p>
           </div>
           <div class="sym-card">
             <div class="n">02</div>
@@ -1775,22 +2122,34 @@
           <div class="sym-card">
             <div class="n">03</div>
             <h3>Fatigue</h3>
-            <p>Trouble sleeping, changes in mood, or a lower appetite often follow.</p>
+            <p>
+              Trouble sleeping, changes in mood, or a lower appetite often
+              follow.
+            </p>
           </div>
           <div class="sym-card">
             <div class="n">04</div>
             <h3>Depression &amp; anxiety</h3>
-            <p>Constant pain can affect mental health and create feelings of stress or helplessness.</p>
+            <p>
+              Constant pain can affect mental health and create feelings of
+              stress or helplessness.
+            </p>
           </div>
           <div class="sym-card">
             <div class="n">05</div>
             <h3>Social withdrawal</h3>
-            <p>Pain makes it harder to stay active socially, leading to isolation or loneliness.</p>
+            <p>
+              Pain makes it harder to stay active socially, leading to isolation
+              or loneliness.
+            </p>
           </div>
           <div class="sym-card">
             <div class="n">06</div>
             <h3>Lower quality of life</h3>
-            <p>Chronic pain interferes with work, relationships, and daily activities.</p>
+            <p>
+              Chronic pain interferes with work, relationships, and daily
+              activities.
+            </p>
           </div>
         </div>
         <div class="sym-cta" data-reveal>
@@ -1798,6 +2157,15 @@
         </div>
       </div>
     </section>
+
+    <div class="wave" style="background: var(--paper)" aria-hidden="true">
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+        <path
+          style="fill: var(--mist)"
+          d="M0,50 C120,85 240,85 360,50 S600,15 720,50 S960,85 1080,50 S1320,15 1440,50 L1440,0 L0,0 Z"
+        ></path>
+      </svg>
+    </div>
 
     <!-- ============================ PHYSICIAN ============================ -->
     <section class="doc" id="doctor">
@@ -1808,13 +2176,17 @@
           </div>
           <div class="doc-badge">
             <div class="b-n">1st</div>
-            <div class="b-l">in the Boise area to offer ViaDisc &amp; ReActiv8</div>
+            <div class="b-l">
+              in the Boise area to offer ViaDisc &amp; ReActiv8
+            </div>
           </div>
         </div>
         <div>
           <span class="kicker" data-reveal>Our Expert Physician</span>
           <h2 class="doc-name" data-reveal>Dr. JD Williams, MD</h2>
-          <div class="doc-creds" data-reveal>MD, MBA · Board-Certified · Interventional Pain Medicine</div>
+          <div class="doc-creds" data-reveal>
+            MD, MBA · Board-Certified · Interventional Pain Medicine
+          </div>
           <p class="bio" data-reveal>
             Dr. Williams is known for bringing advanced spine therapies to
             Idaho, including being the first physician in the Boise area to
@@ -1831,23 +2203,38 @@
         <span class="kicker" data-reveal>Patient Stories</span>
         <div class="quote-stage" data-reveal>
           <div class="quote-item active">
-            <blockquote>"I came in with severe lower back pain and left with a clear treatment plan and renewed hope."</blockquote>
+            <blockquote>
+              "I came in with severe lower back pain and left with a clear
+              treatment plan and renewed hope."
+            </blockquote>
             <div class="attr">— Mark H.</div>
           </div>
           <div class="quote-item">
-            <blockquote>"Excellent care and amazing staff. Dr. Williams truly listens."</blockquote>
+            <blockquote>
+              "Excellent care and amazing staff. Dr. Williams truly listens."
+            </blockquote>
             <div class="attr">— Jennifer K.</div>
           </div>
           <div class="quote-item">
-            <blockquote>"After years of neck pain, I finally found relief. They explained everything clearly and made me feel comfortable throughout the process."</blockquote>
+            <blockquote>
+              "After years of neck pain, I finally found relief. They explained
+              everything clearly and made me feel comfortable throughout the
+              process."
+            </blockquote>
             <div class="attr">— Daniel R.</div>
           </div>
           <div class="quote-item">
-            <blockquote>"I can enjoy walks, family activities, and everyday tasks again without constant discomfort."</blockquote>
+            <blockquote>
+              "I can enjoy walks, family activities, and everyday tasks again
+              without constant discomfort."
+            </blockquote>
             <div class="attr">— Amy S.</div>
           </div>
           <div class="quote-item">
-            <blockquote>"They made me feel like more than just another appointment on the schedule."</blockquote>
+            <blockquote>
+              "They made me feel like more than just another appointment on the
+              schedule."
+            </blockquote>
             <div class="attr">— Brian C.</div>
           </div>
         </div>
@@ -1864,7 +2251,10 @@
     <!-- ============================ INSURANCE ============================ -->
     <section class="ins-band">
       <div class="label" data-reveal>Insurances Accepted</div>
-      <div class="ins-track" aria-label="Medicare, Aetna, Blue Cross, TriWest, Regence, VA CCN">
+      <div
+        class="ins-track"
+        aria-label="Medicare, Aetna, Blue Cross, TriWest, Regence, VA CCN"
+      >
         <div class="ins-group">
           <span>Medicare</span><span>Aetna</span><span>Blue Cross</span>
           <span>TriWest</span><span>Regence</span><span>VA CCN</span>
@@ -1888,20 +2278,41 @@
         <h2 data-reveal>Ready to live with <em>less pain?</em></h2>
         <p class="lead" data-reveal>
           Chronic pain can limit your independence and affect your mental
-          well-being. Let us help you find relief and restore your daily
-          comfort — schedule an appointment today.
+          well-being. Let us help you find relief and restore your daily comfort
+          — schedule an appointment today.
         </p>
-        <a href="#" class="orbit-cta" data-reveal aria-label="Schedule an appointment">
+        <a
+          href="#"
+          class="orbit-cta"
+          data-reveal
+          aria-label="Schedule an appointment"
+        >
           <svg class="ring" viewBox="0 0 210 210">
             <defs>
-              <path id="circlePath" d="M 105,105 m -84,0 a 84,84 0 1,1 168,0 a 84,84 0 1,1 -168,0" />
+              <path
+                id="circlePath"
+                d="M 105,105 m -84,0 a 84,84 0 1,1 168,0 a 84,84 0 1,1 -168,0"
+              />
             </defs>
             <text>
-              <textPath href="#circlePath">Schedule an appointment · Schedule an appointment ·</textPath>
+              <textPath href="#circlePath">
+                Schedule an appointment · Schedule an appointment ·
+              </textPath>
             </text>
           </svg>
           <span class="orbit-core">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
           </span>
         </a>
         <p class="final-phone" data-reveal>
@@ -1909,6 +2320,15 @@
         </p>
       </div>
     </section>
+
+    <div class="wave" style="background: var(--navy-deep)" aria-hidden="true">
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+        <path
+          style="fill: var(--paper)"
+          d="M0,50 C120,85 240,85 360,50 S600,15 720,50 S960,85 1080,50 S1320,15 1440,50 L1440,0 L0,0 Z"
+        ></path>
+      </svg>
+    </div>
 
     <!-- ============================ FOOTER ============================ -->
     <footer class="footer" id="contact">
@@ -1918,7 +2338,10 @@
             <a href="#" class="logo">
               <img src="Apex%201.PNG" alt="Apex Advanced Spine &amp; Pain" />
             </a>
-            <p><b>Apex</b> /ˈāˌpeks/ (noun): The point of greatest achievement, excellence, or development.</p>
+            <p>
+              <b>Apex</b> /ˈāˌpeks/ (noun): The point of greatest achievement,
+              excellence, or development.
+            </p>
           </div>
           <div>
             <h4>Conditions</h4>

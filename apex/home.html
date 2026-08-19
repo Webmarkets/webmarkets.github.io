@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Apex Advanced Spine &amp; Pain — Live Your Life With Less Pain</title>
+    <title>
+      Apex Advanced Spine &amp; Pain — Live Your Life With Less Pain
+    </title>
     <meta
       name="description"
       content="Apex Advanced Spine & Pain in Meridian, Idaho. Board-certified interventional pain management — precision diagnosis, advanced therapies, and personalized spine care."
@@ -91,7 +93,9 @@
         padding: 0 32px;
       }
 
-      h1, h2, h3 {
+      h1,
+      h2,
+      h3 {
         font-family: var(--font-display);
         line-height: 1.05;
         letter-spacing: -0.03em;
@@ -167,6 +171,43 @@
 
       .ph img[src] {
         display: block;
+      }
+
+      /* ---------- sine-wave section dividers ---------- */
+      .wave {
+        line-height: 0;
+      }
+
+      .wave svg {
+        display: block;
+        width: 100%;
+        height: 72px;
+      }
+
+      .wave.flip svg {
+        transform: scaleX(-1);
+      }
+
+      /* ---------- header photo grid ---------- */
+      .head-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 64px;
+        align-items: center;
+        margin-bottom: 72px;
+      }
+
+      .head-grid .section-head {
+        margin-bottom: 0;
+      }
+
+      .head-photo {
+        aspect-ratio: 4/3;
+      }
+
+      .sym-photo {
+        aspect-ratio: 16/10;
+        margin-top: 48px;
       }
 
       /* ---------- buttons ---------- */
@@ -812,7 +853,9 @@
         border-radius: 50%;
         background: var(--navy);
         opacity: 0.92;
-        transition: background 0.25s, transform 0.25s;
+        transition:
+          background 0.25s,
+          transform 0.25s;
       }
 
       .video .ph i {
@@ -908,7 +951,9 @@
         background: rgba(255, 255, 255, 0.3);
         cursor: pointer;
         padding: 0;
-        transition: background 0.25s, transform 0.25s;
+        transition:
+          background 0.25s,
+          transform 0.25s;
       }
 
       .quote-dots button.active {
@@ -919,7 +964,6 @@
       /* ---------- insurance strip ---------- */
       .ins {
         padding: 72px 0;
-        border-bottom: 1px solid var(--line);
       }
 
       .ins-inner {
@@ -1089,6 +1133,11 @@
           display: none;
         }
 
+        .head-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
         .hero-grid {
           grid-template-columns: 1fr;
           gap: 48px;
@@ -1134,6 +1183,10 @@
       @media (max-width: 640px) {
         .nav-phone {
           display: none;
+        }
+
+        .wave svg {
+          height: 44px;
         }
 
         .section {
@@ -1194,9 +1247,9 @@
             Live your life with <span class="gold">less pain.</span>
           </h1>
           <p class="lead" data-reveal>
-            Live a happier and healthier life with less pain and discomfort.
-            All it takes is one consultation to see if we can help you get
-            back to the life you want.
+            Live a happier and healthier life with less pain and discomfort. All
+            it takes is one consultation to see if we can help you get back to
+            the life you want.
           </p>
           <div class="hero-actions" data-reveal>
             <a href="#schedule" class="btn btn-navy">Schedule an Appointment</a>
@@ -1212,7 +1265,9 @@
           </div>
           <div class="hero-card">
             <div class="n">1<em>st</em></div>
-            <div class="l">in the Boise area to offer ViaDisc &amp; ReActiv8</div>
+            <div class="l">
+              in the Boise area to offer ViaDisc &amp; ReActiv8
+            </div>
           </div>
         </div>
       </div>
@@ -1222,7 +1277,10 @@
         <div class="wrap define-inner">
           <span class="word">Apex</span>
           <span class="phon">/ˈāˌpeks/ (noun)</span>
-          <span class="def">The point of greatest achievement, excellence, or development.</span>
+          <span class="def"
+            >The point of greatest achievement, excellence, or
+            development.</span
+          >
         </div>
       </div>
     </section>
@@ -1230,23 +1288,38 @@
     <!-- ============================ RESTORE · RELIEVE · RENEW ============================ -->
     <section class="section">
       <div class="wrap">
-        <div class="section-head">
-          <span class="kicker" data-reveal>Welcome to Apex</span>
-          <h2 class="section-title" data-reveal>Care above<br />the standard.</h2>
-          <p class="lead" data-reveal>
-            We help people restore better movement, relieve pain, and renew
-            themselves to get back to living the life they want. Let us help
-            you.
-          </p>
+        <div class="head-grid">
+          <div class="section-head">
+            <span class="kicker" data-reveal>Welcome to Apex</span>
+            <h2 class="section-title" data-reveal>
+              Care above<br />the standard.
+            </h2>
+            <p class="lead" data-reveal>
+              We help people restore better movement, relieve pain, and renew
+              themselves to get back to living the life they want. Let us help
+              you.
+            </p>
+          </div>
+          <div
+            class="ph head-photo"
+            data-reveal
+            data-label="Photo — the Apex care team"
+          >
+            <img alt="The Apex Advanced Spine &amp; Pain care team" />
+          </div>
         </div>
         <div class="three-words">
           <div class="word-card" data-reveal>
             <div class="w">Restore</div>
-            <p>Better movement, so everyday tasks stop feeling like obstacles.</p>
+            <p>
+              Better movement, so everyday tasks stop feeling like obstacles.
+            </p>
           </div>
           <div class="word-card" data-reveal>
             <div class="w">Relieve</div>
-            <p>Pain at its source — found with precision, treated with intent.</p>
+            <p>
+              Pain at its source — found with precision, treated with intent.
+            </p>
           </div>
           <div class="word-card" data-reveal>
             <div class="w">Renew</div>
@@ -1256,6 +1329,15 @@
       </div>
     </section>
 
+    <div class="wave" style="background: var(--mist)" aria-hidden="true">
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+        <path
+          style="fill: var(--paper)"
+          d="M0,50 C120,85 240,85 360,50 S600,15 720,50 S960,85 1080,50 S1320,15 1440,50 L1440,0 L0,0 Z"
+        ></path>
+      </svg>
+    </div>
+
     <!-- ============================ CONDITIONS ============================ -->
     <section class="section on-mist" id="conditions">
       <div class="wrap">
@@ -1264,49 +1346,138 @@
             <span class="kicker" data-reveal>Conditions We Treat</span>
             <h2 class="section-title" data-reveal>So, what's<br />hurting?</h2>
           </div>
-          <a href="#schedule" class="btn btn-line" data-reveal>Schedule an Appointment</a>
+          <a href="#schedule" class="btn btn-line" data-reveal
+            >Schedule an Appointment</a
+          >
         </div>
         <div class="cond-list" data-reveal>
           <a href="#" class="cond">
             <span class="idx">01</span>
             <h3>Head &amp; Neck</h3>
-            <p>We have the experience for finding the source of head &amp; neck pain. Get the relief you need through treatments at Apex.</p>
-            <span class="arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            <p>
+              We have the experience for finding the source of head &amp; neck
+              pain. Get the relief you need through treatments at Apex.
+            </p>
+            <span class="arrow"
+              ><svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" /></svg
+            ></span>
           </a>
           <a href="#" class="cond">
             <span class="idx">02</span>
             <h3>Spine &amp; Back</h3>
-            <p>Back pain is common in many adults. Treatment for back &amp; spine pain will depend on the condition it came from. Everyone is different.</p>
-            <span class="arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            <p>
+              Back pain is common in many adults. Treatment for back &amp; spine
+              pain will depend on the condition it came from. Everyone is
+              different.
+            </p>
+            <span class="arrow"
+              ><svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" /></svg
+            ></span>
           </a>
           <a href="#" class="cond">
             <span class="idx">03</span>
             <h3>Leg, Knee &amp; Joints</h3>
-            <p>Get the relief you need — we find the source of joint pain and treat it with the least invasive option that works.</p>
-            <span class="arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            <p>
+              Get the relief you need — we find the source of joint pain and
+              treat it with the least invasive option that works.
+            </p>
+            <span class="arrow"
+              ><svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" /></svg
+            ></span>
           </a>
           <a href="#" class="cond">
             <span class="idx">04</span>
             <h3>Nerve &amp; Body</h3>
-            <p>From neuropathy to widespread discomfort — precision diagnosis to focus on the ultimate pain-generator.</p>
-            <span class="arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            <p>
+              From neuropathy to widespread discomfort — precision diagnosis to
+              focus on the ultimate pain-generator.
+            </p>
+            <span class="arrow"
+              ><svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" /></svg
+            ></span>
           </a>
           <a href="#" class="cond">
             <span class="idx">05</span>
             <h3>Pelvis &amp; Hips</h3>
-            <p>Targeted, evidence-based treatment for pelvic and hip pain that limits your movement and independence.</p>
-            <span class="arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            <p>
+              Targeted, evidence-based treatment for pelvic and hip pain that
+              limits your movement and independence.
+            </p>
+            <span class="arrow"
+              ><svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" /></svg
+            ></span>
           </a>
         </div>
       </div>
     </section>
+
+    <div class="wave flip" style="background: var(--paper)" aria-hidden="true">
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+        <path
+          style="fill: var(--mist)"
+          d="M0,50 C120,85 240,85 360,50 S600,15 720,50 S960,85 1080,50 S1320,15 1440,50 L1440,0 L0,0 Z"
+        ></path>
+      </svg>
+    </div>
 
     <!-- ============================ TREATMENTS ============================ -->
     <section class="section" id="treatments">
       <div class="wrap">
         <div class="section-head">
           <span class="kicker" data-reveal>How We Help</span>
-          <h2 class="section-title" data-reveal>Two paths.<br />One goal: relief.</h2>
+          <h2 class="section-title" data-reveal>
+            Two paths.<br />One goal: relief.
+          </h2>
         </div>
         <div class="treat-grid">
           <div class="treat" data-reveal>
@@ -1333,37 +1504,68 @@
       </div>
     </section>
 
+    <div class="wave" style="background: var(--navy-deep)" aria-hidden="true">
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+        <path
+          style="fill: var(--paper)"
+          d="M0,50 C120,85 240,85 360,50 S600,15 720,50 S960,85 1080,50 S1320,15 1440,50 L1440,0 L0,0 Z"
+        ></path>
+      </svg>
+    </div>
+
     <!-- ============================ WHY APEX ============================ -->
     <section class="section why">
       <div class="wrap">
         <div class="section-head">
           <span class="kicker" data-reveal>Why Apex?</span>
-          <h2 class="section-title" data-reveal>Built differently,<br />on purpose.</h2>
+          <h2 class="section-title" data-reveal>
+            Built differently,<br />on purpose.
+          </h2>
         </div>
         <div class="why-grid" data-reveal>
           <div class="why-item">
             <div class="n">01</div>
             <h3>Timely &amp; Direct Access</h3>
-            <p>No runaround. Get seen, get answers, and get a plan — usually within the same week.</p>
+            <p>
+              No runaround. Get seen, get answers, and get a plan — usually
+              within the same week.
+            </p>
           </div>
           <div class="why-item">
             <div class="n">02</div>
             <h3>Focus on the Ultimate Pain-Generator</h3>
-            <p>We treat the source of your pain, not just the symptoms it causes.</p>
+            <p>
+              We treat the source of your pain, not just the symptoms it causes.
+            </p>
           </div>
           <div class="why-item">
             <div class="n">03</div>
             <h3>State-of-the-Art Interventional Care</h3>
-            <p>Advanced spine therapies from a national expert — many offered first in the Boise area at Apex.</p>
+            <p>
+              Advanced spine therapies from a national expert — many offered
+              first in the Boise area at Apex.
+            </p>
           </div>
           <div class="why-item">
             <div class="n">04</div>
             <h3>Patient-First, Relationship-Driven</h3>
-            <p>An independent, physician-led practice where you're more than an appointment on the schedule.</p>
+            <p>
+              An independent, physician-led practice where you're more than an
+              appointment on the schedule.
+            </p>
           </div>
         </div>
       </div>
     </section>
+
+    <div class="wave flip" style="background: var(--paper)" aria-hidden="true">
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+        <path
+          style="fill: var(--navy-deep)"
+          d="M0,50 C120,85 240,85 360,50 S600,15 720,50 S960,85 1080,50 S1320,15 1440,50 L1440,0 L0,0 Z"
+        ></path>
+      </svg>
+    </div>
 
     <!-- ============================ SYMPTOMS ============================ -->
     <section class="section">
@@ -1377,36 +1579,89 @@
             and improve your quality of life — our goal at Apex is to address
             which options are best to relieve your pain.
           </p>
-          <a href="#schedule" class="btn btn-navy" data-reveal>Find Relief Today</a>
+          <a href="#schedule" class="btn btn-navy" data-reveal
+            >Find Relief Today</a
+          >
+          <div
+            class="ph sym-photo"
+            data-reveal
+            data-label="Photo — back to daily life"
+          >
+            <img alt="Getting back to daily life without pain" />
+          </div>
         </div>
         <ul class="sym-list" data-reveal>
           <li>
             <span class="dot"></span>
-            <div><b>Ongoing pain</b><p>Lasts longer than three months — often a constant, dull (or not so dull) ache.</p></div>
+            <div>
+              <b>Ongoing pain</b>
+              <p>
+                Lasts longer than three months — often a constant, dull (or not
+                so dull) ache.
+              </p>
+            </div>
           </li>
           <li>
             <span class="dot"></span>
-            <div><b>Limited movement</b><p>Pain can make it harder to move around and do everyday tasks.</p></div>
+            <div>
+              <b>Limited movement</b>
+              <p>
+                Pain can make it harder to move around and do everyday tasks.
+              </p>
+            </div>
           </li>
           <li>
             <span class="dot"></span>
-            <div><b>Fatigue</b><p>Trouble sleeping, changes in mood, or a lower appetite often follow.</p></div>
+            <div>
+              <b>Fatigue</b>
+              <p>
+                Trouble sleeping, changes in mood, or a lower appetite often
+                follow.
+              </p>
+            </div>
           </li>
           <li>
             <span class="dot"></span>
-            <div><b>Depression &amp; anxiety</b><p>Constant pain can affect mental health and create feelings of stress or helplessness.</p></div>
+            <div>
+              <b>Depression &amp; anxiety</b>
+              <p>
+                Constant pain can affect mental health and create feelings of
+                stress or helplessness.
+              </p>
+            </div>
           </li>
           <li>
             <span class="dot"></span>
-            <div><b>Social withdrawal</b><p>Pain makes it harder to stay active socially, leading to isolation or loneliness.</p></div>
+            <div>
+              <b>Social withdrawal</b>
+              <p>
+                Pain makes it harder to stay active socially, leading to
+                isolation or loneliness.
+              </p>
+            </div>
           </li>
           <li>
             <span class="dot"></span>
-            <div><b>Lower quality of life</b><p>Chronic pain interferes with work, relationships, and daily activities.</p></div>
+            <div>
+              <b>Lower quality of life</b>
+              <p>
+                Chronic pain interferes with work, relationships, and daily
+                activities.
+              </p>
+            </div>
           </li>
         </ul>
       </div>
     </section>
+
+    <div class="wave" style="background: var(--mist)" aria-hidden="true">
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+        <path
+          style="fill: var(--paper)"
+          d="M0,50 C120,85 240,85 360,50 S600,15 720,50 S960,85 1080,50 S1320,15 1440,50 L1440,0 L0,0 Z"
+        ></path>
+      </svg>
+    </div>
 
     <!-- ============================ PHYSICIAN ============================ -->
     <section class="section on-mist" id="doctor">
@@ -1417,7 +1672,9 @@
         <div>
           <span class="kicker" data-reveal>Our Expert Physician</span>
           <h2 class="doc-name" data-reveal>Dr. JD Williams, MD</h2>
-          <div class="doc-creds" data-reveal>MD, MBA · Board-Certified · Interventional Pain Medicine</div>
+          <div class="doc-creds" data-reveal>
+            MD, MBA · Board-Certified · Interventional Pain Medicine
+          </div>
           <p class="bio" data-reveal>
             Dr. Williams is known for bringing advanced spine therapies to
             Idaho, including being the first physician in the Boise area to
@@ -1428,31 +1685,57 @@
       </div>
     </section>
 
+    <div class="wave flip" style="background: var(--paper)" aria-hidden="true">
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+        <path
+          style="fill: var(--mist)"
+          d="M0,50 C120,85 240,85 360,50 S600,15 720,50 S960,85 1080,50 S1320,15 1440,50 L1440,0 L0,0 Z"
+        ></path>
+      </svg>
+    </div>
+
     <!-- ============================ VIDEO SERIES ============================ -->
     <section class="section">
       <div class="wrap">
         <div class="section-head split">
           <div>
             <span class="kicker" data-reveal>Our Video Series</span>
-            <h2 class="section-title" data-reveal>Learn from<br />the experts.</h2>
+            <h2 class="section-title" data-reveal>
+              Learn from<br />the experts.
+            </h2>
           </div>
         </div>
         <div class="video-grid">
           <a href="#" class="video" data-reveal>
-            <div class="ph" data-label="Video thumbnail"><i></i><img alt="How to Prevent Back &amp; Spine Injuries" /></div>
+            <div class="ph" data-label="Video thumbnail">
+              <i></i><img alt="How to Prevent Back &amp; Spine Injuries" />
+            </div>
             <h3>How to Prevent Back &amp; Spine Injuries</h3>
           </a>
           <a href="#" class="video" data-reveal>
-            <div class="ph" data-label="Video thumbnail"><i></i><img alt="Common Causes for Shoulder Injuries" /></div>
+            <div class="ph" data-label="Video thumbnail">
+              <i></i><img alt="Common Causes for Shoulder Injuries" />
+            </div>
             <h3>Common Causes for Shoulder Injuries</h3>
           </a>
           <a href="#" class="video" data-reveal>
-            <div class="ph" data-label="Video thumbnail"><i></i><img alt="Compression Injuries" /></div>
+            <div class="ph" data-label="Video thumbnail">
+              <i></i><img alt="Compression Injuries" />
+            </div>
             <h3>Compression Injuries</h3>
           </a>
         </div>
       </div>
     </section>
+
+    <div class="wave" style="background: var(--blue)" aria-hidden="true">
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+        <path
+          style="fill: var(--paper)"
+          d="M0,50 C120,85 240,85 360,50 S600,15 720,50 S960,85 1080,50 S1320,15 1440,50 L1440,0 L0,0 Z"
+        ></path>
+      </svg>
+    </div>
 
     <!-- ============================ TESTIMONIALS ============================ -->
     <section class="section quote-sec">
@@ -1460,23 +1743,38 @@
         <span class="kicker" data-reveal>Patient Stories</span>
         <div class="quote-stage" data-reveal>
           <div class="quote-item active">
-            <blockquote>"I came in with severe lower back pain and left with a clear treatment plan and renewed hope."</blockquote>
+            <blockquote>
+              "I came in with severe lower back pain and left with a clear
+              treatment plan and renewed hope."
+            </blockquote>
             <div class="attr">— Mark H.</div>
           </div>
           <div class="quote-item">
-            <blockquote>"Excellent care and amazing staff. Dr. Williams truly listens."</blockquote>
+            <blockquote>
+              "Excellent care and amazing staff. Dr. Williams truly listens."
+            </blockquote>
             <div class="attr">— Jennifer K.</div>
           </div>
           <div class="quote-item">
-            <blockquote>"After years of neck pain, I finally found relief. They explained everything clearly and made me feel comfortable throughout the process."</blockquote>
+            <blockquote>
+              "After years of neck pain, I finally found relief. They explained
+              everything clearly and made me feel comfortable throughout the
+              process."
+            </blockquote>
             <div class="attr">— Daniel R.</div>
           </div>
           <div class="quote-item">
-            <blockquote>"I can enjoy walks, family activities, and everyday tasks again without constant discomfort. The difference has been incredible."</blockquote>
+            <blockquote>
+              "I can enjoy walks, family activities, and everyday tasks again
+              without constant discomfort. The difference has been incredible."
+            </blockquote>
             <div class="attr">— Amy S.</div>
           </div>
           <div class="quote-item">
-            <blockquote>"They made me feel like more than just another appointment on the schedule."</blockquote>
+            <blockquote>
+              "They made me feel like more than just another appointment on the
+              schedule."
+            </blockquote>
             <div class="attr">— Brian C.</div>
           </div>
         </div>
@@ -1489,6 +1787,15 @@
         </div>
       </div>
     </section>
+
+    <div class="wave flip" style="background: var(--paper)" aria-hidden="true">
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+        <path
+          style="fill: var(--navy)"
+          d="M0,50 C120,85 240,85 360,50 S600,15 720,50 S960,85 1080,50 S1320,15 1440,50 L1440,0 L0,0 Z"
+        ></path>
+      </svg>
+    </div>
 
     <!-- ============================ INSURANCE ============================ -->
     <section class="ins">
@@ -1515,11 +1822,22 @@
           </p>
           <div class="btns">
             <a href="#" class="btn btn-gold">Schedule an Appointment</a>
-            <a href="tel:208-800-9040" class="btn btn-ghost-light">Call (208) 800-9040</a>
+            <a href="tel:208-800-9040" class="btn btn-ghost-light"
+              >Call (208) 800-9040</a
+            >
           </div>
         </div>
       </div>
     </section>
+
+    <div class="wave" style="background: var(--navy-deep)" aria-hidden="true">
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+        <path
+          style="fill: var(--paper)"
+          d="M0,50 C120,85 240,85 360,50 S600,15 720,50 S960,85 1080,50 S1320,15 1440,50 L1440,0 L0,0 Z"
+        ></path>
+      </svg>
+    </div>
 
     <!-- ============================ FOOTER ============================ -->
     <footer class="footer" id="contact">
@@ -1529,7 +1847,10 @@
             <a href="#" class="logo">
               <img src="Apex%201.PNG" alt="Apex Advanced Spine &amp; Pain" />
             </a>
-            <p><b>Apex</b> /ˈāˌpeks/ (noun): The point of greatest achievement, excellence, or development.</p>
+            <p>
+              <b>Apex</b> /ˈāˌpeks/ (noun): The point of greatest achievement,
+              excellence, or development.
+            </p>
           </div>
           <div>
             <h4>Conditions</h4>
@@ -1553,9 +1874,7 @@
           </div>
           <div>
             <h4>Hours</h4>
-            <div class="contact-line">
-              Mon – Fri<br />9am – 5pm
-            </div>
+            <div class="contact-line">Mon – Fri<br />9am – 5pm</div>
             <h4 style="margin-top: 28px">Appointments</h4>
             <ul>
               <li><a href="#schedule">Schedule Online</a></li>
