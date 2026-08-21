@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agency Atlas — Comparison Table</title>
+    <meta
+      name="description"
+      content="Tool-cost comparison table for Agency Atlas, styled to match the Cartographer's Edition design system. Built to drop into a Divi 5 Code module."
+    />
+  </head>
+  <body style="margin: 0; background: #f6f0e1">
+    <!-- ============================================================
+         DIVI COPY START
+         Copy everything from here down to "DIVI COPY END" into a
+         Divi 5 Code module. All styles are scoped under .aa-compare
+         so they won't collide with Divi's own CSS.
+         ============================================================ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,600&family=Archivo:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ============================================================
+         AGENCY ATLAS — COMPARISON TABLE
+         "The Cartographer's Ledger"
+         Scoped under .aa-compare for Divi Code module compatibility.
+         ============================================================ */
+      .aa-compare {
+        --aa-paper: #f6f0e1;
+        --aa-paper-deep: #efe6d0;
+        --aa-ink: #1e2b33;
+        --aa-ink-soft: #46545c;
+        --aa-vermilion: #e4572e;
+        --aa-teal: #0f7c66;
+        --aa-gold: #d9a441;
+        --aa-cream: #fdfbf4;
+        --aa-font-display: "Fraunces", serif;
+        --aa-font-body: "Archivo", sans-serif;
+        --aa-font-mono: "Space Mono", monospace;
+        --aa-border: 2px solid var(--aa-ink);
+
+        font-family: var(--aa-font-body);
+        color: var(--aa-ink);
+        background: var(--aa-paper);
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+        padding: 84px 24px;
+        position: relative;
+      }
+      .aa-compare *,
+      .aa-compare *::before,
+      .aa-compare *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Contour-line texture */
+      .aa-compare::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background:
+          repeating-radial-gradient(
+            circle at 15% 20%,
+            transparent 0 46px,
+            rgba(30, 43, 51, 0.05) 46px 48px
+          ),
+          repeating-radial-gradient(
+            circle at 85% 75%,
+            transparent 0 60px,
+            rgba(30, 43, 51, 0.045) 60px 62px
+          );
+      }
+      .aa-compare > * {
+        position: relative;
+      }
+
+      .aa-compare .aa-inner {
+        max-width: 1080px;
+        margin: 0 auto;
+      }
+
+      /* ------- Heading block ------- */
+      .aa-compare .aa-head {
+        text-align: center;
+        margin-bottom: 54px;
+      }
+      .aa-compare .aa-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--aa-font-mono);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--aa-vermilion);
+      }
+      .aa-compare .aa-eyebrow::before,
+      .aa-compare .aa-eyebrow::after {
+        content: "✦";
+        font-size: 10px;
+        color: var(--aa-ink);
+      }
+      .aa-compare .aa-title {
+        font-family: var(--aa-font-display);
+        font-size: clamp(32px, 4.8vw, 54px);
+        font-weight: 900;
+        line-height: 1.1;
+        letter-spacing: -0.01em;
+        margin: 16px 0 18px;
+      }
+      .aa-compare .aa-title em {
+        font-style: italic;
+        font-weight: 600;
+        color: var(--aa-vermilion);
+      }
+      .aa-compare .aa-lead {
+        font-size: clamp(15px, 1.8vw, 17.5px);
+        color: var(--aa-ink-soft);
+        max-width: 660px;
+        margin: 0 auto;
+      }
+      .aa-compare .aa-lead a {
+        color: var(--aa-ink);
+        font-weight: 600;
+        text-decoration: underline;
+        text-decoration-color: var(--aa-vermilion);
+        text-decoration-thickness: 2px;
+        text-underline-offset: 3px;
+        transition: color 0.15s ease;
+      }
+      .aa-compare .aa-lead a:hover {
+        color: var(--aa-vermilion);
+      }
+
+      /* ------- The ledger table ------- */
+      .aa-compare .aa-table {
+        border: var(--aa-border);
+        background: var(--aa-cream);
+        box-shadow: 5px 5px 0 var(--aa-ink);
+      }
+
+      .aa-compare .aa-row {
+        display: grid;
+        grid-template-columns: 190px 1fr 130px 130px;
+        grid-template-areas: "logos feature price check";
+        align-items: center;
+        border-bottom: var(--aa-border);
+      }
+      .aa-compare .aa-row:last-child {
+        border-bottom: none;
+      }
+      .aa-compare .aa-row:nth-child(even) {
+        background: var(--aa-paper);
+      }
+
+      /* Header band */
+      .aa-compare .aa-row--head {
+        background: var(--aa-ink) !important;
+        color: var(--aa-cream);
+      }
+      .aa-compare .aa-row--head .aa-cell {
+        font-family: var(--aa-font-mono);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        padding-top: 14px;
+        padding-bottom: 14px;
+      }
+      .aa-compare .aa-row--head .aa-cell--price {
+        color: var(--aa-cream);
+      }
+
+      .aa-compare .aa-cell {
+        padding: 16px 20px;
+        min-width: 0;
+      }
+      .aa-compare .aa-cell--logos {
+        grid-area: logos;
+      }
+      .aa-compare .aa-cell--feature {
+        grid-area: feature;
+        font-family: var(--aa-font-display);
+        font-weight: 700;
+        font-size: 17px;
+        line-height: 1.3;
+      }
+      .aa-compare .aa-cell--price {
+        grid-area: price;
+        font-family: var(--aa-font-mono);
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--aa-ink-soft);
+        text-align: center;
+        white-space: nowrap;
+      }
+      .aa-compare .aa-cell--check {
+        grid-area: check;
+        text-align: center;
+      }
+
+      /* Highlighted Atlas column */
+      .aa-compare .aa-row .aa-cell--check {
+        background: var(--aa-paper-deep);
+        border-left: var(--aa-border);
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .aa-compare .aa-row--head .aa-cell--check {
+        background: var(--aa-vermilion);
+      }
+
+      /* Placeholder logo chips */
+      .aa-compare .aa-logos {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .aa-compare .aa-chip {
+        width: 30px;
+        height: 30px;
+        border: var(--aa-border);
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--aa-font-mono);
+        font-size: 12px;
+        font-weight: 700;
+        margin-right: -8px;
+        flex: none;
+      }
+      .aa-compare .aa-chip--vermilion {
+        background: var(--aa-vermilion);
+        color: var(--aa-cream);
+      }
+      .aa-compare .aa-chip--teal {
+        background: var(--aa-teal);
+        color: var(--aa-cream);
+      }
+      .aa-compare .aa-chip--gold {
+        background: var(--aa-gold);
+        color: var(--aa-ink);
+      }
+      .aa-compare .aa-chip--ink {
+        background: var(--aa-ink);
+        color: var(--aa-cream);
+      }
+      .aa-compare .aa-chip--cream {
+        background: var(--aa-cream);
+        color: var(--aa-ink);
+      }
+
+      /* Teal check stamp */
+      .aa-compare .aa-check {
+        width: 28px;
+        height: 28px;
+        border: var(--aa-border);
+        border-radius: 50%;
+        background: var(--aa-teal);
+        color: var(--aa-cream);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      /* Totals band */
+      .aa-compare .aa-row--total {
+        background: var(--aa-ink) !important;
+        color: var(--aa-cream);
+        border-top: var(--aa-border);
+      }
+      .aa-compare .aa-row--total .aa-cell--feature {
+        font-family: var(--aa-font-mono);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+      .aa-compare .aa-row--total .aa-cell--price {
+        font-family: var(--aa-font-display);
+        font-weight: 900;
+        font-size: 22px;
+        color: var(--aa-cream);
+        text-decoration: line-through;
+        text-decoration-color: var(--aa-vermilion);
+        text-decoration-thickness: 3px;
+      }
+      .aa-compare .aa-row--total .aa-cell--check {
+        background: var(--aa-vermilion);
+        border-left-color: var(--aa-cream);
+        font-family: var(--aa-font-display);
+        font-weight: 900;
+        font-size: 22px;
+        color: var(--aa-cream);
+      }
+      .aa-compare .aa-row--total .aa-badge {
+        font-family: var(--aa-font-mono);
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--aa-cream);
+        opacity: 0.85;
+        display: block;
+        margin-top: 2px;
+      }
+
+      /* CTA under the table */
+      .aa-compare .aa-cta-wrap {
+        text-align: center;
+        margin-top: 46px;
+      }
+      .aa-compare .aa-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--aa-font-body);
+        font-weight: 700;
+        font-size: 15.5px;
+        letter-spacing: 0.01em;
+        padding: 16px 30px;
+        border: var(--aa-border);
+        border-radius: 0;
+        cursor: pointer;
+        background: var(--aa-vermilion);
+        color: var(--aa-cream);
+        text-decoration: none;
+        box-shadow: 5px 5px 0 var(--aa-ink);
+        transition:
+          transform 0.15s ease,
+          box-shadow 0.15s ease;
+      }
+      .aa-compare .aa-btn:hover {
+        transform: translate(2px, 2px);
+        box-shadow: 3px 3px 0 var(--aa-ink);
+      }
+      .aa-compare .aa-cta-note {
+        font-family: var(--aa-font-mono);
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--aa-ink-soft);
+        opacity: 0.75;
+        margin-top: 16px;
+      }
+
+      /* ------- Tablet ------- */
+      @media (max-width: 860px) {
+        .aa-compare .aa-row {
+          grid-template-columns: 140px 1fr 100px 92px;
+        }
+        .aa-compare .aa-cell {
+          padding: 14px 14px;
+        }
+        .aa-compare .aa-cell--feature {
+          font-size: 15px;
+        }
+        .aa-compare .aa-cell--price {
+          font-size: 13px;
+        }
+        .aa-compare .aa-chip {
+          width: 26px;
+          height: 26px;
+          font-size: 10px;
+        }
+      }
+
+      /* ------- Mobile: logos drop below the feature name ------- */
+      @media (max-width: 640px) {
+        .aa-compare {
+          padding: 56px 16px;
+        }
+        .aa-compare .aa-head {
+          margin-bottom: 36px;
+        }
+        .aa-compare .aa-row {
+          grid-template-columns: 1fr 78px 64px;
+          grid-template-areas:
+            "feature price check"
+            "logos   price check";
+        }
+        .aa-compare .aa-cell {
+          padding: 12px 10px;
+        }
+        .aa-compare .aa-cell--feature {
+          font-size: 13.5px;
+          line-height: 1.25;
+          padding-bottom: 4px;
+        }
+        .aa-compare .aa-cell--logos {
+          padding-top: 0;
+          padding-bottom: 12px;
+        }
+        .aa-compare .aa-row--head .aa-cell--logos {
+          display: none;
+        }
+        .aa-compare .aa-row--head .aa-cell {
+          font-size: 9px;
+          letter-spacing: 0.1em;
+          padding-top: 12px;
+          padding-bottom: 12px;
+        }
+        .aa-compare .aa-cell--price {
+          font-size: 11.5px;
+          white-space: normal;
+        }
+        .aa-compare .aa-chip {
+          width: 22px;
+          height: 22px;
+          font-size: 9px;
+          border-width: 1.5px;
+          margin-right: -6px;
+        }
+        .aa-compare .aa-check {
+          width: 24px;
+          height: 24px;
+          font-size: 12px;
+        }
+        .aa-compare .aa-row--total .aa-cell--price,
+        .aa-compare .aa-row--total .aa-cell--check {
+          font-size: 16px;
+        }
+        .aa-compare .aa-row--total .aa-badge {
+          font-size: 8px;
+        }
+        .aa-compare .aa-table {
+          box-shadow: 4px 4px 0 var(--aa-ink);
+        }
+        .aa-compare .aa-btn {
+          font-size: 14px;
+          padding: 14px 24px;
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    </style>
+
+    <section class="aa-compare">
+      <div class="aa-inner">
+        <!-- Heading -->
+        <div class="aa-head">
+          <span class="aa-eyebrow">The Ledger</span>
+          <h2 class="aa-title">
+            $3,000 in Tool Costs.<br />
+            <em>$99 for the Entire Atlas.</em>
+          </h2>
+          <p class="aa-lead">
+            One subscription covers <a href="#">social media</a>,
+            <a href="#">SEO &amp; AI SEO</a>, <a href="#">content generation</a>,
+            <a href="#">email marketing</a>, scheduling, analytics, and reporting
+            — the same work you're paying a dozen separate vendors to leave
+            half-finished.
+          </p>
+        </div>
+
+        <!-- Ledger table -->
+        <div class="aa-table" role="table" aria-label="Tool cost comparison">
+          <!-- Column headers -->
+          <div class="aa-row aa-row--head" role="row">
+            <div class="aa-cell aa-cell--logos" role="columnheader">Replaces</div>
+            <div class="aa-cell aa-cell--feature" role="columnheader">Feature</div>
+            <div class="aa-cell aa-cell--price" role="columnheader">Other Tools</div>
+            <div class="aa-cell aa-cell--check" role="columnheader">Agency Atlas</div>
+          </div>
+
+          <!-- Row 1 -->
+          <div class="aa-row" role="row">
+            <div class="aa-cell aa-cell--logos" role="cell">
+              <span class="aa-logos">
+                <span class="aa-chip aa-chip--vermilion">Hs</span>
+                <span class="aa-chip aa-chip--teal">Bf</span>
+                <span class="aa-chip aa-chip--gold">Sp</span>
+              </span>
+            </div>
+            <div class="aa-cell aa-cell--feature" role="cell">Social Media Scheduling &amp; Publishing</div>
+            <div class="aa-cell aa-cell--price" role="cell">$249/mo</div>
+            <div class="aa-cell aa-cell--check" role="cell"><span class="aa-check">✓</span></div>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="aa-row" role="row">
+            <div class="aa-cell aa-cell--logos" role="cell">
+              <span class="aa-logos">
+                <span class="aa-chip aa-chip--ink">Ah</span>
+                <span class="aa-chip aa-chip--cream">Se</span>
+                <span class="aa-chip aa-chip--vermilion">Mz</span>
+              </span>
+            </div>
+            <div class="aa-cell aa-cell--feature" role="cell">SEO &amp; AI Search Optimization</div>
+            <div class="aa-cell aa-cell--price" role="cell">$449/mo</div>
+            <div class="aa-cell aa-cell--check" role="cell"><span class="aa-check">✓</span></div>
+          </div>
+
+          <!-- Row 3 -->
+          <div class="aa-row" role="row">
+            <div class="aa-cell aa-cell--logos" role="cell">
+              <span class="aa-logos">
+                <span class="aa-chip aa-chip--teal">Ja</span>
+                <span class="aa-chip aa-chip--gold">Cp</span>
+                <span class="aa-chip aa-chip--ink">Wt</span>
+                <span class="aa-chip aa-chip--cream">Gr</span>
+              </span>
+            </div>
+            <div class="aa-cell aa-cell--feature" role="cell">AI Content Generation &amp; Brand Voice</div>
+            <div class="aa-cell aa-cell--price" role="cell">$399/mo</div>
+            <div class="aa-cell aa-cell--check" role="cell"><span class="aa-check">✓</span></div>
+          </div>
+
+          <!-- Row 4 -->
+          <div class="aa-row" role="row">
+            <div class="aa-cell aa-cell--logos" role="cell">
+              <span class="aa-logos">
+                <span class="aa-chip aa-chip--vermilion">Mc</span>
+                <span class="aa-chip aa-chip--cream">Kl</span>
+              </span>
+            </div>
+            <div class="aa-cell aa-cell--feature" role="cell">Email Marketing &amp; Automation</div>
+            <div class="aa-cell aa-cell--price" role="cell">$299/mo</div>
+            <div class="aa-cell aa-cell--check" role="cell"><span class="aa-check">✓</span></div>
+          </div>
+
+          <!-- Row 5 -->
+          <div class="aa-row" role="row">
+            <div class="aa-cell aa-cell--logos" role="cell">
+              <span class="aa-logos">
+                <span class="aa-chip aa-chip--gold">Db</span>
+                <span class="aa-chip aa-chip--ink">Ar</span>
+                <span class="aa-chip aa-chip--teal">Lk</span>
+              </span>
+            </div>
+            <div class="aa-cell aa-cell--feature" role="cell">Analytics &amp; Client Reporting</div>
+            <div class="aa-cell aa-cell--price" role="cell">$579/mo</div>
+            <div class="aa-cell aa-cell--check" role="cell"><span class="aa-check">✓</span></div>
+          </div>
+
+          <!-- Row 6 -->
+          <div class="aa-row" role="row">
+            <div class="aa-cell aa-cell--logos" role="cell">
+              <span class="aa-logos">
+                <span class="aa-chip aa-chip--cream">Pl</span>
+                <span class="aa-chip aa-chip--vermilion">Cv</span>
+                <span class="aa-chip aa-chip--gold">Fg</span>
+              </span>
+            </div>
+            <div class="aa-cell aa-cell--feature" role="cell">On-Brand Design Templates</div>
+            <div class="aa-cell aa-cell--price" role="cell">$199/mo</div>
+            <div class="aa-cell aa-cell--check" role="cell"><span class="aa-check">✓</span></div>
+          </div>
+
+          <!-- Row 7 -->
+          <div class="aa-row" role="row">
+            <div class="aa-cell aa-cell--logos" role="cell">
+              <span class="aa-logos">
+                <span class="aa-chip aa-chip--ink">St</span>
+                <span class="aa-chip aa-chip--teal">Ag</span>
+              </span>
+            </div>
+            <div class="aa-cell aa-cell--feature" role="cell">Marketing Strategy &amp; Agent Mode</div>
+            <div class="aa-cell aa-cell--price" role="cell">$899/mo</div>
+            <div class="aa-cell aa-cell--check" role="cell"><span class="aa-check">✓</span></div>
+          </div>
+
+          <!-- Totals -->
+          <div class="aa-row aa-row--total" role="row">
+            <div class="aa-cell aa-cell--logos" role="cell"></div>
+            <div class="aa-cell aa-cell--feature" role="cell">Total Per Month</div>
+            <div class="aa-cell aa-cell--price" role="cell">$3,073</div>
+            <div class="aa-cell aa-cell--check" role="cell">
+              <span>$99<span class="aa-badge">All Included</span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="aa-cta-wrap">
+          <a class="aa-btn" href="#">Start Your Free Trial</a>
+          <p class="aa-cta-note">No contract, no commitment — cancel anytime</p>
+        </div>
+      </div>
+    </section>
+    <!-- ============================================================
+         DIVI COPY END
+         ============================================================ -->
+  </body>
+</html>
