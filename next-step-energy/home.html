@@ -1,0 +1,1573 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Next Step Energy Solutions — Turnkey LED Lighting Retrofits</title>
+    <meta
+      name="description"
+      content="Nationwide turnkey LED lighting retrofits: audits, savings analysis, installation, utility rebates, and IoT controls. 100M+ square feet retrofitted since 2011."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* =====================================================================
+   NEXT STEP ENERGY SOLUTIONS — HOMEPAGE
+   Built on next-step-energy/style-guide.html · "Light, Engineered."
+   The page opens in Blackout — the "before" — and scrolls into
+   Daylight. Circuit Green marks everything energized. Mono = data.
+   ---------------------------------------------------------------------
+   HOW TO ADD PHOTOS: each image spot is a .ph box with a data-label.
+   Set the src on the <img> inside and the photo replaces the label.
+   ===================================================================== */
+
+      :root {
+        --green: #35c96b;
+        --green-deep: #1fa954;
+        --green-tint: #e4f8ec;
+        --green-glow: rgba(53, 201, 107, 0.4);
+        --amber: #f6a93b;
+        --blackout: #0f1519;
+        --panel: #161d23;
+        --paper: #fafbf8;
+        --band: #f0f3ee;
+        --line: #e2e7e0;
+        --ink: #131a1f;
+        --muted: #5a6660;
+
+        --font-display: "Space Grotesk", sans-serif;
+        --font-body: "IBM Plex Sans", sans-serif;
+        --font-mono: "IBM Plex Mono", monospace;
+
+        --radius: 10px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 96px;
+      }
+
+      body {
+        font-family: var(--font-body);
+        background: var(--paper);
+        color: var(--ink);
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      ::selection {
+        background: var(--green);
+        color: var(--blackout);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .wrap {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 32px;
+        position: relative;
+      }
+
+      h1, h2, h3 {
+        font-family: var(--font-display);
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        color: var(--ink);
+      }
+
+      .kicker {
+        display: inline-block;
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--green-deep);
+        margin-bottom: 22px;
+      }
+
+      .kicker::before {
+        content: "// ";
+        color: var(--amber);
+      }
+
+      .section-title {
+        font-size: clamp(36px, 5vw, 64px);
+        font-weight: 700;
+      }
+
+      .lead {
+        font-size: 18px;
+        color: var(--muted);
+        max-width: 60ch;
+        margin-top: 24px;
+      }
+
+      .grid-tex {
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+        background-size: 44px 44px;
+      }
+
+      /* ---------- image placeholder ---------- */
+      .ph {
+        position: relative;
+        background: var(--band);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        overflow: hidden;
+      }
+
+      .ph::after {
+        content: attr(data-label);
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        text-align: center;
+        font-family: var(--font-mono);
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #a9b3ac;
+      }
+
+      .ph img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: none;
+      }
+
+      .ph img[src] {
+        display: block;
+      }
+
+      /* ---------- buttons ---------- */
+      .btn {
+        display: inline-block;
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        padding: 18px 36px;
+        border-radius: var(--radius);
+        border: 2px solid transparent;
+        cursor: pointer;
+        transition: background 0.25s, color 0.25s, border-color 0.25s, box-shadow 0.3s, transform 0.25s;
+      }
+
+      .btn-green { background: var(--green); color: var(--blackout); }
+      .btn-green:hover { background: var(--green-deep); color: #fff; box-shadow: 0 0 28px var(--green-glow); transform: translateY(-2px); }
+      .btn-dark { background: var(--ink); color: #fff; }
+      .btn-dark:hover { background: var(--blackout); box-shadow: 0 0 0 4px rgba(19, 26, 31, 0.12); transform: translateY(-2px); }
+      .btn-line { border-color: var(--ink); color: var(--ink); background: transparent; }
+      .btn-line:hover { background: var(--ink); color: #fff; transform: translateY(-2px); }
+      .btn-line-light { border-color: rgba(242, 246, 241, 0.4); color: #f2f6f1; background: transparent; }
+      .btn-line-light:hover { border-color: var(--green); color: var(--green); box-shadow: 0 0 22px var(--green-glow); }
+      .btn-text { padding: 0 0 5px; border-radius: 0; background: none; color: var(--ink); border-bottom: 2px solid var(--green); }
+      .btn-text:hover { color: var(--green-deep); }
+
+      /* ---------- nav ---------- */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: rgba(15, 21, 25, 0.85);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        transition: background 0.4s, border-color 0.4s;
+      }
+
+      .nav.lit {
+        background: rgba(250, 251, 248, 0.92);
+        border-bottom-color: var(--line);
+      }
+
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 80px;
+        gap: 24px;
+      }
+
+      .wordmark {
+        font-family: var(--font-display);
+        font-size: 17px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        color: #f2f6f1;
+        transition: color 0.4s;
+      }
+
+      .nav.lit .wordmark {
+        color: var(--ink);
+      }
+
+      .wordmark .wm-step {
+        color: var(--green);
+      }
+
+      .nav.lit .wordmark .wm-step {
+        color: var(--green-deep);
+      }
+
+      .wordmark .dot {
+        display: inline-block;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--green);
+        margin-left: 6px;
+        box-shadow: 0 0 12px var(--green-glow);
+      }
+
+      .nav ul {
+        display: flex;
+        gap: 32px;
+        list-style: none;
+      }
+
+      .nav ul a {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(242, 246, 241, 0.65);
+        transition: color 0.2s;
+      }
+
+      .nav.lit ul a {
+        color: var(--muted);
+      }
+
+      .nav ul a:hover {
+        color: var(--green);
+      }
+
+      .nav.lit ul a:hover {
+        color: var(--green-deep);
+      }
+
+      .nav .btn {
+        padding: 13px 26px;
+      }
+
+      /* ---------- hero (blackout) ---------- */
+      .hero {
+        background: var(--blackout);
+        color: #f2f6f1;
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        padding: 170px 0 120px;
+      }
+
+      .hero .beam {
+        position: absolute;
+        top: -260px;
+        right: -160px;
+        width: 720px;
+        height: 720px;
+        border-radius: 50%;
+        background: radial-gradient(circle, var(--green-glow), transparent 63%);
+        pointer-events: none;
+      }
+
+      .hero .beam-2 {
+        position: absolute;
+        bottom: -300px;
+        left: -220px;
+        width: 620px;
+        height: 620px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(246, 169, 59, 0.16), transparent 65%);
+        pointer-events: none;
+      }
+
+      .hero .kicker {
+        color: var(--green);
+      }
+
+      .hero h1 {
+        color: #f2f6f1;
+        font-size: clamp(52px, 8.2vw, 122px);
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        max-width: 13ch;
+      }
+
+      .hero h1 em {
+        font-style: normal;
+        color: var(--green);
+        text-shadow: 0 0 36px var(--green-glow);
+      }
+
+      .hero .lead {
+        color: rgba(242, 246, 241, 0.6);
+        font-size: 19px;
+        max-width: 52ch;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 18px;
+        margin-top: 46px;
+      }
+
+      .hero-spec {
+        margin-top: 54px;
+        font-family: var(--font-mono);
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        color: rgba(242, 246, 241, 0.45);
+      }
+
+      .hero-spec b {
+        color: var(--green);
+        font-weight: 600;
+      }
+
+      /* ---------- ticker ---------- */
+      .ticker {
+        background: var(--green);
+        color: var(--blackout);
+        padding: 15px 0;
+        overflow: hidden;
+      }
+
+      .ticker-track {
+        display: flex;
+        width: max-content;
+      }
+
+      .ticker-group {
+        flex: none;
+        display: flex;
+        align-items: center;
+        animation: ticker 38s linear infinite;
+        will-change: transform;
+      }
+
+      @keyframes ticker {
+        to { transform: translateX(-100%); }
+      }
+
+      .ticker-group span {
+        font-family: var(--font-mono);
+        font-size: 12.5px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        white-space: nowrap;
+        padding: 0 30px;
+        display: inline-flex;
+        align-items: center;
+        gap: 60px;
+      }
+
+      .ticker-group span::after {
+        content: "●";
+        font-size: 8px;
+      }
+
+      /* ---------- sections ---------- */
+      .section {
+        padding: 130px 0;
+      }
+
+      .section.on-band {
+        background: var(--band);
+      }
+
+      .section.on-dark {
+        background: var(--blackout);
+        color: rgba(242, 246, 241, 0.75);
+      }
+
+      .section.on-dark .section-title {
+        color: #f2f6f1;
+      }
+
+      .section.on-dark .lead {
+        color: rgba(242, 246, 241, 0.55);
+      }
+
+      .section.on-dark .kicker {
+        color: var(--green);
+      }
+
+      .section-head {
+        margin-bottom: 72px;
+      }
+
+      .section-head.split {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 40px;
+        flex-wrap: wrap;
+      }
+
+      /* ---------- intro + stats ---------- */
+      .intro-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 72px;
+        align-items: center;
+        margin-bottom: 88px;
+      }
+
+      .intro-photo {
+        aspect-ratio: 4/3;
+      }
+
+      .stat-row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 22px;
+      }
+
+      .stat {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: #fff;
+        padding: 40px 30px 34px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .stat::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 4px;
+        background: var(--green);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.45s cubic-bezier(0.16, 0.7, 0.2, 1);
+      }
+
+      .stat:hover::after {
+        transform: scaleX(1);
+      }
+
+      .stat .n {
+        font-family: var(--font-display);
+        font-size: clamp(36px, 3.8vw, 54px);
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1;
+      }
+
+      .stat .n em {
+        font-style: normal;
+        color: var(--green-deep);
+      }
+
+      .stat .l {
+        margin-top: 12px;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      /* ---------- process steps ---------- */
+      .steps {
+        border-top: 1px solid var(--line);
+      }
+
+      .step {
+        display: grid;
+        grid-template-columns: 130px 1fr 1.3fr;
+        gap: 40px;
+        align-items: baseline;
+        padding: 42px 8px;
+        border-bottom: 1px solid var(--line);
+        transition: background 0.25s;
+      }
+
+      .step:hover {
+        background: #fff;
+      }
+
+      .step .code {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        color: var(--green-deep);
+      }
+
+      .step h3 {
+        font-size: clamp(22px, 2.4vw, 30px);
+        font-weight: 600;
+      }
+
+      .step p {
+        font-size: 15px;
+        color: var(--muted);
+        max-width: 56ch;
+      }
+
+      /* ---------- sectors ---------- */
+      .sector-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 22px;
+      }
+
+      .sector {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: #fff;
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      }
+
+      .sector:hover {
+        transform: translateY(-6px);
+        border-color: var(--green);
+        box-shadow: 0 26px 50px -30px rgba(19, 26, 31, 0.35);
+      }
+
+      .sector .ph {
+        aspect-ratio: 4/3;
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .sector .body {
+        padding: 24px 24px 26px;
+      }
+
+      .sector h3 {
+        font-size: 19px;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+
+      .sector p {
+        font-size: 13.5px;
+        color: var(--muted);
+      }
+
+      .sector-note {
+        margin-top: 34px;
+        font-family: var(--font-mono);
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .sector-note b {
+        color: var(--green-deep);
+      }
+
+      /* ---------- case studies (dark) ---------- */
+      .case {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius);
+        background: var(--panel);
+        padding: 52px 48px;
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 48px;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .case + .case {
+        margin-top: 26px;
+      }
+
+      .case::before {
+        content: "";
+        position: absolute;
+        top: -160px;
+        right: -120px;
+        width: 420px;
+        height: 420px;
+        border-radius: 50%;
+        background: radial-gradient(circle, var(--green-glow), transparent 65%);
+        opacity: 0.55;
+      }
+
+      .case.warm::before {
+        background: radial-gradient(circle, rgba(246, 169, 59, 0.32), transparent 65%);
+      }
+
+      .case .sector-tag {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--green);
+        margin-bottom: 16px;
+      }
+
+      .case.warm .sector-tag {
+        color: var(--amber);
+      }
+
+      .case h3 {
+        color: #f2f6f1;
+        font-size: clamp(22px, 2.4vw, 32px);
+        font-weight: 600;
+        max-width: 22ch;
+        position: relative;
+      }
+
+      .case p {
+        position: relative;
+        margin-top: 14px;
+        font-size: 15px;
+        color: rgba(242, 246, 241, 0.55);
+        max-width: 54ch;
+      }
+
+      .case-nums {
+        position: relative;
+        display: grid;
+        gap: 22px;
+      }
+
+      .case-nums .cn {
+        border-left: 2px solid var(--green);
+        padding-left: 20px;
+      }
+
+      .case.warm .case-nums .cn {
+        border-left-color: var(--amber);
+      }
+
+      .case-nums .cn b {
+        display: block;
+        font-family: var(--font-display);
+        font-size: 32px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: #f2f6f1;
+        line-height: 1.1;
+      }
+
+      .case-nums .cn span {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(242, 246, 241, 0.5);
+      }
+
+      /* ---------- temp scale divider ---------- */
+      .temp-divider {
+        background: var(--blackout);
+        padding: 0 0 64px;
+      }
+
+      .temp-scale {
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .temp-bar {
+        height: 60px;
+        background: linear-gradient(
+          90deg,
+          #f6a93b 0%,
+          #fbd58a 26%,
+          #fff6e0 50%,
+          #eef7ff 74%,
+          #cfe8ff 100%
+        );
+      }
+
+      .temp-marks {
+        display: flex;
+        justify-content: space-between;
+        padding: 13px 18px;
+        background: var(--panel);
+        font-family: var(--font-mono);
+        font-size: 10.5px;
+        letter-spacing: 0.12em;
+        color: rgba(242, 246, 241, 0.6);
+      }
+
+      .temp-marks b {
+        color: var(--green);
+        font-weight: 600;
+      }
+
+      /* ---------- financing ---------- */
+      .fin-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+      }
+
+      .fin-card {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: #fff;
+        padding: 48px 42px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .fin-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: var(--green);
+      }
+
+      .fin-card.amber::before {
+        background: var(--amber);
+      }
+
+      .fin-card .code {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--green-deep);
+        margin-bottom: 20px;
+      }
+
+      .fin-card.amber .code {
+        color: #b57415;
+      }
+
+      .fin-card h3 {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 12px;
+      }
+
+      .fin-card p {
+        font-size: 15px;
+        color: var(--muted);
+        max-width: 50ch;
+      }
+
+      .fin-card .btn {
+        margin-top: 30px;
+      }
+
+      .fin-note {
+        margin-top: 40px;
+        text-align: center;
+        font-size: 16px;
+        color: var(--muted);
+        max-width: 62ch;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .fin-note b {
+        color: var(--green-deep);
+      }
+
+      /* ---------- pull quote ---------- */
+      .pull {
+        background: var(--band);
+        padding: 130px 0;
+      }
+
+      .pull blockquote {
+        font-family: var(--font-display);
+        font-size: clamp(26px, 3.6vw, 48px);
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        line-height: 1.25;
+        max-width: 26ch;
+      }
+
+      .pull blockquote em {
+        font-style: normal;
+        color: var(--green-deep);
+      }
+
+      .pull .attr {
+        margin-top: 30px;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      /* ---------- final cta + form ---------- */
+      .final {
+        background: var(--blackout);
+        color: rgba(242, 246, 241, 0.7);
+        padding: 150px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .final .beam {
+        position: absolute;
+        top: -260px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 780px;
+        height: 780px;
+        border-radius: 50%;
+        background: radial-gradient(circle, var(--green-glow), transparent 62%);
+        opacity: 0.65;
+        pointer-events: none;
+      }
+
+      .final-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .final .kicker {
+        color: var(--green);
+      }
+
+      .final h2 {
+        color: #f2f6f1;
+        font-size: clamp(36px, 4.8vw, 66px);
+        font-weight: 700;
+        max-width: 14ch;
+      }
+
+      .final h2 em {
+        font-style: normal;
+        color: var(--green);
+        text-shadow: 0 0 30px var(--green-glow);
+      }
+
+      .final .lead {
+        color: rgba(242, 246, 241, 0.55);
+      }
+
+      .final-contact {
+        margin-top: 40px;
+        font-family: var(--font-mono);
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        color: rgba(242, 246, 241, 0.5);
+        line-height: 2;
+      }
+
+      .final-contact a {
+        color: var(--green);
+        font-weight: 600;
+      }
+
+      .form-card {
+        background: var(--panel);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius);
+        padding: 48px 44px;
+        position: relative;
+      }
+
+      .form-card h3 {
+        color: #f2f6f1;
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 28px;
+      }
+
+      .f-field {
+        margin-bottom: 20px;
+      }
+
+      .f-field label {
+        display: block;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(242, 246, 241, 0.5);
+        margin-bottom: 9px;
+      }
+
+      .f-field input,
+      .f-field select {
+        width: 100%;
+        font-family: var(--font-body);
+        font-size: 16px;
+        color: #f2f6f1;
+        background: var(--blackout);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 8px;
+        padding: 15px 17px;
+        outline: none;
+        transition: border-color 0.25s, box-shadow 0.25s;
+      }
+
+      .f-field input::placeholder {
+        color: rgba(242, 246, 241, 0.3);
+      }
+
+      .f-field select {
+        color: rgba(242, 246, 241, 0.8);
+      }
+
+      .f-field input:focus,
+      .f-field select:focus {
+        border-color: var(--green);
+        box-shadow: 0 0 0 4px rgba(53, 201, 107, 0.18);
+      }
+
+      .form-card .btn {
+        width: 100%;
+        text-align: center;
+        margin-top: 8px;
+      }
+
+      /* ---------- footer ---------- */
+      .footer {
+        background: var(--blackout);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        color: rgba(242, 246, 241, 0.5);
+        padding: 72px 0 40px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr;
+        gap: 48px;
+        padding-bottom: 52px;
+      }
+
+      .footer .wordmark {
+        color: #f2f6f1;
+      }
+
+      .footer-brand p {
+        font-size: 14px;
+        margin-top: 18px;
+        max-width: 34ch;
+        line-height: 1.7;
+      }
+
+      .footer h4 {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--green);
+        margin-bottom: 18px;
+      }
+
+      .footer ul {
+        list-style: none;
+        display: grid;
+        gap: 10px;
+      }
+
+      .footer ul a {
+        font-size: 14px;
+        transition: color 0.2s;
+      }
+
+      .footer ul a:hover {
+        color: #fff;
+      }
+
+      .footer .contact-line {
+        font-size: 14px;
+        line-height: 1.9;
+      }
+
+      .footer .contact-line a {
+        color: #f2f6f1;
+        font-weight: 600;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(242, 246, 241, 0.35);
+      }
+
+      /* ---------- scroll reveal ---------- */
+      [data-reveal] {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.9s cubic-bezier(0.16, 0.7, 0.2, 1),
+          transform 0.9s cubic-bezier(0.16, 0.7, 0.2, 1);
+      }
+
+      [data-reveal].in {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* ---------- responsive ---------- */
+      @media (max-width: 1020px) {
+        .nav ul {
+          display: none;
+        }
+
+        .intro-grid,
+        .final-grid {
+          grid-template-columns: 1fr;
+          gap: 52px;
+        }
+
+        .stat-row,
+        .sector-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .step {
+          grid-template-columns: 90px 1fr;
+        }
+
+        .step p {
+          grid-column: 2;
+        }
+
+        .case {
+          grid-template-columns: 1fr;
+          padding: 40px 30px;
+        }
+
+        .fin-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .section {
+          padding: 88px 0;
+        }
+
+        .hero {
+          padding: 140px 0 90px;
+        }
+
+        .hero-actions .btn {
+          width: 100%;
+          text-align: center;
+        }
+
+        .stat-row,
+        .sector-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .step {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+
+        .step p {
+          grid-column: 1;
+        }
+
+        .form-card {
+          padding: 36px 26px;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ============================ NAV ============================ -->
+    <header class="nav" id="siteNav">
+      <div class="wrap nav-inner">
+        <a href="#" class="wordmark">Next<span class="wm-step">Step</span> Energy<span class="dot"></span></a>
+        <ul>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#sectors">Sectors</a></li>
+          <li><a href="#results">Results</a></li>
+          <li><a href="#financing">Financing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="btn btn-green">Start Your Project</a>
+      </div>
+    </header>
+
+    <!-- ============================ HERO ============================ -->
+    <section class="hero grid-tex">
+      <div class="beam" aria-hidden="true"></div>
+      <div class="beam-2" aria-hidden="true"></div>
+      <div class="wrap">
+        <span class="kicker" data-reveal>Nationwide Turnkey LED Retrofits</span>
+        <h1 data-reveal>Your facility, in a <em>better light.</em></h1>
+        <p class="lead" data-reveal>
+          We offer our customers a nationwide turnkey LED lighting retrofit
+          experience — audits, savings analysis, installation, utility
+          rebates, and smart controls, all handled by one resource.
+        </p>
+        <div class="hero-actions" data-reveal>
+          <a href="#contact" class="btn btn-green">Start Your Project</a>
+          <a href="#process" class="btn btn-line-light">How It Works</a>
+        </div>
+        <p class="hero-spec" data-reveal>
+          <b>EST. 2011</b> · LITTLETON, COLORADO · 100,000,000+ SQFT RETROFITTED
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================ TICKER ============================ -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <div class="ticker-group">
+          <span>100,000,000+ sqft retrofitted</span>
+          <span>50–60% typical energy savings</span>
+          <span>Utility rebates handled end-to-end</span>
+          <span>IoT-ready smart controls</span>
+          <span>Nationwide turnkey installs</span>
+          <span>100,000,000+ sqft retrofitted</span>
+          <span>50–60% typical energy savings</span>
+          <span>Utility rebates handled end-to-end</span>
+          <span>IoT-ready smart controls</span>
+          <span>Nationwide turnkey installs</span>
+        </div>
+        <div class="ticker-group">
+          <span>100,000,000+ sqft retrofitted</span>
+          <span>50–60% typical energy savings</span>
+          <span>Utility rebates handled end-to-end</span>
+          <span>IoT-ready smart controls</span>
+          <span>Nationwide turnkey installs</span>
+          <span>100,000,000+ sqft retrofitted</span>
+          <span>50–60% typical energy savings</span>
+          <span>Utility rebates handled end-to-end</span>
+          <span>IoT-ready smart controls</span>
+          <span>Nationwide turnkey installs</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================ INTRO + STATS ============================ -->
+    <section class="section">
+      <div class="wrap">
+        <div class="intro-grid">
+          <div>
+            <span class="kicker" data-reveal>One Resource, Start to Finish</span>
+            <h2 class="section-title" data-reveal>More than a project.<br />An investment.</h2>
+            <p class="lead" data-reveal>
+              We look at an LED lighting upgrade as more than a capital
+              expenditure or a construction project — it's an important
+              financial investment decision. We help you understand the
+              financial impact of a retrofit to your bottom line and property
+              value.
+            </p>
+          </div>
+          <div class="ph intro-photo" data-reveal data-label="Photo — facility install in progress">
+            <img alt="LED retrofit installation in progress" />
+          </div>
+        </div>
+        <div class="stat-row">
+          <div class="stat" data-reveal>
+            <div class="n">2011</div>
+            <div class="l">In business since</div>
+          </div>
+          <div class="stat" data-reveal>
+            <div class="n">100M<em>+</em></div>
+            <div class="l">Square feet retrofitted</div>
+          </div>
+          <div class="stat" data-reveal>
+            <div class="n">50<em>–</em>60<em>%</em></div>
+            <div class="l">Typical energy savings</div>
+          </div>
+          <div class="stat" data-reveal>
+            <div class="n">100<em>%</em></div>
+            <div class="l">Financing available for upgrades</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ PROCESS ============================ -->
+    <section class="section on-band" id="process">
+      <div class="wrap">
+        <div class="section-head split">
+          <div>
+            <span class="kicker" data-reveal>Our Process</span>
+            <h2 class="section-title" data-reveal>Turnkey, from<br />audit to IoT.</h2>
+          </div>
+          <a href="#contact" class="btn btn-dark" data-reveal>Request an Audit</a>
+        </div>
+        <div class="steps" data-reveal>
+          <div class="step">
+            <span class="code">STEP-01</span>
+            <h3>Lighting Audit</h3>
+            <p>Our proprietary technology and software survey your facility fixture by fixture — no guesswork, no rough estimates.</p>
+          </div>
+          <div class="step">
+            <span class="code">STEP-02</span>
+            <h3>Savings Analysis</h3>
+            <p>A financial savings analysis calculates the retrofit's impact on your bottom line and property value before you commit a dollar.</p>
+          </div>
+          <div class="step">
+            <span class="code">STEP-03</span>
+            <h3>Codes &amp; Rebates</h3>
+            <p>We research energy conservation code requirements and maximize utility company rebates — applications handled completely by us.</p>
+          </div>
+          <div class="step">
+            <span class="code">STEP-04</span>
+            <h3>Installation</h3>
+            <p>Perfected project management and installation, delivered nationwide with minimal disruption to your operations.</p>
+          </div>
+          <div class="step">
+            <span class="code">STEP-05</span>
+            <h3>Controls &amp; IoT</h3>
+            <p>Advanced lighting controls integrate your new system with the Internet of Things — a smarter building, not just a brighter one.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ SECTORS ============================ -->
+    <section class="section" id="sectors">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="kicker" data-reveal>Who We Serve</span>
+          <h2 class="section-title" data-reveal>Built for real assets.</h2>
+          <p class="lead" data-reveal>
+            Owners and operators trust us across sectors where lighting is
+            infrastructure — where uptime, quality of light, and operating
+            cost all hit the bottom line.
+          </p>
+        </div>
+        <div class="sector-grid">
+          <div class="sector" data-reveal>
+            <div class="ph" data-label="Photo — healthcare"><img alt="Healthcare facility" /></div>
+            <div class="body">
+              <h3>Healthcare</h3>
+              <p>Uniform, improved lighting for patient and examination rooms — and safer, brighter exteriors.</p>
+            </div>
+          </div>
+          <div class="sector" data-reveal>
+            <div class="ph" data-label="Photo — industrial"><img alt="Industrial facility" /></div>
+            <div class="body">
+              <h3>Industrial</h3>
+              <p>High-bay retrofits that cut energy use while improving visibility and safety on the floor.</p>
+            </div>
+          </div>
+          <div class="sector" data-reveal>
+            <div class="ph" data-label="Photo — hospitality"><img alt="Hospitality property" /></div>
+            <div class="body">
+              <h3>Hospitality</h3>
+              <p>Warm, consistent light that elevates the guest experience and trims operating costs.</p>
+            </div>
+          </div>
+          <div class="sector" data-reveal>
+            <div class="ph" data-label="Photo — commercial RE"><img alt="Commercial real estate" /></div>
+            <div class="body">
+              <h3>Commercial Real Estate</h3>
+              <p>Retrofits that raise property value and NOI — an upgrade tenants can actually see.</p>
+            </div>
+          </div>
+        </div>
+        <p class="sector-note" data-reveal>
+          Also serving <b>REITs · educational · general contractors</b> and more
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================ CASE STUDIES ============================ -->
+    <section class="section on-dark grid-tex" id="results">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="kicker" data-reveal>The Results</span>
+          <h2 class="section-title" data-reveal>Proof, in lumens<br />and dollars.</h2>
+        </div>
+
+        <div class="case" data-reveal>
+          <div>
+            <div class="sector-tag">Healthcare · 90-Day Install</div>
+            <h3>Every light replaced at an 850,000 sqft facility.</h3>
+            <p>
+              More than 30,000 LEDs installed across the interior and exterior
+              — improving patient-room lighting, dramatically brightening
+              parking lots for security personnel, and earning the facility
+              positive press for its green efforts.
+            </p>
+          </div>
+          <div class="case-nums">
+            <div class="cn"><b>30,000+</b><span>LED fixtures installed</span></div>
+            <div class="cn"><b>50%+</b><span>Lighting energy savings</span></div>
+            <div class="cn"><b>50%</b><span>Of cost paid by utility rebate</span></div>
+          </div>
+        </div>
+
+        <div class="case warm" data-reveal>
+          <div>
+            <div class="sector-tag">Auto Dealership · 4-Week Install</div>
+            <h3>3,000 LEDs across seventeen acres of inventory.</h3>
+            <p>
+              Every inefficient light replaced in four weeks — delivering
+              enhanced color quality, uniformity, and optimized illumination.
+              Better light on the lot is one of the only cost-cutting measures
+              that can also increase vehicle sales.
+            </p>
+          </div>
+          <div class="case-nums">
+            <div class="cn"><b>3,000+</b><span>LED fixtures installed</span></div>
+            <div class="cn"><b>60%+</b><span>Energy savings</span></div>
+            <div class="cn"><b>17</b><span>Acres, fully relit</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- temp scale divider -->
+    <div class="temp-divider">
+      <div class="wrap">
+        <div class="temp-scale" data-reveal>
+          <div class="temp-bar"></div>
+          <div class="temp-marks">
+            <span>2700K · WARM</span>
+            <span>3500K</span>
+            <span><b>4000K · SPEC</b></span>
+            <span>5000K</span>
+            <span>6500K · DAYLIGHT</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================ FINANCING ============================ -->
+    <section class="section" id="financing">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="kicker" data-reveal>Financing Alternatives</span>
+          <h2 class="section-title" data-reveal>Pay for it without<br />CAPEX dollars.</h2>
+          <p class="lead" data-reveal>
+            Reluctant to fund a lighting upgrade with capital dollars? We
+            offer alternatives that can pay for 100% of the upgrade — and you
+            keep any available utility rebate.
+          </p>
+        </div>
+        <div class="fin-grid">
+          <div class="fin-card" data-reveal>
+            <div class="code">FIN-01 · PACE</div>
+            <h3>Property Assessed Clean Energy</h3>
+            <p>
+              We specialize in PACE funding — long-term financing tied to the
+              property, not the balance sheet, covering up to 100% of your
+              retrofit cost.
+            </p>
+            <a href="#contact" class="btn btn-line">Ask About PACE</a>
+          </div>
+          <div class="fin-card amber" data-reveal>
+            <div class="code">FIN-02 · LAAS</div>
+            <h3>Lumens-As-A-Service</h3>
+            <p>
+              We'll buy, install, own, and maintain your lighting system — you
+              simply pay for the light with OPEX dollars, like any other
+              utility.
+            </p>
+            <a href="#contact" class="btn btn-line">Explore LaaS</a>
+          </div>
+        </div>
+        <p class="fin-note" data-reveal>
+          Either way, <b>you keep the utility rebate</b> — and we handle the
+          application from start to finish.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================ PULL QUOTE ============================ -->
+    <section class="pull">
+      <div class="wrap">
+        <blockquote data-reveal>
+          An LED retrofit isn't a construction project. It's a
+          <em>financial investment decision.</em>
+        </blockquote>
+        <div class="attr" data-reveal>— The Next Step philosophy, since 2011</div>
+      </div>
+    </section>
+
+    <!-- ============================ FINAL CTA + FORM ============================ -->
+    <section class="final grid-tex" id="contact">
+      <div class="beam" aria-hidden="true"></div>
+      <div class="wrap final-grid">
+        <div>
+          <span class="kicker" data-reveal>Start Your Project</span>
+          <h2 data-reveal>Ready to take the <em>next step?</em></h2>
+          <p class="lead" data-reveal>
+            One resource to analyze your facility, understand the financial
+            impact, and install cutting-edge LED lighting and advanced
+            controls. Contact us today.
+          </p>
+          <p class="final-contact" data-reveal>
+            LITTLETON, COLORADO · NATIONWIDE SERVICE<br />
+            <a href="tel:303-835-9889">(303) 835-9889</a>
+          </p>
+        </div>
+        <div class="form-card" data-reveal>
+          <h3>Request Your Lighting Audit</h3>
+          <div class="f-field">
+            <label for="f-name">Name</label>
+            <input type="text" id="f-name" placeholder="Jane Smith" />
+          </div>
+          <div class="f-field">
+            <label for="f-email">Work Email</label>
+            <input type="email" id="f-email" placeholder="jane@company.com" />
+          </div>
+          <div class="f-field">
+            <label for="f-facility">Facility / Company</label>
+            <input type="text" id="f-facility" placeholder="Acme Distribution Center" />
+          </div>
+          <div class="f-field">
+            <label for="f-sector">Sector</label>
+            <select id="f-sector">
+              <option>Please select</option>
+              <option>Healthcare</option>
+              <option>Industrial</option>
+              <option>Hospitality</option>
+              <option>Commercial Real Estate</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <button class="btn btn-green">Start Your Project</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FOOTER ============================ -->
+    <footer class="footer">
+      <div class="wrap">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <span class="wordmark">Next<span class="wm-step">Step</span> Energy<span class="dot"></span></span>
+            <p>
+              Nationwide turnkey LED lighting retrofits and tech-enabled
+              energy efficiency services for owners and operators of real
+              assets.
+            </p>
+          </div>
+          <div>
+            <h4>Solutions</h4>
+            <ul>
+              <li><a href="#process">Lighting Audits</a></li>
+              <li><a href="#process">Turnkey Installation</a></li>
+              <li><a href="#financing">Financing Alternatives</a></li>
+              <li><a href="#process">Smart Controls &amp; IoT</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Contact</h4>
+            <div class="contact-line">
+              Littleton, Colorado<br />
+              <a href="tel:303-835-9889">(303) 835-9889</a><br />
+              Serving clients nationwide
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 Next Step Energy Solutions</span>
+          <span>Light, Engineered.</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      /* ---------- nav: dark over hero, lit after ---------- */
+      (function () {
+        var nav = document.getElementById("siteNav");
+        var hero = document.querySelector(".hero");
+        var onScroll = function () {
+          nav.classList.toggle("lit", window.scrollY > hero.offsetHeight - 90);
+        };
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+      })();
+
+      /* ---------- scroll reveal ---------- */
+      (function () {
+        var els = document.querySelectorAll("[data-reveal]");
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                e.target.classList.add("in");
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.1, rootMargin: "0px 0px -6% 0px" },
+        );
+        els.forEach(function (el) {
+          io.observe(el);
+        });
+      })();
+    </script>
+  </body>
+</html>

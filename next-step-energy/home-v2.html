@@ -1,0 +1,1774 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Next Step Energy Solutions — The Working Drawing</title>
+    <meta
+      name="description"
+      content="Nationwide turnkey LED lighting retrofits: audits, savings analysis, installation, utility rebates, and IoT controls. Drawn like the engineering document it deserves."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* =====================================================================
+   NEXT STEP ENERGY SOLUTIONS — HOMEPAGE V2 · "THE WORKING DRAWING"
+   Built on next-step-energy/style-guide.html · "Light, Engineered."
+   ---------------------------------------------------------------------
+   Concept: where V1 was cinematic (dark, beams, glow), V2 is the
+   engineer's document — paper-first, drawn with rules, ticks, mono
+   annotations and oversized drawing-set numerals. The showpiece is a
+   RETROFIT DIMMER: drag the slider and a drawn building facade swaps
+   its flickering legacy fixtures for steady LEDs while a live kW
+   readout falls. A savings gauge fills to 60% as you scroll the page.
+   ---------------------------------------------------------------------
+   HOW TO ADD PHOTOS: each image spot is a .ph box with a data-label.
+   Set the src on the <img> inside and the photo replaces the label.
+   ===================================================================== */
+
+      :root {
+        --green: #35c96b;
+        --green-deep: #1fa954;
+        --green-tint: #e4f8ec;
+        --green-glow: rgba(53, 201, 107, 0.4);
+        --amber: #f6a93b;
+        --amber-dim: #8a6a35;
+        --blackout: #0f1519;
+        --panel: #161d23;
+        --paper: #fafbf8;
+        --band: #f0f3ee;
+        --line: #dfe5dd;
+        --rule: #c9d2c7;
+        --ink: #131a1f;
+        --muted: #5a6660;
+
+        --font-display: "Space Grotesk", sans-serif;
+        --font-body: "IBM Plex Sans", sans-serif;
+        --font-mono: "IBM Plex Mono", monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 90px;
+      }
+
+      body {
+        font-family: var(--font-body);
+        background: var(--paper);
+        color: var(--ink);
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      ::selection {
+        background: var(--green);
+        color: var(--blackout);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .wrap {
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 0 36px;
+        position: relative;
+      }
+
+      h1, h2, h3 {
+        font-family: var(--font-display);
+        line-height: 1.02;
+        letter-spacing: -0.02em;
+      }
+
+      .mono {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .mono b {
+        color: var(--green-deep);
+        font-weight: 600;
+      }
+
+      /* ---------- image placeholder ---------- */
+      .ph {
+        position: relative;
+        background: var(--band);
+        border: 1px solid var(--line);
+        overflow: hidden;
+      }
+
+      .ph::after {
+        content: attr(data-label);
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        text-align: center;
+        font-family: var(--font-mono);
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #a9b3ac;
+      }
+
+      .ph img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: none;
+      }
+
+      .ph img[src] {
+        display: block;
+      }
+
+      /* corner registration marks on photo frames */
+      .ph.marked::before {
+        content: "";
+        position: absolute;
+        inset: 10px;
+        border: 1px dashed var(--rule);
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      /* ---------- buttons ---------- */
+      .btn {
+        display: inline-block;
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        padding: 17px 34px;
+        border: 2px solid var(--ink);
+        background: transparent;
+        color: var(--ink);
+        cursor: pointer;
+        transition: background 0.25s, color 0.25s, border-color 0.25s, box-shadow 0.3s;
+      }
+
+      .btn:hover {
+        background: var(--ink);
+        color: var(--green);
+      }
+
+      .btn.solid {
+        background: var(--green);
+        border-color: var(--green);
+        color: var(--blackout);
+      }
+
+      .btn.solid:hover {
+        background: var(--green-deep);
+        border-color: var(--green-deep);
+        color: #fff;
+        box-shadow: 0 0 26px var(--green-glow);
+      }
+
+      /* ---------- dimension-line divider ---------- */
+      .dim {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        padding: 0 36px;
+        max-width: 1240px;
+        margin: 0 auto;
+      }
+
+      .dim::before,
+      .dim::after {
+        content: "";
+        flex: 1;
+        height: 9px;
+        border-bottom: 1px solid var(--rule);
+        border-left: 1px solid var(--rule);
+        border-right: 1px solid var(--rule);
+      }
+
+      .dim span {
+        font-family: var(--font-mono);
+        font-size: 10.5px;
+        font-weight: 600;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--muted);
+        white-space: nowrap;
+        transform: translateY(4px);
+      }
+
+      .dim span b {
+        color: var(--green-deep);
+      }
+
+      /* ---------- savings gauge (fixed, desktop) ---------- */
+      .gauge {
+        position: fixed;
+        right: 26px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 60;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .gauge .track {
+        width: 5px;
+        height: 190px;
+        background: var(--line);
+        border-radius: 3px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .gauge .fill {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 0%;
+        background: linear-gradient(180deg, var(--green), var(--green-deep));
+        border-radius: 3px;
+      }
+
+      .gauge .val {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        color: var(--green-deep);
+      }
+
+      .gauge .lbl {
+        writing-mode: vertical-rl;
+        font-family: var(--font-mono);
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      /* ---------- nav ---------- */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: rgba(250, 251, 248, 0.92);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 72px;
+        gap: 24px;
+      }
+
+      .wordmark {
+        font-family: var(--font-display);
+        font-size: 17px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        color: var(--ink);
+      }
+
+      .wordmark .wm-step {
+        color: var(--green-deep);
+      }
+
+      .wordmark .dot {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--green);
+        margin-left: 6px;
+        box-shadow: 0 0 10px var(--green-glow);
+      }
+
+      .nav ul {
+        display: flex;
+        gap: 4px;
+        list-style: none;
+      }
+
+      .nav ul a {
+        font-family: var(--font-mono);
+        font-size: 10.5px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+        padding: 8px 14px;
+        border: 1px solid transparent;
+        transition: color 0.2s, border-color 0.2s;
+      }
+
+      .nav ul a:hover {
+        color: var(--green-deep);
+        border-color: var(--rule);
+      }
+
+      .nav .btn {
+        padding: 12px 24px;
+        border-width: 1.5px;
+      }
+
+      /* ---------- hero / sheet 00 ---------- */
+      .hero {
+        padding: 168px 0 90px;
+        position: relative;
+      }
+
+      .sheet-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+        border-top: 1px solid var(--ink);
+        border-bottom: 1px solid var(--rule);
+        padding: 12px 2px;
+        margin-bottom: 66px;
+      }
+
+      .hero h1 {
+        font-size: clamp(54px, 9vw, 138px);
+        font-weight: 700;
+        letter-spacing: -0.035em;
+        text-transform: uppercase;
+        max-width: 11ch;
+      }
+
+      .hero h1 .outline {
+        color: transparent;
+        -webkit-text-stroke: 2px var(--ink);
+      }
+
+      .hero h1 .lit {
+        color: var(--green-deep);
+      }
+
+      .hero-sub {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: end;
+        margin-top: 52px;
+      }
+
+      .hero-sub p {
+        font-size: 18px;
+        color: var(--muted);
+        max-width: 50ch;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      /* ---------- retrofit dimmer ---------- */
+      .dimmer {
+        margin-top: 84px;
+        border: 1px solid var(--ink);
+        background: #fff;
+      }
+
+      .dimmer-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+        padding: 16px 26px;
+        border-bottom: 1px solid var(--ink);
+      }
+
+      .dimmer-body {
+        display: grid;
+        grid-template-columns: 1.35fr 0.65fr;
+      }
+
+      .facade-wrap {
+        background: var(--blackout);
+        padding: 44px 44px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .facade {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 10px;
+        max-width: 640px;
+        margin: 0 auto;
+        border: 2px solid #2a343b;
+        border-bottom: none;
+        padding: 22px 22px 30px;
+        background: #131b21;
+      }
+
+      .facade .win {
+        aspect-ratio: 3/4;
+        background: #232c33;
+        box-shadow: inset 0 0 0 1px #2c363e;
+        transition: background 0.5s, box-shadow 0.5s;
+      }
+
+      /* legacy fixture: dim, warm, flickering */
+      .facade .win.old {
+        background: #4a3a1d;
+        box-shadow:
+          inset 0 0 0 1px #5a4826,
+          0 0 10px rgba(246, 169, 59, 0.16);
+        animation: flicker 3.2s infinite;
+      }
+
+      .facade .win.old:nth-child(3n) { animation-delay: 0.9s; }
+      .facade .win.old:nth-child(5n) { animation-delay: 1.7s; }
+      .facade .win.old:nth-child(7n) { animation-duration: 2.1s; }
+
+      @keyframes flicker {
+        0%, 100% { opacity: 1; }
+        88% { opacity: 1; }
+        90% { opacity: 0.45; }
+        92% { opacity: 1; }
+        95% { opacity: 0.7; }
+        97% { opacity: 1; }
+      }
+
+      /* LED fixture: bright, steady, cool-green */
+      .facade .win.led {
+        background: #eafff2;
+        box-shadow:
+          inset 0 0 0 1px #bfffd9,
+          0 0 16px var(--green-glow);
+        animation: none;
+      }
+
+      .facade-ground {
+        height: 12px;
+        background: #2a343b;
+        max-width: 720px;
+        margin: 0 auto;
+      }
+
+      .dimmer-panel {
+        border-left: 1px solid var(--ink);
+        padding: 38px 34px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .readout {
+        border: 1px solid var(--line);
+        background: var(--band);
+        padding: 20px 22px;
+      }
+
+      .readout .r-label {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .readout .r-val {
+        font-family: var(--font-display);
+        font-size: 44px;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+      }
+
+      .readout .r-val em {
+        font-style: normal;
+        font-size: 20px;
+        color: var(--muted);
+        letter-spacing: 0;
+      }
+
+      .readout.save .r-val {
+        color: var(--green-deep);
+      }
+
+      .slider-block label {
+        display: block;
+        font-family: var(--font-mono);
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 14px;
+      }
+
+      input[type="range"].retrofit {
+        width: 100%;
+        appearance: none;
+        -webkit-appearance: none;
+        height: 6px;
+        border-radius: 3px;
+        background: linear-gradient(90deg, var(--green) var(--pct, 0%), var(--line) var(--pct, 0%));
+        outline: none;
+        cursor: pointer;
+      }
+
+      input[type="range"].retrofit::-webkit-slider-thumb {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: var(--ink);
+        border: 3px solid var(--green);
+        box-shadow: 0 0 14px var(--green-glow);
+        cursor: grab;
+      }
+
+      input[type="range"].retrofit::-moz-range-thumb {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: var(--ink);
+        border: 3px solid var(--green);
+        box-shadow: 0 0 14px var(--green-glow);
+        cursor: grab;
+      }
+
+      .dimmer-note {
+        font-size: 13.5px;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .dimmer-note b {
+        color: var(--green-deep);
+      }
+
+      /* ---------- section scaffolding ---------- */
+      .sheet {
+        padding: 120px 0;
+        position: relative;
+      }
+
+      .sheet-num {
+        position: absolute;
+        top: 66px;
+        right: 36px;
+        font-family: var(--font-display);
+        font-size: clamp(110px, 16vw, 230px);
+        font-weight: 700;
+        line-height: 1;
+        color: transparent;
+        -webkit-text-stroke: 1.5px var(--rule);
+        pointer-events: none;
+        user-select: none;
+        z-index: 0;
+      }
+
+      .sheet-title {
+        font-size: clamp(38px, 5.4vw, 72px);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: -0.03em;
+        position: relative;
+        z-index: 1;
+        max-width: 15ch;
+      }
+
+      .sheet-title .lit {
+        color: var(--green-deep);
+      }
+
+      .sheet-kicker {
+        display: block;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--green-deep);
+        margin-bottom: 20px;
+      }
+
+      .sheet-kicker::before {
+        content: "// ";
+        color: var(--amber);
+      }
+
+      .sheet-lead {
+        font-size: 17.5px;
+        color: var(--muted);
+        max-width: 58ch;
+        margin-top: 24px;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* ---------- 01 scope: sticky split ---------- */
+      .scope-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 80px;
+        align-items: start;
+        margin-top: 20px;
+      }
+
+      .scope-left {
+        position: sticky;
+        top: 120px;
+      }
+
+      .scope-photo {
+        aspect-ratio: 4/3;
+        margin-top: 42px;
+      }
+
+      .scope-list {
+        border-top: 1px solid var(--ink);
+      }
+
+      .scope-item {
+        display: grid;
+        grid-template-columns: 88px 1fr;
+        gap: 28px;
+        padding: 34px 4px;
+        border-bottom: 1px solid var(--line);
+        transition: background 0.2s, padding-left 0.3s;
+      }
+
+      .scope-item:hover {
+        background: #fff;
+        padding-left: 14px;
+      }
+
+      .scope-item .idx {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        color: var(--green-deep);
+        padding-top: 6px;
+      }
+
+      .scope-item h3 {
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+
+      .scope-item p {
+        font-size: 14.5px;
+        color: var(--muted);
+        max-width: 52ch;
+      }
+
+      /* ---------- 02 method: circuit diagram ---------- */
+      .method {
+        background: var(--band);
+      }
+
+      .circuit {
+        margin-top: 74px;
+        position: relative;
+      }
+
+      .circuit-line {
+        position: absolute;
+        top: 27px;
+        left: 4%;
+        right: 4%;
+        border-top: 2px dashed var(--rule);
+        z-index: 0;
+      }
+
+      .circuit-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 20px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .node {
+        text-align: left;
+      }
+
+      .node .bulb {
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        border: 2px solid var(--ink);
+        background: var(--paper);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--ink);
+        margin-bottom: 22px;
+        transition: background 0.3s, color 0.3s, box-shadow 0.3s, border-color 0.3s;
+      }
+
+      .node:hover .bulb {
+        background: var(--green);
+        border-color: var(--green);
+        color: var(--blackout);
+        box-shadow: 0 0 22px var(--green-glow);
+      }
+
+      .node h3 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+
+      .node p {
+        font-size: 13.5px;
+        color: var(--muted);
+        line-height: 1.6;
+        max-width: 24ch;
+      }
+
+      /* ---------- 03 sectors: editorial ledger ---------- */
+      .sector-row {
+        display: grid;
+        grid-template-columns: 120px 1fr 0.85fr;
+        gap: 44px;
+        align-items: center;
+        padding: 54px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .sector-row:first-of-type {
+        border-top: 1px solid var(--ink);
+        margin-top: 60px;
+      }
+
+      .sector-row .big-idx {
+        font-family: var(--font-display);
+        font-size: 64px;
+        font-weight: 700;
+        color: transparent;
+        -webkit-text-stroke: 1.5px var(--rule);
+        line-height: 1;
+        transition: color 0.3s, -webkit-text-stroke-color 0.3s;
+      }
+
+      .sector-row:hover .big-idx {
+        color: var(--green);
+        -webkit-text-stroke-color: var(--green);
+      }
+
+      .sector-row h3 {
+        font-size: clamp(26px, 3vw, 40px);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: -0.02em;
+        margin-bottom: 10px;
+      }
+
+      .sector-row p {
+        font-size: 15px;
+        color: var(--muted);
+        max-width: 52ch;
+      }
+
+      .sector-row .ph {
+        aspect-ratio: 16/9;
+      }
+
+      .sector-foot {
+        padding-top: 34px;
+      }
+
+      /* ---------- 04 proof: audit ledger table ---------- */
+      .proof {
+        background: var(--blackout);
+        color: rgba(242, 246, 241, 0.75);
+      }
+
+      .proof .sheet-title {
+        color: #f2f6f1;
+      }
+
+      .proof .sheet-num {
+        -webkit-text-stroke-color: #2a343b;
+      }
+
+      .proof .sheet-lead {
+        color: rgba(242, 246, 241, 0.5);
+      }
+
+      .ledger {
+        margin-top: 70px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+      }
+
+      .ledger-row {
+        display: grid;
+        grid-template-columns: 150px 1.4fr 1fr 1fr 1fr;
+        gap: 24px;
+        align-items: center;
+        padding: 26px 28px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: background 0.25s;
+      }
+
+      .ledger-row:last-child {
+        border-bottom: none;
+      }
+
+      .ledger-row.head {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(242, 246, 241, 0.4);
+        background: var(--panel);
+        padding-top: 16px;
+        padding-bottom: 16px;
+      }
+
+      .ledger-row:not(.head):hover {
+        background: rgba(53, 201, 107, 0.07);
+      }
+
+      .ledger-row .tag {
+        font-family: var(--font-mono);
+        font-size: 10.5px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--green);
+      }
+
+      .ledger-row .tag.warm {
+        color: var(--amber);
+      }
+
+      .ledger-row .proj {
+        font-family: var(--font-display);
+        font-size: 19px;
+        font-weight: 600;
+        color: #f2f6f1;
+        line-height: 1.3;
+      }
+
+      .ledger-row .cell {
+        font-family: var(--font-mono);
+        font-size: 13px;
+        color: rgba(242, 246, 241, 0.65);
+      }
+
+      .ledger-row .cell b {
+        display: block;
+        font-family: var(--font-display);
+        font-size: 26px;
+        font-weight: 700;
+        color: var(--green);
+        letter-spacing: -0.02em;
+      }
+
+      .ledger-row .cell.warm b {
+        color: var(--amber);
+      }
+
+      .proof-note {
+        margin-top: 30px;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(242, 246, 241, 0.4);
+      }
+
+      .proof-note b {
+        color: var(--green);
+      }
+
+      /* ---------- 05 funding: ledger cards ---------- */
+      .fund-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-top: 70px;
+        border: 1px solid var(--ink);
+      }
+
+      .fund-col {
+        padding: 54px 48px;
+        position: relative;
+      }
+
+      .fund-col + .fund-col {
+        border-left: 1px solid var(--ink);
+      }
+
+      .fund-col .fin-code {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--green-deep);
+        margin-bottom: 24px;
+      }
+
+      .fund-col.amber .fin-code {
+        color: #b57415;
+      }
+
+      .fund-col h3 {
+        font-size: clamp(24px, 2.6vw, 34px);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: -0.02em;
+        margin-bottom: 16px;
+      }
+
+      .fund-col p {
+        font-size: 15px;
+        color: var(--muted);
+        max-width: 46ch;
+      }
+
+      .fund-col ul {
+        list-style: none;
+        margin: 26px 0 34px;
+        display: grid;
+        gap: 12px;
+      }
+
+      .fund-col ul li {
+        font-size: 14.5px;
+        color: var(--ink);
+        padding-left: 26px;
+        position: relative;
+      }
+
+      .fund-col ul li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--green-deep);
+        font-family: var(--font-mono);
+      }
+
+      .fund-col.amber ul li::before {
+        color: var(--amber);
+      }
+
+      .fund-strip {
+        margin-top: 0;
+        border: 1px solid var(--ink);
+        border-top: none;
+        background: var(--green-tint);
+        padding: 22px 30px;
+        text-align: center;
+        font-size: 15.5px;
+        color: var(--ink);
+      }
+
+      .fund-strip b {
+        color: var(--green-deep);
+      }
+
+      /* ---------- 06 contact: giant sign-off ---------- */
+      .signoff {
+        padding: 140px 0 110px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .signoff .sheet-num {
+        top: 80px;
+      }
+
+      .giant-link {
+        display: block;
+        font-family: var(--font-display);
+        font-size: clamp(44px, 8.4vw, 128px);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: -0.035em;
+        line-height: 1.02;
+        color: transparent;
+        -webkit-text-stroke: 2px var(--ink);
+        transition: color 0.35s, -webkit-text-stroke-color 0.35s, text-shadow 0.35s;
+        position: relative;
+        z-index: 1;
+        max-width: 12ch;
+      }
+
+      .giant-link:hover {
+        color: var(--green);
+        -webkit-text-stroke-color: var(--green);
+        text-shadow: 0 0 44px var(--green-glow);
+      }
+
+      .giant-link .arrow {
+        -webkit-text-stroke: 0;
+        color: var(--green-deep);
+      }
+
+      .signoff-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: start;
+        margin-top: 70px;
+        border-top: 1px solid var(--ink);
+        padding-top: 50px;
+      }
+
+      .signoff-contact {
+        font-family: var(--font-mono);
+        font-size: 13px;
+        letter-spacing: 0.06em;
+        line-height: 2.2;
+        color: var(--muted);
+      }
+
+      .signoff-contact a {
+        color: var(--green-deep);
+        font-weight: 600;
+      }
+
+      .signoff-contact a:hover {
+        text-decoration: underline;
+      }
+
+      /* inline audit form: one spec line */
+      .spec-form {
+        display: flex;
+        border: 2px solid var(--ink);
+      }
+
+      .spec-form input {
+        flex: 1;
+        min-width: 0;
+        font-family: var(--font-mono);
+        font-size: 14px;
+        letter-spacing: 0.04em;
+        color: var(--ink);
+        background: #fff;
+        border: none;
+        outline: none;
+        padding: 18px 20px;
+      }
+
+      .spec-form input::placeholder {
+        color: #a9b3ac;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 0.14em;
+      }
+
+      .spec-form button {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        background: var(--green);
+        color: var(--blackout);
+        border: none;
+        padding: 18px 30px;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: background 0.25s, color 0.25s;
+      }
+
+      .spec-form button:hover {
+        background: var(--green-deep);
+        color: #fff;
+      }
+
+      .spec-form-note {
+        margin-top: 14px;
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      /* ---------- footer ---------- */
+      .footer {
+        border-top: 1px solid var(--ink);
+        padding: 40px 0 46px;
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .footer .mono a:hover {
+        color: var(--green-deep);
+      }
+
+      /* ---------- scroll reveal ---------- */
+      [data-reveal] {
+        opacity: 0;
+        transform: translateY(26px);
+        transition:
+          opacity 0.9s cubic-bezier(0.16, 0.7, 0.2, 1),
+          transform 0.9s cubic-bezier(0.16, 0.7, 0.2, 1);
+      }
+
+      [data-reveal].in {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* ---------- responsive ---------- */
+      @media (max-width: 1080px) {
+        .gauge {
+          display: none;
+        }
+
+        .nav ul {
+          display: none;
+        }
+
+        .hero-sub,
+        .scope-grid,
+        .signoff-grid {
+          grid-template-columns: 1fr;
+          gap: 44px;
+        }
+
+        .hero-actions {
+          justify-content: flex-start;
+        }
+
+        .scope-left {
+          position: static;
+        }
+
+        .dimmer-body {
+          grid-template-columns: 1fr;
+        }
+
+        .dimmer-panel {
+          border-left: none;
+          border-top: 1px solid var(--ink);
+        }
+
+        .facade {
+          grid-template-columns: repeat(8, 1fr);
+        }
+
+        .circuit-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 40px 24px;
+        }
+
+        .circuit-line {
+          display: none;
+        }
+
+        .sector-row {
+          grid-template-columns: 70px 1fr;
+        }
+
+        .sector-row .ph {
+          grid-column: 1 / -1;
+        }
+
+        .sector-row .big-idx {
+          font-size: 44px;
+        }
+
+        .ledger-row {
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+        }
+
+        .ledger-row.head {
+          display: none;
+        }
+
+        .ledger-row .proj {
+          grid-column: 1 / -1;
+        }
+
+        .fund-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .fund-col + .fund-col {
+          border-left: none;
+          border-top: 1px solid var(--ink);
+        }
+      }
+
+      @media (max-width: 640px) {
+        .sheet {
+          padding: 84px 0;
+        }
+
+        .hero {
+          padding: 130px 0 70px;
+        }
+
+        .sheet-num {
+          font-size: 90px;
+          top: 40px;
+        }
+
+        .facade {
+          grid-template-columns: repeat(6, 1fr);
+          padding: 14px 14px 20px;
+          gap: 7px;
+        }
+
+        .facade-wrap {
+          padding: 26px 20px 0;
+        }
+
+        .dimmer-panel {
+          padding: 28px 22px;
+        }
+
+        .circuit-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .spec-form {
+          flex-direction: column;
+        }
+
+        .spec-form button {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ============================ SAVINGS GAUGE ============================ -->
+    <aside class="gauge" aria-hidden="true">
+      <span class="val" id="gaugeVal">0%</span>
+      <div class="track"><div class="fill" id="gaugeFill"></div></div>
+      <span class="lbl">Energy saved</span>
+    </aside>
+
+    <!-- ============================ NAV ============================ -->
+    <header class="nav">
+      <div class="wrap nav-inner">
+        <a href="#" class="wordmark">Next<span class="wm-step">Step</span> Energy<span class="dot"></span></a>
+        <ul>
+          <li><a href="#scope">01 Scope</a></li>
+          <li><a href="#method">02 Method</a></li>
+          <li><a href="#sectors">03 Sectors</a></li>
+          <li><a href="#proof">04 Proof</a></li>
+          <li><a href="#funding">05 Funding</a></li>
+        </ul>
+        <a href="#contact" class="btn solid">Start Your Project</a>
+      </div>
+    </header>
+
+    <!-- ============================ SHEET 00 · COVER ============================ -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="sheet-head mono" data-reveal>
+          <span>SHEET 00 · COVER</span>
+          <span>PROJECT: NATIONWIDE LED RETROFIT</span>
+          <span>PREPARED BY: <b>NEXT STEP ENERGY</b></span>
+          <span>EST. 2011</span>
+        </div>
+
+        <h1 data-reveal>
+          <span class="outline">Turn</span> everything
+          <span class="lit">on.</span>
+        </h1>
+
+        <div class="hero-sub">
+          <p data-reveal>
+            A nationwide turnkey LED lighting retrofit experience — audit,
+            savings analysis, utility rebates, installation, and smart
+            controls, engineered by one resource from the first fixture count
+            to the final commissioning.
+          </p>
+          <div class="hero-actions" data-reveal>
+            <a href="#contact" class="btn solid">Request an Audit</a>
+            <a href="#scope" class="btn">Read the Drawings</a>
+          </div>
+        </div>
+
+        <!-- retrofit dimmer -->
+        <div class="dimmer" data-reveal>
+          <div class="dimmer-head mono">
+            <span>FIG. 1 — <b>THE RETROFIT DIMMER</b></span>
+            <span>DRAG TO RELIGHT THE FACILITY</span>
+          </div>
+          <div class="dimmer-body">
+            <div class="facade-wrap">
+              <div class="facade" id="facade" aria-hidden="true"></div>
+              <div class="facade-ground"></div>
+            </div>
+            <div class="dimmer-panel">
+              <div class="slider-block">
+                <label for="retrofit">Retrofit progress</label>
+                <input
+                  type="range"
+                  class="retrofit"
+                  id="retrofit"
+                  min="0"
+                  max="100"
+                  value="0"
+                  aria-label="Retrofit progress"
+                />
+              </div>
+              <div class="readout">
+                <div class="r-label">Lighting load</div>
+                <div class="r-val"><span id="kwVal">100</span> <em>kW</em></div>
+              </div>
+              <div class="readout save">
+                <div class="r-label">Energy saved</div>
+                <div class="r-val"><span id="saveVal">0</span><em>%</em></div>
+              </div>
+              <p class="dimmer-note">
+                Legacy fixtures flicker, burn warm, and waste energy. Slide to
+                <b>100%</b> and watch the load fall by more than half — that's
+                a typical Next Step retrofit.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="dim"><span>SHEET 01 · <b>SCOPE OF WORK</b></span></div>
+
+    <!-- ============================ SHEET 01 · SCOPE ============================ -->
+    <section class="sheet" id="scope">
+      <span class="sheet-num">01</span>
+      <div class="wrap">
+        <div class="scope-grid">
+          <div class="scope-left">
+            <span class="sheet-kicker" data-reveal>One Resource, Start to Finish</span>
+            <h2 class="sheet-title" data-reveal>The whole job. <span class="lit">One firm.</span></h2>
+            <p class="sheet-lead" data-reveal>
+              We look at an LED lighting upgrade as more than a construction
+              project — it's a financial investment decision. Every line item
+              below is handled in-house, nationwide.
+            </p>
+            <div class="ph marked scope-photo" data-reveal data-label="Photo — audit walkthrough">
+              <img alt="Audit walkthrough" />
+            </div>
+          </div>
+          <div class="scope-list" data-reveal>
+            <div class="scope-item">
+              <span class="idx">SOW-01</span>
+              <div>
+                <h3>Proprietary Lighting Audit</h3>
+                <p>Our own technology and software survey your facility fixture by fixture. No estimates — a count.</p>
+              </div>
+            </div>
+            <div class="scope-item">
+              <span class="idx">SOW-02</span>
+              <div>
+                <h3>Financial Savings Analysis</h3>
+                <p>The retrofit's impact on your bottom line and property value, calculated before you commit a dollar.</p>
+              </div>
+            </div>
+            <div class="scope-item">
+              <span class="idx">SOW-03</span>
+              <div>
+                <h3>Code &amp; Rebate Research</h3>
+                <p>Energy conservation code compliance and maximized utility rebates — applications filed completely by us.</p>
+              </div>
+            </div>
+            <div class="scope-item">
+              <span class="idx">SOW-04</span>
+              <div>
+                <h3>Turnkey Installation</h3>
+                <p>Perfected project management and nationwide installation crews, with minimal disruption to operations.</p>
+              </div>
+            </div>
+            <div class="scope-item">
+              <span class="idx">SOW-05</span>
+              <div>
+                <h3>Controls &amp; IoT Integration</h3>
+                <p>Advanced lighting controls connect your new system to the Internet of Things. A smarter building, not just a brighter one.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="dim"><span>SHEET 02 · <b>METHOD OF OPERATION</b></span></div>
+
+    <!-- ============================ SHEET 02 · METHOD ============================ -->
+    <section class="sheet method" id="method">
+      <span class="sheet-num">02</span>
+      <div class="wrap">
+        <span class="sheet-kicker" data-reveal>The Circuit</span>
+        <h2 class="sheet-title" data-reveal>Five nodes. <span class="lit">Zero handoffs.</span></h2>
+        <p class="sheet-lead" data-reveal>
+          Most retrofits fail in the gaps between vendors. Ours runs on a
+          closed circuit — every node wired to the next, all under one roof.
+        </p>
+
+        <div class="circuit" data-reveal>
+          <div class="circuit-line" aria-hidden="true"></div>
+          <div class="circuit-grid">
+            <div class="node">
+              <div class="bulb">01</div>
+              <h3>Audit</h3>
+              <p>Fixture-by-fixture survey with proprietary software.</p>
+            </div>
+            <div class="node">
+              <div class="bulb">02</div>
+              <h3>Analyze</h3>
+              <p>Savings modeled against your bottom line and asset value.</p>
+            </div>
+            <div class="node">
+              <div class="bulb">03</div>
+              <h3>Fund</h3>
+              <p>Rebates maximized; PACE or LaaS if you'd rather not use CAPEX.</p>
+            </div>
+            <div class="node">
+              <div class="bulb">04</div>
+              <h3>Install</h3>
+              <p>Nationwide crews, tight schedules, operations undisturbed.</p>
+            </div>
+            <div class="node">
+              <div class="bulb">05</div>
+              <h3>Connect</h3>
+              <p>Controls and IoT integration keep the savings compounding.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="dim"><span>SHEET 03 · <b>SECTORS SERVED</b></span></div>
+
+    <!-- ============================ SHEET 03 · SECTORS ============================ -->
+    <section class="sheet" id="sectors">
+      <span class="sheet-num">03</span>
+      <div class="wrap">
+        <span class="sheet-kicker" data-reveal>Who We Serve</span>
+        <h2 class="sheet-title" data-reveal>Real assets, <span class="lit">relit.</span></h2>
+
+        <div class="sector-row" data-reveal>
+          <span class="big-idx">01</span>
+          <div>
+            <h3>Healthcare</h3>
+            <p>Uniform, improved lighting in patient and exam rooms; brighter, safer exteriors for staff and security.</p>
+          </div>
+          <div class="ph marked" data-label="Photo — healthcare facility"><img alt="Healthcare facility" /></div>
+        </div>
+        <div class="sector-row" data-reveal>
+          <span class="big-idx">02</span>
+          <div>
+            <h3>Industrial</h3>
+            <p>High-bay retrofits that cut energy spend while improving floor visibility and safety.</p>
+          </div>
+          <div class="ph marked" data-label="Photo — industrial high-bay"><img alt="Industrial facility" /></div>
+        </div>
+        <div class="sector-row" data-reveal>
+          <span class="big-idx">03</span>
+          <div>
+            <h3>Hospitality</h3>
+            <p>Warm, consistent light that elevates the guest experience — and trims the operating budget behind it.</p>
+          </div>
+          <div class="ph marked" data-label="Photo — hospitality property"><img alt="Hospitality property" /></div>
+        </div>
+        <div class="sector-row" data-reveal>
+          <span class="big-idx">04</span>
+          <div>
+            <h3>Commercial RE</h3>
+            <p>Retrofits that raise NOI and property value — an upgrade your tenants can actually see.</p>
+          </div>
+          <div class="ph marked" data-label="Photo — commercial real estate"><img alt="Commercial real estate" /></div>
+        </div>
+
+        <p class="sector-foot mono" data-reveal>
+          ALSO SERVING <b>REITS · EDUCATIONAL · GENERAL CONTRACTORS</b> AND MORE
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================ SHEET 04 · PROOF ============================ -->
+    <section class="sheet proof" id="proof">
+      <span class="sheet-num">04</span>
+      <div class="wrap">
+        <span class="sheet-kicker" data-reveal>Field Results</span>
+        <h2 class="sheet-title" data-reveal>The audit trail.</h2>
+        <p class="sheet-lead" data-reveal>
+          Every project closes with numbers, not adjectives. Two recent
+          entries from the ledger:
+        </p>
+
+        <div class="ledger" data-reveal>
+          <div class="ledger-row head">
+            <span>Sector</span>
+            <span>Project</span>
+            <span>Scope</span>
+            <span>Schedule</span>
+            <span>Result</span>
+          </div>
+          <div class="ledger-row">
+            <span class="tag">Healthcare</span>
+            <span class="proj">850,000 sqft facility — every light replaced, interior &amp; exterior</span>
+            <span class="cell"><b>30,000+</b>LED fixtures</span>
+            <span class="cell"><b>90</b>days</span>
+            <span class="cell"><b>50%+</b>energy saved · 50% rebated</span>
+          </div>
+          <div class="ledger-row">
+            <span class="tag warm">Auto Dealer</span>
+            <span class="proj">Seventeen acres of inventory relit in a single month</span>
+            <span class="cell warm"><b>3,000+</b>LED fixtures</span>
+            <span class="cell warm"><b>4</b>weeks</span>
+            <span class="cell warm"><b>60%+</b>energy saved</span>
+          </div>
+        </div>
+
+        <p class="proof-note" data-reveal>
+          RUNNING TOTAL: <b>100,000,000+ SQFT</b> RETROFITTED SINCE 2011
+        </p>
+      </div>
+    </section>
+
+    <div class="dim"><span>SHEET 05 · <b>FUNDING SCHEDULE</b></span></div>
+
+    <!-- ============================ SHEET 05 · FUNDING ============================ -->
+    <section class="sheet" id="funding">
+      <span class="sheet-num">05</span>
+      <div class="wrap">
+        <span class="sheet-kicker" data-reveal>Financing Alternatives</span>
+        <h2 class="sheet-title" data-reveal>Zero CAPEX <span class="lit">options.</span></h2>
+        <p class="sheet-lead" data-reveal>
+          Reluctant to fund the upgrade with capital dollars? Two schedules
+          can cover 100% of the cost — and the utility rebate stays yours.
+        </p>
+
+        <div class="fund-grid" data-reveal>
+          <div class="fund-col">
+            <div class="fin-code">FIN-01 · PACE</div>
+            <h3>Property Assessed Clean Energy</h3>
+            <p>Long-term financing tied to the property, not your balance sheet. We specialize in structuring it.</p>
+            <ul>
+              <li>Up to 100% of retrofit cost funded</li>
+              <li>Repaid through the property assessment</li>
+              <li>You keep the utility rebate</li>
+            </ul>
+            <a href="#contact" class="btn">Ask About PACE</a>
+          </div>
+          <div class="fund-col amber">
+            <div class="fin-code">FIN-02 · LAAS</div>
+            <h3>Lumens-As-A-Service</h3>
+            <p>We buy, install, own, and maintain the lighting system. You simply pay for the light.</p>
+            <ul>
+              <li>Zero capital outlay — pure OPEX</li>
+              <li>Maintenance included for the term</li>
+              <li>You keep the utility rebate</li>
+            </ul>
+            <a href="#contact" class="btn">Explore LaaS</a>
+          </div>
+        </div>
+        <div class="fund-strip" data-reveal>
+          Either schedule, <b>the rebate is yours</b> — and we file the application from start to finish.
+        </div>
+      </div>
+    </section>
+
+    <div class="dim"><span>SHEET 06 · <b>SIGN-OFF</b></span></div>
+
+    <!-- ============================ SHEET 06 · SIGN-OFF ============================ -->
+    <section class="signoff" id="contact">
+      <span class="sheet-num">06</span>
+      <div class="wrap">
+        <a href="tel:303-835-9889" class="giant-link" data-reveal>
+          Take the next step <span class="arrow">→</span>
+        </a>
+
+        <div class="signoff-grid">
+          <div data-reveal>
+            <p class="signoff-contact">
+              NEXT STEP ENERGY SOLUTIONS<br />
+              LITTLETON, COLORADO · NATIONWIDE SERVICE<br />
+              <a href="tel:303-835-9889">(303) 835-9889</a>
+            </p>
+          </div>
+          <div data-reveal>
+            <form class="spec-form" onsubmit="return false">
+              <input type="email" placeholder="Work email" aria-label="Work email" />
+              <button type="submit">Request Audit</button>
+            </form>
+            <p class="spec-form-note">
+              We'll reply with next steps for a fixture-by-fixture audit of
+              your facility. No spam, no obligation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FOOTER ============================ -->
+    <footer class="footer">
+      <div class="wrap footer-inner">
+        <span class="wordmark">Next<span class="wm-step">Step</span> Energy<span class="dot"></span></span>
+        <span class="mono">© 2026 NEXT STEP ENERGY SOLUTIONS · <b>LIGHT, ENGINEERED.</b></span>
+        <span class="mono"><a href="#scope">01</a> · <a href="#method">02</a> · <a href="#sectors">03</a> · <a href="#proof">04</a> · <a href="#funding">05</a></span>
+      </div>
+    </footer>
+
+    <script>
+      /* ---------- retrofit dimmer ---------- */
+      (function () {
+        var facade = document.getElementById("facade");
+        var slider = document.getElementById("retrofit");
+        var kwEl = document.getElementById("kwVal");
+        var saveEl = document.getElementById("saveVal");
+        var COUNT = 60;
+        var wins = [];
+
+        /* build the window grid, then scatter the lighting order so the
+           retrofit spreads across the facade instead of filling row by row */
+        var order = [];
+        for (var i = 0; i < COUNT; i++) {
+          var w = document.createElement("div");
+          w.className = "win old";
+          facade.appendChild(w);
+          wins.push(w);
+          order.push(i);
+        }
+        for (var j = order.length - 1; j > 0; j--) {
+          var k = Math.floor(Math.random() * (j + 1));
+          var t = order[j];
+          order[j] = order[k];
+          order[k] = t;
+        }
+
+        function update() {
+          var v = Number(slider.value);
+          slider.style.setProperty("--pct", v + "%");
+          var lit = Math.round((v / 100) * COUNT);
+          for (var i = 0; i < COUNT; i++) {
+            var isLed = i < lit;
+            wins[order[i]].classList.toggle("led", isLed);
+            wins[order[i]].classList.toggle("old", !isLed);
+          }
+          /* 100 kW legacy load falls to 42 kW at full retrofit (~58% saved) */
+          kwEl.textContent = Math.round(100 - v * 0.58);
+          saveEl.textContent = Math.round(v * 0.58);
+        }
+
+        slider.addEventListener("input", update);
+        update();
+
+        /* gentle attract animation on first view: sweep to 35% */
+        var teased = false;
+        var io = new IntersectionObserver(
+          function (entries) {
+            if (entries[0].isIntersecting && !teased) {
+              teased = true;
+              io.disconnect();
+              var target = 35;
+              var step = function () {
+                var v = Number(slider.value);
+                if (v < target) {
+                  slider.value = v + 1;
+                  update();
+                  requestAnimationFrame(step);
+                }
+              };
+              setTimeout(function () {
+                requestAnimationFrame(step);
+              }, 600);
+            }
+          },
+          { threshold: 0.5 },
+        );
+        io.observe(facade);
+      })();
+
+      /* ---------- scroll savings gauge (fills to 60%) ---------- */
+      (function () {
+        var fill = document.getElementById("gaugeFill");
+        var val = document.getElementById("gaugeVal");
+        var onScroll = function () {
+          var max = document.documentElement.scrollHeight - window.innerHeight;
+          var f = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
+          var pct = Math.round(f * 60);
+          fill.style.height = (pct / 60) * 100 + "%";
+          val.textContent = pct + "%";
+        };
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+      })();
+
+      /* ---------- scroll reveal ---------- */
+      (function () {
+        var els = document.querySelectorAll("[data-reveal]");
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                e.target.classList.add("in");
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.1, rootMargin: "0px 0px -6% 0px" },
+        );
+        els.forEach(function (el) {
+          io.observe(el);
+        });
+      })();
+    </script>
+  </body>
+</html>
