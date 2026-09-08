@@ -1,0 +1,1530 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Careers | Job Openings | Apply Now | Francini, Inc.</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&family=Marcellus&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* =====================================================================
+   FRANCINI · CAREERS
+   Consistent with designer-spotlight.html & trade-partners.html
+   ---------------------------------------------------------------------
+   HOW TO ADD YOUR PHOTOS:
+   Each image is a plain <img> inside a .ph placeholder box. Just set the
+   src to your file, e.g.  src="my-photo.jpg"
+   Until you add a src, the labeled placeholder box shows instead.
+   ===================================================================== */
+
+      :root {
+        --paper: #f5f2ec;
+        /* page background      */
+        --ink: #1b1916;
+        /* near-black text      */
+        --band: #ece7de;
+        /* soft section band    */
+        --gold: #9a7b53;
+        /* brand gold           */
+        --gold-lt: #c9a876;
+        /* light gold (on dark) */
+        --muted: #4d473f;
+        /* body copy            */
+        --muted-2: #7a6f62;
+        /* captions / labels    */
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 72px;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Jost", sans-serif;
+        font-weight: 300;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      ::selection {
+        background: var(--ink);
+        color: var(--paper);
+      }
+
+      a {
+        color: var(--gold);
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: var(--ink);
+      }
+
+      .serif {
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 300;
+      }
+
+      .eyebrow {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.36em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+
+      p {
+        margin: 0;
+        font-size: 16.5px;
+        line-height: 1.85;
+        color: var(--muted);
+      }
+
+      /* ---------- image placeholder ---------- */
+      .ph {
+        position: relative;
+        background: #e4ddd1;
+        overflow: hidden;
+      }
+
+      .ph::after {
+        content: attr(data-label);
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        text-align: center;
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #a89a86;
+      }
+
+      .ph img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: none;
+      }
+
+      .ph img[src] {
+        display: block;
+      }
+
+      /* shows once you add a src, hiding the label */
+
+      /* ---------- hero ---------- */
+      .hero {
+        position: relative;
+        height: 82vh;
+        min-height: 540px;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .hero .ph {
+        position: absolute;
+        inset: 0;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient(
+          180deg,
+          rgba(20, 18, 15, 0.34) 0%,
+          rgba(20, 18, 15, 0.2) 34%,
+          rgba(20, 18, 15, 0.32) 64%,
+          rgba(20, 18, 15, 0.72) 100%
+        );
+      }
+
+      .hero-content {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 20;
+        padding: 0 28px 8vh;
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+
+      .hero-content .eyebrow {
+        color: rgba(255, 255, 255, 0.86);
+        margin-bottom: 22px;
+        display: block;
+      }
+
+      .hero h1 {
+        margin: 0;
+        font-size: clamp(44px, 7vw, 104px);
+        line-height: 0.98;
+        letter-spacing: -0.01em;
+        color: #fbf9f4;
+        max-width: 15ch;
+        text-shadow: 0 2px 30px rgba(0, 0, 0, 0.25);
+      }
+
+      .hero .lede {
+        margin: 26px 0 0;
+        font-size: 16px;
+        line-height: 1.7;
+        color: rgba(251, 249, 244, 0.9);
+        max-width: 48ch;
+      }
+
+      .hero .btns {
+        margin-top: 34px;
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .scroll-cue {
+        position: absolute;
+        left: 50%;
+        bottom: 26px;
+        transform: translateX(-50%);
+        z-index: 30;
+        width: 1px;
+        height: 42px;
+        background: linear-gradient(
+          rgba(255, 255, 255, 0),
+          rgba(255, 255, 255, 0.8)
+        );
+        animation: float 2.6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(-50%, 0);
+        }
+
+        50% {
+          transform: translate(-50%, 8px);
+        }
+      }
+
+      /* ---------- intro ---------- */
+      .intro {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 120px 28px 96px;
+      }
+
+      .intro .eyebrow {
+        margin-bottom: 34px;
+        display: block;
+      }
+
+      .intro-lead {
+        margin: 0 0 56px;
+        font-size: clamp(26px, 3.4vw, 42px);
+        line-height: 1.32;
+        max-width: 26ch;
+      }
+
+      .intro-cols {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 56px;
+      }
+
+      /* ---------- band sections ---------- */
+      .bandsec {
+        background: var(--band);
+        border-top: 1px solid rgba(27, 25, 22, 0.08);
+        border-bottom: 1px solid rgba(27, 25, 22, 0.08);
+      }
+
+      .bandsec-inner {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 96px 28px;
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 72px;
+        align-items: center;
+      }
+
+      .bandsec .portrait {
+        aspect-ratio: 4/5;
+      }
+
+      .bandsec .eyebrow {
+        margin-bottom: 22px;
+        display: block;
+      }
+
+      .bandsec h2 {
+        margin: 0;
+        font-size: clamp(34px, 4.4vw, 58px);
+        line-height: 1.04;
+      }
+
+      .bandsec p {
+        margin: 30px 0 0;
+        max-width: 54ch;
+      }
+
+      .bandsec .btns {
+        margin-top: 38px;
+      }
+
+      /* ---------- values ---------- */
+      .values {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 108px 28px;
+      }
+
+      .values .head {
+        text-align: center;
+        margin-bottom: 56px;
+      }
+
+      .values .head .eyebrow {
+        margin-bottom: 16px;
+        display: block;
+      }
+
+      .values .head h2 {
+        margin: 0;
+        font-size: clamp(28px, 3.6vw, 46px);
+        line-height: 1.1;
+      }
+
+      .values-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+      }
+
+      .value-card {
+        border: 1px solid rgba(27, 25, 22, 0.14);
+        border-radius: 3px;
+        padding: 40px 32px 36px;
+        transition:
+          background 0.35s,
+          border-color 0.35s,
+          transform 0.35s;
+      }
+
+      .value-card:hover {
+        background: var(--band);
+        border-color: rgba(27, 25, 22, 0.3);
+        transform: translateY(-4px);
+      }
+
+      .value-card .num {
+        font-size: 10px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 18px;
+      }
+
+      .value-card .title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 27px;
+        font-weight: 300;
+        line-height: 1.2;
+        margin-bottom: 14px;
+      }
+
+      .value-card p {
+        font-size: 14.5px;
+        line-height: 1.75;
+      }
+
+      /* ---------- pull quote ---------- */
+      .quote {
+        background: var(--ink);
+        color: var(--paper);
+      }
+
+      .quote-inner {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 120px 28px;
+        text-align: center;
+      }
+
+      .quote blockquote {
+        margin: 0;
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 300;
+        font-style: italic;
+        font-size: clamp(26px, 3.8vw, 46px);
+        line-height: 1.32;
+      }
+
+      .quote .attr {
+        margin-top: 36px;
+        font-size: 11px;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+
+      /* ---------- benefits ---------- */
+      .benefits {
+        background: var(--band);
+        border-top: 1px solid rgba(27, 25, 22, 0.08);
+        border-bottom: 1px solid rgba(27, 25, 22, 0.08);
+      }
+
+      .benefits-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 108px 28px;
+      }
+
+      .benefits .head {
+        text-align: center;
+        margin-bottom: 56px;
+      }
+
+      .benefits .head .eyebrow {
+        margin-bottom: 16px;
+        display: block;
+      }
+
+      .benefits .head h2 {
+        margin: 0;
+        font-size: clamp(28px, 3.6vw, 46px);
+        line-height: 1.1;
+      }
+
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+      }
+
+      .benefit {
+        background: var(--paper);
+        border: 1px solid rgba(27, 25, 22, 0.1);
+        border-radius: 3px;
+        padding: 40px 32px 38px;
+      }
+
+      .benefit .num {
+        font-size: 10px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 18px;
+      }
+
+      .benefit .title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 25px;
+        font-weight: 300;
+        line-height: 1.2;
+        margin-bottom: 14px;
+      }
+
+      .benefit p {
+        font-size: 14.5px;
+        line-height: 1.75;
+      }
+
+      /* ---------- stats ---------- */
+      .specs {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 96px 28px 0;
+      }
+
+      .specs .eyebrow {
+        margin-bottom: 40px;
+        display: block;
+      }
+
+      .specs-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+      }
+
+      .specs .k {
+        font-size: 10px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 10px;
+      }
+
+      .specs .v {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(38px, 4.4vw, 60px);
+        font-weight: 300;
+        line-height: 1;
+      }
+
+      .specs .note {
+        margin-top: 14px;
+        font-size: 14.5px;
+        line-height: 1.75;
+        max-width: 34ch;
+      }
+
+      /* ---------- open roles ---------- */
+      .roles {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 108px 28px;
+      }
+
+      .roles .eyebrow {
+        margin-bottom: 22px;
+        display: block;
+      }
+
+      .roles h2 {
+        margin: 0 0 56px;
+        font-size: clamp(28px, 3.8vw, 48px);
+        line-height: 1.12;
+        max-width: 24ch;
+      }
+
+      .role {
+        border-bottom: 1px solid rgba(27, 25, 22, 0.14);
+      }
+
+      .role:first-of-type {
+        border-top: 1px solid rgba(27, 25, 22, 0.14);
+      }
+
+      .role-head {
+        width: 100%;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 28px;
+        padding: 30px 2px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        text-align: left;
+        color: var(--ink);
+        transition:
+          color 0.3s,
+          padding 0.3s;
+      }
+
+      .role-head:hover {
+        color: var(--gold);
+        padding-left: 10px;
+      }
+
+      .role-head .t {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(24px, 2.6vw, 32px);
+        font-weight: 300;
+        line-height: 1.25;
+      }
+
+      .role-head .meta {
+        flex: none;
+        display: flex;
+        align-items: baseline;
+        gap: 26px;
+      }
+
+      .role-head .d {
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--muted-2);
+      }
+
+      .role-head .plus {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 26px;
+        line-height: 1;
+        color: var(--gold);
+        transition: transform 0.35s;
+      }
+
+      .role.open .role-head .plus {
+        transform: rotate(45deg);
+      }
+
+      .role-body {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.55s cubic-bezier(0.16, 0.7, 0.2, 1);
+      }
+
+      .role-body-inner {
+        padding: 4px 2px 44px;
+      }
+
+      .role-body .sub {
+        font-size: 10px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 16px;
+      }
+
+      .role-body p {
+        margin-bottom: 18px;
+        max-width: 64ch;
+      }
+
+      .role-body ul {
+        margin: 0 0 28px;
+        padding-left: 20px;
+      }
+
+      .role-body ul li {
+        font-size: 15.5px;
+        line-height: 1.85;
+        color: var(--muted);
+        margin-bottom: 6px;
+      }
+
+      /* ---------- locations ---------- */
+      .locations {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 12px 28px 108px;
+      }
+
+      .locations .eyebrow {
+        margin-bottom: 40px;
+        display: block;
+      }
+
+      .locations-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0 64px;
+      }
+
+      .loc {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 28px;
+        padding: 22px 2px;
+        border-bottom: 1px solid rgba(27, 25, 22, 0.14);
+      }
+
+      .loc .t {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 24px;
+        font-weight: 300;
+        line-height: 1.3;
+      }
+
+      .loc .d {
+        flex: none;
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--muted-2);
+      }
+
+      .loc .d.hq {
+        color: var(--gold);
+      }
+
+      /* ---------- form ---------- */
+      .inquire {
+        background: var(--band);
+        border-top: 1px solid rgba(27, 25, 22, 0.08);
+      }
+
+      .inquire-inner {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 108px 28px 120px;
+      }
+
+      .inquire .eyebrow {
+        margin-bottom: 22px;
+        display: block;
+      }
+
+      .inquire h2 {
+        margin: 0 0 18px;
+        font-size: clamp(28px, 3.8vw, 48px);
+        line-height: 1.12;
+        max-width: 24ch;
+      }
+
+      .inquire .sub-lede {
+        margin: 0 0 56px;
+        max-width: 54ch;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px 40px;
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .field.full {
+        grid-column: 1 / -1;
+      }
+
+      .field label {
+        font-size: 10px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--muted-2);
+        margin-bottom: 10px;
+      }
+
+      .field input,
+      .field select,
+      .field textarea {
+        font-family: "Jost", sans-serif;
+        font-weight: 300;
+        font-size: 16px;
+        color: var(--ink);
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid rgba(27, 25, 22, 0.28);
+        border-radius: 0;
+        padding: 8px 2px 12px;
+        outline: none;
+        transition: border-color 0.3s;
+        resize: vertical;
+      }
+
+      .field select {
+        appearance: none;
+        -webkit-appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%239a7b53' stroke-width='1.4'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 4px center;
+        cursor: pointer;
+      }
+
+      .field input::placeholder,
+      .field textarea::placeholder {
+        color: rgba(122, 111, 98, 0.55);
+      }
+
+      .field input:focus,
+      .field select:focus,
+      .field textarea:focus {
+        border-bottom-color: var(--gold);
+      }
+
+      .field input[type="file"] {
+        border-bottom: none;
+        padding-left: 0;
+        font-size: 13px;
+        color: var(--muted-2);
+        cursor: pointer;
+      }
+
+      .field input[type="file"]::file-selector-button {
+        font-family: "Jost", sans-serif;
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--ink);
+        background: none;
+        border: 1px solid rgba(27, 25, 22, 0.3);
+        border-radius: 2px;
+        padding: 11px 20px;
+        margin-right: 16px;
+        cursor: pointer;
+        transition:
+          background 0.3s,
+          color 0.3s;
+      }
+
+      .field input[type="file"]::file-selector-button:hover {
+        background: var(--ink);
+        color: var(--paper);
+      }
+
+      .form-submit {
+        grid-column: 1 / -1;
+        margin-top: 8px;
+      }
+
+      /* ---------- buttons ---------- */
+      .btn {
+        display: inline-block;
+        padding: 15px 32px;
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        border-radius: 2px;
+        cursor: pointer;
+        transition:
+          transform 0.3s,
+          background 0.3s,
+          border-color 0.3s,
+          color 0.3s;
+      }
+
+      .btn-ink {
+        font-family: "Jost", sans-serif;
+        background: var(--ink);
+        color: var(--paper);
+        border: 1px solid var(--ink);
+      }
+
+      .btn-ink:hover {
+        background: var(--gold);
+        border-color: var(--gold);
+        color: var(--paper);
+        transform: translateY(-2px);
+      }
+
+      .btn-line {
+        font-family: "Jost", sans-serif;
+        background: none;
+        border: 1px solid rgba(27, 25, 22, 0.3);
+        color: var(--ink);
+      }
+
+      .btn-line:hover {
+        border-color: var(--ink);
+        background: var(--ink);
+        color: var(--paper);
+        transform: translateY(-2px);
+      }
+
+      .btn-solid {
+        background: var(--paper);
+        color: var(--ink);
+      }
+
+      .btn-solid:hover {
+        background: #fff;
+        color: var(--ink);
+        transform: translateY(-2px);
+      }
+
+      .btn-ghost {
+        border: 1px solid rgba(245, 242, 236, 0.4);
+        color: var(--paper);
+      }
+
+      .btn-ghost:hover {
+        border-color: var(--paper);
+        color: var(--paper);
+        background: rgba(245, 242, 236, 0.08);
+      }
+
+      /* ---------- scroll-reveal ---------- */
+      [data-reveal] {
+        opacity: 0;
+        transform: translateY(36px);
+        transition:
+          opacity 1.1s cubic-bezier(0.16, 0.7, 0.2, 1),
+          transform 1.1s cubic-bezier(0.16, 0.7, 0.2, 1);
+      }
+
+      [data-reveal="left"] {
+        transform: translateX(-32px);
+      }
+
+      [data-reveal="right"] {
+        transform: translateX(32px);
+      }
+
+      [data-reveal="scale"] {
+        transform: scale(1.045);
+      }
+
+      [data-reveal].in {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* ---------- responsive ---------- */
+      @media (max-width: 1020px) {
+        .values-grid,
+        .benefits-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .locations-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 860px) {
+        .intro-cols {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+
+        .bandsec-inner {
+          grid-template-columns: 1fr;
+          gap: 36px;
+        }
+
+        .specs-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .form-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+
+        .locations-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .role-head .meta {
+          gap: 16px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .values-grid,
+        .benefits-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .role-head .d {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ============================ HERO ============================ -->
+    <section class="hero">
+      <!-- Add your hero photo below: set src on the img, e.g. src="YOUR-IMAGE-PATH" -->
+
+      <div class="ph">
+        <img
+          alt="Careers at Francini"
+          src="https://francinimarble.com/Portals/0/Images/contact/careersheader.webp"
+        />
+      </div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <span class="eyebrow" data-reveal>Careers · Join In</span>
+        <h1 class="serif" data-reveal>Want to Join the Francini Team?</h1>
+        <p class="lede" data-reveal>
+          Francini is about opening the door to success and opportunity, to
+          inspiration and growth. We value hard work, creativity, and passion.
+        </p>
+        <div class="btns" data-reveal>
+          <a href="#roles" class="btn btn-solid">See Open Roles</a>
+          <a href="#apply" class="btn btn-ghost">Apply Now</a>
+        </div>
+      </div>
+      <div class="scroll-cue"></div>
+    </section>
+
+    <!-- ============================ LIFE AT FRANCINI ============================ -->
+    <section class="intro">
+      <span class="eyebrow" data-reveal>Life at Francini</span>
+      <p class="serif intro-lead" data-reveal>
+        You are not just another employee — you are a member of the Francini
+        family
+      </p>
+      <div class="intro-cols">
+        <p data-reveal>
+          Francini Inc. has been providing high quality materials and
+          exceptional customer service since we first opened our doors in 1994.
+          We pride ourselves in our reputation. Our employees are an extension
+          of that reputation and one of the bedrocks of our success.
+        </p>
+        <p data-reveal>
+          Why work at Francini? At Francini, you are not just another employee,
+          you are a member of the Francini Inc. family. Our President and
+          Founder, Andrea Francini's passion for natural stone and this industry
+          extends to all aspects of the company.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================ WORKING FOR FRANCINI ============================ -->
+    <section class="bandsec">
+      <div class="bandsec-inner">
+        <div
+          class="ph portrait"
+          data-reveal="left"
+          data-label="Photo — Francini team at work"
+        >
+          <img alt="Working for Francini" />
+        </div>
+        <div data-reveal="right">
+          <span class="eyebrow">Working for Francini</span>
+          <h2 class="serif">Loyalty, Earned Both Ways</h2>
+          <p>
+            Employees working for Francini Inc. are our family and are treated
+            with the utmost respect. It is what draws candidates to apply for
+            positions with our team — and also the reason for their years of
+            loyalty.
+          </p>
+          <div class="btns">
+            <a href="#apply" class="btn btn-line">Apply Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ VALUES ============================ -->
+    <section class="values">
+      <div class="head">
+        <span class="eyebrow" data-reveal>Francini's Values</span>
+        <h2 class="serif" data-reveal>What We're Built On</h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-card" data-reveal>
+          <div class="num">01</div>
+          <div class="title serif">Passion</div>
+          <p>
+            A love for natural stone and this industry that starts with our
+            founder and extends to every corner of the company.
+          </p>
+        </div>
+        <div class="value-card" data-reveal>
+          <div class="num">02</div>
+          <div class="title serif">Ambition</div>
+          <p>
+            We value hard work — and reward it. Francini is about opening the
+            door to success and opportunity.
+          </p>
+        </div>
+        <div class="value-card" data-reveal>
+          <div class="num">03</div>
+          <div class="title serif">Creativity</div>
+          <p>
+            From the yard to the showroom, we look for people who bring fresh
+            ideas and inspiration to everything they do.
+          </p>
+        </div>
+        <div class="value-card" data-reveal>
+          <div class="num">04</div>
+          <div class="title serif">Diversity</div>
+          <p>
+            Nine locations, six states, one family — built from many
+            backgrounds, perspectives, and talents.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ PULL QUOTE ============================ -->
+    <section class="quote">
+      <div class="quote-inner">
+        <blockquote data-reveal>
+          Francini is about opening the door to success and opportunity, to
+          inspiration and growth.
+        </blockquote>
+        <div class="attr" data-reveal>Francini, Inc. · Since 1994</div>
+      </div>
+    </section>
+
+    <!-- ============================ BENEFITS ============================ -->
+    <section class="benefits">
+      <div class="benefits-inner">
+        <div class="head">
+          <span class="eyebrow" data-reveal>Employee Benefits</span>
+          <h2 class="serif" data-reveal>Taken Care Of, From Day One</h2>
+        </div>
+        <div class="benefits-grid">
+          <div class="benefit" data-reveal>
+            <div class="num">01</div>
+            <div class="title serif">Paid Time Off</div>
+            <p>
+              Our employees are offered flexible Paid Time Off (PTO) for
+              vacation time plus sick leave. Vacation time accrues at a higher
+              rate as your duration with the company increases.
+            </p>
+          </div>
+          <div class="benefit" data-reveal>
+            <div class="num">02</div>
+            <div class="title serif">Medical Benefits</div>
+            <p>
+              Employees are eligible for coverage following 30 calendar days. We
+              pay 75% of employees' medical premiums and offer options for
+              dental and employees' families.
+            </p>
+          </div>
+          <div class="benefit" data-reveal>
+            <div class="num">03</div>
+            <div class="title serif">Life Insurance</div>
+            <p>We pay 100% of the employee life insurance premium.</p>
+          </div>
+          <div class="benefit" data-reveal>
+            <div class="num">04</div>
+            <div class="title serif">Retirement</div>
+            <p>
+              After one year of employment, employees are eligible to enroll in
+              our 401K Retirement Plan.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ STATS ============================ -->
+    <section class="specs">
+      <span class="eyebrow" data-reveal>Francini by the Numbers</span>
+      <div class="specs-grid" data-reveal>
+        <div>
+          <div class="k">Locations</div>
+          <div class="v">9</div>
+          <p class="note">
+            With our corporate office in Sun Valley, CA, we now have 9 locations
+            in 6 states across the United States.
+          </p>
+        </div>
+        <div>
+          <div class="k">Employees</div>
+          <div class="v">75+</div>
+          <p class="note">
+            Our employees are family, treated with the utmost respect — the
+            reason for their years of loyalty.
+          </p>
+        </div>
+        <div>
+          <div class="k">States</div>
+          <div class="v">6</div>
+          <p class="note">
+            Two locations in California, plus Idaho, Utah, three in North
+            Carolina, Colorado, and Texas.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ OPEN ROLES ============================ -->
+    <section class="roles" id="roles">
+      <span class="eyebrow" data-reveal>Job Openings</span>
+      <h2 class="serif" data-reveal>Featured Roles</h2>
+
+      <div class="role" data-reveal>
+        <button class="role-head" type="button">
+          <span class="t serif">CDL Delivery Driver</span>
+          <span class="meta">
+            <span class="d">Full-Time</span>
+            <span class="plus">+</span>
+          </span>
+        </button>
+        <div class="role-body">
+          <div class="role-body-inner">
+            <div class="sub">Duties &amp; Responsibilities</div>
+            <ul>
+              <li>
+                Safely load and unload customer orders, material transfers,
+                delivery orders, pick-ups, and returns.
+              </li>
+              <li>
+                Inspect for quality, quantity, and sizes. If a container is
+                received, verify samples are included in the correct quantity
+                and size. Update sample inventory spreadsheet.
+              </li>
+              <li>Deliver / pick up material to and from our customers.</li>
+              <li>
+                Manage routes and routines so they proceed in the most efficient
+                way possible.
+              </li>
+              <li>
+                Make sure that the customer approves the material and signs the
+                Francini paperwork.
+              </li>
+              <li>
+                This position is the last impression of the company. It is
+                imperative that our customers are left feeling satisfied. Serve
+                as a company and brand advocate in every interaction with
+                clients and the public.
+              </li>
+              <li>
+                Make and maintain good professional relationships with each
+                customer.
+              </li>
+              <li>
+                When delivering, be aware of what is in the yard and always ask
+                if they have any other needs. Every interaction is an
+                opportunity for a sale.
+              </li>
+              <li>
+                Find ways to conserve resources, including fuel, to benefit the
+                business.
+              </li>
+              <li>
+                Work as a team to ensure proper coverage is given for employee
+                breaks and lunches.
+              </li>
+              <li>
+                Conduct daily inspections of the vehicle at the beginning and
+                end of each shift and report any problems or damage to
+                management.
+              </li>
+              <li>Comply with all DOT and in-house regulations and rules.</li>
+              <li>
+                Additional duties as needed: unloading containers, transfers,
+                warehouse cleaning, and customer viewings when necessary.
+              </li>
+            </ul>
+            <a href="#apply" class="btn btn-ink">Apply for This Role</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="role" data-reveal>
+        <button class="role-head" type="button">
+          <span class="t serif">Outside Sales Representative</span>
+          <span class="meta">
+            <span class="d">Full-Time</span>
+            <span class="plus">+</span>
+          </span>
+        </button>
+        <div class="role-body">
+          <div class="role-body-inner">
+            <div class="sub">Duties &amp; Responsibilities</div>
+            <ul>
+              <li>
+                Develop and maintain business relationships with fabricators,
+                builders, remodelers and other industry-related professionals.
+              </li>
+              <li>Oversee and nurture all assigned customer accounts.</li>
+              <li>
+                Present and sell company products to current and prospective
+                clients.
+              </li>
+              <li>
+                Deliver marketing materials and ensure marketing materials that
+                customers have are up to date.
+              </li>
+              <li>Seek out new opportunities and accounts.</li>
+              <li>
+                Monitor market conditions, product innovations, and competitors'
+                products, prices, and sales.
+              </li>
+              <li>
+                Recommend marketing and sales strategies to target customers.
+              </li>
+              <li>
+                Work with Customer Sales Representatives to keep the delivery
+                calendar up to date.
+              </li>
+              <li>
+                Meet sales goals and objectives assigned by the Location Manager
+                monthly.
+              </li>
+              <li>
+                Participate in marketing events like trade shows, seminars, etc.
+                when necessary.
+              </li>
+              <li>
+                Communicate new service and product opportunities, feedback,
+                special developments, or pertinent information to management.
+              </li>
+            </ul>
+            <a href="#apply" class="btn btn-ink">Apply for This Role</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="role" data-reveal>
+        <button class="role-head" type="button">
+          <span class="t serif">Yard Personnel</span>
+          <span class="meta">
+            <span class="d">Full-Time</span>
+            <span class="plus">+</span>
+          </span>
+        </button>
+        <div class="role-body">
+          <div class="role-body-inner">
+            <p>
+              We are looking for Yard Personnel to join our team at Francini
+              Incorporated! We are Importers and Distributors of Natural and
+              Engineered Stone with a focus on offering superior Customer
+              Service and Quality Product. We are looking for driven, energetic,
+              and self-motivated individuals. Forklift experience is preferred
+              but not required.
+            </p>
+            <div class="sub">Duties &amp; Responsibilities</div>
+            <ul>
+              <li>
+                Load and unload container trucks. Load and unload materials on
+                delivery trucks scheduled for delivery.
+              </li>
+              <li>
+                Be responsible for maintaining tile and sample inventory.
+                Experience is preferred but not required.
+              </li>
+              <li>
+                Daily use of forklifts to load and unload material. Inspect for
+                general wear and tear and notify the Warehouse Manager of any
+                issues with equipment.
+              </li>
+            </ul>
+            <div class="sub">Pay</div>
+            <p>Starting at $15.00/hr+ depending on experience.</p>
+            <a href="#apply" class="btn btn-ink">Apply for This Role</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="role" data-reveal>
+        <button class="role-head" type="button">
+          <span class="t serif">Sales Manager</span>
+          <span class="meta">
+            <span class="d">Full-Time</span>
+            <span class="plus">+</span>
+          </span>
+        </button>
+        <div class="role-body">
+          <div class="role-body-inner">
+            <p>
+              We are looking for a Sales Manager to join our team! We are
+              Importers and Distributors of Natural and Engineered Stone with a
+              focus on offering superior Customer Service and Quality Product.
+              We are looking for driven, energetic, and self-motivated
+              individuals.
+            </p>
+            <div class="sub">Duties &amp; Responsibilities</div>
+            <ul>
+              <li>
+                Work together with the General Manager to issue annual and
+                monthly sales goals.
+              </li>
+              <li>
+                Monitor progress of each Sales Representative on a bi-monthly
+                basis. On a quarterly basis, give progress notes to the General
+                Manager for review.
+              </li>
+              <li>
+                Work with the Office Manager to lower monthly returns.
+                Incentivize the sales team to lower returns.
+              </li>
+              <li>
+                Oversee and nurture all Francini customer accounts and make sure
+                that their Sales Representative is taking good care of them.
+              </li>
+              <li>
+                Present and sell company products to current and prospective
+                clients.
+              </li>
+              <li>Seek out new opportunities and accounts.</li>
+              <li>
+                Participate in marketing events like trade shows, seminars, etc.
+              </li>
+              <li>
+                Coordinate with the sales team to achieve the work required in
+                closing up daily and monthly sales.
+              </li>
+              <li>
+                Develop sales strategies to increase overall branch sales and
+                customer base.
+              </li>
+              <li>
+                Develop business relationships with contractors, both commercial
+                and residential.
+              </li>
+              <li>
+                Train and provide support to all new sales employees. Show them
+                the "Francini way."
+              </li>
+              <li>
+                Communicate new service and product opportunities, feedback,
+                special developments, or pertinent information to the General
+                Manager.
+              </li>
+            </ul>
+            <a href="#apply" class="btn btn-ink">Apply for This Role</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ LOCATIONS ============================ -->
+    <section class="locations">
+      <span class="eyebrow" data-reveal>Our Locations</span>
+      <div class="locations-grid" data-reveal>
+        <div class="loc">
+          <span class="t serif">Sun Valley, CA</span>
+          <span class="d hq">Corporate Office</span>
+        </div>
+        <div class="loc">
+          <span class="t serif">Indio, CA</span>
+          <span class="d">California</span>
+        </div>
+        <div class="loc">
+          <span class="t serif">Boise, ID</span>
+          <span class="d">Idaho</span>
+        </div>
+        <div class="loc">
+          <span class="t serif">Salt Lake City, UT</span>
+          <span class="d">Utah</span>
+        </div>
+        <div class="loc">
+          <span class="t serif">Denver, CO</span>
+          <span class="d">Colorado</span>
+        </div>
+        <div class="loc">
+          <span class="t serif">Houston, TX</span>
+          <span class="d">Texas</span>
+        </div>
+        <div class="loc">
+          <span class="t serif">Kernersville, NC</span>
+          <span class="d">North Carolina</span>
+        </div>
+        <div class="loc">
+          <span class="t serif">Raleigh, NC</span>
+          <span class="d">North Carolina</span>
+        </div>
+        <div class="loc">
+          <span class="t serif">Wilmington, NC</span>
+          <span class="d">North Carolina</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ APPLY FORM ============================ -->
+    <section class="inquire" id="apply">
+      <div class="inquire-inner">
+        <span class="eyebrow" data-reveal>Apply Here</span>
+        <h2 class="serif" data-reveal>
+          Fill Out Your Application and Upload Your Resume Below
+        </h2>
+        <p class="sub-lede" data-reveal>
+          Our employees are an extension of our reputation and one of the
+          bedrocks of our success. Apply today at Francini Inc.!
+        </p>
+        <form class="form-grid" data-reveal>
+          <div class="field">
+            <label for="f-name">Name</label>
+            <input type="text" id="f-name" name="name" />
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input type="email" id="f-email" name="email" />
+          </div>
+          <div class="field">
+            <label for="f-phone">Phone</label>
+            <input type="tel" id="f-phone" name="phone" />
+          </div>
+          <div class="field">
+            <label for="f-location">Which Location Are You Applying To?</label>
+            <select id="f-location" name="location">
+              <option value="">Please select</option>
+              <option>Sun Valley, CA</option>
+              <option>Indio, CA</option>
+              <option>Salt Lake City, UT</option>
+              <option>Boise, ID</option>
+              <option>Raleigh, NC</option>
+              <option>Kernersville, NC</option>
+              <option>Wilmington, NC</option>
+              <option>Denver, CO</option>
+              <option>Houston, TX</option>
+              <option>Future Locations / Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-position">Which Position Are You Applying For?</label>
+            <select id="f-position" name="position">
+              <option value="">Please select</option>
+              <option>CDL Delivery Driver</option>
+              <option>Outside Sales Representative</option>
+              <option>Yard Personnel</option>
+              <option>Sales Manager</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-resume">Resume</label>
+            <input type="file" id="f-resume" name="resume" />
+          </div>
+          <div class="field">
+            <label for="f-cover">Cover Letter</label>
+            <input type="file" id="f-cover" name="cover-letter" />
+          </div>
+          <div class="field">
+            <label for="f-application">Application Upload</label>
+            <input type="file" id="f-application" name="application" />
+          </div>
+          <div class="field full">
+            <label for="f-messages">Messages</label>
+            <textarea id="f-messages" name="messages" rows="4"></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn btn-ink">Submit</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <script>
+      /* ---------- scroll reveal ---------- */
+      (function () {
+        var els = document.querySelectorAll("[data-reveal]");
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                e.target.classList.add("in");
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -7% 0px" },
+        );
+        els.forEach(function (el) {
+          io.observe(el);
+        });
+      })();
+
+      /* ---------- open roles accordion ---------- */
+      (function () {
+        document.querySelectorAll(".role").forEach(function (role) {
+          var head = role.querySelector(".role-head");
+          var body = role.querySelector(".role-body");
+          head.addEventListener("click", function () {
+            var isOpen = role.classList.contains("open");
+            /* close any other open role */
+            document.querySelectorAll(".role.open").forEach(function (o) {
+              o.classList.remove("open");
+              o.querySelector(".role-body").style.maxHeight = null;
+            });
+            if (!isOpen) {
+              role.classList.add("open");
+              body.style.maxHeight = body.scrollHeight + "px";
+            }
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
