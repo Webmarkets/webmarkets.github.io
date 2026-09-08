@@ -386,6 +386,158 @@
         color: var(--gold);
       }
 
+      /* ---------- google reviews ---------- */
+      .reviews {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 108px 28px;
+      }
+
+      .reviews .head {
+        text-align: center;
+        margin-bottom: 22px;
+      }
+
+      .reviews .head .eyebrow {
+        margin-bottom: 16px;
+        display: block;
+      }
+
+      .reviews .head h2 {
+        margin: 0;
+        font-size: clamp(28px, 3.6vw, 46px);
+        line-height: 1.1;
+      }
+
+      .g-badge {
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+        gap: 14px;
+        margin-bottom: 56px;
+      }
+
+      .g-badge .score {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 34px;
+        font-weight: 400;
+      }
+
+      .g-badge .stars {
+        color: var(--gold);
+        font-size: 17px;
+        letter-spacing: 4px;
+      }
+
+      .g-badge .src {
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--muted-2);
+      }
+
+      .reviews-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+
+      .review-card {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid rgba(27, 25, 22, 0.14);
+        border-radius: 3px;
+        padding: 38px 32px 34px;
+        transition:
+          background 0.35s,
+          border-color 0.35s,
+          transform 0.35s;
+      }
+
+      .review-card:hover {
+        background: var(--band);
+        border-color: rgba(27, 25, 22, 0.3);
+        transform: translateY(-4px);
+      }
+
+      .review-card .stars {
+        color: var(--gold);
+        font-size: 14px;
+        letter-spacing: 4px;
+        margin-bottom: 20px;
+      }
+
+      .review-card .quote-text {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 21px;
+        font-weight: 300;
+        font-style: italic;
+        line-height: 1.45;
+        color: var(--ink);
+        flex: 1;
+      }
+
+      .review-card .who {
+        margin-top: 26px;
+        font-size: 11px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .review-card .src {
+        margin-top: 6px;
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--muted-2);
+      }
+
+      .reviews .btns {
+        margin-top: 52px;
+        text-align: center;
+      }
+
+      /* ---------- linkedin strip ---------- */
+      .linkedin-cta {
+        background: var(--ink);
+        color: var(--paper);
+      }
+
+      .linkedin-cta-inner {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 96px 28px;
+        text-align: center;
+      }
+
+      .linkedin-cta .eyebrow {
+        color: var(--gold-lt);
+        margin-bottom: 20px;
+        display: block;
+      }
+
+      .linkedin-cta h2 {
+        margin: 0 0 18px;
+        font-size: clamp(28px, 3.8vw, 48px);
+        line-height: 1.12;
+        color: var(--paper);
+      }
+
+      .linkedin-cta p {
+        color: rgba(245, 242, 236, 0.78);
+        max-width: 52ch;
+        margin: 0 auto;
+      }
+
+      .linkedin-cta .btns {
+        margin-top: 38px;
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
       /* ---------- benefits ---------- */
       .benefits {
         background: var(--band);
@@ -610,7 +762,7 @@
       .locations {
         max-width: 1280px;
         margin: 0 auto;
-        padding: 12px 28px 108px;
+        padding: 96px 28px 108px;
       }
 
       .locations .eyebrow {
@@ -977,12 +1129,11 @@
     <!-- ============================ WORKING FOR FRANCINI ============================ -->
     <section class="bandsec">
       <div class="bandsec-inner">
-        <div
-          class="ph portrait"
-          data-reveal="left"
-          data-label="Photo — Francini team at work"
-        >
-          <img alt="Working for Francini" />
+        <div class="ph portrait" data-reveal="left">
+          <img
+            alt="Working for Francini"
+            src="https://francinimarble.com/Portals/0/Images/careers-team.jpg"
+          />
         </div>
         <div data-reveal="right">
           <span class="eyebrow">Working for Francini</span>
@@ -1050,6 +1201,62 @@
           inspiration and growth.
         </blockquote>
         <div class="attr" data-reveal>Francini, Inc. · Since 1994</div>
+      </div>
+    </section>
+
+    <!-- ============================ GOOGLE REVIEWS ============================ -->
+    <!-- PLACEHOLDER REVIEWS: swap the quotes, names, and rating below with
+         real reviews pulled from Francini's Google Business Profile. -->
+    <section class="reviews">
+      <div class="head">
+        <span class="eyebrow" data-reveal>What People Are Saying</span>
+        <h2 class="serif" data-reveal>Kind Words, Straight From Google</h2>
+      </div>
+      <div class="g-badge" data-reveal>
+        <span class="score">4.8</span>
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <span class="src">Google Reviews</span>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card" data-reveal>
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <p class="quote-text">
+            "The selection is unmatched, and the team treated our project like
+            it was their own. From the first walkthrough of the slab gallery to
+            final delivery, everything was seamless."
+          </p>
+          <div class="who">— Placeholder Name</div>
+          <div class="src">Google Review</div>
+        </div>
+        <div class="review-card" data-reveal>
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <p class="quote-text">
+            "As a fabricator, I've worked with a lot of suppliers. Francini's
+            quality and customer service are the reason we keep coming back —
+            they feel like partners, not vendors."
+          </p>
+          <div class="who">— Placeholder Name</div>
+          <div class="src">Google Review</div>
+        </div>
+        <div class="review-card" data-reveal>
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <p class="quote-text">
+            "You can tell the people here love what they do. Every visit, the
+            staff walks the yard with us, answers every question, and genuinely
+            cares about getting it right."
+          </p>
+          <div class="who">— Placeholder Name</div>
+          <div class="src">Google Review</div>
+        </div>
+      </div>
+      <div class="btns" data-reveal>
+        <a
+          href="https://www.google.com/maps/search/francini+inc"
+          target="_blank"
+          rel="noopener"
+          class="btn btn-line"
+          >Read All Reviews on Google</a
+        >
       </div>
     </section>
 
@@ -1365,6 +1572,28 @@
             </ul>
             <a href="#apply" class="btn btn-ink">Apply for This Role</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ LINKEDIN ============================ -->
+    <section class="linkedin-cta">
+      <div class="linkedin-cta-inner">
+        <span class="eyebrow" data-reveal>Life at Francini</span>
+        <h2 class="serif" data-reveal>Follow Along on LinkedIn</h2>
+        <p data-reveal>
+          Team milestones, new arrivals in the slab galleries, and a look at the
+          people behind the stone — see what the Francini family is up to.
+        </p>
+        <div class="btns" data-reveal>
+          <a
+            href="https://www.linkedin.com/company/francini-inc/home/"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-solid"
+            >Follow Francini on LinkedIn</a
+          >
+          <a href="#apply" class="btn btn-ghost">Apply Now</a>
         </div>
       </div>
     </section>
