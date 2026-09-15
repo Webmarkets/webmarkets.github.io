@@ -373,6 +373,26 @@
       color: var(--navy);
     }
 
+    /* full-bleed strip across the top of a card; negative margins match .tier-card padding */
+    .tier-banner {
+      margin: -1.6rem -1.35rem 1.25rem;
+      padding: 0.55rem 1rem;
+      border-radius: calc(var(--radius-lg) - 1px) calc(var(--radius-lg) - 1px) 0 0;
+      background: var(--gold);
+      color: var(--navy);
+      font-family: var(--font-display);
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    /* push the pill off the banner, onto the tier-label row */
+    .tier-banner~.tier-badge {
+      top: 3.05rem;
+    }
+
     .tier-label {
       font-size: 0.6rem;
       letter-spacing: 0.2em;
@@ -1112,6 +1132,7 @@
 
         <!-- COHORT -->
         <div class="tier-card">
+          <p class="tier-banner">Available Summer 2027</p>
           <span class="tier-badge">PEER LEARNING</span>
           <p class="tier-label">Tier 1</p>
           <p class="tier-name">Cohort</p>
