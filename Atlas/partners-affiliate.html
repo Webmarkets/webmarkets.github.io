@@ -1,0 +1,1288 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Affiliate Program — Agency Atlas Partner Programs</title>
+    <meta
+      name="description"
+      content="Earn a 30% recurring monthly commission for every customer you refer to Agency Atlas — for as long as they stay a paying customer."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,600&family=Archivo:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ============================================================
+   AGENCY ATLAS — PARTNER PROGRAMS · AFFILIATE
+   "THE CARTOGRAPHER'S EDITION" — built from Atlas/style-guide.html
+   ============================================================ */
+
+      :root {
+        --paper: #f6f0e1;
+        --paper-deep: #efe6d0;
+        --ink: #1e2b33;
+        --ink-soft: #46545c;
+        --vermilion: #e4572e;
+        --teal: #0f7c66;
+        --gold: #d9a441;
+        --cream: #fdfbf4;
+
+        --font-display: "Fraunces", serif;
+        --font-body: "Archivo", sans-serif;
+        --font-mono: "Space Mono", monospace;
+
+        --border: 2px solid var(--ink);
+        --shadow-hard: 5px 5px 0 var(--ink);
+        --shadow-hard-sm: 3px 3px 0 var(--ink);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 90px;
+      }
+      body {
+        font-family: var(--font-body);
+        color: var(--ink);
+        background: var(--paper);
+        -webkit-font-smoothing: antialiased;
+        line-height: 1.65;
+        overflow-x: hidden;
+      }
+      img,
+      svg {
+        display: block;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .container {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      .contours {
+        position: relative;
+      }
+      .contours::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background:
+          repeating-radial-gradient(
+            circle at 15% 20%,
+            transparent 0 46px,
+            rgba(30, 43, 51, 0.05) 46px 48px
+          ),
+          repeating-radial-gradient(
+            circle at 85% 75%,
+            transparent 0 60px,
+            rgba(30, 43, 51, 0.045) 60px 62px
+          );
+      }
+      .contours > * {
+        position: relative;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: var(--font-display);
+        line-height: 1.06;
+        letter-spacing: -0.01em;
+      }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--vermilion);
+      }
+      .eyebrow::before,
+      .eyebrow::after {
+        content: "✦";
+        font-size: 10px;
+        color: var(--ink);
+      }
+      .section-title {
+        font-size: clamp(34px, 4.8vw, 56px);
+        font-weight: 900;
+        margin: 18px 0 18px;
+      }
+      .section-title em {
+        font-style: italic;
+        font-weight: 600;
+        color: var(--vermilion);
+      }
+      .section-lead {
+        font-size: 17.5px;
+        color: var(--ink-soft);
+        max-width: 640px;
+      }
+      .coords {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        color: var(--ink-soft);
+        opacity: 0.75;
+      }
+
+      /* ------- Buttons ------- */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 15.5px;
+        letter-spacing: 0.01em;
+        padding: 16px 30px;
+        border: var(--border);
+        border-radius: 0;
+        cursor: pointer;
+        transition:
+          transform 0.15s ease,
+          box-shadow 0.15s ease;
+      }
+      .btn-ink {
+        background: var(--vermilion);
+        color: var(--cream);
+        box-shadow: var(--shadow-hard);
+      }
+      .btn-ink:hover {
+        transform: translate(2px, 2px);
+        box-shadow: 3px 3px 0 var(--ink);
+      }
+      .btn-paper {
+        background: var(--cream);
+        color: var(--ink);
+        box-shadow: var(--shadow-hard);
+      }
+      .btn-paper:hover {
+        transform: translate(2px, 2px);
+        box-shadow: 3px 3px 0 var(--ink);
+      }
+      .btn-dark-ctx {
+        border-color: var(--cream);
+        box-shadow: 5px 5px 0 rgba(253, 251, 244, 0.35);
+      }
+      .btn-dark-ctx:hover {
+        box-shadow: 3px 3px 0 rgba(253, 251, 244, 0.35);
+      }
+      .header-cta {
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 14px;
+        background: var(--ink);
+        color: var(--cream);
+        border: var(--border);
+        padding: 10px 20px;
+        box-shadow: var(--shadow-hard-sm);
+        display: inline-block;
+        transition:
+          transform 0.15s ease,
+          box-shadow 0.15s ease,
+          background 0.15s ease;
+      }
+      .header-cta:hover {
+        transform: translate(1px, 1px);
+        box-shadow: 2px 2px 0 var(--ink);
+        background: var(--vermilion);
+      }
+
+      /* ------- Header ------- */
+      .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: var(--paper);
+        border-bottom: var(--border);
+        transition: box-shadow 0.2s ease;
+      }
+      .site-header.scrolled {
+        box-shadow: 0 4px 0 rgba(30, 43, 51, 0.12);
+      }
+      .site-header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 72px;
+        gap: 20px;
+      }
+      .site-nav {
+        display: flex;
+        gap: 24px;
+        list-style: none;
+        flex-wrap: wrap;
+      }
+      .site-nav a {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        border-bottom: 2px solid transparent;
+        padding-bottom: 2px;
+        transition:
+          color 0.15s ease,
+          border-color 0.15s ease;
+      }
+      .site-nav a:hover {
+        color: var(--ink);
+        border-color: var(--vermilion);
+      }
+      .site-nav a.current {
+        color: var(--ink);
+        border-color: var(--vermilion);
+      }
+
+      /* ------- Hero ------- */
+      .hero {
+        padding: 160px 0 84px;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 0.6fr;
+        gap: 50px;
+        align-items: center;
+      }
+      .sg-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        border: var(--border);
+        background: var(--cream);
+        padding: 8px 16px;
+        margin-bottom: 30px;
+        box-shadow: var(--shadow-hard-sm);
+      }
+      .sg-kicker .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--teal);
+      }
+      .hero h1 {
+        font-size: clamp(44px, 6.2vw, 74px);
+        font-weight: 900;
+        letter-spacing: -0.02em;
+      }
+      .hero h1 em {
+        font-style: italic;
+        font-weight: 600;
+        color: var(--vermilion);
+      }
+      .hero .section-lead {
+        margin-top: 22px;
+      }
+      .hero-btns {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-top: 36px;
+      }
+      .panel-stamp {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 2px dashed var(--vermilion);
+        color: var(--vermilion);
+        display: grid;
+        place-items: center;
+        font-family: var(--font-mono);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 1.5;
+        background: var(--paper);
+        transform: rotate(12deg);
+        justify-self: center;
+      }
+      .panel-stamp b {
+        font-family: var(--font-display);
+        font-size: 40px;
+        letter-spacing: -0.02em;
+      }
+
+      /* ------- Marquee ------- */
+      .marquee {
+        background: var(--ink);
+        color: var(--paper);
+        border-top: var(--border);
+        border-bottom: var(--border);
+        padding: 16px 0;
+        overflow: hidden;
+      }
+      .marquee-track {
+        display: flex;
+        width: max-content;
+      }
+      .marquee-group {
+        flex: none;
+        display: flex;
+        align-items: center;
+        animation: marquee 40s linear infinite;
+        will-change: transform;
+      }
+      @keyframes marquee {
+        to {
+          transform: translateX(-100%);
+        }
+      }
+      .marquee span {
+        font-family: var(--font-display);
+        font-size: 20px;
+        font-weight: 600;
+        white-space: nowrap;
+        padding: 0 18px;
+        display: inline-flex;
+        align-items: center;
+        gap: 36px;
+      }
+      .marquee span i {
+        font-style: normal;
+        color: var(--gold);
+        font-size: 13px;
+      }
+      .marquee span em {
+        font-style: italic;
+        color: var(--vermilion);
+      }
+
+      /* ------- Sections ------- */
+      .section {
+        padding: 84px 0;
+      }
+      .section-alt {
+        background: var(--paper-deep);
+        border-top: var(--border);
+        border-bottom: var(--border);
+      }
+      .head-rule {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 20px;
+        border-bottom: var(--border);
+        padding-bottom: 26px;
+        margin-bottom: 56px;
+      }
+      .head-rule .section-title {
+        margin: 12px 0 0;
+      }
+      .head-rule .coords {
+        flex: none;
+      }
+
+      /* ------- Territory rows (how it works) ------- */
+      .territory-list {
+        border: var(--border);
+        background: var(--cream);
+        box-shadow: var(--shadow-hard);
+      }
+      .territory {
+        display: grid;
+        grid-template-columns: 110px 1fr 1.6fr;
+        align-items: center;
+        gap: 26px;
+        padding: 30px 34px;
+        border-bottom: var(--border);
+        transition:
+          background 0.18s ease,
+          color 0.18s ease;
+        cursor: default;
+      }
+      .territory:last-child {
+        border-bottom: none;
+      }
+      .territory .t-index {
+        font-family: var(--font-display);
+        font-size: 46px;
+        font-weight: 900;
+        font-style: italic;
+        color: transparent;
+        -webkit-text-stroke: 1.5px var(--ink);
+        transition:
+          color 0.18s ease,
+          -webkit-text-stroke-color 0.18s ease;
+      }
+      .territory h3 {
+        font-size: 24px;
+        font-weight: 900;
+      }
+      .territory p {
+        font-size: 14.5px;
+        color: var(--ink-soft);
+        transition: color 0.18s ease;
+      }
+      .territory:hover {
+        background: var(--ink);
+        color: var(--paper);
+      }
+      .territory:hover .t-index {
+        color: var(--gold);
+        -webkit-text-stroke-color: var(--gold);
+      }
+      .territory:hover p {
+        color: rgba(246, 240, 225, 0.75);
+      }
+
+      /* ------- Waypoint cards ------- */
+      .waypoint-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      .wp-card {
+        background: var(--cream);
+        border: var(--border);
+        box-shadow: var(--shadow-hard);
+        padding: 0 0 28px;
+        transition:
+          transform 0.18s ease,
+          box-shadow 0.18s ease;
+      }
+      .wp-card:hover {
+        transform: translate(-3px, -3px);
+        box-shadow: 8px 8px 0 var(--ink);
+      }
+      .wp-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: var(--border);
+        padding: 14px 20px;
+        background: var(--paper-deep);
+      }
+      .wp-code {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+      }
+      .wp-pin {
+        width: 26px;
+        height: 26px;
+        border-radius: 50% 50% 50% 0;
+        background: var(--vermilion);
+        border: 2px solid var(--ink);
+        transform: rotate(-45deg);
+        display: grid;
+        place-items: center;
+      }
+      .wp-pin i {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--cream);
+        display: block;
+      }
+      .wp-card:nth-child(2) .wp-pin {
+        background: var(--teal);
+      }
+      .wp-card:nth-child(3) .wp-pin {
+        background: var(--gold);
+      }
+      .wp-card:nth-child(4) .wp-pin {
+        background: var(--ink);
+      }
+      .wp-body {
+        padding: 24px 22px 0;
+      }
+      .wp-card h3 {
+        font-size: 24px;
+        font-weight: 900;
+        margin-bottom: 10px;
+      }
+      .wp-card p {
+        font-size: 14px;
+        color: var(--ink-soft);
+      }
+
+      /* ------- Leg tags (payout pipeline) ------- */
+      .leg {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--cream);
+        background: var(--teal);
+        border: 2px solid var(--ink);
+        display: inline-block;
+        padding: 4px 12px;
+      }
+      .leg.gold {
+        background: var(--gold);
+        color: var(--ink);
+      }
+      .leg.vermilion {
+        background: var(--vermilion);
+      }
+      .leg.ink {
+        background: var(--ink);
+      }
+      .pipeline {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 18px;
+      }
+      .pipeline .arrow {
+        font-family: var(--font-mono);
+        font-weight: 700;
+        color: var(--ink-soft);
+      }
+
+      /* ------- Stamp panel (dark stats) ------- */
+      .stamp-panel {
+        background: var(--ink);
+        border: var(--border);
+        box-shadow: var(--shadow-hard);
+        padding: 44px 40px;
+      }
+      .stamp-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .stamp {
+        position: relative;
+        border: 2px solid rgba(246, 240, 225, 0.85);
+        padding: 30px 26px 26px;
+        background: radial-gradient(
+          circle at 0 0,
+          transparent 8px,
+          rgba(246, 240, 225, 0.04) 8px
+        );
+      }
+      .stamp-num {
+        font-family: var(--font-display);
+        font-size: 46px;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+        color: var(--gold);
+      }
+      .stamp:nth-child(2) .stamp-num {
+        color: var(--vermilion);
+      }
+      .stamp:nth-child(3) .stamp-num {
+        color: var(--paper);
+      }
+      .stamp-label {
+        font-size: 13.5px;
+        color: rgba(246, 240, 225, 0.7);
+        margin-top: 4px;
+      }
+      .log-quote {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: 19px;
+        line-height: 1.5;
+        padding: 22px 26px;
+        border: 2px dashed rgba(246, 240, 225, 0.35);
+        color: var(--paper);
+        position: relative;
+        max-width: 560px;
+        margin-bottom: 34px;
+      }
+      .log-quote b {
+        color: var(--gold);
+        font-weight: 700;
+      }
+      .log-quote .quote-pin {
+        position: absolute;
+        top: -14px;
+        left: 22px;
+        font-family: var(--font-mono);
+        font-style: normal;
+        font-size: 10.5px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        background: var(--vermilion);
+        color: var(--cream);
+        padding: 4px 12px;
+        border: 2px solid var(--cream);
+      }
+
+      /* ------- Manifest checks ------- */
+      .manifest {
+        list-style: none;
+        display: grid;
+        gap: 13px;
+        max-width: 560px;
+      }
+      .manifest li {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        font-size: 15px;
+      }
+      .manifest .check {
+        flex: none;
+        width: 22px;
+        height: 22px;
+        margin-top: 2px;
+        border: 2px solid var(--ink);
+        border-radius: 50%;
+        background: var(--teal);
+        color: var(--cream);
+        display: grid;
+        place-items: center;
+        font-size: 11px;
+        font-weight: 700;
+      }
+
+      /* ------- Other routes ------- */
+      .routes-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .route-card {
+        display: block;
+        background: var(--cream);
+        border: var(--border);
+        box-shadow: var(--shadow-hard);
+        padding: 30px 28px;
+        transition:
+          transform 0.18s ease,
+          box-shadow 0.18s ease;
+      }
+      .route-card:hover {
+        transform: translate(-3px, -3px);
+        box-shadow: 8px 8px 0 var(--ink);
+      }
+      .route-card .leg {
+        margin-bottom: 18px;
+      }
+      .route-card h3 {
+        font-size: 24px;
+        font-weight: 900;
+        margin-bottom: 8px;
+      }
+      .route-card p {
+        font-size: 14.5px;
+        color: var(--ink-soft);
+      }
+      .route-card .go {
+        display: inline-block;
+        margin-top: 18px;
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--vermilion);
+      }
+
+      /* ------- Ticket CTA + form ------- */
+      .ticket {
+        position: relative;
+        background: var(--ink);
+        color: var(--paper);
+        border: var(--border);
+        box-shadow: var(--shadow-hard);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+        padding: 44px 48px;
+        overflow: hidden;
+        margin-bottom: 64px;
+      }
+      .ticket::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 220px;
+        width: 0;
+        border-left: 2px dashed rgba(246, 240, 225, 0.4);
+      }
+      .ticket::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: repeating-radial-gradient(
+          circle at 110% -30%,
+          transparent 0 42px,
+          rgba(246, 240, 225, 0.05) 42px 44px
+        );
+      }
+      .ticket h2 {
+        font-size: clamp(24px, 3vw, 34px);
+        font-weight: 900;
+        max-width: 600px;
+        position: relative;
+        z-index: 1;
+      }
+      .ticket h2 em {
+        font-style: italic;
+        font-weight: 600;
+        color: var(--gold);
+      }
+      .ticket .btn {
+        flex: none;
+        position: relative;
+        z-index: 1;
+      }
+      .ticket-meta {
+        position: absolute;
+        right: 36px;
+        top: 18px;
+        font-family: var(--font-mono);
+        font-size: 10px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: rgba(246, 240, 225, 0.5);
+        writing-mode: vertical-rl;
+      }
+
+      .apply-grid {
+        display: grid;
+        grid-template-columns: 1fr 420px;
+        gap: 56px;
+        align-items: start;
+      }
+      .form-demo {
+        border: var(--border);
+        background: var(--paper-deep);
+        box-shadow: var(--shadow-hard);
+        padding: 36px 34px;
+      }
+      .form-field {
+        margin-bottom: 16px;
+      }
+      .form-field label {
+        display: block;
+        font-family: var(--font-mono);
+        font-size: 10.5px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        margin-bottom: 7px;
+      }
+      .form-field input {
+        width: 100%;
+        font-family: var(--font-body);
+        font-size: 15px;
+        color: var(--ink);
+        background: var(--cream);
+        border: var(--border);
+        border-radius: 0;
+        padding: 13px 15px;
+        outline: none;
+        transition: box-shadow 0.15s ease;
+      }
+      .form-field input::placeholder {
+        color: rgba(70, 84, 92, 0.5);
+      }
+      .form-field input:focus {
+        box-shadow: var(--shadow-hard-sm);
+      }
+      .form-demo .btn {
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+      }
+      .bp-fine {
+        text-align: center;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--ink-soft);
+        margin-top: 16px;
+        letter-spacing: 0.04em;
+      }
+
+      /* ------- Footer ------- */
+      .site-footer {
+        background: var(--ink);
+        color: rgba(246, 240, 225, 0.75);
+        border-top: var(--border);
+        padding: 44px 0 36px;
+      }
+      .site-footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: rgba(246, 240, 225, 0.55);
+      }
+      .site-footer-inner a:hover {
+        color: var(--gold);
+      }
+
+      /* ------- Responsive ------- */
+      @media (max-width: 1020px) {
+        .site-nav {
+          display: none;
+        }
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+        .panel-stamp {
+          justify-self: start;
+        }
+        .waypoint-grid,
+        .routes-grid {
+          grid-template-columns: 1fr;
+        }
+        .territory {
+          grid-template-columns: 70px 1fr;
+        }
+        .territory p {
+          grid-column: 1 / -1;
+        }
+        .stamp-grid {
+          grid-template-columns: 1fr;
+        }
+        .ticket {
+          flex-direction: column;
+          text-align: center;
+          padding: 40px 30px;
+        }
+        .ticket::before {
+          display: none;
+        }
+        .apply-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 680px) {
+        .section {
+          padding: 60px 0;
+        }
+        .hero {
+          padding: 130px 0 60px;
+        }
+        .head-rule {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+        }
+        .territory {
+          padding: 24px 22px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ================= HEADER ================= -->
+    <header class="site-header" id="siteHeader">
+      <div class="container site-header-inner">
+        <a href="atlas-home-v3.html" class="logo">
+          <img
+            src="Agency-Atas-Horizontal-Black.webp"
+            width="200"
+            alt="Agency Atlas"
+          />
+        </a>
+        <ul class="site-nav">
+          <li><a href="partners-affiliate.html" class="current">Affiliate</a></li>
+          <li><a href="partners-agency.html">Agency</a></li>
+          <li><a href="partners-reseller.html">Reseller</a></li>
+        </ul>
+        <a href="#apply" class="header-cta">Become an Affiliate</a>
+      </div>
+    </header>
+
+    <!-- ================= HERO ================= -->
+    <section class="hero contours">
+      <div class="container hero-grid">
+        <div>
+          <div class="sg-kicker">
+            <span class="dot"></span> Partner Programs · Route 01 · Affiliate
+          </div>
+          <h1>Refer Atlas. <em>Earn every month.</em></h1>
+          <p class="section-lead">
+            Share your unique link, and earn a 30% commission on every referral
+            — recurring monthly, for as long as they stay a paying Agency Atlas
+            customer.
+          </p>
+          <div class="hero-btns">
+            <a href="#apply" class="btn btn-ink">
+              Become an Affiliate
+              <svg
+                width="17"
+                height="17"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </a>
+            <a href="#how" class="btn btn-paper">How It Works</a>
+          </div>
+        </div>
+        <div class="panel-stamp"><span><b>30%</b><br />recurring<br />commission</span></div>
+      </div>
+    </section>
+
+    <!-- ================= MARQUEE ================= -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <div class="marquee-group">
+          <span>Share <i>✦</i></span><span><em>Refer</em> <i>✦</i></span
+          ><span>Earn 30% <i>✦</i></span><span><em>Every Month</em> <i>✦</i></span>
+          <span>Share <i>✦</i></span><span><em>Refer</em> <i>✦</i></span
+          ><span>Earn 30% <i>✦</i></span><span><em>Every Month</em> <i>✦</i></span>
+          <span>Share <i>✦</i></span><span><em>Refer</em> <i>✦</i></span
+          ><span>Earn 30% <i>✦</i></span><span><em>Every Month</em> <i>✦</i></span>
+        </div>
+        <div class="marquee-group">
+          <span>Share <i>✦</i></span><span><em>Refer</em> <i>✦</i></span
+          ><span>Earn 30% <i>✦</i></span><span><em>Every Month</em> <i>✦</i></span>
+          <span>Share <i>✦</i></span><span><em>Refer</em> <i>✦</i></span
+          ><span>Earn 30% <i>✦</i></span><span><em>Every Month</em> <i>✦</i></span>
+          <span>Share <i>✦</i></span><span><em>Refer</em> <i>✦</i></span
+          ><span>Earn 30% <i>✦</i></span><span><em>Every Month</em> <i>✦</i></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= HOW IT WORKS ================= -->
+    <section class="section" id="how">
+      <div class="container">
+        <div class="head-rule">
+          <div>
+            <span class="eyebrow">The Route</span>
+            <h2 class="section-title">How It <em>Works</em></h2>
+          </div>
+          <span class="coords">3 LEGS · NO DEAD ENDS</span>
+        </div>
+        <div class="territory-list">
+          <div class="territory">
+            <span class="t-index">01</span>
+            <h3>Share Your Link</h3>
+            <p>
+              Every affiliate gets a unique tracking link. Clicks and signups
+              are attributed to you automatically — no codes to remember, no
+              manual claims.
+            </p>
+          </div>
+          <div class="territory">
+            <span class="t-index">02</span>
+            <h3>They Subscribe</h3>
+            <p>
+              Your referral becomes an Agency Atlas customer, billed directly by
+              us. You don't handle any billing, support, or onboarding.
+            </p>
+          </div>
+          <div class="territory">
+            <span class="t-index">03</span>
+            <h3>You Earn 30% Monthly</h3>
+            <p>
+              Your commission is 30% of their actual monthly payment — not a
+              flat rate — and it keeps paying for as long as they stay a
+              customer.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= WHAT YOU GET ================= -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="head-rule">
+          <div>
+            <span class="eyebrow">The Kit</span>
+            <h2 class="section-title">Your Affiliate <em>Toolkit</em></h2>
+          </div>
+          <span class="coords">WP–01 → WP–04</span>
+        </div>
+        <div class="waypoint-grid">
+          <div class="wp-card">
+            <div class="wp-head">
+              <span class="wp-code">WP–01</span>
+              <span class="wp-pin"><i></i></span>
+            </div>
+            <div class="wp-body">
+              <h3>Unique Tracking Link</h3>
+              <p>
+                One link, full attribution. Every click and signup is tracked
+                back to you from the moment someone lands on Atlas.
+              </p>
+            </div>
+          </div>
+          <div class="wp-card">
+            <div class="wp-head">
+              <span class="wp-code">WP–02</span>
+              <span class="wp-pin"><i></i></span>
+            </div>
+            <div class="wp-body">
+              <h3>Live Dashboard</h3>
+              <p>
+                See your clicks, referrals, current monthly commission, and full
+                payout history in one place — updated as it happens.
+              </p>
+            </div>
+          </div>
+          <div class="wp-card">
+            <div class="wp-head">
+              <span class="wp-code">WP–03</span>
+              <span class="wp-pin"><i></i></span>
+            </div>
+            <div class="wp-body">
+              <h3>Commissions That Track Reality</h3>
+              <p>
+                When your referral upgrades, your commission goes up. Downgrades
+                and cancellations adjust automatically — tied to each billing
+                cycle's actual payment.
+              </p>
+            </div>
+          </div>
+          <div class="wp-card">
+            <div class="wp-head">
+              <span class="wp-code">WP–04</span>
+              <span class="wp-pin"><i></i></span>
+            </div>
+            <div class="wp-body">
+              <h3>Transparent Payouts</h3>
+              <p>
+                Every payout moves through a clear status pipeline, so you
+                always know exactly where your money is.
+              </p>
+              <div class="pipeline">
+                <span class="leg gold">Pending</span>
+                <span class="arrow">→</span>
+                <span class="leg">Approved</span>
+                <span class="arrow">→</span>
+                <span class="leg vermilion">Paid</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= THE MATH ================= -->
+    <section class="section">
+      <div class="container">
+        <div class="head-rule">
+          <div>
+            <span class="eyebrow">The Log</span>
+            <h2 class="section-title">Recurring, <em>Not One-and-Done</em></h2>
+          </div>
+          <span class="coords">LOG ENTRY · № 030</span>
+        </div>
+        <div class="stamp-panel">
+          <div class="log-quote">
+            <span class="quote-pin">Log Entry № 030</span>
+            Most referral programs pay once and forget you. Atlas pays
+            <b>every month your referral pays</b> — your commission is a share
+            of their real subscription, not a fixed bounty.
+          </div>
+          <div class="stamp-grid">
+            <div class="stamp">
+              <div class="stamp-num">30%</div>
+              <div class="stamp-label">
+                Of your referral's actual monthly payment
+              </div>
+            </div>
+            <div class="stamp">
+              <div class="stamp-num">∞</div>
+              <div class="stamp-label">
+                For as long as they remain a paying customer
+              </div>
+            </div>
+            <div class="stamp">
+              <div class="stamp-num">$0</div>
+              <div class="stamp-label">
+                Cost to join — no fees, no inventory, no support burden
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= OTHER ROUTES ================= -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="head-rule">
+          <div>
+            <span class="eyebrow">Other Routes</span>
+            <h2 class="section-title">Not the Right <em>Fit?</em></h2>
+          </div>
+          <span class="coords">3 WAYS TO PARTNER</span>
+        </div>
+        <div class="routes-grid">
+          <a href="partners-agency.html" class="route-card">
+            <span class="leg">Route 02</span>
+            <h3>Agency</h3>
+            <p>
+              Use Atlas as a tool for your own clients — fully white-labeled
+              under your brand, or internally under ours.
+            </p>
+            <span class="go">Explore the Agency Tier →</span>
+          </a>
+          <a href="partners-reseller.html" class="route-card">
+            <span class="leg vermilion">Route 03</span>
+            <h3>Reseller</h3>
+            <p>
+              Buy Atlas capacity at wholesale rates and resell it to your own
+              clients at your own pricing. We're your supplier.
+            </p>
+            <span class="go">Explore the Reseller Program →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= APPLY ================= -->
+    <section class="section" id="apply">
+      <div class="container">
+        <div class="ticket">
+          <span class="ticket-meta">Admit One · Affiliate</span>
+          <h2>
+            Start earning a <em>30% recurring commission</em> on every referral
+          </h2>
+          <a href="#apply-form" class="btn btn-ink btn-dark-ctx">
+            Apply Now
+            <svg
+              width="17"
+              height="17"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="apply-grid" id="apply-form">
+          <div>
+            <span class="eyebrow">Join the Program</span>
+            <h2 class="section-title">Become an <em>Affiliate</em></h2>
+            <p class="section-lead" style="margin-bottom: 26px">
+              Tell us where you'll be sharing Atlas and we'll set you up with
+              your tracking link and dashboard access.
+            </p>
+            <ul class="manifest">
+              <li>
+                <span class="check">✓</span> Free to join — no minimums, no
+                commitments
+              </li>
+              <li>
+                <span class="check">✓</span> Commission adjusts automatically
+                with your referral's plan
+              </li>
+              <li>
+                <span class="check">✓</span> Track every click, referral, and
+                payout in your dashboard
+              </li>
+            </ul>
+          </div>
+          <div class="form-demo">
+            <div class="form-field">
+              <label for="af-name">Name</label>
+              <input type="text" id="af-name" placeholder="Jane Smith" />
+            </div>
+            <div class="form-field">
+              <label for="af-email">Email</label>
+              <input type="email" id="af-email" placeholder="jane@company.com" />
+            </div>
+            <div class="form-field">
+              <label for="af-channel">Where Will You Share Atlas?</label>
+              <input
+                type="text"
+                id="af-channel"
+                placeholder="Website, newsletter, socials…"
+              />
+            </div>
+            <a href="#" class="btn btn-ink">
+              Request My Link
+              <svg
+                width="17"
+                height="17"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </a>
+            <div class="bp-fine">
+              Payout schedule &amp; methods announced at launch.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="site-footer">
+      <img
+        src="Agency-Atas-Horizontal-White.png"
+        alt="Agency Atlas"
+        width="250"
+        style="margin: 0 auto 30px"
+      />
+      <div class="container site-footer-inner">
+        <span>© 2026 AGENCY ATLAS BY WEBMARKETS</span>
+        <span>
+          <a href="partners-affiliate.html">AFFILIATE</a> ·
+          <a href="partners-agency.html">AGENCY</a> ·
+          <a href="partners-reseller.html">RESELLER</a>
+        </span>
+      </div>
+    </footer>
+
+    <script>
+      const header = document.getElementById("siteHeader");
+      const onScroll = () =>
+        header.classList.toggle("scrolled", window.scrollY > 24);
+      window.addEventListener("scroll", onScroll);
+      onScroll();
+    </script>
+  </body>
+</html>
