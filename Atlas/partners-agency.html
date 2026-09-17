@@ -256,6 +256,36 @@
       .hero {
         padding: 160px 0 84px;
       }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 0.6fr;
+        gap: 50px;
+        align-items: center;
+      }
+      .panel-stamp {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 2px dashed var(--vermilion);
+        color: var(--vermilion);
+        display: grid;
+        place-items: center;
+        font-family: var(--font-mono);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 1.5;
+        background: var(--paper);
+        transform: rotate(12deg);
+        justify-self: center;
+      }
+      .panel-stamp b {
+        font-family: var(--font-display);
+        font-size: 40px;
+        letter-spacing: -0.02em;
+      }
       .sg-kicker {
         display: inline-flex;
         align-items: center;
@@ -296,6 +326,31 @@
         gap: 16px;
         flex-wrap: wrap;
         margin-top: 36px;
+      }
+
+      .panel-stamp {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 2px dashed var(--vermilion);
+        color: var(--vermilion);
+        display: grid;
+        place-items: center;
+        font-family: var(--font-mono);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 1.5;
+        background: var(--paper);
+        transform: rotate(12deg);
+        justify-self: center;
+      }
+      .panel-stamp b {
+        font-family: var(--font-display);
+        font-size: 40px;
+        letter-spacing: -0.02em;
       }
 
       /* ------- Sections ------- */
@@ -746,6 +801,12 @@
         .site-nav {
           display: none;
         }
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+        .panel-stamp {
+          justify-self: start;
+        }
         .paths-grid,
         .routes-grid {
           grid-template-columns: 1fr;
@@ -808,34 +869,42 @@
 
     <!-- ================= HERO ================= -->
     <section class="hero contours">
-      <div class="container">
-        <div class="sg-kicker">
-          <span class="dot"></span> Partner Programs · Route 02 · Agency
+      <div class="container hero-grid">
+        <div>
+          <div class="sg-kicker">
+            <span class="dot"></span> Partner Programs · Route 02 · Agency
+          </div>
+          <h1>Run Atlas for <em>your clients.</em></h1>
+          <p class="section-lead">
+            Agencies can use Agency Atlas two ways: fully white-labeled under
+            your own brand and domain, or internally under ours as the engine
+            behind your client work. Either way, it's your deliverable.
+          </p>
+          <div class="hero-btns">
+            <a href="#white-label" class="btn btn-ink">
+              Explore White Label
+              <svg
+                width="17"
+                height="17"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </a>
+            <a href="#internal" class="btn btn-paper">Use It Internally</a>
+          </div>
         </div>
-        <h1>Run Atlas for <em>your clients.</em></h1>
-        <p class="section-lead">
-          Agencies can use Agency Atlas two ways: fully white-labeled under your
-          own brand and domain, or internally under ours as the engine behind
-          your client work. Either way, it's your deliverable.
-        </p>
-        <div class="hero-btns">
-          <a href="#white-label" class="btn btn-ink">
-            Explore White Label
-            <svg
-              width="17"
-              height="17"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.4"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </a>
-          <a href="#internal" class="btn btn-paper">Use It Internally</a>
+        <div class="panel-stamp">
+          <span
+            ><b>Full</b><br />
+            <br />White Label</span
+          >
         </div>
       </div>
     </section>
