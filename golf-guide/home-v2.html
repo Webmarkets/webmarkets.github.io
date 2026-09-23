@@ -1,0 +1,1604 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Golf Guide — Twenty years of bringing golfers together</title>
+    <meta
+      name="description"
+      content="Join The Golf Guide for tours, competitions and some of the very best golf courses in the UK, Portugal and Spain. Membership from £9.99 a month."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* =====================================================================
+   THE GOLF GUIDE — HOMEPAGE, VERSION 2
+   Same content and structure as home.html, but softer and airier:
+   generous white space between and inside sections, rounded corners
+   on photographs, cards and bands, and soft shadows in place of most
+   hairline borders. Still no kickers, no em dashes, UK English.
+   ---------------------------------------------------------------------
+   HOW TO ADD PHOTOS: every image spot is a .ph box with a data-label.
+   Set the src on the <img> inside and the photo replaces the label.
+   ===================================================================== */
+
+      :root {
+        --turf: #1f4d3a;
+        --turf-deep: #143528;
+        --cream: #f7f4ec;
+        --white: #ffffff;
+        --ink: #21251f;
+        --stone: #6b7166;
+        --brass: #a8842c;
+        --line: #e2ddd0;
+
+        --font-serif: "Source Serif 4", Georgia, serif;
+        --font-sans: "Source Sans 3", Helvetica, Arial, sans-serif;
+
+        --radius: 16px;
+        --radius-lg: 26px;
+        --shadow-soft: 0 18px 44px -26px rgba(33, 37, 31, 0.28);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 100px;
+      }
+
+      body {
+        font-family: var(--font-sans);
+        background: var(--cream);
+        color: var(--ink);
+        line-height: 1.7;
+        font-size: 16.5px;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      ::selection {
+        background: var(--turf);
+        color: var(--cream);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 36px;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+        line-height: 1.12;
+        letter-spacing: -0.005em;
+        color: var(--ink);
+      }
+
+      /* ---------- image placeholder ---------- */
+      .ph {
+        position: relative;
+        background: #e9e4d7;
+        overflow: hidden;
+        border-radius: var(--radius);
+      }
+
+      .ph::after {
+        content: attr(data-label);
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        text-align: center;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #a49b85;
+      }
+
+      .ph img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: none;
+      }
+
+      .ph img[src] {
+        display: block;
+      }
+
+      /* ---------- buttons, links, tags ---------- */
+      .btn {
+        display: inline-block;
+        font-family: var(--font-sans);
+        font-size: 15px;
+        font-weight: 600;
+        padding: 15px 32px;
+        border-radius: 12px;
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          color 0.2s,
+          border-color 0.2s;
+      }
+
+      .btn-green {
+        background: var(--turf);
+        color: var(--white);
+      }
+
+      .btn-green:hover {
+        background: var(--turf-deep);
+      }
+
+      .btn-outline {
+        border-color: var(--turf);
+        color: var(--turf);
+        background: transparent;
+      }
+
+      .btn-outline:hover {
+        background: var(--turf);
+        color: var(--white);
+      }
+
+      .btn-cream {
+        background: var(--cream);
+        color: var(--turf-deep);
+      }
+
+      .btn-cream:hover {
+        background: var(--white);
+      }
+
+      .btn-outline-light {
+        border-color: rgba(247, 244, 236, 0.55);
+        color: var(--cream);
+        background: transparent;
+      }
+
+      .btn-outline-light:hover {
+        border-color: var(--cream);
+        background: rgba(247, 244, 236, 0.08);
+      }
+
+      .text-link {
+        font-weight: 600;
+        color: var(--turf);
+        text-decoration: underline;
+        text-decoration-color: var(--brass);
+        text-underline-offset: 4px;
+        text-decoration-thickness: 1.5px;
+      }
+
+      .text-link:hover {
+        color: var(--turf-deep);
+        text-decoration-color: var(--turf-deep);
+      }
+
+      .tag {
+        display: inline-block;
+        font-size: 12.5px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        color: var(--turf);
+        background: rgba(31, 77, 58, 0.08);
+        border-radius: 999px;
+        padding: 6px 14px;
+      }
+
+      .tag.brass {
+        color: #7c6120;
+        background: rgba(168, 132, 44, 0.14);
+      }
+
+      .tag.date {
+        color: var(--stone);
+        background: transparent;
+        border: 1px solid var(--line);
+      }
+
+      .figure-caption {
+        font-size: 13.5px;
+        color: var(--stone);
+        padding-top: 12px;
+        border-top: 1px solid var(--line);
+        max-width: 60ch;
+      }
+
+      /* ---------- header ---------- */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: var(--cream);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 86px;
+        gap: 28px;
+      }
+
+      .wordmark {
+        font-family: var(--font-serif);
+        font-weight: 700;
+        font-size: 21px;
+        color: var(--turf-deep);
+        white-space: nowrap;
+      }
+
+      .wordmark span {
+        color: var(--brass);
+      }
+
+      .site-nav {
+        display: flex;
+        gap: 28px;
+        list-style: none;
+      }
+
+      .site-nav a {
+        font-size: 14.5px;
+        font-weight: 600;
+        color: var(--stone);
+        border-bottom: 2px solid transparent;
+        padding-bottom: 3px;
+      }
+
+      .site-nav a:hover {
+        color: var(--turf);
+        border-color: var(--brass);
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        white-space: nowrap;
+      }
+
+      .header-actions .login {
+        font-size: 14.5px;
+        font-weight: 600;
+        color: var(--stone);
+      }
+
+      .header-actions .login:hover {
+        color: var(--turf);
+      }
+
+      .header-actions .btn {
+        padding: 11px 26px;
+        font-size: 14.5px;
+      }
+
+      /* ---------- hero ---------- */
+      .hero {
+        padding: 52px 0 0;
+      }
+
+      .hero-banner {
+        position: relative;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        aspect-ratio: 21/10;
+        min-height: 420px;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .hero-banner .ph {
+        position: absolute;
+        inset: 0;
+        border-radius: 0;
+      }
+
+      .hero-banner .scrim {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(20, 53, 40, 0.05) 35%,
+          rgba(20, 53, 40, 0.78) 100%
+        );
+      }
+
+      .hero-content {
+        position: absolute;
+        left: clamp(28px, 4.5vw, 60px);
+        right: clamp(28px, 4.5vw, 60px);
+        bottom: clamp(30px, 4.5vw, 56px);
+        color: var(--cream);
+      }
+
+      .hero-content h1 {
+        color: var(--cream);
+        font-size: clamp(34px, 5.2vw, 62px);
+        max-width: 17ch;
+      }
+
+      .hero-content p {
+        color: rgba(247, 244, 236, 0.88);
+        font-size: clamp(16px, 1.6vw, 19px);
+        max-width: 56ch;
+        margin-top: 16px;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+      }
+
+      .hero-caption-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+        padding: 16px 8px 0;
+      }
+
+      .hero-caption-row .figure-caption {
+        border-top: none;
+        padding-top: 0;
+      }
+
+      /* ---------- sections ---------- */
+      .section {
+        padding: 130px 0;
+      }
+
+      .section + .section {
+        padding-top: 0;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 24px;
+        flex-wrap: wrap;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 24px;
+        margin-bottom: 60px;
+      }
+
+      .section-head h2 {
+        font-size: clamp(27px, 3.4vw, 40px);
+      }
+
+      .section-head .text-link {
+        flex: none;
+      }
+
+      .standfirst {
+        font-family: var(--font-serif);
+        font-style: italic;
+        font-size: 19px;
+        color: var(--stone);
+        max-width: 62ch;
+        margin: -38px 0 56px;
+      }
+
+      /* ---------- membership ---------- */
+      .member-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.05fr;
+        gap: 84px;
+        align-items: center;
+      }
+
+      .member-photos {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+      }
+
+      .member-photos .ph.tall {
+        grid-row: span 2;
+        aspect-ratio: 3/4;
+      }
+
+      .member-photos .ph.small {
+        aspect-ratio: 4/3;
+      }
+
+      .member-copy h2 {
+        font-size: clamp(27px, 3.4vw, 40px);
+        max-width: 16ch;
+      }
+
+      .member-copy > p {
+        color: var(--stone);
+        margin-top: 20px;
+        max-width: 52ch;
+      }
+
+      .benefit-list {
+        list-style: none;
+        margin: 34px 0 8px;
+        display: grid;
+        gap: 16px;
+      }
+
+      .benefit-list li {
+        position: relative;
+        padding-left: 28px;
+        font-size: 16px;
+      }
+
+      .benefit-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 9px;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--turf);
+      }
+
+      .member-price {
+        font-family: var(--font-serif);
+        font-size: 19px;
+        margin: 28px 0 32px;
+      }
+
+      .member-price b {
+        color: var(--turf);
+        font-weight: 700;
+      }
+
+      /* ---------- events ---------- */
+      .event-row {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 26px 32px;
+        margin-bottom: 20px;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .event-row .when {
+        flex: none;
+        text-align: center;
+        border-right: 1px solid var(--line);
+        padding-right: 28px;
+        min-width: 88px;
+      }
+
+      .event-row .when .day {
+        font-family: var(--font-serif);
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 1;
+        color: var(--turf);
+      }
+
+      .event-row .when .mon {
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--stone);
+        margin-top: 4px;
+      }
+
+      .event-row .ph {
+        flex: none;
+        width: 130px;
+        aspect-ratio: 3/2;
+        border-radius: 12px;
+      }
+
+      .event-row h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      .event-row .detail {
+        font-size: 14.5px;
+        color: var(--stone);
+        margin-top: 4px;
+      }
+
+      .event-row .btn {
+        margin-left: auto;
+        flex: none;
+        padding: 11px 24px;
+        font-size: 14px;
+      }
+
+      .events-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 64px;
+        align-items: start;
+      }
+
+      .events-side .ph {
+        aspect-ratio: 4/5;
+      }
+
+      .events-side .figure-caption {
+        margin-top: 0;
+      }
+
+      /* ---------- courses ---------- */
+      .course-layout {
+        display: grid;
+        grid-template-columns: 1fr 350px;
+        gap: 64px;
+        align-items: start;
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+
+      .course-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow-soft);
+        transition:
+          box-shadow 0.25s,
+          transform 0.25s;
+      }
+
+      .course-card:hover {
+        box-shadow: 0 26px 50px -24px rgba(33, 37, 31, 0.38);
+        transform: translateY(-4px);
+      }
+
+      .course-card .ph {
+        aspect-ratio: 3/2;
+        border-radius: 0;
+      }
+
+      .course-card .body {
+        padding: 24px 26px 30px;
+      }
+
+      .course-card h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      .course-card .loc {
+        font-size: 14px;
+        color: var(--stone);
+        margin-top: 4px;
+      }
+
+      .course-card .desc {
+        font-size: 14.5px;
+        color: var(--stone);
+        margin-top: 12px;
+      }
+
+      .rank-list {
+        background: var(--white);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-soft);
+        overflow: hidden;
+      }
+
+      .rank-list .list-title {
+        font-family: var(--font-serif);
+        font-size: 19px;
+        font-weight: 600;
+        padding: 22px 28px;
+        border-bottom: 1px solid var(--line);
+        background: var(--cream);
+      }
+
+      .rank-row {
+        display: flex;
+        align-items: baseline;
+        gap: 18px;
+        padding: 20px 28px;
+        border-bottom: 1px solid var(--line);
+        transition: background 0.2s;
+      }
+
+      .rank-row:last-child {
+        border-bottom: none;
+      }
+
+      .rank-row:hover {
+        background: var(--cream);
+      }
+
+      .rank-row .n {
+        font-family: var(--font-serif);
+        font-size: 23px;
+        font-weight: 700;
+        color: var(--brass);
+        min-width: 28px;
+      }
+
+      .rank-row h3 {
+        font-size: 17px;
+        font-weight: 600;
+      }
+
+      .rank-row .where {
+        font-size: 13px;
+        color: var(--stone);
+        display: block;
+      }
+
+      .rank-foot {
+        padding: 18px 28px;
+        border-top: 1px solid var(--line);
+        background: var(--cream);
+        font-size: 14px;
+        color: var(--stone);
+      }
+
+      /* ---------- postcards strip ---------- */
+      .postcards {
+        background: var(--white);
+        padding: 120px 0;
+      }
+
+      .postcards h2 {
+        font-size: clamp(27px, 3.4vw, 40px);
+      }
+
+      .postcards .standfirst {
+        margin: 14px 0 52px;
+      }
+
+      .postcard-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 26px;
+      }
+
+      .postcard .ph {
+        aspect-ratio: 4/5;
+      }
+
+      .postcard .figure-caption {
+        border-top: none;
+        padding-top: 12px;
+      }
+
+      /* ---------- partners ---------- */
+      .partner-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+
+      /* ---------- magazine ---------- */
+      .magazine {
+        background: var(--turf-deep);
+        border-radius: var(--radius-lg);
+        margin: 0 auto;
+        max-width: calc(1200px - 72px + 120px);
+        padding: 100px 60px;
+      }
+
+      .magazine-wrap {
+        padding: 0 36px;
+      }
+
+      .magazine-grid {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 72px;
+        align-items: center;
+        max-width: 1024px;
+        margin: 0 auto;
+      }
+
+      .magazine .cover {
+        aspect-ratio: 3/4;
+        max-width: 380px;
+        border-radius: var(--radius);
+        box-shadow: 0 34px 64px -30px rgba(0, 0, 0, 0.6);
+      }
+
+      .magazine h2 {
+        color: var(--cream);
+        font-size: clamp(27px, 3.6vw, 44px);
+        max-width: 16ch;
+      }
+
+      .magazine p {
+        color: rgba(247, 244, 236, 0.78);
+        margin-top: 20px;
+        max-width: 52ch;
+      }
+
+      .magazine .issue-line {
+        font-family: var(--font-serif);
+        font-style: italic;
+        color: rgba(247, 244, 236, 0.65);
+        font-size: 16px;
+        margin-top: 30px;
+      }
+
+      .magazine .actions {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 34px;
+      }
+
+      /* ---------- news ---------- */
+      .news-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 72px;
+      }
+
+      .article-row {
+        display: grid;
+        grid-template-columns: 190px 1fr;
+        gap: 26px;
+        align-items: center;
+        padding: 32px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .article-row .ph {
+        aspect-ratio: 3/2;
+        border-radius: 14px;
+      }
+
+      .article-row h3 {
+        font-size: 19px;
+        font-weight: 600;
+        line-height: 1.3;
+      }
+
+      .article-row h3 a:hover {
+        color: var(--turf);
+      }
+
+      .article-row .byline {
+        font-size: 13.5px;
+        color: var(--stone);
+        margin-top: 10px;
+      }
+
+      /* ---------- newsletter ---------- */
+      .news-band-wrap {
+        padding: 130px 0;
+      }
+
+      .news-band {
+        background: var(--turf-deep);
+        border-radius: var(--radius-lg);
+        padding: 64px 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 44px;
+        flex-wrap: wrap;
+      }
+
+      .news-band h2 {
+        color: var(--cream);
+        font-size: clamp(24px, 3vw, 32px);
+        max-width: 18ch;
+      }
+
+      .news-band p {
+        color: rgba(247, 244, 236, 0.75);
+        font-size: 15px;
+        margin-top: 10px;
+        max-width: 44ch;
+      }
+
+      .news-form {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .news-form input {
+        font-family: var(--font-sans);
+        font-size: 15px;
+        color: var(--ink);
+        background: var(--cream);
+        border: none;
+        border-radius: 12px;
+        padding: 15px 20px;
+        min-width: 280px;
+        outline: none;
+      }
+
+      .news-form input:focus {
+        box-shadow: 0 0 0 3px rgba(168, 132, 44, 0.45);
+      }
+
+      /* ---------- footer ---------- */
+      .site-footer {
+        background: var(--turf-deep);
+        color: rgba(247, 244, 236, 0.72);
+        padding: 84px 0 40px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr 1fr;
+        gap: 52px;
+        padding-bottom: 52px;
+      }
+
+      .site-footer .wordmark {
+        color: var(--cream);
+      }
+
+      .site-footer .brand p {
+        font-size: 14.5px;
+        margin-top: 16px;
+        max-width: 34ch;
+      }
+
+      .site-footer h4 {
+        color: var(--cream);
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 16px;
+      }
+
+      .site-footer ul {
+        list-style: none;
+        display: grid;
+        gap: 10px;
+      }
+
+      .site-footer ul a {
+        font-size: 14.5px;
+      }
+
+      .site-footer ul a:hover {
+        color: var(--cream);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(247, 244, 236, 0.18);
+        padding-top: 26px;
+        font-size: 13px;
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      /* ---------- responsive ---------- */
+      @media (max-width: 980px) {
+        .site-nav {
+          display: none;
+        }
+
+        .hero-banner {
+          aspect-ratio: auto;
+          min-height: 480px;
+        }
+
+        .member-grid,
+        .events-grid,
+        .magazine-grid {
+          grid-template-columns: 1fr;
+          gap: 48px;
+        }
+
+        .course-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .postcard-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .partner-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .news-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .magazine {
+          padding: 80px 40px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .section {
+          padding: 84px 0;
+        }
+
+        .postcards {
+          padding: 84px 0;
+        }
+
+        .news-band-wrap {
+          padding: 84px 0;
+        }
+
+        .header-actions .login {
+          display: none;
+        }
+
+        .card-grid,
+        .partner-grid,
+        .postcard-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .event-row {
+          flex-wrap: wrap;
+        }
+
+        .event-row .ph {
+          display: none;
+        }
+
+        .event-row .btn {
+          margin-left: 0;
+          width: 100%;
+          text-align: center;
+        }
+
+        .article-row {
+          grid-template-columns: 1fr;
+        }
+
+        .magazine-wrap {
+          padding: 0 20px;
+        }
+
+        .magazine {
+          padding: 64px 28px;
+        }
+
+        .news-band {
+          padding: 44px 30px;
+        }
+
+        .news-form input {
+          min-width: 0;
+          width: 100%;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ============================ HEADER ============================ -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="#" class="wordmark">The Golf Guide<span>.</span></a>
+        <ul class="site-nav">
+          <li><a href="#benefits">Benefits</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#courses">Golf clubs</a></li>
+          <li><a href="#partners">Partners</a></li>
+          <li><a href="#magazine">Magazine</a></li>
+          <li><a href="#news">News</a></li>
+        </ul>
+        <div class="header-actions">
+          <a href="#" class="login">Members login</a>
+          <a href="#benefits" class="btn btn-green">Join</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================ HERO ============================ -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-banner">
+          <div class="ph">
+            <img
+              alt="Members teeing off at dawn on a links course"
+              src="images/course-1.jpg"
+            />
+          </div>
+          <div class="scrim"></div>
+          <div class="hero-content">
+            <h1>Twenty years of bringing golfers together</h1>
+            <p>
+              Tours, competitions and some of the very best golf courses in the
+              UK, Portugal and Spain. Join thousands of members who love
+              discovering new courses, exclusive events and great golfing
+              benefits.
+            </p>
+            <div class="hero-actions">
+              <a href="#benefits" class="btn btn-cream">Join The Golf Guide</a>
+              <a href="#events" class="btn btn-outline-light"
+                >See this year's events</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="hero-caption-row">
+          <span class="figure-caption">
+            The 4th at sunrise, photographed on last season's members tour.
+          </span>
+          <span class="figure-caption"
+            >Established 2006 · UK, Portugal &amp; Spain</span
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ MEMBERSHIP ============================ -->
+    <section class="section" id="benefits" style="padding-top: 130px">
+      <div class="container member-grid">
+        <div class="member-copy">
+          <h2>What you get as a member</h2>
+          <p>
+            Membership is built around playing more golf with better company.
+            Everything below is included from the day you join.
+          </p>
+          <ul class="benefit-list">
+            <li>Priority access to golf events and experiences</li>
+            <li>
+              Over £100 RRP of free Golf Guide merchandise with your first tour
+              event
+            </li>
+            <li>Monthly prize draws</li>
+            <li>Discounts and exclusive offers from our partners</li>
+            <li>Access to our community WhatsApp group</li>
+          </ul>
+          <p class="member-price">
+            From <b>£9.99 a month</b>, or £220 for the year.
+          </p>
+          <a href="#" class="btn btn-green">Join today</a>
+        </div>
+        <div class="member-photos">
+          <div class="ph tall">
+            <img
+              alt="Members group on the 18th green"
+              src="images/course-2.jpg"
+            />
+          </div>
+          <div class="ph small">
+            <img alt="Trophy presentation" src="images/course-3.jpg" />
+          </div>
+          <div class="ph small">
+            <img alt="Clubhouse dinner" src="images/course-1.jpg" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ EVENTS ============================ -->
+    <section class="section" id="events">
+      <div class="container">
+        <div class="section-head">
+          <h2>Tour dates and competitions</h2>
+          <a href="#" class="text-link">View all events</a>
+        </div>
+        <div class="events-grid">
+          <div>
+            <div class="event-row">
+              <div class="when">
+                <div class="day">3</div>
+                <div class="mon">Oct 26</div>
+              </div>
+              <div class="ph" data-label="Photo"><img alt="Mauritius" /></div>
+              <div>
+                <h3>2026 Golf Guide Event, Mauritius Masters</h3>
+                <p class="detail">
+                  After the resounding success of the 2023 tour, we return to
+                  Mauritius for seven nights and four rounds.
+                </p>
+              </div>
+              <a href="#" class="btn btn-outline">Details</a>
+            </div>
+            <div class="event-row">
+              <div class="when">
+                <div class="day">26</div>
+                <div class="mon">Feb 26</div>
+              </div>
+              <div class="ph" data-label="Photo"><img alt="Lisbon" /></div>
+              <div>
+                <h3>2026 Classic Golf Event, Lisbon</h3>
+                <p class="detail">
+                  Pairs betterball stableford across Lisbon and central
+                  Portugal, 26th February to 2nd March.
+                </p>
+              </div>
+              <a href="#" class="btn btn-outline">Details</a>
+            </div>
+            <div class="event-row">
+              <div class="when">
+                <div class="day">14</div>
+                <div class="mon">May 26</div>
+              </div>
+              <div class="ph" data-label="Photo">
+                <img alt="Costa del Sol" />
+              </div>
+              <div>
+                <h3>Costa del Sol Spring Tour</h3>
+                <p class="detail">
+                  Four rounds on the coast that gave issue 100 of the magazine
+                  its cover.
+                </p>
+              </div>
+              <a href="#" class="btn btn-outline">Details</a>
+            </div>
+            <p style="margin-top: 28px; font-size: 15px; color: var(--stone)">
+              Members get priority booking on every event.
+              <a href="#benefits" class="text-link">Join to book early</a>
+            </p>
+          </div>
+          <div class="events-side">
+            <div
+              class="ph"
+              data-label="Photo · portrait · last year's tour winners"
+            >
+              <img alt="Last year's tour winners" />
+            </div>
+            <p class="figure-caption" style="margin-top: 14px">
+              The winning pair at the 2025 Classic in Lisbon, decided on the
+              final green.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ POSTCARDS ============================ -->
+    <section class="postcards">
+      <div class="container">
+        <h2>Postcards from the tours</h2>
+        <p class="standfirst">
+          A few frames from recent trips, sent in by the members who were there.
+        </p>
+        <div class="postcard-grid">
+          <div class="postcard">
+            <div class="ph" data-label="Photo · Mauritius 2023">
+              <img alt="Mauritius 2023" />
+            </div>
+            <p class="figure-caption">Mauritius, 2023. The trophy dinner.</p>
+          </div>
+          <div class="postcard">
+            <div class="ph" data-label="Photo · Lisbon 2025">
+              <img alt="Lisbon 2025" />
+            </div>
+            <p class="figure-caption">Lisbon, 2025. Fourball on the 9th.</p>
+          </div>
+          <div class="postcard">
+            <div class="ph" data-label="Photo · Costa del Sol 2024">
+              <img alt="Costa del Sol 2024" />
+            </div>
+            <p class="figure-caption">Costa del Sol, 2024. Early start.</p>
+          </div>
+          <div class="postcard">
+            <div class="ph" data-label="Photo · UK autumn meet">
+              <img alt="UK autumn meet" />
+            </div>
+            <p class="figure-caption">Cornwall, 2025. The autumn meet.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ COURSES ============================ -->
+    <section class="section" id="courses" style="padding-top: 130px">
+      <div class="container">
+        <div class="section-head">
+          <h2>Courses worth the drive</h2>
+          <a href="#" class="text-link">Browse all golf clubs</a>
+        </div>
+        <div class="course-layout">
+          <div class="card-grid">
+            <div class="course-card">
+              <div class="ph" data-label="Photo · Bowood Park">
+                <img alt="Bowood Park" />
+              </div>
+              <div class="body">
+                <h3>Bowood Park Hotel &amp; Golf Club</h3>
+                <div class="loc">Cornwall, United Kingdom</div>
+                <p class="desc">
+                  230 acres of the Black Prince's historic deer park near
+                  Camelford, with a parkland course to match the setting.
+                </p>
+              </div>
+            </div>
+            <div class="course-card">
+              <div class="ph" data-label="Photo · Aphrodite Hills">
+                <img alt="Aphrodite Hills" />
+              </div>
+              <div class="body">
+                <h3>Aphrodite Hills Resort</h3>
+                <div class="loc">Paphos, Cyprus</div>
+                <p class="desc">
+                  A multi-phased investment programme is elevating the
+                  experience even further at the Cyprus resort.
+                </p>
+              </div>
+            </div>
+            <div class="course-card">
+              <div class="ph" data-label="Photo · Sotogrande">
+                <img alt="Sotogrande" />
+              </div>
+              <div class="body">
+                <h3>Sotogrande</h3>
+                <div class="loc">Cádiz, Spain</div>
+                <p class="desc">
+                  A significant climb into the top 30 of the Golf World Top 100
+                  World Resorts rankings this year.
+                </p>
+              </div>
+            </div>
+            <div class="course-card">
+              <div class="ph" data-label="Photo · Braid Hills">
+                <img alt="Braid Hills" />
+              </div>
+              <div class="body">
+                <h3>Braid Hills Golf Course</h3>
+                <div class="loc">Edinburgh, Scotland</div>
+                <p class="desc">
+                  Set high above the city with simply stunning views. Short, but
+                  you will not forget it.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="rank-list">
+            <div class="list-title">Members' most played, 2026</div>
+            <div class="rank-row">
+              <span class="n">1</span>
+              <div>
+                <h3>Henley Golf Club</h3>
+                <span class="where">Oxfordshire, England</span>
+              </div>
+            </div>
+            <div class="rank-row">
+              <span class="n">2</span>
+              <div>
+                <h3>Bowood Park</h3>
+                <span class="where">Cornwall, England</span>
+              </div>
+            </div>
+            <div class="rank-row">
+              <span class="n">3</span>
+              <div>
+                <h3>Braid Hills</h3>
+                <span class="where">Lothians, Scotland</span>
+              </div>
+            </div>
+            <div class="rank-row">
+              <span class="n">4</span>
+              <div>
+                <h3>Marco Simone</h3>
+                <span class="where">Rome, Italy</span>
+              </div>
+            </div>
+            <div class="rank-row">
+              <span class="n">5</span>
+              <div>
+                <h3>Evian Resort</h3>
+                <span class="where">Haute-Savoie, France</span>
+              </div>
+            </div>
+            <div class="rank-foot">
+              Compiled from member rounds logged this season.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ PARTNERS ============================ -->
+    <section class="section" id="partners">
+      <div class="container">
+        <div class="section-head">
+          <h2>Partner offers for members</h2>
+          <a href="#" class="text-link">All partners</a>
+        </div>
+        <div class="partner-grid">
+          <div class="course-card">
+            <div class="ph" data-label="Photo · Loch Lomond Whisky">
+              <img alt="Loch Lomond Whisky" />
+            </div>
+            <div class="body">
+              <h3>Loch Lomond Whisky</h3>
+              <div class="loc">25% off all online purchases</div>
+              <p class="desc">
+                Exclusive to Golf Guide members, from the official spirit of The
+                Open.
+              </p>
+              <span class="tag brass" style="margin-top: 14px"
+                >Partner offer</span
+              >
+            </div>
+          </div>
+          <div class="course-card">
+            <div class="ph" data-label="Photo · Galvin Green">
+              <img alt="Galvin Green" />
+            </div>
+            <div class="body">
+              <h3>Galvin Green</h3>
+              <div class="loc">Member discount</div>
+              <p class="desc">
+                High-tech premium golf apparel, built for weather like ours.
+              </p>
+              <span class="tag brass" style="margin-top: 14px"
+                >Partner offer</span
+              >
+            </div>
+          </div>
+          <div class="course-card">
+            <div class="ph" data-label="Photo · Golf Travel Centre">
+              <img alt="Golf Travel Centre" />
+            </div>
+            <div class="body">
+              <h3>Golf Travel Centre</h3>
+              <div class="loc">Member rates on golf holidays</div>
+              <p class="desc">
+                A five star rated golf holiday specialist and long-time partner
+                of the Guide.
+              </p>
+              <span class="tag" style="margin-top: 14px">Member benefit</span>
+            </div>
+          </div>
+          <div class="course-card">
+            <div class="ph" data-label="Photo · Champagne Piaff">
+              <img alt="Champagne Piaff" />
+            </div>
+            <div class="body">
+              <h3>Champagne Piaff</h3>
+              <div class="loc">25% off online purchases</div>
+              <p class="desc">
+                Something for the prize table, exclusive to The Golf Guide.
+              </p>
+              <span class="tag brass" style="margin-top: 14px"
+                >Partner offer</span
+              >
+            </div>
+          </div>
+          <div class="course-card">
+            <div class="ph" data-label="Photo · Apeiron Golf">
+              <img alt="Apeiron Golf" />
+            </div>
+            <div class="body">
+              <h3>Apeiron Golf &amp; Clothing</h3>
+              <div class="loc">20% off online purchases</div>
+              <p class="desc">
+                The Apeiron eco-system provides sustainable golf clothing and
+                gear.
+              </p>
+              <span class="tag brass" style="margin-top: 14px"
+                >Partner offer</span
+              >
+            </div>
+          </div>
+          <div class="course-card">
+            <div class="ph" data-label="Photo · Scott Anderson Putting">
+              <img alt="Scott Anderson Putting" />
+            </div>
+            <div class="body">
+              <h3>Scott Anderson Putting</h3>
+              <div class="loc">20% off lessons</div>
+              <p class="desc">
+                Message or call to book. Bring your worst putts and leave them
+                there.
+              </p>
+              <span class="tag" style="margin-top: 14px">Member benefit</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ MAGAZINE ============================ -->
+    <div class="magazine-wrap" id="magazine">
+      <section class="magazine">
+        <div class="magazine-grid">
+          <div
+            class="ph cover"
+            data-label="Magazine cover · issue 100 · Costa del Sol"
+          >
+            <img alt="The Golf Guide magazine, issue 100" />
+          </div>
+          <div>
+            <h2>One hundred issues of The Golf Guide</h2>
+            <p>
+              The magazine that started it all reaches its century with the
+              Costa del Sol issue: the courses, the food, and where the members
+              actually stay when they go.
+            </p>
+            <p class="issue-line">
+              Issue 100 · Costa del Sol · out now for members
+            </p>
+            <div class="actions">
+              <a href="#" class="btn btn-cream">Read the magazine</a>
+              <a href="#" class="btn btn-outline-light">Past issues</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============================ NEWS ============================ -->
+    <section class="section" id="news" style="padding-top: 130px">
+      <div class="container">
+        <div class="section-head">
+          <h2>The latest from the golfing world</h2>
+          <a href="#" class="text-link">All news</a>
+        </div>
+        <div class="news-grid">
+          <div class="article-row">
+            <div class="ph" data-label="Photo"><img alt="Lofoten Links" /></div>
+            <div>
+              <h3>
+                <a href="#"
+                  >World class golf meets the northern lights at Lofoten
+                  Links</a
+                >
+              </h3>
+              <div class="byline">Golfing World · 6 September 2026</div>
+            </div>
+          </div>
+          <div class="article-row">
+            <div class="ph" data-label="Photo">
+              <img alt="Mizuno Pro Fli Hi" />
+            </div>
+            <div>
+              <h3>
+                <a href="#"
+                  >Mizuno announces the Pro Fli Hi, the next step in tour
+                  utility irons</a
+                >
+              </h3>
+              <div class="byline">Equipment · September 2026</div>
+            </div>
+          </div>
+          <div class="article-row">
+            <div class="ph" data-label="Photo">
+              <img alt="Aphrodite Hills" />
+            </div>
+            <div>
+              <h3>
+                <a href="#"
+                  >Aphrodite Hills scales new heights with major investment
+                  plan</a
+                >
+              </h3>
+              <div class="byline">Resorts · September 2026</div>
+            </div>
+          </div>
+          <div class="article-row">
+            <div class="ph" data-label="Photo"><img alt="Sotogrande" /></div>
+            <div>
+              <h3>
+                <a href="#"
+                  >Sotogrande climbs into the top 30 of Golf World's resort
+                  rankings</a
+                >
+              </h3>
+              <div class="byline">Rankings · August 2026</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ NEWSLETTER ============================ -->
+    <section class="news-band-wrap">
+      <div class="container">
+        <div class="news-band">
+          <div>
+            <h2>Get the next issue before anyone else</h2>
+            <p>
+              Rankings, tour dates and member offers, once a month. No filler,
+              unsubscribe whenever you like.
+            </p>
+          </div>
+          <form class="news-form" onsubmit="return false;">
+            <input
+              type="email"
+              placeholder="Your email address"
+              aria-label="Email address"
+            />
+            <button class="btn btn-cream" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FOOTER ============================ -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="brand">
+            <span class="wordmark">The Golf Guide<span>.</span></span>
+            <p>
+              Bringing golfers together for twenty years, with tours,
+              competitions and some of the very best courses in the UK, Portugal
+              and Spain.
+            </p>
+          </div>
+          <div>
+            <h4>Quick links</h4>
+            <ul>
+              <li><a href="#benefits">Join</a></li>
+              <li><a href="#partners">Partners</a></li>
+              <li><a href="#courses">Golf clubs</a></li>
+              <li><a href="#events">Tours</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Information</h4>
+            <ul>
+              <li><a href="#">Advertisers</a></li>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Cookies</a></li>
+              <li><a href="#">Privacy</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Advertise</h4>
+            <ul>
+              <li><a href="#">Standard package, £350 a year</a></li>
+              <li><a href="#">Premium package, £500 a year</a></li>
+              <li><a href="#">View advertising options</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span
+            >The Golf Guide Ltd. Registered in the UK: 12114566 · VAT:
+            GB168332758</span
+          >
+          <span>© 2026 The Golf Guide. All rights reserved.</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
