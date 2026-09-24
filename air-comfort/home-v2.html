@@ -1,0 +1,1440 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Air Comfort Inc. — Heating &amp; Cooling in Nampa and Caldwell, Idaho
+    </title>
+    <meta
+      name="description"
+      content="Heating and air conditioning installation and repair for the Treasure Valley. Over 40 years local, 24/7 emergency service, almost all brands. Call (208) 459-7463."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* =====================================================================
+   AIR COMFORT INC. — HOMEPAGE, VERSION 2 "FULL BLEED"
+   The bolder alternative to home.html. Full-width photographic hero
+   with quick-help cards overlapping it, a services directory with
+   hairlines instead of a card grid, a dark about band, and reviews on
+   a horizontal rail. Same system: warm and cool in balance, rounded
+   corners, no clutter, zero JavaScript.
+   ---------------------------------------------------------------------
+   HOW TO ADD PHOTOS: every image spot is a .ph box with a data-label.
+   Set the src on the <img> inside and the photo replaces the label.
+   ===================================================================== */
+
+      :root {
+        --cloud: #f8f6f2;
+        --white: #ffffff;
+        --ink: #24303a;
+        --slate: #66727c;
+        --line: #e8e4dc;
+
+        --cool: #4a7ba6;
+        --cool-deep: #31597e;
+        --cool-tint: #eaf1f7;
+
+        --warm: #c9764d;
+        --warm-deep: #a75c38;
+        --warm-tint: #f8ede5;
+
+        --font-display: "Sora", sans-serif;
+        --font-body: "Inter", sans-serif;
+
+        --radius: 18px;
+        --radius-lg: 28px;
+        --shadow-soft: 0 20px 44px -28px rgba(36, 48, 58, 0.25);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 96px;
+      }
+
+      body {
+        font-family: var(--font-body);
+        background: var(--white);
+        color: var(--ink);
+        line-height: 1.7;
+        font-size: 16px;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      ::selection {
+        background: var(--cool);
+        color: var(--white);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .container {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: var(--font-display);
+        font-weight: 600;
+        line-height: 1.15;
+        letter-spacing: -0.015em;
+        color: var(--ink);
+      }
+
+      /* ---------- image placeholder ---------- */
+      .ph {
+        position: relative;
+        background: #ece8e0;
+        overflow: hidden;
+        border-radius: var(--radius);
+      }
+
+      .ph::after {
+        content: attr(data-label);
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        text-align: center;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #a9a294;
+      }
+
+      .ph img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: none;
+      }
+
+      .ph img[src] {
+        display: block;
+      }
+
+      /* ---------- buttons, links, tags ---------- */
+      .btn {
+        display: inline-block;
+        font-family: var(--font-display);
+        font-size: 15px;
+        font-weight: 600;
+        padding: 15px 32px;
+        border-radius: 999px;
+        border: 1.5px solid transparent;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          color 0.2s,
+          border-color 0.2s,
+          transform 0.2s;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn-blue {
+        background: var(--cool);
+        color: var(--white);
+      }
+
+      .btn-blue:hover {
+        background: var(--cool-deep);
+      }
+
+      .btn-warm {
+        background: var(--warm);
+        color: var(--white);
+      }
+
+      .btn-warm:hover {
+        background: var(--warm-deep);
+      }
+
+      .btn-white {
+        background: var(--white);
+        color: var(--cool-deep);
+      }
+
+      .btn-white:hover {
+        background: var(--cool-tint);
+      }
+
+      .btn-outline-light {
+        border-color: rgba(255, 255, 255, 0.55);
+        color: var(--white);
+        background: transparent;
+      }
+
+      .btn-outline-light:hover {
+        border-color: var(--white);
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .text-link {
+        font-weight: 600;
+        color: var(--cool);
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        text-decoration-thickness: 1.5px;
+        text-decoration-color: rgba(74, 123, 166, 0.4);
+      }
+
+      .text-link:hover {
+        color: var(--cool-deep);
+        text-decoration-color: var(--cool-deep);
+      }
+
+      .tag {
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 600;
+        border-radius: 999px;
+        padding: 6px 15px;
+      }
+
+      .tag.cool {
+        color: var(--cool-deep);
+        background: var(--cool-tint);
+      }
+
+      .tag.warm {
+        color: var(--warm-deep);
+        background: var(--warm-tint);
+      }
+
+      /* ---------- header (full-width bar) ---------- */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: var(--white);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        height: 80px;
+      }
+
+      .wordmark {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 19px;
+        color: var(--ink);
+        white-space: nowrap;
+      }
+
+      .wordmark span {
+        color: var(--cool);
+      }
+
+      .site-nav {
+        display: flex;
+        gap: 28px;
+        list-style: none;
+      }
+
+      .site-nav a {
+        font-size: 14.5px;
+        font-weight: 500;
+        color: var(--slate);
+        transition: color 0.2s;
+      }
+
+      .site-nav a:hover {
+        color: var(--ink);
+      }
+
+      .header-right {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        white-space: nowrap;
+      }
+
+      .header-phone {
+        font-size: 14.5px;
+        color: var(--slate);
+      }
+
+      .header-phone b {
+        font-family: var(--font-display);
+        font-weight: 600;
+        color: var(--ink);
+      }
+
+      .header-right .btn {
+        padding: 11px 24px;
+        font-size: 14px;
+      }
+
+      /* ---------- hero (full bleed) ---------- */
+      .hero {
+        position: relative;
+        min-height: 78vh;
+        display: flex;
+        align-items: center;
+      }
+
+      .hero .ph {
+        position: absolute;
+        inset: 0;
+        border-radius: 0;
+      }
+
+      .hero .scrim {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          100deg,
+          rgba(36, 48, 58, 0.82) 0%,
+          rgba(36, 48, 58, 0.55) 45%,
+          rgba(36, 48, 58, 0.15) 100%
+        );
+      }
+
+      .hero-content {
+        position: relative;
+        width: 100%;
+        padding: 90px 0 150px;
+      }
+
+      .hero-content h1 {
+        font-weight: 700;
+        color: var(--white);
+        font-size: clamp(38px, 5.4vw, 66px);
+        line-height: 1.08;
+        letter-spacing: -0.02em;
+        max-width: 15ch;
+      }
+
+      .hero-content .lead {
+        color: rgba(255, 255, 255, 0.85);
+        font-size: clamp(16.5px, 1.7vw, 19px);
+        max-width: 50ch;
+        margin-top: 20px;
+      }
+
+      .hero-actions {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-top: 34px;
+      }
+
+      .hero-note {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        margin-top: 28px;
+        font-size: 14px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.85);
+      }
+
+      .hero-note .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #6fce93;
+      }
+
+      /* ---------- quick help (overlapping the hero) ---------- */
+      .quick-help {
+        position: relative;
+        z-index: 2;
+        margin-top: -92px;
+        padding-bottom: 0;
+      }
+
+      .quick-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+
+      .quick-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-soft);
+        padding: 32px 32px 34px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .quick-card .icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        margin-bottom: 20px;
+      }
+
+      .quick-card .icon.cool {
+        background: var(--cool-tint);
+      }
+
+      .quick-card .icon.warm {
+        background: var(--warm-tint);
+      }
+
+      .quick-card h3 {
+        font-size: 19px;
+      }
+
+      .quick-card p {
+        font-size: 14.5px;
+        color: var(--slate);
+        margin: 8px 0 18px;
+      }
+
+      .quick-card .text-link {
+        margin-top: auto;
+        font-size: 14.5px;
+      }
+
+      /* ---------- sections ---------- */
+      .section {
+        padding: 110px 0;
+      }
+
+      .section-head {
+        max-width: 640px;
+        margin-bottom: 54px;
+      }
+
+      .section-head h2 {
+        font-size: clamp(27px, 3.2vw, 40px);
+      }
+
+      .section-head p {
+        color: var(--slate);
+        margin-top: 14px;
+      }
+
+      /* ---------- services directory ---------- */
+      .service-rows {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 72px;
+        border-top: 1px solid var(--line);
+      }
+
+      .service-row {
+        display: grid;
+        grid-template-columns: 56px 1fr auto;
+        gap: 22px;
+        align-items: center;
+        padding: 28px 4px;
+        border-bottom: 1px solid var(--line);
+        transition: background 0.2s;
+      }
+
+      .service-row:hover {
+        background: var(--cloud);
+      }
+
+      .service-row .icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 23px;
+      }
+
+      .service-row .icon.cool {
+        background: var(--cool-tint);
+      }
+
+      .service-row .icon.warm {
+        background: var(--warm-tint);
+      }
+
+      .service-row h3 {
+        font-size: 18px;
+      }
+
+      .service-row p {
+        font-size: 14.5px;
+        color: var(--slate);
+        margin-top: 3px;
+        max-width: 42ch;
+      }
+
+      .service-row .go {
+        font-family: var(--font-display);
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--cool);
+        white-space: nowrap;
+      }
+
+      .service-row:hover .go {
+        color: var(--cool-deep);
+      }
+
+      /* ---------- brands band ---------- */
+      .brands {
+        background: var(--cool-tint);
+        padding: 90px 0;
+      }
+
+      .brands-inner {
+        text-align: center;
+      }
+
+      .brands h2 {
+        font-size: clamp(24px, 2.8vw, 34px);
+      }
+
+      .brands > .container > p {
+        color: var(--slate);
+        font-size: 15.5px;
+        max-width: 54ch;
+        margin: 12px auto 0;
+      }
+
+      .brand-row {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 18px;
+        margin-top: 44px;
+      }
+
+      .brand-row .ph {
+        aspect-ratio: 5/2;
+        border-radius: 14px;
+        background: var(--white);
+      }
+
+      .brands .foot {
+        font-size: 14px;
+        color: var(--slate);
+        margin-top: 30px;
+      }
+
+      /* ---------- about (dark band) ---------- */
+      .about {
+        background: var(--ink);
+        padding: 110px 0;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 74px;
+        align-items: center;
+      }
+
+      .about-photo .ph {
+        aspect-ratio: 4/3;
+        border-radius: var(--radius-lg);
+      }
+
+      .about-copy h2 {
+        color: var(--white);
+        font-size: clamp(27px, 3.2vw, 40px);
+        max-width: 16ch;
+      }
+
+      .about-copy > p {
+        color: rgba(255, 255, 255, 0.75);
+        margin-top: 18px;
+        max-width: 52ch;
+      }
+
+      .about-stats {
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        gap: 44px;
+        justify-content: start;
+        margin-top: 40px;
+        padding-top: 34px;
+        border-top: 1px solid rgba(255, 255, 255, 0.16);
+      }
+
+      .about-stats .num {
+        font-family: var(--font-display);
+        font-size: 34px;
+        font-weight: 700;
+        color: #8fb4d4;
+        line-height: 1;
+      }
+
+      .about-stats .num.warm {
+        color: #dfa07c;
+      }
+
+      .about-stats .label {
+        font-size: 13.5px;
+        color: rgba(255, 255, 255, 0.65);
+        margin-top: 8px;
+        max-width: 18ch;
+      }
+
+      /* ---------- how it works ---------- */
+      .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 26px;
+      }
+
+      .step-card {
+        background: var(--cloud);
+        border-radius: var(--radius);
+        padding: 36px 34px 38px;
+      }
+
+      .step-card .n {
+        font-family: var(--font-display);
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--white);
+        background: var(--cool);
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 22px;
+      }
+
+      .step-card:last-child .n {
+        background: var(--warm);
+      }
+
+      .step-card h3 {
+        font-size: 19px;
+      }
+
+      .step-card p {
+        font-size: 15px;
+        color: var(--slate);
+        margin-top: 10px;
+      }
+
+      /* ---------- reviews (horizontal rail) ---------- */
+      .reviews {
+        background: var(--cloud);
+        padding: 110px 0;
+      }
+
+      .reviews .section-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 24px;
+        flex-wrap: wrap;
+        max-width: none;
+      }
+
+      .review-rail {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: clamp(300px, 32vw, 400px);
+        gap: 24px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 18px;
+        scrollbar-width: thin;
+        scrollbar-color: var(--line) transparent;
+      }
+
+      .review-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 32px 32px 28px;
+        box-shadow: var(--shadow-soft);
+        scroll-snap-align: start;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .review-card .stars {
+        color: var(--warm);
+        font-size: 15px;
+        letter-spacing: 3px;
+        margin-bottom: 16px;
+      }
+
+      .review-card blockquote {
+        font-size: 15.5px;
+        color: var(--ink);
+        line-height: 1.65;
+        border: none;
+      }
+
+      .review-card .who {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: auto;
+        padding-top: 18px;
+        border-top: 1px solid var(--line);
+        font-size: 14px;
+      }
+
+      .review-card .who b {
+        font-family: var(--font-display);
+        font-weight: 600;
+      }
+
+      .review-card .who span {
+        color: var(--slate);
+        font-size: 13px;
+      }
+
+      .rail-hint {
+        font-size: 13.5px;
+        color: var(--slate);
+        margin-top: 10px;
+      }
+
+      /* ---------- CTA (full bleed) ---------- */
+      .cta {
+        background: var(--cool-deep);
+        padding: 100px 0;
+        text-align: center;
+      }
+
+      .cta h2 {
+        color: var(--white);
+        font-size: clamp(28px, 3.6vw, 44px);
+        max-width: 22ch;
+        margin: 0 auto;
+      }
+
+      .cta p {
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 15.5px;
+        margin: 14px auto 0;
+        max-width: 46ch;
+      }
+
+      .cta .phone {
+        display: block;
+        font-family: var(--font-display);
+        font-size: clamp(34px, 5vw, 54px);
+        font-weight: 700;
+        color: var(--white);
+        margin-top: 26px;
+      }
+
+      .cta .actions {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+      }
+
+      /* ---------- contact / form ---------- */
+      .contact {
+        padding: 110px 0;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 74px;
+        align-items: start;
+      }
+
+      .contact-copy h2 {
+        font-size: clamp(27px, 3.2vw, 40px);
+        max-width: 14ch;
+      }
+
+      .contact-copy > p {
+        color: var(--slate);
+        margin-top: 16px;
+        max-width: 44ch;
+      }
+
+      .contact-list {
+        list-style: none;
+        margin-top: 30px;
+        display: grid;
+        gap: 14px;
+      }
+
+      .contact-list li {
+        display: flex;
+        gap: 12px;
+        font-size: 15px;
+      }
+
+      .contact-list b {
+        font-family: var(--font-display);
+        font-weight: 600;
+        min-width: 92px;
+      }
+
+      .contact-list span {
+        color: var(--slate);
+      }
+
+      .form-card {
+        background: var(--cloud);
+        border-radius: var(--radius-lg);
+        padding: 44px 44px 46px;
+      }
+
+      .form-card h3 {
+        font-size: 21px;
+        margin-bottom: 26px;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+
+      .field {
+        display: grid;
+        gap: 8px;
+      }
+
+      .field.full {
+        grid-column: 1 / -1;
+      }
+
+      .field label {
+        font-size: 13.5px;
+        font-weight: 600;
+        color: var(--ink);
+      }
+
+      .field input,
+      .field select,
+      .field textarea {
+        font-family: var(--font-body);
+        font-size: 15px;
+        color: var(--ink);
+        background: var(--white);
+        border: 1.5px solid var(--line);
+        border-radius: 14px;
+        padding: 14px 18px;
+        outline: none;
+        width: 100%;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+
+      .field textarea {
+        min-height: 110px;
+        resize: vertical;
+      }
+
+      .field input:focus,
+      .field select:focus,
+      .field textarea:focus {
+        border-color: var(--cool);
+        box-shadow: 0 0 0 4px rgba(74, 123, 166, 0.14);
+      }
+
+      /* ---------- footer (light) ---------- */
+      .site-footer {
+        background: var(--cloud);
+        border-top: 1px solid var(--line);
+        color: var(--slate);
+        padding: 74px 0 36px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr 1fr;
+        gap: 44px;
+        padding-bottom: 44px;
+      }
+
+      .site-footer .brand p {
+        font-size: 14.5px;
+        margin-top: 12px;
+        max-width: 32ch;
+      }
+
+      .site-footer h4 {
+        color: var(--ink);
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 14px;
+      }
+
+      .site-footer ul {
+        list-style: none;
+        display: grid;
+        gap: 9px;
+      }
+
+      .site-footer ul li,
+      .site-footer ul a {
+        font-size: 14.5px;
+      }
+
+      .site-footer ul a:hover {
+        color: var(--ink);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid var(--line);
+        padding-top: 24px;
+        font-size: 13px;
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      /* ---------- responsive ---------- */
+      @media (max-width: 980px) {
+        .site-nav,
+        .header-phone {
+          display: none;
+        }
+
+        .hero {
+          min-height: 66vh;
+        }
+
+        .quick-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .quick-help {
+          margin-top: -70px;
+        }
+
+        .service-rows {
+          grid-template-columns: 1fr;
+        }
+
+        .brand-row {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .about-grid,
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 44px;
+        }
+
+        .steps-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .section,
+        .about,
+        .reviews,
+        .contact {
+          padding: 76px 0;
+        }
+
+        .cta {
+          padding: 76px 0;
+        }
+
+        .brands {
+          padding: 70px 0;
+        }
+
+        .hero-content {
+          padding: 70px 0 130px;
+        }
+
+        .brand-row {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .about-stats {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+
+        .service-row {
+          grid-template-columns: 48px 1fr;
+        }
+
+        .service-row .icon {
+          width: 48px;
+          height: 48px;
+        }
+
+        .service-row .go {
+          grid-column: 2;
+          justify-self: start;
+        }
+
+        .form-card {
+          padding: 32px 26px;
+        }
+
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ============================ HEADER ============================ -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="#" class="wordmark">Air Comfort<span>.</span></a>
+        <ul class="site-nav">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="header-right">
+          <span class="header-phone">24/7: <b>(208) 459-7463</b></span>
+          <a href="#contact" class="btn btn-blue">Get an estimate</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================ HERO ============================ -->
+    <section class="hero">
+      <div
+        class="ph"
+        data-label="Hero photo · full bleed · tech and homeowner at a Caldwell home"
+      >
+        <img
+          alt="Air Comfort technician with a homeowner in Caldwell"
+          src="images/air-conditioner.jpg"
+        />
+      </div>
+      <div class="scrim"></div>
+      <div class="container hero-content">
+        <h1>Heating and cooling, handled.</h1>
+        <p class="lead">
+          We install and repair heating and air conditioning across the Treasure
+          Valley, and we work on almost all brands. Over 40 years local.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-white">Get a free estimate</a>
+          <a href="#services" class="btn btn-outline-light">Our services</a>
+        </div>
+        <span class="hero-note">
+          <span class="dot"></span>
+          24/7 emergency service · (208) 459-7463
+        </span>
+      </div>
+    </section>
+
+    <!-- ============================ QUICK HELP ============================ -->
+    <section class="quick-help">
+      <div class="container quick-grid">
+        <div class="quick-card">
+          <div class="icon warm">🛠️</div>
+          <h3>Something's broken</h3>
+          <p>
+            Furnace out or A/C down? Certified techs answer around the clock,
+            holidays included.
+          </p>
+          <a href="#" class="text-link">Learn more about repairs</a>
+        </div>
+        <div class="quick-card">
+          <div class="icon cool">🏠</div>
+          <h3>I need a new system</h3>
+          <p>
+            Building, remodeling or replacing? We size it right and install it
+            clean, residential or commercial.
+          </p>
+          <a href="#" class="text-link">Learn more about installs</a>
+        </div>
+        <div class="quick-card">
+          <div class="icon cool">🗓️</div>
+          <h3>Keep mine running</h3>
+          <p>
+            Seasonal tune-ups lower your energy bills and catch small problems
+            early.
+          </p>
+          <a href="#" class="text-link">Learn more about plans</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ SERVICES ============================ -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head">
+          <h2>What we work on.</h2>
+          <p>
+            The short version, with a link to the full story on each. No digging
+            required.
+          </p>
+        </div>
+        <div class="service-rows">
+          <a href="#" class="service-row">
+            <div class="icon warm">🔥</div>
+            <div>
+              <h3>Heating</h3>
+              <p>Gas, electric, oil and boiler furnaces, every major brand.</p>
+            </div>
+            <span class="go">Learn more</span>
+          </a>
+          <a href="#" class="service-row">
+            <div class="icon cool">❄️</div>
+            <div>
+              <h3>Cooling &amp; A/C</h3>
+              <p>High-efficiency systems, sized for Idaho summers.</p>
+            </div>
+            <span class="go">Learn more</span>
+          </a>
+          <a href="#" class="service-row">
+            <div class="icon cool">💧</div>
+            <div>
+              <h3>Water heaters</h3>
+              <p>Tanked or tankless, we will help you pick what fits.</p>
+            </div>
+            <span class="go">Learn more</span>
+          </a>
+          <a href="#" class="service-row">
+            <div class="icon cool">🌀</div>
+            <div>
+              <h3>Air cleaners</h3>
+              <p>Whole-home electronic air cleaners, installed and serviced.</p>
+            </div>
+            <span class="go">Learn more</span>
+          </a>
+          <a href="#" class="service-row">
+            <div class="icon warm">🛠️</div>
+            <div>
+              <h3>Ducting &amp; fabrication</h3>
+              <p>Our own sheet metal shop builds whatever the job needs.</p>
+            </div>
+            <span class="go">Learn more</span>
+          </a>
+          <a href="#" class="service-row">
+            <div class="icon cool">🏢</div>
+            <div>
+              <h3>Commercial HVAC</h3>
+              <p>
+                Custom systems for commercial buildings and new construction.
+              </p>
+            </div>
+            <span class="go">Learn more</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ BRANDS ============================ -->
+    <section class="brands">
+      <div class="container brands-inner">
+        <h2>We work on almost all brands.</h2>
+        <p>
+          Whoever made your system, chances are we service it. And if we cannot,
+          we will tell you straight and point you the right way.
+        </p>
+        <div class="brand-row">
+          <div class="ph" data-label="Brand logo"></div>
+          <div class="ph" data-label="Brand logo"></div>
+          <div class="ph" data-label="Brand logo"></div>
+          <div class="ph" data-label="Brand logo"></div>
+          <div class="ph" data-label="Brand logo"></div>
+          <div class="ph" data-label="Brand logo"></div>
+        </div>
+        <p class="foot">
+          Not sure what you have? Send us a photo of the unit label and we will
+          take it from there.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================ ABOUT ============================ -->
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div class="about-photo">
+          <div class="ph" data-label="Photo · the Caldwell showroom">
+            <img alt="The Air Comfort showroom in Caldwell" />
+          </div>
+        </div>
+        <div class="about-copy">
+          <h2>Forty years in the valley.</h2>
+          <p>
+            Air Comfort has served the Treasure Valley since the early eighties.
+            Our Caldwell showroom lets you see and try equipment before you buy
+            it, and our own fabrication shop means we never have to say "we
+            can't".
+          </p>
+          <div class="about-stats">
+            <div>
+              <div class="num">40+</div>
+              <div class="label">Years serving the Treasure Valley</div>
+            </div>
+            <div>
+              <div class="num warm">24/7</div>
+              <div class="label">Emergency service, holidays included</div>
+            </div>
+            <div>
+              <div class="num">1</div>
+              <div class="label">In-house metal fabrication shop</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ HOW IT WORKS ============================ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>How it works.</h2>
+          <p>Three steps, no runaround.</p>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="n">1</div>
+            <h3>Call or send the form</h3>
+            <p>
+              Tell us what is going on. If it is an emergency, a certified tech
+              picks up any hour of the day.
+            </p>
+          </div>
+          <div class="step-card">
+            <div class="n">2</div>
+            <h3>Get honest options</h3>
+            <p>
+              We diagnose, explain what we found in plain English, and quote you
+              options, not a sales pitch.
+            </p>
+          </div>
+          <div class="step-card">
+            <div class="n">3</div>
+            <h3>Comfort, restored</h3>
+            <p>
+              We do the work, clean up after ourselves, and walk you through
+              everything before we leave.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ REVIEWS ============================ -->
+    <section class="reviews" id="reviews">
+      <div class="container">
+        <div class="section-head">
+          <h2>What the neighbors say.</h2>
+          <a href="#" class="text-link">Leave us a review on Google</a>
+        </div>
+        <div class="review-rail">
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <blockquote>
+              "Air Comfort has come to our office twice this summer. Both times
+              they showed up quickly and were very professional. They got our
+              A/C back up and running in no time."
+            </blockquote>
+            <div class="who">
+              <b>Stephanie Ahlborn</b><span>Google review</span>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <blockquote>
+              "Mom's furnace stopped working and these guys provided same day
+              service to get her fixed! They were professional, quick and easy
+              to work with, and priced well."
+            </blockquote>
+            <div class="who">
+              <b>Chris Coleman</b><span>Google review</span>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <blockquote>
+              "These guys have helped us out on many jobs. Always show up on
+              time and work great. They have worked commercially with us and on
+              our home units as well."
+            </blockquote>
+            <div class="who"><b>Brad Tabor</b><span>Google review</span></div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <blockquote>
+              "Placeholder for a fourth review pulled from Google. The rail
+              scrolls sideways, so add as many as you like."
+            </blockquote>
+            <div class="who">
+              <b>Placeholder Name</b><span>Google review</span>
+            </div>
+          </div>
+        </div>
+        <p class="rail-hint">Scroll sideways for more.</p>
+      </div>
+    </section>
+
+    <!-- ============================ CTA ============================ -->
+    <section class="cta">
+      <div class="container">
+        <h2>Furnace out? A/C down? We answer 24/7.</h2>
+        <p>
+          Certified technicians on call around the clock, holidays included.
+        </p>
+        <span class="phone">(208) 459-7463</span>
+        <div class="actions">
+          <a href="#contact" class="btn btn-warm">Call now</a>
+          <a href="#contact" class="btn btn-outline-light"
+            >Request an estimate</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ CONTACT ============================ -->
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <h2>Get a free estimate.</h2>
+          <p>
+            Tell us what is going on and we will get back to you with honest
+            options, not a sales pitch.
+          </p>
+          <ul class="contact-list">
+            <li><b>Phone</b><span>(208) 459-7463</span></li>
+            <li><b>Email</b><span>info@aircomfortid.com</span></li>
+            <li>
+              <b>Office</b><span>Caldwell, Idaho · Mon to Fri, 8am to 5pm</span>
+            </li>
+            <li>
+              <b>After hours</b
+              ><span>24/7 emergency service, holidays included</span>
+            </li>
+            <li><b>Contacts</b><span>Ben Duncan &amp; Brad Tabor</span></li>
+          </ul>
+        </div>
+        <div class="form-card">
+          <h3>Place a service call or get an estimate</h3>
+          <form class="form-grid" onsubmit="return false;">
+            <div class="field">
+              <label for="f-name">Name</label>
+              <input id="f-name" type="text" placeholder="Your name" />
+            </div>
+            <div class="field">
+              <label for="f-phone">Phone</label>
+              <input id="f-phone" type="tel" placeholder="(208) 555-0100" />
+            </div>
+            <div class="field full">
+              <label for="f-service">What do you need help with?</label>
+              <select id="f-service">
+                <option>Heating</option>
+                <option>Cooling</option>
+                <option>Water heater</option>
+                <option>Service plan</option>
+                <option>Commercial project</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="f-msg">Message</label>
+              <textarea
+                id="f-msg"
+                placeholder="Tell us what's going on"
+              ></textarea>
+            </div>
+            <div class="field full">
+              <button class="btn btn-blue" type="submit">Send request</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FOOTER ============================ -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="brand">
+            <span class="wordmark">Air Comfort<span>.</span></span>
+            <p>
+              Heating, cooling and air quality for the Treasure Valley for over
+              40 years.
+            </p>
+          </div>
+          <div>
+            <h4>Quick links</h4>
+            <ul>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#reviews">Reviews</a></li>
+              <li><a href="#contact">Get an estimate</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Contact</h4>
+            <ul>
+              <li>(208) 459-7463</li>
+              <li>info@aircomfortid.com</li>
+              <li>Caldwell, Idaho</li>
+              <li>Mon to Fri, 8am to 5pm</li>
+              <li>Emergencies: 24/7, holidays included</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 Air Comfort Inc. All rights reserved.</span>
+          <span><a href="#">Privacy</a> · <a href="#">Terms</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
