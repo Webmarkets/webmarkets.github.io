@@ -29,13 +29,15 @@
    ===================================================================== */
 
       :root {
-        /* their palette */
+        /* their palette: blue kept as-is, green deepened to an emerald
+           that harmonises with the navy instead of fighting it */
         --blue: #003584;
         --blue-deep: #00265e;
-        --green: #61ce70;
-        --green-deep: #3fa04e;
-        --green-tint: #e6f4e9;
-        --mint: #d3eadc;
+        --green: #2fa36b;
+        --green-deep: #1f7d50;
+        --green-lt: #7fd6a4; /* for accents on dark backgrounds */
+        --green-tint: #e9f4ee;
+        --mint: #d3eade;
         --paper: #f7f9f8;
         --white: #ffffff;
         --ink: #182335;
@@ -170,12 +172,22 @@
 
       .btn-green {
         background: var(--green);
-        color: #0c3315;
+        color: var(--white);
       }
 
       .btn-green:hover {
         background: var(--green-deep);
+      }
+
+      .btn-outline-light {
+        border-color: rgba(255, 255, 255, 0.55);
         color: var(--white);
+        background: transparent;
+      }
+
+      .btn-outline-light:hover {
+        border-color: var(--white);
+        background: rgba(255, 255, 255, 0.1);
       }
 
       .btn-outline {
@@ -204,7 +216,7 @@
         text-decoration: underline;
         text-underline-offset: 4px;
         text-decoration-thickness: 1.5px;
-        text-decoration-color: rgba(97, 206, 112, 0.7);
+        text-decoration-color: rgba(47, 163, 107, 0.55);
       }
 
       .text-link:hover {
@@ -281,36 +293,62 @@
         font-size: 14px;
       }
 
-      /* ---------- hero ---------- */
+      /* ---------- hero (full bleed with booking card) ---------- */
       .hero {
-        background: var(--green-tint);
-        padding: 90px 0 100px;
+        position: relative;
+        min-height: 90vh;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        border-radius: 0 0 clamp(28px, 5vw, 56px) clamp(28px, 5vw, 56px);
+      }
+
+      .hero > .ph {
+        position: absolute;
+        inset: 0;
+        border-radius: 0;
+      }
+
+      .hero .scrim {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          100deg,
+          rgba(0, 38, 94, 0.92) 0%,
+          rgba(0, 53, 132, 0.62) 52%,
+          rgba(0, 53, 132, 0.18) 100%
+        );
       }
 
       .hero-grid {
+        position: relative;
+        width: 100%;
         display: grid;
-        grid-template-columns: 1.05fr 0.95fr;
+        grid-template-columns: 1.15fr 0.85fr;
         gap: 70px;
         align-items: center;
+        padding-top: 80px;
+        padding-bottom: 130px;
       }
 
       .hero h1 {
+        color: var(--white);
         font-weight: 800;
-        font-size: clamp(36px, 4.8vw, 56px);
+        font-size: clamp(36px, 5vw, 60px);
         line-height: 1.08;
         letter-spacing: -0.02em;
-        max-width: 16ch;
+        max-width: 15ch;
       }
 
       .hero h1 em {
         font-style: normal;
-        color: var(--green-deep);
+        color: var(--green-lt);
       }
 
       .hero .lead {
         font-size: 18px;
-        color: var(--grey);
-        max-width: 50ch;
+        color: rgba(255, 255, 255, 0.82);
+        max-width: 48ch;
         margin-top: 20px;
       }
 
@@ -327,7 +365,7 @@
         display: flex;
         gap: 24px;
         flex-wrap: wrap;
-        margin-top: 32px;
+        margin-top: 30px;
       }
 
       .hero-points li {
@@ -335,50 +373,157 @@
         padding-left: 24px;
         font-size: 14.5px;
         font-weight: 500;
-        color: var(--ink);
+        color: rgba(255, 255, 255, 0.9);
       }
 
       .hero-points li::before {
         content: "✓";
         position: absolute;
         left: 0;
-        color: var(--green-deep);
+        color: var(--green-lt);
         font-weight: 700;
       }
 
-      .hero-photo {
-        position: relative;
-      }
-
-      .hero-photo .ph {
-        aspect-ratio: 4/5;
-        max-height: 540px;
+      /* floating consultation card */
+      .consult-card {
+        justify-self: end;
         width: 100%;
+        max-width: 420px;
+        background: var(--white);
         border-radius: var(--radius-lg);
+        box-shadow: 0 34px 66px -30px rgba(0, 20, 50, 0.55);
+        padding: 38px 38px 32px;
       }
 
-      .result-chip {
+      .consult-card h3 {
+        font-size: 21px;
+      }
+
+      .consult-card .sub {
+        font-size: 14.5px;
+        color: var(--grey);
+        margin-top: 6px;
+      }
+
+      .consult-card ul {
+        list-style: none;
+        margin: 20px 0 24px;
+        display: grid;
+        gap: 11px;
+      }
+
+      .consult-card li {
+        position: relative;
+        padding-left: 30px;
+        font-size: 14.5px;
+      }
+
+      .consult-card li::before {
+        content: "✓";
         position: absolute;
-        left: -20px;
-        bottom: 30px;
+        left: 0;
+        top: 1px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--mint);
+        color: var(--green-deep);
+        font-size: 12px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .consult-card form {
+        display: grid;
+        gap: 12px;
+      }
+
+      .consult-card input {
+        font-family: var(--font-body);
+        font-size: 15px;
+        color: var(--ink);
+        background: var(--white);
+        border: 1.5px solid var(--line);
+        border-radius: 12px;
+        padding: 13px 16px;
+        outline: none;
+        width: 100%;
+        transition: border-color 0.2s, box-shadow 0.2s;
+      }
+
+      .consult-card input:focus {
+        border-color: var(--green);
+        box-shadow: 0 0 0 4px rgba(47, 163, 107, 0.14);
+      }
+
+      .consult-card .btn {
+        width: 100%;
+        text-align: center;
+        margin-top: 4px;
+      }
+
+      .consult-card .chip-row {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 20px;
+        padding-top: 16px;
+        border-top: 1px solid var(--line);
+        font-size: 13px;
+        color: var(--grey);
+      }
+
+      .consult-card .chip-row b {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 16px;
+        color: var(--blue);
+        white-space: nowrap;
+      }
+
+      /* ---------- stat strip (overlaps the hero) ---------- */
+      .stat-strip {
+        position: relative;
+        z-index: 2;
+        margin-top: -52px;
+      }
+
+      .stat-strip .inner {
         background: var(--white);
         border-radius: var(--radius);
         box-shadow: var(--shadow-soft);
-        padding: 18px 24px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
       }
 
-      .result-chip .big {
+      .stat-strip .cell {
+        text-align: center;
+        padding: 28px 18px;
+      }
+
+      .stat-strip .cell + .cell {
+        border-left: 1px solid var(--line);
+      }
+
+      .stat-strip b {
+        display: block;
         font-family: var(--font-display);
         font-weight: 800;
-        font-size: 24px;
+        font-size: 23px;
         color: var(--blue);
-        line-height: 1.1;
+        line-height: 1.15;
       }
 
-      .result-chip .small {
-        font-size: 13px;
+      .stat-strip b.green {
+        color: var(--green-deep);
+      }
+
+      .stat-strip span {
+        font-size: 13.5px;
         color: var(--grey);
-        margin-top: 3px;
       }
 
       /* ---------- sections ---------- */
@@ -393,6 +538,15 @@
 
       .section-head h2 {
         font-size: clamp(26px, 3.2vw, 38px);
+      }
+
+      /* the "path": a short dashed trail under every section heading */
+      .section-head h2::after {
+        content: "";
+        display: block;
+        width: 58px;
+        border-top: 3px dashed var(--green);
+        margin-top: 16px;
       }
 
       .section-head p {
@@ -455,7 +609,23 @@
         align-items: center;
       }
 
+      .support-photo {
+        position: relative;
+      }
+
+      .support-photo::before {
+        content: "";
+        position: absolute;
+        width: 62%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: var(--mint);
+        right: -26px;
+        bottom: -26px;
+      }
+
       .support-photo .ph {
+        position: relative;
         aspect-ratio: 4/3;
         border-radius: var(--radius-lg);
       }
@@ -642,7 +812,23 @@
         align-items: center;
       }
 
+      .about-photo {
+        position: relative;
+      }
+
+      .about-photo::before {
+        content: "";
+        position: absolute;
+        width: 58%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: var(--green-tint);
+        left: -26px;
+        top: -26px;
+      }
+
       .about-photo .ph {
+        position: relative;
         aspect-ratio: 4/5;
         max-width: 420px;
         border-radius: var(--radius-lg);
@@ -851,13 +1037,30 @@
           gap: 44px;
         }
 
-        .hero-photo .ph {
-          aspect-ratio: 3/2;
-          max-height: none;
+        .hero {
+          min-height: 0;
         }
 
-        .result-chip {
-          left: 18px;
+        .hero-grid {
+          padding-top: 70px;
+          padding-bottom: 120px;
+        }
+
+        .consult-card {
+          justify-self: start;
+          max-width: 480px;
+        }
+
+        .stat-strip .inner {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .stat-strip .cell:nth-child(3) {
+          border-left: none;
+        }
+
+        .stat-strip .cell {
+          padding: 22px 14px;
         }
 
         .steps-grid,
@@ -882,8 +1085,13 @@
           padding: 72px 0;
         }
 
-        .hero {
-          padding: 60px 0 76px;
+        .hero-grid {
+          padding-top: 54px;
+          padding-bottom: 110px;
+        }
+
+        .consult-card {
+          padding: 28px 24px 26px;
         }
 
         .price-card {
@@ -922,6 +1130,10 @@
 
     <!-- ============================ HERO ============================ -->
     <section class="hero">
+      <div class="ph" data-label="Hero photo · full bleed · morning walk on a trail, natural light">
+        <img alt="A morning walk on a quiet trail" />
+      </div>
+      <div class="scrim"></div>
       <div class="container hero-grid">
         <div>
           <h1>Lose weight <em>naturally.</em> No GLP-1s required.</h1>
@@ -931,22 +1143,55 @@
             to keep the weight off after.
           </p>
           <div class="hero-actions">
-            <a href="#cta" class="btn btn-blue">Book your free consultation</a>
-            <a href="#program" class="btn btn-outline">How it works</a>
+            <a href="#pricing" class="btn btn-green">See the program</a>
+            <a href="#program" class="btn btn-outline-light">How it works</a>
           </div>
           <ul class="hero-points">
             <li>Drug free</li>
             <li>Coaching 5 days a week</li>
-            <li>Free 15-minute consultation</li>
+            <li>Keep-it-off plan included</li>
           </ul>
         </div>
-        <div class="hero-photo">
-          <div class="ph" data-label="Photo · healthy meal prep or client portrait">
-            <img alt="Preparing a healthy meal" />
+        <div class="consult-card">
+          <h3>Free 15-minute consultation</h3>
+          <p class="sub">No pressure, just a conversation about your goals.</p>
+          <ul>
+            <li>Review your goals and current health</li>
+            <li>Learn exactly how the program works</li>
+            <li>Get an honest recommendation, either way</li>
+          </ul>
+          <form onsubmit="return false">
+            <input type="text" placeholder="Your name" aria-label="Your name" />
+            <input type="tel" placeholder="Phone number" aria-label="Phone number" />
+            <button class="btn btn-green" type="submit">Book my free consultation</button>
+          </form>
+          <div class="chip-row">
+            <b>36 lbs in 23 days</b>
+            <span>Marc's own result on the program</span>
           </div>
-          <div class="result-chip">
-            <div class="big">36 lbs in 23 days</div>
-            <div class="small">Marc's own result on the program</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ STAT STRIP ============================ -->
+    <section class="stat-strip">
+      <div class="container">
+        <div class="inner">
+          <div class="cell">
+            <b class="green">100%</b>
+            <span>Drug free, no GLP-1s</span>
+          </div>
+          <div class="cell">
+            <b>28 days</b>
+            <span>Structured and guided</span>
+          </div>
+          <div class="cell">
+            <b>5 days a week</b>
+            <span>One-on-one coaching calls</span>
+          </div>
+          <div class="cell">
+            <b>$299</b>
+            <span>The whole program</span>
           </div>
         </div>
       </div>
