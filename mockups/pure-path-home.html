@@ -1,0 +1,1209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pure Path Slimming — Natural, Drug-Free Weight Loss</title>
+    <meta
+      name="description"
+      content="A guided 28-day natural weight loss program. No GLP-1 drugs, daily coaching five days a week, and a plan to keep the weight off. Free 15-minute consultation."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* =====================================================================
+   PURE PATH SLIMMING — HOMEPAGE MOCKUP
+   Refresh of purepathslimming.org using their existing brand colours:
+   deep blue #003584 and green #61CE70, with the soft green tints from
+   their Elementor kit. Simple, calm and trustworthy: one message per
+   section, generous space, rounded corners, zero JavaScript.
+   ---------------------------------------------------------------------
+   HOW TO ADD PHOTOS: every image spot is a .ph box with a data-label.
+   Set the src on the <img> inside and the photo replaces the label.
+   ===================================================================== */
+
+      :root {
+        /* their palette */
+        --blue: #003584;
+        --blue-deep: #00265e;
+        --green: #61ce70;
+        --green-deep: #3fa04e;
+        --green-tint: #e6f4e9;
+        --mint: #d3eadc;
+        --paper: #f7f9f8;
+        --white: #ffffff;
+        --ink: #182335;
+        --grey: #5c6675;
+        --line: #e3e8e4;
+
+        --font-display: "Plus Jakarta Sans", sans-serif;
+        --font-body: "Inter", sans-serif;
+
+        --radius: 18px;
+        --radius-lg: 28px;
+        --shadow-soft: 0 20px 44px -28px rgba(0, 38, 94, 0.25);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 100px;
+      }
+
+      body {
+        font-family: var(--font-body);
+        background: var(--white);
+        color: var(--ink);
+        line-height: 1.7;
+        font-size: 16px;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      ::selection {
+        background: var(--blue);
+        color: var(--white);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .container {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: var(--font-display);
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: -0.015em;
+        color: var(--blue);
+      }
+
+      /* ---------- image placeholder ---------- */
+      .ph {
+        position: relative;
+        background: #e7ede9;
+        overflow: hidden;
+        border-radius: var(--radius);
+      }
+
+      .ph::after {
+        content: attr(data-label);
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        text-align: center;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #9fb0a5;
+      }
+
+      .ph img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: none;
+      }
+
+      .ph img[src] {
+        display: block;
+      }
+
+      /* ---------- buttons & links ---------- */
+      .btn {
+        display: inline-block;
+        font-family: var(--font-display);
+        font-size: 15px;
+        font-weight: 700;
+        padding: 15px 32px;
+        border-radius: 999px;
+        border: 1.5px solid transparent;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          color 0.2s,
+          border-color 0.2s,
+          transform 0.2s;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn-blue {
+        background: var(--blue);
+        color: var(--white);
+      }
+
+      .btn-blue:hover {
+        background: var(--blue-deep);
+      }
+
+      .btn-green {
+        background: var(--green);
+        color: #0c3315;
+      }
+
+      .btn-green:hover {
+        background: var(--green-deep);
+        color: var(--white);
+      }
+
+      .btn-outline {
+        border-color: var(--blue);
+        color: var(--blue);
+        background: transparent;
+      }
+
+      .btn-outline:hover {
+        background: var(--blue);
+        color: var(--white);
+      }
+
+      .btn-white {
+        background: var(--white);
+        color: var(--blue);
+      }
+
+      .btn-white:hover {
+        background: var(--green-tint);
+      }
+
+      .text-link {
+        font-weight: 600;
+        color: var(--blue);
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        text-decoration-thickness: 1.5px;
+        text-decoration-color: rgba(97, 206, 112, 0.7);
+      }
+
+      .text-link:hover {
+        color: var(--blue-deep);
+        text-decoration-color: var(--blue-deep);
+      }
+
+      /* ---------- header ---------- */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: var(--white);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        height: 80px;
+      }
+
+      .wordmark {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 19px;
+        color: var(--blue);
+        white-space: nowrap;
+      }
+
+      .wordmark span {
+        color: var(--green-deep);
+      }
+
+      .site-nav {
+        display: flex;
+        gap: 28px;
+        list-style: none;
+      }
+
+      .site-nav a {
+        font-size: 14.5px;
+        font-weight: 500;
+        color: var(--grey);
+        transition: color 0.2s;
+      }
+
+      .site-nav a:hover {
+        color: var(--blue);
+      }
+
+      .header-right {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        white-space: nowrap;
+      }
+
+      .header-phone {
+        font-size: 14.5px;
+        color: var(--grey);
+      }
+
+      .header-phone b {
+        font-family: var(--font-display);
+        font-weight: 700;
+        color: var(--blue);
+      }
+
+      .header-right .btn {
+        padding: 11px 24px;
+        font-size: 14px;
+      }
+
+      /* ---------- hero ---------- */
+      .hero {
+        background: var(--green-tint);
+        padding: 90px 0 100px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 70px;
+        align-items: center;
+      }
+
+      .hero h1 {
+        font-weight: 800;
+        font-size: clamp(36px, 4.8vw, 56px);
+        line-height: 1.08;
+        letter-spacing: -0.02em;
+        max-width: 16ch;
+      }
+
+      .hero h1 em {
+        font-style: normal;
+        color: var(--green-deep);
+      }
+
+      .hero .lead {
+        font-size: 18px;
+        color: var(--grey);
+        max-width: 50ch;
+        margin-top: 20px;
+      }
+
+      .hero-actions {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-top: 34px;
+      }
+
+      .hero-points {
+        list-style: none;
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+        margin-top: 32px;
+      }
+
+      .hero-points li {
+        position: relative;
+        padding-left: 24px;
+        font-size: 14.5px;
+        font-weight: 500;
+        color: var(--ink);
+      }
+
+      .hero-points li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--green-deep);
+        font-weight: 700;
+      }
+
+      .hero-photo {
+        position: relative;
+      }
+
+      .hero-photo .ph {
+        aspect-ratio: 4/5;
+        max-height: 540px;
+        width: 100%;
+        border-radius: var(--radius-lg);
+      }
+
+      .result-chip {
+        position: absolute;
+        left: -20px;
+        bottom: 30px;
+        background: var(--white);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-soft);
+        padding: 18px 24px;
+      }
+
+      .result-chip .big {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 24px;
+        color: var(--blue);
+        line-height: 1.1;
+      }
+
+      .result-chip .small {
+        font-size: 13px;
+        color: var(--grey);
+        margin-top: 3px;
+      }
+
+      /* ---------- sections ---------- */
+      .section {
+        padding: 100px 0;
+      }
+
+      .section-head {
+        max-width: 620px;
+        margin-bottom: 52px;
+      }
+
+      .section-head h2 {
+        font-size: clamp(26px, 3.2vw, 38px);
+      }
+
+      .section-head p {
+        color: var(--grey);
+        margin-top: 14px;
+      }
+
+      /* ---------- how it works ---------- */
+      .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 26px;
+      }
+
+      .step-card {
+        background: var(--paper);
+        border-radius: var(--radius);
+        padding: 36px 34px 38px;
+      }
+
+      .step-card .n {
+        font-family: var(--font-display);
+        font-size: 15px;
+        font-weight: 800;
+        color: var(--white);
+        background: var(--blue);
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 22px;
+      }
+
+      .step-card:last-child .n {
+        background: var(--green-deep);
+      }
+
+      .step-card h3 {
+        font-size: 19px;
+      }
+
+      .step-card p {
+        font-size: 15px;
+        color: var(--grey);
+        margin-top: 10px;
+      }
+
+      /* ---------- support split ---------- */
+      .support {
+        background: var(--paper);
+        padding: 100px 0;
+      }
+
+      .support-grid {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 70px;
+        align-items: center;
+      }
+
+      .support-photo .ph {
+        aspect-ratio: 4/3;
+        border-radius: var(--radius-lg);
+      }
+
+      .support-copy h2 {
+        font-size: clamp(26px, 3.2vw, 38px);
+        max-width: 16ch;
+      }
+
+      .support-copy > p {
+        color: var(--grey);
+        margin-top: 16px;
+        max-width: 52ch;
+      }
+
+      .check-list {
+        list-style: none;
+        margin-top: 30px;
+        display: grid;
+        gap: 15px;
+      }
+
+      .check-list li {
+        position: relative;
+        padding-left: 34px;
+        font-size: 15.5px;
+      }
+
+      .check-list li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        top: 1px;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: var(--mint);
+        color: var(--green-deep);
+        font-size: 13px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .check-list b {
+        font-weight: 600;
+      }
+
+      /* ---------- program / pricing ---------- */
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 26px;
+        align-items: stretch;
+      }
+
+      .price-card {
+        border-radius: var(--radius-lg);
+        padding: 46px 44px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .price-card.main {
+        background: var(--blue);
+        color: var(--white);
+      }
+
+      .price-card.main h3,
+      .price-card.main .price {
+        color: var(--white);
+      }
+
+      .price-card.light {
+        background: var(--green-tint);
+      }
+
+      .price-card .plan-tag {
+        display: inline-block;
+        align-self: flex-start;
+        font-size: 13px;
+        font-weight: 600;
+        border-radius: 999px;
+        padding: 6px 15px;
+        margin-bottom: 22px;
+      }
+
+      .price-card.main .plan-tag {
+        background: rgba(255, 255, 255, 0.14);
+        color: var(--white);
+      }
+
+      .price-card.light .plan-tag {
+        background: var(--white);
+        color: var(--green-deep);
+      }
+
+      .price-card h3 {
+        font-size: 23px;
+      }
+
+      .price-card .price {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 44px;
+        color: var(--blue);
+        margin-top: 12px;
+        line-height: 1;
+      }
+
+      .price-card .price small {
+        font-size: 15px;
+        font-weight: 500;
+        color: inherit;
+        opacity: 0.7;
+      }
+
+      .price-card ul {
+        list-style: none;
+        margin: 26px 0 30px;
+        display: grid;
+        gap: 12px;
+      }
+
+      .price-card li {
+        position: relative;
+        padding-left: 26px;
+        font-size: 15px;
+      }
+
+      .price-card.main li {
+        color: rgba(255, 255, 255, 0.88);
+      }
+
+      .price-card.light li {
+        color: var(--ink);
+      }
+
+      .price-card li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        font-weight: 700;
+      }
+
+      .price-card.main li::before {
+        color: var(--green);
+      }
+
+      .price-card.light li::before {
+        color: var(--green-deep);
+      }
+
+      .price-card .btn {
+        margin-top: auto;
+        align-self: flex-start;
+      }
+
+      .price-card .fine {
+        font-size: 13px;
+        margin-top: 18px;
+        opacity: 0.7;
+      }
+
+      .pricing-note {
+        text-align: center;
+        font-size: 14.5px;
+        color: var(--grey);
+        max-width: 62ch;
+        margin: 36px auto 0;
+      }
+
+      /* ---------- about Marc ---------- */
+      .about {
+        background: var(--paper);
+        padding: 100px 0;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 70px;
+        align-items: center;
+      }
+
+      .about-photo .ph {
+        aspect-ratio: 4/5;
+        max-width: 420px;
+        border-radius: var(--radius-lg);
+      }
+
+      .about-copy h2 {
+        font-size: clamp(26px, 3.2vw, 38px);
+        max-width: 18ch;
+      }
+
+      .about-copy > p {
+        color: var(--grey);
+        margin-top: 16px;
+        max-width: 54ch;
+      }
+
+      .about-stats {
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        gap: 44px;
+        justify-content: start;
+        margin-top: 36px;
+        padding-top: 30px;
+        border-top: 1px solid var(--line);
+      }
+
+      .about-stats .num {
+        font-family: var(--font-display);
+        font-size: 34px;
+        font-weight: 800;
+        color: var(--blue);
+        line-height: 1;
+      }
+
+      .about-stats .num.green {
+        color: var(--green-deep);
+      }
+
+      .about-stats .label {
+        font-size: 13.5px;
+        color: var(--grey);
+        margin-top: 8px;
+        max-width: 16ch;
+      }
+
+      /* ---------- articles ---------- */
+      .article-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 26px;
+      }
+
+      .article-card {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        overflow: hidden;
+        transition: transform 0.25s, box-shadow 0.25s;
+      }
+
+      .article-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-soft);
+      }
+
+      .article-card .ph {
+        aspect-ratio: 3/2;
+        border-radius: 0;
+      }
+
+      .article-card .body {
+        padding: 24px 26px 28px;
+      }
+
+      .article-card h3 {
+        font-size: 18px;
+        line-height: 1.3;
+      }
+
+      .article-card p {
+        font-size: 14.5px;
+        color: var(--grey);
+        margin-top: 10px;
+      }
+
+      .article-card .text-link {
+        display: inline-block;
+        font-size: 14.5px;
+        margin-top: 16px;
+      }
+
+      /* ---------- CTA ---------- */
+      .cta {
+        background: var(--blue);
+        padding: 100px 0;
+        text-align: center;
+      }
+
+      .cta h2 {
+        color: var(--white);
+        font-size: clamp(28px, 3.6vw, 44px);
+        max-width: 20ch;
+        margin: 0 auto;
+      }
+
+      .cta p {
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 15.5px;
+        margin: 16px auto 0;
+        max-width: 48ch;
+      }
+
+      .cta .actions {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-top: 32px;
+      }
+
+      .cta .fine {
+        font-size: 13.5px;
+        color: rgba(255, 255, 255, 0.55);
+        margin-top: 22px;
+      }
+
+      /* ---------- disclaimer ---------- */
+      .disclaimer {
+        background: var(--paper);
+        border-top: 1px solid var(--line);
+        padding: 30px 0;
+      }
+
+      .disclaimer p {
+        font-size: 13.5px;
+        color: var(--grey);
+        text-align: center;
+        max-width: 78ch;
+        margin: 0 auto;
+      }
+
+      /* ---------- footer ---------- */
+      .site-footer {
+        background: var(--white);
+        border-top: 1px solid var(--line);
+        color: var(--grey);
+        padding: 70px 0 36px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr 1fr;
+        gap: 44px;
+        padding-bottom: 44px;
+      }
+
+      .site-footer .brand p {
+        font-size: 14.5px;
+        margin-top: 12px;
+        max-width: 34ch;
+      }
+
+      .site-footer h4 {
+        color: var(--blue);
+        font-size: 15px;
+        font-weight: 700;
+        margin-bottom: 14px;
+      }
+
+      .site-footer ul {
+        list-style: none;
+        display: grid;
+        gap: 9px;
+      }
+
+      .site-footer ul li,
+      .site-footer ul a {
+        font-size: 14.5px;
+      }
+
+      .site-footer ul a:hover {
+        color: var(--blue);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid var(--line);
+        padding-top: 24px;
+        font-size: 13px;
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      /* ---------- responsive ---------- */
+      @media (max-width: 980px) {
+        .site-nav,
+        .header-phone {
+          display: none;
+        }
+
+        .hero-grid,
+        .support-grid,
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 44px;
+        }
+
+        .hero-photo .ph {
+          aspect-ratio: 3/2;
+          max-height: none;
+        }
+
+        .result-chip {
+          left: 18px;
+        }
+
+        .steps-grid,
+        .article-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .pricing-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .section,
+        .support,
+        .about,
+        .cta {
+          padding: 72px 0;
+        }
+
+        .hero {
+          padding: 60px 0 76px;
+        }
+
+        .price-card {
+          padding: 34px 28px;
+        }
+
+        .about-stats {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ============================ HEADER ============================ -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="#" class="wordmark">Pure Path <span>Slimming</span></a>
+        <ul class="site-nav">
+          <li><a href="#program">Our program</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#articles">Articles</a></li>
+        </ul>
+        <div class="header-right">
+          <span class="header-phone">Call: <b>855-654-3438</b></span>
+          <a href="#cta" class="btn btn-green">Book a free consultation</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================ HERO ============================ -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1>Lose weight <em>naturally.</em> No GLP-1s required.</h1>
+          <p class="lead">
+            A guided 28-day program that helps your body burn fat the natural
+            way, with a real person coaching you five days a week and a plan
+            to keep the weight off after.
+          </p>
+          <div class="hero-actions">
+            <a href="#cta" class="btn btn-blue">Book your free consultation</a>
+            <a href="#program" class="btn btn-outline">How it works</a>
+          </div>
+          <ul class="hero-points">
+            <li>Drug free</li>
+            <li>Coaching 5 days a week</li>
+            <li>Free 15-minute consultation</li>
+          </ul>
+        </div>
+        <div class="hero-photo">
+          <div class="ph" data-label="Photo · healthy meal prep or client portrait">
+            <img alt="Preparing a healthy meal" />
+          </div>
+          <div class="result-chip">
+            <div class="big">36 lbs in 23 days</div>
+            <div class="small">Marc's own result on the program</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ HOW IT WORKS ============================ -->
+    <section class="section" id="program">
+      <div class="container">
+        <div class="section-head">
+          <h2>How the program works.</h2>
+          <p>
+            Three natural processes do the heavy lifting. Your coach makes
+            sure you get through them safely and comfortably.
+          </p>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="n">1</div>
+            <h3>Your body enters ketosis</h3>
+            <p>
+              After roughly 48 hours, your body switches fuel sources and
+              begins burning stored fat for energy.
+            </p>
+          </div>
+          <div class="step-card">
+            <div class="n">2</div>
+            <h3>Harmful fat goes first</h3>
+            <p>
+              Ketosis prioritises visceral fat, the harmful fat that surrounds
+              your organs, which is why the process supports overall health.
+            </p>
+          </div>
+          <div class="step-card">
+            <div class="n">3</div>
+            <h3>Natural cellular cleanup</h3>
+            <p>
+              Alongside ketosis, autophagy breaks down and removes old and
+              damaged cells. A natural detox, no products required.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ SUPPORT ============================ -->
+    <section class="support">
+      <div class="container support-grid">
+        <div class="support-photo">
+          <div class="ph" data-label="Photo · coaching call or consultation">
+            <img alt="A coaching consultation" />
+          </div>
+        </div>
+        <div class="support-copy">
+          <h2>You're never on your own.</h2>
+          <p>
+            Most programs hand you a plan and wish you luck. This one comes
+            with a person. Short daily check-ins keep you accountable through
+            the hard days and help you transition back to food the right way.
+          </p>
+          <ul class="check-list">
+            <li><b>15-minute consultations,</b> five days a week</li>
+            <li><b>Personalised guidance</b> and honest accountability</li>
+            <li><b>A customised nutrition plan</b> for after the program</li>
+            <li><b>Ongoing support</b> so the weight stays off</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ PRICING ============================ -->
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-head">
+          <h2>Simple, honest pricing.</h2>
+          <p>
+            Every journey starts with a free 15-minute consultation to make
+            sure the program is a good fit. No pressure, just a conversation.
+          </p>
+        </div>
+        <div class="pricing-grid">
+          <div class="price-card main">
+            <span class="plan-tag">The program</span>
+            <h3>28-Day Diet Program</h3>
+            <div class="price">$299</div>
+            <ul>
+              <li>A structured, guided 28-day program</li>
+              <li>15-minute coaching sessions, 5 days a week</li>
+              <li>Progress check and plan adjustment after days 3 to 7</li>
+              <li>Personalised guidance from start to finish</li>
+              <li>Post-program nutrition plan to keep results</li>
+            </ul>
+            <a href="#cta" class="btn btn-green">Start with a free consultation</a>
+            <p class="fine">Participants must be 18+ and in reasonably good health.</p>
+          </div>
+          <div class="price-card light">
+            <span class="plan-tag">Optional follow-up</span>
+            <h3>Extended 28-Day Cycle</h3>
+            <div class="price" style="color: var(--blue)">$199</div>
+            <ul>
+              <li>Up to 4 more weeks of structure</li>
+              <li>Same coaching, 5 days a week</li>
+              <li>Recommended for larger weight loss goals</li>
+              <li>Followed by a personalised maintenance plan</li>
+            </ul>
+            <a href="#cta" class="btn btn-outline">Ask about extended cycles</a>
+          </div>
+        </div>
+        <p class="pricing-note">
+          Once you reach your goal, we build you a personalised maintenance
+          plan and stay available so the results last.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================ ABOUT ============================ -->
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div class="about-photo">
+          <div class="ph" data-label="Photo · Marc Valen portrait">
+            <img alt="Marc Valen" />
+          </div>
+        </div>
+        <div class="about-copy">
+          <h2>Built by someone who needed it to work.</h2>
+          <p>
+            My name is Marc Valen. After a 2024 injury sidelined my active
+            lifestyle, my weight rose to 237 pounds. I wanted a drug-free way
+            back, so I spent two years developing this three-part approach and
+            then tested it on myself. I still use it today to maintain my
+            ideal weight.
+          </p>
+          <div class="about-stats">
+            <div>
+              <div class="num">23</div>
+              <div class="label">Days on his own program</div>
+            </div>
+            <div>
+              <div class="num green">36 lbs</div>
+              <div class="label">Lost during the program</div>
+            </div>
+            <div>
+              <div class="num">29 lbs</div>
+              <div class="label">Net loss after reintroducing food</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ ARTICLES ============================ -->
+    <section class="section" id="articles">
+      <div class="container">
+        <div class="section-head">
+          <h2>From the articles.</h2>
+          <p>Straight answers to the questions everyone is asking.</p>
+        </div>
+        <div class="article-grid">
+          <div class="article-card">
+            <div class="ph" data-label="Photo"><img alt="Is rapid weight loss safe?" /></div>
+            <div class="body">
+              <h3>Is rapid weight loss safe?</h3>
+              <p>
+                Rapid weight loss is appealing, but it matters how it works
+                and what it means for your health.
+              </p>
+              <a href="#" class="text-link">Read more</a>
+            </div>
+          </div>
+          <div class="article-card">
+            <div class="ph" data-label="Photo"><img alt="Ozempic alternatives" /></div>
+            <div class="body">
+              <h3>Ozempic alternatives</h3>
+              <p>
+                As GLP-1 drugs grow in popularity, many people are asking: is
+                there a safer, natural alternative?
+              </p>
+              <a href="#" class="text-link">Read more</a>
+            </div>
+          </div>
+          <div class="article-card">
+            <div class="ph" data-label="Photo"><img alt="Why weight loss drugs fall short" /></div>
+            <div class="body">
+              <h3>Why weight loss drugs don't work long term</h3>
+              <p>
+                They are promoted as long-term solutions, but the reality is
+                more complicated.
+              </p>
+              <a href="#" class="text-link">Read more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ CTA ============================ -->
+    <section class="cta" id="cta">
+      <div class="container">
+        <h2>Start with a free 15-minute consultation.</h2>
+        <p>
+          We will review your goals, check the program is a good fit for your
+          health, and answer every question you have.
+        </p>
+        <div class="actions">
+          <a href="#" class="btn btn-green">Book your free consultation</a>
+          <a href="#" class="btn btn-white">Call 855-654-3438</a>
+        </div>
+        <p class="fine">
+          No pressure. Your information is never sold or shared.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================ DISCLAIMER ============================ -->
+    <div class="disclaimer">
+      <div class="container">
+        <p>
+          This program is intended for individuals in reasonably good health.
+          Always consult your physician before beginning any fasting or diet
+          program. Individual results may vary.
+        </p>
+      </div>
+    </div>
+
+    <!-- ============================ FOOTER ============================ -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="brand">
+            <span class="wordmark">Pure Path <span style="color: var(--green-deep)">Slimming</span></span>
+            <p>
+              A natural, drug-free weight loss program with real coaching and
+              a plan for keeping the results.
+            </p>
+          </div>
+          <div>
+            <h4>Quick links</h4>
+            <ul>
+              <li><a href="#program">Our program</a></li>
+              <li><a href="#pricing">Pricing</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#articles">Articles</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Get in touch</h4>
+            <ul>
+              <li>855-654-3438 (diet)</li>
+              <li>info@purepathslimming.org</li>
+              <li>purepathslimming.org</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 Pure Path Slimming. All rights reserved.</span>
+          <span>Consult your physician before starting any fasting program.</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
