@@ -1,0 +1,1017 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TriBsyn — No Tingle. All Go.</title>
+    <meta
+      name="description"
+      content="TriBsyn is next-generation beta-alanine. 4x the bioavailability, zero tingle, one small daily dose. Fuel for the everyday athlete."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* =====================================================================
+   TRIBSYN — HOMEPAGE V2 "SPORT"
+   The Gatorade-energy version: big condensed uppercase type, electric
+   lime accent, action photography of people drinking mid-movement,
+   giant stat numbers. Still white, still simple, but loud.
+   Zero JavaScript.
+   ---------------------------------------------------------------------
+   HOW TO ADD PHOTOS: every image spot is a .ph box with a data-label.
+   Set the src on the <img> inside and the photo replaces the label.
+   ===================================================================== */
+
+      :root {
+        --white: #ffffff;
+        --ink: #101319;
+        --grey: #5d6470;
+        --line: #e8eaee;
+        --lime: #c6f22e;
+        --lime-deep: #a8d40f;
+        --lime-tint: #f4fcd8;
+
+        --font: "Archivo", sans-serif;
+        --radius: 14px;
+        --radius-lg: 22px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 120px;
+      }
+
+      body {
+        font-family: var(--font);
+        background: var(--white);
+        color: var(--ink);
+        line-height: 1.6;
+        font-size: 16px;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      ::selection {
+        background: var(--lime);
+        color: var(--ink);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+
+      /* display type: tight, heavy, uppercase */
+      .disp {
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: -0.01em;
+        line-height: 0.95;
+      }
+
+      /* ---------- image placeholder ---------- */
+      .ph {
+        position: relative;
+        background: #edeff2;
+        overflow: hidden;
+        border-radius: var(--radius);
+      }
+
+      .ph::after {
+        content: attr(data-label);
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        text-align: center;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #a7adb8;
+      }
+
+      .ph img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: none;
+      }
+
+      .ph img[src] {
+        display: block;
+      }
+
+      /* ---------- buttons ---------- */
+      .btn {
+        display: inline-block;
+        font-family: var(--font);
+        font-size: 14.5px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        padding: 16px 32px;
+        border-radius: 10px;
+        border: 2px solid transparent;
+        cursor: pointer;
+        transition:
+          background 0.15s,
+          color 0.15s,
+          border-color 0.15s,
+          transform 0.15s;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn-lime {
+        background: var(--lime);
+        color: var(--ink);
+      }
+
+      .btn-lime:hover {
+        background: var(--lime-deep);
+      }
+
+      .btn-ink {
+        background: var(--ink);
+        color: var(--white);
+      }
+
+      .btn-ink:hover {
+        background: #000;
+      }
+
+      .btn-ghost {
+        border-color: rgba(255, 255, 255, 0.6);
+        color: var(--white);
+      }
+
+      .btn-ghost:hover {
+        border-color: var(--white);
+        background: rgba(255, 255, 255, 0.12);
+      }
+
+      /* ---------- ticker ---------- */
+      .ticker {
+        background: var(--ink);
+        color: var(--lime);
+        overflow: hidden;
+        white-space: nowrap;
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 12.5px;
+        letter-spacing: 0.12em;
+        padding: 9px 0;
+      }
+
+      .ticker span {
+        margin: 0 26px;
+      }
+
+      /* ---------- header ---------- */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: var(--white);
+        border-bottom: 2px solid var(--ink);
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        height: 74px;
+      }
+
+      .wordmark {
+        font-weight: 900;
+        font-size: 22px;
+        text-transform: uppercase;
+        letter-spacing: -0.01em;
+        white-space: nowrap;
+      }
+
+      .wordmark span {
+        background: var(--lime);
+        padding: 0 6px;
+      }
+
+      .site-nav {
+        display: flex;
+        gap: 26px;
+        list-style: none;
+      }
+
+      .site-nav a {
+        font-size: 13.5px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--grey);
+      }
+
+      .site-nav a:hover {
+        color: var(--ink);
+      }
+
+      .header-right {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+
+      .cart {
+        font-size: 13.5px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .header-right .btn {
+        padding: 11px 22px;
+        font-size: 13px;
+      }
+
+      /* ---------- hero ---------- */
+      .hero {
+        position: relative;
+        min-height: 82vh;
+        display: flex;
+        align-items: flex-end;
+      }
+
+      .hero .ph {
+        position: absolute;
+        inset: 0;
+        border-radius: 0;
+      }
+
+      .hero .scrim {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(16, 19, 25, 0.1) 30%,
+          rgba(16, 19, 25, 0.78) 100%
+        );
+      }
+
+      .hero-content {
+        position: relative;
+        width: 100%;
+        padding: 0 0 64px;
+        color: var(--white);
+      }
+
+      .hero-content h1 {
+        font-size: clamp(52px, 9vw, 128px);
+        color: var(--white);
+      }
+
+      .hero-content h1 .hl {
+        color: var(--lime);
+      }
+
+      .hero-content .lead {
+        font-size: clamp(16px, 1.8vw, 19px);
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.88);
+        max-width: 52ch;
+        margin-top: 18px;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 28px;
+      }
+
+      /* ---------- stat banner ---------- */
+      .stats {
+        background: var(--lime);
+        padding: 44px 0;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+
+      .stat {
+        text-align: center;
+      }
+
+      .stat b {
+        display: block;
+        font-weight: 900;
+        font-size: clamp(40px, 5.5vw, 64px);
+        line-height: 1;
+        letter-spacing: -0.02em;
+      }
+
+      .stat span {
+        display: block;
+        font-size: 13.5px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-top: 8px;
+      }
+
+      /* ---------- sections ---------- */
+      .section {
+        padding: 100px 0;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 24px;
+        flex-wrap: wrap;
+        margin-bottom: 48px;
+      }
+
+      .section-head h2 {
+        font-size: clamp(34px, 4.6vw, 60px);
+      }
+
+      .section-head h2 .hl {
+        -webkit-text-stroke: 2px var(--ink);
+        color: transparent;
+      }
+
+      .section-head p {
+        color: var(--grey);
+        font-size: 15.5px;
+        max-width: 40ch;
+      }
+
+      /* ---------- products ---------- */
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+
+      .product-card {
+        border: 2px solid var(--ink);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition:
+          transform 0.15s,
+          box-shadow 0.15s;
+      }
+
+      .product-card:hover {
+        transform: translate(-3px, -3px);
+        box-shadow: 6px 6px 0 var(--lime);
+      }
+
+      .product-card .ph {
+        aspect-ratio: 1;
+        border-radius: 0;
+        border-bottom: 2px solid var(--ink);
+      }
+
+      .product-card .body {
+        padding: 22px 24px 26px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+
+      .product-card .format {
+        font-size: 12px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--grey);
+      }
+
+      .product-card h3 {
+        font-weight: 900;
+        text-transform: uppercase;
+        font-size: 20px;
+        margin-top: 6px;
+      }
+
+      .product-card .desc {
+        font-size: 14px;
+        color: var(--grey);
+        margin-top: 6px;
+      }
+
+      .product-card .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: auto;
+        padding-top: 18px;
+      }
+
+      .product-card .price {
+        font-weight: 900;
+        font-size: 19px;
+      }
+
+      .product-card .btn {
+        padding: 11px 20px;
+        font-size: 12.5px;
+      }
+
+      /* ---------- action gallery ---------- */
+      .gallery {
+        background: var(--ink);
+        padding: 100px 0;
+        color: var(--white);
+      }
+
+      .gallery .section-head h2 {
+        color: var(--white);
+      }
+
+      .gallery .section-head h2 .hl {
+        -webkit-text-stroke: 2px var(--lime);
+        color: transparent;
+      }
+
+      .gallery .section-head p {
+        color: rgba(255, 255, 255, 0.65);
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+
+      .gallery-grid .ph {
+        aspect-ratio: 3/4;
+      }
+
+      .gallery-grid .shot:nth-child(2),
+      .gallery-grid .shot:nth-child(4) {
+        margin-top: 34px;
+      }
+
+      .shot .cap {
+        font-size: 12.5px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--lime);
+        margin-top: 10px;
+      }
+
+      /* ---------- benefit rows ---------- */
+      .benefit-rows {
+        border-top: 2px solid var(--ink);
+      }
+
+      .benefit-row {
+        display: grid;
+        grid-template-columns: 90px 1fr auto;
+        gap: 28px;
+        align-items: center;
+        padding: 30px 4px;
+        border-bottom: 2px solid var(--ink);
+        transition:
+          background 0.15s,
+          padding-left 0.15s;
+      }
+
+      .benefit-row:hover {
+        background: var(--lime-tint);
+        padding-left: 14px;
+      }
+
+      .benefit-row .n {
+        font-weight: 900;
+        font-size: 30px;
+        color: var(--lime-deep);
+      }
+
+      .benefit-row h3 {
+        font-weight: 900;
+        text-transform: uppercase;
+        font-size: clamp(19px, 2.4vw, 26px);
+      }
+
+      .benefit-row p {
+        font-size: 14.5px;
+        color: var(--grey);
+        margin-top: 4px;
+        max-width: 54ch;
+      }
+
+      .benefit-row .arrow {
+        font-weight: 900;
+        font-size: 24px;
+      }
+
+      /* ---------- quote ---------- */
+      .quote {
+        background: var(--lime);
+        padding: 90px 0;
+        text-align: center;
+      }
+
+      .quote blockquote {
+        font-weight: 900;
+        text-transform: uppercase;
+        font-size: clamp(24px, 3.6vw, 44px);
+        line-height: 1.1;
+        letter-spacing: -0.01em;
+        max-width: 26ch;
+        margin: 0 auto;
+        border: none;
+      }
+
+      .quote .who {
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-top: 24px;
+      }
+
+      /* ---------- CTA ---------- */
+      .cta {
+        padding: 110px 0;
+        text-align: center;
+      }
+
+      .cta h2 {
+        font-size: clamp(40px, 6vw, 84px);
+      }
+
+      .cta h2 .hl {
+        color: var(--lime-deep);
+      }
+
+      .cta p {
+        color: var(--grey);
+        font-size: 15.5px;
+        max-width: 46ch;
+        margin: 18px auto 0;
+      }
+
+      .cta .actions {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 32px;
+      }
+
+      /* ---------- footer ---------- */
+      .site-footer {
+        background: var(--ink);
+        color: rgba(255, 255, 255, 0.7);
+        padding: 64px 0 34px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr 1fr;
+        gap: 44px;
+        padding-bottom: 40px;
+      }
+
+      .site-footer .wordmark {
+        color: var(--white);
+      }
+
+      .site-footer .brand p {
+        font-size: 14px;
+        margin-top: 12px;
+        max-width: 30ch;
+      }
+
+      .site-footer h4 {
+        color: var(--white);
+        font-size: 13.5px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 13px;
+      }
+
+      .site-footer ul {
+        list-style: none;
+        display: grid;
+        gap: 8px;
+      }
+
+      .site-footer ul a {
+        font-size: 14px;
+      }
+
+      .site-footer ul a:hover {
+        color: var(--white);
+      }
+
+      .fda {
+        font-size: 12.5px;
+        color: rgba(255, 255, 255, 0.45);
+        border-top: 1px solid rgba(255, 255, 255, 0.16);
+        padding-top: 22px;
+        max-width: 90ch;
+      }
+
+      .footer-bottom {
+        font-size: 13px;
+        padding-top: 18px;
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      /* ---------- responsive ---------- */
+      @media (max-width: 980px) {
+        .site-nav {
+          display: none;
+        }
+
+        .hero {
+          min-height: 64vh;
+        }
+
+        .stats-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .product-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .section,
+        .gallery,
+        .cta {
+          padding: 70px 0;
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .gallery-grid .shot:nth-child(2),
+        .gallery-grid .shot:nth-child(4) {
+          margin-top: 0;
+        }
+
+        .benefit-row {
+          grid-template-columns: 56px 1fr;
+        }
+
+        .benefit-row .arrow {
+          display: none;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ============================ TICKER ============================ -->
+    <div class="ticker">
+      <span>No tingle. All go.</span><span>4x bioavailability</span
+      ><span>400 mg daily</span> <span>Zero paresthesia</span
+      ><span>No tingle. All go.</span><span>4x bioavailability</span>
+      <span>400 mg daily</span><span>Zero paresthesia</span>
+    </div>
+
+    <!-- ============================ HEADER ============================ -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="#" class="wordmark disp">TriB<span>syn</span></a>
+        <ul class="site-nav">
+          <li><a href="#shop">Shop</a></li>
+          <li><a href="#why">Why TriBsyn</a></li>
+          <li><a href="#crew">The crew</a></li>
+        </ul>
+        <div class="header-right">
+          <a href="#" class="cart">Cart (0)</a>
+          <a href="#shop" class="btn btn-lime">Shop now</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================ HERO ============================ -->
+    <section class="hero">
+      <div class="ph">
+        <img
+          alt="Athlete taking a drink at the track"
+          src="tribsyn-images/athlete.jpg"
+        />
+      </div>
+      <div class="scrim"></div>
+      <div class="container hero-content">
+        <h1 class="disp">No tingle.<br /><span class="hl">All go.</span></h1>
+        <p class="lead">
+          TriBsyn is next-generation beta-alanine. Four times the
+          bioavailability, one small daily dose, and none of the pins and
+          needles that made you quit the old stuff.
+        </p>
+        <div class="hero-actions">
+          <a href="#shop" class="btn btn-lime">Shop TriBsyn</a>
+          <a href="#why" class="btn btn-ghost">Why it works</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ STATS ============================ -->
+    <section class="stats">
+      <div class="container stats-grid">
+        <div class="stat"><b>4X</b><span>The bioavailability</span></div>
+        <div class="stat"><b>400MG</b><span>One small daily dose</span></div>
+        <div class="stat"><b>ZERO</b><span>Tingle. None. Ever.</span></div>
+      </div>
+    </section>
+
+    <!-- ============================ PRODUCTS ============================ -->
+    <section class="section" id="shop">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="disp">Pick your <span class="hl">fuel.</span></h2>
+          <p>Same clinically studied ingredient. Three ways to get it in.</p>
+        </div>
+        <div class="product-grid">
+          <div class="product-card">
+            <div
+              class="ph"
+              data-label="Product photo · powder tub, hard shadow"
+            >
+              <img alt="TriBsyn Powder" />
+            </div>
+            <div class="body">
+              <div class="format">Ready to mix</div>
+              <h3>The Powder</h3>
+              <p class="desc">
+                Unflavored, dissolves clean. Stir it into anything you already
+                drink.
+              </p>
+              <div class="row">
+                <div class="price">$39.95</div>
+                <a href="#" class="btn btn-ink">Add to cart</a>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div
+              class="ph"
+              data-label="Product photo · RTD bottle, condensation"
+            >
+              <img alt="TriBsyn Ready-to-Drink" />
+            </div>
+            <div class="body">
+              <div class="format">Ready to drink</div>
+              <h3>The Bottle</h3>
+              <p class="desc">
+                Grab, twist, go. Lightly flavored, zero sugar, cold out of the
+                cooler.
+              </p>
+              <div class="row">
+                <div class="price">$34.95</div>
+                <a href="#" class="btn btn-ink">Add to cart</a>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="ph" data-label="Product photo · gummies jar, bright">
+              <img alt="TriBsyn Gummies" />
+            </div>
+            <div class="body">
+              <div class="format">Chew &amp; go</div>
+              <h3>The Gummies</h3>
+              <p class="desc">
+                Two a day. For the crew that never remembers the shaker bottle.
+              </p>
+              <div class="row">
+                <div class="price">$29.95</div>
+                <a href="#" class="btn btn-ink">Add to cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ GALLERY ============================ -->
+    <section class="gallery" id="crew">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="disp">
+            Fuel for the <span class="hl">everyday athlete.</span>
+          </h2>
+          <p>
+            Not just for race day. For the run club, the pickup game, the 6am
+            gym crowd.
+          </p>
+        </div>
+        <div class="gallery-grid">
+          <div class="shot">
+            <div
+              class="ph"
+              data-label="Photo · runner drinking, mid-stride break"
+            >
+              <img alt="Runner taking a drink" />
+            </div>
+            <div class="cap">The long run</div>
+          </div>
+          <div class="shot">
+            <div class="ph" data-label="Photo · basketball court sideline swig">
+              <img alt="Sideline drink at pickup game" />
+            </div>
+            <div class="cap">The pickup game</div>
+          </div>
+          <div class="shot">
+            <div class="ph" data-label="Photo · gym floor, shaker bottle toast">
+              <img alt="Shaker bottles at the gym" />
+            </div>
+            <div class="cap">The 6am crew</div>
+          </div>
+          <div class="shot">
+            <div
+              class="ph"
+              data-label="Photo · trail hike, drinking at the summit"
+            >
+              <img alt="Drinking at the summit" />
+            </div>
+            <div class="cap">The weekend</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ BENEFITS ============================ -->
+    <section class="section" id="why">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="disp">Why it <span class="hl">works.</span></h2>
+          <p>Beta-alanine builds carnosine. Carnosine does the rest.</p>
+        </div>
+        <div class="benefit-rows">
+          <div class="benefit-row">
+            <div class="n">01</div>
+            <div>
+              <h3>Muscle function</h3>
+              <p>
+                The benefit beta-alanine is famous for. Push longer before the
+                burn.
+              </p>
+            </div>
+            <div class="arrow">→</div>
+          </div>
+          <div class="benefit-row">
+            <div class="n">02</div>
+            <div>
+              <h3>Sustained energy</h3>
+              <p>Steady, stimulant-free energy that holds through the day.</p>
+            </div>
+            <div class="arrow">→</div>
+          </div>
+          <div class="benefit-row">
+            <div class="n">03</div>
+            <div>
+              <h3>Sharper focus</h3>
+              <p>Cognitive performance support, backed by clinical research.</p>
+            </div>
+            <div class="arrow">→</div>
+          </div>
+          <div class="benefit-row">
+            <div class="n">04</div>
+            <div>
+              <h3>Built to last</h3>
+              <p>Cardiovascular and mitochondrial support for the long game.</p>
+            </div>
+            <div class="arrow">→</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ QUOTE ============================ -->
+    <section class="quote">
+      <div class="container">
+        <blockquote>
+          "The old stuff made my face itch. This one just works."
+        </blockquote>
+        <div class="who">Placeholder quote · Verified buyer</div>
+      </div>
+    </section>
+
+    <!-- ============================ CTA ============================ -->
+    <section class="cta">
+      <div class="container">
+        <h2 class="disp">Ready when <span class="hl">you are.</span></h2>
+        <p>
+          One small dose a day. No tingle, no ritual, no excuses. Free shipping
+          over $50.
+        </p>
+        <div class="actions">
+          <a href="#shop" class="btn btn-lime">Shop TriBsyn</a>
+          <a href="#" class="btn btn-ink">Subscribe &amp; save 15%</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FOOTER ============================ -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="brand">
+            <span class="wordmark disp">TriB<span>syn</span></span>
+            <p>Next-generation beta-alanine for people who move.</p>
+          </div>
+          <div>
+            <h4>Shop</h4>
+            <ul>
+              <li><a href="#shop">The Powder</a></li>
+              <li><a href="#shop">The Bottle</a></li>
+              <li><a href="#shop">The Gummies</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Learn</h4>
+            <ul>
+              <li><a href="#why">Why it works</a></li>
+              <li><a href="#">Study citations</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">For brands</a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="fda">
+          This information has not been evaluated by the Food and Drug
+          Administration. This product is not intended to diagnose, treat, cure,
+          or prevent any disease. TriBsyn® and CarnoSyn® are trademarks of
+          Natural Alternatives International, Inc.
+        </p>
+        <div class="footer-bottom">
+          <span
+            >© 2026 Natural Alternatives International, Inc. All rights
+            reserved.</span
+          >
+          <span><a href="#">Privacy</a> · <a href="#">Terms</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

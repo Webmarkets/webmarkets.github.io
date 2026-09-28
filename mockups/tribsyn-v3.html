@@ -1,0 +1,1211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TriBsyn — Carnosine, Optimized</title>
+    <meta
+      name="description"
+      content="TriBsyn is a clinically studied beta-alanine system with 4x bioavailability and zero paresthesia. Precision carnosine support for energy, cognition and longevity."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* =====================================================================
+   TRIBSYN — HOMEPAGE V3 "BIOMETRIC"
+   The science version: white lab-minimal with a biometric layer. Mono
+   data labels, hairline rules, dot-grid texture, a pure-CSS clinical
+   bar chart, and photos of people drinking framed like sensor
+   captures. Cool teal accent. Zero JavaScript.
+   ---------------------------------------------------------------------
+   HOW TO ADD PHOTOS: every image spot is a .ph box with a data-label.
+   Set the src on the <img> inside and the photo replaces the label.
+   ===================================================================== */
+
+      :root {
+        --white: #ffffff;
+        --fog: #f5f7f7;
+        --ink: #0d1417;
+        --grey: #5a666b;
+        --line: #e3e8e8;
+        --teal: #0d9488;
+        --teal-deep: #0b6e66;
+        --teal-tint: #e6f4f2;
+
+        --font-sans: "Space Grotesk", sans-serif;
+        --font-mono: "IBM Plex Mono", monospace;
+
+        --radius: 12px;
+        --radius-lg: 18px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 110px;
+      }
+
+      body {
+        font-family: var(--font-sans);
+        background: var(--white);
+        color: var(--ink);
+        line-height: 1.65;
+        font-size: 16px;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      ::selection {
+        background: var(--teal);
+        color: var(--white);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .container {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+      }
+
+      .mono {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--teal-deep);
+      }
+
+      /* ---------- image placeholder w/ sensor frame ---------- */
+      .ph {
+        position: relative;
+        background: #eaeeee;
+        overflow: hidden;
+        border-radius: var(--radius);
+      }
+
+      .ph::after {
+        content: attr(data-label);
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        text-align: center;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #a2adad;
+      }
+
+      .ph img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: none;
+      }
+
+      .ph img[src] {
+        display: block;
+      }
+
+      /* sensor corner brackets */
+      .frame {
+        position: relative;
+      }
+
+      .frame::before,
+      .frame::after {
+        content: "";
+        position: absolute;
+        width: 26px;
+        height: 26px;
+        border: 2px solid var(--teal);
+        z-index: 2;
+      }
+
+      .frame::before {
+        top: -8px;
+        left: -8px;
+        border-right: none;
+        border-bottom: none;
+      }
+
+      .frame::after {
+        bottom: -8px;
+        right: -8px;
+        border-left: none;
+        border-top: none;
+      }
+
+      .frame .readout {
+        position: absolute;
+        left: 16px;
+        bottom: 14px;
+        z-index: 2;
+        background: rgba(13, 20, 23, 0.82);
+        color: #9be8dd;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        padding: 7px 12px;
+        border-radius: 7px;
+      }
+
+      /* ---------- buttons ---------- */
+      .btn {
+        display: inline-block;
+        font-family: var(--font-sans);
+        font-size: 15px;
+        font-weight: 600;
+        padding: 14px 30px;
+        border-radius: 10px;
+        border: 1.5px solid transparent;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          color 0.2s,
+          border-color 0.2s;
+      }
+
+      .btn-teal {
+        background: var(--teal);
+        color: var(--white);
+      }
+
+      .btn-teal:hover {
+        background: var(--teal-deep);
+      }
+
+      .btn-outline {
+        border-color: var(--line);
+        color: var(--ink);
+        background: var(--white);
+      }
+
+      .btn-outline:hover {
+        border-color: var(--ink);
+      }
+
+      .text-link {
+        font-weight: 600;
+        color: var(--teal-deep);
+        border-bottom: 1.5px solid rgba(13, 148, 136, 0.35);
+      }
+
+      .text-link:hover {
+        border-color: var(--teal-deep);
+      }
+
+      /* ---------- top bar + header ---------- */
+      .topbar {
+        background: var(--ink);
+        color: #8fa6a3;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 8px 0;
+      }
+
+      .topbar .container {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .topbar b {
+        color: #9be8dd;
+        font-weight: 500;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(255, 255, 255, 0.94);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        height: 72px;
+      }
+
+      .wordmark {
+        font-weight: 700;
+        font-size: 20px;
+        letter-spacing: -0.02em;
+        white-space: nowrap;
+      }
+
+      .wordmark span {
+        color: var(--teal);
+      }
+
+      .site-nav {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+      }
+
+      .site-nav a {
+        font-family: var(--font-mono);
+        font-size: 12.5px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--grey);
+      }
+
+      .site-nav a:hover {
+        color: var(--teal-deep);
+      }
+
+      .header-right {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+
+      .cart {
+        font-family: var(--font-mono);
+        font-size: 12.5px;
+        text-transform: uppercase;
+      }
+
+      .header-right .btn {
+        padding: 10px 22px;
+        font-size: 14px;
+      }
+
+      /* ---------- hero ---------- */
+      .hero {
+        position: relative;
+        padding: 84px 0 96px;
+        background-image: radial-gradient(
+          rgba(13, 148, 136, 0.14) 1px,
+          transparent 1px
+        );
+        background-size: 26px 26px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 70px;
+        align-items: center;
+      }
+
+      .hero .kick {
+        margin-bottom: 18px;
+      }
+
+      .hero h1 {
+        font-size: clamp(38px, 5vw, 62px);
+        max-width: 14ch;
+      }
+
+      .hero h1 em {
+        font-style: normal;
+        color: var(--teal);
+      }
+
+      .hero .lead {
+        font-size: 17.5px;
+        color: var(--grey);
+        max-width: 48ch;
+        margin-top: 20px;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 32px;
+      }
+
+      .data-chips {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 34px;
+      }
+
+      .chip {
+        font-family: var(--font-mono);
+        font-size: 11.5px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--teal-deep);
+        background: var(--teal-tint);
+        border: 1px solid rgba(13, 148, 136, 0.25);
+        border-radius: 8px;
+        padding: 8px 14px;
+      }
+
+      .chip b {
+        font-weight: 600;
+        color: var(--ink);
+      }
+
+      .hero-photo .ph {
+        aspect-ratio: 4/4.5;
+        border-radius: var(--radius-lg);
+      }
+
+      /* ---------- pulse divider ---------- */
+      .pulse {
+        height: 44px;
+        overflow: hidden;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        align-items: center;
+      }
+
+      .pulse svg {
+        width: 100%;
+        height: 28px;
+      }
+
+      /* ---------- sections ---------- */
+      .section {
+        padding: 100px 0;
+      }
+
+      .sec-label {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 22px;
+      }
+
+      .sec-label::after {
+        content: "";
+        flex: 1;
+        border-top: 1px solid var(--line);
+      }
+
+      .section h2 {
+        font-size: clamp(26px, 3.2vw, 40px);
+        max-width: 20ch;
+      }
+
+      .section .sub {
+        color: var(--grey);
+        margin-top: 12px;
+        max-width: 56ch;
+      }
+
+      /* ---------- chart ---------- */
+      .chart-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 70px;
+        align-items: center;
+        margin-top: 48px;
+      }
+
+      .chart {
+        background: var(--fog);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        padding: 38px 38px 30px;
+      }
+
+      .chart .title {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--grey);
+        margin-bottom: 28px;
+      }
+
+      .bar-row {
+        display: grid;
+        grid-template-columns: 150px 1fr 52px;
+        gap: 14px;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .bar-row .label {
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .bar-row .label small {
+        display: block;
+        font-family: var(--font-mono);
+        font-size: 10.5px;
+        color: var(--grey);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .bar {
+        height: 26px;
+        border-radius: 6px;
+        background: #cdd6d6;
+      }
+
+      .bar.fill {
+        background: var(--teal);
+      }
+
+      .bar-row .val {
+        font-family: var(--font-mono);
+        font-size: 13px;
+        font-weight: 600;
+        text-align: right;
+      }
+
+      .chart .foot {
+        font-family: var(--font-mono);
+        font-size: 10.5px;
+        color: var(--grey);
+        border-top: 1px solid var(--line);
+        padding-top: 16px;
+        margin-top: 8px;
+      }
+
+      .chart-copy h3 {
+        font-size: 24px;
+        max-width: 18ch;
+      }
+
+      .chart-copy p {
+        color: var(--grey);
+        font-size: 15.5px;
+        margin-top: 14px;
+        max-width: 48ch;
+      }
+
+      .chart-copy .mono-list {
+        list-style: none;
+        margin-top: 24px;
+        display: grid;
+        gap: 12px;
+      }
+
+      .chart-copy .mono-list li {
+        display: flex;
+        gap: 12px;
+        align-items: baseline;
+        font-size: 15px;
+      }
+
+      .chart-copy .mono-list .tick {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: var(--teal);
+        font-weight: 600;
+      }
+
+      /* ---------- mechanism cards ---------- */
+      .mech-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+        margin-top: 48px;
+      }
+
+      .mech-card {
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        padding: 32px 30px 34px;
+        transition:
+          border-color 0.2s,
+          transform 0.2s;
+      }
+
+      .mech-card:hover {
+        border-color: var(--teal);
+        transform: translateY(-4px);
+      }
+
+      .mech-card .idx {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: var(--teal);
+        font-weight: 600;
+      }
+
+      .mech-card h3 {
+        font-size: 18.5px;
+        margin-top: 12px;
+      }
+
+      .mech-card p {
+        font-size: 14.5px;
+        color: var(--grey);
+        margin-top: 8px;
+      }
+
+      /* ---------- products ---------- */
+      .products {
+        background: var(--fog);
+        padding: 100px 0;
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+        margin-top: 48px;
+      }
+
+      .product-card {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition:
+          border-color 0.2s,
+          transform 0.2s;
+      }
+
+      .product-card:hover {
+        border-color: var(--teal);
+        transform: translateY(-4px);
+      }
+
+      .product-card .ph {
+        aspect-ratio: 1;
+        border-radius: 0;
+        background: var(--fog);
+      }
+
+      .product-card .body {
+        padding: 22px 24px 24px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .product-card h3 {
+        font-size: 18px;
+      }
+
+      .product-card .spec {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--grey);
+        display: grid;
+        gap: 5px;
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 1px dashed var(--line);
+      }
+
+      .product-card .spec b {
+        color: var(--ink);
+        font-weight: 600;
+      }
+
+      .product-card .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: auto;
+        padding-top: 18px;
+      }
+
+      .product-card .price {
+        font-weight: 700;
+        font-size: 17px;
+      }
+
+      .product-card .btn {
+        padding: 10px 20px;
+        font-size: 13.5px;
+      }
+
+      /* ---------- field notes (photos + quotes) ---------- */
+      .field-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        margin-top: 48px;
+      }
+
+      .field-card .ph {
+        aspect-ratio: 4/5;
+      }
+
+      .field-card blockquote {
+        font-size: 14.5px;
+        line-height: 1.6;
+        border: none;
+        margin-top: 16px;
+      }
+
+      .field-card .meta {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--grey);
+        margin-top: 10px;
+      }
+
+      /* ---------- CTA ---------- */
+      .cta {
+        background: var(--ink);
+        padding: 100px 0;
+      }
+
+      .cta-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+        flex-wrap: wrap;
+      }
+
+      .cta h2 {
+        color: var(--white);
+        font-size: clamp(28px, 3.6vw, 44px);
+        max-width: 16ch;
+      }
+
+      .cta h2 em {
+        font-style: normal;
+        color: #4fd8c8;
+      }
+
+      .cta p {
+        color: rgba(255, 255, 255, 0.65);
+        font-size: 15px;
+        margin-top: 12px;
+        max-width: 44ch;
+      }
+
+      .cta .actions {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .cta .btn-outline {
+        background: transparent;
+        border-color: rgba(255, 255, 255, 0.4);
+        color: var(--white);
+      }
+
+      .cta .btn-outline:hover {
+        border-color: var(--white);
+      }
+
+      /* ---------- footer ---------- */
+      .site-footer {
+        border-top: 1px solid var(--line);
+        padding: 64px 0 34px;
+        color: var(--grey);
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr 1fr;
+        gap: 44px;
+        padding-bottom: 40px;
+      }
+
+      .site-footer .brand p {
+        font-size: 14px;
+        margin-top: 12px;
+        max-width: 30ch;
+      }
+
+      .site-footer h4 {
+        font-family: var(--font-mono);
+        color: var(--ink);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+      }
+
+      .site-footer ul {
+        list-style: none;
+        display: grid;
+        gap: 8px;
+      }
+
+      .site-footer ul a {
+        font-size: 14px;
+      }
+
+      .site-footer ul a:hover {
+        color: var(--ink);
+      }
+
+      .fda {
+        font-size: 12.5px;
+        color: #9aa5a5;
+        border-top: 1px solid var(--line);
+        padding-top: 22px;
+        max-width: 90ch;
+      }
+
+      .footer-bottom {
+        font-size: 13px;
+        padding-top: 18px;
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      /* ---------- responsive ---------- */
+      @media (max-width: 980px) {
+        .site-nav {
+          display: none;
+        }
+
+        .hero-grid,
+        .chart-grid {
+          grid-template-columns: 1fr;
+          gap: 44px;
+        }
+
+        .mech-grid,
+        .product-grid,
+        .field-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .section,
+        .products,
+        .cta {
+          padding: 68px 0;
+        }
+
+        .hero {
+          padding: 56px 0 68px;
+        }
+
+        .bar-row {
+          grid-template-columns: 100px 1fr 44px;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ============================ TOP BAR ============================ -->
+    <div class="topbar">
+      <div class="container">
+        <span>TriBsyn® carnosine system</span>
+        <span
+          >Bioavailability <b>4.0x</b> · Dose <b>400 mg</b> · Paresthesia
+          <b>0.0</b></span
+        >
+      </div>
+    </div>
+
+    <!-- ============================ HEADER ============================ -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="#" class="wordmark">TriB<span>syn</span></a>
+        <ul class="site-nav">
+          <li><a href="#data">Data</a></li>
+          <li><a href="#mechanism">Mechanism</a></li>
+          <li><a href="#shop">Formats</a></li>
+          <li><a href="#field">Field notes</a></li>
+        </ul>
+        <div class="header-right">
+          <a href="#" class="cart">Cart · 0</a>
+          <a href="#shop" class="btn btn-teal">Shop</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================ HERO ============================ -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="mono kick">Beta-alanine · generation two</div>
+          <h1>Carnosine, <em>optimized.</em></h1>
+          <p class="lead">
+            TriBsyn delivers clinically studied beta-alanine with four times the
+            bioavailability and zero paresthesia. One 400 mg dose a day,
+            measurable support for energy, cognition and longevity.
+          </p>
+          <div class="hero-actions">
+            <a href="#shop" class="btn btn-teal">Shop TriBsyn</a>
+            <a href="#data" class="btn btn-outline">View the data</a>
+          </div>
+          <div class="data-chips">
+            <span class="chip">Bioavailability <b>4.0x</b></span>
+            <span class="chip">Daily dose <b>400 mg</b></span>
+            <span class="chip">Tingle index <b>0.0</b></span>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <div class="frame">
+            <div class="ph">
+              <img alt="Post-workout drink" src="tribsyn-images/workout.jpg" />
+            </div>
+            <span class="readout">SUBJECT 014 · POST-RUN · 400 MG</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ PULSE DIVIDER ============================ -->
+    <div class="pulse" aria-hidden="true">
+      <svg viewBox="0 0 1200 28" preserveAspectRatio="none">
+        <path
+          d="M0 14 H420 L440 14 452 4 462 24 472 8 482 14 H720 L740 14 752 4 762 24 772 8 782 14 H1200"
+          fill="none"
+          stroke="#0d9488"
+          stroke-width="1.6"
+        />
+      </svg>
+    </div>
+
+    <!-- ============================ DATA ============================ -->
+    <section class="section" id="data">
+      <div class="container">
+        <div class="sec-label"><span class="mono">01 · The data</span></div>
+        <h2>Four times the uptake. None of the trade-offs.</h2>
+        <p class="sub">
+          Standard beta-alanine forces a choice: effective doses or comfortable
+          ones. TriBsyn's patent-pending delivery removes the choice.
+        </p>
+        <div class="chart-grid">
+          <div class="chart">
+            <div class="title">
+              Relative bioavailability · clinical comparison
+            </div>
+            <div class="bar-row">
+              <div class="label">TriBsyn<small>400 mg dose</small></div>
+              <div class="bar fill"></div>
+              <div class="val">4.0x</div>
+            </div>
+            <div class="bar-row">
+              <div class="label">
+                Standard BA<small>Conventional form</small>
+              </div>
+              <div class="bar" style="width: 25%"></div>
+              <div class="val">1.0x</div>
+            </div>
+            <div class="bar-row">
+              <div class="label">
+                Paresthesia<small>TriBsyn vs standard</small>
+              </div>
+              <div class="bar" style="width: 2%; background: var(--teal)"></div>
+              <div class="val">0.0</div>
+            </div>
+            <div class="foot">
+              Source: clinical research summary, tribsyn.com/citations
+            </div>
+          </div>
+          <div class="chart-copy">
+            <h3>Small dose. Full effect.</h3>
+            <p>
+              Higher bioavailability means the clinically supported benefits
+              arrive from a 400 mg daily dose that disappears into any drink,
+              with no pins-and-needles and no loading protocol anxiety.
+            </p>
+            <ul class="mono-list">
+              <li>
+                <span class="tick">[✓]</span>Clinically studied, patent-pending
+                delivery
+              </li>
+              <li>
+                <span class="tick">[✓]</span>Built on the CarnoSyn research
+                legacy
+              </li>
+              <li>
+                <span class="tick">[✓]</span>Vegan and vegetarian friendly
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ MECHANISM ============================ -->
+    <section class="section" id="mechanism" style="padding-top: 0">
+      <div class="container">
+        <div class="sec-label">
+          <span class="mono">02 · The mechanism</span>
+        </div>
+        <h2>How carnosine works for you.</h2>
+        <div class="mech-grid">
+          <div class="mech-card">
+            <div class="idx">M-01</div>
+            <h3>Buffers muscle pH</h3>
+            <p>
+              Carnosine buffers acid buildup in working muscle, supporting
+              performance and delaying fatigue.
+            </p>
+          </div>
+          <div class="mech-card">
+            <div class="idx">M-02</div>
+            <h3>Supports the brain</h3>
+            <p>
+              Research links elevated carnosine with cognitive performance and
+              mental clarity support.
+            </p>
+          </div>
+          <div class="mech-card">
+            <div class="idx">M-03</div>
+            <h3>Protects long-term</h3>
+            <p>
+              Antioxidant properties support cardiovascular and mitochondrial
+              health as you age.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ PRODUCTS ============================ -->
+    <section class="products" id="shop">
+      <div class="container">
+        <div class="sec-label"><span class="mono">03 · The formats</span></div>
+        <h2>Choose your delivery system.</h2>
+        <div class="product-grid">
+          <div class="product-card">
+            <div
+              class="ph"
+              data-label="Product photo · powder pouch, lab white"
+            >
+              <img alt="TriBsyn Powder" />
+            </div>
+            <div class="body">
+              <h3>Powder</h3>
+              <div class="spec">
+                <span>Dose · <b>400 mg</b></span>
+                <span>Servings · <b>30</b></span>
+                <span>Flavor · <b>None, dissolves clean</b></span>
+              </div>
+              <div class="row">
+                <div class="price">$39.95</div>
+                <a href="#" class="btn btn-teal">Add to cart</a>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="ph" data-label="Product photo · RTD bottle, minimal">
+              <img alt="TriBsyn Ready-to-Drink" />
+            </div>
+            <div class="body">
+              <h3>Ready-to-Drink</h3>
+              <div class="spec">
+                <span>Dose · <b>400 mg per bottle</b></span>
+                <span>Pack · <b>12 bottles</b></span>
+                <span>Sugar · <b>0 g</b></span>
+              </div>
+              <div class="row">
+                <div class="price">$34.95</div>
+                <a href="#" class="btn btn-teal">Add to cart</a>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="ph" data-label="Product photo · gummies jar, minimal">
+              <img alt="TriBsyn Gummies" />
+            </div>
+            <div class="body">
+              <h3>Gummies</h3>
+              <div class="spec">
+                <span>Dose · <b>400 mg per 2</b></span>
+                <span>Count · <b>60</b></span>
+                <span>Format · <b>Vegan pectin</b></span>
+              </div>
+              <div class="row">
+                <div class="price">$29.95</div>
+                <a href="#" class="btn btn-teal">Add to cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FIELD NOTES ============================ -->
+    <section class="section" id="field">
+      <div class="container">
+        <div class="sec-label"><span class="mono">04 · Field notes</span></div>
+        <h2>Tested in real routines.</h2>
+        <div class="field-grid">
+          <div class="field-card">
+            <div class="frame">
+              <div
+                class="ph"
+                data-label="Photo · morning kitchen, stirring into coffee"
+              >
+                <img alt="Stirring TriBsyn into coffee" />
+              </div>
+              <span class="readout">DAY 06 · 7:12 AM</span>
+            </div>
+            <blockquote>
+              "It goes in my coffee. I genuinely forget I'm taking it, which is
+              the point. Placeholder review."
+            </blockquote>
+            <div class="meta">Placeholder name · Verified buyer</div>
+          </div>
+          <div class="field-card">
+            <div class="frame">
+              <div
+                class="ph"
+                data-label="Photo · cyclist drinking at a rest stop"
+              >
+                <img alt="Cyclist taking a drink" />
+              </div>
+              <span class="readout">DAY 21 · KM 42</span>
+            </div>
+            <blockquote>
+              "Switched from standard beta-alanine. Same legs, zero face tingle.
+              Placeholder review."
+            </blockquote>
+            <div class="meta">Placeholder name · Verified buyer</div>
+          </div>
+          <div class="field-card">
+            <div class="frame">
+              <div
+                class="ph"
+                data-label="Photo · office desk, bottle mid-afternoon"
+              >
+                <img alt="Afternoon drink at a desk" />
+              </div>
+              <span class="readout">DAY 34 · 2:47 PM</span>
+            </div>
+            <blockquote>
+              "Bought it for the gym, noticed it at work. Afternoon focus is
+              real. Placeholder review."
+            </blockquote>
+            <div class="meta">Placeholder name · Verified buyer</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ CTA ============================ -->
+    <section class="cta">
+      <div class="container cta-inner">
+        <div>
+          <h2>Start your <em>baseline.</em></h2>
+          <p>
+            Carnosine builds over weeks. Begin today, feel the difference by
+            week four. Subscribe and save 15%.
+          </p>
+        </div>
+        <div class="actions">
+          <a href="#shop" class="btn btn-teal">Shop TriBsyn</a>
+          <a href="#data" class="btn btn-outline">Review the data</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FOOTER ============================ -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="brand">
+            <span class="wordmark"
+              >TriB<span style="color: var(--teal)">syn</span></span
+            >
+            <p>
+              Precision carnosine support for energy, cognition and longevity.
+            </p>
+          </div>
+          <div>
+            <h4>Shop</h4>
+            <ul>
+              <li><a href="#shop">Powder</a></li>
+              <li><a href="#shop">Ready-to-Drink</a></li>
+              <li><a href="#shop">Gummies</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Science</h4>
+            <ul>
+              <li><a href="#data">The data</a></li>
+              <li><a href="#mechanism">Mechanism</a></li>
+              <li><a href="#">Study citations</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">For brands</a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="fda">
+          This information has not been evaluated by the Food and Drug
+          Administration. This product is not intended to diagnose, treat, cure,
+          or prevent any disease. TriBsyn® and CarnoSyn® are trademarks of
+          Natural Alternatives International, Inc.
+        </p>
+        <div class="footer-bottom">
+          <span
+            >© 2026 Natural Alternatives International, Inc. All rights
+            reserved.</span
+          >
+          <span><a href="#">Privacy</a> · <a href="#">Terms</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
