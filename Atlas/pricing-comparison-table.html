@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WebMarkets — Plan Comparison Table</title>
+<!--
+    Standalone preview wrapper. Everything between the
+    "DIVI CODE MODULE — COPY FROM HERE" and "COPY TO HERE" comments
+    is the snippet to paste into a Divi Code Module.
+-->
+<style>
+    /* Preview-page background only — matches the brand guide graphite.
+       Not needed in Divi if the section background is already dark. */
+    body { margin: 0; background: #0C111D; padding: 80px 0; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     DIVI CODE MODULE — COPY FROM HERE
+     WebMarkets plan comparison table · Live Brand Guide styles
+     · All CSS is scoped under .wmc so it can't clash with Divi.
+     · No JavaScript required.
+     · The fonts link can be removed if Space Grotesk / Inter /
+       JetBrains Mono are already loaded on the page.
+
+     ─────────────────────────────────────────────────────────────
+     HOW TO EDIT THIS TABLE
+     ─────────────────────────────────────────────────────────────
+     ADD A FEATURE ROW
+       Copy the template row marked "FEATURE ROW TEMPLATE" below
+       and paste it anywhere inside the <tbody>. Type the feature
+       name in the first cell, then in each plan cell use ONE of:
+         <span class="wmc-yes">✓</span>   = included
+         <span class="wmc-no">—</span>    = not included
+         <span class="wmc-note">2x/mo</span> = custom text (limits etc.)
+
+     ADD A CATEGORY DIVIDER
+       Copy the row marked "CATEGORY ROW TEMPLATE" and change the
+       label. Delete these rows if you don't want groupings.
+
+     CHANGE PRICES / PLAN NAMES / BUTTONS
+       All in the <thead> at the top and the last row of <tbody>.
+
+     The highlighted "Best Value" column is the 4th column
+     (Complete). To move it, change which cells carry the
+     class "hl" and move the wmc-flag chip in the header.
+     ============================================================ -->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+.wmc, .wmc * { margin: 0; padding: 0; box-sizing: border-box; }
+.wmc {
+    --wmc-graphite: #0C111D;
+    --wmc-panel: #111827;
+    --wmc-steel: #1F2937;
+    --wmc-blue: #3B82F6;
+    --wmc-cyan: #06B6D4;
+    --wmc-text: #F9FAFB;
+    --wmc-grey: #9CA3AF;
+    --wmc-grey-dim: #6B7280;
+    --wmc-line: rgba(255, 255, 255, 0.08);
+    --wmc-blue-tint: rgba(59, 130, 246, 0.08);
+    --wmc-blue-line: rgba(59, 130, 246, 0.35);
+
+    --wmc-sans: 'Inter', sans-serif;
+    --wmc-display: 'Space Grotesk', sans-serif;
+    --wmc-mono: 'JetBrains Mono', monospace;
+
+    font-family: var(--wmc-sans);
+    color: var(--wmc-text);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ---------- Section head ---------- */
+.wmc .wmc-head { text-align: center; max-width: 720px; margin: 0 auto 52px; }
+.wmc .wmc-tag {
+    display: inline-block;
+    font-family: var(--wmc-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--wmc-blue);
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 4px;
+    padding: 4px 10px;
+}
+.wmc .wmc-title {
+    font-family: var(--wmc-display);
+    font-weight: 700;
+    font-size: clamp(30px, 4.2vw, 46px);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin: 18px 0 14px;
+}
+.wmc .wmc-title em { font-style: normal; color: var(--wmc-blue); }
+.wmc .wmc-lead { font-size: 16px; color: var(--wmc-grey); }
+
+/* ---------- Table shell ---------- */
+.wmc .wmc-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.wmc table {
+    width: 100%;
+    min-width: 860px;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: rgba(17, 24, 39, 0.4);
+    border: 1px solid var(--wmc-line);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.wmc th,
+.wmc td {
+    padding: 16px 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--wmc-line);
+    font-size: 14.5px;
+    vertical-align: middle;
+}
+
+.wmc tr:last-child th,
+.wmc tr:last-child td { border-bottom: none; }
+
+/* first column: feature labels, left aligned */
+.wmc th:first-child,
+.wmc td:first-child {
+    text-align: left;
+    color: var(--wmc-grey);
+    font-weight: 500;
+    width: 32%;
+    min-width: 220px;
+}
+
+/* ---------- Plan header row ---------- */
+.wmc thead th {
+    background: var(--wmc-panel);
+    border-bottom: 1px solid var(--wmc-line);
+    padding: 26px 20px 24px;
+    vertical-align: top;
+}
+
+.wmc .wmc-plan {
+    font-family: var(--wmc-display);
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.01em;
+    color: var(--wmc-text);
+}
+
+.wmc .wmc-price {
+    display: block;
+    font-family: var(--wmc-mono);
+    font-size: 12.5px;
+    letter-spacing: 0.04em;
+    color: var(--wmc-grey);
+    margin-top: 8px;
+}
+
+.wmc .wmc-price b {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--wmc-text);
+}
+
+/* "Best value" flag chip */
+.wmc .wmc-flag {
+    display: inline-block;
+    font-family: var(--wmc-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--wmc-blue);
+    border-radius: 4px;
+    padding: 4px 10px;
+    margin-bottom: 10px;
+}
+
+/* ---------- Highlighted column (Complete) ---------- */
+.wmc .hl {
+    background: var(--wmc-blue-tint);
+    border-left: 1px solid var(--wmc-blue-line);
+    border-right: 1px solid var(--wmc-blue-line);
+}
+
+.wmc thead .hl {
+    background: linear-gradient(180deg, rgba(59, 130, 246, 0.22) 0%, rgba(59, 130, 246, 0.08) 100%);
+    border-top: 2px solid var(--wmc-blue);
+}
+
+.wmc tr:last-child .hl { border-bottom: 2px solid var(--wmc-blue); }
+
+/* ---------- Category divider rows ---------- */
+.wmc .wmc-cat td {
+    background: rgba(31, 41, 55, 0.55);
+    font-family: var(--wmc-mono);
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--wmc-cyan);
+    text-align: left;
+    padding: 11px 20px;
+}
+
+/* keep the highlight tint visible across category rows */
+.wmc .wmc-cat .hl { background: rgba(59, 130, 246, 0.12); }
+
+/* ---------- Cell marks ---------- */
+.wmc .wmc-yes {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(59, 130, 246, 0.15);
+    border: 1px solid var(--wmc-blue-line);
+    color: var(--wmc-blue);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.wmc .hl .wmc-yes {
+    background: var(--wmc-blue);
+    border-color: var(--wmc-blue);
+    color: #fff;
+}
+
+.wmc .wmc-no {
+    color: var(--wmc-grey-dim);
+    font-size: 15px;
+}
+
+.wmc .wmc-note {
+    font-family: var(--wmc-mono);
+    font-size: 12px;
+    color: var(--wmc-cyan);
+}
+
+/* ---------- CTA row ---------- */
+.wmc .wmc-cta-row td {
+    padding: 22px 16px 26px;
+    background: var(--wmc-panel);
+}
+
+.wmc .wmc-btn {
+    display: inline-block;
+    font-family: var(--wmc-display);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--wmc-text);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 11px 22px;
+    transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+    white-space: nowrap;
+}
+
+.wmc .wmc-btn:hover {
+    border-color: var(--wmc-blue);
+    background: rgba(59, 130, 246, 0.12);
+    transform: translateY(-2px);
+}
+
+.wmc .wmc-btn--solid {
+    background: var(--wmc-blue);
+    border-color: var(--wmc-blue);
+    color: #fff;
+}
+
+.wmc .wmc-btn--solid:hover {
+    background: #2563EB;
+    border-color: #2563EB;
+}
+
+/* ---------- Footnote ---------- */
+.wmc .wmc-footnote {
+    margin-top: 28px;
+    text-align: center;
+    font-family: var(--wmc-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--wmc-grey-dim);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 920px) {
+    /* table scrolls sideways; feature column stays pinned */
+    .wmc th:first-child,
+    .wmc td:first-child {
+        position: sticky;
+        left: 0;
+        z-index: 2;
+        background: #101623;
+    }
+    .wmc .wmc-cat td:first-child { background: #161f2e; }
+    .wmc thead th:first-child { background: var(--wmc-panel); }
+    .wmc .wmc-cta-row td:first-child { background: var(--wmc-panel); }
+}
+</style>
+
+<div class="wmc">
+    <div class="wmc-head">
+        <span class="wmc-tag">Compare Plans</span>
+        <h2 class="wmc-title">Find the <em>right fit.</em></h2>
+        <p class="wmc-lead">Every plan is month-to-month. Upgrade, downgrade or cancel anytime.</p>
+    </div>
+
+    <div class="wmc-scroll">
+        <table>
+            <!-- ============ PLAN HEADER ROW ============ -->
+            <thead>
+                <tr>
+                    <th><!-- empty corner cell --></th>
+                    <th>
+                        <div class="wmc-plan">Grow</div>
+                        <span class="wmc-price"><b>$—</b> /mo</span>
+                    </th>
+                    <th>
+                        <div class="wmc-plan">Pro</div>
+                        <span class="wmc-price"><b>$—</b> /mo</span>
+                    </th>
+                    <th class="hl">
+                        <span class="wmc-flag">★ Best Value</span>
+                        <div class="wmc-plan">Complete</div>
+                        <span class="wmc-price"><b>$—</b> /mo</span>
+                    </th>
+                    <th>
+                        <div class="wmc-plan">Custom Plan</div>
+                        <span class="wmc-price"><b>Let's talk</b></span>
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <!-- ============ CATEGORY ROW TEMPLATE ============
+                     Copy this whole <tr> to add a category divider. -->
+                <tr class="wmc-cat">
+                    <td>Category Name</td>
+                    <td></td>
+                    <td></td>
+                    <td class="hl"></td>
+                    <td></td>
+                </tr>
+
+                <!-- ============ FEATURE ROW TEMPLATE ============
+                     Copy this whole <tr> for each feature. In each
+                     plan cell use one of:
+                       <span class="wmc-yes">✓</span>     included
+                       <span class="wmc-no">—</span>      not included
+                       <span class="wmc-note">2x/mo</span> custom text -->
+                <tr>
+                    <td>Feature name goes here</td>
+                    <td><span class="wmc-yes">✓</span></td>
+                    <td><span class="wmc-yes">✓</span></td>
+                    <td class="hl"><span class="wmc-yes">✓</span></td>
+                    <td><span class="wmc-note">Custom</span></td>
+                </tr>
+                <tr>
+                    <td>Second feature example</td>
+                    <td><span class="wmc-no">—</span></td>
+                    <td><span class="wmc-yes">✓</span></td>
+                    <td class="hl"><span class="wmc-yes">✓</span></td>
+                    <td><span class="wmc-note">Custom</span></td>
+                </tr>
+                <tr>
+                    <td>Third feature example</td>
+                    <td><span class="wmc-no">—</span></td>
+                    <td><span class="wmc-note">2x/mo</span></td>
+                    <td class="hl"><span class="wmc-note">Unlimited</span></td>
+                    <td><span class="wmc-note">Custom</span></td>
+                </tr>
+
+                <!-- Second category example -->
+                <tr class="wmc-cat">
+                    <td>Another Category</td>
+                    <td></td>
+                    <td></td>
+                    <td class="hl"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Fourth feature example</td>
+                    <td><span class="wmc-no">—</span></td>
+                    <td><span class="wmc-no">—</span></td>
+                    <td class="hl"><span class="wmc-yes">✓</span></td>
+                    <td><span class="wmc-note">Custom</span></td>
+                </tr>
+                <tr>
+                    <td>Fifth feature example</td>
+                    <td><span class="wmc-no">—</span></td>
+                    <td><span class="wmc-no">—</span></td>
+                    <td class="hl"><span class="wmc-yes">✓</span></td>
+                    <td><span class="wmc-note">Custom</span></td>
+                </tr>
+
+                <!-- ============ CTA ROW ============ -->
+                <tr class="wmc-cta-row">
+                    <td><!-- empty corner cell --></td>
+                    <td><a href="#" class="wmc-btn">Get Started</a></td>
+                    <td><a href="#" class="wmc-btn">Get Started</a></td>
+                    <td class="hl"><a href="#" class="wmc-btn wmc-btn--solid">Get Started</a></td>
+                    <td><a href="#" class="wmc-btn">Book a Call</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="wmc-footnote">
+        ALL PLANS INCLUDE ONBOARDING &amp; A DEDICATED ACCOUNT MANAGER
+    </div>
+</div>
+<!-- ============================================================
+     DIVI CODE MODULE — COPY TO HERE
+     ============================================================ -->
+
+</body>
+</html>
