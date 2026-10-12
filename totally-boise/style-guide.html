@@ -1,0 +1,1187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Style Guide | Totally Boise Gold</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&family=Heebo:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* =====================================================================
+   TOTALLY BOISE · GOLD BRAND STYLE GUIDE
+   Face-lift keeping the current Totally Boise colors — leaf green
+   #6AB14A and ink #121722 from the live site — with a new metallic
+   gold family drawn from the TB Gold logo. Gold is an accent, used
+   sparingly: edges, badges, and moments. Never large mustard fills.
+   Fonts are the site's current trio: Oswald / Outfit / Heebo.
+   ---------------------------------------------------------------------
+   Photos are labeled .ph placeholders — add src to the <img> to fill.
+   ===================================================================== */
+
+      :root {
+        /* greens — from the live site + logo gem */
+        --leaf: #6ab14a;
+        --leaf-deep: #4a8f3c;
+        --emerald: #1e5e3c;
+        --pine: #112f26;
+        --leaf-tint: #eef5e9;
+
+        /* gold — from the TB Gold logo frame */
+        --gold: #c9a14e;
+        --gold-deep: #9a7428;
+        --gold-pale: #f5ecd6;
+        --grad-gold: linear-gradient(
+          135deg,
+          #ecd9a0 0%,
+          #c9a14e 45%,
+          #9a7428 100%
+        );
+
+        /* neutrals — from the live site */
+        --ink: #121722;
+        --slate: #494e5c;
+        --paper: #fafaf7;
+        --line: #e6e4dc;
+
+        --radius: 12px;
+        --radius-lg: 20px;
+        --shadow-soft: 0 18px 40px -26px rgba(18, 23, 34, 0.35);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Heebo", sans-serif;
+        font-size: 16px;
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      ::selection {
+        background: var(--leaf);
+        color: #fff;
+      }
+
+      .disp {
+        font-family: "Oswald", sans-serif;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .ui {
+        font-family: "Outfit", sans-serif;
+      }
+
+      a {
+        color: var(--leaf-deep);
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: var(--emerald);
+      }
+
+      p {
+        margin: 0;
+        color: var(--slate);
+      }
+
+      /* ---------- image placeholder ---------- */
+      .ph {
+        position: relative;
+        background: #e7e9e2;
+        overflow: hidden;
+      }
+
+      .ph::after {
+        content: attr(data-label);
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        text-align: center;
+        font-size: 10.5px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #a3a799;
+      }
+
+      .ph img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: none;
+      }
+
+      .ph img[src] {
+        display: block;
+        z-index: 1;
+      }
+
+      /* ---------- guide chrome ---------- */
+      .guide-head {
+        background: var(--ink);
+        color: #fff;
+        text-align: center;
+        padding: 88px 28px 76px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .guide-head .kicker {
+        font-family: "Outfit", sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+
+      .guide-head h1 {
+        margin: 20px 0 14px;
+        font-family: "Oswald", sans-serif;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        font-size: clamp(36px, 5.4vw, 62px);
+        line-height: 1.08;
+      }
+
+      .guide-head h1 em {
+        font-style: normal;
+        background: var(--grad-gold);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .guide-head p {
+        max-width: 56ch;
+        margin: 0 auto;
+        color: #b8bcc6;
+      }
+
+      .guide-head::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 3px;
+        background: var(--grad-gold);
+      }
+
+      .section {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 68px 28px;
+        border-top: 1px solid var(--line);
+      }
+
+      .section:first-of-type {
+        border-top: 0;
+      }
+
+      .sec-label {
+        display: flex;
+        align-items: baseline;
+        gap: 16px;
+        margin-bottom: 36px;
+      }
+
+      .sec-label .num {
+        font-family: "Outfit", sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        color: var(--gold-deep);
+      }
+
+      .sec-label h2 {
+        margin: 0;
+        font-size: 26px;
+      }
+
+      .sec-note {
+        max-width: 64ch;
+        margin: -22px 0 34px;
+        font-size: 14.5px;
+      }
+
+      /* ---------- 01 logo ---------- */
+      .logo-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+
+      .logo-card {
+        border-radius: var(--radius-lg);
+        padding: 54px 28px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 22px;
+        text-align: center;
+      }
+
+      .logo-card.light {
+        background: #fff;
+        border: 1px solid var(--line);
+      }
+
+      .logo-card.dark {
+        background: var(--ink);
+      }
+
+      .logo-card img {
+        width: 128px;
+        height: auto;
+      }
+
+      .logo-card .wordmark {
+        font-family: "Oswald", sans-serif;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 24px;
+        line-height: 1.2;
+      }
+
+      .logo-card.dark .wordmark {
+        color: #fff;
+      }
+
+      .logo-card .wordmark .gold {
+        background: var(--grad-gold);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .logo-card .note {
+        font-size: 12.5px;
+        color: var(--slate);
+      }
+
+      .logo-card.dark .note {
+        color: #8f94a1;
+      }
+
+      /* ---------- 02 color ---------- */
+      .swatch-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+      }
+
+      .swatch {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        overflow: hidden;
+        background: #fff;
+      }
+
+      .swatch .chip {
+        height: 96px;
+      }
+
+      .swatch .meta {
+        padding: 14px 16px 16px;
+      }
+
+      .swatch .name {
+        font-family: "Outfit", sans-serif;
+        font-weight: 600;
+        font-size: 13.5px;
+      }
+
+      .swatch .hex {
+        font-size: 12px;
+        color: var(--slate);
+        letter-spacing: 0.05em;
+        margin-top: 2px;
+      }
+
+      .swatch .use {
+        font-size: 12.5px;
+        color: var(--slate);
+        margin-top: 8px;
+        line-height: 1.55;
+      }
+
+      /* ---------- 03 gold rules ---------- */
+      .gold-rules {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+
+      .rule-panel {
+        border-radius: var(--radius-lg);
+        padding: 32px 32px 36px;
+      }
+
+      .rule-panel.do {
+        background: var(--gold-pale);
+        border: 1px solid #e5d6ae;
+      }
+
+      .rule-panel.dont {
+        background: #fff;
+        border: 1px solid var(--line);
+      }
+
+      .rule-panel h3 {
+        margin: 0 0 18px;
+        font-family: "Outfit", sans-serif;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+
+      .rule-panel.do h3 {
+        color: var(--gold-deep);
+      }
+
+      .rule-panel.dont h3 {
+        color: var(--slate);
+      }
+
+      .rule-panel ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 12px;
+        font-size: 14.5px;
+        color: var(--slate);
+      }
+
+      .rule-panel li {
+        padding-left: 24px;
+        position: relative;
+      }
+
+      .rule-panel.do li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--gold-deep);
+        font-weight: 700;
+      }
+
+      .rule-panel.dont li::before {
+        content: "✕";
+        position: absolute;
+        left: 0;
+        color: #c0bdb2;
+        font-weight: 700;
+      }
+
+      .gold-demo {
+        margin-top: 24px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+
+      .gd {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 26px 22px;
+        text-align: center;
+      }
+
+      .gd .demo {
+        margin-bottom: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 58px;
+      }
+
+      .gd .cap {
+        font-size: 12.5px;
+        color: var(--slate);
+      }
+
+      .gold-divider {
+        width: 100%;
+        height: 3px;
+        border-radius: 2px;
+        background: var(--grad-gold);
+      }
+
+      .gold-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: "Outfit", sans-serif;
+        font-size: 11.5px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--gold-deep);
+        background: var(--gold-pale);
+        border: 1px solid #ddc98f;
+        border-radius: 999px;
+        padding: 8px 18px;
+      }
+
+      .gold-frame-demo {
+        width: 72px;
+        height: 72px;
+        border-radius: 14px;
+        padding: 3px;
+        background: var(--grad-gold);
+      }
+
+      .gold-frame-demo > div {
+        width: 100%;
+        height: 100%;
+        border-radius: 11px;
+        background: var(--emerald);
+      }
+
+      /* ---------- 04 type ---------- */
+      .type-row {
+        display: grid;
+        grid-template-columns: 190px 1fr;
+        gap: 28px;
+        padding: 24px 0;
+        border-bottom: 1px solid var(--line);
+        align-items: baseline;
+      }
+
+      .type-row:last-child {
+        border-bottom: 0;
+      }
+
+      .type-row .spec {
+        font-family: "Outfit", sans-serif;
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--slate);
+        line-height: 1.8;
+      }
+
+      .t-h1 {
+        font-family: "Oswald", sans-serif;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        font-size: clamp(32px, 4.4vw, 48px);
+        line-height: 1.1;
+      }
+
+      .t-h2 {
+        font-family: "Oswald", sans-serif;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        font-size: 28px;
+        line-height: 1.2;
+      }
+
+      .t-h3 {
+        font-family: "Outfit", sans-serif;
+        font-weight: 600;
+        font-size: 18px;
+      }
+
+      .t-body {
+        max-width: 60ch;
+        color: var(--slate);
+      }
+
+      .t-label {
+        font-family: "Outfit", sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--gold-deep);
+      }
+
+      /* ---------- 05 buttons ---------- */
+      .btn-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        align-items: center;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 14px 30px;
+        border-radius: 8px;
+        font-family: "Outfit", sans-serif;
+        font-size: 13.5px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition:
+          transform 0.25s,
+          background 0.25s,
+          color 0.25s,
+          border-color 0.25s;
+      }
+
+      .btn-leaf {
+        background: var(--leaf);
+        color: #fff;
+      }
+
+      .btn-leaf:hover {
+        background: var(--leaf-deep);
+        color: #fff;
+        transform: translateY(-2px);
+      }
+
+      .btn-ink {
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .btn-ink:hover {
+        background: var(--emerald);
+        color: #fff;
+        transform: translateY(-2px);
+      }
+
+      .btn-outline {
+        background: none;
+        border-color: var(--leaf);
+        color: var(--leaf-deep);
+      }
+
+      .btn-outline:hover {
+        background: var(--leaf);
+        color: #fff;
+        transform: translateY(-2px);
+      }
+
+      .btn-gold {
+        background: var(--grad-gold);
+        color: var(--ink);
+      }
+
+      .btn-gold:hover {
+        transform: translateY(-2px);
+        color: var(--ink);
+      }
+
+      .btn-note {
+        font-size: 12.5px;
+        color: var(--slate);
+      }
+
+      /* ---------- 06 components ---------- */
+      .comp-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+
+      .cat-card {
+        position: relative;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        display: block;
+        color: #fff;
+      }
+
+      .cat-card .ph {
+        aspect-ratio: 4/5;
+      }
+
+      .cat-card .scrim {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        background: linear-gradient(
+          180deg,
+          rgba(18, 23, 34, 0) 42%,
+          rgba(18, 23, 34, 0.85) 100%
+        );
+      }
+
+      .cat-card .body {
+        position: absolute;
+        z-index: 3;
+        left: 22px;
+        right: 22px;
+        bottom: 20px;
+      }
+
+      .cat-card .body .disp {
+        font-size: 24px;
+        color: #fff;
+      }
+
+      .cat-card .body .sub {
+        font-family: "Outfit", sans-serif;
+        font-size: 12.5px;
+        color: #c8ccd4;
+        margin-top: 4px;
+      }
+
+      .cat-card:hover {
+        color: #fff;
+      }
+
+      /* directory card with gold tier */
+      .dir-card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+
+      .dir-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-soft);
+      }
+
+      .dir-card.gold-tier {
+        border: 1px solid #ddc98f;
+        position: relative;
+      }
+
+      .dir-card.gold-tier::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--grad-gold);
+        z-index: 2;
+      }
+
+      .dir-card .ph {
+        aspect-ratio: 16/9;
+      }
+
+      .dir-card .pad {
+        padding: 20px 22px 24px;
+      }
+
+      .dir-card .tier {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-family: "Outfit", sans-serif;
+        font-size: 10.5px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--gold-deep);
+        margin-bottom: 8px;
+      }
+
+      .dir-card h3 {
+        margin: 0 0 4px;
+        font-family: "Outfit", sans-serif;
+        font-weight: 600;
+        font-size: 17.5px;
+      }
+
+      .dir-card .meta {
+        font-size: 13px;
+        color: var(--slate);
+      }
+
+      .dir-card .cta {
+        display: inline-block;
+        margin-top: 14px;
+        font-family: "Outfit", sans-serif;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--leaf-deep);
+      }
+
+      /* event row */
+      .event-list {
+        margin-top: 24px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+      }
+
+      .event-row {
+        display: grid;
+        grid-template-columns: 86px 1fr auto;
+        gap: 20px;
+        align-items: center;
+        padding: 20px 26px;
+        border-bottom: 1px solid var(--line);
+        color: var(--ink);
+        transition: background 0.25s;
+      }
+
+      .event-row:last-child {
+        border-bottom: 0;
+      }
+
+      .event-row:hover {
+        background: var(--leaf-tint);
+      }
+
+      .event-row .date {
+        text-align: center;
+        font-family: "Oswald", sans-serif;
+        text-transform: uppercase;
+        line-height: 1.05;
+      }
+
+      .event-row .date .d {
+        font-size: 26px;
+        font-weight: 500;
+        color: var(--leaf-deep);
+      }
+
+      .event-row .date .m {
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        color: var(--slate);
+      }
+
+      .event-row h4 {
+        margin: 0 0 2px;
+        font-family: "Outfit", sans-serif;
+        font-weight: 600;
+        font-size: 16px;
+      }
+
+      .event-row .where {
+        font-size: 13px;
+        color: var(--slate);
+      }
+
+      .event-row .go {
+        color: var(--leaf-deep);
+        font-weight: 700;
+      }
+
+      /* ---------- footer ---------- */
+      .guide-foot {
+        margin-top: 24px;
+        background: var(--ink);
+        color: #8f94a1;
+        text-align: center;
+        padding: 40px 28px;
+        font-size: 13px;
+        position: relative;
+      }
+
+      .guide-foot::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 3px;
+        background: var(--grad-gold);
+      }
+
+      .guide-foot .disp {
+        display: block;
+        color: #fff;
+        font-size: 17px;
+        margin-bottom: 6px;
+      }
+
+      /* ---------- responsive ---------- */
+      @media (max-width: 920px) {
+        .swatch-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .comp-grid {
+          grid-template-columns: 1fr;
+          max-width: 440px;
+          margin: 0 auto;
+        }
+
+        .logo-grid,
+        .gold-rules {
+          grid-template-columns: 1fr;
+        }
+
+        .gold-demo {
+          grid-template-columns: 1fr;
+        }
+
+        .type-row {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .swatch-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .event-row {
+          grid-template-columns: 64px 1fr;
+        }
+
+        .event-row .go {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ============================ HEADER ============================ -->
+    <header class="guide-head">
+      <div class="kicker">Brand &amp; UI Style Guide</div>
+      <h1>Totally Boise <em>Gold</em></h1>
+      <p>
+        A face-lift for the city guide Boise already trusts. The greens stay.
+        The energy stays. Gold arrives as a precious metal — thin lines,
+        badges, and moments — never a paint bucket.
+      </p>
+    </header>
+
+    <!-- ============================ 01 LOGO ============================ -->
+    <section class="section">
+      <div class="sec-label">
+        <span class="num">01</span>
+        <h2 class="disp">Logo</h2>
+      </div>
+      <p class="sec-note">
+        The TB Gold mark: Boise's tree rendered as a faceted emerald, set in a
+        gold frame. Give it room, keep it big enough to read the facets, and
+        pair it with the Oswald wordmark.
+      </p>
+      <div class="logo-grid">
+        <div class="logo-card light">
+          <img src="gold-logo.png" alt="Totally Boise Gold logo" />
+          <div class="wordmark">Totally Boise <span class="gold">Gold</span></div>
+          <div class="note">Primary lockup on light backgrounds</div>
+        </div>
+        <div class="logo-card dark">
+          <img src="gold-logo.png" alt="Totally Boise Gold logo on dark" />
+          <div class="wordmark">Totally Boise <span class="gold">Gold</span></div>
+          <div class="note">On ink — the gold frame does the glowing</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ 02 COLOR ============================ -->
+    <section class="section">
+      <div class="sec-label">
+        <span class="num">02</span>
+        <h2 class="disp">Color</h2>
+      </div>
+      <p class="sec-note">
+        Leaf green and ink come straight from the current site. The emerald
+        family deepens the palette to match the logo gem, and the new
+        metallic gold replaces the old flat amber (#FFB51E) everywhere it
+        used to appear.
+      </p>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="chip" style="background: #6ab14a"></div>
+          <div class="meta">
+            <div class="name">Leaf</div>
+            <div class="hex">#6AB14A</div>
+            <div class="use">Primary. Buttons, links, highlights — unchanged from today.</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background: #1e5e3c"></div>
+          <div class="meta">
+            <div class="name">Emerald</div>
+            <div class="hex">#1E5E3C</div>
+            <div class="use">Deep green from the logo gem. Hovers and rich panels.</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background: #eef5e9"></div>
+          <div class="meta">
+            <div class="name">Leaf tint</div>
+            <div class="hex">#EEF5E9</div>
+            <div class="use">Soft section backgrounds and hover states.</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background: #121722"></div>
+          <div class="meta">
+            <div class="name">Ink</div>
+            <div class="hex">#121722</div>
+            <div class="use">Dark sections, header, footer — from the current site.</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background: linear-gradient(135deg, #ecd9a0, #c9a14e 45%, #9a7428)"></div>
+          <div class="meta">
+            <div class="name">Gold (gradient)</div>
+            <div class="hex">#ECD9A0 → #C9A14E → #9A7428</div>
+            <div class="use">The only way gold appears at size: as a metallic gradient.</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background: #c9a14e"></div>
+          <div class="meta">
+            <div class="name">Gold (solid)</div>
+            <div class="hex">#C9A14E</div>
+            <div class="use">Small text, icons, and kickers only.</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background: #f5ecd6"></div>
+          <div class="meta">
+            <div class="name">Gold pale</div>
+            <div class="hex">#F5ECD6</div>
+            <div class="use">Badge fills and featured-card backgrounds.</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background: #fafaf7; border-bottom: 1px solid #e6e4dc"></div>
+          <div class="meta">
+            <div class="name">Paper</div>
+            <div class="hex">#FAFAF7</div>
+            <div class="use">Page background. Slate #494E5C for body text.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ 03 GOLD RULES ============================ -->
+    <section class="section">
+      <div class="sec-label">
+        <span class="num">03</span>
+        <h2 class="disp">Using gold (without the mustard)</h2>
+      </div>
+      <p class="sec-note">
+        Gold reads as premium when it behaves like metal: thin, catching
+        light, and rare. It reads as mustard when it's flat and everywhere.
+        These rules keep it on the right side.
+      </p>
+      <div class="gold-rules">
+        <div class="rule-panel do">
+          <h3>Do</h3>
+          <ul>
+            <li>Use the gradient for any gold element bigger than text.</li>
+            <li>Keep gold thin: 2–3px top borders, dividers, frames.</li>
+            <li>Reserve it for TB Gold moments: badges, featured listings, awards.</li>
+            <li>Pair gold with ink or emerald so it glows against something dark.</li>
+            <li>One gold element per screen is usually enough.</li>
+          </ul>
+        </div>
+        <div class="rule-panel dont">
+          <h3>Don't</h3>
+          <ul>
+            <li>Fill large areas with flat #C9A14E — that's where mustard lives.</li>
+            <li>Put gold text on green, or green text on gold.</li>
+            <li>Use the old amber #FFB51E anywhere in the new brand.</li>
+            <li>Stack multiple gold buttons or badges in the same section.</li>
+            <li>Use gold for body text or long labels.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="gold-demo">
+        <div class="gd">
+          <div class="demo"><div class="gold-divider"></div></div>
+          <div class="cap">Section divider — 3px gradient rule</div>
+        </div>
+        <div class="gd">
+          <div class="demo">
+            <span class="gold-badge">★ TB Gold Member</span>
+          </div>
+          <div class="cap">Badge — pale fill, deep gold text</div>
+        </div>
+        <div class="gd">
+          <div class="demo">
+            <div class="gold-frame-demo"><div></div></div>
+          </div>
+          <div class="cap">Gold frame — 3px gradient edge, like the logo</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ 04 TYPE ============================ -->
+    <section class="section">
+      <div class="sec-label">
+        <span class="num">04</span>
+        <h2 class="disp">Typography</h2>
+      </div>
+      <p class="sec-note">
+        The site's current trio stays: Oswald for big condensed headlines,
+        Outfit for subheads, labels, and UI, Heebo for comfortable body copy.
+      </p>
+      <div class="type-row">
+        <div class="spec">Oswald 500<br />Page title</div>
+        <div class="t-h1">Find your adventure</div>
+      </div>
+      <div class="type-row">
+        <div class="spec">Oswald 400<br />Section heading</div>
+        <div class="t-h2">Live &middot; Play &middot; Stay in Boise</div>
+      </div>
+      <div class="type-row">
+        <div class="spec">Outfit 600<br />Card heading</div>
+        <div class="t-h3">Treasure Valley Dog Parks</div>
+      </div>
+      <div class="type-row">
+        <div class="spec">Heebo 400<br />Body 16px</div>
+        <div class="t-body">
+          Your guide to the City of Trees — the most popular businesses,
+          events worth leaving the house for, and everything that makes the
+          Treasure Valley feel like home.
+        </div>
+      </div>
+      <div class="type-row">
+        <div class="spec">Outfit 700<br />Gold kicker</div>
+        <div class="t-label">Totally Boise Gold</div>
+      </div>
+    </section>
+
+    <!-- ============================ 05 BUTTONS ============================ -->
+    <section class="section">
+      <div class="sec-label">
+        <span class="num">05</span>
+        <h2 class="disp">Buttons &amp; links</h2>
+      </div>
+      <p class="sec-note">
+        Green does the everyday work. The gold button exists for exactly one
+        job per page — joining or upgrading to TB Gold.
+      </p>
+      <div class="btn-row">
+        <a href="#" class="btn btn-leaf">Explore Boise</a>
+        <a href="#" class="btn btn-ink">Get Featured</a>
+        <a href="#" class="btn btn-outline">View Directory</a>
+        <a href="#" class="btn btn-gold">★ Join TB Gold</a>
+        <span class="btn-note">← one per page, max</span>
+      </div>
+    </section>
+
+    <!-- ============================ 06 COMPONENTS ============================ -->
+    <section class="section">
+      <div class="sec-label">
+        <span class="num">06</span>
+        <h2 class="disp">Components</h2>
+      </div>
+
+      <div class="comp-grid">
+        <a href="#" class="cat-card">
+          <div class="ph" data-label="Photo — Boise foothills"></div>
+          <div class="scrim"></div>
+          <div class="body">
+            <div class="disp">Live</div>
+            <div class="sub">Neighborhoods, schools &amp; local life</div>
+          </div>
+        </a>
+        <a href="#" class="cat-card">
+          <div class="ph" data-label="Photo — river float"></div>
+          <div class="scrim"></div>
+          <div class="body">
+            <div class="disp">Play</div>
+            <div class="sub">Events, trails &amp; nights out</div>
+          </div>
+        </a>
+        <a href="#" class="cat-card">
+          <div class="ph" data-label="Photo — downtown hotel"></div>
+          <div class="scrim"></div>
+          <div class="body">
+            <div class="disp">Stay</div>
+            <div class="sub">Hotels, rentals &amp; getaways</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="comp-grid" style="margin-top: 22px">
+        <div class="dir-card gold-tier">
+          <div class="ph" data-label="Business photo"></div>
+          <div class="pad">
+            <span class="tier">★ TB Gold Member</span>
+            <h3>Fork — Downtown Boise</h3>
+            <div class="meta">Restaurant &middot; 8th Street</div>
+            <a href="#" class="cta">View Listing →</a>
+          </div>
+        </div>
+        <div class="dir-card">
+          <div class="ph" data-label="Business photo"></div>
+          <div class="pad">
+            <h3>Boise River Raft &amp; Tube</h3>
+            <div class="meta">Recreation &middot; Barber Park</div>
+            <a href="#" class="cta">View Listing →</a>
+          </div>
+        </div>
+        <div class="dir-card">
+          <div class="ph" data-label="Business photo"></div>
+          <div class="pad">
+            <h3>Freak Alley Gallery</h3>
+            <div class="meta">Arts &middot; Downtown</div>
+            <a href="#" class="cta">View Listing →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-list">
+        <a href="#" class="event-row">
+          <span class="date"><div class="d">14</div><div class="m">Oct</div></span>
+          <span>
+            <h4>First Thursday on 8th Street</h4>
+            <span class="where">Downtown Boise</span>
+          </span>
+          <span class="go">→</span>
+        </a>
+        <a href="#" class="event-row">
+          <span class="date"><div class="d">21</div><div class="m">Oct</div></span>
+          <span>
+            <h4>Boise Farmers Market — Harvest Weekend</h4>
+            <span class="where">11th &amp; Front</span>
+          </span>
+          <span class="go">→</span>
+        </a>
+        <a href="#" class="event-row">
+          <span class="date"><div class="d">31</div><div class="m">Oct</div></span>
+          <span>
+            <h4>Halloween on Harrison Boulevard</h4>
+            <span class="where">North End</span>
+          </span>
+          <span class="go">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============================ FOOT ============================ -->
+    <footer class="guide-foot">
+      <span class="disp">Totally Boise Gold</span>
+      Style guide concept &middot; Leaf #6AB14A &middot; Gold #C9A14E &middot;
+      Oswald + Outfit + Heebo
+    </footer>
+  </body>
+</html>

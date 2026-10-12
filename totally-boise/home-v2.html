@@ -1,0 +1,1691 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Totally Boise | The City of Trees, Off the Grid</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&family=Heebo:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* =====================================================================
+   TOTALLY BOISE · GOLD — HOMEPAGE MOCKUP V2 "CITY ISSUE"
+   An editorial, asymmetric alternative to home.html. Same brand system
+   from style-guide.html — leaf greens, ink, metallic gold used thin
+   and rare — but the layout breaks the grid: offset headlines,
+   overlapping photo cards, staggered magazine rows, a bento directory,
+   and a collage strip. Still exactly one gold button on the page.
+   ---------------------------------------------------------------------
+   Photos are labeled .ph placeholders — add src to the <img> to fill.
+   ===================================================================== */
+
+      :root {
+        --leaf: #6ab14a;
+        --leaf-deep: #4a8f3c;
+        --emerald: #1e5e3c;
+        --pine: #112f26;
+        --leaf-tint: #eef5e9;
+
+        --gold: #c9a14e;
+        --gold-deep: #9a7428;
+        --gold-pale: #f5ecd6;
+        --grad-gold: linear-gradient(
+          135deg,
+          #ecd9a0 0%,
+          #c9a14e 45%,
+          #9a7428 100%
+        );
+
+        --ink: #121722;
+        --slate: #494e5c;
+        --paper: #fafaf7;
+        --line: #e6e4dc;
+
+        --radius: 12px;
+        --radius-lg: 20px;
+        --shadow-soft: 0 18px 40px -26px rgba(18, 23, 34, 0.35);
+        --shadow-card: 0 30px 60px -34px rgba(18, 23, 34, 0.5);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Heebo", sans-serif;
+        font-size: 16px;
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      ::selection {
+        background: var(--leaf);
+        color: #fff;
+      }
+
+      .disp {
+        font-family: "Oswald", sans-serif;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      a {
+        color: var(--leaf-deep);
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: var(--emerald);
+      }
+
+      p {
+        margin: 0;
+        color: var(--slate);
+      }
+
+      .wrap {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 28px;
+      }
+
+      /* ---------- image placeholder ---------- */
+      .ph {
+        position: relative;
+        background: #e7e9e2;
+        overflow: hidden;
+      }
+
+      .ph::after {
+        content: attr(data-label);
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        text-align: center;
+        font-size: 10.5px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #a3a799;
+      }
+
+      .ph img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: none;
+      }
+
+      .ph img[src] {
+        display: block;
+        z-index: 1;
+      }
+
+      /* ---------- buttons ---------- */
+      .btn {
+        display: inline-block;
+        padding: 14px 30px;
+        border-radius: 8px;
+        font-family: "Outfit", sans-serif;
+        font-size: 13.5px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition:
+          transform 0.25s,
+          background 0.25s,
+          color 0.25s,
+          border-color 0.25s;
+      }
+
+      .btn-leaf {
+        background: var(--leaf);
+        color: #fff;
+      }
+
+      .btn-leaf:hover {
+        background: var(--leaf-deep);
+        color: #fff;
+        transform: translateY(-2px);
+      }
+
+      .btn-ink {
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .btn-ink:hover {
+        background: var(--emerald);
+        color: #fff;
+        transform: translateY(-2px);
+      }
+
+      .btn-outline {
+        background: none;
+        border-color: var(--leaf);
+        color: var(--leaf-deep);
+      }
+
+      .btn-outline:hover {
+        background: var(--leaf);
+        color: #fff;
+        transform: translateY(-2px);
+      }
+
+      .btn-gold {
+        background: var(--grad-gold);
+        color: var(--ink);
+      }
+
+      .btn-gold:hover {
+        transform: translateY(-2px);
+        color: var(--ink);
+      }
+
+      /* ---------- header (light, editorial) ---------- */
+      .site-head {
+        position: sticky;
+        top: 0;
+        z-index: 60;
+        background: rgba(250, 250, 247, 0.92);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .site-head .inner {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 14px 28px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--ink);
+      }
+
+      .brand img {
+        width: 38px;
+        height: auto;
+      }
+
+      .brand .word {
+        font-family: "Oswald", sans-serif;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 17px;
+        line-height: 1.1;
+      }
+
+      .brand .word .gold {
+        background: var(--grad-gold);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 26px;
+      }
+
+      .nav a {
+        font-family: "Outfit", sans-serif;
+        font-size: 13.5px;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        color: var(--slate);
+      }
+
+      .nav a:hover {
+        color: var(--ink);
+      }
+
+      .nav .btn {
+        padding: 10px 20px;
+        font-size: 12px;
+      }
+
+      @media (max-width: 860px) {
+        .nav a:not(.btn) {
+          display: none;
+        }
+      }
+
+      /* ---------- hero (asymmetric editorial) ---------- */
+      .hero {
+        position: relative;
+        padding: 72px 0 110px;
+      }
+
+      .hero .grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        align-items: center;
+        gap: 0;
+      }
+
+      .hero .copy {
+        position: relative;
+        z-index: 3;
+        padding-right: 0;
+      }
+
+      .issue-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-family: "Outfit", sans-serif;
+        font-size: 11.5px;
+        font-weight: 700;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        color: var(--gold-deep);
+      }
+
+      .issue-tag::before {
+        content: "";
+        width: 34px;
+        height: 3px;
+        border-radius: 2px;
+        background: var(--grad-gold);
+      }
+
+      .hero h1 {
+        margin: 22px 0 0;
+        font-family: "Oswald", sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        line-height: 0.94;
+        font-size: clamp(58px, 9.6vw, 128px);
+        letter-spacing: 0.01em;
+      }
+
+      .hero h1 .solid {
+        display: block;
+      }
+
+      .hero h1 .outline {
+        display: block;
+        color: transparent;
+        -webkit-text-stroke: 2px var(--ink);
+        text-stroke: 2px var(--ink);
+      }
+
+      .hero h1 .outline em {
+        font-style: normal;
+        -webkit-text-stroke: 0;
+        background: var(--grad-gold);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .hero .lede {
+        margin-top: 26px;
+        max-width: 42ch;
+        font-size: 16.5px;
+      }
+
+      .hero .cta-row {
+        margin-top: 32px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 18px;
+      }
+
+      .hero .cta-row .link {
+        font-family: "Outfit", sans-serif;
+        font-size: 13.5px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      /* photo side — tall image bleeding right, smaller card overlapping */
+      .hero .photos {
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero .main-shot {
+        position: relative;
+        margin-right: calc((100vw - min(1180px, 100vw)) / -2 - 28px);
+        margin-left: -60px;
+        border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow-card);
+      }
+
+      .hero .main-shot .ph {
+        aspect-ratio: 4/4.6;
+      }
+
+      .hero .side-shot {
+        position: absolute;
+        z-index: 4;
+        left: -118px;
+        bottom: -52px;
+        width: min(250px, 46%);
+        background: #fff;
+        padding: 10px 10px 14px;
+        border-radius: 14px;
+        box-shadow: var(--shadow-card);
+        transform: rotate(-4deg);
+      }
+
+      .hero .side-shot .ph {
+        aspect-ratio: 4/3;
+        border-radius: 8px;
+      }
+
+      .hero .side-shot .cap {
+        margin-top: 10px;
+        font-family: "Outfit", sans-serif;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--slate);
+        text-align: center;
+      }
+
+      .hero .stat-chip {
+        position: absolute;
+        z-index: 4;
+        top: 34px;
+        left: -46px;
+        background: var(--ink);
+        color: #fff;
+        border-radius: 12px;
+        padding: 14px 20px;
+        box-shadow: var(--shadow-card);
+        transform: rotate(2deg);
+      }
+
+      .hero .stat-chip::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 3px;
+        border-radius: 12px 12px 0 0;
+        background: var(--grad-gold);
+      }
+
+      .hero .stat-chip .n {
+        font-family: "Oswald", sans-serif;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 1.1;
+      }
+
+      .hero .stat-chip .l {
+        font-family: "Outfit", sans-serif;
+        font-size: 10.5px;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #b8bcc6;
+      }
+
+      /* ---------- marquee band ---------- */
+      .marquee {
+        background: var(--ink);
+        overflow: hidden;
+        padding: 18px 0;
+        position: relative;
+      }
+
+      .marquee::before,
+      .marquee::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--grad-gold);
+      }
+
+      .marquee::before {
+        top: 0;
+      }
+
+      .marquee::after {
+        bottom: 0;
+      }
+
+      .marquee .track {
+        display: flex;
+        gap: 48px;
+        width: max-content;
+        animation: slide 30s linear infinite;
+      }
+
+      @keyframes slide {
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      .marquee span {
+        font-family: "Oswald", sans-serif;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 15px;
+        color: #d7dae0;
+        white-space: nowrap;
+      }
+
+      .marquee span b {
+        font-weight: 400;
+        color: var(--gold);
+      }
+
+      /* ---------- staggered Live / Play / Stay rows ---------- */
+      .lps {
+        padding: 110px 0 40px;
+        position: relative;
+      }
+
+      .lps-row {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        align-items: center;
+        margin-bottom: 96px;
+      }
+
+      .lps-row .ghost {
+        position: absolute;
+        z-index: 1;
+        top: -78px;
+        font-family: "Oswald", sans-serif;
+        font-weight: 600;
+        font-size: clamp(120px, 17vw, 230px);
+        line-height: 1;
+        color: transparent;
+        -webkit-text-stroke: 1.5px var(--line);
+        text-stroke: 1.5px var(--line);
+        pointer-events: none;
+        user-select: none;
+      }
+
+      .lps-row.left .ghost {
+        right: 2%;
+      }
+
+      .lps-row.right .ghost {
+        left: 2%;
+      }
+
+      .lps-row .shot {
+        position: relative;
+        z-index: 2;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow-card);
+      }
+
+      .lps-row .shot .ph {
+        aspect-ratio: 16/10;
+      }
+
+      .lps-row.left .shot {
+        grid-column: 1 / 8;
+        grid-row: 1;
+      }
+
+      .lps-row.right .shot {
+        grid-column: 6 / 13;
+        grid-row: 1;
+      }
+
+      .lps-row .panel {
+        position: relative;
+        z-index: 3;
+        grid-row: 1;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        padding: 36px 36px 40px;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .lps-row.left .panel {
+        grid-column: 7 / 13;
+        margin-top: 110px;
+      }
+
+      .lps-row.right .panel {
+        grid-column: 1 / 7;
+        margin-top: 110px;
+      }
+
+      .lps-row .panel .num {
+        font-family: "Outfit", sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.26em;
+        color: var(--gold-deep);
+      }
+
+      .lps-row .panel h2 {
+        margin: 10px 0 10px;
+        font-size: clamp(30px, 3.6vw, 44px);
+        line-height: 1.05;
+      }
+
+      .lps-row .panel p {
+        font-size: 15px;
+        max-width: 46ch;
+      }
+
+      .lps-row .panel .go {
+        display: inline-block;
+        margin-top: 18px;
+        font-family: "Outfit", sans-serif;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--leaf-deep);
+      }
+
+      /* ---------- bento directory ---------- */
+      .directory {
+        background: var(--leaf-tint);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        padding: 96px 0;
+      }
+
+      .dir-head {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: end;
+        gap: 24px;
+        margin-bottom: 44px;
+      }
+
+      .dir-head .kicker {
+        font-family: "Outfit", sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        color: var(--gold-deep);
+      }
+
+      .dir-head h2 {
+        margin: 12px 0 0;
+        font-size: clamp(28px, 3.8vw, 42px);
+        line-height: 1.1;
+        max-width: 14ch;
+      }
+
+      .bento {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-auto-rows: 118px;
+        gap: 18px;
+      }
+
+      .bento .cell {
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        position: relative;
+        display: block;
+        color: var(--ink);
+      }
+
+      .bento .feature {
+        grid-column: 1 / 7;
+        grid-row: span 3;
+        background: #fff;
+        border: 1px solid #ddc98f;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+
+      .bento .feature::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--grad-gold);
+        z-index: 3;
+      }
+
+      .bento .feature:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-soft);
+        color: var(--ink);
+      }
+
+      .bento .feature .ph {
+        position: absolute;
+        inset: 0;
+      }
+
+      .bento .feature .scrim {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        background: linear-gradient(
+          180deg,
+          rgba(18, 23, 34, 0) 36%,
+          rgba(18, 23, 34, 0.88) 100%
+        );
+      }
+
+      .bento .feature .body {
+        position: absolute;
+        z-index: 3;
+        left: 26px;
+        right: 26px;
+        bottom: 22px;
+        color: #fff;
+      }
+
+      .tier {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-family: "Outfit", sans-serif;
+        font-size: 10.5px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--gold-deep);
+        background: var(--gold-pale);
+        border: 1px solid #ddc98f;
+        border-radius: 999px;
+        padding: 5px 14px;
+        margin-bottom: 10px;
+      }
+
+      .bento .feature h3 {
+        margin: 0 0 2px;
+        font-family: "Outfit", sans-serif;
+        font-weight: 600;
+        font-size: 22px;
+        color: #fff;
+      }
+
+      .bento .feature .meta {
+        font-size: 13px;
+        color: #c8ccd4;
+      }
+
+      .bento .std {
+        background: #fff;
+        border: 1px solid var(--line);
+        grid-column: span 6;
+        grid-row: span 2;
+        display: grid;
+        grid-template-columns: 42% 1fr;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+
+      .bento .std:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-soft);
+        color: var(--ink);
+      }
+
+      .bento .std .ph {
+        height: 100%;
+      }
+
+      .bento .std .pad {
+        padding: 20px 22px;
+        align-self: center;
+      }
+
+      .bento .std h3 {
+        margin: 0 0 4px;
+        font-family: "Outfit", sans-serif;
+        font-weight: 600;
+        font-size: 17px;
+      }
+
+      .bento .std .meta {
+        font-size: 13px;
+        color: var(--slate);
+      }
+
+      .bento .std .cta {
+        display: inline-block;
+        margin-top: 10px;
+        font-family: "Outfit", sans-serif;
+        font-size: 12.5px;
+        font-weight: 700;
+        color: var(--leaf-deep);
+      }
+
+      .bento .count {
+        grid-column: 7 / 13;
+        grid-row: span 1;
+        background: var(--emerald);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 28px;
+      }
+
+      .bento .count .n {
+        font-family: "Oswald", sans-serif;
+        font-weight: 500;
+        font-size: 30px;
+      }
+
+      .bento .count .l {
+        font-family: "Outfit", sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #cfe3d4;
+        text-align: right;
+      }
+
+      /* ---------- diagonal gold band ---------- */
+      .gold-band {
+        background: var(--ink);
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+        clip-path: polygon(0 56px, 100% 0, 100% calc(100% - 56px), 0 100%);
+        margin: -28px 0;
+        padding: 56px 0;
+      }
+
+      .gold-band .inner {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 96px 28px;
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 64px;
+        align-items: center;
+      }
+
+      .gold-band .kicker {
+        font-family: "Outfit", sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+
+      .gold-band h2 {
+        margin: 14px 0 16px;
+        font-size: clamp(30px, 4vw, 46px);
+        line-height: 1.1;
+        color: #fff;
+      }
+
+      .gold-band p {
+        color: #b8bcc6;
+        max-width: 54ch;
+      }
+
+      .gold-perks {
+        margin: 28px 0 34px;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 13px;
+      }
+
+      .gold-perks li {
+        position: relative;
+        padding-left: 30px;
+        font-family: "Outfit", sans-serif;
+        font-size: 15px;
+        color: #e8eaee;
+      }
+
+      .gold-perks li::before {
+        content: "★";
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 14px;
+        background: var(--grad-gold);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .gold-band .logo-side {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+        transform: rotate(3deg);
+      }
+
+      .gold-band .logo-side img {
+        width: min(230px, 60%);
+        height: auto;
+        filter: drop-shadow(0 24px 40px rgba(0, 0, 0, 0.45));
+      }
+
+      .gold-band .logo-side .word {
+        font-family: "Oswald", sans-serif;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-size: 22px;
+      }
+
+      .gold-band .logo-side .word .gold {
+        background: var(--grad-gold);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      /* ---------- events — vertical rail ---------- */
+      .events {
+        padding: 140px 0 110px;
+      }
+
+      .events .grid {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 72px;
+        align-items: start;
+      }
+
+      .events .intro {
+        position: sticky;
+        top: 110px;
+      }
+
+      .events .intro .kicker {
+        font-family: "Outfit", sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        color: var(--gold-deep);
+      }
+
+      .events .intro h2 {
+        margin: 12px 0 14px;
+        font-size: clamp(30px, 4vw, 48px);
+        line-height: 1.06;
+      }
+
+      .events .intro .mon {
+        font-family: "Oswald", sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: clamp(64px, 8vw, 110px);
+        line-height: 1;
+        color: transparent;
+        -webkit-text-stroke: 1.5px var(--line);
+        text-stroke: 1.5px var(--line);
+        margin-top: 24px;
+        user-select: none;
+      }
+
+      .timeline {
+        position: relative;
+        padding-left: 36px;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 8px;
+        top: 8px;
+        bottom: 8px;
+        width: 2px;
+        background: var(--line);
+      }
+
+      .tl-item {
+        position: relative;
+        display: block;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        padding: 22px 26px;
+        margin-bottom: 20px;
+        color: var(--ink);
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+
+      .tl-item:nth-child(even) {
+        margin-left: 34px;
+      }
+
+      .tl-item:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-soft);
+        color: var(--ink);
+      }
+
+      .tl-item::before {
+        content: "";
+        position: absolute;
+        left: -34px;
+        top: 30px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--leaf);
+        border: 3px solid var(--paper);
+        box-shadow: 0 0 0 2px var(--leaf);
+      }
+
+      .tl-item:nth-child(even)::before {
+        left: -68px;
+      }
+
+      .tl-item .when {
+        font-family: "Outfit", sans-serif;
+        font-size: 11.5px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--leaf-deep);
+      }
+
+      .tl-item h4 {
+        margin: 6px 0 2px;
+        font-family: "Outfit", sans-serif;
+        font-weight: 600;
+        font-size: 17px;
+      }
+
+      .tl-item .where {
+        font-size: 13px;
+        color: var(--slate);
+      }
+
+      .events .more-row {
+        margin-top: 34px;
+      }
+
+      /* ---------- collage strip ---------- */
+      .collage {
+        padding: 10px 0 130px;
+      }
+
+      .collage .head {
+        text-align: center;
+        margin-bottom: 42px;
+      }
+
+      .collage .head .tag {
+        font-family: "Outfit", sans-serif;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--leaf-deep);
+      }
+
+      .collage-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 16px;
+        align-items: start;
+      }
+
+      .collage-grid .tile {
+        background: #fff;
+        padding: 8px 8px 10px;
+        border-radius: 12px;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .collage-grid .tile .ph {
+        aspect-ratio: 1/1.15;
+        border-radius: 7px;
+      }
+
+      .collage-grid .tile:nth-child(1) {
+        transform: rotate(-3deg) translateY(16px);
+      }
+
+      .collage-grid .tile:nth-child(2) {
+        transform: rotate(2deg);
+      }
+
+      .collage-grid .tile:nth-child(3) {
+        transform: rotate(-1.5deg) translateY(26px);
+      }
+
+      .collage-grid .tile:nth-child(4) {
+        transform: rotate(3deg) translateY(6px);
+      }
+
+      .collage-grid .tile:nth-child(5) {
+        transform: rotate(-2.5deg) translateY(20px);
+      }
+
+      /* ---------- get featured ---------- */
+      .featured-band {
+        background: var(--emerald);
+        color: #fff;
+        padding: 86px 0;
+      }
+
+      .featured-band .inner {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 28px;
+        display: grid;
+        grid-template-columns: 1.2fr auto;
+        gap: 36px;
+        align-items: center;
+      }
+
+      .featured-band h2 {
+        margin: 0 0 10px;
+        font-size: clamp(28px, 3.8vw, 42px);
+        color: #fff;
+      }
+
+      .featured-band p {
+        color: #cfe3d4;
+        max-width: 54ch;
+      }
+
+      /* ---------- footer ---------- */
+      .site-foot {
+        background: var(--ink);
+        color: #8f94a1;
+        position: relative;
+        padding: 64px 0 44px;
+      }
+
+      .site-foot::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 3px;
+        background: var(--grad-gold);
+      }
+
+      .foot-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr 1fr;
+        gap: 44px;
+        margin-bottom: 44px;
+      }
+
+      .site-foot .brand {
+        color: #fff;
+        margin-bottom: 14px;
+      }
+
+      .site-foot p {
+        font-size: 13.5px;
+        color: #8f94a1;
+        max-width: 36ch;
+      }
+
+      .foot-col h4 {
+        margin: 0 0 16px;
+        font-family: "Outfit", sans-serif;
+        font-size: 11.5px;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+
+      .foot-col a {
+        display: block;
+        font-family: "Outfit", sans-serif;
+        font-size: 14px;
+        color: #b8bcc6;
+        padding: 4px 0;
+      }
+
+      .foot-col a:hover {
+        color: #fff;
+      }
+
+      .foot-base {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 26px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px;
+        font-family: "Outfit", sans-serif;
+        font-size: 12.5px;
+      }
+
+      /* ---------- responsive ---------- */
+      @media (max-width: 960px) {
+        .hero .grid {
+          grid-template-columns: 1fr;
+          gap: 72px;
+        }
+
+        .hero .main-shot {
+          margin-left: 0;
+          margin-right: 0;
+          border-radius: var(--radius-lg);
+        }
+
+        .hero .side-shot {
+          left: -8px;
+          bottom: -40px;
+        }
+
+        .hero .stat-chip {
+          left: auto;
+          right: -6px;
+        }
+
+        .lps-row {
+          display: block;
+          margin-bottom: 72px;
+        }
+
+        .lps-row .panel,
+        .lps-row.left .panel,
+        .lps-row.right .panel {
+          margin: -48px 20px 0;
+        }
+
+        .lps-row .ghost {
+          display: none;
+        }
+
+        .bento {
+          grid-auto-rows: auto;
+        }
+
+        .bento .feature {
+          grid-column: 1 / 13;
+          grid-row: auto;
+          aspect-ratio: 16/10;
+        }
+
+        .bento .std {
+          grid-column: 1 / 13;
+          grid-row: auto;
+        }
+
+        .bento .std .ph {
+          min-height: 150px;
+        }
+
+        .bento .count {
+          grid-column: 1 / 13;
+          padding: 20px 28px;
+        }
+
+        .events .grid {
+          grid-template-columns: 1fr;
+          gap: 44px;
+        }
+
+        .events .intro {
+          position: static;
+        }
+
+        .events .intro .mon {
+          display: none;
+        }
+
+        .gold-band .inner {
+          grid-template-columns: 1fr;
+          gap: 48px;
+        }
+
+        .collage-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 22px;
+        }
+
+        .featured-band .inner {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .foot-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 32px;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .tl-item:nth-child(even) {
+          margin-left: 0;
+        }
+
+        .tl-item:nth-child(even)::before {
+          left: -34px;
+        }
+
+        .collage-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .foot-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ============================ HEADER ============================ -->
+    <header class="site-head">
+      <div class="inner">
+        <a href="#" class="brand">
+          <img src="gold-logo.png" alt="Totally Boise Gold logo" />
+          <span class="word">Totally Boise <span class="gold">Gold</span></span>
+        </a>
+        <nav class="nav">
+          <a href="#">Live</a>
+          <a href="#">Play</a>
+          <a href="#">Stay</a>
+          <a href="#">Directory</a>
+          <a href="#">Events</a>
+          <a href="#" class="btn btn-ink">Get Featured</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ============================ HERO ============================ -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="grid">
+          <div class="copy">
+            <span class="issue-tag">The City Issue &middot; Fall 2026</span>
+            <h1>
+              <span class="solid">Totally</span>
+              <span class="outline">Boi<em>se</em></span>
+            </h1>
+            <p class="lede">
+              The city guide locals actually use — the most popular
+              businesses, the best events, and every corner of the Treasure
+              Valley worth your weekend.
+            </p>
+            <div class="cta-row">
+              <a href="#" class="btn btn-leaf">Explore the Guide</a>
+              <a href="#" class="link">This Month's Events →</a>
+            </div>
+          </div>
+          <div class="photos">
+            <div class="main-shot">
+              <div class="ph" data-label="Hero photo — Boise skyline &amp; foothills">
+                <img
+                  src="https://totallyboise.com/Portals/0/Images/TB/Home-Banner.jpg"
+                  alt="Boise skyline and foothills"
+                />
+              </div>
+            </div>
+            <div class="stat-chip">
+              <div class="n">750+</div>
+              <div class="l">Local businesses</div>
+            </div>
+            <div class="side-shot">
+              <div class="ph" data-label="Photo — reading the TB magazine">
+                <img
+                  src="https://totallyboise.com/Portals/0/Images/TB/852A0007.jpg"
+                  alt="Reading the Totally Boise magazine in an orchard"
+                />
+              </div>
+              <div class="cap">Straight from the valley</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ MARQUEE ============================ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="track">
+        <span>Live <b>✦</b> Play <b>✦</b> Stay <b>✦</b> Totally Boise <b>✦</b></span>
+        <span>Live <b>✦</b> Play <b>✦</b> Stay <b>✦</b> Totally Boise <b>✦</b></span>
+        <span>Live <b>✦</b> Play <b>✦</b> Stay <b>✦</b> Totally Boise <b>✦</b></span>
+        <span>Live <b>✦</b> Play <b>✦</b> Stay <b>✦</b> Totally Boise <b>✦</b></span>
+        <span>Live <b>✦</b> Play <b>✦</b> Stay <b>✦</b> Totally Boise <b>✦</b></span>
+        <span>Live <b>✦</b> Play <b>✦</b> Stay <b>✦</b> Totally Boise <b>✦</b></span>
+      </div>
+    </div>
+
+    <!-- ============================ LIVE / PLAY / STAY ============================ -->
+    <section class="lps">
+      <div class="wrap">
+        <div class="lps-row left">
+          <div class="ghost">Live</div>
+          <div class="shot">
+            <div class="ph" data-label="Photo — North End neighborhood">
+              <img
+                src="https://totallyboise.com/Portals/0/Images/TB/imageBox01-02.jpg"
+                alt="Family favorites in Boise"
+              />
+            </div>
+          </div>
+          <div class="panel">
+            <span class="num">01 — Live</span>
+            <h2 class="disp">Put down roots</h2>
+            <p>
+              Neighborhoods, schools, dog parks, and the local haunts that
+              turn a zip code into a hometown.
+            </p>
+            <a href="#" class="go">Live in Boise →</a>
+          </div>
+        </div>
+
+        <div class="lps-row right">
+          <div class="ghost">Play</div>
+          <div class="shot">
+            <div class="ph" data-label="Photo — Boise River float">
+              <img
+                src="https://totallyboise.com/Portals/0/Images/TB/imageBox01-05.jpg"
+                alt="Outdoor adventures in Boise"
+              />
+            </div>
+          </div>
+          <div class="panel">
+            <span class="num">02 — Play</span>
+            <h2 class="disp">Fill the weekend</h2>
+            <p>
+              Foothills trails, river floats, First Thursdays, and every
+              event worth leaving the house for.
+            </p>
+            <a href="#" class="go">Play in Boise →</a>
+          </div>
+        </div>
+
+        <div class="lps-row left">
+          <div class="ghost">Stay</div>
+          <div class="shot">
+            <div class="ph" data-label="Photo — downtown hotel">
+              <img
+                src="https://totallyboise.com/Portals/0/Images/TB/imageBox01-09.jpg"
+                alt="Boise destinations"
+              />
+            </div>
+          </div>
+          <div class="panel">
+            <span class="num">03 — Stay</span>
+            <h2 class="disp">Visit like a local</h2>
+            <p>
+              Hotels, rentals, and getaway itineraries — built by people who
+              know which brunch line is worth it.
+            </p>
+            <a href="#" class="go">Stay in Boise →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ DIRECTORY (BENTO) ============================ -->
+    <section class="directory">
+      <div class="wrap">
+        <div class="dir-head">
+          <div>
+            <div class="kicker">Boise Business Directory</div>
+            <h2 class="disp">The most popular businesses</h2>
+          </div>
+          <a href="#" class="btn btn-outline">View Full Directory</a>
+        </div>
+        <div class="bento">
+          <a href="#" class="cell feature">
+            <div class="ph" data-label="Business photo — restaurant">
+              <img
+                src="https://totallyboise.com/Portals/0/Images/TB/imageBox01-03.jpg"
+                alt="Boise bites"
+              />
+            </div>
+            <div class="scrim"></div>
+            <div class="body">
+              <span class="tier">★ TB Gold Member</span>
+              <h3>Fork — Downtown Boise</h3>
+              <div class="meta">Restaurant &middot; 8th Street &middot; View Listing →</div>
+            </div>
+          </a>
+          <a href="#" class="cell std">
+            <div class="ph" data-label="Business photo — river rafting">
+              <img
+                src="https://totallyboise.com/Portals/0/Images/TB/imageBox01-07.jpg"
+                alt="The Greenbelt"
+              />
+            </div>
+            <div class="pad">
+              <h3>Boise River Raft &amp; Tube</h3>
+              <div class="meta">Recreation &middot; Barber Park</div>
+              <span class="cta">View Listing →</span>
+            </div>
+          </a>
+          <div class="cell count">
+            <span class="n">750+</span>
+            <span class="l">Local businesses<br />listed &amp; counting</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ TB GOLD BAND (DIAGONAL) ============================ -->
+    <section class="gold-band">
+      <div class="inner">
+        <div>
+          <div class="kicker">For Boise Businesses</div>
+          <h2 class="disp">Go Gold. Get Found.</h2>
+          <p>
+            TB Gold puts your business in front of the valley: featured
+            placement across the site, the gold badge locals look for, and a
+            spotlight in front of Boise's most engaged audience.
+          </p>
+          <ul class="gold-perks">
+            <li>Featured placement in the business directory</li>
+            <li>The TB Gold badge on your listing and reviews</li>
+            <li>Social and newsletter spotlights to local followers</li>
+            <li>Priority coverage for your events and openings</li>
+          </ul>
+          <a href="#" class="btn btn-gold">★ Join TB Gold</a>
+        </div>
+        <div class="logo-side">
+          <img src="gold-logo.png" alt="Totally Boise Gold emblem" />
+          <div class="word">Totally Boise <span class="gold">Gold</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ EVENTS (TIMELINE) ============================ -->
+    <section class="events">
+      <div class="wrap">
+        <div class="grid">
+          <div class="intro">
+            <div class="kicker">Don't Miss It</div>
+            <h2 class="disp">This month<br />in Boise</h2>
+            <p>
+              Hand-picked by the Totally Boise crew — the stuff we're
+              actually going to.
+            </p>
+            <div class="mon">OCT</div>
+            <div class="more-row">
+              <a href="#" class="btn btn-outline">See All Events</a>
+            </div>
+          </div>
+          <div class="timeline">
+            <a href="#" class="tl-item">
+              <span class="when">Tue &middot; Oct 14</span>
+              <h4>First Thursday on 8th Street</h4>
+              <span class="where">Downtown Boise &middot; Free</span>
+            </a>
+            <a href="#" class="tl-item">
+              <span class="when">Sat &middot; Oct 18</span>
+              <h4>Boise State Game Day</h4>
+              <span class="where">Albertsons Stadium &middot; The Blue</span>
+            </a>
+            <a href="#" class="tl-item">
+              <span class="when">Tue &middot; Oct 21</span>
+              <h4>Boise Farmers Market — Harvest Weekend</h4>
+              <span class="where">11th &amp; Front</span>
+            </a>
+            <a href="#" class="tl-item">
+              <span class="when">Fri &middot; Oct 31</span>
+              <h4>Halloween on Harrison Boulevard</h4>
+              <span class="where">North End</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ COLLAGE ============================ -->
+    <section class="collage">
+      <div class="wrap">
+        <div class="head">
+          <span class="tag">#TotallyBoise</span>
+        </div>
+        <div class="collage-grid">
+          <div class="tile">
+            <div class="ph" data-label="Photo — foothills trail">
+              <img
+                src="https://totallyboise.com/Portals/0/Images/TB/imageBox01-06.jpg"
+                alt="Upcoming events"
+              />
+            </div>
+          </div>
+          <div class="tile">
+            <div class="ph" data-label="Photo — downtown mural">
+              <img
+                src="https://totallyboise.com/Portals/0/Images/TB/imageBox01-04.jpg"
+                alt="Happy hours"
+              />
+            </div>
+          </div>
+          <div class="tile">
+            <div class="ph" data-label="Photo — art alley">
+              <img
+                src="https://totallyboise.com/Portals/0/Images/TB/imageBox01-01.jpg"
+                alt="Indoor activities in Boise"
+              />
+            </div>
+          </div>
+          <div class="tile">
+            <div class="ph" data-label="Photo — farmers market">
+              <img
+                src="https://totallyboise.com/Portals/0/Images/TB/imageBox01-08.jpg"
+                alt="Shop local"
+              />
+            </div>
+          </div>
+          <div class="tile">
+            <div class="ph" data-label="Photo — Table Rock sunset"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ GET FEATURED ============================ -->
+    <section class="featured-band">
+      <div class="inner">
+        <div>
+          <h2 class="disp">Have a story Boise should hear?</h2>
+          <p>
+            From new openings to neighborhood gems, we feature the people and
+            places that make the valley what it is.
+          </p>
+        </div>
+        <a href="#" class="btn btn-leaf">Get Featured</a>
+      </div>
+    </section>
+
+    <!-- ============================ FOOTER ============================ -->
+    <footer class="site-foot">
+      <div class="wrap">
+        <div class="foot-grid">
+          <div>
+            <a href="#" class="brand">
+              <img src="gold-logo.png" alt="Totally Boise Gold logo" />
+              <span class="word"
+                >Totally Boise <span class="gold">Gold</span></span
+              >
+            </a>
+            <p>
+              Your guide to the City of Trees — live, play, and stay in the
+              Treasure Valley.
+            </p>
+          </div>
+          <div class="foot-col">
+            <h4>Explore</h4>
+            <a href="#">Live in Boise</a>
+            <a href="#">Play in Boise</a>
+            <a href="#">Stay in Boise</a>
+            <a href="#">Guide to Boise</a>
+          </div>
+          <div class="foot-col">
+            <h4>Directory</h4>
+            <a href="#">All Businesses</a>
+            <a href="#">TB Gold Members</a>
+            <a href="#">Events</a>
+            <a href="#">Add Your Business</a>
+          </div>
+          <div class="foot-col">
+            <h4>Connect</h4>
+            <a href="#">Get Featured</a>
+            <a href="#">Media Kit</a>
+            <a href="#">Contact</a>
+            <a href="#">Instagram</a>
+          </div>
+        </div>
+        <div class="foot-base">
+          <span>© 2026 Totally Boise. All rights reserved.</span>
+          <span>Made in the City of Trees</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
