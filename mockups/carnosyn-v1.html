@@ -1,0 +1,1087 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CarnoSyn — Scientifically Proven. Globally Patented.</title>
+    <meta
+      name="description"
+      content="CarnoSyn is the scientifically proven, globally patented beta-alanine. 55+ clinical studies, NDI status, and four advanced formats for performance and wellness."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* =====================================================================
+   CARNOSYN — HOMEPAGE MOCKUP (based on tribsyn-v2 "SPORT")
+   Same loud sport format: big heavy uppercase type, ticker, stat band,
+   hard-shadow cards. Rebranded to CarnoSyn's own palette — deep navy
+   #0D3855 + signal yellow #F6D809 from the live site — set in
+   Montserrat (their brand font), with live-site imagery and copy
+   adapted from carnosyn.com. Zero JavaScript.
+   ---------------------------------------------------------------------
+   HOW TO ADD PHOTOS: every image spot is a .ph box with a data-label.
+   Set the src on the <img> inside and the photo replaces the label.
+   ===================================================================== */
+
+      :root {
+        --white: #ffffff;
+        --ink: #0d3855;
+        --ink-deep: #00324d;
+        --grey: #56687a;
+        --line: #dfe7ed;
+        --yellow: #f6d809;
+        --yellow-deep: #e3c707;
+        --ice: #eff6f9;
+
+        --font: "Montserrat", sans-serif;
+        --radius: 14px;
+        --radius-lg: 22px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 120px;
+      }
+
+      body {
+        font-family: var(--font);
+        background: var(--white);
+        color: var(--ink);
+        line-height: 1.6;
+        font-size: 16px;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      ::selection {
+        background: var(--yellow);
+        color: var(--ink);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+
+      /* display type: tight, heavy, uppercase */
+      .disp {
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: -0.01em;
+        line-height: 0.95;
+      }
+
+      /* ---------- image placeholder ---------- */
+      .ph {
+        position: relative;
+        background: #e9eef2;
+        overflow: hidden;
+        border-radius: var(--radius);
+      }
+
+      .ph::after {
+        content: attr(data-label);
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        text-align: center;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #9fadb8;
+      }
+
+      .ph img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: none;
+      }
+
+      .ph img[src] {
+        display: block;
+        z-index: 1;
+      }
+
+      /* logo tiles: contain instead of cover */
+      .ph.logo-tile img {
+        object-fit: contain;
+        padding: 20%;
+      }
+
+      .ph.logo-tile.navy {
+        background: var(--ink);
+      }
+
+      .ph.logo-tile.ice {
+        background: var(--ice);
+      }
+
+      /* ---------- buttons ---------- */
+      .btn {
+        display: inline-block;
+        font-family: var(--font);
+        font-size: 14.5px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        padding: 16px 32px;
+        border-radius: 10px;
+        border: 2px solid transparent;
+        cursor: pointer;
+        transition:
+          background 0.15s,
+          color 0.15s,
+          border-color 0.15s,
+          transform 0.15s;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn-yellow {
+        background: var(--yellow);
+        color: var(--ink);
+      }
+
+      .btn-yellow:hover {
+        background: var(--yellow-deep);
+      }
+
+      .btn-ink {
+        background: var(--ink);
+        color: var(--white);
+      }
+
+      .btn-ink:hover {
+        background: var(--ink-deep);
+      }
+
+      .btn-ghost {
+        border-color: rgba(255, 255, 255, 0.6);
+        color: var(--white);
+      }
+
+      .btn-ghost:hover {
+        border-color: var(--white);
+        background: rgba(255, 255, 255, 0.12);
+      }
+
+      /* ---------- ticker ---------- */
+      .ticker {
+        background: var(--ink-deep);
+        color: var(--yellow);
+        overflow: hidden;
+        white-space: nowrap;
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 12.5px;
+        letter-spacing: 0.12em;
+        padding: 9px 0;
+      }
+
+      .ticker span {
+        margin: 0 26px;
+      }
+
+      /* ---------- header ---------- */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: var(--ink);
+        border-bottom: 2px solid var(--yellow);
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        height: 74px;
+      }
+
+      .header-logo img {
+        height: 36px;
+        width: auto;
+      }
+
+      .site-nav {
+        display: flex;
+        gap: 26px;
+        list-style: none;
+      }
+
+      .site-nav a {
+        font-size: 13.5px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: rgba(255, 255, 255, 0.75);
+      }
+
+      .site-nav a:hover {
+        color: var(--white);
+      }
+
+      .header-right {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+
+      .header-right .contact {
+        font-size: 13.5px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.75);
+      }
+
+      .header-right .contact:hover {
+        color: var(--white);
+      }
+
+      .header-right .btn {
+        padding: 11px 22px;
+        font-size: 13px;
+      }
+
+      /* ---------- hero ---------- */
+      .hero {
+        position: relative;
+        min-height: 82vh;
+        display: flex;
+        align-items: flex-end;
+      }
+
+      .hero .ph {
+        position: absolute;
+        inset: 0;
+        border-radius: 0;
+      }
+
+      .hero .scrim {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background: linear-gradient(
+          180deg,
+          rgba(0, 50, 77, 0.22) 30%,
+          rgba(0, 50, 77, 0.85) 100%
+        );
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        padding: 0 0 64px;
+        color: var(--white);
+      }
+
+      .hero-content h1 {
+        font-size: clamp(48px, 8.4vw, 118px);
+        color: var(--white);
+      }
+
+      .hero-content h1 .hl {
+        color: var(--yellow);
+      }
+
+      .hero-content .lead {
+        font-size: clamp(16px, 1.8vw, 19px);
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.9);
+        max-width: 56ch;
+        margin-top: 18px;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 28px;
+      }
+
+      /* ---------- stat banner ---------- */
+      .stats {
+        background: var(--yellow);
+        padding: 44px 0;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+
+      .stat {
+        text-align: center;
+      }
+
+      .stat b {
+        display: block;
+        font-weight: 900;
+        font-size: clamp(40px, 5.5vw, 64px);
+        line-height: 1;
+        letter-spacing: -0.02em;
+      }
+
+      .stat span {
+        display: block;
+        font-size: 13.5px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-top: 8px;
+      }
+
+      /* ---------- sections ---------- */
+      .section {
+        padding: 100px 0;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 24px;
+        flex-wrap: wrap;
+        margin-bottom: 48px;
+      }
+
+      .section-head h2 {
+        font-size: clamp(34px, 4.6vw, 60px);
+      }
+
+      .section-head h2 .hl {
+        -webkit-text-stroke: 2px var(--ink);
+        color: transparent;
+      }
+
+      .section-head p {
+        color: var(--grey);
+        font-size: 15.5px;
+        max-width: 40ch;
+      }
+
+      /* ---------- ingredients ---------- */
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+
+      .product-card {
+        border: 2px solid var(--ink);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition:
+          transform 0.15s,
+          box-shadow 0.15s;
+      }
+
+      .product-card:hover {
+        transform: translate(-3px, -3px);
+        box-shadow: 6px 6px 0 var(--yellow);
+      }
+
+      .product-card .ph {
+        aspect-ratio: 1;
+        border-radius: 0;
+        border-bottom: 2px solid var(--ink);
+      }
+
+      .product-card .body {
+        padding: 22px 22px 24px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+
+      .product-card .format {
+        font-size: 11.5px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--grey);
+      }
+
+      .product-card h3 {
+        font-weight: 900;
+        text-transform: uppercase;
+        font-size: 18.5px;
+        margin-top: 6px;
+      }
+
+      .product-card .desc {
+        font-size: 13.5px;
+        color: var(--grey);
+        margin-top: 6px;
+      }
+
+      .product-card .row {
+        display: flex;
+        align-items: center;
+        margin-top: auto;
+        padding-top: 18px;
+      }
+
+      .product-card .btn {
+        padding: 11px 20px;
+        font-size: 12.5px;
+      }
+
+      /* ---------- action gallery ---------- */
+      .gallery {
+        background: var(--ink);
+        padding: 100px 0;
+        color: var(--white);
+      }
+
+      .gallery .section-head h2 {
+        color: var(--white);
+      }
+
+      .gallery .section-head h2 .hl {
+        -webkit-text-stroke: 2px var(--yellow);
+        color: transparent;
+      }
+
+      .gallery .section-head p {
+        color: rgba(255, 255, 255, 0.65);
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+
+      .gallery-grid .ph {
+        aspect-ratio: 3/4;
+      }
+
+      .gallery-grid .shot:nth-child(2),
+      .gallery-grid .shot:nth-child(4) {
+        margin-top: 34px;
+      }
+
+      .shot .cap {
+        font-size: 12.5px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--yellow);
+        margin-top: 10px;
+      }
+
+      /* ---------- benefit rows ---------- */
+      .benefit-rows {
+        border-top: 2px solid var(--ink);
+      }
+
+      .benefit-row {
+        display: grid;
+        grid-template-columns: 90px 1fr auto;
+        gap: 28px;
+        align-items: center;
+        padding: 30px 4px;
+        border-bottom: 2px solid var(--ink);
+        transition:
+          background 0.15s,
+          padding-left 0.15s;
+      }
+
+      .benefit-row:hover {
+        background: var(--ice);
+        padding-left: 14px;
+      }
+
+      .benefit-row .n {
+        font-weight: 900;
+        font-size: 30px;
+        color: var(--yellow-deep);
+      }
+
+      .benefit-row h3 {
+        font-weight: 900;
+        text-transform: uppercase;
+        font-size: clamp(19px, 2.4vw, 26px);
+      }
+
+      .benefit-row p {
+        font-size: 14.5px;
+        color: var(--grey);
+        margin-top: 4px;
+        max-width: 54ch;
+      }
+
+      .benefit-row .arrow {
+        font-weight: 900;
+        font-size: 24px;
+      }
+
+      /* ---------- quote ---------- */
+      .quote {
+        background: var(--yellow);
+        padding: 90px 0;
+        text-align: center;
+      }
+
+      .quote blockquote {
+        font-weight: 900;
+        text-transform: uppercase;
+        font-size: clamp(24px, 3.6vw, 44px);
+        line-height: 1.1;
+        letter-spacing: -0.01em;
+        max-width: 26ch;
+        margin: 0 auto;
+        border: none;
+      }
+
+      .quote .who {
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-top: 24px;
+      }
+
+      /* ---------- CTA ---------- */
+      .cta {
+        padding: 110px 0;
+        text-align: center;
+      }
+
+      .cta h2 {
+        font-size: clamp(40px, 6vw, 84px);
+      }
+
+      .cta h2 .hl {
+        color: transparent;
+        -webkit-text-stroke: 2px var(--ink);
+      }
+
+      .cta p {
+        color: var(--grey);
+        font-size: 15.5px;
+        max-width: 50ch;
+        margin: 18px auto 0;
+      }
+
+      .cta .actions {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 32px;
+      }
+
+      /* ---------- footer ---------- */
+      .site-footer {
+        background: var(--ink-deep);
+        color: rgba(255, 255, 255, 0.7);
+        padding: 64px 0 34px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr 1fr;
+        gap: 44px;
+        padding-bottom: 40px;
+      }
+
+      .site-footer .brand img {
+        height: 40px;
+        width: auto;
+      }
+
+      .site-footer .brand p {
+        font-size: 14px;
+        margin-top: 14px;
+        max-width: 30ch;
+      }
+
+      .site-footer h4 {
+        color: var(--white);
+        font-size: 13.5px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 13px;
+      }
+
+      .site-footer ul {
+        list-style: none;
+        display: grid;
+        gap: 8px;
+      }
+
+      .site-footer ul a {
+        font-size: 14px;
+      }
+
+      .site-footer ul a:hover {
+        color: var(--white);
+      }
+
+      .fda {
+        font-size: 12.5px;
+        color: rgba(255, 255, 255, 0.45);
+        border-top: 1px solid rgba(255, 255, 255, 0.16);
+        padding-top: 22px;
+        max-width: 90ch;
+      }
+
+      .footer-bottom {
+        font-size: 13px;
+        padding-top: 18px;
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      /* ---------- responsive ---------- */
+      @media (max-width: 980px) {
+        .site-nav {
+          display: none;
+        }
+
+        .hero {
+          min-height: 64vh;
+        }
+
+        .stats-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .product-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .section,
+        .gallery,
+        .cta {
+          padding: 70px 0;
+        }
+
+        .product-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .gallery-grid .shot:nth-child(2),
+        .gallery-grid .shot:nth-child(4) {
+          margin-top: 0;
+        }
+
+        .benefit-row {
+          grid-template-columns: 56px 1fr;
+        }
+
+        .benefit-row .arrow {
+          display: none;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ============================ TICKER ============================ -->
+    <div class="ticker">
+      <span>Scientifically proven</span><span>Globally patented</span
+      ><span>55+ clinical studies</span>
+      <span>The only NDI beta-alanine</span><span>Scientifically proven</span
+      ><span>Globally patented</span><span>55+ clinical studies</span
+      ><span>The only NDI beta-alanine</span>
+    </div>
+
+    <!-- ============================ HEADER ============================ -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="#" class="header-logo">
+          <img
+            src="https://www.carnosyn.com/wp-content/uploads/2019/09/nav-logo.svg"
+            alt="CarnoSyn"
+          />
+        </a>
+        <ul class="site-nav">
+          <li><a href="#ingredients">Ingredients</a></li>
+          <li><a href="#why">The Science</a></li>
+          <li><a href="#bemore">Be More</a></li>
+        </ul>
+        <div class="header-right">
+          <a href="#" class="contact">Contact</a>
+          <a href="#" class="btn btn-yellow">Find CarnoSyn</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================ HERO ============================ -->
+    <section class="hero">
+      <div class="ph" data-label="Hero photo · athlete in motion">
+        <img
+          alt="Tennis player serving, shot from above"
+          src="https://www.carnosyn.com/wp-content/uploads/2024/10/CarnoSyn-Homepage.jpg"
+        />
+      </div>
+      <div class="scrim"></div>
+      <div class="container hero-content">
+        <h1 class="disp">
+          Proven. Patented.<br /><span class="hl">Be more.</span>
+        </h1>
+        <p class="lead">
+          CarnoSyn® is the scientifically proven, globally patented
+          beta-alanine — the leading ingredient in the top sports nutrition
+          formulas, helping athletes of all abilities push past plateaus and
+          reach peak performance.
+        </p>
+        <div class="hero-actions">
+          <a href="#" class="btn btn-yellow">Find CarnoSyn</a>
+          <a href="#why" class="btn btn-ghost">The science</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ STATS ============================ -->
+    <section class="stats">
+      <div class="container stats-grid">
+        <div class="stat"><b>55+</b><span>Clinical studies</span></div>
+        <div class="stat">
+          <b>NDI</b><span>The only beta-alanine with NDI status</span>
+        </div>
+        <div class="stat">
+          <b>GRAS</b><span>Self-affirmed · supplements, food &amp; beverage</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ INGREDIENTS ============================ -->
+    <section class="section" id="ingredients">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="disp">Pick your <span class="hl">pathway.</span></h2>
+          <p>
+            Four advanced formats. Unmatched flexibility across performance
+            and everyday wellness.
+          </p>
+        </div>
+        <div class="product-grid">
+          <div class="product-card">
+            <div class="ph logo-tile navy">
+              <img
+                alt="CarnoSyn — the original beta-alanine"
+                src="https://www.carnosyn.com/wp-content/uploads/2019/09/nav-logo.svg"
+              />
+            </div>
+            <div class="body">
+              <div class="format">Instant release</div>
+              <h3>CarnoSyn&reg;</h3>
+              <p class="desc">
+                The original beta-alanine, backed by years of scientific
+                research and 55+ clinical studies.
+              </p>
+              <div class="row">
+                <a href="#" class="btn btn-ink">Learn more</a>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div
+              class="ph"
+              data-label="Product photo · SR CarnoSyn tablets"
+            >
+              <img alt="SR CarnoSyn advanced delivery tablets" />
+            </div>
+            <div class="body">
+              <div class="format">Sustained release</div>
+              <h3>SR CarnoSyn&reg;</h3>
+              <p class="desc">
+                Advanced delivery tablets that maximize carnosine retention
+                around the clock.
+              </p>
+              <div class="row">
+                <a href="#" class="btn btn-ink">Learn more</a>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="ph logo-tile ice">
+              <img
+                alt="CarnoSyn 4X high bioavailability powder"
+                src="https://www.carnosyn.com/wp-content/uploads/2026/04/CarnoSyn4X_Logo_Color.svg"
+              />
+            </div>
+            <div class="body">
+              <div class="format">High bioavailability</div>
+              <h3>CarnoSyn&reg; 4X</h3>
+              <p class="desc">
+                Next-generation powder with 4x higher bioavailability at a
+                lower daily dose.
+              </p>
+              <div class="row">
+                <a href="#" class="btn btn-ink">Learn more</a>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="ph logo-tile ice">
+              <img
+                alt="TriBsyn carnosine booster"
+                src="https://www.carnosyn.com/wp-content/uploads/2026/04/TRIBSYN_LOGO.svg"
+              />
+            </div>
+            <div class="body">
+              <div class="format">Carnosine booster</div>
+              <h3>TriBsyn&trade;</h3>
+              <p class="desc">
+                The wellness-focused carnosine booster — everyday benefits,
+                none of the tingle.
+              </p>
+              <div class="row">
+                <a href="#" class="btn btn-ink">Learn more</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ GALLERY ============================ -->
+    <section class="gallery" id="bemore">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="disp">Be <span class="hl">more.</span></h2>
+          <p>
+            More reps. More speed. More muscle. More focus. And more personal
+            records.
+          </p>
+        </div>
+        <div class="gallery-grid">
+          <div class="shot">
+            <div class="ph" data-label="Photo · gym class on kettlebells">
+              <img
+                alt="Group kettlebell workout"
+                src="https://www.carnosyn.com/wp-content/uploads/2026/09/Q3-Carnosine-or-Beta-Alanine_-Which-Should-You-Actually-Supplement-With_-banner-photo-1024x536.jpg"
+              />
+            </div>
+            <div class="cap">More muscle</div>
+          </div>
+          <div class="shot">
+            <div class="ph" data-label="Photo · marathon pack mid-race">
+              <img
+                alt="Marathon runners on course"
+                src="https://www.carnosyn.com/wp-content/uploads/2026/09/Q3-What-Does-_Sustained-Release_-Actually-Mean-for-Beta-Alanine_-banner-photo-1024x536.jpg"
+              />
+            </div>
+            <div class="cap">More endurance</div>
+          </div>
+          <div class="shot">
+            <div class="ph" data-label="Photo · barbell deadlift, navy duotone">
+              <img
+                alt="Athletes deadlifting in the gym"
+                src="https://www.carnosyn.com/wp-content/uploads/2019/09/parallax-back.jpg"
+              />
+            </div>
+            <div class="cap">More PRs</div>
+          </div>
+          <div class="shot">
+            <div class="ph" data-label="Photo · carnosine food sources">
+              <img
+                alt="Whole food sources of carnosine"
+                src="https://www.carnosyn.com/wp-content/uploads/2026/09/Q3-What-Are-the-Best-Food-Sources-of-Carnosine_-banner-photo.jpg"
+              />
+            </div>
+            <div class="cap">More wellness</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ BENEFITS ============================ -->
+    <section class="section" id="why">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="disp">Why it <span class="hl">works.</span></h2>
+          <p>
+            Beta-alanine builds carnosine. Carnosine does the rest — proven
+            across 55+ clinical studies.
+          </p>
+        </div>
+        <div class="benefit-rows">
+          <div class="benefit-row">
+            <div class="n">01</div>
+            <div>
+              <h3>Build better muscle, faster</h3>
+              <p>
+                Boost muscle carnosine so you can push harder and longer
+                before the burn sets in.
+              </p>
+            </div>
+            <div class="arrow">→</div>
+          </div>
+          <div class="benefit-row">
+            <div class="n">02</div>
+            <div>
+              <h3>Extend endurance</h3>
+              <p>Delay fatigue and hold your pace deeper into every session.</p>
+            </div>
+            <div class="arrow">→</div>
+          </div>
+          <div class="benefit-row">
+            <div class="n">03</div>
+            <div>
+              <h3>Enhance mental focus</h3>
+              <p>
+                Sharper cognitive performance under pressure, backed by
+                clinical research.
+              </p>
+            </div>
+            <div class="arrow">→</div>
+          </div>
+          <div class="benefit-row">
+            <div class="n">04</div>
+            <div>
+              <h3>Speed recovery time</h3>
+              <p>Bounce back faster between sets, sessions, and seasons.</p>
+            </div>
+            <div class="arrow">→</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ QUOTE ============================ -->
+    <section class="quote">
+      <div class="container">
+        <blockquote>
+          Get a new PR. Get more reps. Get a faster time. Get the edge.
+        </blockquote>
+        <div class="who">Get CarnoSyn® — Find it near you</div>
+      </div>
+    </section>
+
+    <!-- ============================ CTA ============================ -->
+    <section class="cta">
+      <div class="container">
+        <h2 class="disp">Give your brand <span class="hl">the edge.</span></h2>
+        <p>
+          Join the dozens of leaders in the sports nutrition market who give
+          their brand — and their customers — the ultimate edge with CarnoSyn®
+          beta-alanine.
+        </p>
+        <div class="actions">
+          <a href="#" class="btn btn-yellow">Let's talk</a>
+          <a href="#" class="btn btn-ink">Get CarnoSyn Verified</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FOOTER ============================ -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="brand">
+            <img
+              src="https://www.carnosyn.com/wp-content/uploads/2019/09/nav-logo.svg"
+              alt="CarnoSyn"
+            />
+            <p>
+              The scientifically proven, globally patented beta-alanine.
+            </p>
+          </div>
+          <div>
+            <h4>Ingredients</h4>
+            <ul>
+              <li><a href="#ingredients">CarnoSyn</a></li>
+              <li><a href="#ingredients">SR CarnoSyn</a></li>
+              <li><a href="#ingredients">CarnoSyn 4X</a></li>
+              <li><a href="#ingredients">TriBsyn</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Science &amp; Research</h4>
+            <ul>
+              <li><a href="#why">CarnoSyn Science</a></li>
+              <li><a href="#">Scientific Studies</a></li>
+              <li><a href="#">Trademarks &amp; Patents</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About</a></li>
+              <li><a href="#">For Partners</a></li>
+              <li><a href="#">News &amp; Events</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="fda">
+          *These statements have not been evaluated by the Food and Drug
+          Administration. This product is not intended to diagnose, treat,
+          cure, or prevent any disease. CarnoSyn®, TriBsyn™, and SR CarnoSyn®
+          are registered trademarks of Natural Alternatives International,
+          Inc.
+        </p>
+        <div class="footer-bottom">
+          <span
+            >© 2026 Natural Alternatives International, Inc. All rights
+            reserved.</span
+          >
+          <span><a href="#">Privacy</a> · <a href="#">Terms</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
