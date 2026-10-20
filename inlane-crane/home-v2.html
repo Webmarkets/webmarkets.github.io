@@ -1,0 +1,1375 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inland Crane, Inc. | Heavy Lifts, Handled — Boise, Idaho</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* =====================================================================
+   INLAND CRANE · HOMEPAGE MOCK (v2 — "THE DISPATCH BOARD")
+   The bolder option. Dark-first blueprint aesthetic: navy drafting
+   grid, a cable-and-hook hanging in the hero, services as a giant
+   typographic index with photo peeks, and the fleet drawn as a
+   to-scale height gauge. Same brand system as the style guide —
+   logo navy #101858 + crane gold #F8C800, Barlow Condensed + Barlow.
+   Photos pulled from the current inlandcrane.com site.
+   ===================================================================== */
+
+      :root {
+        --navy: #101858;
+        --navy-deep: #0a1040;
+        --navy-soft: #273170;
+        --navy-tint: #eef0f7;
+
+        --gold: #f8c800;
+        --gold-deep: #d9af00;
+        --gold-pale: #fdf4cc;
+
+        --steel: #566073;
+        --paper: #fafafa;
+        --white: #ffffff;
+        --line: #e2e5ee;
+
+        --lattice-light: repeating-linear-gradient(
+            45deg,
+            rgba(16, 24, 88, 0.05) 0 2px,
+            transparent 2px 26px
+          ),
+          repeating-linear-gradient(
+            -45deg,
+            rgba(16, 24, 88, 0.05) 0 2px,
+            transparent 2px 26px
+          );
+
+        --blueprint: linear-gradient(
+            rgba(255, 255, 255, 0.055) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+
+        --stripe: repeating-linear-gradient(
+          -45deg,
+          var(--gold) 0 12px,
+          var(--navy) 12px 24px
+        );
+
+        --radius: 10px;
+        --radius-lg: 16px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Barlow", sans-serif;
+        background: var(--paper);
+        color: var(--navy);
+        line-height: 1.65;
+        font-size: 16px;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      ::selection {
+        background: var(--gold);
+        color: var(--navy);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      p {
+        color: var(--steel);
+      }
+
+      .wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 28px;
+      }
+
+      .disp {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        line-height: 1.02;
+      }
+
+      .kicker {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 600;
+        font-size: 15px;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--gold-deep);
+      }
+
+      /* ---------- image placeholder ---------- */
+      .ph {
+        position: relative;
+        background: #e6e8ef;
+        overflow: hidden;
+      }
+
+      .ph::after {
+        content: attr(data-label);
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        text-align: center;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #9aa1b5;
+      }
+
+      .ph img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: none;
+      }
+
+      .ph img[src] {
+        display: block;
+        z-index: 1;
+      }
+
+      /* ---------- buttons ---------- */
+      .btn {
+        display: inline-block;
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 17px;
+        padding: 13px 32px;
+        border-radius: 8px;
+        border: 2px solid transparent;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          color 0.2s,
+          border-color 0.2s,
+          transform 0.2s;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn-gold {
+        background: var(--gold);
+        color: var(--navy);
+      }
+
+      .btn-gold:hover {
+        background: var(--gold-deep);
+      }
+
+      .btn-navy {
+        background: var(--navy);
+        color: var(--white);
+      }
+
+      .btn-navy:hover {
+        background: var(--navy-soft);
+      }
+
+      .btn-ghost {
+        border-color: rgba(255, 255, 255, 0.55);
+        color: var(--white);
+        background: none;
+      }
+
+      .btn-ghost:hover {
+        border-color: var(--white);
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      /* ---------- header ---------- */
+      .site-head {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: var(--navy-deep);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .site-head .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+
+      .site-head .brand img {
+        width: 76px;
+        height: auto;
+        background: var(--white);
+        border-radius: 8px;
+        padding: 5px 8px;
+      }
+
+      .site-head nav {
+        display: flex;
+        gap: 28px;
+        align-items: center;
+      }
+
+      .site-head nav a {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 16px;
+        color: #ccd1e6;
+        padding: 4px 0;
+        border-bottom: 2px solid transparent;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+      }
+
+      .site-head nav a:hover {
+        color: var(--gold);
+        border-bottom-color: var(--gold);
+      }
+
+      .site-head .right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .site-head .phone {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        font-size: 19px;
+        letter-spacing: 0.04em;
+        color: var(--gold);
+      }
+
+      .site-head .btn {
+        padding: 10px 24px;
+        font-size: 16px;
+      }
+
+      /* ---------- hero ---------- */
+      .hero {
+        position: relative;
+        background: var(--navy-deep);
+        color: var(--white);
+        overflow: hidden;
+        background-image: var(--blueprint);
+        background-size: 52px 52px;
+      }
+
+      .hero .wrap {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 40px;
+        align-items: center;
+        min-height: 82vh;
+        position: relative;
+      }
+
+      /* left-edge height gauge */
+      .hero::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 14px;
+        background: repeating-linear-gradient(
+            180deg,
+            rgba(248, 200, 0, 0.9) 0 2px,
+            transparent 2px 64px
+          ),
+          repeating-linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.28) 0 1.5px,
+            transparent 1.5px 16px
+          );
+        background-position:
+          0 0,
+          0 0;
+        background-size:
+          10px 100%,
+          6px 100%;
+        background-repeat: repeat-y;
+        border-right: 2px solid rgba(255, 255, 255, 0.18);
+      }
+
+      .hero .copy {
+        padding: 110px 0 120px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero .kicker {
+        color: var(--gold);
+      }
+
+      .hero h1 {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: clamp(60px, 9vw, 124px);
+        line-height: 0.92;
+        margin: 18px 0 24px;
+      }
+
+      .hero h1 .ghost {
+        display: block;
+        color: transparent;
+        -webkit-text-stroke: 2px rgba(255, 255, 255, 0.65);
+      }
+
+      .hero h1 .solid {
+        display: block;
+      }
+
+      .hero h1 .gold {
+        display: block;
+        color: var(--gold);
+      }
+
+      .hero p {
+        color: #ccd1e6;
+        max-width: 46ch;
+        font-size: 17.5px;
+        margin-bottom: 34px;
+      }
+
+      .hero .cta-row {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      /* hanging cable + hook */
+      .rig {
+        position: relative;
+        align-self: stretch;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        z-index: 2;
+      }
+
+      .rig .cable {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transform-origin: top center;
+        animation: sway 7s ease-in-out infinite;
+      }
+
+      .rig .line {
+        width: 3px;
+        height: 16vh;
+        min-height: 90px;
+        background: rgba(255, 255, 255, 0.55);
+      }
+
+      .rig .hook-tag {
+        background: var(--gold);
+        color: var(--navy);
+        border-radius: 10px;
+        padding: 14px 22px;
+        text-align: center;
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-size: 16px;
+        line-height: 1.25;
+        box-shadow: 0 24px 40px -18px rgba(0, 0, 0, 0.55);
+      }
+
+      .rig .hook-tag b {
+        display: block;
+        font-size: 26px;
+        letter-spacing: 0.04em;
+      }
+
+      @keyframes sway {
+        0%,
+        100% {
+          transform: translateX(-50%) rotate(-2.1deg);
+        }
+
+        50% {
+          transform: translateX(-50%) rotate(2.1deg);
+        }
+      }
+
+      .rig .photo {
+        width: min(340px, 90%);
+        aspect-ratio: 3/4.1;
+        border-radius: 14px 14px 0 0;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.7);
+      }
+
+      .rig .photo::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: auto;
+        height: 6px;
+        padding: 0;
+        background: var(--stripe);
+        z-index: 2;
+      }
+
+      .hero .stripe-edge {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 8px;
+        background: var(--stripe);
+        z-index: 3;
+      }
+
+      /* ---------- marquee ---------- */
+      .marquee {
+        background: var(--gold);
+        color: var(--navy);
+        overflow: hidden;
+        padding: 14px 0;
+        border-bottom: 1px solid rgba(16, 24, 88, 0.15);
+      }
+
+      .marquee .track {
+        display: flex;
+        gap: 0;
+        width: max-content;
+        animation: slide 26s linear infinite;
+      }
+
+      .marquee span {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 19px;
+        white-space: nowrap;
+        padding-right: 18px;
+      }
+
+      @keyframes slide {
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* ---------- services index ---------- */
+      .svc-index {
+        padding: 100px 0;
+        background: var(--paper);
+        background-image: var(--lattice-light);
+      }
+
+      .svc-index .sec-head {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 24px;
+        flex-wrap: wrap;
+        margin-bottom: 44px;
+      }
+
+      .svc-index h2 {
+        font-size: clamp(36px, 4.6vw, 54px);
+        margin-top: 12px;
+      }
+
+      .svc-index .sec-head p {
+        max-width: 38ch;
+        font-size: 15px;
+      }
+
+      .idx-row {
+        display: grid;
+        grid-template-columns: 70px 1fr auto auto;
+        align-items: center;
+        gap: 26px;
+        padding: 22px 18px;
+        border-top: 2px solid var(--navy);
+        position: relative;
+        color: var(--navy);
+        transition:
+          background 0.25s,
+          padding-left 0.25s;
+      }
+
+      .idx-row:last-of-type {
+        border-bottom: 2px solid var(--navy);
+      }
+
+      .idx-row:hover {
+        background: var(--gold);
+        padding-left: 30px;
+      }
+
+      .idx-row .num {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        font-size: 19px;
+        letter-spacing: 0.14em;
+        color: var(--gold-deep);
+        transition: color 0.25s;
+      }
+
+      .idx-row:hover .num {
+        color: var(--navy);
+      }
+
+      .idx-row .name {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: clamp(26px, 3.4vw, 42px);
+        line-height: 1;
+        letter-spacing: 0.02em;
+      }
+
+      .idx-row .blurb {
+        font-size: 14px;
+        color: var(--steel);
+        max-width: 26ch;
+        transition: color 0.25s;
+      }
+
+      .idx-row:hover .blurb {
+        color: #4d4304;
+      }
+
+      .idx-row .arrow {
+        font-size: 24px;
+        font-weight: 700;
+        transition: transform 0.25s;
+      }
+
+      .idx-row:hover .arrow {
+        transform: rotate(-45deg);
+      }
+
+      .idx-row .peek {
+        position: absolute;
+        right: 120px;
+        top: 50%;
+        width: 190px;
+        aspect-ratio: 16/10;
+        border-radius: 10px;
+        overflow: hidden;
+        transform: translateY(-50%) rotate(-4deg) scale(0.85);
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          opacity 0.25s,
+          transform 0.25s;
+        box-shadow: 0 20px 40px -18px rgba(16, 24, 88, 0.55);
+        z-index: 3;
+      }
+
+      .idx-row:hover .peek {
+        opacity: 1;
+        transform: translateY(-50%) rotate(-4deg) scale(1);
+      }
+
+      .idx-row .peek .ph {
+        display: block;
+        position: absolute;
+        inset: 0;
+      }
+
+      /* ---------- fleet gauge ---------- */
+      .gauge-sec {
+        background: var(--navy);
+        color: var(--white);
+        padding: 100px 0 90px;
+        background-image: var(--blueprint);
+        background-size: 52px 52px;
+        position: relative;
+      }
+
+      .gauge-sec::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 8px;
+        background: var(--stripe);
+      }
+
+      .gauge-sec .kicker {
+        color: var(--gold);
+      }
+
+      .gauge-sec .sec-head {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 24px;
+        flex-wrap: wrap;
+        margin-bottom: 56px;
+      }
+
+      .gauge-sec h2 {
+        font-size: clamp(36px, 4.6vw, 54px);
+        margin-top: 12px;
+      }
+
+      .gauge-sec .sec-head p {
+        color: #ccd1e6;
+        max-width: 40ch;
+        font-size: 15px;
+      }
+
+      .gauge {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 28px;
+        align-items: end;
+        border-bottom: 3px solid rgba(255, 255, 255, 0.35);
+        padding: 0 10px;
+      }
+
+      .bar-wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        text-align: center;
+      }
+
+      .bar-wrap .ft {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        font-size: 30px;
+        color: var(--gold);
+        letter-spacing: 0.04em;
+      }
+
+      .bar-wrap .ft small {
+        font-size: 15px;
+        letter-spacing: 0.14em;
+        color: #ccd1e6;
+      }
+
+      .bar-wrap .bar {
+        width: 64%;
+        margin-top: 12px;
+        background: linear-gradient(
+          rgba(255, 255, 255, 0.16),
+          rgba(255, 255, 255, 0.06)
+        );
+        border: 1.5px solid rgba(255, 255, 255, 0.4);
+        border-bottom: 0;
+        border-radius: 6px 6px 0 0;
+        position: relative;
+        background-image: repeating-linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.14) 0 2px,
+          transparent 2px 22px
+        );
+      }
+
+      .bar-wrap .bar::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 7px;
+        background: var(--gold);
+      }
+
+      .bar-wrap .label {
+        order: 3;
+        margin-top: 16px;
+        min-height: 52px;
+      }
+
+      .bar-wrap .label b {
+        display: block;
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        font-size: 19px;
+      }
+
+      .bar-wrap .label span {
+        font-size: 13px;
+        color: #ccd1e6;
+      }
+
+      /* heights to scale: 393 / 368 / 340 / 265 ft */
+      .bar-h1 {
+        height: 320px;
+      }
+
+      .bar-h2 {
+        height: 300px;
+      }
+
+      .bar-h3 {
+        height: 277px;
+      }
+
+      .bar-h4 {
+        height: 216px;
+      }
+
+      .gauge-foot {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 34px;
+      }
+
+      .gauge-foot p {
+        color: #ccd1e6;
+        font-size: 14.5px;
+      }
+
+      /* ---------- proof: stats + photos ---------- */
+      .proof {
+        padding: 100px 0;
+      }
+
+      .proof .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 200px;
+        gap: 18px;
+      }
+
+      .proof .tile {
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .proof .tile.ph {
+        display: block;
+      }
+
+      .proof .stat {
+        background: var(--navy-tint);
+        background-image: var(--lattice-light);
+        border: 1px solid var(--line);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .proof .stat b {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        font-size: 58px;
+        line-height: 1;
+        color: transparent;
+        -webkit-text-stroke: 2px var(--navy);
+      }
+
+      .proof .stat.gold-fill {
+        background: var(--gold);
+        border-color: var(--gold-deep);
+      }
+
+      .proof .stat.gold-fill b {
+        color: var(--navy);
+        -webkit-text-stroke: 0;
+      }
+
+      .proof .stat span {
+        margin-top: 10px;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--steel);
+      }
+
+      .proof .stat.gold-fill span {
+        color: #4d4304;
+      }
+
+      .proof .quote-tile {
+        background: var(--navy);
+        color: var(--white);
+        grid-column: span 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 30px 34px;
+        background-image: var(--blueprint);
+        background-size: 44px 44px;
+      }
+
+      .proof .quote-tile .disp {
+        font-size: clamp(20px, 2.2vw, 27px);
+        line-height: 1.15;
+      }
+
+      .proof .quote-tile .disp em {
+        font-style: normal;
+        color: var(--gold);
+      }
+
+      .proof .quote-tile span {
+        margin-top: 12px;
+        font-size: 13px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #b9bed6;
+      }
+
+      .wide-2 {
+        grid-column: span 2;
+      }
+
+      /* ---------- cta ---------- */
+      .cta {
+        background: var(--navy-deep);
+        color: var(--white);
+        clip-path: polygon(0 56px, 100% 0, 100% 100%, 0 100%);
+        padding: 140px 0 100px;
+        text-align: center;
+        background-image: var(--blueprint);
+        background-size: 52px 52px;
+      }
+
+      .cta .kicker {
+        color: var(--gold);
+      }
+
+      .cta h2 {
+        font-size: clamp(40px, 6vw, 72px);
+        margin: 16px auto 18px;
+        max-width: 16ch;
+      }
+
+      .cta h2 em {
+        font-style: normal;
+        color: var(--gold);
+      }
+
+      .cta p {
+        color: #ccd1e6;
+        max-width: 52ch;
+        margin: 0 auto 36px;
+      }
+
+      .cta .cta-row {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .cta .phone {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        font-size: 24px;
+        letter-spacing: 0.04em;
+        color: var(--gold);
+      }
+
+      /* ---------- footer ---------- */
+      .site-foot {
+        background: var(--navy-deep);
+        color: #8d93b0;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        padding: 36px 0;
+        font-size: 13.5px;
+      }
+
+      .site-foot .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .site-foot .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .site-foot .brand img {
+        width: 68px;
+        background: var(--white);
+        border-radius: 8px;
+        padding: 4px 7px;
+      }
+
+      .site-foot nav {
+        display: flex;
+        gap: 22px;
+        flex-wrap: wrap;
+      }
+
+      .site-foot nav a {
+        color: #b9bed6;
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 14.5px;
+      }
+
+      .site-foot nav a:hover {
+        color: var(--white);
+      }
+
+      /* ---------- motion safety ---------- */
+      @media (prefers-reduced-motion: reduce) {
+        .rig .cable {
+          animation: none;
+        }
+
+        .marquee .track {
+          animation: none;
+        }
+      }
+
+      /* ---------- responsive ---------- */
+      @media (max-width: 960px) {
+        .site-head nav {
+          display: none;
+        }
+
+        .hero .wrap {
+          grid-template-columns: 1fr;
+          min-height: 0;
+        }
+
+        .hero .copy {
+          padding: 80px 0 30px;
+        }
+
+        .rig {
+          min-height: 420px;
+          margin-top: 20px;
+        }
+
+        .rig .line {
+          height: 70px;
+          min-height: 0;
+        }
+
+        .idx-row {
+          grid-template-columns: 50px 1fr auto;
+        }
+
+        .idx-row .blurb {
+          display: none;
+        }
+
+        .idx-row .peek {
+          display: none;
+        }
+
+        .gauge {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 36px 20px;
+          border-bottom: 0;
+        }
+
+        .bar-h1 {
+          height: 220px;
+        }
+
+        .bar-h2 {
+          height: 206px;
+        }
+
+        .bar-h3 {
+          height: 190px;
+        }
+
+        .bar-h4 {
+          height: 148px;
+        }
+
+        .proof .grid {
+          grid-template-columns: 1fr 1fr;
+          grid-auto-rows: 180px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .site-head .phone {
+          display: none;
+        }
+
+        .proof .grid {
+          grid-template-columns: 1fr;
+          grid-auto-rows: 190px;
+        }
+
+        .proof .quote-tile,
+        .wide-2 {
+          grid-column: span 1;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ============================ HEADER ============================ -->
+    <header class="site-head">
+      <div class="wrap">
+        <a href="#" class="brand">
+          <img src="logo.png" alt="Inland Crane, Inc." />
+        </a>
+        <nav>
+          <a href="#services">Services</a>
+          <a href="#fleet">Fleet</a>
+          <a href="#">Bare Rentals</a>
+          <a href="#">Careers</a>
+          <a href="#">Contact</a>
+        </nav>
+        <div class="right">
+          <a href="tel:8002738769" class="phone">800.273.8769</a>
+          <a href="#quote" class="btn btn-gold">Request a Quote</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================ HERO ============================ -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="copy">
+          <div class="kicker">Boise, Idaho &middot; Serving the Northwest</div>
+          <h1>
+            <span class="ghost">Heavy</span>
+            <span class="solid">Lifts,</span>
+            <span class="gold">Handled.</span>
+          </h1>
+          <p>
+            Hydraulic, conventional, crawler, rough terrain, and tower cranes —
+            plus the hoists, rigging, and machinery moving crews to put
+            anything exactly where it belongs.
+          </p>
+          <div class="cta-row">
+            <a href="#quote" class="btn btn-gold">Request a Quote</a>
+            <a href="#services" class="btn btn-ghost">See the Services</a>
+          </div>
+        </div>
+
+        <div class="rig">
+          <div class="cable">
+            <div class="line"></div>
+            <div class="hook-tag">
+              24/7 Dispatch
+              <b>800.273.8769</b>
+            </div>
+          </div>
+          <div class="photo ph" data-label="Photo — Inland hoist on high-rise">
+            <img
+              src="https://www.inlandcrane.com/wp-content/uploads/2020/03/Alba-Lift-049-scaled.jpg"
+              alt="Inland Crane personnel hoist climbing a downtown high-rise"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="stripe-edge"></div>
+    </section>
+
+    <!-- ============================ MARQUEE ============================ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="track">
+        <span>Hydraulic ✦ Conventional ✦ Crawler ✦ Rough Terrain ✦ Tower ✦
+          Hoists ✦ Machinery Moving ✦ Bare Rentals ✦</span>
+        <span>Hydraulic ✦ Conventional ✦ Crawler ✦ Rough Terrain ✦ Tower ✦
+          Hoists ✦ Machinery Moving ✦ Bare Rentals ✦</span>
+      </div>
+    </div>
+
+    <!-- ============================ SERVICES INDEX ============================ -->
+    <section class="svc-index" id="services">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <div class="kicker">The Service Index</div>
+            <h2 class="disp">Pick your machine.</h2>
+          </div>
+          <p>
+            Six core services, one standard of safety. Hover a row — or just
+            send the specs and we'll match the machine to the pick.
+          </p>
+        </div>
+
+        <a href="#" class="idx-row">
+          <span class="num">01</span>
+          <span class="name disp">Hydraulic Cranes</span>
+          <span class="blurb">Fast setup, precision lifts, any scale.</span>
+          <span class="arrow">→</span>
+          <span class="peek">
+            <span class="ph" data-label="Photo — hydraulic crane">
+              <img
+                src="https://www.inlandcrane.com/wp-content/uploads/2018/06/Hydraulic-1-1.jpg"
+                alt=""
+              />
+            </span>
+          </span>
+        </a>
+        <a href="#" class="idx-row">
+          <span class="num">02</span>
+          <span class="name disp">Conventional Cranes</span>
+          <span class="blurb">Lattice-boom workhorses for heavy jobs.</span>
+          <span class="arrow">→</span>
+          <span class="peek">
+            <span class="ph" data-label="Photo — conventional crane">
+              <img
+                src="https://www.inlandcrane.com/wp-content/uploads/2018/06/Conventional.jpg"
+                alt=""
+              />
+            </span>
+          </span>
+        </a>
+        <a href="#" class="idx-row">
+          <span class="num">03</span>
+          <span class="name disp">Crawler Cranes</span>
+          <span class="blurb">Capacity and stability, long duration.</span>
+          <span class="arrow">→</span>
+          <span class="peek">
+            <span class="ph" data-label="Photo — crawler crane">
+              <img
+                src="https://www.inlandcrane.com/wp-content/uploads/2020/02/Crawler-home.jpg"
+                alt=""
+              />
+            </span>
+          </span>
+        </a>
+        <a href="#" class="idx-row">
+          <span class="num">04</span>
+          <span class="name disp">Rough Terrain Cranes</span>
+          <span class="blurb">For the sites nothing else can reach.</span>
+          <span class="arrow">→</span>
+          <span class="peek">
+            <span class="ph" data-label="Photo — rough terrain crane">
+              <img
+                src="https://www.inlandcrane.com/wp-content/uploads/2020/02/RT-home.jpg"
+                alt=""
+              />
+            </span>
+          </span>
+        </a>
+        <a href="#" class="idx-row">
+          <span class="num">05</span>
+          <span class="name disp">Tower Cranes</span>
+          <span class="blurb">Vertical reach for growing skylines.</span>
+          <span class="arrow">→</span>
+          <span class="peek">
+            <span class="ph" data-label="Photo — tower crane">
+              <img
+                src="https://www.inlandcrane.com/wp-content/uploads/2020/02/Tower-home.jpg"
+                alt=""
+              />
+            </span>
+          </span>
+        </a>
+        <a href="#" class="idx-row">
+          <span class="num">06</span>
+          <span class="name disp">Personnel &amp; Material Hoists</span>
+          <span class="blurb">Crews and material, up the building.</span>
+          <span class="arrow">→</span>
+          <span class="peek">
+            <span class="ph" data-label="Photo — material hoist">
+              <img
+                src="https://www.inlandcrane.com/wp-content/uploads/2020/03/material-hoist.jpg"
+                alt=""
+              />
+            </span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============================ FLEET GAUGE ============================ -->
+    <section class="gauge-sec" id="fleet">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <div class="kicker">Featured Equipment</div>
+            <h2 class="disp">The fleet, to scale.</h2>
+          </div>
+          <p>
+            Max tip heights, drawn like the load charts we plan with. Need more
+            reach or capacity? Call dispatch — we'll find it.
+          </p>
+        </div>
+
+        <div class="gauge">
+          <div class="bar-wrap">
+            <div class="ft">393 <small>FT</small></div>
+            <div class="bar bar-h1"></div>
+            <div class="label">
+              <b>Liebherr LTM 1300</b>
+              <span>300 US tons &middot; hydraulic</span>
+            </div>
+          </div>
+          <div class="bar-wrap">
+            <div class="ft">368 <small>FT</small></div>
+            <div class="bar bar-h2"></div>
+            <div class="label">
+              <b>Grove GMK 5250L</b>
+              <span>250 US tons &middot; hydraulic</span>
+            </div>
+          </div>
+          <div class="bar-wrap">
+            <div class="ft">340 <small>FT</small></div>
+            <div class="bar bar-h3"></div>
+            <div class="label">
+              <b>Manitowoc 999</b>
+              <span>275 US tons &middot; crawler</span>
+            </div>
+          </div>
+          <div class="bar-wrap">
+            <div class="ft">265 <small>FT</small></div>
+            <div class="bar bar-h4"></div>
+            <div class="label">
+              <b>Potain Tower</b>
+              <span>22 US tons &middot; tower</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="gauge-foot">
+          <p>Example machines — swap in the live fleet list anytime.</p>
+          <a href="#" class="btn btn-gold">View Bare Rentals</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ PROOF ============================ -->
+    <section class="proof">
+      <div class="wrap">
+        <div class="grid">
+          <div class="tile ph wide-2" data-label="Photo — crane at sunset">
+            <img
+              src="https://www.inlandcrane.com/wp-content/uploads/2018/06/Hydraulic-1-1.jpg"
+              alt="Hydraulic crane at sunset over a Boise job site"
+            />
+          </div>
+          <div class="tile stat">
+            <b>45+</b>
+            <span>Years Lifting</span>
+          </div>
+          <div class="tile stat gold-fill">
+            <b>24/7</b>
+            <span>Emergency Service</span>
+          </div>
+
+          <div class="tile quote-tile">
+            <div class="disp">
+              "From the time we arrive, no matter the size of the job — the
+              same high-quality service. <em>Customer satisfaction, first.</em>"
+            </div>
+            <span>The Inland Crane Promise</span>
+          </div>
+          <div class="tile stat">
+            <b>10k+</b>
+            <span>Projects Completed</span>
+          </div>
+          <div class="tile ph" data-label="Photo — steel frame lift">
+            <img
+              src="https://www.inlandcrane.com/wp-content/uploads/2020/02/RT-home.jpg"
+              alt="Rough terrain crane setting a steel frame"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ CTA ============================ -->
+    <section class="cta" id="quote">
+      <div class="wrap">
+        <div class="kicker">Ready When You Are</div>
+        <h2 class="disp">Send the specs. <em>We'll make the pick.</em></h2>
+        <p>
+          Load, site, schedule — that's all dispatch needs to get you a plan
+          and a quote. Any hour, any day, anywhere in the Northwest.
+        </p>
+        <div class="cta-row">
+          <a href="#" class="btn btn-gold">Request a Quote</a>
+          <a href="tel:8002738769" class="phone">800.273.8769</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FOOTER ============================ -->
+    <footer class="site-foot">
+      <div class="wrap">
+        <div class="brand">
+          <img src="logo.png" alt="Inland Crane, Inc." />
+          <span>&copy; 2026 Inland Crane, Inc.</span>
+        </div>
+        <nav>
+          <a href="#services">Services</a>
+          <a href="#fleet">Fleet</a>
+          <a href="#">Bare Rentals</a>
+          <a href="#">Careers</a>
+          <a href="#">Contact</a>
+        </nav>
+        <span>Homepage mockup v2 &middot; WebMarkets</span>
+      </div>
+    </footer>
+  </body>
+</html>
