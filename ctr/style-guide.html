@@ -1,0 +1,1221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CTR — Cleanup &amp; Total Restoration | Style Guide</title>
+    <meta
+      name="description"
+      content="Design system for the CTR website redesign. Simple, clean, concise — calm navy, emergency red, and one idea per section."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* =====================================================================
+   CTR · CLEANUP & TOTAL RESTORATION — STYLE GUIDE
+   "Calm after the damage."
+   Brief: simple, clean, concise. Not busy, not overwhelming, few links.
+   Hero in the Servpro mold (big photo, dark overlay, one headline, one
+   phone, one button) with the overall warmth and whitespace of Kiwi
+   Restoration. Colors come straight from the current CTR logo:
+   navy #003868 (water, trust, calm) and red #C82828 (fire, urgency —
+   reserved for the call-to-action only). Type: Montserrat + Open Sans.
+   ---------------------------------------------------------------------
+   Photos are labeled .ph placeholders — add src to the <img> to fill.
+   ===================================================================== */
+
+      :root {
+        /* from the CTR logo */
+        --navy: #003868;
+        --navy-deep: #022745;
+        --blue: #054b86;
+        --red: #c82828;
+        --red-deep: #a51f1f;
+
+        --ice: #eef3f8;
+        --slate: #52606e;
+        --paper: #fbfcfe;
+        --white: #ffffff;
+        --line: #e1e7ee;
+
+        --radius: 14px;
+        --radius-lg: 20px;
+        --shadow: 0 18px 40px -26px rgba(0, 56, 104, 0.4);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Open Sans", sans-serif;
+        background: var(--paper);
+        color: var(--navy);
+        line-height: 1.7;
+        font-size: 16px;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      ::selection {
+        background: var(--navy);
+        color: var(--white);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      p {
+        color: var(--slate);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Montserrat", sans-serif;
+        line-height: 1.18;
+      }
+
+      /* ---------- image placeholder ---------- */
+      .ph {
+        position: relative;
+        background: #e3e9f0;
+        overflow: hidden;
+      }
+
+      .ph::after {
+        content: attr(data-label);
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        text-align: center;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #9aa7b5;
+      }
+
+      .ph img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: none;
+      }
+
+      .ph img[src] {
+        display: block;
+        z-index: 1;
+      }
+
+      /* ---------- guide chrome ---------- */
+      .guide-head {
+        background: var(--navy);
+        color: var(--white);
+        text-align: center;
+        padding: 88px 28px 80px;
+        background-image: radial-gradient(
+            circle at 18% 120%,
+            rgba(5, 75, 134, 0.55),
+            transparent 55%
+          ),
+          radial-gradient(
+            circle at 85% -20%,
+            rgba(5, 75, 134, 0.4),
+            transparent 50%
+          );
+      }
+
+      .guide-head .kicker {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: #9fc0dd;
+      }
+
+      .guide-head h1 {
+        font-weight: 800;
+        font-size: clamp(36px, 5.4vw, 60px);
+        margin: 18px auto 14px;
+        max-width: 18ch;
+      }
+
+      .guide-head h1 em {
+        font-style: normal;
+        color: #9fc0dd;
+      }
+
+      .guide-head p {
+        max-width: 56ch;
+        margin: 0 auto;
+        color: #c3d4e4;
+      }
+
+      .section {
+        max-width: 1060px;
+        margin: 0 auto;
+        padding: 72px 28px;
+        border-top: 1px solid var(--line);
+      }
+
+      .section:first-of-type {
+        border-top: 0;
+      }
+
+      .sec-label {
+        display: flex;
+        align-items: baseline;
+        gap: 14px;
+        margin-bottom: 8px;
+      }
+
+      .sec-label .num {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 800;
+        font-size: 14px;
+        letter-spacing: 0.18em;
+        color: var(--red);
+      }
+
+      .sec-label h2 {
+        font-weight: 800;
+        font-size: 28px;
+      }
+
+      .sec-note {
+        max-width: 68ch;
+        margin: 0 0 36px;
+        font-size: 15px;
+      }
+
+      /* ---------- 01 principles ---------- */
+      .rules {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+
+      .rule {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 28px 26px;
+      }
+
+      .rule .big {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 800;
+        font-size: 34px;
+        color: var(--navy);
+        line-height: 1;
+      }
+
+      .rule h3 {
+        font-weight: 700;
+        font-size: 16.5px;
+        margin: 12px 0 6px;
+      }
+
+      .rule p {
+        font-size: 14px;
+      }
+
+      /* ---------- 02 logo ---------- */
+      .logo-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+      }
+
+      .logo-card {
+        border-radius: var(--radius-lg);
+        padding: 56px 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        text-align: center;
+      }
+
+      .logo-card.light {
+        background: var(--white);
+        border: 1px solid var(--line);
+      }
+
+      .logo-card.dark {
+        background: var(--navy);
+      }
+
+      .logo-card img {
+        width: min(360px, 90%);
+        height: auto;
+      }
+
+      .logo-card.dark img {
+        background: var(--white);
+        border-radius: 12px;
+        padding: 14px 18px;
+      }
+
+      .logo-card .note {
+        font-size: 13px;
+        color: var(--slate);
+      }
+
+      .logo-card.dark .note {
+        color: #c3d4e4;
+      }
+
+      /* ---------- 03 color ---------- */
+      .swatch-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+
+      .swatch {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        overflow: hidden;
+        background: var(--white);
+      }
+
+      .swatch .chip {
+        height: 86px;
+      }
+
+      .swatch .meta {
+        padding: 13px 15px 15px;
+      }
+
+      .swatch .name {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 13.5px;
+      }
+
+      .swatch .hex {
+        font-size: 12px;
+        color: var(--slate);
+        letter-spacing: 0.05em;
+        margin-top: 1px;
+      }
+
+      .swatch .use {
+        font-size: 12.5px;
+        color: var(--slate);
+        margin-top: 8px;
+        line-height: 1.55;
+      }
+
+      /* ---------- 04 type ---------- */
+      .type-row {
+        display: grid;
+        grid-template-columns: 190px 1fr;
+        gap: 28px;
+        padding: 22px 0;
+        border-bottom: 1px solid var(--line);
+        align-items: baseline;
+      }
+
+      .type-row:last-child {
+        border-bottom: 0;
+      }
+
+      .type-row .spec {
+        font-size: 11.5px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--slate);
+        line-height: 1.8;
+      }
+
+      .t-h1 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 800;
+        font-size: clamp(30px, 4.4vw, 46px);
+      }
+
+      .t-h2 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 800;
+        font-size: 28px;
+      }
+
+      .t-h3 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 18px;
+      }
+
+      .t-body {
+        max-width: 62ch;
+        color: var(--slate);
+      }
+
+      .t-label {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--blue);
+      }
+
+      /* ---------- 05 buttons ---------- */
+      .btn-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: center;
+      }
+
+      .btn {
+        display: inline-block;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 15.5px;
+        padding: 14px 30px;
+        border-radius: 999px;
+        border: 2px solid transparent;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          color 0.2s,
+          border-color 0.2s,
+          transform 0.2s;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn-red {
+        background: var(--red);
+        color: var(--white);
+      }
+
+      .btn-red:hover {
+        background: var(--red-deep);
+      }
+
+      .btn-navy {
+        background: var(--navy);
+        color: var(--white);
+      }
+
+      .btn-navy:hover {
+        background: var(--blue);
+      }
+
+      .btn-outline {
+        border-color: var(--navy);
+        color: var(--navy);
+        background: none;
+      }
+
+      .btn-outline:hover {
+        background: var(--navy);
+        color: var(--white);
+      }
+
+      .chip-247 {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--ice);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 8px 16px;
+        font-size: 13.5px;
+        font-weight: 600;
+        color: var(--navy);
+      }
+
+      .chip-247 .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--red);
+      }
+
+      .btn-note {
+        margin-top: 22px;
+        font-size: 14px;
+        max-width: 62ch;
+      }
+
+      /* ---------- 06 hero demo ---------- */
+      .hero-demo {
+        position: relative;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        min-height: 480px;
+        display: flex;
+        align-items: center;
+        color: var(--white);
+        box-shadow: var(--shadow);
+      }
+
+      .hero-demo .bg {
+        position: absolute;
+        inset: 0;
+      }
+
+      .hero-demo .scrim {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        background: linear-gradient(
+          95deg,
+          rgba(2, 39, 69, 0.93) 0%,
+          rgba(0, 56, 104, 0.78) 50%,
+          rgba(0, 56, 104, 0.35) 100%
+        );
+      }
+
+      .hero-demo .inner {
+        position: relative;
+        z-index: 3;
+        padding: 64px 56px;
+        max-width: 640px;
+      }
+
+      .hero-demo .kicker {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 12.5px;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        color: #9fc0dd;
+      }
+
+      .hero-demo h3 {
+        font-weight: 800;
+        font-size: clamp(30px, 4.4vw, 46px);
+        margin: 14px 0 12px;
+      }
+
+      .hero-demo p {
+        color: #d4e1ec;
+        max-width: 46ch;
+        margin-bottom: 28px;
+      }
+
+      .hero-demo .cta-row {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .hero-demo .btn-ghost {
+        border-color: rgba(255, 255, 255, 0.6);
+        color: var(--white);
+        background: none;
+      }
+
+      .hero-demo .btn-ghost:hover {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: var(--white);
+      }
+
+      .trust-row {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        gap: 10px 26px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+        font-size: 13.5px;
+        font-weight: 600;
+        color: #d4e1ec;
+      }
+
+      .trust-row span::before {
+        content: "✓";
+        color: #8fd0a4;
+        margin-right: 7px;
+        font-weight: 700;
+      }
+
+      .hero-note {
+        margin-top: 20px;
+        font-size: 14px;
+        max-width: 68ch;
+      }
+
+      /* ---------- 07 components ---------- */
+      .svc-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+
+      .svc-card {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        padding: 30px 28px;
+        display: block;
+        color: var(--navy);
+        transition:
+          transform 0.22s,
+          box-shadow 0.22s,
+          border-color 0.22s;
+      }
+
+      .svc-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow);
+        border-color: #c9d8e6;
+      }
+
+      .svc-card .drop {
+        width: 44px;
+        height: 44px;
+        border-radius: 50% 50% 50% 4px;
+        background: var(--ice);
+        border: 2px solid var(--navy);
+        margin-bottom: 18px;
+        transform: rotate(-45deg);
+      }
+
+      .svc-card.fire .drop {
+        border-color: var(--red);
+        border-radius: 50% 4px 50% 50%;
+        transform: rotate(45deg);
+      }
+
+      .svc-card h3 {
+        font-weight: 700;
+        font-size: 18.5px;
+      }
+
+      .svc-card p {
+        font-size: 14px;
+        margin-top: 8px;
+      }
+
+      .svc-card .go {
+        display: inline-block;
+        margin-top: 14px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 13.5px;
+        color: var(--blue);
+      }
+
+      /* steps strip */
+      .steps {
+        margin-top: 26px;
+        background: var(--ice);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        padding: 36px 32px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 26px;
+      }
+
+      .step .n {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 800;
+        font-size: 15px;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: var(--navy);
+        color: var(--white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 12px;
+      }
+
+      .step h4 {
+        font-weight: 700;
+        font-size: 16px;
+      }
+
+      .step p {
+        font-size: 13.5px;
+        margin-top: 5px;
+      }
+
+      /* review card */
+      .review-demo {
+        margin-top: 26px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+
+      .review-card {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        padding: 28px 30px;
+      }
+
+      .review-card .stars {
+        color: #f3b63f;
+        letter-spacing: 3px;
+        font-size: 15px;
+        margin-bottom: 12px;
+      }
+
+      .review-card blockquote {
+        font-size: 15px;
+        color: var(--slate);
+        border: 0;
+      }
+
+      .review-card .who {
+        margin-top: 14px;
+        font-size: 13.5px;
+      }
+
+      .review-card .who b {
+        font-family: "Montserrat", sans-serif;
+        color: var(--navy);
+        display: block;
+      }
+
+      /* footer demo */
+      .footer-demo {
+        margin-top: 26px;
+        background: var(--navy-deep);
+        color: #c3d4e4;
+        border-radius: var(--radius-lg);
+        padding: 44px 40px 0;
+        overflow: hidden;
+      }
+
+      .footer-demo .cols {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr;
+        gap: 36px;
+        padding-bottom: 36px;
+      }
+
+      .footer-demo .brand img {
+        width: 220px;
+        background: var(--white);
+        border-radius: 10px;
+        padding: 10px 14px;
+      }
+
+      .footer-demo .brand p {
+        color: #9fb4c8;
+        font-size: 13.5px;
+        margin-top: 16px;
+        max-width: 34ch;
+      }
+
+      .footer-demo h4 {
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #9fc0dd;
+        margin-bottom: 14px;
+      }
+
+      .footer-demo ul {
+        list-style: none;
+        display: grid;
+        gap: 9px;
+        font-size: 14px;
+      }
+
+      .footer-demo .phone {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 800;
+        font-size: 24px;
+        color: var(--white);
+      }
+
+      .footer-demo .bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        padding: 18px 0;
+        font-size: 12.5px;
+        display: flex;
+        justify-content: space-between;
+        gap: 14px;
+        flex-wrap: wrap;
+        color: #8ba1b6;
+      }
+
+      /* ---------- foot ---------- */
+      .guide-foot {
+        margin-top: 24px;
+        background: var(--navy);
+        color: #9fc0dd;
+        text-align: center;
+        padding: 36px 28px;
+        font-size: 13px;
+      }
+
+      .guide-foot b {
+        display: block;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 800;
+        color: var(--white);
+        font-size: 17px;
+        margin-bottom: 6px;
+      }
+
+      /* ---------- responsive ---------- */
+      @media (max-width: 920px) {
+        .rules,
+        .svc-grid,
+        .steps {
+          grid-template-columns: 1fr;
+        }
+
+        .logo-grid,
+        .review-demo {
+          grid-template-columns: 1fr;
+        }
+
+        .swatch-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .type-row {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+
+        .footer-demo .cols {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-demo .inner {
+          padding: 48px 32px;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .swatch-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ============================ HEADER ============================ -->
+    <header class="guide-head">
+      <div class="kicker">Brand &amp; UI Style Guide</div>
+      <h1>CTR — calm <em>after the damage.</em></h1>
+      <p>
+        Simple, clean, concise. The colors come straight from the CTR logo —
+        navy for water, trust, and calm; red saved for the one moment that
+        matters: the call. A Servpro-strength hero with the warmth and
+        whitespace of Kiwi Restoration.
+      </p>
+    </header>
+
+    <!-- ============================ 01 PRINCIPLES ============================ -->
+    <section class="section">
+      <div class="sec-label">
+        <span class="num">01</span>
+        <h2>Design principles</h2>
+      </div>
+      <p class="sec-note">
+        The current site has over a hundred links on the homepage. The
+        redesign earns trust by doing less: someone with a flooded kitchen
+        needs the phone number, not a sitemap.
+      </p>
+      <div class="rules">
+        <div class="rule">
+          <div class="big">6</div>
+          <h3>Links in the nav. Ever.</h3>
+          <p>
+            Water &middot; Fire &middot; Mold &middot; Commercial &middot;
+            About &middot; Contact. Everything else lives one level deeper.
+          </p>
+        </div>
+        <div class="rule">
+          <div class="big">1</div>
+          <h3>Red button per screen.</h3>
+          <p>
+            Red means "call now" and nothing else. If everything is urgent,
+            nothing is.
+          </p>
+        </div>
+        <div class="rule">
+          <div class="big">1</div>
+          <h3>Idea per section.</h3>
+          <p>
+            Big type, short copy, generous whitespace. Scan the page in ten
+            seconds, find help in one.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ 02 LOGO ============================ -->
+    <section class="section">
+      <div class="sec-label">
+        <span class="num">02</span>
+        <h2>Logo</h2>
+      </div>
+      <p class="sec-note">
+        The current mark stays — the red CTR badge with the full name beside
+        it. On navy it sits on a white plate so the wordmark never sinks into
+        the background.
+      </p>
+      <div class="logo-grid">
+        <div class="logo-card light">
+          <img
+            src="https://ctr-nw.com/wp-content/uploads/2020/05/main-big.png"
+            alt="CTR — Cleanup &amp; Total Restoration logo"
+          />
+          <div class="note">Primary — on white and light surfaces</div>
+        </div>
+        <div class="logo-card dark">
+          <img
+            src="https://ctr-nw.com/wp-content/uploads/2020/05/main-big.png"
+            alt="CTR logo on white plate"
+          />
+          <div class="note">On navy — white plate, generous padding</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ 03 COLOR ============================ -->
+    <section class="section">
+      <div class="sec-label">
+        <span class="num">03</span>
+        <h2>Color</h2>
+      </div>
+      <p class="sec-note">
+        Both brand colors are sampled from the logo. Navy does almost all the
+        work; red appears once per screen, on the action that gets help on
+        the way. Everything else stays light and airy.
+      </p>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="chip" style="background: #003868"></div>
+          <div class="meta">
+            <div class="name">CTR Navy</div>
+            <div class="hex">#003868</div>
+            <div class="use">Primary. Headings, hero overlay, footer.</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background: #022745"></div>
+          <div class="meta">
+            <div class="name">Navy Deep</div>
+            <div class="hex">#022745</div>
+            <div class="use">Footer base and overlay gradients.</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background: #054b86"></div>
+          <div class="meta">
+            <div class="name">Working Blue</div>
+            <div class="hex">#054B86</div>
+            <div class="use">Links, hovers, small accents.</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background: #c82828"></div>
+          <div class="meta">
+            <div class="name">Emergency Red</div>
+            <div class="hex">#C82828</div>
+            <div class="use">The call button. One per screen.</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background: #eef3f8"></div>
+          <div class="meta">
+            <div class="name">Ice</div>
+            <div class="hex">#EEF3F8</div>
+            <div class="use">Soft section backgrounds and chips.</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background: #52606e"></div>
+          <div class="meta">
+            <div class="name">Slate</div>
+            <div class="hex">#52606E</div>
+            <div class="use">Body copy and secondary text.</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background: #fbfcfe; border-bottom: 1px solid #e1e7ee"></div>
+          <div class="meta">
+            <div class="name">Paper</div>
+            <div class="hex">#FBFCFE</div>
+            <div class="use">Page background. Keeps everything light.</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background: #e1e7ee"></div>
+          <div class="meta">
+            <div class="name">Line</div>
+            <div class="hex">#E1E7EE</div>
+            <div class="use">Borders and hairline dividers.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ 04 TYPE ============================ -->
+    <section class="section">
+      <div class="sec-label">
+        <span class="num">04</span>
+        <h2>Typography</h2>
+      </div>
+      <p class="sec-note">
+        Montserrat for headings — sturdy, modern, friendly — and Open Sans
+        for body copy. The same pairing Kiwi Restoration uses, and already in
+        CTR's font stack today, so nothing feels unfamiliar.
+      </p>
+      <div class="type-row">
+        <div class="spec">Montserrat 800<br />Page title</div>
+        <div class="t-h1">Disaster today. Restored tomorrow.</div>
+      </div>
+      <div class="type-row">
+        <div class="spec">Montserrat 800<br />Section heading</div>
+        <div class="t-h2">Water damage restoration</div>
+      </div>
+      <div class="type-row">
+        <div class="spec">Montserrat 700<br />Card heading</div>
+        <div class="t-h3">On-site in 60 minutes or less</div>
+      </div>
+      <div class="type-row">
+        <div class="spec">Open Sans 400<br />Body 16px</div>
+        <div class="t-body">
+          Since 1995, Cleanup &amp; Total Restoration has helped Treasure
+          Valley homeowners recover from water, fire, and storm damage —
+          fast, certified, and with the insurance paperwork handled from
+          start to finish.
+        </div>
+      </div>
+      <div class="type-row">
+        <div class="spec">Montserrat 700<br />Kicker label</div>
+        <div class="t-label">Serving the Treasure Valley since 1995</div>
+      </div>
+    </section>
+
+    <!-- ============================ 05 BUTTONS ============================ -->
+    <section class="section">
+      <div class="sec-label">
+        <span class="num">05</span>
+        <h2>Buttons &amp; CTAs</h2>
+      </div>
+      <p class="sec-note">
+        Rounded, confident, few. The red call button carries the phone number
+        wherever it goes; navy handles everything routine.
+      </p>
+      <div class="btn-row">
+        <a href="tel:2083771877" class="btn btn-red">Call (208) 377-1877</a>
+        <a href="#" class="btn btn-navy">Request a free estimate</a>
+        <a href="#" class="btn btn-outline">Our services</a>
+        <span class="chip-247"><span class="dot"></span> 24/7 emergency response</span>
+      </div>
+      <p class="btn-note">
+        The 24/7 chip rides next to CTAs as quiet reassurance — it is never a
+        button itself.
+      </p>
+    </section>
+
+    <!-- ============================ 06 HERO ============================ -->
+    <section class="section">
+      <div class="sec-label">
+        <span class="num">06</span>
+        <h2>The hero</h2>
+      </div>
+      <p class="sec-note">
+        Servpro's formula, CTR's voice: one full-bleed local photo, a deep
+        navy overlay, one headline, one line of copy, the phone, and a single
+        red button. Trust signals sit underneath in a quiet row.
+      </p>
+
+      <div class="hero-demo">
+        <div class="bg ph" data-label="Photo — Boise skyline or crew on site">
+          <img
+            src="https://ctr-nw.com/wp-content/uploads/2022/01/slide1-new.jpg"
+            alt="The Boise skyline"
+          />
+        </div>
+        <div class="scrim"></div>
+        <div class="inner">
+          <div class="kicker">Boise &middot; Treasure Valley &middot; Since 1995</div>
+          <h3>Disaster today. Restored tomorrow.</h3>
+          <p>
+            Water, fire, storm, or mold — certified technicians are on-site in
+            60 minutes or less, any hour, any day.
+          </p>
+          <div class="cta-row">
+            <a href="tel:2083771877" class="btn btn-red">Call (208) 377-1877</a>
+            <a href="#" class="btn btn-ghost">Free estimate</a>
+          </div>
+          <div class="trust-row">
+            <span>24/7, every day</span>
+            <span>On-site in 60 minutes</span>
+            <span>IICRC-certified</span>
+            <span>Insurance handled</span>
+          </div>
+        </div>
+      </div>
+      <p class="hero-note">
+        Overlay runs 93% navy on the left to 35% on the right so the photo
+        still breathes. Headline stays under ten words.
+      </p>
+    </section>
+
+    <!-- ============================ 07 COMPONENTS ============================ -->
+    <section class="section">
+      <div class="sec-label">
+        <span class="num">07</span>
+        <h2>Components</h2>
+      </div>
+      <p class="sec-note">
+        Service cards use a water-drop mark — it flips and turns red for fire.
+        Steps, reviews, and the footer stay quiet and rounded.
+      </p>
+
+      <div class="svc-grid">
+        <a href="#" class="svc-card">
+          <div class="drop"></div>
+          <h3>Water damage</h3>
+          <p>
+            Extraction, drying, and dehumidification — from burst pipes to
+            whole-home floods.
+          </p>
+          <span class="go">Learn more →</span>
+        </a>
+        <a href="#" class="svc-card fire">
+          <div class="drop"></div>
+          <h3>Fire &amp; smoke</h3>
+          <p>
+            Soot and smoke removal, odor treatment, and full structural
+            restoration.
+          </p>
+          <span class="go">Learn more →</span>
+        </a>
+        <a href="#" class="svc-card">
+          <div class="drop"></div>
+          <h3>Mold remediation</h3>
+          <p>
+            Inspection, safe removal, and prevention — certified and
+            documented.
+          </p>
+          <span class="go">Learn more →</span>
+        </a>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="n">1</div>
+          <h4>Call, any hour</h4>
+          <p>A real person answers 24/7, holidays included.</p>
+        </div>
+        <div class="step">
+          <div class="n">2</div>
+          <h4>We're there in 60</h4>
+          <p>Certified techs on-site in an hour or less, assessing fast.</p>
+        </div>
+        <div class="step">
+          <div class="n">3</div>
+          <h4>Restored, start to finish</h4>
+          <p>Cleanup through reconstruction — insurance paperwork included.</p>
+        </div>
+      </div>
+
+      <div class="review-demo">
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <blockquote>
+            "Placeholder for a real Google review — swap in the client's
+            highest-rated recent feedback here."
+          </blockquote>
+          <div class="who">
+            <b>Customer name</b><span>Google review</span>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <blockquote>
+            "Second review placeholder. Two reviews side by side is plenty —
+            link the rest to Google."
+          </blockquote>
+          <div class="who">
+            <b>Customer name</b><span>Google review</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-demo">
+        <div class="cols">
+          <div class="brand">
+            <img
+              src="https://ctr-nw.com/wp-content/uploads/2020/05/main-big.png"
+              alt="CTR — Cleanup &amp; Total Restoration"
+            />
+            <p>
+              Family-owned restoration for the Treasure Valley since 1995.
+            </p>
+          </div>
+          <div>
+            <h4>Services</h4>
+            <ul>
+              <li><a href="#">Water damage</a></li>
+              <li><a href="#">Fire &amp; smoke</a></li>
+              <li><a href="#">Mold remediation</a></li>
+              <li><a href="#">Commercial</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>24/7 Emergency</h4>
+            <ul>
+              <li><span class="phone">(208) 377-1877</span></li>
+              <li>Boise &amp; the Treasure Valley</li>
+              <li>info@ctr-nw.com</li>
+            </ul>
+          </div>
+        </div>
+        <div class="bottom">
+          <span>© 2026 Cleanup &amp; Total Restoration. All rights reserved.</span>
+          <span><a href="#">Privacy</a> · <a href="#">Terms</a></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FOOT ============================ -->
+    <footer class="guide-foot">
+      <b>CTR — Cleanup &amp; Total Restoration</b>
+      Style guide concept &middot; Navy #003868 &middot; Red #C82828 &middot;
+      Montserrat + Open Sans
+    </footer>
+  </body>
+</html>
