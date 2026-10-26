@@ -1,0 +1,1056 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inland Crane, Inc. | Crane Service — Boise, Idaho</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* =====================================================================
+   INLAND CRANE · HOMEPAGE MOCK (v3 — "MILLENNIAL GREY")
+   Client feedback: clean, few to no animations, less color (grey-led
+   with only pops of the logo navy and gold), image-forward like v1,
+   and the cranes as the first section after the fold. Reference vibe:
+   mountaincrane.com and barnhartcrane.com — calm grey corporate,
+   photo-heavy, minimal decoration. No JS, no keyframe animations;
+   hovers are color/shadow only.
+   Photos hot-linked from inlandcrane.com.
+   ===================================================================== */
+
+      :root {
+        /* millennial grey base */
+        --bg: #f4f5f6;
+        --card: #ffffff;
+        --ink: #26282d;
+        --steel: #6a6f76;
+        --line: #e3e5e8;
+        --char: #2b2d33;
+        --char-deep: #1f2126;
+
+        /* brand pops only */
+        --navy: #101858;
+        --gold: #f8c800;
+        --gold-deep: #d9af00;
+
+        --radius: 12px;
+        --radius-lg: 16px;
+        --shadow: 0 16px 36px -26px rgba(38, 40, 45, 0.5);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Barlow", sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        line-height: 1.65;
+        font-size: 16px;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      ::selection {
+        background: var(--gold);
+        color: var(--ink);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      p {
+        color: var(--steel);
+      }
+
+      .wrap {
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: 0 28px;
+      }
+
+      .disp {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        line-height: 1.04;
+      }
+
+      .kicker {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 600;
+        font-size: 14.5px;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        color: var(--navy);
+      }
+
+      /* ---------- image placeholder ---------- */
+      .ph {
+        position: relative;
+        background: #e8e9eb;
+        overflow: hidden;
+      }
+
+      .ph::after {
+        content: attr(data-label);
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        text-align: center;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #a3a7ad;
+      }
+
+      .ph img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: none;
+      }
+
+      .ph img[src] {
+        display: block;
+        z-index: 1;
+      }
+
+      /* ---------- buttons ---------- */
+      .btn {
+        display: inline-block;
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 17px;
+        padding: 13px 32px;
+        border-radius: 8px;
+        border: 2px solid transparent;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          color 0.2s,
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+
+      .btn-gold {
+        background: var(--gold);
+        color: var(--ink);
+      }
+
+      .btn-gold:hover {
+        background: var(--gold-deep);
+      }
+
+      .btn-outline {
+        border-color: #c6c9cd;
+        color: var(--ink);
+        background: none;
+      }
+
+      .btn-outline:hover {
+        border-color: var(--ink);
+      }
+
+      .btn-ghost {
+        border-color: rgba(255, 255, 255, 0.55);
+        color: var(--white, #fff);
+        background: none;
+      }
+
+      .btn-ghost:hover {
+        border-color: #fff;
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      /* ---------- header ---------- */
+      .site-head {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: var(--card);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .site-head .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding-top: 13px;
+        padding-bottom: 13px;
+      }
+
+      .site-head .brand img {
+        width: 82px;
+        height: auto;
+      }
+
+      .site-head nav {
+        display: flex;
+        gap: 28px;
+        align-items: center;
+      }
+
+      .site-head nav a {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 16px;
+        color: var(--ink);
+        padding: 4px 0;
+        border-bottom: 2px solid transparent;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+      }
+
+      .site-head nav a:hover {
+        color: var(--navy);
+        border-bottom-color: var(--gold);
+      }
+
+      .site-head .right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .site-head .phone {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        font-size: 19px;
+        letter-spacing: 0.04em;
+        color: var(--navy);
+      }
+
+      .site-head .btn {
+        padding: 10px 24px;
+        font-size: 16px;
+      }
+
+      /* ---------- hero ---------- */
+      .hero {
+        position: relative;
+        min-height: 64vh;
+        display: flex;
+        align-items: center;
+        color: #fff;
+        overflow: hidden;
+      }
+
+      .hero .bg {
+        position: absolute;
+        inset: 0;
+      }
+
+      .hero .scrim {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        background: linear-gradient(
+          95deg,
+          rgba(31, 33, 38, 0.86) 0%,
+          rgba(31, 33, 38, 0.6) 52%,
+          rgba(31, 33, 38, 0.22) 100%
+        );
+      }
+
+      .hero .wrap {
+        position: relative;
+        z-index: 3;
+        padding-top: 76px;
+        padding-bottom: 86px;
+      }
+
+      .hero .kicker {
+        color: var(--gold);
+      }
+
+      .hero h1 {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: clamp(44px, 6.4vw, 82px);
+        line-height: 0.98;
+        max-width: 12ch;
+        margin: 14px 0 18px;
+      }
+
+      .hero p {
+        color: #d4d6da;
+        max-width: 50ch;
+        font-size: 17px;
+        margin-bottom: 32px;
+      }
+
+      .hero .cta-row {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      /* ---------- cranes (first after the fold) ---------- */
+      .cranes {
+        padding: 84px 0;
+      }
+
+      .sec-head {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 24px;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+      }
+
+      .sec-head h2 {
+        font-size: clamp(30px, 3.8vw, 44px);
+        margin-top: 10px;
+        color: var(--ink);
+      }
+
+      .sec-head p {
+        max-width: 44ch;
+        font-size: 15px;
+      }
+
+      .crane-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .crane-card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        display: block;
+        color: var(--ink);
+        transition: box-shadow 0.2s, border-color 0.2s;
+      }
+
+      .crane-card:hover {
+        box-shadow: var(--shadow);
+        border-color: #cfd2d6;
+      }
+
+      .crane-card .ph {
+        aspect-ratio: 16/10;
+      }
+
+      .crane-card .pad {
+        padding: 18px 20px 22px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+      }
+
+      .crane-card h3 {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 21px;
+        letter-spacing: 0.03em;
+      }
+
+      .crane-card .sub {
+        display: block;
+        font-family: "Barlow", sans-serif;
+        font-weight: 400;
+        text-transform: none;
+        letter-spacing: 0;
+        font-size: 13.5px;
+        color: var(--steel);
+        margin-top: 2px;
+      }
+
+      .crane-card .go {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        font-size: 15px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--navy);
+        white-space: nowrap;
+      }
+
+      .crane-card:hover .go {
+        color: var(--gold-deep);
+      }
+
+      /* ---------- stats ---------- */
+      .stats {
+        background: var(--card);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .stats .wrap {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+        padding-top: 44px;
+        padding-bottom: 44px;
+        text-align: center;
+      }
+
+      .stats b {
+        display: block;
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        font-size: clamp(34px, 4vw, 48px);
+        line-height: 1;
+        color: var(--navy);
+      }
+
+      .stats span {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--steel);
+        margin-top: 8px;
+      }
+
+      /* ---------- why / safety ---------- */
+      .why {
+        padding: 84px 0;
+      }
+
+      .why .grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 56px;
+        align-items: center;
+      }
+
+      .why h2 {
+        font-size: clamp(30px, 3.8vw, 44px);
+        margin-top: 10px;
+      }
+
+      .why .copy p {
+        margin-top: 20px;
+        max-width: 54ch;
+      }
+
+      .check-list {
+        list-style: none;
+        margin-top: 28px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 13px 26px;
+        font-weight: 600;
+        font-size: 15.5px;
+      }
+
+      .check-list li::before {
+        content: "✓";
+        display: inline-block;
+        color: var(--navy);
+        font-weight: 700;
+        margin-right: 10px;
+      }
+
+      .why .photo {
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        aspect-ratio: 3/3.6;
+        box-shadow: var(--shadow);
+      }
+
+      /* ---------- fleet ---------- */
+      .fleet {
+        padding: 0 0 84px;
+      }
+
+      .load-chart {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+      }
+
+      .load-chart .head {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr auto;
+        gap: 18px;
+        padding: 14px 24px;
+        background: var(--char);
+        color: #d4d6da;
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-size: 14px;
+      }
+
+      .load-chart .row {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr auto;
+        gap: 18px;
+        padding: 16px 24px;
+        border-top: 1px solid var(--line);
+        align-items: center;
+        font-size: 14.5px;
+        transition: background 0.2s;
+      }
+
+      .load-chart .row:hover {
+        background: var(--bg);
+      }
+
+      .load-chart .row .cap {
+        font-weight: 700;
+      }
+
+      .load-chart .row .dim {
+        color: var(--steel);
+      }
+
+      .load-chart .row .go {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 14px;
+        letter-spacing: 0.08em;
+        color: var(--navy);
+      }
+
+      .load-chart .row .go:hover {
+        color: var(--gold-deep);
+      }
+
+      .fleet .foot-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+
+      .fleet .foot-row p {
+        font-size: 14px;
+      }
+
+      /* ---------- quote band ---------- */
+      .quote {
+        background: var(--char-deep);
+        color: #fff;
+        padding: 76px 0;
+      }
+
+      .quote .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+        flex-wrap: wrap;
+      }
+
+      .quote h2 {
+        font-size: clamp(28px, 4vw, 44px);
+      }
+
+      .quote p {
+        color: #b9bcc2;
+        margin-top: 8px;
+        max-width: 46ch;
+      }
+
+      .quote .actions {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .quote .phone {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        font-size: 23px;
+        letter-spacing: 0.04em;
+        color: var(--gold);
+      }
+
+      /* ---------- footer ---------- */
+      .site-foot {
+        background: var(--char-deep);
+        color: #9a9ea5;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 54px 0 0;
+        font-size: 14px;
+      }
+
+      .site-foot .cols {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr 1fr 1.1fr;
+        gap: 40px;
+        padding-bottom: 44px;
+      }
+
+      .site-foot .brand img {
+        width: 104px;
+        background: #fff;
+        border-radius: 10px;
+        padding: 8px 12px;
+      }
+
+      .site-foot .brand p {
+        font-size: 13.5px;
+        margin-top: 16px;
+        max-width: 30ch;
+        color: #9a9ea5;
+      }
+
+      .site-foot h4 {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 14.5px;
+        color: #fff;
+        margin-bottom: 14px;
+      }
+
+      .site-foot ul {
+        list-style: none;
+        display: grid;
+        gap: 9px;
+      }
+
+      .site-foot ul a {
+        color: #b9bcc2;
+        transition: color 0.2s;
+      }
+
+      .site-foot ul a:hover {
+        color: #fff;
+      }
+
+      .site-foot .contact b {
+        display: block;
+        color: var(--gold);
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        font-size: 19px;
+        letter-spacing: 0.04em;
+      }
+
+      .site-foot .contact span {
+        display: block;
+        font-size: 13px;
+        margin-bottom: 12px;
+      }
+
+      .site-foot .legal {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 18px 0;
+        font-size: 12.5px;
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      /* ---------- responsive ---------- */
+      @media (max-width: 960px) {
+        .site-head nav {
+          display: none;
+        }
+
+        .crane-grid {
+          grid-template-columns: 1fr;
+          max-width: 460px;
+          margin: 0 auto;
+        }
+
+        .stats .wrap {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .why .grid {
+          grid-template-columns: 1fr;
+          gap: 38px;
+        }
+
+        .why .photo {
+          max-width: 440px;
+          aspect-ratio: 4/3;
+        }
+
+        .load-chart .head,
+        .load-chart .row {
+          grid-template-columns: 1.4fr 1fr auto;
+        }
+
+        .load-chart .hide-sm {
+          display: none;
+        }
+
+        .site-foot .cols {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .site-head .phone {
+          display: none;
+        }
+
+        .stats .wrap,
+        .site-foot .cols {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ============================ HEADER ============================ -->
+    <header class="site-head">
+      <div class="wrap">
+        <a href="#" class="brand">
+          <img src="logo.png" alt="Inland Crane, Inc." />
+        </a>
+        <nav>
+          <a href="#cranes">Cranes</a>
+          <a href="#fleet">Equipment</a>
+          <a href="#">Bare Rentals</a>
+          <a href="#">Careers</a>
+          <a href="#">Contact</a>
+        </nav>
+        <div class="right">
+          <a href="tel:8002738769" class="phone">800.273.8769</a>
+          <a href="#quote" class="btn btn-gold">Request a Quote</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================ HERO ============================ -->
+    <section class="hero">
+      <div class="bg ph" data-label="Photo — crane at sunset over job site">
+        <img
+          src="https://www.inlandcrane.com/wp-content/uploads/2018/06/Hydraulic-1-1.jpg"
+          alt="Inland Crane hydraulic crane working at sunset over a Boise job site"
+        />
+      </div>
+      <div class="scrim"></div>
+      <div class="wrap">
+        <div class="kicker">Boise, Idaho &middot; Serving the Northwest</div>
+        <h1>Lifting the Northwest, safely.</h1>
+        <p>
+          Crane service and specialty rigging for projects large and small —
+          qualified operators, quality equipment, and a safe lift every time.
+        </p>
+        <div class="cta-row">
+          <a href="#quote" class="btn btn-gold">Request a Quote</a>
+          <a href="#cranes" class="btn btn-ghost">See the Cranes</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ CRANES (FIRST AFTER FOLD) ============================ -->
+    <section class="cranes" id="cranes">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <div class="kicker">The Cranes</div>
+            <h2 class="disp">Pick your machine.</h2>
+          </div>
+          <p>
+            Six core services, one standard of safety — or send us the specs
+            and we'll match the crane to the lift.
+          </p>
+        </div>
+
+        <div class="crane-grid">
+          <a href="#" class="crane-card">
+            <div class="ph" data-label="Photo — hydraulic crane">
+              <img
+                src="https://www.inlandcrane.com/wp-content/uploads/2018/06/Hydraulic-1-1.jpg"
+                alt="Hydraulic crane at work"
+              />
+            </div>
+            <div class="pad">
+              <h3>
+                Hydraulic Cranes
+                <span class="sub">Fast setup, precision lifts</span>
+              </h3>
+              <span class="go">View →</span>
+            </div>
+          </a>
+          <a href="#" class="crane-card">
+            <div class="ph" data-label="Photo — conventional crane">
+              <img
+                src="https://www.inlandcrane.com/wp-content/uploads/2018/06/Conventional.jpg"
+                alt="Conventional crane on site"
+              />
+            </div>
+            <div class="pad">
+              <h3>
+                Conventional Cranes
+                <span class="sub">Lattice-boom workhorses</span>
+              </h3>
+              <span class="go">View →</span>
+            </div>
+          </a>
+          <a href="#" class="crane-card">
+            <div class="ph" data-label="Photo — crawler crane">
+              <img
+                src="https://www.inlandcrane.com/wp-content/uploads/2020/02/Crawler-home.jpg"
+                alt="Crawler crane with lattice boom"
+              />
+            </div>
+            <div class="pad">
+              <h3>
+                Crawler Cranes
+                <span class="sub">Capacity &amp; stability</span>
+              </h3>
+              <span class="go">View →</span>
+            </div>
+          </a>
+          <a href="#" class="crane-card">
+            <div class="ph" data-label="Photo — rough terrain crane">
+              <img
+                src="https://www.inlandcrane.com/wp-content/uploads/2020/02/RT-home.jpg"
+                alt="Rough terrain crane setting steel"
+              />
+            </div>
+            <div class="pad">
+              <h3>
+                Rough Terrain Cranes
+                <span class="sub">For the hard-to-reach sites</span>
+              </h3>
+              <span class="go">View →</span>
+            </div>
+          </a>
+          <a href="#" class="crane-card">
+            <div class="ph" data-label="Photo — tower crane">
+              <img
+                src="https://www.inlandcrane.com/wp-content/uploads/2020/02/Tower-home.jpg"
+                alt="Tower crane against the mountains"
+              />
+            </div>
+            <div class="pad">
+              <h3>
+                Tower Cranes
+                <span class="sub">Vertical reach, growing skylines</span>
+              </h3>
+              <span class="go">View →</span>
+            </div>
+          </a>
+          <a href="#" class="crane-card">
+            <div class="ph" data-label="Photo — personnel &amp; material hoist">
+              <img
+                src="https://www.inlandcrane.com/wp-content/uploads/2020/03/material-hoist.jpg"
+                alt="Personnel and material hoist"
+              />
+            </div>
+            <div class="pad">
+              <h3>
+                Personnel &amp; Material Hoists
+                <span class="sub">Crews &amp; material, safely up</span>
+              </h3>
+              <span class="go">View →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ STATS ============================ -->
+    <section class="stats">
+      <div class="wrap">
+        <div><b>45+</b><span>Years Lifting</span></div>
+        <div><b>60+</b><span>Cranes in Fleet</span></div>
+        <div><b>10k+</b><span>Projects Completed</span></div>
+        <div><b>24/7</b><span>Emergency Service</span></div>
+      </div>
+    </section>
+
+    <!-- ============================ WHY ============================ -->
+    <section class="why">
+      <div class="wrap">
+        <div class="grid">
+          <div class="copy">
+            <div class="kicker">Why Inland Crane</div>
+            <h2 class="disp">Every lift planned. Every operator certified.</h2>
+            <p>
+              A crane is only as good as the crew behind it. Our operators,
+              riggers, and lift planners treat every pick — from a rooftop
+              HVAC unit to a bridge girder — with the same discipline, because
+              that's what a safe job looks like.
+            </p>
+            <ul class="check-list">
+              <li>NCCCO-certified operators</li>
+              <li>Engineered lift planning</li>
+              <li>Modern, maintained fleet</li>
+              <li>OSHA-compliant rigging</li>
+              <li>24/7 emergency response</li>
+              <li>Machinery moving crews</li>
+            </ul>
+          </div>
+          <div class="photo ph" data-label="Photo — Inland hoist on high-rise">
+            <img
+              src="https://www.inlandcrane.com/wp-content/uploads/2020/03/Alba-Lift-049-scaled.jpg"
+              alt="Inland Crane personnel hoist on a downtown Boise high-rise"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FLEET ============================ -->
+    <section class="fleet" id="fleet">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <div class="kicker">Featured Equipment</div>
+            <h2 class="disp">The fleet, by the numbers.</h2>
+          </div>
+        </div>
+
+        <div class="load-chart">
+          <div class="head">
+            <span>Equipment</span>
+            <span>Max Capacity</span>
+            <span class="hide-sm">Max Tip Height</span>
+            <span>Spec</span>
+          </div>
+          <div class="row">
+            <span class="cap">Liebherr LTM 1300</span>
+            <span class="dim">300 US tons</span>
+            <span class="dim hide-sm">street — 393 ft</span>
+            <a href="#" class="go">Load Chart →</a>
+          </div>
+          <div class="row">
+            <span class="cap">Grove GMK 5250L</span>
+            <span class="dim">250 US tons</span>
+            <span class="dim hide-sm">street — 368 ft</span>
+            <a href="#" class="go">Load Chart →</a>
+          </div>
+          <div class="row">
+            <span class="cap">Manitowoc 999 Crawler</span>
+            <span class="dim">275 US tons</span>
+            <span class="dim hide-sm">lattice — 340 ft</span>
+            <a href="#" class="go">Load Chart →</a>
+          </div>
+          <div class="row">
+            <span class="cap">Potain Tower Crane</span>
+            <span class="dim">22 US tons</span>
+            <span class="dim hide-sm">tower — 265 ft</span>
+            <a href="#" class="go">Load Chart →</a>
+          </div>
+        </div>
+        <div class="foot-row">
+          <p>
+            Need a specific machine or capacity? Call dispatch — if it's not in
+            the yard, we'll find it.
+          </p>
+          <a href="#" class="btn btn-outline">View Bare Rentals</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ QUOTE ============================ -->
+    <section class="quote" id="quote">
+      <div class="wrap">
+        <div class="row">
+          <div>
+            <h2 class="disp">Have a lift coming up?</h2>
+            <p>
+              Send the specs — we'll respond with a plan and a quote. Or call
+              dispatch any hour, any day.
+            </p>
+          </div>
+          <div class="actions">
+            <a href="#" class="btn btn-gold">Request a Quote</a>
+            <a href="tel:8002738769" class="phone">800.273.8769</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FOOTER ============================ -->
+    <footer class="site-foot">
+      <div class="wrap">
+        <div class="cols">
+          <div class="brand">
+            <img src="logo.png" alt="Inland Crane, Inc." />
+            <p>
+              Crane service and related specialty services throughout the
+              Northwest.
+            </p>
+          </div>
+          <div>
+            <h4>Services</h4>
+            <ul>
+              <li><a href="#">Hydraulic Cranes</a></li>
+              <li><a href="#">Conventional Cranes</a></li>
+              <li><a href="#">Crawler Cranes</a></li>
+              <li><a href="#">Rough Terrain Cranes</a></li>
+              <li><a href="#">Tower Cranes</a></li>
+              <li><a href="#">Personnel &amp; Material Hoists</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">Machinery Moving</a></li>
+              <li><a href="#">Bare Rentals</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Safety</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          <div class="contact">
+            <h4>Dispatch — 24/7</h4>
+            <b>800.273.8769</b>
+            <span>Toll free</span>
+            <b>(208) 345-9508</b>
+            <span>Boise, Idaho</span>
+          </div>
+        </div>
+        <div class="legal">
+          <span>&copy; 2026 Inland Crane, Inc. All rights reserved.</span>
+          <span>Homepage mockup v3 &middot; WebMarkets</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
