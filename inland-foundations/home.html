@@ -1,0 +1,922 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inland Foundation Specialties | Drilling, Piling &amp; Shoring — Boise, Idaho</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* =====================================================================
+   INLAND FOUNDATION SPECIALTIES · HOMEPAGE MOCK
+   Sister company to Inland Crane — intentionally built in the same
+   "millennial grey" language as inlane-crane/home-v3.html: calm grey
+   base, zero animation, image-forward, services first after the fold.
+   Brand pop color is the IFS logo orange. Fonts shared with Inland
+   Crane (Barlow family) for family cohesion.
+   Real copy recovered from their archived homepage; photos hot-linked
+   from inlandfoundationspecialties.com (still serving static files).
+   ===================================================================== */
+
+      :root {
+        /* millennial grey base (shared with Inland Crane v3) */
+        --bg: #f4f5f6;
+        --card: #ffffff;
+        --ink: #26282d;
+        --steel: #6a6f76;
+        --line: #e3e5e8;
+        --char: #2b2d33;
+        --char-deep: #1f2126;
+
+        /* IFS brand pop (sampled from logo) */
+        --orange: #e07020;
+        --orange-deep: #c45e14;
+
+        --radius: 12px;
+        --radius-lg: 16px;
+        --shadow: 0 16px 36px -26px rgba(38, 40, 45, 0.5);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Barlow", sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        line-height: 1.65;
+        font-size: 16px;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      ::selection {
+        background: var(--orange);
+        color: #fff;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      p {
+        color: var(--steel);
+      }
+
+      .wrap {
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: 0 28px;
+      }
+
+      .disp {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        line-height: 1.04;
+      }
+
+      .kicker {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 600;
+        font-size: 14.5px;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        color: var(--orange);
+      }
+
+      /* ---------- image placeholder ---------- */
+      .ph {
+        position: relative;
+        background: #e8e9eb;
+        overflow: hidden;
+      }
+
+      .ph::after {
+        content: attr(data-label);
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        text-align: center;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #a3a7ad;
+      }
+
+      .ph img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: none;
+      }
+
+      .ph img[src] {
+        display: block;
+        z-index: 1;
+      }
+
+      /* ---------- buttons ---------- */
+      .btn {
+        display: inline-block;
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 17px;
+        padding: 13px 32px;
+        border-radius: 8px;
+        border: 2px solid transparent;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          color 0.2s,
+          border-color 0.2s;
+      }
+
+      .btn-orange {
+        background: var(--orange);
+        color: #fff;
+      }
+
+      .btn-orange:hover {
+        background: var(--orange-deep);
+      }
+
+      .btn-ghost {
+        border-color: rgba(255, 255, 255, 0.55);
+        color: #fff;
+        background: none;
+      }
+
+      .btn-ghost:hover {
+        border-color: #fff;
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      /* ---------- header ---------- */
+      .site-head {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: var(--card);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .site-head .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+
+      .site-head .brand img {
+        width: 118px;
+        height: auto;
+      }
+
+      .site-head nav {
+        display: flex;
+        gap: 28px;
+        align-items: center;
+      }
+
+      .site-head nav a {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 16px;
+        color: var(--ink);
+        padding: 4px 0;
+        border-bottom: 2px solid transparent;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+      }
+
+      .site-head nav a:hover {
+        color: var(--orange-deep);
+        border-bottom-color: var(--orange);
+      }
+
+      .site-head .right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .site-head .phone {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        font-size: 19px;
+        letter-spacing: 0.04em;
+        color: var(--ink);
+      }
+
+      .site-head .btn {
+        padding: 10px 24px;
+        font-size: 16px;
+      }
+
+      /* ---------- hero ---------- */
+      .hero {
+        position: relative;
+        min-height: 62vh;
+        display: flex;
+        align-items: center;
+        color: #fff;
+        overflow: hidden;
+      }
+
+      .hero .bg {
+        position: absolute;
+        inset: 0;
+      }
+
+      .hero .scrim {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        background: linear-gradient(
+          95deg,
+          rgba(31, 33, 38, 0.92) 0%,
+          rgba(31, 33, 38, 0.72) 52%,
+          rgba(31, 33, 38, 0.34) 100%
+        );
+      }
+
+      .hero .wrap {
+        position: relative;
+        z-index: 3;
+        padding-top: 72px;
+        padding-bottom: 82px;
+      }
+
+      .hero h1 {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: clamp(44px, 6.4vw, 80px);
+        line-height: 0.98;
+        max-width: 13ch;
+        margin: 14px 0 18px;
+      }
+
+      .hero p {
+        color: #d4d6da;
+        max-width: 52ch;
+        font-size: 17px;
+        margin-bottom: 32px;
+      }
+
+      .hero .cta-row {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      /* ---------- services (first after the fold) ---------- */
+      .services {
+        padding: 84px 0;
+      }
+
+      .sec-head {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 24px;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+      }
+
+      .sec-head h2 {
+        font-size: clamp(30px, 3.8vw, 44px);
+        margin-top: 10px;
+        color: var(--ink);
+      }
+
+      .sec-head p {
+        max-width: 44ch;
+        font-size: 15px;
+      }
+
+      .svc-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .svc-card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        display: block;
+        color: var(--ink);
+        transition: box-shadow 0.2s, border-color 0.2s;
+      }
+
+      .svc-card:hover {
+        box-shadow: var(--shadow);
+        border-color: #cfd2d6;
+      }
+
+      .svc-card .ph {
+        aspect-ratio: 16/8;
+      }
+
+      .svc-card .pad {
+        padding: 20px 24px 24px;
+      }
+
+      .svc-card h3 {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 24px;
+        letter-spacing: 0.03em;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+      }
+
+      .svc-card h3 .go {
+        font-size: 15px;
+        letter-spacing: 0.06em;
+        color: var(--orange-deep);
+        white-space: nowrap;
+      }
+
+      .svc-card p {
+        font-size: 14.5px;
+        margin-top: 8px;
+      }
+
+      /* ---------- stats ---------- */
+      .stats {
+        background: var(--card);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .stats .wrap {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+        padding-top: 44px;
+        padding-bottom: 44px;
+        text-align: center;
+      }
+
+      .stats b {
+        display: block;
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        font-size: clamp(34px, 4vw, 48px);
+        line-height: 1;
+        color: var(--orange);
+      }
+
+      .stats span {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--steel);
+        margin-top: 8px;
+      }
+
+      /* ---------- about ---------- */
+      .about {
+        padding: 84px 0;
+      }
+
+      .about .grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 56px;
+        align-items: center;
+      }
+
+      .about h2 {
+        font-size: clamp(30px, 3.8vw, 44px);
+        margin-top: 10px;
+      }
+
+      .about .copy p {
+        margin-top: 20px;
+        max-width: 54ch;
+      }
+
+      .check-list {
+        list-style: none;
+        margin-top: 28px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 13px 26px;
+        font-weight: 600;
+        font-size: 15.5px;
+      }
+
+      .check-list li::before {
+        content: "✓";
+        display: inline-block;
+        color: var(--orange-deep);
+        font-weight: 700;
+        margin-right: 10px;
+      }
+
+      .about .photo {
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        aspect-ratio: 4/3.4;
+        box-shadow: var(--shadow);
+      }
+
+      /* ---------- sister company ---------- */
+      .family {
+        padding: 0 0 84px;
+      }
+
+      .family .panel {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        padding: 30px 36px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+
+      .family h3 {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 24px;
+        letter-spacing: 0.03em;
+      }
+
+      .family p {
+        font-size: 14.5px;
+        max-width: 56ch;
+        margin-top: 4px;
+      }
+
+      .family .link {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 16px;
+        color: var(--orange-deep);
+        white-space: nowrap;
+      }
+
+      .family .link:hover {
+        color: var(--ink);
+      }
+
+      /* ---------- CTA band (their own dirt texture) ---------- */
+      .cta {
+        position: relative;
+        color: #fff;
+        padding: 80px 0;
+        overflow: hidden;
+      }
+
+      .cta .bg {
+        position: absolute;
+        inset: 0;
+      }
+
+      .cta .scrim {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        background: rgba(31, 33, 38, 0.55);
+      }
+
+      .cta .wrap {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+        flex-wrap: wrap;
+      }
+
+      .cta h2 {
+        font-size: clamp(28px, 4vw, 44px);
+      }
+
+      .cta p {
+        color: #c9ccd1;
+        margin-top: 8px;
+        max-width: 46ch;
+      }
+
+      .cta .actions {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .cta .phone {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        font-size: 23px;
+        letter-spacing: 0.04em;
+        color: var(--orange);
+      }
+
+      /* ---------- footer ---------- */
+      .site-foot {
+        background: var(--char-deep);
+        color: #9a9ea5;
+        padding: 54px 0 0;
+        font-size: 14px;
+      }
+
+      .site-foot .cols {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr 1fr 1.1fr;
+        gap: 40px;
+        padding-bottom: 44px;
+      }
+
+      .site-foot .brand img {
+        width: 128px;
+      }
+
+      .site-foot .brand p {
+        font-size: 13.5px;
+        margin-top: 16px;
+        max-width: 30ch;
+        color: #9a9ea5;
+      }
+
+      .site-foot h4 {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 14.5px;
+        color: #fff;
+        margin-bottom: 14px;
+      }
+
+      .site-foot ul {
+        list-style: none;
+        display: grid;
+        gap: 9px;
+      }
+
+      .site-foot ul a {
+        color: #b9bcc2;
+        transition: color 0.2s;
+      }
+
+      .site-foot ul a:hover {
+        color: #fff;
+      }
+
+      .site-foot .contact b {
+        display: block;
+        color: var(--orange);
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        font-size: 19px;
+        letter-spacing: 0.04em;
+      }
+
+      .site-foot .contact span {
+        display: block;
+        font-size: 13px;
+        margin-bottom: 12px;
+      }
+
+      .site-foot .legal {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 18px 0;
+        font-size: 12.5px;
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      /* ---------- responsive ---------- */
+      @media (max-width: 960px) {
+        .site-head nav {
+          display: none;
+        }
+
+        .svc-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .stats .wrap {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .about .grid {
+          grid-template-columns: 1fr;
+          gap: 38px;
+        }
+
+        .about .photo {
+          max-width: 480px;
+        }
+
+        .site-foot .cols {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .site-head .phone {
+          display: none;
+        }
+
+        .stats .wrap,
+        .site-foot .cols {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ============================ HEADER ============================ -->
+    <header class="site-head">
+      <div class="wrap">
+        <a href="#" class="brand">
+          <img src="logo.png" alt="Inland Foundation Specialties" />
+        </a>
+        <nav>
+          <a href="#services">Services</a>
+          <a href="#">Projects</a>
+          <a href="#about">About</a>
+          <a href="#">Careers</a>
+          <a href="#">Contact</a>
+        </nav>
+        <div class="right">
+          <a href="tel:2083671699" class="phone">(208) 367-1699</a>
+          <a href="#cta" class="btn btn-orange">Request an Estimate</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================ HERO ============================ -->
+    <section class="hero">
+      <div class="bg ph" data-label="Photo — drilling and piling rigs on site">
+        <!-- local crop of their fleet photo (the original upload has large
+             white margins baked in): wp-content/uploads/2016/06/Test.png -->
+        <img
+          src="hero.jpg"
+          alt="Inland Foundation Specialties drilling and piling rigs lined up on a job site"
+        />
+      </div>
+      <div class="scrim"></div>
+      <div class="wrap">
+        <div class="kicker">Boise, Idaho &middot; A Sister Company of Inland Crane</div>
+        <h1>Legendary finishes start below grade.</h1>
+        <p>
+          Idaho's leading foundation contractor — drilling, piling, shoring,
+          and ground improvement, with the equipment and expertise to fit your
+          job site conditions and specifications.
+        </p>
+        <div class="cta-row">
+          <a href="#cta" class="btn btn-orange">Request an Estimate</a>
+          <a href="#services" class="btn btn-ghost">Our Services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ SERVICES (FIRST AFTER FOLD) ============================ -->
+    <section class="services" id="services">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <div class="kicker">What We Do</div>
+            <h2 class="disp">Four specialties. One standard.</h2>
+          </div>
+          <p>
+            From a single jackshaft to a fast-tracked commercial project —
+            send us the specs and we'll match the method to the ground.
+          </p>
+        </div>
+
+        <div class="svc-grid">
+          <a href="#" class="svc-card">
+            <div class="ph" data-label="Photo — deep foundation drilling rig">
+              <img
+                src="https://www.inlandfoundationspecialties.com/wp-content/uploads/2016/04/home-page-pic.jpg"
+                alt="Deep foundation drilling rig over an excavated shaft"
+              />
+            </div>
+            <div class="pad">
+              <h3>Drilling <span class="go">View →</span></h3>
+              <p>
+                Deep foundation and geotechnical drilling — whether you have a
+                large fast-tracked project or a single jackshaft, IFS delivers
+                quality service and an exceptional product.
+              </p>
+            </div>
+          </a>
+          <a href="#" class="svc-card">
+            <div class="ph" data-label="Photo — pile driving rig"></div>
+            <div class="pad">
+              <h3>Piling <span class="go">View →</span></h3>
+              <p>
+                Years of adapted equipment and techniques for the varying
+                conditions inherent in pile driving — a comprehensive
+                background in pile installation means and methods.
+              </p>
+            </div>
+          </a>
+          <a href="#" class="svc-card">
+            <div class="ph" data-label="Photo — shoring system in excavation"></div>
+            <div class="pad">
+              <h3>Shoring <span class="go">View →</span></h3>
+              <p>
+                Extensive experience in a vast array of shoring systems and
+                techniques — our diversity lets us tailor the right type of
+                shoring to your project-specific conditions.
+              </p>
+            </div>
+          </a>
+          <a href="#" class="svc-card">
+            <div class="ph" data-label="Photo — ground improvement equipment"></div>
+            <div class="pad">
+              <h3>Ground Improvement <span class="go">View →</span></h3>
+              <p>
+                Diverse equipment and expertise for anything from a small silo
+                project to a 15-story storage facility — whatever it takes to
+                meet your project's needs.
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ STATS ============================ -->
+    <section class="stats">
+      <div class="wrap">
+        <div><b>25+</b><span>Years in the Ground</span></div>
+        <div><b>4</b><span>Core Specialties</span></div>
+        <div><b>500+</b><span>Foundations Placed</span></div>
+        <div><b>1</b><span>Call for Crane + Foundation</span></div>
+      </div>
+    </section>
+
+    <!-- ============================ ABOUT ============================ -->
+    <section class="about" id="about">
+      <div class="wrap">
+        <div class="grid">
+          <div class="copy">
+            <div class="kicker">About IFS</div>
+            <h2 class="disp">Idaho's foundation contractor.</h2>
+            <p>
+              Inland Foundation Specialties (IFS) is Idaho's leading
+              foundation contractor specializing in drilling, shoring, piling,
+              and ground improvement. We offer a full line of equipment and
+              technology to fit your unique job site conditions and
+              specifications.
+            </p>
+            <ul class="check-list">
+              <li>Deep foundation drilling</li>
+              <li>Geotechnical drilling</li>
+              <li>Driven &amp; drilled piles</li>
+              <li>Engineered shoring systems</li>
+              <li>Ground improvement</li>
+              <li>Design-build support</li>
+            </ul>
+          </div>
+          <div class="photo ph" data-label="Photo — IFS crew placing a foundation"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ SISTER COMPANY ============================ -->
+    <section class="family">
+      <div class="wrap">
+        <div class="panel">
+          <div>
+            <h3>Part of the Inland family.</h3>
+            <p>
+              IFS works alongside Inland Crane — one team for the lift and the
+              ground beneath it. Crane service, rigging, and foundations on a
+              single call.
+            </p>
+          </div>
+          <a href="https://www.inlandcrane.com" class="link">Visit Inland Crane →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ CTA ============================ -->
+    <section class="cta" id="cta">
+      <div class="bg ph" data-label="Photo — excavated earth texture">
+        <img
+          src="https://www.inlandfoundationspecialties.com/wp-content/themes/inlandfs/assets/images/page-background.jpg"
+          alt=""
+        />
+      </div>
+      <div class="scrim"></div>
+      <div class="wrap">
+        <div>
+          <h2 class="disp">Breaking ground soon?</h2>
+          <p>
+            Send the plans — our estimating team will respond with the right
+            method and a number you can build on.
+          </p>
+        </div>
+        <div class="actions">
+          <a href="mailto:estimating@inlandcrane.com" class="btn btn-orange">Request an Estimate</a>
+          <a href="tel:2083671699" class="phone">(208) 367-1699</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FOOTER ============================ -->
+    <footer class="site-foot">
+      <div class="wrap">
+        <div class="cols">
+          <div class="brand">
+            <img src="logo.png" alt="Inland Foundation Specialties" />
+            <p>
+              Drilling, piling, shoring, and ground improvement throughout
+              Idaho and the Northwest.
+            </p>
+          </div>
+          <div>
+            <h4>Services</h4>
+            <ul>
+              <li><a href="#">Drilling</a></li>
+              <li><a href="#">Piling</a></li>
+              <li><a href="#">Shoring</a></li>
+              <li><a href="#">Ground Improvement</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">Projects</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="https://www.inlandcrane.com">Inland Crane</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          <div class="contact">
+            <h4>Contact</h4>
+            <b>(208) 367-1699</b>
+            <span>Office &middot; Fax (208) 343-6534</span>
+            <b>estimating@inlandcrane.com</b>
+            <span>Boise, Idaho</span>
+          </div>
+        </div>
+        <div class="legal">
+          <span>&copy; 2026 Inland Foundation Specialties. All rights reserved.</span>
+          <span>Homepage mockup &middot; WebMarkets</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

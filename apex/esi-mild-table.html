@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Apex | ESI vs. MILD Comparison Table</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Preview-page chrome only — not part of the embeddable snippet. */
+      body {
+        margin: 0;
+        background: #f4f7fb;
+        font-family: "Inter", sans-serif;
+        padding: 60px 24px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- =====================================================================
+      APEX · ESI vs. MILD COMPARISON TABLE
+      Self-contained snippet: copy everything from <style> through
+      </div> (.apx-compare) into the page. All selectors are prefixed
+      with .apx-compare so nothing leaks into the surrounding site.
+      Fonts: Sora (headings) + Inter (body) — already loaded on the site.
+      ===================================================================== -->
+    <style>
+      .apx-compare {
+        --apx-navy: #132e58;
+        --apx-blue: #2e6db4;
+        --apx-gold: #f2b32c;
+        --apx-ink: #0e1a2e;
+        --apx-muted: #5d6b80;
+        --apx-mist: #f4f7fb;
+        --apx-line: #e2e8f1;
+
+        max-width: 760px;
+        margin: 0 auto;
+        font-family: "Inter", sans-serif;
+        color: var(--apx-ink);
+      }
+
+      .apx-compare table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        background: #fff;
+        border: 1px solid var(--apx-line);
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 14px 34px -26px rgba(14, 26, 46, 0.45);
+      }
+
+      .apx-compare .apx-note {
+        margin: 14px 2px 0;
+        font-size: 13px;
+        color: var(--apx-muted);
+      }
+
+      .apx-compare th,
+      .apx-compare td {
+        padding: 16px 20px;
+        text-align: left;
+        vertical-align: top;
+        font-size: 15.5px;
+        line-height: 1.5;
+      }
+
+      /* column header row */
+      .apx-compare thead th {
+        background: var(--apx-navy);
+        color: #fff;
+        font-family: "Sora", sans-serif;
+        font-weight: 700;
+        font-size: 17px;
+        letter-spacing: 0.01em;
+      }
+
+      .apx-compare thead th small {
+        display: block;
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        font-size: 12.5px;
+        color: rgba(255, 255, 255, 0.72);
+        margin-top: 3px;
+      }
+
+      .apx-compare thead th:first-child {
+        background: var(--apx-navy);
+      }
+
+      /* gold accent under the header */
+      .apx-compare thead th {
+        border-bottom: 3px solid var(--apx-gold);
+      }
+
+      /* row label column */
+      .apx-compare tbody th {
+        font-family: "Sora", sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+        color: var(--apx-navy);
+        white-space: nowrap;
+        background: var(--apx-mist);
+        border-right: 1px solid var(--apx-line);
+        width: 1%;
+      }
+
+      .apx-compare tbody td {
+        color: var(--apx-muted);
+      }
+
+      .apx-compare tbody td b {
+        color: var(--apx-ink);
+        font-weight: 600;
+      }
+
+      .apx-compare tbody tr + tr th,
+      .apx-compare tbody tr + tr td {
+        border-top: 1px solid var(--apx-line);
+      }
+
+      /* mobile: stack each column into its own card */
+      @media (max-width: 560px) {
+        .apx-compare table,
+        .apx-compare thead,
+        .apx-compare tbody,
+        .apx-compare tr,
+        .apx-compare th,
+        .apx-compare td {
+          display: block;
+          width: auto;
+        }
+
+        .apx-compare thead {
+          display: none;
+        }
+
+        .apx-compare tbody tr {
+          padding: 4px 0 14px;
+        }
+
+        .apx-compare tbody tr + tr {
+          border-top: 1px solid var(--apx-line);
+        }
+
+        .apx-compare tbody th {
+          background: none;
+          border-right: none;
+          white-space: normal;
+          width: auto;
+          padding: 14px 20px 2px;
+          font-size: 15px;
+        }
+
+        .apx-compare tbody td {
+          border-top: none !important;
+          padding: 6px 20px;
+        }
+
+        .apx-compare tbody td::before {
+          content: attr(data-col);
+          display: block;
+          font-family: "Sora", sans-serif;
+          font-weight: 600;
+          font-size: 12px;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: var(--apx-blue);
+          margin-bottom: 2px;
+        }
+      }
+    </style>
+
+    <div class="apx-compare">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col" aria-label="Comparison"></th>
+            <th scope="col">
+              ESI
+              <small>Epidural Steroid Injection</small>
+            </th>
+            <th scope="col">
+              MILD
+              <small>Minimally Invasive Lumbar Decompression</small>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">What it does</th>
+            <td data-col="ESI">Reduces nerve inflammation</td>
+            <td data-col="MILD">Relieves pressure on nerves</td>
+          </tr>
+          <tr>
+            <th scope="row">Best for</th>
+            <td data-col="ESI">Pinched nerves, sciatica, disc pain</td>
+            <td data-col="MILD">Lumbar spinal stenosis</td>
+          </tr>
+          <tr>
+            <th scope="row">Incision</th>
+            <td data-col="ESI">None, injection only</td>
+            <td data-col="MILD">Small incision</td>
+          </tr>
+          <tr>
+            <th scope="row">Often used</th>
+            <td data-col="ESI">As a first step</td>
+            <td data-col="MILD">When stenosis symptoms persist</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="apx-note">
+        Both procedures are performed outpatient — your Apex provider will
+        help determine which option fits your condition.
+      </p>
+    </div>
+  </body>
+</html>
