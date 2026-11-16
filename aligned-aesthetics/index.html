@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
-<!--
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--
 Some of the files packed into this page (the "__bundler/manifest" data in this file, unpacked by the page’s script when it opens) are font files downloaded unchanged from Google Fonts (fonts.gstatic.com) when the page was saved. Google Fonts serves each family in pieces, one file per range of characters, so these may not be complete families. Each family’s license follows and still applies to its files. If you pass this file on, keep this comment in it.
 
 Cormorant Garamond
@@ -200,371 +202,421 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 -->
   <title>Aligned Aesthetics Med Spa, Solon OH</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #faf9f5; display: flex; align-items: center; justify-content: center; min-height: 100vh; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
-    #__bundler_loading { position: fixed; bottom: 20px; right: 20px; font: 13px/1.4 -apple-system, BlinkMacSystemFont, sans-serif; color: #666; background: #fff; padding: 8px 14px; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.12); z-index: 10000; }
-    #__bundler_thumbnail { position: fixed; inset: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #faf9f5; z-index: 9999; }
-    #__bundler_thumbnail svg { width: 100%; height: 100%; object-fit: contain; }
-    #__bundler_placeholder { color: #999; font-size: 14px; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #faf9f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    #__bundler_loading {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font: 13px/1.4 -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #666;
+      background: #fff;
+      padding: 8px 14px;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+      z-index: 10000;
+    }
+
+    #__bundler_thumbnail {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #faf9f5;
+      z-index: 9999;
+    }
+
+    #__bundler_thumbnail svg {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    #__bundler_placeholder {
+      color: #999;
+      font-size: 14px;
+    }
   </style>
   <noscript>
-    <style>#__bundler_loading { display: none; }</style>
-    <div style="position:fixed;bottom:12px;left:12px;font:13px/1.4 -apple-system,BlinkMacSystemFont,sans-serif;color:#999;background:rgba(255,255,255,0.9);padding:6px 12px;border-radius:6px;box-shadow:0 1px 4px rgba(0,0,0,0.08);z-index:10000;">
+    <style>
+      #__bundler_loading {
+        display: none;
+      }
+    </style>
+    <div
+      style="position:fixed;bottom:12px;left:12px;font:13px/1.4 -apple-system,BlinkMacSystemFont,sans-serif;color:#999;background:rgba(255,255,255,0.9);padding:6px 12px;border-radius:6px;box-shadow:0 1px 4px rgba(0,0,0,0.08);z-index:10000;">
       This page requires JavaScript to display.
     </div>
   </noscript>
 </head>
+
 <body>
   <div id="__bundler_placeholder">Loading Aligned Aesthetics Med Spa, Solon OH...</div>
   <div id="__bundler_loading">Unpacking...</div>
 
   <script>
-    
-document.addEventListener('DOMContentLoaded', async function() {
-  const loading = document.getElementById('__bundler_loading');
-  function setStatus(msg) { if (loading) loading.textContent = msg; }
 
-  const FONT_MIME = /^(font[/]|application[/](x-)?font-|application[/]vnd\.ms-fontobject)/i;
-  const MIME_TOKEN = /^[\w.+-]+[/][\w.+-]+$/;
-  function toBase64(bytes) {
-    let bin = '';
-    for (let i = 0; i < bytes.length; i += 0x8000) {
-      bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
-    }
-    return btoa(bin);
-  }
+    document.addEventListener('DOMContentLoaded', async function () {
+      const loading = document.getElementById('__bundler_loading');
+      function setStatus(msg) { if (loading) loading.textContent = msg; }
 
-  // Error sink persists across replaceWith since it's on window, not the DOM.
-  window.addEventListener('error', function(e) {
-    // Failed resource loads (CSP-blocked links, scripts, images) fire plain
-    // events at the element — warn only; real JS errors carry message/error.
-    if (!e.message && !e.error && e.target && e.target !== window) {
-      console.warn('[bundle] resource failed to load:',
-        e.target.tagName, String(e.target.src || e.target.href || ''));
-      return;
-    }
-    var p = document.body || document.documentElement;
-    var d = document.getElementById('__bundler_err') || p.appendChild(document.createElement('div'));
-    d.id = '__bundler_err';
-    d.style.cssText = 'position:fixed;bottom:12px;left:12px;right:12px;font:12px/1.4 ui-monospace,monospace;background:#2a1215;color:#ff8a80;padding:10px 14px;border-radius:8px;border:1px solid #5c2b2e;z-index:99999;white-space:pre-wrap;max-height:40vh;overflow:auto';
-    d.textContent = (d.textContent ? d.textContent + String.fromCharCode(10) : '') +
-      '[bundle] ' + (e.message || e.type) +
-      (e.filename ? ' (' + e.filename.slice(0, 60) + ':' + e.lineno + ')' : '');
-  }, true);
-
-  try {
-    const manifestEl = document.querySelector('script[type="__bundler/manifest"]');
-    const templateEl = document.querySelector('script[type="__bundler/template"]');
-    if (!manifestEl || !templateEl) {
-      setStatus('Error: missing bundle data');
-      console.error('[bundler] Missing script tags — manifestEl:', !!manifestEl, 'templateEl:', !!templateEl);
-      return;
-    }
-
-    const manifest = JSON.parse(manifestEl.textContent);
-    let template = JSON.parse(templateEl.textContent);
-
-    // Nested page bundles (iframe targets). Each ships ONCE, in the ROOT
-    // document's manifest; frame srcs carry an about:blank#<uuid> marker
-    // instead of a substitutable uuid. Every document mints the blobs for
-    // its OWN frames — from local text at the root, or text obtained from
-    // its DIRECT parent over the relay protocol below — so each frame
-    // navigation stays same-origin with its initiator and a deduped page
-    // loads at any depth on any host, including a file:// download's
-    // opaque origins (where a blob minted by one document cannot be
-    // navigated to by another).
-    const pageOrderEl = document.querySelector('script[type="__bundler/page_order"]');
-    const pageOrder = pageOrderEl ? JSON.parse(pageOrderEl.textContent) : [];
-    const pageSet = new Set(pageOrder);
-    const pageTexts = {};
-
-    // ── Nested-page text protocol (parent-chain relay) ──
-    // Page bundles ship once, in the ROOT document's manifest. Every
-    // document mints the blobs for its OWN frames, obtaining page text
-    // through a strict parent-chain relay: a document only ever SENDS to
-    // its direct parent (which, for every document the publisher's own
-    // runtime minted, is another publisher document) and only ACCEPTS
-    // text from that direct parent; requests from below are honored only
-    // for the document's own child frames, and the ROOT never sends
-    // upward at all. That last rule is load-bearing: the artifact host's
-    // frame-ancestors allows claude.ai (and friends) to frame an
-    // artifact, so window.top can be a FOREIGN document — a top-addressed
-    // protocol would hand page uuids to that ancestor and accept forged
-    // "page text" from it, minting attacker HTML as an artifact-origin
-    // blob document. The chain never touches the ancestor: requests stop
-    // at the root, replies are origin-addressed per hop (never '*' when
-    // an origin exists), and both directions are origin-gated (on https
-    // a foreign sender's origin can never equal this document's; in
-    // opaque contexts — file:// — everything serializes as 'null', where
-    // an embedded EXTERNAL frame still fails the gate by carrying its
-    // own real origin, and a sandboxed child of such a frame is excluded
-    // by the own-child-frames check plus uuid unguessability). Shape is
-    // deny-by-default: one request form, one reply form, no error
-    // replies.
-    // window.origin is the SERIALIZED SECURITY origin ('null' in opaque
-    // contexts such as a sandboxed preview iframe) — location.origin is
-    // computed from the URL and stays 'https://…' even when the document
-    // is sandboxed, which would misgate every opaque chain.
-    const OWN_TARGET = /^https?:[/][/]/.test(window.origin || '')
-      ? window.origin
-      : '*';
-    function trustedOrigin(e) {
-      if (e.origin === window.origin) return true; // https chains; opaque==opaque
-      // file:// trees: Chrome serializes the file document's origin as
-      // 'file://' while the blob: documents it mints serialize as 'null',
-      // so the two legitimate shapes can never string-match — accept the
-      // pair in both directions. https origins never serialize as either,
-      // and sender identity (own child frame / direct parent) is checked
-      // separately.
-      return (
-        (e.origin === 'null' &&
-          (window.origin === 'file://' ||
-            window.location.protocol === 'file:')) ||
-        (/^file:/.test(e.origin) && window.origin === 'null')
-      );
-    }
-    // Non-empty only in the root document (nested bundles ship an empty
-    // island), so it doubles as the root marker: the root answers from
-    // local text and treats a miss as authoritative — never relaying to
-    // its (possibly foreign) parent.
-    const isPageRoot = pageOrder.length > 0;
-    const blobUrls = {};
-    const resourceBlobs = {};
-    const UUID_SHAPE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
-    const pendingFrames = {}; // uuid -> [{el, frag}] awaiting text for own frames
-    const pendingRelays = {}; // uuid -> [childWindow] awaiting text to pass down
-    function mountPage(el, frag, text) {
-      const pageBlob = new Blob([text], { type: 'text/html' });
-      const u = URL.createObjectURL(pageBlob);
-      resourceBlobs[u] = pageBlob;
-      el.src = u + frag;
-    }
-    function deliverPage(uuid, text) {
-      const frames = pendingFrames[uuid];
-      delete pendingFrames[uuid];
-      if (frames) for (const f of frames) mountPage(f.el, f.frag, text);
-      const relays = pendingRelays[uuid];
-      delete pendingRelays[uuid];
-      if (relays) {
-        for (const cw of relays) {
-          try { cw.postMessage({ __bundler_page: uuid, __bundler_text: text }, OWN_TARGET); } catch (err) { /* gone */ }
+      const FONT_MIME = /^(font[/]|application[/](x-)?font-|application[/]vnd\.ms-fontobject)/i;
+      const MIME_TOKEN = /^[\w.+-]+[/][\w.+-]+$/;
+      function toBase64(bytes) {
+        let bin = '';
+        for (let i = 0; i < bytes.length; i += 0x8000) {
+          bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
         }
+        return btoa(bin);
       }
-    }
-    function ownFrameWindows() {
-      const out = [];
-      for (const f of Array.from(document.querySelectorAll('iframe'))) {
-        try { if (f.contentWindow) out.push(f.contentWindow); } catch (err) { /* detached */ }
-      }
-      return out;
-    }
-    window.addEventListener('message', function (e) {
-      const d = e.data;
-      if (!d || typeof d !== 'object' || !e.source) return;
-      // Origin gate first; the structural checks below (own-child-frames
-      // for requests, direct-parent + solicited-uuid for replies, the
-      // root's never-relay rule) are what hold in fully opaque chains
-      // where origin strings can't discriminate — a sandboxed root's
-      // FOREIGN wrapper still fails all three even though both serialize
-      // as real-vs-'null' rather than matching.
-      if (!trustedOrigin(e)) return;
-      if (typeof d.__bundler_need === 'string' && UUID_SHAPE.test(d.__bundler_need)) {
-        // Requests are honored only for this document's own child frames.
-        if (ownFrameWindows().indexOf(e.source) < 0) return;
-        const uuid = d.__bundler_need;
-        const text = pageTexts[uuid];
-        if (typeof text === 'string') {
-          try { e.source.postMessage({ __bundler_page: uuid, __bundler_text: text }, OWN_TARGET); } catch (err) { /* gone */ }
+
+      // Error sink persists across replaceWith since it's on window, not the DOM.
+      window.addEventListener('error', function (e) {
+        // Failed resource loads (CSP-blocked links, scripts, images) fire plain
+        // events at the element — warn only; real JS errors carry message/error.
+        if (!e.message && !e.error && e.target && e.target !== window) {
+          console.warn('[bundle] resource failed to load:',
+            e.target.tagName, String(e.target.src || e.target.href || ''));
           return;
         }
-        if (isPageRoot || window.parent === window) return; // authoritative miss
-        const waiting = pendingRelays[uuid];
-        if (waiting) {
-          if (waiting.indexOf(e.source) < 0) waiting.push(e.source);
-          return;
-        }
-        // Never-answered uuids would otherwise accumulate forever under a
-        // request spray; past the cap (far above any real page count) new
-        // relays are dropped rather than remembered.
-        if (Object.keys(pendingRelays).length >= 128) return;
-        pendingRelays[uuid] = [e.source];
-        window.parent.postMessage({ __bundler_need: uuid }, OWN_TARGET);
-      } else if (
-        typeof d.__bundler_page === 'string' &&
-        UUID_SHAPE.test(d.__bundler_page) &&
-        typeof d.__bundler_text === 'string'
-      ) {
-        // The shape test is load-bearing beyond tidiness: the solicited
-        // check below uses the in operator, which matches prototype keys
-        // ('__proto__', 'constructor') — an unshaped key would reach
-        // deliverPage and throw, painting the error banner.
-        // Text is accepted only from the direct parent — the document
-        // that minted this one.
-        if (e.source !== window.parent || window.parent === window) return;
-        if (!(d.__bundler_page in pendingFrames) && !(d.__bundler_page in pendingRelays)) return;
-        deliverPage(d.__bundler_page, d.__bundler_text);
-      }
-    });
+        var p = document.body || document.documentElement;
+        var d = document.getElementById('__bundler_err') || p.appendChild(document.createElement('div'));
+        d.id = '__bundler_err';
+        d.style.cssText = 'position:fixed;bottom:12px;left:12px;right:12px;font:12px/1.4 ui-monospace,monospace;background:#2a1215;color:#ff8a80;padding:10px 14px;border-radius:8px;border:1px solid #5c2b2e;z-index:99999;white-space:pre-wrap;max-height:40vh;overflow:auto';
+        d.textContent = (d.textContent ? d.textContent + String.fromCharCode(10) : '') +
+          '[bundle] ' + (e.message || e.type) +
+          (e.filename ? ' (' + e.filename.slice(0, 60) + ':' + e.lineno + ')' : '');
+      }, true);
 
-    const uuids = Object.keys(manifest);
-    setStatus('Unpacking ' + uuids.length + ' assets...');
-
-    await Promise.all(uuids.map(async (uuid) => {
-      const entry = manifest[uuid];
       try {
-        const binaryStr = atob(entry.data);
-        const bytes = new Uint8Array(binaryStr.length);
-        for (let i = 0; i < binaryStr.length; i++) bytes[i] = binaryStr.charCodeAt(i);
+        const manifestEl = document.querySelector('script[type="__bundler/manifest"]');
+        const templateEl = document.querySelector('script[type="__bundler/template"]');
+        if (!manifestEl || !templateEl) {
+          setStatus('Error: missing bundle data');
+          console.error('[bundler] Missing script tags — manifestEl:', !!manifestEl, 'templateEl:', !!templateEl);
+          return;
+        }
 
-        let finalBytes = bytes;
-        if (entry.compressed) {
-          if (typeof DecompressionStream !== 'undefined') {
-            const ds = new DecompressionStream('gzip');
-            const writer = ds.writable.getWriter();
-            const reader = ds.readable.getReader();
-            writer.write(bytes);
-            writer.close();
-            const chunks = [];
-            let totalLen = 0;
-            while (true) {
-              const { done, value } = await reader.read();
-              if (done) break;
-              chunks.push(value);
-              totalLen += value.length;
+        const manifest = JSON.parse(manifestEl.textContent);
+        let template = JSON.parse(templateEl.textContent);
+
+        // Nested page bundles (iframe targets). Each ships ONCE, in the ROOT
+        // document's manifest; frame srcs carry an about:blank#<uuid> marker
+        // instead of a substitutable uuid. Every document mints the blobs for
+        // its OWN frames — from local text at the root, or text obtained from
+        // its DIRECT parent over the relay protocol below — so each frame
+        // navigation stays same-origin with its initiator and a deduped page
+        // loads at any depth on any host, including a file:// download's
+        // opaque origins (where a blob minted by one document cannot be
+        // navigated to by another).
+        const pageOrderEl = document.querySelector('script[type="__bundler/page_order"]');
+        const pageOrder = pageOrderEl ? JSON.parse(pageOrderEl.textContent) : [];
+        const pageSet = new Set(pageOrder);
+        const pageTexts = {};
+
+        // ── Nested-page text protocol (parent-chain relay) ──
+        // Page bundles ship once, in the ROOT document's manifest. Every
+        // document mints the blobs for its OWN frames, obtaining page text
+        // through a strict parent-chain relay: a document only ever SENDS to
+        // its direct parent (which, for every document the publisher's own
+        // runtime minted, is another publisher document) and only ACCEPTS
+        // text from that direct parent; requests from below are honored only
+        // for the document's own child frames, and the ROOT never sends
+        // upward at all. That last rule is load-bearing: the artifact host's
+        // frame-ancestors allows claude.ai (and friends) to frame an
+        // artifact, so window.top can be a FOREIGN document — a top-addressed
+        // protocol would hand page uuids to that ancestor and accept forged
+        // "page text" from it, minting attacker HTML as an artifact-origin
+        // blob document. The chain never touches the ancestor: requests stop
+        // at the root, replies are origin-addressed per hop (never '*' when
+        // an origin exists), and both directions are origin-gated (on https
+        // a foreign sender's origin can never equal this document's; in
+        // opaque contexts — file:// — everything serializes as 'null', where
+        // an embedded EXTERNAL frame still fails the gate by carrying its
+        // own real origin, and a sandboxed child of such a frame is excluded
+        // by the own-child-frames check plus uuid unguessability). Shape is
+        // deny-by-default: one request form, one reply form, no error
+        // replies.
+        // window.origin is the SERIALIZED SECURITY origin ('null' in opaque
+        // contexts such as a sandboxed preview iframe) — location.origin is
+        // computed from the URL and stays 'https://…' even when the document
+        // is sandboxed, which would misgate every opaque chain.
+        const OWN_TARGET = /^https?:[/][/]/.test(window.origin || '')
+          ? window.origin
+          : '*';
+        function trustedOrigin(e) {
+          if (e.origin === window.origin) return true; // https chains; opaque==opaque
+          // file:// trees: Chrome serializes the file document's origin as
+          // 'file://' while the blob: documents it mints serialize as 'null',
+          // so the two legitimate shapes can never string-match — accept the
+          // pair in both directions. https origins never serialize as either,
+          // and sender identity (own child frame / direct parent) is checked
+          // separately.
+          return (
+            (e.origin === 'null' &&
+              (window.origin === 'file://' ||
+                window.location.protocol === 'file:')) ||
+            (/^file:/.test(e.origin) && window.origin === 'null')
+          );
+        }
+        // Non-empty only in the root document (nested bundles ship an empty
+        // island), so it doubles as the root marker: the root answers from
+        // local text and treats a miss as authoritative — never relaying to
+        // its (possibly foreign) parent.
+        const isPageRoot = pageOrder.length > 0;
+        const blobUrls = {};
+        const resourceBlobs = {};
+        const UUID_SHAPE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
+        const pendingFrames = {}; // uuid -> [{el, frag}] awaiting text for own frames
+        const pendingRelays = {}; // uuid -> [childWindow] awaiting text to pass down
+        function mountPage(el, frag, text) {
+          const pageBlob = new Blob([text], { type: 'text/html' });
+          const u = URL.createObjectURL(pageBlob);
+          resourceBlobs[u] = pageBlob;
+          el.src = u + frag;
+        }
+        function deliverPage(uuid, text) {
+          const frames = pendingFrames[uuid];
+          delete pendingFrames[uuid];
+          if (frames) for (const f of frames) mountPage(f.el, f.frag, text);
+          const relays = pendingRelays[uuid];
+          delete pendingRelays[uuid];
+          if (relays) {
+            for (const cw of relays) {
+              try { cw.postMessage({ __bundler_page: uuid, __bundler_text: text }, OWN_TARGET); } catch (err) { /* gone */ }
             }
-            finalBytes = new Uint8Array(totalLen);
-            let offset = 0;
-            for (const chunk of chunks) { finalBytes.set(chunk, offset); offset += chunk.length; }
-          } else {
-            console.warn('DecompressionStream not available, asset ' + uuid + ' may not render');
+          }
+        }
+        function ownFrameWindows() {
+          const out = [];
+          for (const f of Array.from(document.querySelectorAll('iframe'))) {
+            try { if (f.contentWindow) out.push(f.contentWindow); } catch (err) { /* detached */ }
+          }
+          return out;
+        }
+        window.addEventListener('message', function (e) {
+          const d = e.data;
+          if (!d || typeof d !== 'object' || !e.source) return;
+          // Origin gate first; the structural checks below (own-child-frames
+          // for requests, direct-parent + solicited-uuid for replies, the
+          // root's never-relay rule) are what hold in fully opaque chains
+          // where origin strings can't discriminate — a sandboxed root's
+          // FOREIGN wrapper still fails all three even though both serialize
+          // as real-vs-'null' rather than matching.
+          if (!trustedOrigin(e)) return;
+          if (typeof d.__bundler_need === 'string' && UUID_SHAPE.test(d.__bundler_need)) {
+            // Requests are honored only for this document's own child frames.
+            if (ownFrameWindows().indexOf(e.source) < 0) return;
+            const uuid = d.__bundler_need;
+            const text = pageTexts[uuid];
+            if (typeof text === 'string') {
+              try { e.source.postMessage({ __bundler_page: uuid, __bundler_text: text }, OWN_TARGET); } catch (err) { /* gone */ }
+              return;
+            }
+            if (isPageRoot || window.parent === window) return; // authoritative miss
+            const waiting = pendingRelays[uuid];
+            if (waiting) {
+              if (waiting.indexOf(e.source) < 0) waiting.push(e.source);
+              return;
+            }
+            // Never-answered uuids would otherwise accumulate forever under a
+            // request spray; past the cap (far above any real page count) new
+            // relays are dropped rather than remembered.
+            if (Object.keys(pendingRelays).length >= 128) return;
+            pendingRelays[uuid] = [e.source];
+            window.parent.postMessage({ __bundler_need: uuid }, OWN_TARGET);
+          } else if (
+            typeof d.__bundler_page === 'string' &&
+            UUID_SHAPE.test(d.__bundler_page) &&
+            typeof d.__bundler_text === 'string'
+          ) {
+            // The shape test is load-bearing beyond tidiness: the solicited
+            // check below uses the in operator, which matches prototype keys
+            // ('__proto__', 'constructor') — an unshaped key would reach
+            // deliverPage and throw, painting the error banner.
+            // Text is accepted only from the direct parent — the document
+            // that minted this one.
+            if (e.source !== window.parent || window.parent === window) return;
+            if (!(d.__bundler_page in pendingFrames) && !(d.__bundler_page in pendingRelays)) return;
+            deliverPage(d.__bundler_page, d.__bundler_text);
+          }
+        });
+
+        const uuids = Object.keys(manifest);
+        setStatus('Unpacking ' + uuids.length + ' assets...');
+
+        await Promise.all(uuids.map(async (uuid) => {
+          const entry = manifest[uuid];
+          try {
+            const binaryStr = atob(entry.data);
+            const bytes = new Uint8Array(binaryStr.length);
+            for (let i = 0; i < binaryStr.length; i++) bytes[i] = binaryStr.charCodeAt(i);
+
+            let finalBytes = bytes;
+            if (entry.compressed) {
+              if (typeof DecompressionStream !== 'undefined') {
+                const ds = new DecompressionStream('gzip');
+                const writer = ds.writable.getWriter();
+                const reader = ds.readable.getReader();
+                writer.write(bytes);
+                writer.close();
+                const chunks = [];
+                let totalLen = 0;
+                while (true) {
+                  const { done, value } = await reader.read();
+                  if (done) break;
+                  chunks.push(value);
+                  totalLen += value.length;
+                }
+                finalBytes = new Uint8Array(totalLen);
+                let offset = 0;
+                for (const chunk of chunks) { finalBytes.set(chunk, offset); offset += chunk.length; }
+              } else {
+                console.warn('DecompressionStream not available, asset ' + uuid + ' may not render');
+              }
+            }
+
+            if (pageSet.has(uuid)) {
+              pageTexts[uuid] = new TextDecoder().decode(finalBytes);
+              return;
+            }
+            if (FONT_MIME.test(entry.mime) && MIME_TOKEN.test(entry.mime)) {
+              // Strict artifact hosts allow font-src data: but not blob:.
+              blobUrls[uuid] = 'data:' + entry.mime + ';base64,' +
+                (entry.compressed ? toBase64(finalBytes) : entry.data);
+            } else {
+              const blob = new Blob([finalBytes], { type: entry.mime });
+              blobUrls[uuid] = URL.createObjectURL(blob);
+              resourceBlobs[blobUrls[uuid]] = blob;
+            }
+          } catch (err) {
+            console.error('Failed to decode asset ' + uuid + ':', err);
+            const blob = new Blob([], { type: entry.mime });
+            blobUrls[uuid] = URL.createObjectURL(blob);
+            resourceBlobs[blobUrls[uuid]] = blob;
+          }
+        }));
+
+        const extResEl = document.querySelector('script[type="__bundler/ext_resources"]');
+        const extResources = extResEl ? JSON.parse(extResEl.textContent) : [];
+        const resourceMap = {};
+        for (const entry of extResources) {
+          if (blobUrls[entry.uuid]) resourceMap[entry.id] = blobUrls[entry.uuid];
+        }
+
+        // Artifact-host CSP (connect-src 'self') refuses fetch() of blob: URLs —
+        // consumers read these Blobs directly. Survives the swap like the error sink.
+        window.__resourceBlobs = resourceBlobs;
+
+        setStatus('Rendering...');
+        // Page uuids have no blob here — they ride inside about:blank#<uuid>
+        // frame markers the pass below resolves after the swap.
+        for (const uuid of uuids) {
+          if (pageSet.has(uuid)) continue;
+          template = template.split(uuid).join(blobUrls[uuid]);
+        }
+
+        // Strip integrity + crossorigin — blob URLs from a file:// document inherit
+        // a null origin, so crossorigin forces a CORS fetch that SRI then rejects.
+        // The manifest bytes are ours; SRI protects against CDN compromise, not this.
+        // appifacts: only on tags now pointing at OUR blob: URLs. A reference the
+        // bundler left live-fetched (an absolute x-import, a runtime dependency it
+        // could not embed, an authored external script) keeps the pin it was
+        // written with: that fetch is exactly what SRI protects. (A crossorigin
+        // on a parent whose child carries the blob — <video crossorigin><source>
+        // — is left alone too; the attribute is then the author's to drop.)
+        template = template.replace(/<[a-z][^>]*>/gi, (tag) => /\s(?:src|href|srcset|poster|data|xlink:href)="blob:/i.test(tag) ? tag.replace(/\s+integrity="[^"]*"/gi, '').replace(/\s+crossorigin="[^"]*"/gi, '') : tag);
+
+        const resourceScript = '<script>window.__resources = ' +
+          JSON.stringify(resourceMap).replace(/<\//g, '<\\/') +
+          ';</' + 'script>';
+        // Inject after <head> so the DOCTYPE stays first; prepending the script
+        // would push the parser into quirks mode. DOMParser always emits a <head>
+        // (synthesizing one if the source HTML omitted it) but may carry
+        // attributes through, so match the full opening tag. slice() rather than
+        // replace() keeps us clear of $-pattern substitution in resourceScript.
+        const headOpen = template.match(/<head[^>]*>/i);
+        if (headOpen) {
+          const i = headOpen.index + headOpen[0].length;
+          template = template.slice(0, i) + resourceScript + template.slice(i);
+        }
+
+        // Parse the template and swap the root element. Scripts inserted via
+        // DOMParser/replaceWith are inert per spec — re-create each with
+        // createElement so they execute, awaiting onload for src scripts to
+        // preserve ordering (React before ReactDOM before Babel before text/babel).
+        const doc = new DOMParser().parseFromString(template, 'text/html');
+        document.documentElement.replaceWith(doc.documentElement);
+
+        // Resolve page-frame markers: mint this document's own blob for each
+        // framed page — from local text when this is the root, otherwise by
+        // asking the direct parent over the relay protocol above. An
+        // unanswered request leaves the frame on about:blank, the same
+        // degraded state as a refused embed.
+        {
+          const MARKER = /^about:blank#([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})(#.*)?$/;
+          const needed = [];
+          for (const el of Array.from(document.querySelectorAll('iframe'))) {
+            const m = MARKER.exec(el.getAttribute('src') || '');
+            if (!m) continue;
+            const text = pageTexts[m[1]];
+            if (typeof text === 'string') {
+              mountPage(el, m[2] || '', text);
+            } else if (window.parent !== window && !isPageRoot) {
+              const had = pendingFrames[m[1]];
+              (pendingFrames[m[1]] = had || []).push({ el: el, frag: m[2] || '' });
+              if (!had) needed.push(m[1]);
+            }
+          }
+          for (const uuid of needed) {
+            window.parent.postMessage({ __bundler_need: uuid }, OWN_TARGET);
           }
         }
 
-        if (pageSet.has(uuid)) {
-          pageTexts[uuid] = new TextDecoder().decode(finalBytes);
-          return;
+        const dead = Array.from(document.scripts);
+        for (const old of dead) {
+          const s = document.createElement('script');
+          for (const a of old.attributes) s.setAttribute(a.name, a.value);
+          s.textContent = old.textContent;
+          // text/babel scripts with a src: read and inline. transformScriptTags
+          // does XHR against the src, but blob:null/ from a file:// origin is
+          // silently dropped. Inlining makes it a plain inline babel script,
+          // which transformScriptTags handles unconditionally.
+          if ((s.type === 'text/babel' || s.type === 'text/jsx') && s.src) {
+            const pre = resourceBlobs[s.src.split('#')[0]];
+            s.textContent = pre ? await pre.text() : await (await fetch(s.src)).text();
+            s.removeAttribute('src');
+          }
+          const p = s.src ? new Promise(function (r) { s.onload = s.onerror = r; }) : null;
+          old.replaceWith(s);
+          if (p) await p;
         }
-        if (FONT_MIME.test(entry.mime) && MIME_TOKEN.test(entry.mime)) {
-          // Strict artifact hosts allow font-src data: but not blob:.
-          blobUrls[uuid] = 'data:' + entry.mime + ';base64,' +
-            (entry.compressed ? toBase64(finalBytes) : entry.data);
-        } else {
-          const blob = new Blob([finalBytes], { type: entry.mime });
-          blobUrls[uuid] = URL.createObjectURL(blob);
-          resourceBlobs[blobUrls[uuid]] = blob;
+        // Babel standalone auto-transforms type=text/babel on DOMContentLoaded,
+        // which fired before we swapped the document. Trigger manually if present.
+        if (window.Babel && typeof window.Babel.transformScriptTags === 'function') {
+          window.Babel.transformScriptTags();
         }
       } catch (err) {
-        console.error('Failed to decode asset ' + uuid + ':', err);
-        const blob = new Blob([], { type: entry.mime });
-        blobUrls[uuid] = URL.createObjectURL(blob);
-        resourceBlobs[blobUrls[uuid]] = blob;
+        setStatus('Error unpacking: ' + err.message);
+        console.error('Bundle unpack error:', err);
       }
-    }));
-
-    const extResEl = document.querySelector('script[type="__bundler/ext_resources"]');
-    const extResources = extResEl ? JSON.parse(extResEl.textContent) : [];
-    const resourceMap = {};
-    for (const entry of extResources) {
-      if (blobUrls[entry.uuid]) resourceMap[entry.id] = blobUrls[entry.uuid];
-    }
-
-    // Artifact-host CSP (connect-src 'self') refuses fetch() of blob: URLs —
-    // consumers read these Blobs directly. Survives the swap like the error sink.
-    window.__resourceBlobs = resourceBlobs;
-
-    setStatus('Rendering...');
-    // Page uuids have no blob here — they ride inside about:blank#<uuid>
-    // frame markers the pass below resolves after the swap.
-    for (const uuid of uuids) {
-      if (pageSet.has(uuid)) continue;
-      template = template.split(uuid).join(blobUrls[uuid]);
-    }
-
-    // Strip integrity + crossorigin — blob URLs from a file:// document inherit
-    // a null origin, so crossorigin forces a CORS fetch that SRI then rejects.
-    // The manifest bytes are ours; SRI protects against CDN compromise, not this.
-    // appifacts: only on tags now pointing at OUR blob: URLs. A reference the
-    // bundler left live-fetched (an absolute x-import, a runtime dependency it
-    // could not embed, an authored external script) keeps the pin it was
-    // written with: that fetch is exactly what SRI protects. (A crossorigin
-    // on a parent whose child carries the blob — <video crossorigin><source>
-    // — is left alone too; the attribute is then the author's to drop.)
-    template = template.replace(/<[a-z][^>]*>/gi, (tag) => /\s(?:src|href|srcset|poster|data|xlink:href)="blob:/i.test(tag) ? tag.replace(/\s+integrity="[^"]*"/gi, '').replace(/\s+crossorigin="[^"]*"/gi, '') : tag);
-
-    const resourceScript = '<script>window.__resources = ' +
-      JSON.stringify(resourceMap).replace(/<\//g, '<\\/') +
-      ';</' + 'script>';
-    // Inject after <head> so the DOCTYPE stays first; prepending the script
-    // would push the parser into quirks mode. DOMParser always emits a <head>
-    // (synthesizing one if the source HTML omitted it) but may carry
-    // attributes through, so match the full opening tag. slice() rather than
-    // replace() keeps us clear of $-pattern substitution in resourceScript.
-    const headOpen = template.match(/<head[^>]*>/i);
-    if (headOpen) {
-      const i = headOpen.index + headOpen[0].length;
-      template = template.slice(0, i) + resourceScript + template.slice(i);
-    }
-
-    // Parse the template and swap the root element. Scripts inserted via
-    // DOMParser/replaceWith are inert per spec — re-create each with
-    // createElement so they execute, awaiting onload for src scripts to
-    // preserve ordering (React before ReactDOM before Babel before text/babel).
-    const doc = new DOMParser().parseFromString(template, 'text/html');
-    document.documentElement.replaceWith(doc.documentElement);
-
-    // Resolve page-frame markers: mint this document's own blob for each
-    // framed page — from local text when this is the root, otherwise by
-    // asking the direct parent over the relay protocol above. An
-    // unanswered request leaves the frame on about:blank, the same
-    // degraded state as a refused embed.
-    {
-      const MARKER = /^about:blank#([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})(#.*)?$/;
-      const needed = [];
-      for (const el of Array.from(document.querySelectorAll('iframe'))) {
-        const m = MARKER.exec(el.getAttribute('src') || '');
-        if (!m) continue;
-        const text = pageTexts[m[1]];
-        if (typeof text === 'string') {
-          mountPage(el, m[2] || '', text);
-        } else if (window.parent !== window && !isPageRoot) {
-          const had = pendingFrames[m[1]];
-          (pendingFrames[m[1]] = had || []).push({ el: el, frag: m[2] || '' });
-          if (!had) needed.push(m[1]);
-        }
-      }
-      for (const uuid of needed) {
-        window.parent.postMessage({ __bundler_need: uuid }, OWN_TARGET);
-      }
-    }
-
-    const dead = Array.from(document.scripts);
-    for (const old of dead) {
-      const s = document.createElement('script');
-      for (const a of old.attributes) s.setAttribute(a.name, a.value);
-      s.textContent = old.textContent;
-      // text/babel scripts with a src: read and inline. transformScriptTags
-      // does XHR against the src, but blob:null/ from a file:// origin is
-      // silently dropped. Inlining makes it a plain inline babel script,
-      // which transformScriptTags handles unconditionally.
-      if ((s.type === 'text/babel' || s.type === 'text/jsx') && s.src) {
-        const pre = resourceBlobs[s.src.split('#')[0]];
-        s.textContent = pre ? await pre.text() : await (await fetch(s.src)).text();
-        s.removeAttribute('src');
-      }
-      const p = s.src ? new Promise(function(r) { s.onload = s.onerror = r; }) : null;
-      old.replaceWith(s);
-      if (p) await p;
-    }
-    // Babel standalone auto-transforms type=text/babel on DOMContentLoaded,
-    // which fired before we swapped the document. Trigger manually if present.
-    if (window.Babel && typeof window.Babel.transformScriptTags === 'function') {
-      window.Babel.transformScriptTags();
-    }
-  } catch (err) {
-    setStatus('Error unpacking: ' + err.message);
-    console.error('Bundle unpack error:', err);
-  }
-});
+    });
 
   </script>
 
@@ -581,7 +633,8 @@ document.addEventListener('DOMContentLoaded', async function() {
   </script>
 
   <script type="__bundler/template">
-"<!DOCTYPE html>\n<html lang=\"en\"><head>\n<meta charset=\"utf-8\">\n<title>Aligned Aesthetics Med Spa, Solon OH<\u002Ftitle>\n<script src=\"9baa81a6-062d-46ac-82e5-a80422705ab9\"><\u002Fscript>\n<meta name=\"hz:slide-selector\" content=\":not(x-dc)&gt;[data-canvas-width]\"><meta name=\"hz:canvas-width\" content=\"1440\"><meta name=\"hz:canvas-height\" content=\"5600\"><\u002Fhead>\n<body>\n<x-dc>\n<helmet>\n<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<style>/* cyrillic-ext */\n@font-face {\n  font-family: 'Cormorant Garamond';\n  font-style: italic;\n  font-weight: 500;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/cormorantgaramond/v21/co3smX5slCNuHLi8bLeY9MK7whWMhyjYrGFEsdtdc62E6zd5wDD-hdM8A_6pUKz9ugk.woff2) format('woff2');\n  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;\n}\n/* cyrillic */\n@font-face {\n  font-family: 'Cormorant Garamond';\n  font-style: italic;\n  font-weight: 500;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/cormorantgaramond/v21/co3smX5slCNuHLi8bLeY9MK7whWMhyjYrGFEsdtdc62E6zd5wDD-jNM8A_6pUKz9ugk.woff2) format('woff2');\n  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;\n}\n/* vietnamese */\n@font-face {\n  font-family: 'Cormorant Garamond';\n  font-style: italic;\n  font-weight: 500;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/cormorantgaramond/v21/co3smX5slCNuHLi8bLeY9MK7whWMhyjYrGFEsdtdc62E6zd5wDD-h9M8A_6pUKz9ugk.woff2) format('woff2');\n  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;\n}\n/* latin-ext */\n@font-face {\n  font-family: 'Cormorant Garamond';\n  font-style: italic;\n  font-weight: 500;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/cormorantgaramond/v21/co3smX5slCNuHLi8bLeY9MK7whWMhyjYrGFEsdtdc62E6zd5wDD-htM8A_6pUKz9ugk.woff2) format('woff2');\n  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;\n}\n/* latin */\n@font-face {\n  font-family: 'Cormorant Garamond';\n  font-style: italic;\n  font-weight: 500;\n  font-display: swap;\n  src: url(\"e50dcfdc-ded9-43ad-85fd-a0825e2c8026\") format('woff2');\n  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;\n}\n/* cyrillic-ext */\n@font-face {\n  font-family: 'Cormorant Garamond';\n  font-style: normal;\n  font-weight: 500;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYpHtKky2F7i6C.woff2) format('woff2');\n  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;\n}\n/* cyrillic */\n@font-face {\n  font-family: 'Cormorant Garamond';\n  font-style: normal;\n  font-weight: 500;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYrXtKky2F7i6C.woff2) format('woff2');\n  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;\n}\n/* vietnamese */\n@font-face {\n  font-family: 'Cormorant Garamond';\n  font-style: normal;\n  font-weight: 500;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYpntKky2F7i6C.woff2) format('woff2');\n  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;\n}\n/* latin-ext */\n@font-face {\n  font-family: 'Cormorant Garamond';\n  font-style: normal;\n  font-weight: 500;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYp3tKky2F7i6C.woff2) format('woff2');\n  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;\n}\n/* latin */\n@font-face {\n  font-family: 'Cormorant Garamond';\n  font-style: normal;\n  font-weight: 500;\n  font-display: swap;\n  src: url(\"289cf4f1-2242-446f-8ffd-b27779cbd5a9\") format('woff2');\n  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;\n}\n/* cyrillic-ext */\n@font-face {\n  font-family: 'Cormorant Garamond';\n  font-style: normal;\n  font-weight: 600;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYpHtKky2F7i6C.woff2) format('woff2');\n  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;\n}\n/* cyrillic */\n@font-face {\n  font-family: 'Cormorant Garamond';\n  font-style: normal;\n  font-weight: 600;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYrXtKky2F7i6C.woff2) format('woff2');\n  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;\n}\n/* vietnamese */\n@font-face {\n  font-family: 'Cormorant Garamond';\n  font-style: normal;\n  font-weight: 600;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYpntKky2F7i6C.woff2) format('woff2');\n  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;\n}\n/* latin-ext */\n@font-face {\n  font-family: 'Cormorant Garamond';\n  font-style: normal;\n  font-weight: 600;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYp3tKky2F7i6C.woff2) format('woff2');\n  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;\n}\n/* latin */\n@font-face {\n  font-family: 'Cormorant Garamond';\n  font-style: normal;\n  font-weight: 600;\n  font-display: swap;\n  src: url(\"289cf4f1-2242-446f-8ffd-b27779cbd5a9\") format('woff2');\n  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;\n}\n/* latin-ext */\n@font-face {\n  font-family: 'Karla';\n  font-style: normal;\n  font-weight: 400;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/karla/v33/qkB9XvYC6trAT55ZBi1ueQVIjQTD-JrIH2G7nytkHRyQ8p4wUjm6bmMorHBiTg.woff2) format('woff2');\n  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;\n}\n/* latin */\n@font-face {\n  font-family: 'Karla';\n  font-style: normal;\n  font-weight: 400;\n  font-display: swap;\n  src: url(\"d5190998-784f-4c4a-b53f-4c9e5ed8c849\") format('woff2');\n  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;\n}\n/* latin-ext */\n@font-face {\n  font-family: 'Karla';\n  font-style: normal;\n  font-weight: 500;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/karla/v33/qkB9XvYC6trAT55ZBi1ueQVIjQTD-JrIH2G7nytkHRyQ8p4wUjm6bmMorHBiTg.woff2) format('woff2');\n  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;\n}\n/* latin */\n@font-face {\n  font-family: 'Karla';\n  font-style: normal;\n  font-weight: 500;\n  font-display: swap;\n  src: url(\"d5190998-784f-4c4a-b53f-4c9e5ed8c849\") format('woff2');\n  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;\n}\n/* latin-ext */\n@font-face {\n  font-family: 'Karla';\n  font-style: normal;\n  font-weight: 600;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/karla/v33/qkB9XvYC6trAT55ZBi1ueQVIjQTD-JrIH2G7nytkHRyQ8p4wUjm6bmMorHBiTg.woff2) format('woff2');\n  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;\n}\n/* latin */\n@font-face {\n  font-family: 'Karla';\n  font-style: normal;\n  font-weight: 600;\n  font-display: swap;\n  src: url(\"d5190998-784f-4c4a-b53f-4c9e5ed8c849\") format('woff2');\n  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;\n}\n<\u002Fstyle>\n<style>\nbody{margin:0;background:#FCF3F3}\na{color:#3A1F28}a:hover{color:#B0476A}\n<\u002Fstyle>\n<\u002Fhelmet>\n<div style=\"font-family: Karla, 'Helvetica Neue', Arial, sans-serif; color: #3A1F28; background: #FCF3F3; font-size: 17px; line-height: 1.6\" data-canvas-width=\"1440\" data-canvas-height=\"5600\">\n\n<div style=\"background: #3A1F28; color: #FCEBEF; font-size: 14px; letter-spacing: 0.04em\">\n<div style=\"max-width: 1240px; margin: 0 auto; padding: 10px 24px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; align-items: center\">\n<span>6001 Cochran Rd, Suite 404, Solon, OH 44139<\u002Fspan>\n<a href=\"tel:14405372786\" style=\"color: #FCEBEF; text-decoration: none\">Call or text (440) 537-2786<\u002Fa>\n<\u002Fdiv>\n<\u002Fdiv>\n\n<header style=\"border-bottom: 1px solid #F0D9DC; background: #FCF3F3\">\n<div style=\"max-width: 1240px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; gap: 16px 40px; align-items: center; justify-content: space-between\">\n<a href=\"#top\" style=\"text-decoration: none; display: flex; flex-direction: column; line-height: 1\">\n<span style=\"font-family: 'Cormorant Garamond', Georgia, serif; font-size: 32px; font-weight: 600; letter-spacing: 0.02em\">Aligned Aesthetics<\u002Fspan>\n<span style=\"font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; margin-top: 6px; color: #7A4E5C\">Med Spa · Solon, Ohio<\u002Fspan>\n<\u002Fa>\n<nav aria-label=\"Main\" style=\"display: flex; flex-wrap: wrap; gap: 8px 28px; font-size: 15px; align-items: center\">\n<a href=\"#treatments\" style=\"text-decoration: none\">Treatments<\u002Fa>\n<a href=\"#ann\" style=\"text-decoration: none\">Meet Ann<\u002Fa>\n<a href=\"#membership\" style=\"text-decoration: none\">Membership<\u002Fa>\n<a href=\"#financing\" style=\"text-decoration: none\">Financing<\u002Fa>\n<a href=\"#skincare\" style=\"text-decoration: none\">Skincare<\u002Fa>\n<a href=\"https://alignedaesthetics.myaestheticrecord.com/online-booking\" style=\"text-decoration: none; background: {{accent}}; color: #FFFFFF; padding: 12px 22px; border-radius: 999px; font-weight: 600; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center\">Book a consult<\u002Fa>\n<\u002Fnav>\n<\u002Fdiv>\n<\u002Fheader>\n\n<section id=\"top\" style=\"max-width: 1240px; margin: 0 auto; padding: 72px 24px 88px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center\">\n<div style=\"flex: 1 1 460px; min-width: 0\">\n<p style=\"margin: 0 0 20px; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A4E5C\">Nurse practitioner led aesthetics<\u002Fp>\n<h1 style=\"margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 68px; line-height: 1.02; letter-spacing: -0.01em\">Makeup should be an accessory. <em style=\"color: {{accent}}\">Not a necessity.<\u002Fem><\u002Fh1>\n<p style=\"margin: 28px 0 0; font-size: 19px; max-width: 520px; color: #5A3A45\">Wrinkle relaxers, filler, microneedling, PRF and more in Solon, done by Ann Mehler, MSN, APRN-CNM. Subtle work that still looks like you. Just more rested.<\u002Fp>\n<div style=\"display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px\">\n<a href=\"https://alignedaesthetics.myaestheticrecord.com/online-booking\" style=\"text-decoration: none; background: {{accent}}; color: #FFFFFF; padding: 16px 30px; border-radius: 999px; font-weight: 600; min-height: 44px; box-sizing: border-box\">Book your consultation<\u002Fa>\n<a href=\"#treatments\" style=\"text-decoration: none; border: 1.5px solid #3A1F28; padding: 15px 28px; border-radius: 999px; font-weight: 600; min-height: 44px; box-sizing: border-box\">See treatments<\u002Fa>\n<\u002Fdiv>\n<p style=\"margin: 28px 0 0; font-size: 14px; color: #7A4E5C\">Monthly payment plans through PatientFi and Cherry<\u002Fp>\n<\u002Fdiv>\n<div style=\"flex: 1 1 420px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px\">\n<img src=\"9df2629d-7d0e-4f17-b6b7-d5385c923e8c\" alt=\"Ann smiling during a microneedling treatment\" style=\"grid-row: span 2; width: 100%; height: 100%; min-height: 520px; object-fit: cover; object-position: center 30%; border-radius: 220px 220px 12px 12px; display: block; background: #F2C9D0\">\n<img src=\"06bfe58a-9c2a-404b-a0d1-6a24609b6678\" alt=\"Ann mapping a client's face before treatment\" style=\"width: 100%; height: 252px; object-fit: cover; object-position: center 20%; border-radius: 12px; display: block; background: #F7DDE1\">\n<div style=\"background: #3A1F28; border-radius: 12px; min-height: 252px; padding: 24px; box-sizing: border-box; color: #FCEBEF; display: flex; flex-direction: column; justify-content: space-between\">\n<span style=\"font-family: 'Cormorant Garamond', Georgia, serif; font-size: 26px; line-height: 1.2\">No frozen faces. No overdone lips.<\u002Fspan>\n<span style=\"font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: #F1C6D0\">Our one rule<\u002Fspan>\n<\u002Fdiv>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section aria-label=\"Why clients choose us\" style=\"background: #F7DDE1\">\n<div style=\"max-width: 1240px; margin: 0 auto; padding: 32px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; font-size: 15px\">\n<div><strong style=\"display: block; font-size: 16px\">Medical provider, every visit<\u002Fstrong>Ann does your assessment and your treatment.<\u002Fdiv>\n<div><strong style=\"display: block; font-size: 16px\">A plan, not a menu<\u002Fstrong>Built around your face, goals and budget.<\u002Fdiv>\n<div><strong style=\"display: block; font-size: 16px\">Pay over time<\u002Fstrong>PatientFi and Cherry, no hard credit check to apply with PatientFi.<\u002Fdiv>\n<div><strong style=\"display: block; font-size: 16px\">Medical grade skincare<\u002Fstrong>SkinBetter Science and Plated Skin Science.<\u002Fdiv>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section style=\"max-width: 1240px; margin: 0 auto; padding: 104px 24px; display: flex; flex-wrap: wrap; gap: 48px 80px\">\n<div style=\"flex: 1 1 380px\">\n<p style=\"margin: 0 0 16px; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A4E5C\">How Ann works<\u002Fp>\n<h2 style=\"margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 52px; line-height: 1.05\">Aesthetics is still medicine.<\u002Fh2>\n<img src=\"67998991-42c7-4128-9220-205a342336c3\" alt=\"\" aria-hidden=\"true\" style=\"width: 220px; height: 220px; object-fit: cover; margin-top: 32px; border-radius: 50%; display: block; mix-blend-mode: multiply\">\n<\u002Fdiv>\n<div style=\"flex: 1 1 520px; font-size: 18px; color: #5A3A45\">\n<p style=\"margin: 0 0 20px\">You get a say in your treatment. Your goals matter. But so does your medical history, your anatomy and what makes sense long term.<\u002Fp>\n<p style=\"margin: 0 0 20px\">So Ann's job isn't to sell you a syringe. It's to look at what's actually there, explain your options and recommend what fits. Sometimes that's a different approach. Sometimes it's less. Sometimes it's nothing at all yet.<\u002Fp>\n<p style=\"margin: 0\">That's why most people leave their first visit feeling clearer about their skin, whether they get treated that day or not.<\u002Fp>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section id=\"treatments\" style=\"background: #FFFFFF; border-top: 1px solid #F0D9DC; border-bottom: 1px solid #F0D9DC\">\n<div style=\"max-width: 1240px; margin: 0 auto; padding: 96px 24px\">\n<div style=\"display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 20px; margin-bottom: 48px\">\n<h2 style=\"margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 52px; line-height: 1.05\">Treatments<\u002Fh2>\n<p style=\"margin: 0; max-width: 440px; color: #5A3A45\">Not sure what you need? That's what the consult is for. Come in with the thing that bugs you and we'll go from there.<\u002Fp>\n<\u002Fdiv>\n<div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0; border-top: 1px solid #F0D9DC\">\n<a href=\"https://alignedaestheticscle.com/services-item/wrinkle-relaxers/\" style=\"text-decoration: none; padding: 32px 28px 32px 0; border-bottom: 1px solid #F0D9DC; display: block\">\n<span style=\"font-size: 13px; color: #7A4E5C\">01<\u002Fspan>\n<h3 style=\"margin: 8px 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px\">Wrinkle relaxers<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45; font-size: 16px\">Soften forehead lines, 11s and crow's feet without losing your expressions.<\u002Fp>\n<\u002Fa>\n<a href=\"https://alignedaestheticscle.com/services-item/dermal-fillers/\" style=\"text-decoration: none; padding: 32px 28px 32px 0; border-bottom: 1px solid #F0D9DC; display: block\">\n<span style=\"font-size: 13px; color: #7A4E5C\">02<\u002Fspan>\n<h3 style=\"margin: 8px 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px\">Dermal fillers<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45; font-size: 16px\">Lips, cheeks and under eyes. Balanced volume, never a \"done\" look.<\u002Fp>\n<\u002Fa>\n<a href=\"https://alignedaestheticscle.com/services-item/microneedling/\" style=\"text-decoration: none; padding: 32px 28px 32px 0; border-bottom: 1px solid #F0D9DC; display: block\">\n<span style=\"font-size: 13px; color: #7A4E5C\">03<\u002Fspan>\n<h3 style=\"margin: 8px 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px\">Microneedling<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45; font-size: 16px\">Smoother texture, softer scarring and better tone. Pairs well with PRF.<\u002Fp>\n<\u002Fa>\n<a href=\"https://alignedaestheticscle.com/services-item/pdo-threads/\" style=\"text-decoration: none; padding: 32px 28px 32px 0; border-bottom: 1px solid #F0D9DC; display: block\">\n<span style=\"font-size: 13px; color: #7A4E5C\">04<\u002Fspan>\n<h3 style=\"margin: 8px 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px\">PDO threads<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45; font-size: 16px\">A subtle lift and collagen boost, no surgery.<\u002Fp>\n<\u002Fa>\n<a href=\"https://alignedaestheticscle.com/services-item/chemical-peels/\" style=\"text-decoration: none; padding: 32px 28px 32px 0; border-bottom: 1px solid #F0D9DC; display: block\">\n<span style=\"font-size: 13px; color: #7A4E5C\">05<\u002Fspan>\n<h3 style=\"margin: 8px 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px\">Chemical peels<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45; font-size: 16px\">Brighter, clearer skin. Light refresh or a deeper reset, your call.<\u002Fp>\n<\u002Fa>\n<a href=\"https://alignedaestheticscle.com/services-item/prf-ezgel/\" style=\"text-decoration: none; padding: 32px 28px 32px 0; border-bottom: 1px solid #F0D9DC; display: block\">\n<span style=\"font-size: 13px; color: #7A4E5C\">06<\u002Fspan>\n<h3 style=\"margin: 8px 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px\">PRF &amp; PRF EzGel<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45; font-size: 16px\">Made from your own blood. A popular pick for tired under eyes.<\u002Fp>\n<\u002Fa>\n<a href=\"https://alignedaestheticscle.com/services-item/the-o-shot/\" style=\"text-decoration: none; padding: 32px 28px 32px 0; border-bottom: 1px solid #F0D9DC; display: block\">\n<span style=\"font-size: 13px; color: #7A4E5C\">07<\u002Fspan>\n<h3 style=\"margin: 8px 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px\">The O-Shot<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45; font-size: 16px\">Women's sexual wellness, handled privately by a certified nurse midwife.<\u002Fp>\n<\u002Fa>\n<a href=\"https://alignedaestheticscle.com/services/\" style=\"text-decoration: none; padding: 32px 28px 32px 0; border-bottom: 1px solid #F0D9DC; display: block\">\n<span style=\"font-size: 13px; color: #7A4E5C\">08<\u002Fspan>\n<h3 style=\"margin: 8px 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px; color: {{accent}}\">Biostimulators<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45; font-size: 16px\">Radiesse to help your skin build its own collagen over time.<\u002Fp>\n<\u002Fa>\n<\u002Fdiv>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section style=\"max-width: 1240px; margin: 0 auto; padding: 96px 24px\">\n<h2 style=\"margin: 0 0 48px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 52px; line-height: 1.05\">Your first visit<\u002Fh2>\n<div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px\">\n<div style=\"border-top: 2px solid #3A1F28; padding-top: 20px\"><strong style=\"display: block; font-size: 18px; margin-bottom: 6px\">Book online<\u002Fstrong><span style=\"color: #5A3A45\">Pick a consult time that works. Takes about a minute.<\u002Fspan><\u002Fdiv>\n<div style=\"border-top: 2px solid #3A1F28; padding-top: 20px\"><strong style=\"display: block; font-size: 18px; margin-bottom: 6px\">Talk it through<\u002Fstrong><span style=\"color: #5A3A45\">Ann looks at your skin, your history and what you want to change.<\u002Fspan><\u002Fdiv>\n<div style=\"border-top: 2px solid #3A1F28; padding-top: 20px\"><strong style=\"display: block; font-size: 18px; margin-bottom: 6px\">Get your plan<\u002Fstrong><span style=\"color: #5A3A45\">Clear options and pricing. No pressure to do it all today.<\u002Fspan><\u002Fdiv>\n<div style=\"border-top: 2px solid #3A1F28; padding-top: 20px\"><strong style=\"display: block; font-size: 18px; margin-bottom: 6px\">Follow up<\u002Fstrong><span style=\"color: #5A3A45\">We check in on results and tweak from there.<\u002Fspan><\u002Fdiv>\n<\u002Fdiv>\n<div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 56px\">\n<img src=\"51dbc0d7-b1cb-4377-bd9a-18ab9584fef9\" alt=\"Ann performing a filler treatment\" style=\"width: 100%; height: 420px; object-fit: cover; object-position: center 30%; border-radius: 12px; display: block; background: #F7DDE1\">\n<div style=\"background: #F7DDE1; border-radius: 12px; padding: 48px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center\">\n<p style=\"margin: 0 0 12px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 36px; line-height: 1.15\">One provider. Start to finish.<\u002Fp>\n<p style=\"margin: 0; color: #5A3A45\">The person who does your consult is the person holding the syringe. No handoffs, no guessing who you'll see next time.<\u002Fp>\n<\u002Fdiv>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section id=\"ann\" style=\"background: #3A1F28; color: #FCEBEF\">\n<div style=\"max-width: 1240px; margin: 0 auto; padding: 104px 24px; display: flex; flex-wrap: wrap; gap: 56px 80px; align-items: center\">\n<img src=\"3ce395f3-058a-4b2b-8eae-d1b4c1a0b269\" alt=\"Ann Mehler, MSN, APRN-CNM\" style=\"flex: 1 1 360px; min-width: 0; max-width: 520px; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 20%; border-radius: 260px 260px 12px 12px; display: block; background: #5A3A45\">\n<div style=\"flex: 1 1 480px\">\n<p style=\"margin: 0 0 16px; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #F1C6D0\">Meet your provider<\u002Fp>\n<h2 style=\"margin: 0 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 52px; line-height: 1.05\">Ann Mehler<\u002Fh2>\n<p style=\"margin: 0 0 28px; font-size: 16px; color: #F1C6D0\">MSN, APRN-CNM · Founder<\u002Fp>\n<p style=\"margin: 0 0 18px; font-size: 18px\">Ann is an advanced practice nurse and certified nurse midwife. She started Aligned Aesthetics to help women feel good in their own skin, from the inside out.<\u002Fp>\n<p style=\"margin: 0 0 32px; font-size: 18px\">She's the one who'll tell you when you don't need more filler. Her clients tend to stick around because of it.<\u002Fp>\n<a href=\"https://alignedaesthetics.myaestheticrecord.com/online-booking\" style=\"text-decoration: none; background: #FCEBEF; color: #3A1F28; padding: 16px 30px; border-radius: 999px; font-weight: 600; display: inline-block; min-height: 44px; box-sizing: border-box\">Book with Ann<\u002Fa>\n<\u002Fdiv>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section style=\"max-width: 1240px; margin: 0 auto; padding: 96px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px\">\n<div id=\"membership\" style=\"background: #FFFFFF; border: 1px solid #F0D9DC; border-radius: 16px; padding: 40px\">\n<p style=\"margin: 0 0 12px; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A4E5C\">Membership<\u002Fp>\n<h3 style=\"margin: 0 0 16px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 38px; line-height: 1.1\">Stay on schedule, save along the way<\u002Fh3>\n<p style=\"margin: 0 0 24px; color: #5A3A45\">If you're coming in every few months anyway, a membership keeps you on track and saves you money on the treatments you already love.<\u002Fp>\n<a href=\"https://alignedaestheticscle.com/members/\" style=\"font-weight: 600\">See membership details<\u002Fa>\n<\u002Fdiv>\n<div id=\"financing\" style=\"background: #F7DDE1; border-radius: 16px; padding: 40px\">\n<p style=\"margin: 0 0 12px; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A4E5C\">Financing<\u002Fp>\n<h3 style=\"margin: 0 0 16px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 38px; line-height: 1.1\">Split it into monthly payments<\u002Fh3>\n<p style=\"margin: 0 0 24px; color: #5A3A45\">Apply with PatientFi or Cherry in a few minutes. PatientFi never runs a hard credit check.<\u002Fp>\n<div style=\"display: flex; flex-wrap: wrap; gap: 20px\">\n<a href=\"https://app.patientfi.com/v2/aligned-aesthetics/apply\" style=\"font-weight: 600\">Apply with PatientFi<\u002Fa>\n<a href=\"https://alignedaestheticscle.com/cherry-payment-plan/\" style=\"font-weight: 600\">Apply with Cherry<\u002Fa>\n<\u002Fdiv>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section id=\"skincare\" style=\"background: #FFFFFF; border-top: 1px solid #F0D9DC\">\n<div style=\"max-width: 1240px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 40px 80px; align-items: center\">\n<div style=\"flex: 1 1 420px\">\n<h2 style=\"margin: 0 0 16px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 52px; line-height: 1.05\">Keep it going at home<\u002Fh2>\n<p style=\"margin: 0; color: #5A3A45; font-size: 18px\">Treatments do the heavy lifting. Good skincare protects the results. Ann carries two lines she actually trusts, and you can order online.<\u002Fp>\n<\u002Fdiv>\n<div style=\"flex: 1 1 420px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px\">\n<a href=\"https://skinbetter.pro/alignedaestheticsllc\" style=\"text-decoration: none; border: 1px solid #F0D9DC; border-radius: 12px; padding: 28px; display: block\"><strong style=\"display: block; font-size: 18px\">SkinBetter Science<\u002Fstrong><span style=\"font-size: 15px; color: #5A3A45\">Shop now<\u002Fspan><\u002Fa>\n<a href=\"https://platedskinscience.com/alignedaesthetics\" style=\"text-decoration: none; border: 1px solid #F0D9DC; border-radius: 12px; padding: 28px; display: block\"><strong style=\"display: block; font-size: 18px\">Plated Skin Science<\u002Fstrong><span style=\"font-size: 15px; color: #5A3A45\">Shop now<\u002Fspan><\u002Fa>\n<\u002Fdiv>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section style=\"max-width: 860px; margin: 0 auto; padding: 96px 24px\">\n<h2 style=\"margin: 0 0 32px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 52px; line-height: 1.05\">Good questions<\u002Fh2>\n<div style=\"border-top: 1px solid #F0D9DC; padding: 24px 0\">\n<h3 style=\"margin: 0 0 8px; font-size: 19px\">My tox is wearing off already. Did it stop working?<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45\">Probably not. Wrinkle relaxers ease in, peak, then slowly wear off. Seeing some movement around 8 to 10 weeks is normal. Message us if you're unsure.<\u002Fp>\n<\u002Fdiv>\n<div style=\"border-top: 1px solid #F0D9DC; padding: 24px 0\">\n<h3 style=\"margin: 0 0 8px; font-size: 19px\">I had lip filler years ago. Can I just add more?<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45\">Filler can stick around longer than people expect. Ann checks what's still there first, and sometimes dissolving is the better starting point.<\u002Fp>\n<\u002Fdiv>\n<div style=\"border-top: 1px solid #F0D9DC; border-bottom: 1px solid #F0D9DC; padding: 24px 0\">\n<h3 style=\"margin: 0 0 8px; font-size: 19px\">Will I look done?<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45\">Not if we're doing it right. The goal is that people say you look rested, not that you got work done.<\u002Fp>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section style=\"background: {{accent}}; color: #FFFFFF\">\n<div style=\"max-width: 1240px; margin: 0 auto; padding: 88px 24px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between\">\n<h2 style=\"margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 52px; line-height: 1.05; max-width: 640px\">Ready to stop covering up?<\u002Fh2>\n<div style=\"display: flex; flex-wrap: wrap; gap: 14px\">\n<a href=\"https://alignedaesthetics.myaestheticrecord.com/online-booking\" style=\"text-decoration: none; background: #FFFFFF; color: #3A1F28; padding: 16px 30px; border-radius: 999px; font-weight: 600; min-height: 44px; box-sizing: border-box\">Book your consultation<\u002Fa>\n<a href=\"tel:14405372786\" style=\"text-decoration: none; border: 1.5px solid #FFFFFF; color: #FFFFFF; padding: 15px 28px; border-radius: 999px; font-weight: 600; min-height: 44px; box-sizing: border-box\">(440) 537-2786<\u002Fa>\n<\u002Fdiv>\n<\u002Fdiv>\n<\u002Fsection>\n\n<footer style=\"background: #2E1820; color: #F1C6D0; font-size: 15px\">\n<div style=\"max-width: 1240px; margin: 0 auto; padding: 56px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px\">\n<div>\n<span style=\"font-family: 'Cormorant Garamond', Georgia, serif; font-size: 28px; color: #FCEBEF\">Aligned Aesthetics<\u002Fspan>\n<p style=\"margin: 8px 0 0\">Medical aesthetics in Solon, Ohio. Serving Cleveland's east side.<\u002Fp>\n<\u002Fdiv>\n<div>\n<strong style=\"display: block; color: #FCEBEF; margin-bottom: 8px\">Visit<\u002Fstrong>\n6001 Cochran Rd, Suite 404<br>Solon, OH 44139\n<\u002Fdiv>\n<div>\n<strong style=\"display: block; color: #FCEBEF; margin-bottom: 8px\">Contact<\u002Fstrong>\n<a href=\"tel:14405372786\" style=\"color: #F1C6D0\">(440) 537-2786<\u002Fa>\n<\u002Fdiv>\n<div>\n<strong style=\"display: block; color: #FCEBEF; margin-bottom: 8px\">Follow<\u002Fstrong>\n<a href=\"https://www.instagram.com/alignedaesthetics_medspa/\" style=\"color: #F1C6D0\">Instagram<\u002Fa><br>\n<a href=\"https://www.facebook.com/profile.php?id=100089668770334\" style=\"color: #F1C6D0\">Facebook<\u002Fa>\n<\u002Fdiv>\n<\u002Fdiv>\n<\u002Ffooter>\n\n<\u002Fdiv>\n<sc-if data-dc-static=\"\" value=\"{{ false }}\"><style>x-dc>*{display:none!important}x-dc>[data-dc-static]{display:block!important}<\u002Fstyle>\n\n<div style=\"font-family: Karla, 'Helvetica Neue', Arial, sans-serif; color: #3A1F28; background: #FCF3F3; font-size: 17px; line-height: 1.6\" data-canvas-width=\"1440\" data-canvas-height=\"5600\" data-document-role=\"page\" data-label=\"Homepage\">\n\n<div style=\"background: #3A1F28; color: #FCEBEF; font-size: 14px; letter-spacing: 0.04em\">\n<div style=\"max-width: 1240px; margin: 0 auto; padding: 10px 24px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; align-items: center\">\n<span>6001 Cochran Rd, Suite 404, Solon, OH 44139<\u002Fspan>\n<a href=\"tel:14405372786\" style=\"color: #FCEBEF; text-decoration: none\">Call or text (440) 537-2786<\u002Fa>\n<\u002Fdiv>\n<\u002Fdiv>\n\n<header style=\"border-bottom: 1px solid #F0D9DC; background: #FCF3F3\">\n<div style=\"max-width: 1240px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; gap: 16px 40px; align-items: center; justify-content: space-between\">\n<a href=\"#top\" style=\"text-decoration: none; display: flex; flex-direction: column; line-height: 1\">\n<span style=\"font-family: 'Cormorant Garamond', Georgia, serif; font-size: 32px; font-weight: 600; letter-spacing: 0.02em\">Aligned Aesthetics<\u002Fspan>\n<span style=\"font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; margin-top: 6px; color: #7A4E5C\">Med Spa · Solon, Ohio<\u002Fspan>\n<\u002Fa>\n<nav aria-label=\"Main\" style=\"display: flex; flex-wrap: wrap; gap: 8px 28px; font-size: 15px; align-items: center\">\n<a href=\"#treatments\" style=\"text-decoration: none\">Treatments<\u002Fa>\n<a href=\"#ann\" style=\"text-decoration: none\">Meet Ann<\u002Fa>\n<a href=\"#membership\" style=\"text-decoration: none\">Membership<\u002Fa>\n<a href=\"#financing\" style=\"text-decoration: none\">Financing<\u002Fa>\n<a href=\"#skincare\" style=\"text-decoration: none\">Skincare<\u002Fa>\n<a href=\"https://alignedaesthetics.myaestheticrecord.com/online-booking\" style=\"text-decoration: none; background: #B0476A; color: #FFFFFF; padding: 12px 22px; border-radius: 999px; font-weight: 600; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center\">Book a consult<\u002Fa>\n<\u002Fnav>\n<\u002Fdiv>\n<\u002Fheader>\n\n<section id=\"top\" style=\"max-width: 1240px; margin: 0 auto; padding: 72px 24px 88px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center\">\n<div style=\"flex: 1 1 460px; min-width: 0\">\n<p style=\"margin: 0 0 20px; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A4E5C\">Nurse practitioner led aesthetics<\u002Fp>\n<h1 style=\"margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 68px; line-height: 1.02; letter-spacing: -0.01em\">Makeup should be an accessory. <em style=\"color: #B0476A\">Not a necessity.<\u002Fem><\u002Fh1>\n<p style=\"margin: 28px 0 0; font-size: 19px; max-width: 520px; color: #5A3A45\">Wrinkle relaxers, filler, microneedling, PRF and more in Solon, done by Ann Mehler, MSN, APRN-CNM. Subtle work that still looks like you. Just more rested.<\u002Fp>\n<div style=\"display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px\">\n<a href=\"https://alignedaesthetics.myaestheticrecord.com/online-booking\" style=\"text-decoration: none; background: #B0476A; color: #FFFFFF; padding: 16px 30px; border-radius: 999px; font-weight: 600; min-height: 44px; box-sizing: border-box\">Book your consultation<\u002Fa>\n<a href=\"#treatments\" style=\"text-decoration: none; border: 1.5px solid #3A1F28; padding: 15px 28px; border-radius: 999px; font-weight: 600; min-height: 44px; box-sizing: border-box\">See treatments<\u002Fa>\n<\u002Fdiv>\n<p style=\"margin: 28px 0 0; font-size: 14px; color: #7A4E5C\">Monthly payment plans through PatientFi and Cherry<\u002Fp>\n<\u002Fdiv>\n<div style=\"flex: 1 1 420px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px\">\n<img src=\"9df2629d-7d0e-4f17-b6b7-d5385c923e8c\" alt=\"Ann smiling during a microneedling treatment\" style=\"grid-row: span 2; width: 100%; height: 100%; min-height: 520px; object-fit: cover; object-position: center 30%; border-radius: 220px 220px 12px 12px; display: block; background: #F2C9D0\">\n<img src=\"06bfe58a-9c2a-404b-a0d1-6a24609b6678\" alt=\"Ann mapping a client's face before treatment\" style=\"width: 100%; height: 252px; object-fit: cover; object-position: center 20%; border-radius: 12px; display: block; background: #F7DDE1\">\n<div style=\"background: #3A1F28; border-radius: 12px; min-height: 252px; padding: 24px; box-sizing: border-box; color: #FCEBEF; display: flex; flex-direction: column; justify-content: space-between\">\n<span style=\"font-family: 'Cormorant Garamond', Georgia, serif; font-size: 26px; line-height: 1.2\">No frozen faces. No overdone lips.<\u002Fspan>\n<span style=\"font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: #F1C6D0\">Our one rule<\u002Fspan>\n<\u002Fdiv>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section aria-label=\"Why clients choose us\" style=\"background: #F7DDE1\">\n<div style=\"max-width: 1240px; margin: 0 auto; padding: 32px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; font-size: 15px\">\n<div><strong style=\"display: block; font-size: 16px\">Medical provider, every visit<\u002Fstrong>Ann does your assessment and your treatment.<\u002Fdiv>\n<div><strong style=\"display: block; font-size: 16px\">A plan, not a menu<\u002Fstrong>Built around your face, goals and budget.<\u002Fdiv>\n<div><strong style=\"display: block; font-size: 16px\">Pay over time<\u002Fstrong>PatientFi and Cherry, no hard credit check to apply with PatientFi.<\u002Fdiv>\n<div><strong style=\"display: block; font-size: 16px\">Medical grade skincare<\u002Fstrong>SkinBetter Science and Plated Skin Science.<\u002Fdiv>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section style=\"max-width: 1240px; margin: 0 auto; padding: 104px 24px; display: flex; flex-wrap: wrap; gap: 48px 80px\">\n<div style=\"flex: 1 1 380px\">\n<p style=\"margin: 0 0 16px; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A4E5C\">How Ann works<\u002Fp>\n<h2 style=\"margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 52px; line-height: 1.05\">Aesthetics is still medicine.<\u002Fh2>\n<img src=\"67998991-42c7-4128-9220-205a342336c3\" alt=\"\" aria-hidden=\"true\" style=\"width: 220px; height: 220px; object-fit: cover; margin-top: 32px; border-radius: 50%; display: block; mix-blend-mode: multiply\">\n<\u002Fdiv>\n<div style=\"flex: 1 1 520px; font-size: 18px; color: #5A3A45\">\n<p style=\"margin: 0 0 20px\">You get a say in your treatment. Your goals matter. But so does your medical history, your anatomy and what makes sense long term.<\u002Fp>\n<p style=\"margin: 0 0 20px\">So Ann's job isn't to sell you a syringe. It's to look at what's actually there, explain your options and recommend what fits. Sometimes that's a different approach. Sometimes it's less. Sometimes it's nothing at all yet.<\u002Fp>\n<p style=\"margin: 0\">That's why most people leave their first visit feeling clearer about their skin, whether they get treated that day or not.<\u002Fp>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section id=\"treatments\" style=\"background: #FFFFFF; border-top: 1px solid #F0D9DC; border-bottom: 1px solid #F0D9DC\">\n<div style=\"max-width: 1240px; margin: 0 auto; padding: 96px 24px\">\n<div style=\"display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 20px; margin-bottom: 48px\">\n<h2 style=\"margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 52px; line-height: 1.05\">Treatments<\u002Fh2>\n<p style=\"margin: 0; max-width: 440px; color: #5A3A45\">Not sure what you need? That's what the consult is for. Come in with the thing that bugs you and we'll go from there.<\u002Fp>\n<\u002Fdiv>\n<div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0; border-top: 1px solid #F0D9DC\">\n<a href=\"https://alignedaestheticscle.com/services-item/wrinkle-relaxers/\" style=\"text-decoration: none; padding: 32px 28px 32px 0; border-bottom: 1px solid #F0D9DC; display: block\">\n<span style=\"font-size: 13px; color: #7A4E5C\">01<\u002Fspan>\n<h3 style=\"margin: 8px 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px\">Wrinkle relaxers<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45; font-size: 16px\">Soften forehead lines, 11s and crow's feet without losing your expressions.<\u002Fp>\n<\u002Fa>\n<a href=\"https://alignedaestheticscle.com/services-item/dermal-fillers/\" style=\"text-decoration: none; padding: 32px 28px 32px 0; border-bottom: 1px solid #F0D9DC; display: block\">\n<span style=\"font-size: 13px; color: #7A4E5C\">02<\u002Fspan>\n<h3 style=\"margin: 8px 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px\">Dermal fillers<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45; font-size: 16px\">Lips, cheeks and under eyes. Balanced volume, never a \"done\" look.<\u002Fp>\n<\u002Fa>\n<a href=\"https://alignedaestheticscle.com/services-item/microneedling/\" style=\"text-decoration: none; padding: 32px 28px 32px 0; border-bottom: 1px solid #F0D9DC; display: block\">\n<span style=\"font-size: 13px; color: #7A4E5C\">03<\u002Fspan>\n<h3 style=\"margin: 8px 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px\">Microneedling<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45; font-size: 16px\">Smoother texture, softer scarring and better tone. Pairs well with PRF.<\u002Fp>\n<\u002Fa>\n<a href=\"https://alignedaestheticscle.com/services-item/pdo-threads/\" style=\"text-decoration: none; padding: 32px 28px 32px 0; border-bottom: 1px solid #F0D9DC; display: block\">\n<span style=\"font-size: 13px; color: #7A4E5C\">04<\u002Fspan>\n<h3 style=\"margin: 8px 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px\">PDO threads<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45; font-size: 16px\">A subtle lift and collagen boost, no surgery.<\u002Fp>\n<\u002Fa>\n<a href=\"https://alignedaestheticscle.com/services-item/chemical-peels/\" style=\"text-decoration: none; padding: 32px 28px 32px 0; border-bottom: 1px solid #F0D9DC; display: block\">\n<span style=\"font-size: 13px; color: #7A4E5C\">05<\u002Fspan>\n<h3 style=\"margin: 8px 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px\">Chemical peels<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45; font-size: 16px\">Brighter, clearer skin. Light refresh or a deeper reset, your call.<\u002Fp>\n<\u002Fa>\n<a href=\"https://alignedaestheticscle.com/services-item/prf-ezgel/\" style=\"text-decoration: none; padding: 32px 28px 32px 0; border-bottom: 1px solid #F0D9DC; display: block\">\n<span style=\"font-size: 13px; color: #7A4E5C\">06<\u002Fspan>\n<h3 style=\"margin: 8px 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px\">PRF &amp; PRF EzGel<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45; font-size: 16px\">Made from your own blood. A popular pick for tired under eyes.<\u002Fp>\n<\u002Fa>\n<a href=\"https://alignedaestheticscle.com/services-item/the-o-shot/\" style=\"text-decoration: none; padding: 32px 28px 32px 0; border-bottom: 1px solid #F0D9DC; display: block\">\n<span style=\"font-size: 13px; color: #7A4E5C\">07<\u002Fspan>\n<h3 style=\"margin: 8px 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px\">The O-Shot<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45; font-size: 16px\">Women's sexual wellness, handled privately by a certified nurse midwife.<\u002Fp>\n<\u002Fa>\n<a href=\"https://alignedaestheticscle.com/services/\" style=\"text-decoration: none; padding: 32px 28px 32px 0; border-bottom: 1px solid #F0D9DC; display: block\">\n<span style=\"font-size: 13px; color: #7A4E5C\">08<\u002Fspan>\n<h3 style=\"margin: 8px 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px; color: #B0476A\">Biostimulators<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45; font-size: 16px\">Radiesse to help your skin build its own collagen over time.<\u002Fp>\n<\u002Fa>\n<\u002Fdiv>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section style=\"max-width: 1240px; margin: 0 auto; padding: 96px 24px\">\n<h2 style=\"margin: 0 0 48px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 52px; line-height: 1.05\">Your first visit<\u002Fh2>\n<div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px\">\n<div style=\"border-top: 2px solid #3A1F28; padding-top: 20px\"><strong style=\"display: block; font-size: 18px; margin-bottom: 6px\">Book online<\u002Fstrong><span style=\"color: #5A3A45\">Pick a consult time that works. Takes about a minute.<\u002Fspan><\u002Fdiv>\n<div style=\"border-top: 2px solid #3A1F28; padding-top: 20px\"><strong style=\"display: block; font-size: 18px; margin-bottom: 6px\">Talk it through<\u002Fstrong><span style=\"color: #5A3A45\">Ann looks at your skin, your history and what you want to change.<\u002Fspan><\u002Fdiv>\n<div style=\"border-top: 2px solid #3A1F28; padding-top: 20px\"><strong style=\"display: block; font-size: 18px; margin-bottom: 6px\">Get your plan<\u002Fstrong><span style=\"color: #5A3A45\">Clear options and pricing. No pressure to do it all today.<\u002Fspan><\u002Fdiv>\n<div style=\"border-top: 2px solid #3A1F28; padding-top: 20px\"><strong style=\"display: block; font-size: 18px; margin-bottom: 6px\">Follow up<\u002Fstrong><span style=\"color: #5A3A45\">We check in on results and tweak from there.<\u002Fspan><\u002Fdiv>\n<\u002Fdiv>\n<div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 56px\">\n<img src=\"51dbc0d7-b1cb-4377-bd9a-18ab9584fef9\" alt=\"Ann performing a filler treatment\" style=\"width: 100%; height: 420px; object-fit: cover; object-position: center 30%; border-radius: 12px; display: block; background: #F7DDE1\">\n<div style=\"background: #F7DDE1; border-radius: 12px; padding: 48px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center\">\n<p style=\"margin: 0 0 12px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 36px; line-height: 1.15\">One provider. Start to finish.<\u002Fp>\n<p style=\"margin: 0; color: #5A3A45\">The person who does your consult is the person holding the syringe. No handoffs, no guessing who you'll see next time.<\u002Fp>\n<\u002Fdiv>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section id=\"ann\" style=\"background: #3A1F28; color: #FCEBEF\">\n<div style=\"max-width: 1240px; margin: 0 auto; padding: 104px 24px; display: flex; flex-wrap: wrap; gap: 56px 80px; align-items: center\">\n<img src=\"3ce395f3-058a-4b2b-8eae-d1b4c1a0b269\" alt=\"Ann Mehler, MSN, APRN-CNM\" style=\"flex: 1 1 360px; min-width: 0; max-width: 520px; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 20%; border-radius: 260px 260px 12px 12px; display: block; background: #5A3A45\">\n<div style=\"flex: 1 1 480px\">\n<p style=\"margin: 0 0 16px; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #F1C6D0\">Meet your provider<\u002Fp>\n<h2 style=\"margin: 0 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 52px; line-height: 1.05\">Ann Mehler<\u002Fh2>\n<p style=\"margin: 0 0 28px; font-size: 16px; color: #F1C6D0\">MSN, APRN-CNM · Founder<\u002Fp>\n<p style=\"margin: 0 0 18px; font-size: 18px\">Ann is an advanced practice nurse and certified nurse midwife. She started Aligned Aesthetics to help women feel good in their own skin, from the inside out.<\u002Fp>\n<p style=\"margin: 0 0 32px; font-size: 18px\">She's the one who'll tell you when you don't need more filler. Her clients tend to stick around because of it.<\u002Fp>\n<a href=\"https://alignedaesthetics.myaestheticrecord.com/online-booking\" style=\"text-decoration: none; background: #FCEBEF; color: #3A1F28; padding: 16px 30px; border-radius: 999px; font-weight: 600; display: inline-block; min-height: 44px; box-sizing: border-box\">Book with Ann<\u002Fa>\n<\u002Fdiv>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section style=\"max-width: 1240px; margin: 0 auto; padding: 96px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px\">\n<div id=\"membership\" style=\"background: #FFFFFF; border: 1px solid #F0D9DC; border-radius: 16px; padding: 40px\">\n<p style=\"margin: 0 0 12px; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A4E5C\">Membership<\u002Fp>\n<h3 style=\"margin: 0 0 16px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 38px; line-height: 1.1\">Stay on schedule, save along the way<\u002Fh3>\n<p style=\"margin: 0 0 24px; color: #5A3A45\">If you're coming in every few months anyway, a membership keeps you on track and saves you money on the treatments you already love.<\u002Fp>\n<a href=\"https://alignedaestheticscle.com/members/\" style=\"font-weight: 600\">See membership details<\u002Fa>\n<\u002Fdiv>\n<div id=\"financing\" style=\"background: #F7DDE1; border-radius: 16px; padding: 40px\">\n<p style=\"margin: 0 0 12px; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A4E5C\">Financing<\u002Fp>\n<h3 style=\"margin: 0 0 16px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 38px; line-height: 1.1\">Split it into monthly payments<\u002Fh3>\n<p style=\"margin: 0 0 24px; color: #5A3A45\">Apply with PatientFi or Cherry in a few minutes. PatientFi never runs a hard credit check.<\u002Fp>\n<div style=\"display: flex; flex-wrap: wrap; gap: 20px\">\n<a href=\"https://app.patientfi.com/v2/aligned-aesthetics/apply\" style=\"font-weight: 600\">Apply with PatientFi<\u002Fa>\n<a href=\"https://alignedaestheticscle.com/cherry-payment-plan/\" style=\"font-weight: 600\">Apply with Cherry<\u002Fa>\n<\u002Fdiv>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section id=\"skincare\" style=\"background: #FFFFFF; border-top: 1px solid #F0D9DC\">\n<div style=\"max-width: 1240px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 40px 80px; align-items: center\">\n<div style=\"flex: 1 1 420px\">\n<h2 style=\"margin: 0 0 16px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 52px; line-height: 1.05\">Keep it going at home<\u002Fh2>\n<p style=\"margin: 0; color: #5A3A45; font-size: 18px\">Treatments do the heavy lifting. Good skincare protects the results. Ann carries two lines she actually trusts, and you can order online.<\u002Fp>\n<\u002Fdiv>\n<div style=\"flex: 1 1 420px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px\">\n<a href=\"https://skinbetter.pro/alignedaestheticsllc\" style=\"text-decoration: none; border: 1px solid #F0D9DC; border-radius: 12px; padding: 28px; display: block\"><strong style=\"display: block; font-size: 18px\">SkinBetter Science<\u002Fstrong><span style=\"font-size: 15px; color: #5A3A45\">Shop now<\u002Fspan><\u002Fa>\n<a href=\"https://platedskinscience.com/alignedaesthetics\" style=\"text-decoration: none; border: 1px solid #F0D9DC; border-radius: 12px; padding: 28px; display: block\"><strong style=\"display: block; font-size: 18px\">Plated Skin Science<\u002Fstrong><span style=\"font-size: 15px; color: #5A3A45\">Shop now<\u002Fspan><\u002Fa>\n<\u002Fdiv>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section style=\"max-width: 860px; margin: 0 auto; padding: 96px 24px\">\n<h2 style=\"margin: 0 0 32px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 52px; line-height: 1.05\">Good questions<\u002Fh2>\n<div style=\"border-top: 1px solid #F0D9DC; padding: 24px 0\">\n<h3 style=\"margin: 0 0 8px; font-size: 19px\">My tox is wearing off already. Did it stop working?<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45\">Probably not. Wrinkle relaxers ease in, peak, then slowly wear off. Seeing some movement around 8 to 10 weeks is normal. Message us if you're unsure.<\u002Fp>\n<\u002Fdiv>\n<div style=\"border-top: 1px solid #F0D9DC; padding: 24px 0\">\n<h3 style=\"margin: 0 0 8px; font-size: 19px\">I had lip filler years ago. Can I just add more?<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45\">Filler can stick around longer than people expect. Ann checks what's still there first, and sometimes dissolving is the better starting point.<\u002Fp>\n<\u002Fdiv>\n<div style=\"border-top: 1px solid #F0D9DC; border-bottom: 1px solid #F0D9DC; padding: 24px 0\">\n<h3 style=\"margin: 0 0 8px; font-size: 19px\">Will I look done?<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45\">Not if we're doing it right. The goal is that people say you look rested, not that you got work done.<\u002Fp>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section style=\"background: #B0476A; color: #FFFFFF\">\n<div style=\"max-width: 1240px; margin: 0 auto; padding: 88px 24px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between\">\n<h2 style=\"margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 52px; line-height: 1.05; max-width: 640px\">Ready to stop covering up?<\u002Fh2>\n<div style=\"display: flex; flex-wrap: wrap; gap: 14px\">\n<a href=\"https://alignedaesthetics.myaestheticrecord.com/online-booking\" style=\"text-decoration: none; background: #FFFFFF; color: #3A1F28; padding: 16px 30px; border-radius: 999px; font-weight: 600; min-height: 44px; box-sizing: border-box\">Book your consultation<\u002Fa>\n<a href=\"tel:14405372786\" style=\"text-decoration: none; border: 1.5px solid #FFFFFF; color: #FFFFFF; padding: 15px 28px; border-radius: 999px; font-weight: 600; min-height: 44px; box-sizing: border-box\">(440) 537-2786<\u002Fa>\n<\u002Fdiv>\n<\u002Fdiv>\n<\u002Fsection>\n\n<footer style=\"background: #2E1820; color: #F1C6D0; font-size: 15px\">\n<div style=\"max-width: 1240px; margin: 0 auto; padding: 56px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px\">\n<div>\n<span style=\"font-family: 'Cormorant Garamond', Georgia, serif; font-size: 28px; color: #FCEBEF\">Aligned Aesthetics<\u002Fspan>\n<p style=\"margin: 8px 0 0\">Medical aesthetics in Solon, Ohio. Serving Cleveland's east side.<\u002Fp>\n<\u002Fdiv>\n<div>\n<strong style=\"display: block; color: #FCEBEF; margin-bottom: 8px\">Visit<\u002Fstrong>\n6001 Cochran Rd, Suite 404<br>Solon, OH 44139\n<\u002Fdiv>\n<div>\n<strong style=\"display: block; color: #FCEBEF; margin-bottom: 8px\">Contact<\u002Fstrong>\n<a href=\"tel:14405372786\" style=\"color: #F1C6D0\">(440) 537-2786<\u002Fa>\n<\u002Fdiv>\n<div>\n<strong style=\"display: block; color: #FCEBEF; margin-bottom: 8px\">Follow<\u002Fstrong>\n<a href=\"https://www.instagram.com/alignedaesthetics_medspa/\" style=\"color: #F1C6D0\">Instagram<\u002Fa><br>\n<a href=\"https://www.facebook.com/profile.php?id=100089668770334\" style=\"color: #F1C6D0\">Facebook<\u002Fa>\n<\u002Fdiv>\n<\u002Fdiv>\n<\u002Ffooter>\n\n<\u002Fdiv>\n<\u002Fsc-if><\u002Fx-dc>\n<script type=\"text/x-dc\" data-dc-script=\"\" data-props=\"{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#B0476A&quot;,&quot;options&quot;:[&quot;#B0476A&quot;,&quot;#9C3D5E&quot;,&quot;#A85570&quot;]},&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:5600}}\">\nclass Component extends DCLogic {\nrenderVals() {\nreturn { accent: this.props.accent ?? '#B0476A' };\n}\n}\n<\u002Fscript>\n\n\n<\u002Fbody><\u002Fhtml>"
+"<!DOCTYPE html>\n<html lang=\"en\"><head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<title>Aligned Aesthetics Med Spa, Solon OH<\u002Ftitle>\n<script src=\"9baa81a6-062d-46ac-82e5-a80422705ab9\"><\u002Fscript>\n<meta name=\"hz:slide-selector\" content=\":not(x-dc)&gt;[data-canvas-width]\"><meta name=\"hz:canvas-width\" content=\"1440\"><meta name=\"hz:canvas-height\" content=\"5600\"><\u002Fhead>\n<body>\n<x-dc>\n<helmet>\n<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<style>/* cyrillic-ext */\n@font-face {\n  font-family: 'Cormorant Garamond';\n  font-style: italic;\n  font-weight: 500;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/cormorantgaramond/v21/co3smX5slCNuHLi8bLeY9MK7whWMhyjYrGFEsdtdc62E6zd5wDD-hdM8A_6pUKz9ugk.woff2) format('woff2');\n  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;\n}\n/* cyrillic */\n@font-face {\n  font-family: 'Cormorant Garamond';\n  font-style: italic;\n  font-weight: 500;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/cormorantgaramond/v21/co3smX5slCNuHLi8bLeY9MK7whWMhyjYrGFEsdtdc62E6zd5wDD-jNM8A_6pUKz9ugk.woff2) format('woff2');\n  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;\n}\n/* vietnamese */\n@font-face {\n  font-family: 'Cormorant Garamond';\n  font-style: italic;\n  font-weight: 500;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/cormorantgaramond/v21/co3smX5slCNuHLi8bLeY9MK7whWMhyjYrGFEsdtdc62E6zd5wDD-h9M8A_6pUKz9ugk.woff2) format('woff2');\n  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;\n}\n/* latin-ext */\n@font-face {\n  font-family: 'Cormorant Garamond';\n  font-style: italic;\n  font-weight: 500;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/cormorantgaramond/v21/co3smX5slCNuHLi8bLeY9MK7whWMhyjYrGFEsdtdc62E6zd5wDD-htM8A_6pUKz9ugk.woff2) format('woff2');\n  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;\n}\n/* latin */\n@font-face {\n  font-family: 'Cormorant Garamond';\n  font-style: italic;\n  font-weight: 500;\n  font-display: swap;\n  src: url(\"e50dcfdc-ded9-43ad-85fd-a0825e2c8026\") format('woff2');\n  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;\n}\n/* cyrillic-ext */\n@font-face {\n  font-family: 'Cormorant Garamond';\n  font-style: normal;\n  font-weight: 500;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYpHtKky2F7i6C.woff2) format('woff2');\n  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;\n}\n/* cyrillic */\n@font-face {\n  font-family: 'Cormorant Garamond';\n  font-style: normal;\n  font-weight: 500;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYrXtKky2F7i6C.woff2) format('woff2');\n  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;\n}\n/* vietnamese */\n@font-face {\n  font-family: 'Cormorant Garamond';\n  font-style: normal;\n  font-weight: 500;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYpntKky2F7i6C.woff2) format('woff2');\n  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;\n}\n/* latin-ext */\n@font-face {\n  font-family: 'Cormorant Garamond';\n  font-style: normal;\n  font-weight: 500;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYp3tKky2F7i6C.woff2) format('woff2');\n  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;\n}\n/* latin */\n@font-face {\n  font-family: 'Cormorant Garamond';\n  font-style: normal;\n  font-weight: 500;\n  font-display: swap;\n  src: url(\"289cf4f1-2242-446f-8ffd-b27779cbd5a9\") format('woff2');\n  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;\n}\n/* cyrillic-ext */\n@font-face {\n  font-family: 'Cormorant Garamond';\n  font-style: normal;\n  font-weight: 600;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYpHtKky2F7i6C.woff2) format('woff2');\n  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;\n}\n/* cyrillic */\n@font-face {\n  font-family: 'Cormorant Garamond';\n  font-style: normal;\n  font-weight: 600;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYrXtKky2F7i6C.woff2) format('woff2');\n  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;\n}\n/* vietnamese */\n@font-face {\n  font-family: 'Cormorant Garamond';\n  font-style: normal;\n  font-weight: 600;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYpntKky2F7i6C.woff2) format('woff2');\n  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;\n}\n/* latin-ext */\n@font-face {\n  font-family: 'Cormorant Garamond';\n  font-style: normal;\n  font-weight: 600;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYp3tKky2F7i6C.woff2) format('woff2');\n  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;\n}\n/* latin */\n@font-face {\n  font-family: 'Cormorant Garamond';\n  font-style: normal;\n  font-weight: 600;\n  font-display: swap;\n  src: url(\"289cf4f1-2242-446f-8ffd-b27779cbd5a9\") format('woff2');\n  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;\n}\n/* latin-ext */\n@font-face {\n  font-family: 'Karla';\n  font-style: normal;\n  font-weight: 400;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/karla/v33/qkB9XvYC6trAT55ZBi1ueQVIjQTD-JrIH2G7nytkHRyQ8p4wUjm6bmMorHBiTg.woff2) format('woff2');\n  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;\n}\n/* latin */\n@font-face {\n  font-family: 'Karla';\n  font-style: normal;\n  font-weight: 400;\n  font-display: swap;\n  src: url(\"d5190998-784f-4c4a-b53f-4c9e5ed8c849\") format('woff2');\n  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;\n}\n/* latin-ext */\n@font-face {\n  font-family: 'Karla';\n  font-style: normal;\n  font-weight: 500;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/karla/v33/qkB9XvYC6trAT55ZBi1ueQVIjQTD-JrIH2G7nytkHRyQ8p4wUjm6bmMorHBiTg.woff2) format('woff2');\n  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;\n}\n/* latin */\n@font-face {\n  font-family: 'Karla';\n  font-style: normal;\n  font-weight: 500;\n  font-display: swap;\n  src: url(\"d5190998-784f-4c4a-b53f-4c9e5ed8c849\") format('woff2');\n  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;\n}\n/* latin-ext */\n@font-face {\n  font-family: 'Karla';\n  font-style: normal;\n  font-weight: 600;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/karla/v33/qkB9XvYC6trAT55ZBi1ueQVIjQTD-JrIH2G7nytkHRyQ8p4wUjm6bmMorHBiTg.woff2) format('woff2');\n  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;\n}\n/* latin */\n@font-face {\n  font-family: 'Karla';\n  font-style: normal;\n  font-weight: 600;\n  font-display: swap;\n  src: url(\"d5190998-784f-4c4a-b53f-4c9e5ed8c849\") format('woff2');\n  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;\n}\n<\u002Fstyle>\n<style>\nbody{margin:0;background:#FCF3F3}\n@media (max-width: 640px){\n[style*=\"font-size: 68px\"]{font-size:44px!important}\n[style*=\"font-size: 52px\"]{font-size:38px!important}\n[style*=\"font-size: 38px\"]{font-size:30px!important}\n[style*=\"font-size: 36px\"]{font-size:28px!important}\n[style*=\"padding: 104px 24px\"],[style*=\"padding: 96px 24px\"],[style*=\"padding: 88px 24px\"]{padding-top:56px!important;padding-bottom:56px!important}\n[style*=\"padding: 72px 24px 88px\"]{padding-top:40px!important;padding-bottom:56px!important}\n[style*=\"padding: 40px\"],[style*=\"padding: 48px\"]{padding:28px!important}\n[style*=\"minmax(320px\"],[style*=\"minmax(300px\"],[style*=\"minmax(280px\"],[style*=\"minmax(240px\"]{grid-template-columns:1fr!important}\nimg{max-width:100%}\n[style*=\"grid-row: span 2\"]{grid-row:auto!important;grid-column:1/-1!important;height:360px!important;min-height:0!important}\n[style*=\"; height: 252px\"]{height:200px!important}\n[style*=\"min-height: 252px\"]{min-height:200px!important;padding:18px!important}\n[style*=\"font-size: 26px\"]{font-size:20px!important}\n[style*=\"height: 420px\"]{height:300px!important}\n}\na{color:#3A1F28}a:hover{color:#B0476A}\n<\u002Fstyle>\n<\u002Fhelmet>\n<div style=\"font-family: Karla, 'Helvetica Neue', Arial, sans-serif; color: #3A1F28; background: #FCF3F3; font-size: 17px; line-height: 1.6\" data-canvas-width=\"1440\" data-canvas-height=\"5600\">\n\n<div style=\"background: #3A1F28; color: #FCEBEF; font-size: 14px; letter-spacing: 0.04em\">\n<div style=\"max-width: 1240px; margin: 0 auto; padding: 10px 24px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; align-items: center\">\n<span>6001 Cochran Rd, Suite 404, Solon, OH 44139<\u002Fspan>\n<a href=\"tel:14405372786\" style=\"color: #FCEBEF; text-decoration: none\">Call or text (440) 537-2786<\u002Fa>\n<\u002Fdiv>\n<\u002Fdiv>\n\n<header style=\"border-bottom: 1px solid #F0D9DC; background: #FCF3F3\">\n<div style=\"max-width: 1240px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; gap: 16px 40px; align-items: center; justify-content: space-between\">\n<a href=\"#top\" style=\"text-decoration: none; display: flex; flex-direction: column; line-height: 1\">\n<span style=\"font-family: 'Cormorant Garamond', Georgia, serif; font-size: 32px; font-weight: 600; letter-spacing: 0.02em\">Aligned Aesthetics<\u002Fspan>\n<span style=\"font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; margin-top: 6px; color: #7A4E5C\">Med Spa · Solon, Ohio<\u002Fspan>\n<\u002Fa>\n<nav aria-label=\"Main\" style=\"display: flex; flex-wrap: wrap; gap: 8px 28px; font-size: 15px; align-items: center\">\n<a href=\"#treatments\" style=\"text-decoration: none\">Treatments<\u002Fa>\n<a href=\"#ann\" style=\"text-decoration: none\">Meet Ann<\u002Fa>\n<a href=\"#membership\" style=\"text-decoration: none\">Membership<\u002Fa>\n<a href=\"#financing\" style=\"text-decoration: none\">Financing<\u002Fa>\n<a href=\"#skincare\" style=\"text-decoration: none\">Skincare<\u002Fa>\n<a href=\"https://alignedaesthetics.myaestheticrecord.com/online-booking\" style=\"text-decoration: none; background: {{accent}}; color: #FFFFFF; padding: 12px 22px; border-radius: 999px; font-weight: 600; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center\">Book a consult<\u002Fa>\n<\u002Fnav>\n<\u002Fdiv>\n<\u002Fheader>\n\n<section id=\"top\" style=\"max-width: 1240px; margin: 0 auto; padding: 72px 24px 88px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center\">\n<div style=\"flex: 1 1 460px; min-width: 0\">\n<p style=\"margin: 0 0 20px; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A4E5C\">Nurse practitioner led aesthetics<\u002Fp>\n<h1 style=\"margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 68px; line-height: 1.02; letter-spacing: -0.01em\">Makeup should be an accessory. <em style=\"color: {{accent}}\">Not a necessity.<\u002Fem><\u002Fh1>\n<p style=\"margin: 28px 0 0; font-size: 19px; max-width: 520px; color: #5A3A45\">Wrinkle relaxers, filler, microneedling, PRF and more in Solon, done by Ann Mehler, MSN, APRN-CNM. Subtle work that still looks like you. Just more rested.<\u002Fp>\n<div style=\"display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px\">\n<a href=\"https://alignedaesthetics.myaestheticrecord.com/online-booking\" style=\"text-decoration: none; background: {{accent}}; color: #FFFFFF; padding: 16px 30px; border-radius: 999px; font-weight: 600; min-height: 44px; box-sizing: border-box\">Book your consultation<\u002Fa>\n<a href=\"#treatments\" style=\"text-decoration: none; border: 1.5px solid #3A1F28; padding: 15px 28px; border-radius: 999px; font-weight: 600; min-height: 44px; box-sizing: border-box\">See treatments<\u002Fa>\n<\u002Fdiv>\n<p style=\"margin: 28px 0 0; font-size: 14px; color: #7A4E5C\">Monthly payment plans through PatientFi and Cherry<\u002Fp>\n<\u002Fdiv>\n<div style=\"flex: 1 1 420px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px\">\n<img src=\"9df2629d-7d0e-4f17-b6b7-d5385c923e8c\" alt=\"Ann smiling during a microneedling treatment\" style=\"grid-row: span 2; width: 100%; height: 100%; min-height: 520px; object-fit: cover; object-position: center 30%; border-radius: 220px 220px 12px 12px; display: block; background: #F2C9D0\">\n<img src=\"06bfe58a-9c2a-404b-a0d1-6a24609b6678\" alt=\"Ann mapping a client's face before treatment\" style=\"width: 100%; height: 252px; object-fit: cover; object-position: center 20%; border-radius: 12px; display: block; background: #F7DDE1\">\n<div style=\"background: #3A1F28; border-radius: 12px; min-height: 252px; padding: 24px; box-sizing: border-box; color: #FCEBEF; display: flex; flex-direction: column; justify-content: space-between\">\n<span style=\"font-family: 'Cormorant Garamond', Georgia, serif; font-size: 26px; line-height: 1.2\">No frozen faces. No overdone lips.<\u002Fspan>\n<span style=\"font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: #F1C6D0\">Our one rule<\u002Fspan>\n<\u002Fdiv>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section aria-label=\"Why clients choose us\" style=\"background: #F7DDE1\">\n<div style=\"max-width: 1240px; margin: 0 auto; padding: 32px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; font-size: 15px\">\n<div><strong style=\"display: block; font-size: 16px\">Medical provider, every visit<\u002Fstrong>Ann does your assessment and your treatment.<\u002Fdiv>\n<div><strong style=\"display: block; font-size: 16px\">A plan, not a menu<\u002Fstrong>Built around your face, goals and budget.<\u002Fdiv>\n<div><strong style=\"display: block; font-size: 16px\">Pay over time<\u002Fstrong>PatientFi and Cherry, no hard credit check to apply with PatientFi.<\u002Fdiv>\n<div><strong style=\"display: block; font-size: 16px\">Medical grade skincare<\u002Fstrong>SkinBetter Science and Plated Skin Science.<\u002Fdiv>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section style=\"max-width: 1240px; margin: 0 auto; padding: 104px 24px; display: flex; flex-wrap: wrap; gap: 48px 80px\">\n<div style=\"flex: 1 1 380px\">\n<p style=\"margin: 0 0 16px; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A4E5C\">How Ann works<\u002Fp>\n<h2 style=\"margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 52px; line-height: 1.05\">Aesthetics is still medicine.<\u002Fh2>\n<img src=\"67998991-42c7-4128-9220-205a342336c3\" alt=\"\" aria-hidden=\"true\" style=\"width: 220px; height: 220px; object-fit: cover; margin-top: 32px; border-radius: 50%; display: block; mix-blend-mode: multiply\">\n<\u002Fdiv>\n<div style=\"flex: 1 1 520px; font-size: 18px; color: #5A3A45\">\n<p style=\"margin: 0 0 20px\">You get a say in your treatment. Your goals matter. But so does your medical history, your anatomy and what makes sense long term.<\u002Fp>\n<p style=\"margin: 0 0 20px\">So Ann's job isn't to sell you a syringe. It's to look at what's actually there, explain your options and recommend what fits. Sometimes that's a different approach. Sometimes it's less. Sometimes it's nothing at all yet.<\u002Fp>\n<p style=\"margin: 0\">That's why most people leave their first visit feeling clearer about their skin, whether they get treated that day or not.<\u002Fp>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section id=\"treatments\" style=\"background: #FFFFFF; border-top: 1px solid #F0D9DC; border-bottom: 1px solid #F0D9DC\">\n<div style=\"max-width: 1240px; margin: 0 auto; padding: 96px 24px\">\n<div style=\"display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 20px; margin-bottom: 48px\">\n<h2 style=\"margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 52px; line-height: 1.05\">Treatments<\u002Fh2>\n<p style=\"margin: 0; max-width: 440px; color: #5A3A45\">Not sure what you need? That's what the consult is for. Come in with the thing that bugs you and we'll go from there.<\u002Fp>\n<\u002Fdiv>\n<div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0; border-top: 1px solid #F0D9DC\">\n<a href=\"https://alignedaestheticscle.com/services-item/wrinkle-relaxers/\" style=\"text-decoration: none; padding: 32px 28px 32px 0; border-bottom: 1px solid #F0D9DC; display: block\">\n<span style=\"font-size: 13px; color: #7A4E5C\">01<\u002Fspan>\n<h3 style=\"margin: 8px 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px\">Wrinkle relaxers<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45; font-size: 16px\">Soften forehead lines, 11s and crow's feet without losing your expressions.<\u002Fp>\n<\u002Fa>\n<a href=\"https://alignedaestheticscle.com/services-item/dermal-fillers/\" style=\"text-decoration: none; padding: 32px 28px 32px 0; border-bottom: 1px solid #F0D9DC; display: block\">\n<span style=\"font-size: 13px; color: #7A4E5C\">02<\u002Fspan>\n<h3 style=\"margin: 8px 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px\">Dermal fillers<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45; font-size: 16px\">Lips, cheeks and under eyes. Balanced volume, never a \"done\" look.<\u002Fp>\n<\u002Fa>\n<a href=\"https://alignedaestheticscle.com/services-item/microneedling/\" style=\"text-decoration: none; padding: 32px 28px 32px 0; border-bottom: 1px solid #F0D9DC; display: block\">\n<span style=\"font-size: 13px; color: #7A4E5C\">03<\u002Fspan>\n<h3 style=\"margin: 8px 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px\">Microneedling<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45; font-size: 16px\">Smoother texture, softer scarring and better tone. Pairs well with PRF.<\u002Fp>\n<\u002Fa>\n<a href=\"https://alignedaestheticscle.com/services-item/pdo-threads/\" style=\"text-decoration: none; padding: 32px 28px 32px 0; border-bottom: 1px solid #F0D9DC; display: block\">\n<span style=\"font-size: 13px; color: #7A4E5C\">04<\u002Fspan>\n<h3 style=\"margin: 8px 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px\">PDO threads<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45; font-size: 16px\">A subtle lift and collagen boost, no surgery.<\u002Fp>\n<\u002Fa>\n<a href=\"https://alignedaestheticscle.com/services-item/chemical-peels/\" style=\"text-decoration: none; padding: 32px 28px 32px 0; border-bottom: 1px solid #F0D9DC; display: block\">\n<span style=\"font-size: 13px; color: #7A4E5C\">05<\u002Fspan>\n<h3 style=\"margin: 8px 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px\">Chemical peels<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45; font-size: 16px\">Brighter, clearer skin. Light refresh or a deeper reset, your call.<\u002Fp>\n<\u002Fa>\n<a href=\"https://alignedaestheticscle.com/services-item/prf-ezgel/\" style=\"text-decoration: none; padding: 32px 28px 32px 0; border-bottom: 1px solid #F0D9DC; display: block\">\n<span style=\"font-size: 13px; color: #7A4E5C\">06<\u002Fspan>\n<h3 style=\"margin: 8px 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px\">PRF &amp; PRF EzGel<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45; font-size: 16px\">Made from your own blood. A popular pick for tired under eyes.<\u002Fp>\n<\u002Fa>\n<a href=\"https://alignedaestheticscle.com/services-item/the-o-shot/\" style=\"text-decoration: none; padding: 32px 28px 32px 0; border-bottom: 1px solid #F0D9DC; display: block\">\n<span style=\"font-size: 13px; color: #7A4E5C\">07<\u002Fspan>\n<h3 style=\"margin: 8px 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px\">The O-Shot<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45; font-size: 16px\">Women's sexual wellness, handled privately by a certified nurse midwife.<\u002Fp>\n<\u002Fa>\n<a href=\"https://alignedaestheticscle.com/services/\" style=\"text-decoration: none; padding: 32px 28px 32px 0; border-bottom: 1px solid #F0D9DC; display: block\">\n<span style=\"font-size: 13px; color: #7A4E5C\">08<\u002Fspan>\n<h3 style=\"margin: 8px 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px; color: {{accent}}\">Biostimulators<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45; font-size: 16px\">Radiesse to help your skin build its own collagen over time.<\u002Fp>\n<\u002Fa>\n<\u002Fdiv>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section style=\"max-width: 1240px; margin: 0 auto; padding: 96px 24px\">\n<h2 style=\"margin: 0 0 48px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 52px; line-height: 1.05\">Your first visit<\u002Fh2>\n<div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px\">\n<div style=\"border-top: 2px solid #3A1F28; padding-top: 20px\"><strong style=\"display: block; font-size: 18px; margin-bottom: 6px\">Book online<\u002Fstrong><span style=\"color: #5A3A45\">Pick a consult time that works. Takes about a minute.<\u002Fspan><\u002Fdiv>\n<div style=\"border-top: 2px solid #3A1F28; padding-top: 20px\"><strong style=\"display: block; font-size: 18px; margin-bottom: 6px\">Talk it through<\u002Fstrong><span style=\"color: #5A3A45\">Ann looks at your skin, your history and what you want to change.<\u002Fspan><\u002Fdiv>\n<div style=\"border-top: 2px solid #3A1F28; padding-top: 20px\"><strong style=\"display: block; font-size: 18px; margin-bottom: 6px\">Get your plan<\u002Fstrong><span style=\"color: #5A3A45\">Clear options and pricing. No pressure to do it all today.<\u002Fspan><\u002Fdiv>\n<div style=\"border-top: 2px solid #3A1F28; padding-top: 20px\"><strong style=\"display: block; font-size: 18px; margin-bottom: 6px\">Follow up<\u002Fstrong><span style=\"color: #5A3A45\">We check in on results and tweak from there.<\u002Fspan><\u002Fdiv>\n<\u002Fdiv>\n<div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 56px\">\n<img src=\"51dbc0d7-b1cb-4377-bd9a-18ab9584fef9\" alt=\"Ann performing a filler treatment\" style=\"width: 100%; height: 420px; object-fit: cover; object-position: center 30%; border-radius: 12px; display: block; background: #F7DDE1\">\n<div style=\"background: #F7DDE1; border-radius: 12px; padding: 48px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center\">\n<p style=\"margin: 0 0 12px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 36px; line-height: 1.15\">One provider. Start to finish.<\u002Fp>\n<p style=\"margin: 0; color: #5A3A45\">The person who does your consult is the person holding the syringe. No handoffs, no guessing who you'll see next time.<\u002Fp>\n<\u002Fdiv>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section id=\"ann\" style=\"background: #3A1F28; color: #FCEBEF\">\n<div style=\"max-width: 1240px; margin: 0 auto; padding: 104px 24px; display: flex; flex-wrap: wrap; gap: 56px 80px; align-items: center\">\n<img src=\"3ce395f3-058a-4b2b-8eae-d1b4c1a0b269\" alt=\"Ann Mehler, MSN, APRN-CNM\" style=\"flex: 1 1 360px; min-width: 0; max-width: 520px; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 20%; border-radius: 260px 260px 12px 12px; display: block; background: #5A3A45\">\n<div style=\"flex: 1 1 480px\">\n<p style=\"margin: 0 0 16px; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #F1C6D0\">Meet your provider<\u002Fp>\n<h2 style=\"margin: 0 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 52px; line-height: 1.05\">Ann Mehler<\u002Fh2>\n<p style=\"margin: 0 0 28px; font-size: 16px; color: #F1C6D0\">MSN, APRN-CNM · Founder<\u002Fp>\n<p style=\"margin: 0 0 18px; font-size: 18px\">Ann is an advanced practice nurse and certified nurse midwife. She started Aligned Aesthetics to help women feel good in their own skin, from the inside out.<\u002Fp>\n<p style=\"margin: 0 0 32px; font-size: 18px\">She's the one who'll tell you when you don't need more filler. Her clients tend to stick around because of it.<\u002Fp>\n<a href=\"https://alignedaesthetics.myaestheticrecord.com/online-booking\" style=\"text-decoration: none; background: #FCEBEF; color: #3A1F28; padding: 16px 30px; border-radius: 999px; font-weight: 600; display: inline-block; min-height: 44px; box-sizing: border-box\">Book with Ann<\u002Fa>\n<\u002Fdiv>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section style=\"max-width: 1240px; margin: 0 auto; padding: 96px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px\">\n<div id=\"membership\" style=\"background: #FFFFFF; border: 1px solid #F0D9DC; border-radius: 16px; padding: 40px\">\n<p style=\"margin: 0 0 12px; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A4E5C\">Membership<\u002Fp>\n<h3 style=\"margin: 0 0 16px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 38px; line-height: 1.1\">Stay on schedule, save along the way<\u002Fh3>\n<p style=\"margin: 0 0 24px; color: #5A3A45\">If you're coming in every few months anyway, a membership keeps you on track and saves you money on the treatments you already love.<\u002Fp>\n<a href=\"https://alignedaestheticscle.com/members/\" style=\"font-weight: 600\">See membership details<\u002Fa>\n<\u002Fdiv>\n<div id=\"financing\" style=\"background: #F7DDE1; border-radius: 16px; padding: 40px\">\n<p style=\"margin: 0 0 12px; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A4E5C\">Financing<\u002Fp>\n<h3 style=\"margin: 0 0 16px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 38px; line-height: 1.1\">Split it into monthly payments<\u002Fh3>\n<p style=\"margin: 0 0 24px; color: #5A3A45\">Apply with PatientFi or Cherry in a few minutes. PatientFi never runs a hard credit check.<\u002Fp>\n<div style=\"display: flex; flex-wrap: wrap; gap: 20px\">\n<a href=\"https://app.patientfi.com/v2/aligned-aesthetics/apply\" style=\"font-weight: 600\">Apply with PatientFi<\u002Fa>\n<a href=\"https://alignedaestheticscle.com/cherry-payment-plan/\" style=\"font-weight: 600\">Apply with Cherry<\u002Fa>\n<\u002Fdiv>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section id=\"skincare\" style=\"background: #FFFFFF; border-top: 1px solid #F0D9DC\">\n<div style=\"max-width: 1240px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 40px 80px; align-items: center\">\n<div style=\"flex: 1 1 420px\">\n<h2 style=\"margin: 0 0 16px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 52px; line-height: 1.05\">Keep it going at home<\u002Fh2>\n<p style=\"margin: 0; color: #5A3A45; font-size: 18px\">Treatments do the heavy lifting. Good skincare protects the results. Ann carries two lines she actually trusts, and you can order online.<\u002Fp>\n<\u002Fdiv>\n<div style=\"flex: 1 1 420px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px\">\n<a href=\"https://skinbetter.pro/alignedaestheticsllc\" style=\"text-decoration: none; border: 1px solid #F0D9DC; border-radius: 12px; padding: 28px; display: block\"><strong style=\"display: block; font-size: 18px\">SkinBetter Science<\u002Fstrong><span style=\"font-size: 15px; color: #5A3A45\">Shop now<\u002Fspan><\u002Fa>\n<a href=\"https://platedskinscience.com/alignedaesthetics\" style=\"text-decoration: none; border: 1px solid #F0D9DC; border-radius: 12px; padding: 28px; display: block\"><strong style=\"display: block; font-size: 18px\">Plated Skin Science<\u002Fstrong><span style=\"font-size: 15px; color: #5A3A45\">Shop now<\u002Fspan><\u002Fa>\n<\u002Fdiv>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section style=\"max-width: 860px; margin: 0 auto; padding: 96px 24px\">\n<h2 style=\"margin: 0 0 32px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 52px; line-height: 1.05\">Good questions<\u002Fh2>\n<div style=\"border-top: 1px solid #F0D9DC; padding: 24px 0\">\n<h3 style=\"margin: 0 0 8px; font-size: 19px\">My tox is wearing off already. Did it stop working?<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45\">Probably not. Wrinkle relaxers ease in, peak, then slowly wear off. Seeing some movement around 8 to 10 weeks is normal. Message us if you're unsure.<\u002Fp>\n<\u002Fdiv>\n<div style=\"border-top: 1px solid #F0D9DC; padding: 24px 0\">\n<h3 style=\"margin: 0 0 8px; font-size: 19px\">I had lip filler years ago. Can I just add more?<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45\">Filler can stick around longer than people expect. Ann checks what's still there first, and sometimes dissolving is the better starting point.<\u002Fp>\n<\u002Fdiv>\n<div style=\"border-top: 1px solid #F0D9DC; border-bottom: 1px solid #F0D9DC; padding: 24px 0\">\n<h3 style=\"margin: 0 0 8px; font-size: 19px\">Will I look done?<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45\">Not if we're doing it right. The goal is that people say you look rested, not that you got work done.<\u002Fp>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section style=\"background: {{accent}}; color: #FFFFFF\">\n<div style=\"max-width: 1240px; margin: 0 auto; padding: 88px 24px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between\">\n<h2 style=\"margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 52px; line-height: 1.05; max-width: 640px\">Ready to stop covering up?<\u002Fh2>\n<div style=\"display: flex; flex-wrap: wrap; gap: 14px\">\n<a href=\"https://alignedaesthetics.myaestheticrecord.com/online-booking\" style=\"text-decoration: none; background: #FFFFFF; color: #3A1F28; padding: 16px 30px; border-radius: 999px; font-weight: 600; min-height: 44px; box-sizing: border-box\">Book your consultation<\u002Fa>\n<a href=\"tel:14405372786\" style=\"text-decoration: none; border: 1.5px solid #FFFFFF; color: #FFFFFF; padding: 15px 28px; border-radius: 999px; font-weight: 600; min-height: 44px; box-sizing: border-box\">(440) 537-2786<\u002Fa>\n<\u002Fdiv>\n<\u002Fdiv>\n<\u002Fsection>\n\n<footer style=\"background: #2E1820; color: #F1C6D0; font-size: 15px\">\n<div style=\"max-width: 1240px; margin: 0 auto; padding: 56px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px\">\n<div>\n<span style=\"font-family: 'Cormorant Garamond', Georgia, serif; font-size: 28px; color: #FCEBEF\">Aligned Aesthetics<\u002Fspan>\n<p style=\"margin: 8px 0 0\">Medical aesthetics in Solon, Ohio. Serving Cleveland's east side.<\u002Fp>\n<\u002Fdiv>\n<div>\n<strong style=\"display: block; color: #FCEBEF; margin-bottom: 8px\">Visit<\u002Fstrong>\n6001 Cochran Rd, Suite 404<br>Solon, OH 44139\n<\u002Fdiv>\n<div>\n<strong style=\"display: block; color: #FCEBEF; margin-bottom: 8px\">Contact<\u002Fstrong>\n<a href=\"tel:14405372786\" style=\"color: #F1C6D0\">(440) 537-2786<\u002Fa>\n<\u002Fdiv>\n<div>\n<strong style=\"display: block; color: #FCEBEF; margin-bottom: 8px\">Follow<\u002Fstrong>\n<a href=\"https://www.instagram.com/alignedaesthetics_medspa/\" style=\"color: #F1C6D0\">Instagram<\u002Fa><br>\n<a href=\"https://www.facebook.com/profile.php?id=100089668770334\" style=\"color: #F1C6D0\">Facebook<\u002Fa>\n<\u002Fdiv>\n<\u002Fdiv>\n<\u002Ffooter>\n\n<\u002Fdiv>\n<sc-if data-dc-static=\"\" value=\"{{ false }}\"><style>x-dc>*{display:none!important}x-dc>[data-dc-static]{display:block!important}<\u002Fstyle>\n\n<div style=\"font-family: Karla, 'Helvetica Neue', Arial, sans-serif; color: #3A1F28; background: #FCF3F3; font-size: 17px; line-height: 1.6\" data-canvas-width=\"1440\" data-canvas-height=\"5600\" data-document-role=\"page\" data-label=\"Homepage\">\n\n<div style=\"background: #3A1F28; color: #FCEBEF; font-size: 14px; letter-spacing: 0.04em\">\n<div style=\"max-width: 1240px; margin: 0 auto; padding: 10px 24px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; align-items: center\">\n<span>6001 Cochran Rd, Suite 404, Solon, OH 44139<\u002Fspan>\n<a href=\"tel:14405372786\" style=\"color: #FCEBEF; text-decoration: none\">Call or text (440) 537-2786<\u002Fa>\n<\u002Fdiv>\n<\u002Fdiv>\n\n<header style=\"border-bottom: 1px solid #F0D9DC; background: #FCF3F3\">\n<div style=\"max-width: 1240px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; gap: 16px 40px; align-items: center; justify-content: space-between\">\n<a href=\"#top\" style=\"text-decoration: none; display: flex; flex-direction: column; line-height: 1\">\n<span style=\"font-family: 'Cormorant Garamond', Georgia, serif; font-size: 32px; font-weight: 600; letter-spacing: 0.02em\">Aligned Aesthetics<\u002Fspan>\n<span style=\"font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; margin-top: 6px; color: #7A4E5C\">Med Spa · Solon, Ohio<\u002Fspan>\n<\u002Fa>\n<nav aria-label=\"Main\" style=\"display: flex; flex-wrap: wrap; gap: 8px 28px; font-size: 15px; align-items: center\">\n<a href=\"#treatments\" style=\"text-decoration: none\">Treatments<\u002Fa>\n<a href=\"#ann\" style=\"text-decoration: none\">Meet Ann<\u002Fa>\n<a href=\"#membership\" style=\"text-decoration: none\">Membership<\u002Fa>\n<a href=\"#financing\" style=\"text-decoration: none\">Financing<\u002Fa>\n<a href=\"#skincare\" style=\"text-decoration: none\">Skincare<\u002Fa>\n<a href=\"https://alignedaesthetics.myaestheticrecord.com/online-booking\" style=\"text-decoration: none; background: #B0476A; color: #FFFFFF; padding: 12px 22px; border-radius: 999px; font-weight: 600; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center\">Book a consult<\u002Fa>\n<\u002Fnav>\n<\u002Fdiv>\n<\u002Fheader>\n\n<section id=\"top\" style=\"max-width: 1240px; margin: 0 auto; padding: 72px 24px 88px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center\">\n<div style=\"flex: 1 1 460px; min-width: 0\">\n<p style=\"margin: 0 0 20px; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A4E5C\">Nurse practitioner led aesthetics<\u002Fp>\n<h1 style=\"margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 68px; line-height: 1.02; letter-spacing: -0.01em\">Makeup should be an accessory. <em style=\"color: #B0476A\">Not a necessity.<\u002Fem><\u002Fh1>\n<p style=\"margin: 28px 0 0; font-size: 19px; max-width: 520px; color: #5A3A45\">Wrinkle relaxers, filler, microneedling, PRF and more in Solon, done by Ann Mehler, MSN, APRN-CNM. Subtle work that still looks like you. Just more rested.<\u002Fp>\n<div style=\"display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px\">\n<a href=\"https://alignedaesthetics.myaestheticrecord.com/online-booking\" style=\"text-decoration: none; background: #B0476A; color: #FFFFFF; padding: 16px 30px; border-radius: 999px; font-weight: 600; min-height: 44px; box-sizing: border-box\">Book your consultation<\u002Fa>\n<a href=\"#treatments\" style=\"text-decoration: none; border: 1.5px solid #3A1F28; padding: 15px 28px; border-radius: 999px; font-weight: 600; min-height: 44px; box-sizing: border-box\">See treatments<\u002Fa>\n<\u002Fdiv>\n<p style=\"margin: 28px 0 0; font-size: 14px; color: #7A4E5C\">Monthly payment plans through PatientFi and Cherry<\u002Fp>\n<\u002Fdiv>\n<div style=\"flex: 1 1 420px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px\">\n<img src=\"9df2629d-7d0e-4f17-b6b7-d5385c923e8c\" alt=\"Ann smiling during a microneedling treatment\" style=\"grid-row: span 2; width: 100%; height: 100%; min-height: 520px; object-fit: cover; object-position: center 30%; border-radius: 220px 220px 12px 12px; display: block; background: #F2C9D0\">\n<img src=\"06bfe58a-9c2a-404b-a0d1-6a24609b6678\" alt=\"Ann mapping a client's face before treatment\" style=\"width: 100%; height: 252px; object-fit: cover; object-position: center 20%; border-radius: 12px; display: block; background: #F7DDE1\">\n<div style=\"background: #3A1F28; border-radius: 12px; min-height: 252px; padding: 24px; box-sizing: border-box; color: #FCEBEF; display: flex; flex-direction: column; justify-content: space-between\">\n<span style=\"font-family: 'Cormorant Garamond', Georgia, serif; font-size: 26px; line-height: 1.2\">No frozen faces. No overdone lips.<\u002Fspan>\n<span style=\"font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: #F1C6D0\">Our one rule<\u002Fspan>\n<\u002Fdiv>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section aria-label=\"Why clients choose us\" style=\"background: #F7DDE1\">\n<div style=\"max-width: 1240px; margin: 0 auto; padding: 32px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; font-size: 15px\">\n<div><strong style=\"display: block; font-size: 16px\">Medical provider, every visit<\u002Fstrong>Ann does your assessment and your treatment.<\u002Fdiv>\n<div><strong style=\"display: block; font-size: 16px\">A plan, not a menu<\u002Fstrong>Built around your face, goals and budget.<\u002Fdiv>\n<div><strong style=\"display: block; font-size: 16px\">Pay over time<\u002Fstrong>PatientFi and Cherry, no hard credit check to apply with PatientFi.<\u002Fdiv>\n<div><strong style=\"display: block; font-size: 16px\">Medical grade skincare<\u002Fstrong>SkinBetter Science and Plated Skin Science.<\u002Fdiv>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section style=\"max-width: 1240px; margin: 0 auto; padding: 104px 24px; display: flex; flex-wrap: wrap; gap: 48px 80px\">\n<div style=\"flex: 1 1 380px\">\n<p style=\"margin: 0 0 16px; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A4E5C\">How Ann works<\u002Fp>\n<h2 style=\"margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 52px; line-height: 1.05\">Aesthetics is still medicine.<\u002Fh2>\n<img src=\"67998991-42c7-4128-9220-205a342336c3\" alt=\"\" aria-hidden=\"true\" style=\"width: 220px; height: 220px; object-fit: cover; margin-top: 32px; border-radius: 50%; display: block; mix-blend-mode: multiply\">\n<\u002Fdiv>\n<div style=\"flex: 1 1 520px; font-size: 18px; color: #5A3A45\">\n<p style=\"margin: 0 0 20px\">You get a say in your treatment. Your goals matter. But so does your medical history, your anatomy and what makes sense long term.<\u002Fp>\n<p style=\"margin: 0 0 20px\">So Ann's job isn't to sell you a syringe. It's to look at what's actually there, explain your options and recommend what fits. Sometimes that's a different approach. Sometimes it's less. Sometimes it's nothing at all yet.<\u002Fp>\n<p style=\"margin: 0\">That's why most people leave their first visit feeling clearer about their skin, whether they get treated that day or not.<\u002Fp>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section id=\"treatments\" style=\"background: #FFFFFF; border-top: 1px solid #F0D9DC; border-bottom: 1px solid #F0D9DC\">\n<div style=\"max-width: 1240px; margin: 0 auto; padding: 96px 24px\">\n<div style=\"display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 20px; margin-bottom: 48px\">\n<h2 style=\"margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 52px; line-height: 1.05\">Treatments<\u002Fh2>\n<p style=\"margin: 0; max-width: 440px; color: #5A3A45\">Not sure what you need? That's what the consult is for. Come in with the thing that bugs you and we'll go from there.<\u002Fp>\n<\u002Fdiv>\n<div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0; border-top: 1px solid #F0D9DC\">\n<a href=\"https://alignedaestheticscle.com/services-item/wrinkle-relaxers/\" style=\"text-decoration: none; padding: 32px 28px 32px 0; border-bottom: 1px solid #F0D9DC; display: block\">\n<span style=\"font-size: 13px; color: #7A4E5C\">01<\u002Fspan>\n<h3 style=\"margin: 8px 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px\">Wrinkle relaxers<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45; font-size: 16px\">Soften forehead lines, 11s and crow's feet without losing your expressions.<\u002Fp>\n<\u002Fa>\n<a href=\"https://alignedaestheticscle.com/services-item/dermal-fillers/\" style=\"text-decoration: none; padding: 32px 28px 32px 0; border-bottom: 1px solid #F0D9DC; display: block\">\n<span style=\"font-size: 13px; color: #7A4E5C\">02<\u002Fspan>\n<h3 style=\"margin: 8px 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px\">Dermal fillers<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45; font-size: 16px\">Lips, cheeks and under eyes. Balanced volume, never a \"done\" look.<\u002Fp>\n<\u002Fa>\n<a href=\"https://alignedaestheticscle.com/services-item/microneedling/\" style=\"text-decoration: none; padding: 32px 28px 32px 0; border-bottom: 1px solid #F0D9DC; display: block\">\n<span style=\"font-size: 13px; color: #7A4E5C\">03<\u002Fspan>\n<h3 style=\"margin: 8px 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px\">Microneedling<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45; font-size: 16px\">Smoother texture, softer scarring and better tone. Pairs well with PRF.<\u002Fp>\n<\u002Fa>\n<a href=\"https://alignedaestheticscle.com/services-item/pdo-threads/\" style=\"text-decoration: none; padding: 32px 28px 32px 0; border-bottom: 1px solid #F0D9DC; display: block\">\n<span style=\"font-size: 13px; color: #7A4E5C\">04<\u002Fspan>\n<h3 style=\"margin: 8px 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px\">PDO threads<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45; font-size: 16px\">A subtle lift and collagen boost, no surgery.<\u002Fp>\n<\u002Fa>\n<a href=\"https://alignedaestheticscle.com/services-item/chemical-peels/\" style=\"text-decoration: none; padding: 32px 28px 32px 0; border-bottom: 1px solid #F0D9DC; display: block\">\n<span style=\"font-size: 13px; color: #7A4E5C\">05<\u002Fspan>\n<h3 style=\"margin: 8px 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px\">Chemical peels<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45; font-size: 16px\">Brighter, clearer skin. Light refresh or a deeper reset, your call.<\u002Fp>\n<\u002Fa>\n<a href=\"https://alignedaestheticscle.com/services-item/prf-ezgel/\" style=\"text-decoration: none; padding: 32px 28px 32px 0; border-bottom: 1px solid #F0D9DC; display: block\">\n<span style=\"font-size: 13px; color: #7A4E5C\">06<\u002Fspan>\n<h3 style=\"margin: 8px 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px\">PRF &amp; PRF EzGel<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45; font-size: 16px\">Made from your own blood. A popular pick for tired under eyes.<\u002Fp>\n<\u002Fa>\n<a href=\"https://alignedaestheticscle.com/services-item/the-o-shot/\" style=\"text-decoration: none; padding: 32px 28px 32px 0; border-bottom: 1px solid #F0D9DC; display: block\">\n<span style=\"font-size: 13px; color: #7A4E5C\">07<\u002Fspan>\n<h3 style=\"margin: 8px 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px\">The O-Shot<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45; font-size: 16px\">Women's sexual wellness, handled privately by a certified nurse midwife.<\u002Fp>\n<\u002Fa>\n<a href=\"https://alignedaestheticscle.com/services/\" style=\"text-decoration: none; padding: 32px 28px 32px 0; border-bottom: 1px solid #F0D9DC; display: block\">\n<span style=\"font-size: 13px; color: #7A4E5C\">08<\u002Fspan>\n<h3 style=\"margin: 8px 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px; color: #B0476A\">Biostimulators<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45; font-size: 16px\">Radiesse to help your skin build its own collagen over time.<\u002Fp>\n<\u002Fa>\n<\u002Fdiv>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section style=\"max-width: 1240px; margin: 0 auto; padding: 96px 24px\">\n<h2 style=\"margin: 0 0 48px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 52px; line-height: 1.05\">Your first visit<\u002Fh2>\n<div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px\">\n<div style=\"border-top: 2px solid #3A1F28; padding-top: 20px\"><strong style=\"display: block; font-size: 18px; margin-bottom: 6px\">Book online<\u002Fstrong><span style=\"color: #5A3A45\">Pick a consult time that works. Takes about a minute.<\u002Fspan><\u002Fdiv>\n<div style=\"border-top: 2px solid #3A1F28; padding-top: 20px\"><strong style=\"display: block; font-size: 18px; margin-bottom: 6px\">Talk it through<\u002Fstrong><span style=\"color: #5A3A45\">Ann looks at your skin, your history and what you want to change.<\u002Fspan><\u002Fdiv>\n<div style=\"border-top: 2px solid #3A1F28; padding-top: 20px\"><strong style=\"display: block; font-size: 18px; margin-bottom: 6px\">Get your plan<\u002Fstrong><span style=\"color: #5A3A45\">Clear options and pricing. No pressure to do it all today.<\u002Fspan><\u002Fdiv>\n<div style=\"border-top: 2px solid #3A1F28; padding-top: 20px\"><strong style=\"display: block; font-size: 18px; margin-bottom: 6px\">Follow up<\u002Fstrong><span style=\"color: #5A3A45\">We check in on results and tweak from there.<\u002Fspan><\u002Fdiv>\n<\u002Fdiv>\n<div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 56px\">\n<img src=\"51dbc0d7-b1cb-4377-bd9a-18ab9584fef9\" alt=\"Ann performing a filler treatment\" style=\"width: 100%; height: 420px; object-fit: cover; object-position: center 30%; border-radius: 12px; display: block; background: #F7DDE1\">\n<div style=\"background: #F7DDE1; border-radius: 12px; padding: 48px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center\">\n<p style=\"margin: 0 0 12px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 36px; line-height: 1.15\">One provider. Start to finish.<\u002Fp>\n<p style=\"margin: 0; color: #5A3A45\">The person who does your consult is the person holding the syringe. No handoffs, no guessing who you'll see next time.<\u002Fp>\n<\u002Fdiv>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section id=\"ann\" style=\"background: #3A1F28; color: #FCEBEF\">\n<div style=\"max-width: 1240px; margin: 0 auto; padding: 104px 24px; display: flex; flex-wrap: wrap; gap: 56px 80px; align-items: center\">\n<img src=\"3ce395f3-058a-4b2b-8eae-d1b4c1a0b269\" alt=\"Ann Mehler, MSN, APRN-CNM\" style=\"flex: 1 1 360px; min-width: 0; max-width: 520px; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 20%; border-radius: 260px 260px 12px 12px; display: block; background: #5A3A45\">\n<div style=\"flex: 1 1 480px\">\n<p style=\"margin: 0 0 16px; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #F1C6D0\">Meet your provider<\u002Fp>\n<h2 style=\"margin: 0 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 52px; line-height: 1.05\">Ann Mehler<\u002Fh2>\n<p style=\"margin: 0 0 28px; font-size: 16px; color: #F1C6D0\">MSN, APRN-CNM · Founder<\u002Fp>\n<p style=\"margin: 0 0 18px; font-size: 18px\">Ann is an advanced practice nurse and certified nurse midwife. She started Aligned Aesthetics to help women feel good in their own skin, from the inside out.<\u002Fp>\n<p style=\"margin: 0 0 32px; font-size: 18px\">She's the one who'll tell you when you don't need more filler. Her clients tend to stick around because of it.<\u002Fp>\n<a href=\"https://alignedaesthetics.myaestheticrecord.com/online-booking\" style=\"text-decoration: none; background: #FCEBEF; color: #3A1F28; padding: 16px 30px; border-radius: 999px; font-weight: 600; display: inline-block; min-height: 44px; box-sizing: border-box\">Book with Ann<\u002Fa>\n<\u002Fdiv>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section style=\"max-width: 1240px; margin: 0 auto; padding: 96px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px\">\n<div id=\"membership\" style=\"background: #FFFFFF; border: 1px solid #F0D9DC; border-radius: 16px; padding: 40px\">\n<p style=\"margin: 0 0 12px; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A4E5C\">Membership<\u002Fp>\n<h3 style=\"margin: 0 0 16px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 38px; line-height: 1.1\">Stay on schedule, save along the way<\u002Fh3>\n<p style=\"margin: 0 0 24px; color: #5A3A45\">If you're coming in every few months anyway, a membership keeps you on track and saves you money on the treatments you already love.<\u002Fp>\n<a href=\"https://alignedaestheticscle.com/members/\" style=\"font-weight: 600\">See membership details<\u002Fa>\n<\u002Fdiv>\n<div id=\"financing\" style=\"background: #F7DDE1; border-radius: 16px; padding: 40px\">\n<p style=\"margin: 0 0 12px; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A4E5C\">Financing<\u002Fp>\n<h3 style=\"margin: 0 0 16px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 38px; line-height: 1.1\">Split it into monthly payments<\u002Fh3>\n<p style=\"margin: 0 0 24px; color: #5A3A45\">Apply with PatientFi or Cherry in a few minutes. PatientFi never runs a hard credit check.<\u002Fp>\n<div style=\"display: flex; flex-wrap: wrap; gap: 20px\">\n<a href=\"https://app.patientfi.com/v2/aligned-aesthetics/apply\" style=\"font-weight: 600\">Apply with PatientFi<\u002Fa>\n<a href=\"https://alignedaestheticscle.com/cherry-payment-plan/\" style=\"font-weight: 600\">Apply with Cherry<\u002Fa>\n<\u002Fdiv>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section id=\"skincare\" style=\"background: #FFFFFF; border-top: 1px solid #F0D9DC\">\n<div style=\"max-width: 1240px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 40px 80px; align-items: center\">\n<div style=\"flex: 1 1 420px\">\n<h2 style=\"margin: 0 0 16px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 52px; line-height: 1.05\">Keep it going at home<\u002Fh2>\n<p style=\"margin: 0; color: #5A3A45; font-size: 18px\">Treatments do the heavy lifting. Good skincare protects the results. Ann carries two lines she actually trusts, and you can order online.<\u002Fp>\n<\u002Fdiv>\n<div style=\"flex: 1 1 420px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px\">\n<a href=\"https://skinbetter.pro/alignedaestheticsllc\" style=\"text-decoration: none; border: 1px solid #F0D9DC; border-radius: 12px; padding: 28px; display: block\"><strong style=\"display: block; font-size: 18px\">SkinBetter Science<\u002Fstrong><span style=\"font-size: 15px; color: #5A3A45\">Shop now<\u002Fspan><\u002Fa>\n<a href=\"https://platedskinscience.com/alignedaesthetics\" style=\"text-decoration: none; border: 1px solid #F0D9DC; border-radius: 12px; padding: 28px; display: block\"><strong style=\"display: block; font-size: 18px\">Plated Skin Science<\u002Fstrong><span style=\"font-size: 15px; color: #5A3A45\">Shop now<\u002Fspan><\u002Fa>\n<\u002Fdiv>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section style=\"max-width: 860px; margin: 0 auto; padding: 96px 24px\">\n<h2 style=\"margin: 0 0 32px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 52px; line-height: 1.05\">Good questions<\u002Fh2>\n<div style=\"border-top: 1px solid #F0D9DC; padding: 24px 0\">\n<h3 style=\"margin: 0 0 8px; font-size: 19px\">My tox is wearing off already. Did it stop working?<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45\">Probably not. Wrinkle relaxers ease in, peak, then slowly wear off. Seeing some movement around 8 to 10 weeks is normal. Message us if you're unsure.<\u002Fp>\n<\u002Fdiv>\n<div style=\"border-top: 1px solid #F0D9DC; padding: 24px 0\">\n<h3 style=\"margin: 0 0 8px; font-size: 19px\">I had lip filler years ago. Can I just add more?<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45\">Filler can stick around longer than people expect. Ann checks what's still there first, and sometimes dissolving is the better starting point.<\u002Fp>\n<\u002Fdiv>\n<div style=\"border-top: 1px solid #F0D9DC; border-bottom: 1px solid #F0D9DC; padding: 24px 0\">\n<h3 style=\"margin: 0 0 8px; font-size: 19px\">Will I look done?<\u002Fh3>\n<p style=\"margin: 0; color: #5A3A45\">Not if we're doing it right. The goal is that people say you look rested, not that you got work done.<\u002Fp>\n<\u002Fdiv>\n<\u002Fsection>\n\n<section style=\"background: #B0476A; color: #FFFFFF\">\n<div style=\"max-width: 1240px; margin: 0 auto; padding: 88px 24px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between\">\n<h2 style=\"margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 52px; line-height: 1.05; max-width: 640px\">Ready to stop covering up?<\u002Fh2>\n<div style=\"display: flex; flex-wrap: wrap; gap: 14px\">\n<a href=\"https://alignedaesthetics.myaestheticrecord.com/online-booking\" style=\"text-decoration: none; background: #FFFFFF; color: #3A1F28; padding: 16px 30px; border-radius: 999px; font-weight: 600; min-height: 44px; box-sizing: border-box\">Book your consultation<\u002Fa>\n<a href=\"tel:14405372786\" style=\"text-decoration: none; border: 1.5px solid #FFFFFF; color: #FFFFFF; padding: 15px 28px; border-radius: 999px; font-weight: 600; min-height: 44px; box-sizing: border-box\">(440) 537-2786<\u002Fa>\n<\u002Fdiv>\n<\u002Fdiv>\n<\u002Fsection>\n\n<footer style=\"background: #2E1820; color: #F1C6D0; font-size: 15px\">\n<div style=\"max-width: 1240px; margin: 0 auto; padding: 56px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px\">\n<div>\n<span style=\"font-family: 'Cormorant Garamond', Georgia, serif; font-size: 28px; color: #FCEBEF\">Aligned Aesthetics<\u002Fspan>\n<p style=\"margin: 8px 0 0\">Medical aesthetics in Solon, Ohio. Serving Cleveland's east side.<\u002Fp>\n<\u002Fdiv>\n<div>\n<strong style=\"display: block; color: #FCEBEF; margin-bottom: 8px\">Visit<\u002Fstrong>\n6001 Cochran Rd, Suite 404<br>Solon, OH 44139\n<\u002Fdiv>\n<div>\n<strong style=\"display: block; color: #FCEBEF; margin-bottom: 8px\">Contact<\u002Fstrong>\n<a href=\"tel:14405372786\" style=\"color: #F1C6D0\">(440) 537-2786<\u002Fa>\n<\u002Fdiv>\n<div>\n<strong style=\"display: block; color: #FCEBEF; margin-bottom: 8px\">Follow<\u002Fstrong>\n<a href=\"https://www.instagram.com/alignedaesthetics_medspa/\" style=\"color: #F1C6D0\">Instagram<\u002Fa><br>\n<a href=\"https://www.facebook.com/profile.php?id=100089668770334\" style=\"color: #F1C6D0\">Facebook<\u002Fa>\n<\u002Fdiv>\n<\u002Fdiv>\n<\u002Ffooter>\n\n<\u002Fdiv>\n<\u002Fsc-if><\u002Fx-dc>\n<script type=\"text/x-dc\" data-dc-script=\"\" data-props=\"{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#B0476A&quot;,&quot;options&quot;:[&quot;#B0476A&quot;,&quot;#9C3D5E&quot;,&quot;#A85570&quot;]},&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:5600}}\">\nclass Component extends DCLogic {\nrenderVals() {\nreturn { accent: this.props.accent ?? '#B0476A' };\n}\n}\n<\u002Fscript>\n\n\n<\u002Fbody><\u002Fhtml>"
   </script>
 </body>
+
 </html>
