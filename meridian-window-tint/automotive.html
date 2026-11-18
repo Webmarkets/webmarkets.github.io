@@ -1,0 +1,1408 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Window Tinting in Boise &amp; Meridian | Meridian Window Tint</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ═══════════════════════════════════════════════
+           TOKENS — mirrors the live Divi globals on
+           meridianwindowtint.com/3m-window-film/
+        ═══════════════════════════════════════════════ */
+      :root {
+        --primary: #ff0000;
+        --secondary: #b50005;
+        --dark: #070e1a;
+        --navy: #0d1f3c;
+        --heading: #ffffff;
+        --body: rgba(255, 255, 255, 0.55);
+        --line: rgba(255, 255, 255, 0.12);
+
+        --font-display: "Barlow Condensed", Helvetica, Arial, sans-serif;
+        --font-body: "Barlow", Helvetica, Arial, sans-serif;
+
+        /* fluid sizes copied from the live site's --gvid-* vars */
+        --fs-body: clamp(1rem, calc(0.00202 * (100vw - 360px) + 16px), 1.125rem);
+        --fs-h1: clamp(2.2807rem, calc(0.049838 * (100vw - 360px) + 36.4912px), 5.3644rem);
+        --fs-h2: clamp(2.0273rem, calc(0.036594 * (100vw - 360px) + 32.4366px), 4.2915rem);
+        --fs-h3: clamp(1.6018rem, calc(0.018501 * (100vw - 360px) + 25.6289px), 2.7466rem);
+        --fs-h4: clamp(1.4238rem, calc(0.0125 * (100vw - 360px) + 22.7813px), 2.1973rem);
+        --pad: clamp(3rem, calc(0.073035 * (100vw - 360px) + 22.7813px), 6.3537rem);
+        --pad-lg: clamp(4rem, calc(0.12857 * (100vw - 360px) + 25.6289px), 10.2803rem);
+        --btn-py: clamp(0.573rem, calc(12.642px - 0.003217 * (100vw - 360px)), 0.7901rem);
+        --btn-px: clamp(1rem, calc(0.007407 * (100vw - 360px) + 16px), 1.5rem);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--dark);
+        color: var(--body);
+        font-family: var(--font-body);
+        font-size: var(--fs-body);
+        font-weight: 500;
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+      }
+      a {
+        color: var(--primary);
+      }
+
+      /* Divi-style row: 80% wide, max 1440px */
+      .row {
+        width: 80%;
+        max-width: 1440px;
+        margin: 0 auto;
+      }
+      .section {
+        padding: var(--pad) 0;
+        position: relative;
+      }
+      .bg-dark {
+        background: var(--dark);
+      }
+      .bg-navy {
+        background: var(--navy);
+      }
+      .bg-red {
+        background: var(--secondary);
+        color: rgba(255, 255, 255, 0.85);
+      }
+      /* diagonal stripe pattern used on the live red section */
+      .bg-red::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image: url("data:image/svg+xml;utf8,%3Csvg fill='rgba(0,0,0,0.2)' preserveAspectRatio='none' viewBox='0 0 11 11' height='11px' width='11px' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.41,0,0,1.41V0ZM11,0H9.59L0,9.59V11H1.41L11,1.41Zm0,9.59L9.59,11H11Z'/%3E%3C/svg%3E");
+      }
+      .bg-red > .row {
+        position: relative;
+      }
+
+      /* ═══════════════════════════════════════════════
+           TYPE
+        ═══════════════════════════════════════════════ */
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: var(--font-display);
+        font-weight: 800;
+        text-transform: uppercase;
+        color: var(--heading);
+        line-height: 1;
+        padding-bottom: 10px;
+      }
+      h1 {
+        font-size: var(--fs-h1);
+      }
+      h2 {
+        font-size: var(--fs-h2);
+      }
+      h3 {
+        font-size: var(--fs-h3);
+      }
+      h4 {
+        font-size: var(--fs-h4);
+      }
+      h1 span,
+      h2 span {
+        color: var(--primary);
+      }
+      p + p {
+        margin-top: 1em;
+      }
+      h2 + p,
+      h1 + p {
+        margin-top: 1rem;
+      }
+      .center {
+        text-align: center;
+      }
+      .center p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .lede {
+        max-width: 760px;
+      }
+      .section-head {
+        margin-bottom: 2.5rem;
+      }
+      .small {
+        font-size: 0.85em;
+      }
+
+      /* ═══════════════════════════════════════════════
+           BUTTONS — live presets
+        ═══════════════════════════════════════════════ */
+      .btn {
+        display: inline-block;
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: var(--fs-body);
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        text-decoration: none;
+        border: 2px solid var(--primary);
+        border-radius: 3px;
+        padding: var(--btn-py) var(--btn-px);
+        box-shadow: 0 2px 18px rgba(0, 0, 0, 0.3);
+        transition: box-shadow 0.3s ease;
+        cursor: pointer;
+        line-height: 1.7;
+      }
+      .btn:hover {
+        box-shadow: 0 2px 18px var(--primary);
+      }
+      .btn-primary {
+        background: var(--primary);
+        color: var(--dark);
+      }
+      .btn-outline {
+        background: transparent;
+        color: var(--primary);
+      }
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+      .center .actions {
+        justify-content: center;
+      }
+
+      /* ═══════════════════════════════════════════════
+           TOP BAR + HEADER
+        ═══════════════════════════════════════════════ */
+      .top-bar {
+        background: var(--secondary);
+        padding: 10px 0;
+        font-weight: 700;
+        color: var(--heading);
+        font-size: 0.9rem;
+      }
+      .top-bar a {
+        color: var(--heading);
+        text-decoration: none;
+      }
+      .top-bar .sep {
+        margin: 0 0.75rem;
+        opacity: 0.6;
+      }
+      .site-header {
+        background: var(--dark);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .header-row {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 12px 0;
+      }
+      .logo {
+        margin-right: auto;
+        flex-shrink: 0;
+      }
+      .logo img {
+        height: 64px;
+        width: auto;
+      }
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 0.25rem 1.4rem;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+      .nav-links a {
+        font-family: var(--font-display);
+        font-weight: 600;
+        font-size: 14px;
+        text-transform: uppercase;
+        color: var(--heading);
+        text-decoration: none;
+      }
+      .nav-links a:hover,
+      .nav-links a[aria-current] {
+        color: var(--primary);
+      }
+      .header-row .btn {
+        font-size: 0.95rem;
+        flex-shrink: 0;
+      }
+      /* Mobile menu — no JS, uses <details> */
+      .mobile-nav {
+        display: none;
+      }
+      .mobile-nav summary {
+        list-style: none;
+        cursor: pointer;
+        color: var(--primary);
+        padding: 4px;
+      }
+      .mobile-nav summary::-webkit-details-marker {
+        display: none;
+      }
+      .mobile-nav .nav-links {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        flex-direction: column;
+        background: #000;
+        border-top: 3px solid var(--primary);
+        padding: 1rem 10%;
+        gap: 0;
+      }
+      .mobile-nav .nav-links a {
+        display: block;
+        padding: 0.65rem 0;
+        font-size: 1rem;
+        border-bottom: 1px solid var(--line);
+      }
+
+      /* ═══════════════════════════════════════════════
+           HERO
+        ═══════════════════════════════════════════════ */
+      .hero {
+        position: relative;
+        padding: var(--pad-lg) 0;
+        /* PHOTO SLOT: replace gradient with the vehicle photo url(...) */
+        background:
+          linear-gradient(rgba(7, 14, 26, 0.8), rgba(7, 14, 26, 0.8)),
+          linear-gradient(120deg, #1b2a44 0%, #34465f 45%, #121b2b 100%);
+        background-size: cover;
+        background-position: center;
+      }
+      .hero-col {
+        width: 60%;
+        position: relative;
+        z-index: 1;
+      }
+      .eyebrow {
+        font-family: var(--font-display);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        color: var(--primary);
+        margin-bottom: 0.75rem;
+      }
+      .photo-note {
+        position: absolute;
+        right: 10%;
+        bottom: 1.5rem;
+        max-width: 34%;
+        font-size: 0.75rem;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.35);
+        text-align: right;
+        border: 1px dashed rgba(255, 255, 255, 0.2);
+        padding: 0.5rem 0.75rem;
+      }
+
+      /* ═══════════════════════════════════════════════
+           CARDS — live .service-card pattern
+        ═══════════════════════════════════════════════ */
+      .grid-3,
+      .grid-4 {
+        display: grid;
+        gap: 24px;
+      }
+      .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .card {
+        border: 1px solid var(--primary);
+        padding: 2rem 1.5rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+        transition: background 0.25s;
+      }
+      .card:hover {
+        background: rgba(255, 0, 0, 0.05);
+      }
+      .card-title {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1.15rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--heading);
+        padding: 0;
+      }
+      .icon-wrap {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: rgba(255, 0, 0, 0.08);
+        border: 1px solid rgba(255, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        flex-shrink: 0;
+        transition: all 0.25s;
+      }
+      .card:hover .icon-wrap {
+        background: rgba(255, 0, 0, 0.15);
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+      }
+
+      /* Trust bar — divided strip */
+      .trust {
+        padding: 2rem 0;
+      }
+      .trust .grid-4 {
+        gap: 0;
+      }
+      .trust-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.75rem;
+        padding: 0.5rem 1.25rem;
+        position: relative;
+      }
+      .trust-item + .trust-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 15%;
+        bottom: 15%;
+        width: 1px;
+        background: linear-gradient(to bottom, transparent, rgba(255, 0, 0, 0.35), transparent);
+      }
+
+      /* ═══════════════════════════════════════════════
+           INTRO — 2 column text | image
+        ═══════════════════════════════════════════════ */
+      .split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5.5%;
+        align-items: center;
+      }
+      .img-slot {
+        aspect-ratio: 4 / 3;
+        background: linear-gradient(135deg, #142640, #1e3456 55%, #0f1d33);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem;
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.35);
+        border: 1px dashed rgba(255, 255, 255, 0.15);
+      }
+
+      /* ═══════════════════════════════════════════════
+           FILM OPTIONS
+        ═══════════════════════════════════════════════ */
+      .tier {
+        align-items: stretch;
+        text-align: left;
+        padding: 2rem;
+      }
+      .tier.featured {
+        background: var(--navy);
+        border-width: 2px;
+        box-shadow: 0 2px 18px rgba(255, 0, 0, 0.25);
+      }
+      .tier h3 {
+        font-size: var(--fs-h4);
+        color: var(--primary);
+        padding: 0;
+      }
+      .spec-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+      }
+      .spec-list dt {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        color: var(--heading);
+      }
+      .spec-list dd {
+        font-size: 0.95rem;
+      }
+      .tier-price {
+        margin-top: auto;
+        padding-top: 1rem;
+        border-top: 1px solid var(--line);
+      }
+      .tier-price dd {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 1.5rem;
+        color: var(--primary);
+      }
+      .recommend {
+        margin-top: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem 2rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--line);
+      }
+      .recommend p {
+        max-width: 760px;
+        color: var(--heading);
+      }
+      .recommend .btn {
+        flex-shrink: 0;
+      }
+
+      /* ═══════════════════════════════════════════════
+           TABLES
+        ═══════════════════════════════════════════════ */
+      .table-wrap {
+        overflow-x: auto;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--dark);
+      }
+      th {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--heading);
+        background: var(--secondary);
+        text-align: left;
+        padding: 0.9rem 1.25rem;
+        white-space: nowrap;
+      }
+      td {
+        padding: 0.9rem 1.25rem;
+        border-bottom: 1px solid var(--line);
+        color: var(--body);
+      }
+      td:first-child {
+        color: var(--heading);
+        font-weight: 600;
+      }
+      .bg-red th {
+        background: #000;
+        color: var(--primary);
+      }
+      .law-notes {
+        margin-top: 2.5rem;
+      }
+      .law-notes h3 {
+        font-size: var(--fs-h4);
+        padding-bottom: 0.4rem;
+      }
+      .law-foot {
+        margin-top: 2rem;
+        font-size: 0.85rem;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.75);
+      }
+
+      /* ═══════════════════════════════════════════════
+           PROCESS — live .why-stat pattern
+        ═══════════════════════════════════════════════ */
+      .steps {
+        list-style: none;
+        gap: 2px;
+      }
+      .step {
+        background: var(--navy);
+        padding: 2.75rem 2rem;
+        text-align: center;
+        transition: background 0.2s;
+      }
+      .step:hover {
+        background: #12284d;
+      }
+      .step-num {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 3.5rem;
+        color: var(--primary);
+        line-height: 1;
+        margin-bottom: 0.375rem;
+      }
+      .step h3 {
+        font-size: 1.15rem;
+        letter-spacing: 0.1em;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+      .step p {
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      /* ═══════════════════════════════════════════════
+           PRICING + WARRANTY
+        ═══════════════════════════════════════════════ */
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr;
+        gap: 24px;
+        align-items: start;
+      }
+      .pricing-grid td:last-child,
+      .pricing-grid th:last-child {
+        text-align: right;
+      }
+      .price-foot {
+        margin-top: 1rem;
+      }
+      .warranty {
+        align-items: flex-start;
+        text-align: left;
+        padding: 2.25rem;
+        background: var(--dark);
+      }
+      .badge-3m {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 2.4rem;
+        line-height: 1;
+        color: var(--dark);
+        background: var(--primary);
+        padding: 0.6rem 1rem;
+        border-radius: 3px;
+      }
+      .warranty h3 {
+        padding: 0;
+      }
+
+      /* ═══════════════════════════════════════════════
+           FAQ
+        ═══════════════════════════════════════════════ */
+      .faq {
+        max-width: 960px;
+        border-top: 1px solid var(--line);
+      }
+      .faq details {
+        border-bottom: 1px solid var(--line);
+      }
+      .faq summary {
+        list-style: none;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        padding: 1.25rem 0;
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1.35rem;
+        text-transform: uppercase;
+        color: var(--heading);
+        line-height: 1.2;
+      }
+      .faq summary::-webkit-details-marker {
+        display: none;
+      }
+      .faq summary::after {
+        content: "+";
+        color: var(--primary);
+        font-size: 1.75rem;
+        line-height: 1;
+        flex-shrink: 0;
+        transition: transform 0.2s;
+      }
+      .faq details[open] summary {
+        color: var(--primary);
+      }
+      .faq details[open] summary::after {
+        transform: rotate(45deg);
+      }
+      .faq details p {
+        padding: 0 2.5rem 1.4rem 0;
+      }
+
+      /* ═══════════════════════════════════════════════
+           QUOTE CTA + FORM
+        ═══════════════════════════════════════════════ */
+      .quote {
+        padding: var(--pad-lg) 0;
+      }
+      .quote-form {
+        max-width: 880px;
+        margin: 3rem auto 0;
+        background: var(--dark);
+        border: 1px solid var(--primary);
+        padding: clamp(1.5rem, 4vw, 2.75rem);
+        display: flex;
+        flex-direction: column;
+        gap: 1.4rem;
+        text-align: left;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+      }
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        border: none;
+        min-width: 0;
+      }
+      .field > label,
+      .field legend {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--heading);
+      }
+      .field legend {
+        margin-bottom: 0.5rem;
+      }
+      .input {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 3px;
+        padding: 0.75rem 1rem;
+        color: var(--heading);
+        font: inherit;
+        font-size: 1rem;
+        outline: none;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+      .input:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.12);
+      }
+      textarea.input {
+        resize: vertical;
+      }
+      .pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .pill input {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+      }
+      .pill span {
+        display: inline-block;
+        font-family: var(--font-display);
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 0.45rem 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 3px;
+        color: var(--body);
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .pill span:hover {
+        border-color: var(--primary);
+        color: var(--heading);
+      }
+      .pill input:checked + span {
+        background: var(--primary);
+        border-color: var(--primary);
+        color: var(--dark);
+      }
+      .pill input:focus-visible + span {
+        outline: 2px solid var(--heading);
+        outline-offset: 2px;
+      }
+      .quote-form .btn {
+        align-self: flex-start;
+      }
+
+      /* ═══════════════════════════════════════════════
+           FOOTER — live layout
+        ═══════════════════════════════════════════════ */
+      .site-footer {
+        background: var(--dark);
+        padding: var(--pad) 0 1.5rem;
+        font-size: 0.95rem;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.3fr 0.7fr 1.5fr auto;
+        gap: 5.5%;
+        margin-bottom: 2.5rem;
+      }
+      .footer-grid img {
+        width: 220px;
+        margin-bottom: 1rem;
+      }
+      .footer-grid b {
+        color: var(--heading);
+      }
+      .footer-links {
+        list-style: none;
+        margin-top: 0.5rem;
+      }
+      .footer-links a,
+      .footer-contact a {
+        color: var(--body);
+        text-decoration: none;
+      }
+      .footer-links a:hover,
+      .footer-contact a:hover {
+        color: var(--primary);
+      }
+      .footer-contact p + p {
+        margin-top: 0.75rem;
+      }
+      .socials {
+        display: flex;
+        gap: 8px;
+      }
+      .socials a {
+        width: 32px;
+        height: 32px;
+        border-radius: 3px;
+        background: var(--secondary);
+        color: var(--heading);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .socials a:hover {
+        background: var(--primary);
+      }
+      .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.5rem 2rem;
+        padding-top: 16px;
+        border-top: 1px solid rgba(255, 255, 255, 0.18);
+        font-size: 0.85rem;
+      }
+      .footer-bottom a {
+        color: var(--body);
+      }
+
+      /* ═══════════════════════════════════════════════
+           RESPONSIVE — Divi breakpoints (980 / 767)
+        ═══════════════════════════════════════════════ */
+      @media (max-width: 1180px) {
+        .header-row > .nav-links {
+          display: none;
+        }
+        .mobile-nav {
+          display: block;
+        }
+        .site-header {
+          position: sticky;
+        }
+        .header-row {
+          position: relative;
+        }
+      }
+      @media (max-width: 980px) {
+        .grid-3,
+        .grid-4 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .trust .grid-4 {
+          row-gap: 1.5rem;
+        }
+        .trust-item:nth-child(3)::before {
+          display: none;
+        }
+        .split,
+        .pricing-grid {
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+        }
+        .hero-col {
+          width: 100%;
+        }
+        .photo-note {
+          position: static;
+          max-width: none;
+          margin: 2rem 10% 0;
+          text-align: left;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 2rem;
+        }
+      }
+      @media (max-width: 767px) {
+        .grid-3,
+        .grid-4,
+        .form-row,
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+        .trust-item::before {
+          display: none;
+        }
+        .logo img {
+          height: 48px;
+        }
+        .header-row .btn {
+          display: none;
+        }
+        .top-bar {
+          font-size: 0.8rem;
+        }
+        .top-bar .sep {
+          display: none;
+        }
+        .top-bar a {
+          display: block;
+        }
+        .recommend {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        th,
+        td {
+          padding: 0.75rem 0.9rem;
+        }
+        .actions .btn {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ═══════════════════════════════════════════════
+         TOP BAR
+    ═══════════════════════════════════════════════ -->
+    <div class="top-bar">
+      <div class="row">
+        Mon–Thu 9am–5pm · Fri by appointment [CONFIRM hours]<span class="sep">|</span><a href="tel:+12082587260">(208) 258-7260</a>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         HEADER
+    ═══════════════════════════════════════════════ -->
+    <header class="site-header">
+      <div class="row header-row">
+        <a href="https://meridianwindowtint.com/" class="logo">
+          <img src="https://meridianwindowtint.com/wp-content/uploads/2026/06/2-e1781016934815.png" alt="Meridian Window Tint" width="176" height="64" />
+        </a>
+        <ul class="nav-links">
+          <li><a href="#">Commercial</a></li>
+          <li><a href="#">Residential</a></li>
+          <li><a href="#" aria-current="page">Automotive</a></li>
+          <li><a href="#">Service Areas</a></li>
+          <li><a href="https://meridianwindowtint.com/3m-window-film/">3M Window Film</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Resources</a></li>
+        </ul>
+        <a href="#quote" class="btn btn-primary">Get a Free Quote</a>
+        <details class="mobile-nav">
+          <summary aria-label="Menu">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18" /></svg>
+          </summary>
+          <ul class="nav-links">
+            <li><a href="#">Commercial</a></li>
+            <li><a href="#">Residential</a></li>
+            <li><a href="#" aria-current="page">Automotive</a></li>
+            <li><a href="#">Service Areas</a></li>
+            <li><a href="https://meridianwindowtint.com/3m-window-film/">3M Window Film</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Resources</a></li>
+            <li><a href="#quote">Get a Free Quote</a></li>
+          </ul>
+        </details>
+      </div>
+    </header>
+
+    <main>
+      <!-- ═══════════════════════════════════════════════
+           HERO — swap gradient for the vehicle photo
+      ═══════════════════════════════════════════════ -->
+      <section class="hero">
+        <div class="row">
+          <div class="hero-col">
+            <p class="eyebrow">Now Offering 3M Automotive Window Film</p>
+            <h1>Car Window Tinting<br />in <span>Boise &amp; Meridian</span></h1>
+            <p>
+              The same 3M film quality we’ve installed in Treasure Valley homes and businesses since 2008, now for
+              your car, truck or SUV. Installed by a [CONFIRM: official 3M auto dealer title] in Meridian.
+            </p>
+            <div class="actions">
+              <a href="#quote" class="btn btn-primary">Get a Free Auto Tint Quote</a>
+              <a href="tel:+12082587260" class="btn btn-outline">Call (208) 258-7260</a>
+            </div>
+          </div>
+        </div>
+        <p class="photo-note" aria-hidden="true">
+          Image placeholder: Hero photo: side profile of a vehicle they’ve tinted (stock OK for launch, swap within
+          30 days)
+        </p>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════
+           TRUST BAR
+      ═══════════════════════════════════════════════ -->
+      <section class="trust bg-navy" aria-label="Why customers trust us">
+        <div class="row grid-4">
+          <div class="trust-item">
+            <div class="icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6" /><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5" /></svg>
+            </div>
+            <span class="card-title">Certified 3M Automotive Dealer [CONFIRM]</span>
+          </div>
+          <div class="trust-item">
+            <div class="icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></svg>
+            </div>
+            <span class="card-title">Idaho-Legal Tint Options</span>
+          </div>
+          <div class="trust-item">
+            <div class="icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22V4" /><path d="M4 4h13l-2 4 2 4H4" /></svg>
+            </div>
+            <span class="card-title">Veteran-Owned, Local Since 2008</span>
+          </div>
+          <div class="trust-item">
+            <div class="icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
+            </div>
+            <span class="card-title">3M Limited Warranty [CONFIRM]</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════
+           INTRO
+      ═══════════════════════════════════════════════ -->
+      <section class="section bg-dark">
+        <div class="row split">
+          <div>
+            <h2>Your Car Deserves the <span>Same Film</span> We Put on Buildings</h2>
+            <p>
+              For more than 15 years, Meridian Window Tint has installed 3M window film on Treasure Valley homes,
+              offices, hospitals and state buildings. Now we’re a [CONFIRM: official 3M auto dealer title], and we
+              tint cars, trucks and SUVs too.
+            </p>
+            <p>
+              Idaho summers are hot, and the sun is hard on a car. Window film fixes most of that without making your
+              windows look cheap or turning purple a few years later. We tell you up front what’s legal, what it
+              costs and what the warranty covers.
+            </p>
+          </div>
+          <div class="img-slot" aria-hidden="true">Photo · vehicle tint install (960 × 720)</div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════
+           BENEFITS
+      ═══════════════════════════════════════════════ -->
+      <section class="section bg-navy">
+        <div class="row">
+          <h2 class="section-head">Why Tint <span>Your Vehicle</span></h2>
+          <div class="grid-3">
+            <div class="card">
+              <div class="icon-wrap">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z" /></svg>
+              </div>
+              <h3 class="card-title">A Cooler Cabin</h3>
+              <p>Film rejects solar heat before it builds up inside, so your A/C has less work to do after the car sits in a parking lot.</p>
+            </div>
+            <div class="card">
+              <div class="icon-wrap">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>
+              </div>
+              <h3 class="card-title">Less Glare</h3>
+              <p>Easier on your eyes at sunrise, at sunset and under headlights. That makes for a more comfortable drive on I-84.</p>
+            </div>
+            <div class="card">
+              <div class="icon-wrap">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" /></svg>
+              </div>
+              <h3 class="card-title">UV Protection for You</h3>
+              <p>Window film blocks most of the UV that comes through side and rear glass. That’s skin protection on every commute.</p>
+            </div>
+            <div class="card">
+              <div class="icon-wrap">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21v-6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6" /><path d="M7 13V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v8" /></svg>
+              </div>
+              <h3 class="card-title">Protects Your Interior</h3>
+              <p>UV and heat are what fade seats and crack dashboards. Film slows that down and helps protect resale value.</p>
+            </div>
+            <div class="card">
+              <div class="icon-wrap">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
+              </div>
+              <h3 class="card-title">Privacy and Security</h3>
+              <p>Darker shades keep what’s in your back seat out of plain view. Film can also help hold broken glass together.</p>
+            </div>
+            <div class="card">
+              <div class="icon-wrap">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.8L20 10l-6.1 1.2L12 17l-1.9-5.8L4 10l6.1-1.2z" /></svg>
+              </div>
+              <h3 class="card-title">A Clean, Factory Look</h3>
+              <p>Professional install, no bubbles, no peeling edges and no color shift. [CONFIRM: “won’t fade” applies to the films they carry]</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════
+           FILM OPTIONS — Good / Better / Best
+      ═══════════════════════════════════════════════ -->
+      <section class="section bg-dark">
+        <div class="row">
+          <div class="section-head">
+            <h2>3M Automotive <span>Film Options</span></h2>
+            <p class="lede">Not every film is the same. We’ll help you pick based on how you drive, where you park and what you want to spend.</p>
+          </div>
+          <div class="grid-3">
+            <div class="card tier">
+              <h3>Good</h3>
+              <dl class="spec-list">
+                <div><dt>Title</dt><dd>[CONFIRM: 3M film line]</dd></div>
+                <div><dt>Pitch</dt><dd>[CONFIRM: one-line pitch]</dd></div>
+                <div><dt>Best for</dt><dd>[CONFIRM]</dd></div>
+                <div><dt>Shades</dt><dd>[CONFIRM VLT %]</dd></div>
+                <div><dt>Key specs</dt><dd>[From 3M spec sheet]</dd></div>
+              </dl>
+              <dl class="spec-list tier-price"><div><dt>Starting at</dt><dd>[CONFIRM]</dd></div></dl>
+            </div>
+            <div class="card tier featured">
+              <h3>Better</h3>
+              <dl class="spec-list">
+                <div><dt>Title</dt><dd>[CONFIRM: 3M film line]</dd></div>
+                <div><dt>Pitch</dt><dd>[CONFIRM: one-line pitch]</dd></div>
+                <div><dt>Best for</dt><dd>[CONFIRM]</dd></div>
+                <div><dt>Shades</dt><dd>[CONFIRM VLT %]</dd></div>
+                <div><dt>Key specs</dt><dd>[From 3M spec sheet]</dd></div>
+              </dl>
+              <dl class="spec-list tier-price"><div><dt>Starting at</dt><dd>[CONFIRM]</dd></div></dl>
+            </div>
+            <div class="card tier">
+              <h3>Best</h3>
+              <dl class="spec-list">
+                <div><dt>Title</dt><dd>[CONFIRM: 3M film line]</dd></div>
+                <div><dt>Pitch</dt><dd>[CONFIRM: one-line pitch]</dd></div>
+                <div><dt>Best for</dt><dd>[CONFIRM]</dd></div>
+                <div><dt>Shades</dt><dd>[CONFIRM VLT %]</dd></div>
+                <div><dt>Key specs</dt><dd>[From 3M spec sheet]</dd></div>
+              </dl>
+              <dl class="spec-list tier-price"><div><dt>Starting at</dt><dd>[CONFIRM]</dd></div></dl>
+            </div>
+          </div>
+          <div class="recommend">
+            <p>Not sure which one? Tell us your vehicle and what’s bugging you about it. We’ll recommend a film and a legal shade.</p>
+            <a href="#quote" class="btn btn-outline">Get a Recommendation →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════
+           IDAHO LAW — red pattern section (live section_2)
+      ═══════════════════════════════════════════════ -->
+      <section class="section bg-red">
+        <div class="row">
+          <div class="section-head">
+            <h2>What’s Legal in Idaho</h2>
+            <p class="lede">We follow Idaho’s limits on every install. VLT is the percentage of light that gets through. Lower numbers mean darker tint.</p>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th scope="col">Window</th><th scope="col">Minimum VLT</th><th scope="col">Max reflectivity</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Windshield</td><td>Non-reflective, above the AS-1 line only</td><td>—</td></tr>
+                <tr><td>Front side windows</td><td>35% (±3%)</td><td>35% (±3%)</td></tr>
+                <tr><td>Rear side windows</td><td>20% (±3%)</td><td>35% (±3%)</td></tr>
+                <tr><td>Rear window</td><td>35% (±3%)</td><td>35% (±3%)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="grid-3 law-notes">
+            <div>
+              <h3>Medical exemption</h3>
+              <p>With a physician’s written verification kept in the vehicle, Idaho allows 70% on the windshield and 20% on other windows.</p>
+            </div>
+            <div>
+              <h3>Factory tint</h3>
+              <p>Film over factory privacy glass adds up. We measure first and tell you what’s legal.</p>
+            </div>
+            <div>
+              <h3>Out-of-state plates</h3>
+              <p>Each state has its own rules. We’ll go over yours before we start.</p>
+            </div>
+          </div>
+          <p class="law-foot">Based on Idaho Code § 49-944. Laws can change. This is general information, not legal advice.</p>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════
+           PROCESS
+      ═══════════════════════════════════════════════ -->
+      <section class="section bg-dark">
+        <div class="row">
+          <h2 class="section-head">How Your Auto Tint <span>Appointment Works</span></h2>
+          <ol class="grid-4 steps">
+            <li class="step">
+              <div class="step-num">01</div>
+              <h3>Get a Quote</h3>
+              <p>Tell us your year, make, model and which windows. We’ll send pricing for each film option.</p>
+            </li>
+            <li class="step">
+              <div class="step-num">02</div>
+              <h3>Pick Your Film and Shade</h3>
+              <p>We’ll help you choose a 3M film and a legal shade. [CONFIRM: samples on hand?]</p>
+            </li>
+            <li class="step">
+              <div class="step-num">03</div>
+              <h3>Drop Off Your Vehicle</h3>
+              <p>Most vehicles take [CONFIRM: install time]. [CONFIRM: shop location or mobile?]</p>
+            </li>
+            <li class="step">
+              <div class="step-num">04</div>
+              <h3>Let It Cure</h3>
+              <p>Keep windows up for [CONFIRM] days. A little haze is normal and clears as the film cures.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════
+           PRICING + WARRANTY
+      ═══════════════════════════════════════════════ -->
+      <section class="section bg-navy">
+        <div class="row">
+          <div class="section-head">
+            <h2>Auto Tint <span>Pricing</span></h2>
+            <p class="lede">We publish our pricing so you know what to expect before you call. Final price depends on the vehicle, film and number of windows.</p>
+          </div>
+          <div class="pricing-grid">
+            <div>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr><th scope="col">Vehicle / Package</th><th scope="col">Starting at</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Coupe / 2-door, sides + rear</td><td>[CONFIRM]</td></tr>
+                    <tr><td>Sedan / 4-door, sides + rear</td><td>[CONFIRM]</td></tr>
+                    <tr><td>SUV / Truck, sides + rear</td><td>[CONFIRM]</td></tr>
+                    <tr><td>Front two windows only</td><td>[CONFIRM]</td></tr>
+                    <tr><td>Windshield sun strip</td><td>[CONFIRM, if offered]</td></tr>
+                    <tr><td>Old tint removal</td><td>[CONFIRM, if offered]</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="price-foot small">Prices shown are for [CONFIRM: entry film line]. Premium films cost more.</p>
+            </div>
+
+            <aside class="card warranty">
+              <span class="badge-3m">3M</span>
+              <h3>Backed by 3M</h3>
+              <p>Every automotive film we install is covered by [CONFIRM: 3M auto warranty terms]. [CONFIRM: registered with 3M / transferable?]</p>
+              <p>[CONFIRM: shop workmanship warranty?]</p>
+              <a href="#" class="btn btn-outline">See full warranty details →</a>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════
+           FAQ
+      ═══════════════════════════════════════════════ -->
+      <section class="section bg-dark">
+        <div class="row">
+          <h2 class="section-head">Auto Tint <span>FAQs</span></h2>
+          <div class="faq">
+            <details>
+              <summary>How dark can I tint my windows in Idaho?</summary>
+              <p>Front side windows and the rear window must let in at least 35% of light. Rear side windows can go to 20%. Windshield tint is only allowed above the AS-1 line.</p>
+            </details>
+            <details>
+              <summary>How long does it take?</summary>
+              <p>Most cars take [CONFIRM]. We’ll give you a time when you book.</p>
+            </details>
+            <details>
+              <summary>When can I roll my windows down?</summary>
+              <p>Wait [CONFIRM] days so the film can cure fully.</p>
+            </details>
+            <details>
+              <summary>Is haze or a few bubbles normal after install?</summary>
+              <p>Yes, for the first few days. It clears as the film cures. Still there after [CONFIRM] days? Call us.</p>
+            </details>
+            <details>
+              <summary>Will tint interfere with my phone, GPS or radio?</summary>
+              <p>[CONFIRM: depends on film line]</p>
+            </details>
+            <details>
+              <summary>Can you remove my old tint?</summary>
+              <p>[CONFIRM: yes/no + price]</p>
+            </details>
+            <details>
+              <summary>Can you match my factory rear tint?</summary>
+              <p>Usually, yes. We pick a front film shade that looks close while staying legal.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════
+           QUOTE CTA + FORM — live CTA pattern (navy, centered)
+      ═══════════════════════════════════════════════ -->
+      <section id="quote" class="quote bg-navy">
+        <div class="row center">
+          <h2>Ready to Tint<br /><span>Your Vehicle?</span></h2>
+          <p class="lede">Tell us what you drive and which windows you want done. We’ll get back to you with options and pricing within one business day [CONFIRM].</p>
+          <div class="actions">
+            <a href="tel:+12082587260" class="btn btn-outline">(208) 258-7260</a>
+          </div>
+
+          <form class="quote-form" action="#" method="post">
+            <div class="form-row">
+              <div class="field">
+                <label for="q-name">Name</label>
+                <input class="input" id="q-name" name="name" type="text" autocomplete="name" required />
+              </div>
+              <div class="field">
+                <label for="q-phone">Phone</label>
+                <input class="input" id="q-phone" name="phone" type="tel" autocomplete="tel" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="q-email">Email</label>
+                <input class="input" id="q-email" name="email" type="email" autocomplete="email" required />
+              </div>
+              <div class="field">
+                <label for="q-vehicle">Year / Make / Model</label>
+                <input class="input" id="q-vehicle" name="vehicle" type="text" />
+              </div>
+            </div>
+
+            <fieldset class="field">
+              <legend>Windows to tint</legend>
+              <div class="pills">
+                <label class="pill"><input type="checkbox" name="windows" value="front-sides" /><span>Front sides</span></label>
+                <label class="pill"><input type="checkbox" name="windows" value="rear-sides" /><span>Rear sides</span></label>
+                <label class="pill"><input type="checkbox" name="windows" value="rear-window" /><span>Rear window</span></label>
+                <label class="pill"><input type="checkbox" name="windows" value="windshield-strip" /><span>Windshield strip</span></label>
+                <label class="pill"><input type="checkbox" name="windows" value="full-vehicle" /><span>Full vehicle</span></label>
+              </div>
+            </fieldset>
+
+            <div class="form-row">
+              <fieldset class="field">
+                <legend>Old tint to remove?</legend>
+                <div class="pills">
+                  <label class="pill"><input type="radio" name="old-tint" value="no" /><span>No</span></label>
+                  <label class="pill"><input type="radio" name="old-tint" value="yes" /><span>Yes</span></label>
+                  <label class="pill"><input type="radio" name="old-tint" value="not-sure" /><span>Not sure</span></label>
+                </div>
+              </fieldset>
+              <fieldset class="field">
+                <legend>What matters most?</legend>
+                <div class="pills">
+                  <label class="pill"><input type="radio" name="priority" value="heat" /><span>Heat</span></label>
+                  <label class="pill"><input type="radio" name="priority" value="glare" /><span>Glare</span></label>
+                  <label class="pill"><input type="radio" name="priority" value="privacy" /><span>Privacy</span></label>
+                  <label class="pill"><input type="radio" name="priority" value="looks" /><span>Looks</span></label>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="field">
+              <label for="q-notes">Notes</label>
+              <textarea class="input" id="q-notes" name="notes" rows="4"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Get My Quote</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- ═══════════════════════════════════════════════
+         FOOTER — copy matches the live site footer
+    ═══════════════════════════════════════════════ -->
+    <footer class="site-footer">
+      <div class="row">
+        <div class="footer-grid">
+          <div>
+            <a href="https://meridianwindowtint.com/"><img src="https://meridianwindowtint.com/wp-content/uploads/2026/06/2-e1781016934815.png" alt="Meridian Window Tint" width="220" height="80" /></a>
+            <p>An Idaho authorized 3M Premier Prestige Dealer. Expert window film installation for homes and businesses across the Greater Treasure Valley since 2008.</p>
+          </div>
+          <div>
+            <p><b>Quick Links</b></p>
+            <ul class="footer-links">
+              <li><a href="https://meridianwindowtint.com/">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#quote">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <p>Serving: All cities in Ada and Canyon counties including, Boise, Meridian, Eagle, Nampa, Star, Caldwell, Middleton, Kuna, Garden City, Melba, Parma, Notus, Greenleaf, Wilder, Donnelly, Cascade, McCall, Sun Valley, and surrounding Greater Treasure Valley communities.</p>
+            <p>Open Monday–Thursday, 9AM–5PM.<br />Friday by appointment only.</p>
+            <p>3327 N Eagle Rd 110-136 Meridian, ID 83646</p>
+            <p><a href="tel:+12082587260">(208) 258-7260</a></p>
+          </div>
+          <div class="socials">
+            <a href="#" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H8v4h2v8h4v-8h3l1-4h-4V8z" /></svg></a>
+            <a href="#" aria-label="X"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.8l-5.3-6.9L4.8 22H1.7l8.1-9.3L1 2h7l4.8 6.3L18.9 2z" /></svg></a>
+            <a href="#" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" /></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.5c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z" /></svg></a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>2026 Copyright Meridian Window Tint | Web Design by <a href="https://webmarketsonline.com/" target="_blank" rel="noopener">WebMarkets</a></p>
+          <p><a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms of Service</a></p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
